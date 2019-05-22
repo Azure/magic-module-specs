@@ -1,0 +1,6 @@
+--- !ruby/object:Provider::Ansible::Example
+task: !ruby/object:Provider::Ansible::Task
+  name: azure_rm_batchaccount_info
+  description: BatchAccountList
+  code: {}
+  
