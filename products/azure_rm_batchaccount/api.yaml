@@ -7,8 +7,6 @@ versions:
     base_url: NotUsedInAzure
 scopes:
   - NotUsedInAzure
-azure_namespace: 'Microsoft.Batch'
-azure_version: '2018-12-01'
 objects:
   - !ruby/object:Api::Resource
     name: BatchAccount
@@ -16,7 +14,7 @@ objects:
     base_url: NotUsedInAzure
 
     azure_sdk_definition: !ruby/object:Api::Azure::SDKDefinition
-      provider_name: batch
+      provider_name: Microsoft.Batch
       go_client_namespace: batch
       go_client: batchAccountClient
       python_client_namespace: azure.mgmt.batch
@@ -29,18 +27,18 @@ objects:
           'resourceGroupName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             id_portion: resourceGroups
             go_variable_name: resourceGroup
-            python_variable_name: resource_group
             python_parameter_name: resource_group_name
+            python_variable_name: resource_group
           'accountName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             id_portion: batchAccounts
             go_variable_name: name
-            python_variable_name: name
             python_parameter_name: account_name
+            python_variable_name: name
           '/': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
             go_type_name: AccountCreateParameters
             go_variable_name: Parameters
-            python_variable_name: batch_account
             python_parameter_name: parameters
+            python_variable_name: batch_account
           /location: !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             go_field_name: Location
           /tags: 
@@ -90,18 +88,18 @@ objects:
           'resourceGroupName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             id_portion: resourceGroups
             go_variable_name: resourceGroup
-            python_variable_name: resource_group
             python_parameter_name: resource_group_name
+            python_variable_name: resource_group
           'accountName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             id_portion: batchAccounts
             go_variable_name: name
-            python_variable_name: name
             python_parameter_name: account_name
+            python_variable_name: name
           '/': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
             go_type_name: AccountCreateParameters
             go_variable_name: Parameters
-            python_variable_name: batch_account
             python_parameter_name: parameters
+            python_variable_name: batch_account
           /location: !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             go_field_name: Location
           /tags: 
@@ -152,13 +150,13 @@ objects:
           'resourceGroupName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             id_portion: resourceGroups
             go_variable_name: resourceGroup
-            python_variable_name: resource_group
             python_parameter_name: resource_group_name
+            python_variable_name: resource_group
           'accountName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             id_portion: batchAccounts
             go_variable_name: name
-            python_variable_name: name
             python_parameter_name: account_name
+            python_variable_name: name
       read: !ruby/object:Api::Azure::SDKOperationDefinition
         go_func_name: Get
         python_func_name: get
@@ -166,13 +164,13 @@ objects:
           'resourceGroupName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             id_portion: resourceGroups
             go_variable_name: resourceGroup
-            python_variable_name: resource_group
             python_parameter_name: resource_group_name
+            python_variable_name: resource_group
           'accountName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             id_portion: batchAccounts
             go_variable_name: name
-            python_variable_name: name
             python_parameter_name: account_name
+            python_variable_name: name
         response:
           'id': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             id_portion: null
