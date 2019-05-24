@@ -208,18 +208,21 @@ objects:
         description: 'The name of the resource group that contains the Batch account.'
         required: true
         input: true
+        sample_value: myResourceGroup
         azure_sdk_references: ['resourceGroupName']
       - !ruby/object:Api::Type::String
         name: 'name'
         description: 'A name for the Batch account which must be unique within the region. Batch account names must be between 3 and 24 characters in length and must use only numbers and lowercase letters. This name is used as part of the DNS name that is used to access the Batch service in the region in which the account is created. For example: http://accountname.region.batch.azure.com/.'
         required: true
         input: true
+        sample_value: myBatchAccount
         azure_sdk_references: ['accountName']
       - !ruby/object:Api::Azure::Type::Location
         name: 'location'
         description: 'The region in which to create the account.'
         required: true
         input: true
+        sample_value: japaneast
         azure_sdk_references: ['/location']
       - 
         name: 'tags'
@@ -233,10 +236,11 @@ objects:
         required: false
         azure_sdk_references: ['/properties/autoStorage']
         properties:
-          - !ruby/object:Api::Type::String
+          - !ruby/object:Api::Type::ResourceReference
             name: 'storageAccountId'
             description: 'The resource ID of the storage account to be used for auto-storage account.'
             required: true
+            sample_value: /subscriptions/{{ subscription_id }}/resourceGroups/{{ resource_group }}/providers/Microsoft.Storage/storageAccounts/{{ name }}
             azure_sdk_references: ['/properties/autoStorage/storageAccountId']
       - !ruby/object:Api::Type::EnumType
         name: 'poolAllocationMode'
@@ -245,6 +249,7 @@ objects:
         values:
            - :BatchService
            - :UserSubscription
+        sample_value: UserSubscription
         azure_sdk_references: ['/properties/poolAllocationMode']
       - !ruby/object:Api::Type::NestedObject
         name: 'keyVaultReference'
@@ -252,13 +257,15 @@ objects:
         required: false
         azure_sdk_references: ['/properties/keyVaultReference']
         properties:
-          - !ruby/object:Api::Type::String
+          - !ruby/object:Api::Type::ResourceReference
             name: 'id'
             description: 'The resource ID of the Azure key vault associated with the Batch account.'
             required: true
+            sample_value: /subscriptions/{{ subscription_id }}/resourceGroups/{{ resource_group }}/providers/Microsoft.KeyVault/vaults/{{ name }}
             azure_sdk_references: ['/properties/keyVaultReference/id']
           - !ruby/object:Api::Type::String
             name: 'url'
             description: 'The URL of the Azure key vault associated with the Batch account.'
             required: true
+            sample_value: http://sample.vault.azure.net/
             azure_sdk_references: ['/properties/keyVaultReference/url']
