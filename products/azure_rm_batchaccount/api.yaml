@@ -40,20 +40,52 @@ objects:
             python_parameter_name: parameters
             python_variable_name: batch_account
           /location: !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
             go_field_name: Location
           /tags: 
+            applicable_to: [go]
+            go_field_name: Tags
+          /autoStorage: !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            applicable_to: [go]
+            go_field_name: AutoStorage
+          /autoStorage/storageAccountId: !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: StorageAccountID
+          /poolAllocationMode: !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: PoolAllocationMode
+          /keyVaultReference: !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            applicable_to: [go]
+            go_field_name: KeyVaultReference
+          /keyVaultReference/id: !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: ID
+          /keyVaultReference/url: !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: URL
+          /location: !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            go_field_name: Location
+          /tags: 
+            applicable_to: [python]
             go_field_name: Tags
           /properties/autoStorage: !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            applicable_to: [python]
             go_field_name: AutoStorage
           /properties/autoStorage/storageAccountId: !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
             go_field_name: StorageAccountID
           /properties/poolAllocationMode: !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
             go_field_name: PoolAllocationMode
           /properties/keyVaultReference: !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            applicable_to: [python]
             go_field_name: KeyVaultReference
           /properties/keyVaultReference/id: !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
             go_field_name: ID
           /properties/keyVaultReference/url: !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
             go_field_name: URL
         response:
           'id': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
@@ -101,20 +133,52 @@ objects:
             python_parameter_name: parameters
             python_variable_name: batch_account
           /location: !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
             go_field_name: Location
           /tags: 
+            applicable_to: [go]
+            go_field_name: Tags
+          /autoStorage: !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            applicable_to: [go]
+            go_field_name: AutoStorage
+          /autoStorage/storageAccountId: !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: StorageAccountID
+          /poolAllocationMode: !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: PoolAllocationMode
+          /keyVaultReference: !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            applicable_to: [go]
+            go_field_name: KeyVaultReference
+          /keyVaultReference/id: !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: ID
+          /keyVaultReference/url: !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: URL
+          /location: !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            go_field_name: Location
+          /tags: 
+            applicable_to: [python]
             go_field_name: Tags
           /properties/autoStorage: !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            applicable_to: [python]
             go_field_name: AutoStorage
           /properties/autoStorage/storageAccountId: !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
             go_field_name: StorageAccountID
           /properties/poolAllocationMode: !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
             go_field_name: PoolAllocationMode
           /properties/keyVaultReference: !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            applicable_to: [python]
             go_field_name: KeyVaultReference
           /properties/keyVaultReference/id: !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
             go_field_name: ID
           /properties/keyVaultReference/url: !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
             go_field_name: URL
         response:
           'id': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
