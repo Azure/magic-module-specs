@@ -41,7 +41,7 @@ objects:
           '/location': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             go_field_name: location
             python_field_name: location
-          '/tags': 
+          '/tags': !ruby/object:Api::Azure::SDKTypeDefinition::StringMapObject
             go_field_name: tags
             python_field_name: tags
           '/autoStorage': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
@@ -56,10 +56,10 @@ objects:
           '/properties/autoStorage/storageAccountId': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             applicable_to: [go]
             go_field_name: storageAccountId
-          '/poolAllocationMode': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+          '/poolAllocationMode': !ruby/object:Api::Azure::SDKTypeDefinition::EnumObject
             applicable_to: [python]
             python_field_name: pool_allocation_mode
-          '/properties/poolAllocationMode': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+          '/properties/poolAllocationMode': !ruby/object:Api::Azure::SDKTypeDefinition::EnumObject
             applicable_to: [go]
             go_field_name: poolAllocationMode
           '/keyVaultReference': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
@@ -93,7 +93,7 @@ objects:
           '/location': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             go_field_name: location
             python_field_name: location
-          '/tags': 
+          '/tags': !ruby/object:Api::Azure::SDKTypeDefinition::StringMapObject
             go_field_name: tags
             python_field_name: tags
       update: !ruby/object:Api::Azure::SDKOperationDefinition
@@ -117,7 +117,7 @@ objects:
           '/location': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             go_field_name: location
             python_field_name: location
-          '/tags': 
+          '/tags': !ruby/object:Api::Azure::SDKTypeDefinition::StringMapObject
             go_field_name: tags
             python_field_name: tags
           '/autoStorage': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
@@ -132,10 +132,10 @@ objects:
           '/properties/autoStorage/storageAccountId': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             applicable_to: [go]
             go_field_name: storageAccountId
-          '/poolAllocationMode': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+          '/poolAllocationMode': !ruby/object:Api::Azure::SDKTypeDefinition::EnumObject
             applicable_to: [python]
             python_field_name: pool_allocation_mode
-          '/properties/poolAllocationMode': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+          '/properties/poolAllocationMode': !ruby/object:Api::Azure::SDKTypeDefinition::EnumObject
             applicable_to: [go]
             go_field_name: poolAllocationMode
           '/keyVaultReference': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
@@ -169,7 +169,7 @@ objects:
           '/location': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             go_field_name: location
             python_field_name: location
-          '/tags': 
+          '/tags': !ruby/object:Api::Azure::SDKTypeDefinition::StringMapObject
             go_field_name: tags
             python_field_name: tags
       delete: !ruby/object:Api::Azure::SDKOperationDefinition
@@ -214,7 +214,7 @@ objects:
           '/location': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             go_field_name: location
             python_field_name: location
-          '/tags': 
+          '/tags': !ruby/object:Api::Azure::SDKTypeDefinition::StringMapObject
             go_field_name: tags
             python_field_name: tags
 
