@@ -64,6 +64,7 @@ objects:
           '/properties/poolAllocationMode': !ruby/object:Api::Azure::SDKTypeDefinition::EnumObject
             applicable_to: [go]
             go_field_name: poolAllocationMode
+            go_enum_type_name: undefined
           '/keyVaultReference': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
             applicable_to: [python]
             python_field_name: key_vault_reference
@@ -143,6 +144,7 @@ objects:
           '/properties/poolAllocationMode': !ruby/object:Api::Azure::SDKTypeDefinition::EnumObject
             applicable_to: [go]
             go_field_name: poolAllocationMode
+            go_enum_type_name: undefined
           '/keyVaultReference': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
             applicable_to: [python]
             python_field_name: key_vault_reference
