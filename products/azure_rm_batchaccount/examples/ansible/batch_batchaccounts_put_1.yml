@@ -6,6 +6,18 @@ task: !ruby/object:Provider::Ansible::Task
     resource_group: myResourceGroup
     name: myBatchAccount
     location: japaneast
+    properties:
+      autoStorage:
+        storageAccountId: >-
+          /subscriptions/{{ subscription_id }}/resourceGroups/{{ resource_group
+          }}/providers/Microsoft.Storage/storageAccounts/{{ storage_account_name
+          }}
+      poolAllocationMode: UserSubscription
+      keyVaultReference:
+        id: >-
+          /subscriptions/{{ subscription_id }}/resourceGroups/{{ resource_group
+          }}/providers/Microsoft.KeyVault/vaults/{{ vault_name }}
+        url: 'http://sample.vault.azure.net/'
     auto_storage:
       storage_account_id: >-
         /subscriptions/{{ subscription_id }}/resourceGroups/{{ resource_group
