@@ -274,7 +274,6 @@ objects:
         name: 'properties'
         description: 'The properties of the Batch account.'
         required: false
-        sample_value: [object Object]
         azure_sdk_references: ['/properties']
       - !ruby/object:Api::Type::NestedObject
         name: 'autoStorage'
