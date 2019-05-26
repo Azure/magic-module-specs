@@ -64,7 +64,7 @@ objects:
           '/properties/poolAllocationMode': !ruby/object:Api::Azure::SDKTypeDefinition::EnumObject
             applicable_to: [go]
             go_field_name: poolAllocationMode
-            go_enum_type_name: undefined
+            go_enum_type_name: {"$id":"39","$type":"EnumType","modelAsExtensible":false,"values":[{"$id":"40","description":"Pools will be allocated in subscriptions owned by the Batch service.","name":"BatchService","serializedName":"BatchService"},{"$id":"41","description":"Pools will be allocated in a subscription owned by the user.","name":"UserSubscription","serializedName":"UserSubscription"}],"modelAsString":false,"underlyingType":{"$id":"42","$type":"PrimaryType","knownPrimaryType":"string","name":{"$id":"43","fixed":false,"raw":"String"},"deprecated":false},"name":{"$id":"44","fixed":false,"raw":"PoolAllocationMode"},"deprecated":false}
           '/keyVaultReference': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
             applicable_to: [python]
             python_field_name: key_vault_reference
@@ -144,7 +144,7 @@ objects:
           '/properties/poolAllocationMode': !ruby/object:Api::Azure::SDKTypeDefinition::EnumObject
             applicable_to: [go]
             go_field_name: poolAllocationMode
-            go_enum_type_name: undefined
+            go_enum_type_name: {"$id":"39","$type":"EnumType","modelAsExtensible":false,"values":[{"$id":"40","description":"Pools will be allocated in subscriptions owned by the Batch service.","name":"BatchService","serializedName":"BatchService"},{"$id":"41","description":"Pools will be allocated in a subscription owned by the user.","name":"UserSubscription","serializedName":"UserSubscription"}],"modelAsString":false,"underlyingType":{"$id":"42","$type":"PrimaryType","knownPrimaryType":"string","name":{"$id":"43","fixed":false,"raw":"String"},"deprecated":false},"name":{"$id":"44","fixed":false,"raw":"PoolAllocationMode"},"deprecated":false}
           '/keyVaultReference': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
             applicable_to: [python]
             python_field_name: key_vault_reference
