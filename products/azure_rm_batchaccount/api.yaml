@@ -45,13 +45,12 @@ objects:
           '/tags': !ruby/object:Api::Azure::SDKTypeDefinition::StringMapObject
             go_field_name: tags
             python_field_name: tags
-          '': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+          '': 
             applicable_to: [python]
             python_field_name: properties
-          '/properties': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+          '/properties': 
             applicable_to: [go]
             go_field_name: properties
-            go_type_name: BatchAccountCreateProperties
           '/autoStorage': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
             applicable_to: [python]
             python_field_name: auto_storage
@@ -132,13 +131,12 @@ objects:
           '/tags': !ruby/object:Api::Azure::SDKTypeDefinition::StringMapObject
             go_field_name: tags
             python_field_name: tags
-          '': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+          '': 
             applicable_to: [python]
             python_field_name: properties
-          '/properties': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+          '/properties': 
             applicable_to: [go]
             go_field_name: properties
-            go_type_name: BatchAccountCreateProperties
           '/autoStorage': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
             applicable_to: [python]
             python_field_name: auto_storage
@@ -270,7 +268,7 @@ objects:
         required: false
         input: true
         azure_sdk_references: ['/tags']
-      - !ruby/object:Api::Type::NestedObject
+      - 
         name: 'properties'
         description: 'The properties of the Batch account.'
         required: false
