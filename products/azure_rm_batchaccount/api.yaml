@@ -265,11 +265,6 @@ objects:
         input: true
         azure_sdk_references: ['/tags']
       - !ruby/object:Api::Type::NestedObject
-        name: 'properties'
-        description: 'The properties of the Batch account.'
-        required: false
-        azure_sdk_references: ['', '/properties']
-      - !ruby/object:Api::Type::NestedObject
         name: 'autoStorage'
         description: 'The properties related to the auto-storage account.'
         required: false
