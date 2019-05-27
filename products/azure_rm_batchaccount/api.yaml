@@ -237,7 +237,7 @@ objects:
     description: |
       Manage Azure BatchAccount instance.
     properties:
-      - !ruby/object:Api::Azure::Type::ResourceGroup
+      - !ruby/object:Api::Azure::Type::ResourceGroupName
         name: 'resourceGroup'
         description: 'The name of the resource group that contains the Batch account.'
         required: true
