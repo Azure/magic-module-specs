@@ -268,19 +268,19 @@ objects:
         name: 'properties'
         description: 'The properties of the Batch account.'
         required: false
-        azure_sdk_references: ['/properties']
+        azure_sdk_references: ['', '/properties']
       - !ruby/object:Api::Type::NestedObject
         name: 'autoStorage'
         description: 'The properties related to the auto-storage account.'
         required: false
-        azure_sdk_references: ['/properties/autoStorage']
+        azure_sdk_references: ['/autoStorage', '/properties/autoStorage']
         properties:
           - !ruby/object:Api::Type::ResourceReference
             name: 'storageAccountId'
             description: 'The resource ID of the storage account to be used for auto-storage account.'
             required: true
             sample_value: /subscriptions/{{ subscription_id }}/resourceGroups/{{ resource_group }}/providers/Microsoft.Storage/storageAccounts/{{ name }}
-            azure_sdk_references: ['/properties/autoStorage/storageAccountId']
+            azure_sdk_references: ['/autoStorage/storageAccountId', '/properties/autoStorage/storageAccountId']
       - !ruby/object:Api::Type::EnumType
         name: 'poolAllocationMode'
         description: 'The pool allocation mode also affects how clients may authenticate to the Batch Service API. If the mode is BatchService, clients may authenticate using access keys or Azure Active Directory. If the mode is UserSubscription, clients must use Azure Active Directory. The default is BatchService.'
@@ -289,22 +289,22 @@ objects:
            - :BatchService
            - :UserSubscription
         sample_value: UserSubscription
-        azure_sdk_references: ['/properties/poolAllocationMode']
+        azure_sdk_references: ['/poolAllocationMode', '/properties/poolAllocationMode']
       - !ruby/object:Api::Type::NestedObject
         name: 'keyVaultReference'
         description: 'A reference to the Azure key vault associated with the Batch account.'
         required: false
-        azure_sdk_references: ['/properties/keyVaultReference']
+        azure_sdk_references: ['/keyVaultReference', '/properties/keyVaultReference']
         properties:
           - !ruby/object:Api::Type::ResourceReference
             name: 'id'
             description: 'The resource ID of the Azure key vault associated with the Batch account.'
             required: true
             sample_value: /subscriptions/{{ subscription_id }}/resourceGroups/{{ resource_group }}/providers/Microsoft.KeyVault/vaults/{{ name }}
-            azure_sdk_references: ['/properties/keyVaultReference/id']
+            azure_sdk_references: ['/keyVaultReference/id', '/properties/keyVaultReference/id']
           - !ruby/object:Api::Type::String
             name: 'url'
             description: 'The URL of the Azure key vault associated with the Batch account.'
             required: true
             sample_value: http://sample.vault.azure.net/
-            azure_sdk_references: ['/properties/keyVaultReference/url']
+            azure_sdk_references: ['/keyVaultReference/url', '/properties/keyVaultReference/url']
