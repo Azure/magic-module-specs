@@ -1,0 +1,29 @@
+--- !ruby/object:Provider::Ansible::Example
+task: !ruby/object:Provider::Ansible::Task
+  name: azure_rm_batchpool
+  description: UpdatePool - Other Properties
+  code:
+    resource_group: myResourceGroup
+    account_name: myBatchAccount
+    name: myPool
+    metadata:
+      - name: key1
+        value: value1
+    certificates:
+      - id: >-
+          /subscriptions/{{ subscription_id }}/resourceGroups/{{ resource_group
+          }}/providers/Microsoft.Batch/batchAccounts/{{ batch_account_name
+          }}/pools/{{ pool_name }}/certificates/{{ certificate_name }}
+        store_location: LocalMachine
+        store_name: MY
+    application_packages:
+      - id: >-
+          /subscriptions/{{ subscription_id }}/resourceGroups/{{ resource_group
+          }}/providers/Microsoft.Batch/batchAccounts/{{ batch_account_name
+          }}/pools/{{ pool_name }}/applications/{{ application_name }}
+      - id: >-
+          /subscriptions/{{ subscription_id }}/resourceGroups/{{ resource_group
+          }}/providers/Microsoft.Batch/batchAccounts/{{ batch_account_name
+          }}/pools/{{ pool_name }}/applications/{{ application_name }}
+        version: '1.0'
+  

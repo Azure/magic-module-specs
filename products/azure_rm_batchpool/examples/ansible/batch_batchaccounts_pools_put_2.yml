@@ -1,0 +1,90 @@
+--- !ruby/object:Provider::Ansible::Example
+task: !ruby/object:Provider::Ansible::Task
+  name: azure_rm_batchpool
+  description: CreatePool - Full Example
+  code:
+    resource_group: myResourceGroup
+    account_name: myBatchAccount
+    name: myPool
+    display_name: my-pool-name
+    vm_size: STANDARD_D4
+    deployment_configuration:
+      cloud_service_configuration:
+        os_family: '4'
+        os_version: WA-GUEST-OS-4.45_201708-01
+    scale_settings:
+      fixed_scale:
+        resize_timeout: PT8M
+        target_dedicated_nodes: '6'
+        target_low_priority_nodes: '28'
+        node_deallocation_option: TaskCompletion
+    inter_node_communication: Enabled
+    network_configuration:
+      subnet_id: >-
+        /subscriptions/{{ subscription_id }}/resourceGroups/{{ resource_group
+        }}/providers/Microsoft.Network/virtualNetworks/{{ virtual_network_name
+        }}/subnets/{{ subnet_name }}
+      endpoint_configuration:
+        inbound_nat_pools:
+          - name: testnat
+            protocol: TCP
+            backend_port: '12001'
+            frontend_port_range_start: '15000'
+            frontend_port_range_end: '15100'
+            network_security_group_rules:
+              - access: Allow
+                sourceAddressPrefix: 192.100.12.45
+                priority: '150'
+              - access: Deny
+                sourceAddressPrefix: '*'
+                priority: '3500'
+    max_tasks_per_node: '13'
+    task_scheduling_policy:
+      node_fill_type: Pack
+    user_accounts:
+      - name: username1
+        password: examplepassword
+        elevation_level: Admin
+        linux_user_configuration:
+          uid: '1234'
+          gid: '4567'
+          ssh_private_key: sshprivatekeyvalue
+    metadata:
+      - name: metadata-1
+        value: value-1
+      - name: metadata-2
+        value: value-2
+    start_task:
+      command_line: cmd /c SET
+      resource_files:
+        - http_url: 'https://testaccount.blob.core.windows.net/example-blob-file'
+          file_path: 'c:\temp\gohere'
+          file_mode: '777'
+      environment_settings:
+        - name: MYSET
+          value: '1234'
+      user_identity:
+        auto_user:
+          scope: Pool
+          elevation_level: Admin
+      max_task_retry_count: '6'
+      wait_for_success: true
+    certificates:
+      - id: >-
+          /subscriptions/{{ subscription_id }}/resourceGroups/{{ resource_group
+          }}/providers/Microsoft.Batch/batchAccounts/{{ batch_account_name
+          }}/pools/{{ pool_name }}/certificates/{{ certificate_name }}
+        store_location: LocalMachine
+        store_name: MY
+        visibility:
+          - RemoteUser
+    application_packages:
+      - id: >-
+          /subscriptions/{{ subscription_id }}/resourceGroups/{{ resource_group
+          }}/providers/Microsoft.Batch/batchAccounts/{{ batch_account_name
+          }}/pools/{{ pool_name }}/applications/{{ application_name }}
+        version: asdf
+    application_licenses:
+      - app-license0
+      - app-license1
+  

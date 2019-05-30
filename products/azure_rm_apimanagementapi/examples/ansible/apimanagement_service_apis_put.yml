@@ -1,0 +1,12 @@
+--- !ruby/object:Provider::Ansible::Example
+task: !ruby/object:Provider::Ansible::Task
+  name: azure_rm_apimanagementapi
+  description: ApiManagementCreateApiUsingSwaggerImport
+  code:
+    resource_group: myResourceGroup
+    name: myService
+    api_id: myApis
+    path: petstore
+    content_value: 'http://petstore.swagger.io/v2/swagger.json'
+    content_format: swagger-link-json
+  

@@ -1,0 +1,9 @@
+--- !ruby/object:Provider::Ansible::Example
+task: !ruby/object:Provider::Ansible::Task
+  name: azure_rm_apimanagementidentityprovider_info
+  description: ApiManagementGetIdentityProvider
+  code:
+    resource_group: myResourceGroup
+    service_name: myService
+    name: myIdentityProvider
+  

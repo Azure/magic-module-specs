@@ -1,0 +1,26 @@
+--- !ruby/object:Provider::Ansible::Example
+task: !ruby/object:Provider::Ansible::Task
+  name: azure_rm_computegalleryimageversion
+  description: Create or update a simple gallery Image Version.
+  code:
+    resource_group: myResourceGroup
+    gallery_name: myGallery
+    gallery_image_name: myImage
+    name: myVersion
+    gallery_image_version:
+      location: West US
+      properties:
+        publishingProfile:
+          targetRegions:
+            - name: West US
+              regionalReplicaCount: '1'
+            - name: East US
+              regionalReplicaCount: '2'
+              storageAccountType: Standard_ZRS
+          source:
+            managedImage:
+              id: >-
+                /subscriptions/{{ subscription_id }}/resourceGroups/{{
+                resource_group }}/providers/Microsoft.Compute/images/{{ image_name
+                }}
+  

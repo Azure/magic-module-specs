@@ -1,0 +1,8 @@
+--- !ruby/object:Provider::Ansible::Example
+task: !ruby/object:Provider::Ansible::Task
+  name: azure_rm_computegalleryimage_info
+  description: List gallery images in a gallery.
+  code:
+    resource_group: myResourceGroup
+    gallery_name: myGallery
+  

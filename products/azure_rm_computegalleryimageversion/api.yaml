@@ -1,0 +1,210 @@
+--- !ruby/object:Api::Product
+name: Azure GalleryImageVersion Management
+prefix: azure_rm_computegalleryimageversion
+versions:
+  - !ruby/object:Api::Product::Version
+    name: ga
+    base_url: NotUsedInAzure
+scopes:
+  - NotUsedInAzure
+objects:
+  - !ruby/object:Api::Resource
+    name: GalleryImageVersion
+    api_name: Compute
+    base_url: NotUsedInAzure
+
+    azure_sdk_definition: !ruby/object:Api::Azure::SDKDefinition
+      provider_name: Microsoft.Compute
+      go_client_namespace: compute
+      go_client: galleryImageVersionsClient
+      python_client_namespace: azure.mgmt.compute
+      python_client: SharedImageGalleryServiceClient.gallery_image_versions
+      create: !ruby/object:Api::Azure::SDKOperationDefinition
+        async: true
+        go_func_name: CreateOrUpdate
+        python_func_name: create_or_update
+        request:
+          'resourceGroupName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            id_portion: resourceGroups
+            go_variable_name: resourceGroup
+            python_parameter_name: resource_group_name
+            python_variable_name: resource_group
+          'galleryName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            id_portion: galleries
+            go_variable_name: galleryName
+            python_parameter_name: gallery_name
+            python_variable_name: gallery_name
+          'galleryImageName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            id_portion: images
+            go_variable_name: galleryImageName
+            python_parameter_name: gallery_image_name
+            python_variable_name: gallery_image_name
+          'galleryImageVersionName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            id_portion: versions
+            go_variable_name: name
+            python_parameter_name: gallery_image_version_name
+            python_variable_name: name
+          'galleryImageVersion': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            id_portion: null
+            go_variable_name: galleryImageVersion
+            go_type_name: null
+            python_parameter_name: gallery_image_version
+            python_variable_name: gallery_image_version
+        response:
+          '/id': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            go_field_name: id
+            python_field_name: id
+          '/name': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            go_field_name: name
+            python_field_name: name
+          '/type': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            go_field_name: type
+            python_field_name: type
+      delete: !ruby/object:Api::Azure::SDKOperationDefinition
+        async: true
+        go_func_name: Delete
+        python_func_name: delete
+        request:
+          'resourceGroupName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            id_portion: resourceGroups
+            go_variable_name: resourceGroup
+            python_parameter_name: resource_group_name
+            python_variable_name: resource_group
+          'galleryName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            id_portion: galleries
+            go_variable_name: galleryName
+            python_parameter_name: gallery_name
+            python_variable_name: gallery_name
+          'galleryImageName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            id_portion: images
+            go_variable_name: galleryImageName
+            python_parameter_name: gallery_image_name
+            python_variable_name: gallery_image_name
+          'galleryImageVersionName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            id_portion: versions
+            go_variable_name: name
+            python_parameter_name: gallery_image_version_name
+            python_variable_name: name
+      read: !ruby/object:Api::Azure::SDKOperationDefinition
+        go_func_name: Get
+        python_func_name: get
+        request:
+          'resourceGroupName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            id_portion: resourceGroups
+            go_variable_name: resourceGroup
+            python_parameter_name: resource_group_name
+            python_variable_name: resource_group
+          'galleryName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            id_portion: galleries
+            go_variable_name: galleryName
+            python_parameter_name: gallery_name
+            python_variable_name: gallery_name
+          'galleryImageName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            id_portion: images
+            go_variable_name: galleryImageName
+            python_parameter_name: gallery_image_name
+            python_variable_name: gallery_image_name
+          'galleryImageVersionName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            id_portion: versions
+            go_variable_name: name
+            python_parameter_name: gallery_image_version_name
+            python_variable_name: name
+        response:
+          '/id': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            go_field_name: id
+            python_field_name: id
+          '/name': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            go_field_name: name
+            python_field_name: name
+          '/type': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            go_field_name: type
+            python_field_name: type
+
+    description: |
+      Manage Azure GalleryImageVersion instance.
+    properties:
+      - !ruby/object:Api::Azure::Type::ResourceGroupName
+        name: 'resourceGroup'
+        description: 'The name of the resource group.'
+        required: true
+        input: true
+        sample_value: myResourceGroup
+        azure_sdk_references: ['resourceGroupName']
+      - !ruby/object:Api::Type::String
+        name: 'galleryName'
+        description: 'The name of the Shared Image Gallery in which the Image Definition resides.'
+        required: true
+        input: true
+        sample_value: myGallery
+        azure_sdk_references: ['galleryName']
+      - !ruby/object:Api::Type::String
+        name: 'galleryImageName'
+        description: 'The name of the gallery Image Definition in which the Image Version is to be created.'
+        required: true
+        input: true
+        sample_value: myImage
+        azure_sdk_references: ['galleryImageName']
+      - !ruby/object:Api::Type::String
+        name: 'name'
+        description: 'The name of the gallery Image Version to be created. Needs to follow semantic version name pattern: The allowed characters are digit and period. Digits must be within the range of a 32-bit integer. Format: <MajorVersion>.<MinorVersion>.<Patch>'
+        required: true
+        input: true
+        sample_value: myVersion
+        azure_sdk_references: ['galleryImageVersionName']
+      - !ruby/object:Api::Type::NestedObject
+        name: 'galleryImageVersion'
+        description: 'Parameters supplied to the create or update gallery Image Version operation.'
+        required: true
+        sample_value: [object Object]
+        azure_sdk_references: ['galleryImageVersion']
+      - !ruby/object:Api::Azure::Type::Location
+        name: 'location'
+        description: 'Resource location'
+        required: true
+        input: true
+        azure_sdk_references: ['/location']
+      - 
+        name: 'tags'
+        description: 'Resource tags'
+        required: false
+        input: true
+        azure_sdk_references: ['/tags']
+      - !ruby/object:Api::Type::NestedObject
+        name: 'publishingProfile'
+        description: 'undefined'
+        required: true
+        azure_sdk_references: ['/publishingProfile', '/properties/publishingProfile']
+        properties:
+          - !ruby/object:Api::Type::NestedObject
+            name: 'targetRegions'
+            description: 'The target regions where the Image Version is going to be replicated to. This property is updatable.'
+            required: false
+            azure_sdk_references: ['/publishingProfile/targetRegions', '/properties/publishingProfile/targetRegions']
+          - !ruby/object:Api::Type::NestedObject
+            name: 'source'
+            description: 'undefined'
+            required: true
+            azure_sdk_references: ['/publishingProfile/source', '/properties/publishingProfile/source']
+          - 
+            name: 'replicaCount'
+            description: 'The number of replicas of the Image Version to be created per region. This property would take effect for a region when regionalReplicaCount is not specified. This property is updatable.'
+            required: false
+            azure_sdk_references: ['/publishingProfile/replicaCount', '/properties/publishingProfile/replicaCount']
+          - !ruby/object:Api::Type::Boolean
+            name: 'excludeFromLatest'
+            description: 'If set to true, Virtual Machines deployed from the latest version of the Image Definition won't use this Image Version.'
+            required: false
+            azure_sdk_references: ['/publishingProfile/excludeFromLatest', '/properties/publishingProfile/excludeFromLatest']
+          - 
+            name: 'endOfLifeDate'
+            description: 'The end of life date of the gallery Image Version. This property can be used for decommissioning purposes. This property is updatable.'
+            required: false
+            azure_sdk_references: ['/publishingProfile/endOfLifeDate', '/properties/publishingProfile/endOfLifeDate']
+          - !ruby/object:Api::Type::EnumType
+            name: 'storageAccountType'
+            description: 'Specifies the storage account type to be used to store the image. This property is not updatable.'
+            required: false
+            values:
+               - :Standard_LRS
+               - :Standard_ZRS
+            azure_sdk_references: ['/publishingProfile/storageAccountType', '/properties/publishingProfile/storageAccountType']

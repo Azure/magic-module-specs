@@ -1,0 +1,30 @@
+--- !ruby/object:Provider::Ansible::Example
+task: !ruby/object:Provider::Ansible::Task
+  name: azure_rm_eventgrideventsubscription
+  description: EventSubscriptions_CreateOrUpdateForCustomTopic_EventHubDestination
+  code:
+    scope: >-
+      subscriptions/5b4b650e-28b9-4790-b3ab-ddbd88d727c4/resourceGroups/examplerg/providers/Microsoft.EventGrid/topics/exampletopic1
+    name: examplesubscription1
+    event_subscription_info:
+      properties:
+        destination:
+          endpointType: EventHub
+          properties:
+            resourceId: >-
+              /subscriptions/{{ subscription_id }}/resourceGroups/{{
+              resource_group }}/providers/Microsoft.EventHub/namespaces/{{
+              namespace_name }}/eventhubs/{{ eventhub_name }}
+        filter:
+          isSubjectCaseSensitive: false
+          subjectBeginsWith: ExamplePrefix
+          subjectEndsWith: ExampleSuffix
+        deadLetterDestination:
+          endpointType: StorageBlob
+          properties:
+            resourceId: >-
+              /subscriptions/{{ subscription_id }}/resourceGroups/{{
+              resource_group }}/providers/Microsoft.Storage/storageAccounts/{{
+              storage_account_name }}
+            blobContainerName: contosocontainer
+  

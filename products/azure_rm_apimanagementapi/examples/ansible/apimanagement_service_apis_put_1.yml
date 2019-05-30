@@ -1,0 +1,13 @@
+--- !ruby/object:Provider::Ansible::Example
+task: !ruby/object:Provider::Ansible::Task
+  name: azure_rm_apimanagementapi
+  description: ApiManagementCreateApiUsingWadlImport
+  code:
+    resource_group: myResourceGroup
+    name: myService
+    api_id: myApis
+    path: collector
+    content_value: >-
+      https://developer.cisco.com/media/wae-release-6-2-api-reference/wae-collector-rest-api/application.wadl
+    content_format: wadl-link-json
+  

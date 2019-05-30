@@ -1,0 +1,152 @@
+--- !ruby/object:Api::Product
+name: Azure Topic Management
+prefix: azure_rm_eventgridtopic
+versions:
+  - !ruby/object:Api::Product::Version
+    name: ga
+    base_url: NotUsedInAzure
+scopes:
+  - NotUsedInAzure
+objects:
+  - !ruby/object:Api::Resource
+    name: Topic
+    api_name: EventGrid
+    base_url: NotUsedInAzure
+
+    azure_sdk_definition: !ruby/object:Api::Azure::SDKDefinition
+      provider_name: Microsoft.EventGrid
+      go_client_namespace: eventgrid
+      go_client: topicsClient
+      python_client_namespace: azure.mgmt.eventgrid
+      python_client: EventGridManagementClient.topics
+      create: !ruby/object:Api::Azure::SDKOperationDefinition
+        async: true
+        go_func_name: CreateOrUpdate
+        python_func_name: create_or_update
+        request:
+          'resourceGroupName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            id_portion: resourceGroups
+            go_variable_name: resourceGroup
+            python_parameter_name: resource_group_name
+            python_variable_name: resource_group
+          'topicName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            id_portion: topics
+            go_variable_name: name
+            python_parameter_name: topic_name
+            python_variable_name: name
+          'topicInfo': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            id_portion: null
+            go_variable_name: topicInfo
+            go_type_name: null
+            python_parameter_name: topic_info
+            python_variable_name: topic_info
+        response:
+          '/id': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            go_field_name: id
+            python_field_name: id
+          '/name': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            go_field_name: name
+            python_field_name: name
+          '/type': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            go_field_name: type
+            python_field_name: type
+      update: !ruby/object:Api::Azure::SDKOperationDefinition
+        async: true
+        go_func_name: Update
+        python_func_name: update
+        request:
+          'resourceGroupName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            id_portion: resourceGroups
+            go_variable_name: resourceGroup
+            python_parameter_name: resource_group_name
+            python_variable_name: resource_group
+          'topicName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            id_portion: topics
+            go_variable_name: name
+            python_parameter_name: topic_name
+            python_variable_name: name
+        response:
+          '/id': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            go_field_name: id
+            python_field_name: id
+          '/name': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            go_field_name: name
+            python_field_name: name
+          '/type': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            go_field_name: type
+            python_field_name: type
+      delete: !ruby/object:Api::Azure::SDKOperationDefinition
+        async: true
+        go_func_name: Delete
+        python_func_name: delete
+        request:
+          'resourceGroupName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            id_portion: resourceGroups
+            go_variable_name: resourceGroup
+            python_parameter_name: resource_group_name
+            python_variable_name: resource_group
+          'topicName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            id_portion: topics
+            go_variable_name: name
+            python_parameter_name: topic_name
+            python_variable_name: name
+      read: !ruby/object:Api::Azure::SDKOperationDefinition
+        go_func_name: Get
+        python_func_name: get
+        request:
+          'resourceGroupName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            id_portion: resourceGroups
+            go_variable_name: resourceGroup
+            python_parameter_name: resource_group_name
+            python_variable_name: resource_group
+          'topicName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            id_portion: topics
+            go_variable_name: name
+            python_parameter_name: topic_name
+            python_variable_name: name
+        response:
+          '/id': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            go_field_name: id
+            python_field_name: id
+          '/name': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            go_field_name: name
+            python_field_name: name
+          '/type': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            go_field_name: type
+            python_field_name: type
+
+    description: |
+      Manage Azure Topic instance.
+    properties:
+      - !ruby/object:Api::Azure::Type::ResourceGroupName
+        name: 'resourceGroup'
+        description: 'The name of the resource group within the user's subscription.'
+        required: true
+        input: true
+        sample_value: myResourceGroup
+        azure_sdk_references: ['resourceGroupName']
+      - !ruby/object:Api::Type::String
+        name: 'name'
+        description: 'Name of the topic'
+        required: true
+        input: true
+        sample_value: myTopic
+        azure_sdk_references: ['topicName']
+      - !ruby/object:Api::Type::NestedObject
+        name: 'topicInfo'
+        description: 'Topic information'
+        required: true
+        sample_value: [object Object]
+        azure_sdk_references: ['topicInfo']
+      - !ruby/object:Api::Azure::Type::Location
+        name: 'location'
+        description: 'Location of the resource'
+        required: true
+        input: true
+        azure_sdk_references: ['/location']
+      - 
+        name: 'tags'
+        description: 'Tags of the resource'
+        required: false
+        input: true
+        azure_sdk_references: ['/tags']

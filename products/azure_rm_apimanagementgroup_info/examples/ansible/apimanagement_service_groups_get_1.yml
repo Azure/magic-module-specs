@@ -1,0 +1,9 @@
+--- !ruby/object:Provider::Ansible::Example
+task: !ruby/object:Provider::Ansible::Task
+  name: azure_rm_apimanagementgroup_info
+  description: ApiManagementGetGroup
+  code:
+    resource_group: myResourceGroup
+    name: myService
+    group_id: myGroup
+  

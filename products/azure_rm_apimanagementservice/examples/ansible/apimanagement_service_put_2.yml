@@ -1,0 +1,15 @@
+--- !ruby/object:Provider::Ansible::Example
+task: !ruby/object:Provider::Ansible::Task
+  name: azure_rm_apimanagementservice
+  description: ApiManagementCreateServiceHavingMsi
+  code:
+    resource_group: myResourceGroup
+    name: myService
+    publisher_email: admin@contoso.com
+    publisher_name: Contoso
+    sku:
+      name: Developer
+    identity:
+      type: SystemAssigned
+    location: Japan East
+  

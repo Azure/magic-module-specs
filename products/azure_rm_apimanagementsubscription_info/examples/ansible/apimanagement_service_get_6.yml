@@ -1,0 +1,9 @@
+--- !ruby/object:Provider::Ansible::Example
+task: !ruby/object:Provider::Ansible::Task
+  name: azure_rm_apimanagementsubscription_info
+  description: ApiManagementGetSubscription
+  code:
+    resource_group: myResourceGroup
+    name: myService
+    sid: 5931a769d8d14f0ad8ce13b8
+  

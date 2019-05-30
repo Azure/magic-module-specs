@@ -1,0 +1,111 @@
+--- !ruby/object:Api::Product
+name: Azure NotificationRecipientEmail Management
+prefix: azure_rm_apimanagementnotificationrecipientemail
+versions:
+  - !ruby/object:Api::Product::Version
+    name: ga
+    base_url: NotUsedInAzure
+scopes:
+  - NotUsedInAzure
+objects:
+  - !ruby/object:Api::Resource
+    name: NotificationRecipientEmail
+    api_name: ApiManagement
+    base_url: NotUsedInAzure
+
+    azure_sdk_definition: !ruby/object:Api::Azure::SDKDefinition
+      provider_name: Microsoft.ApiManagement
+      go_client_namespace: apimanagement
+      go_client: notificationRecipientEmailClient
+      python_client_namespace: azure.mgmt.apimanagement
+      python_client: ApiManagementClient.notification_recipient_email
+      create: !ruby/object:Api::Azure::SDKOperationDefinition
+        go_func_name: CreateOrUpdate
+        python_func_name: create_or_update
+        request:
+          'resourceGroupName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            id_portion: resourceGroups
+            go_variable_name: resourceGroup
+            python_parameter_name: resource_group_name
+            python_variable_name: resource_group
+          'serviceName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            id_portion: service
+            go_variable_name: serviceName
+            python_parameter_name: service_name
+            python_variable_name: service_name
+          'notificationName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            id_portion: notifications
+            go_variable_name: name
+            python_parameter_name: notification_name
+            python_variable_name: name
+          'email': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            id_portion: recipientEmails
+            go_variable_name: email
+            python_parameter_name: email
+            python_variable_name: email
+        response:
+          '/id': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            go_field_name: id
+            python_field_name: id
+          '/name': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            go_field_name: name
+            python_field_name: name
+          '/type': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            go_field_name: type
+            python_field_name: type
+      delete: !ruby/object:Api::Azure::SDKOperationDefinition
+        go_func_name: Delete
+        python_func_name: delete
+        request:
+          'resourceGroupName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            id_portion: resourceGroups
+            go_variable_name: resourceGroup
+            python_parameter_name: resource_group_name
+            python_variable_name: resource_group
+          'serviceName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            id_portion: service
+            go_variable_name: serviceName
+            python_parameter_name: service_name
+            python_variable_name: service_name
+          'notificationName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            id_portion: notifications
+            go_variable_name: name
+            python_parameter_name: notification_name
+            python_variable_name: name
+          'email': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            id_portion: recipientEmails
+            go_variable_name: email
+            python_parameter_name: email
+            python_variable_name: email
+
+    description: |
+      Manage Azure NotificationRecipientEmail instance.
+    properties:
+      - !ruby/object:Api::Azure::Type::ResourceGroupName
+        name: 'resourceGroup'
+        description: 'The name of the resource group.'
+        required: true
+        input: true
+        sample_value: myResourceGroup
+        azure_sdk_references: ['resourceGroupName']
+      - !ruby/object:Api::Type::String
+        name: 'serviceName'
+        description: 'The name of the API Management service.'
+        required: true
+        input: true
+        sample_value: myService
+        azure_sdk_references: ['serviceName']
+      - !ruby/object:Api::Type::String
+        name: 'name'
+        description: 'Notification Name Identifier.'
+        required: true
+        input: true
+        sample_value: myNotification
+        azure_sdk_references: ['notificationName']
+      - !ruby/object:Api::Type::String
+        name: 'email'
+        description: 'Email identifier.'
+        required: true
+        input: true
+        sample_value: myRecipientEmail
+        azure_sdk_references: ['email']

@@ -1,0 +1,13 @@
+--- !ruby/object:Provider::Ansible::Example
+task: !ruby/object:Provider::Ansible::Task
+  name: azure_rm_servicebusrule
+  description: RulesCreateCorrelationFilter
+  code:
+    resource_group: myResourceGroup
+    namespace_name: my
+    topic_name: myTopic
+    subscription_name: sdk-Subscriptions-8691
+    name: myRule
+    filter_type: CorrelationFilter
+    correlation_filter: {}
+  

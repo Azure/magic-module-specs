@@ -1,0 +1,191 @@
+--- !ruby/object:Api::Product
+name: Azure ApiPolicy Management
+prefix: azure_rm_apimanagementapipolicy
+versions:
+  - !ruby/object:Api::Product::Version
+    name: ga
+    base_url: NotUsedInAzure
+scopes:
+  - NotUsedInAzure
+objects:
+  - !ruby/object:Api::Resource
+    name: ApiPolicy
+    api_name: ApiManagement
+    base_url: NotUsedInAzure
+
+    azure_sdk_definition: !ruby/object:Api::Azure::SDKDefinition
+      provider_name: Microsoft.ApiManagement
+      go_client_namespace: apimanagement
+      go_client: apiPolicyClient
+      python_client_namespace: azure.mgmt.apimanagement
+      python_client: ApiManagementClient.api_policy
+      create: !ruby/object:Api::Azure::SDKOperationDefinition
+        go_func_name: CreateOrUpdate
+        python_func_name: create_or_update
+        request:
+          'resourceGroupName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            id_portion: resourceGroups
+            go_variable_name: resourceGroup
+            python_parameter_name: resource_group_name
+            python_variable_name: resource_group
+          'serviceName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            id_portion: service
+            go_variable_name: name
+            python_parameter_name: service_name
+            python_variable_name: name
+          'apiId': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            id_portion: apis
+            go_variable_name: apiId
+            python_parameter_name: api_id
+            python_variable_name: api_id
+          'policyId': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            id_portion: policies
+            go_variable_name: policyId
+            python_parameter_name: policy_id
+            python_variable_name: policy_id
+          '/': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            go_variable_name: parameters
+            go_type_name: PolicyContract
+            python_parameter_name: parameters
+            python_variable_name: parameters
+          '/properties': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            applicable_to: [go]
+            go_field_name: properties
+            go_type_name: PolicyContractProperties
+          '/policyContent': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: policy_content
+          '/properties/policyContent': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: policyContent
+          '/contentFormat': !ruby/object:Api::Azure::SDKTypeDefinition::EnumObject
+            applicable_to: [python]
+            python_field_name: content_format
+          '/properties/contentFormat': !ruby/object:Api::Azure::SDKTypeDefinition::EnumObject
+            applicable_to: [go]
+            go_field_name: contentFormat
+            go_enum_type_name: PolicyContentFormat
+        response:
+          '/id': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            go_field_name: id
+            python_field_name: id
+          '/name': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            go_field_name: name
+            python_field_name: name
+          '/type': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            go_field_name: type
+            python_field_name: type
+      delete: !ruby/object:Api::Azure::SDKOperationDefinition
+        go_func_name: Delete
+        python_func_name: delete
+        request:
+          'resourceGroupName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            id_portion: resourceGroups
+            go_variable_name: resourceGroup
+            python_parameter_name: resource_group_name
+            python_variable_name: resource_group
+          'serviceName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            id_portion: service
+            go_variable_name: name
+            python_parameter_name: service_name
+            python_variable_name: name
+          'apiId': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            id_portion: apis
+            go_variable_name: apiId
+            python_parameter_name: api_id
+            python_variable_name: api_id
+          'policyId': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            id_portion: policies
+            go_variable_name: policyId
+            python_parameter_name: policy_id
+            python_variable_name: policy_id
+      read: !ruby/object:Api::Azure::SDKOperationDefinition
+        go_func_name: Get
+        python_func_name: get
+        request:
+          'resourceGroupName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            id_portion: resourceGroups
+            go_variable_name: resourceGroup
+            python_parameter_name: resource_group_name
+            python_variable_name: resource_group
+          'serviceName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            id_portion: service
+            go_variable_name: name
+            python_parameter_name: service_name
+            python_variable_name: name
+          'apiId': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            id_portion: apis
+            go_variable_name: apiId
+            python_parameter_name: api_id
+            python_variable_name: api_id
+          'policyId': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            id_portion: policies
+            go_variable_name: policyId
+            python_parameter_name: policy_id
+            python_variable_name: policy_id
+        response:
+          '/id': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            go_field_name: id
+            python_field_name: id
+          '/name': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            go_field_name: name
+            python_field_name: name
+          '/type': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            go_field_name: type
+            python_field_name: type
+
+    description: |
+      Manage Azure ApiPolicy instance.
+    properties:
+      - !ruby/object:Api::Azure::Type::ResourceGroupName
+        name: 'resourceGroup'
+        description: 'The name of the resource group.'
+        required: true
+        input: true
+        sample_value: myResourceGroup
+        azure_sdk_references: ['resourceGroupName']
+      - !ruby/object:Api::Type::String
+        name: 'name'
+        description: 'The name of the API Management service.'
+        required: true
+        input: true
+        sample_value: myService
+        azure_sdk_references: ['serviceName']
+      - !ruby/object:Api::Type::String
+        name: 'apiId'
+        description: 'API revision identifier. Must be unique in the current API Management service instance. Non-current revision has ;rev=n as a suffix where n is the revision number.'
+        required: true
+        input: true
+        sample_value: myApis
+        azure_sdk_references: ['apiId']
+      - !ruby/object:Api::Type::String
+        name: 'policyId'
+        description: 'The identifier of the Policy.'
+        required: true
+        input: true
+        sample_value: myPolicy
+        azure_sdk_references: ['policyId']
+      - !ruby/object:Api::Type::String
+        name: 'policyContent'
+        description: 'Json escaped Xml Encoded contents of the Policy.'
+        required: true
+        sample_value: <policies>
+     <inbound>
+     <base />
+  <set-header name="newvalue" exists-action="override">
+   <value>"@(context.Request.Headers.FirstOrDefault(h => h.Ke=="Via"))" </value>
+    </set-header>
+  </inbound>
+      </policies>
+        azure_sdk_references: ['/policyContent', '/properties/policyContent']
+      - !ruby/object:Api::Type::EnumType
+        name: 'contentFormat'
+        description: 'Format of the policyContent.'
+        required: false
+        values:
+           - :xml
+           - :xml-link
+           - :rawxml
+           - :rawxml-link
+        sample_value: rawxml
+        azure_sdk_references: ['/contentFormat', '/properties/contentFormat']

@@ -1,0 +1,11 @@
+--- !ruby/object:Provider::Ansible::Example
+task: !ruby/object:Provider::Ansible::Task
+  name: azure_rm_servicebusdisasterrecoveryconfig
+  description: SBAliasCreate
+  code:
+    resource_group: myResourceGroup
+    name: my
+    alias: myDisasterRecoveryConfig
+    partner_namespace: sdk-Namespace-37
+    alternate_name: alternameforAlias-Namespace-8860
+  

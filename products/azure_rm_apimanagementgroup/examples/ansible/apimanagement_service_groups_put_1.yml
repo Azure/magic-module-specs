@@ -1,0 +1,13 @@
+--- !ruby/object:Provider::Ansible::Example
+task: !ruby/object:Provider::Ansible::Task
+  name: azure_rm_apimanagementgroup
+  description: ApiManagementCreateGroupExternal
+  code:
+    resource_group: myResourceGroup
+    name: myService
+    group_id: myGroup
+    display_name: NewGroup (samiraad.onmicrosoft.com)
+    description: new group to test
+    type: external
+    external_id: 'aad://samiraad.onmicrosoft.com/groups/83cf2753-5831-4675-bc0e-2f8dc067c58d'
+  

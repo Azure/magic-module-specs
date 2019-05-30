@@ -1,0 +1,7 @@
+--- !ruby/object:Provider::Ansible::Example
+task: !ruby/object:Provider::Ansible::Task
+  name: azure_rm_eventgridtopic_info
+  description: Topics_ListByResourceGroup
+  code:
+    resource_group: myResourceGroup
+  

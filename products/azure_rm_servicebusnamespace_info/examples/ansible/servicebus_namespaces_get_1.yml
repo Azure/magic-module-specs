@@ -1,0 +1,7 @@
+--- !ruby/object:Provider::Ansible::Example
+task: !ruby/object:Provider::Ansible::Task
+  name: azure_rm_servicebusnamespace_info
+  description: NameSpaceListByResourceGroup
+  code:
+    resource_group: myResourceGroup
+  

@@ -1,0 +1,17 @@
+--- !ruby/object:Provider::Ansible::Example
+task: !ruby/object:Provider::Ansible::Task
+  name: azure_rm_batchpool
+  description: CreatePool - Custom Image
+  code:
+    resource_group: myResourceGroup
+    account_name: myBatchAccount
+    name: myPool
+    vm_size: STANDARD_D4
+    deployment_configuration:
+      virtual_machine_configuration:
+        image_reference:
+          id: >-
+            /subscriptions/{{ subscription_id }}/resourceGroups/{{ resource_group
+            }}/providers/Microsoft.Compute/images/{{ image_name }}
+        node_agent_sku_id: batch.node.ubuntu 14.04
+  

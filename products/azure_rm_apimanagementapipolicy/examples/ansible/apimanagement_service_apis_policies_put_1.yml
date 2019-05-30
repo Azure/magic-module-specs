@@ -1,0 +1,12 @@
+--- !ruby/object:Provider::Ansible::Example
+task: !ruby/object:Provider::Ansible::Task
+  name: azure_rm_apimanagementapipolicy
+  description: ApiManagementCreateApiPolicyNonXmlEncoded
+  code:
+    resource_group: myResourceGroup
+    name: myService
+    api_id: myApis
+    policy_id: myPolicy
+    policy_content: "<policies>\r\n     <inbound>\r\n     <base />\r\n  <set-header name=\"newvalue\" exists-action=\"override\">\r\n   <value>\"@(context.Request.Headers.FirstOrDefault(h => h.Ke==\"Via\"))\" </value>\r\n    </set-header>\r\n  </inbound>\r\n      </policies>"
+    content_format: rawxml
+  
