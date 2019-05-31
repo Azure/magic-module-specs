@@ -1,0 +1,10 @@
+--- !ruby/object:Provider::Ansible::Example
+task: !ruby/object:Provider::Ansible::Task
+  name: azure_rm_computegalleryimageversion_info
+  description: Get a gallery Image Version.
+  code:
+    resource_group: myResourceGroup
+    gallery_name: myGallery
+    gallery_image_name: myImage
+    name: myVersion
+  

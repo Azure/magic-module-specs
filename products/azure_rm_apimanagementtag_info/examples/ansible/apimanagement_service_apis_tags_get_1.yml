@@ -1,0 +1,10 @@
+--- !ruby/object:Provider::Ansible::Example
+task: !ruby/object:Provider::Ansible::Task
+  name: azure_rm_apimanagementtag_info
+  description: ApiManagementGetApiTag
+  code:
+    resource_group: myResourceGroup
+    name: myService
+    tag_id: myTag
+    api_id: myApis
+  

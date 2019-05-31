@@ -1,0 +1,10 @@
+--- !ruby/object:Provider::Ansible::Example
+task: !ruby/object:Provider::Ansible::Task
+  name: azure_rm_apimanagementapidiagnosticlogger_info
+  description: ApiManagementListApiDiagnosticLoggers
+  code:
+    resource_group: myResourceGroup
+    name: myService
+    api_id: myApis
+    diagnostic_id: myDiagnostic
+  

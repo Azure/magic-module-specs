@@ -1,0 +1,10 @@
+--- !ruby/object:Provider::Ansible::Example
+task: !ruby/object:Provider::Ansible::Task
+  name: azure_rm_eventgridtopic_info
+  description: Topics_ListEventTypes
+  code:
+    resource_group: myResourceGroup
+    provider_namespace: Microsoft.Storage
+    resource_type_name: storageAccounts
+    name: myResourceType
+  

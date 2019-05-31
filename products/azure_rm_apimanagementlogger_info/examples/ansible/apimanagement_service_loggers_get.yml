@@ -1,0 +1,8 @@
+--- !ruby/object:Provider::Ansible::Example
+task: !ruby/object:Provider::Ansible::Task
+  name: azure_rm_apimanagementlogger_info
+  description: ApiManagementListLoggers
+  code:
+    resource_group: myResourceGroup
+    name: myService
+  

@@ -1,0 +1,18 @@
+--- !ruby/object:Provider::Ansible::Example
+task: !ruby/object:Provider::Ansible::Task
+  name: azure_rm_eventgrideventsubscription
+  description: EventSubscriptions_CreateOrUpdateForResourceGroup
+  code:
+    scope: subscriptions/5b4b650e-28b9-4790-b3ab-ddbd88d727c4/resourceGroups/examplerg
+    name: examplesubscription2
+    event_subscription_info:
+      properties:
+        destination:
+          endpointType: WebHook
+          properties:
+            endpointUrl: 'https://requestb.in/15ksip71'
+        filter:
+          isSubjectCaseSensitive: false
+          subjectBeginsWith: ExamplePrefix
+          subjectEndsWith: ExampleSuffix
+  

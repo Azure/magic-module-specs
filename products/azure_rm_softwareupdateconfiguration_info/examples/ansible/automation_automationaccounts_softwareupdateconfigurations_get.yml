@@ -1,0 +1,9 @@
+--- !ruby/object:Provider::Ansible::Example
+task: !ruby/object:Provider::Ansible::Task
+  name: azure_rm_softwareupdateconfiguration_info
+  description: Get software update configuration by name
+  code:
+    resource_group: myResourceGroup
+    automation_account_name: myAutomationAccount
+    name: mySoftwareUpdateConfiguration
+  

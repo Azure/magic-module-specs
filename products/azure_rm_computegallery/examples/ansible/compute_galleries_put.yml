@@ -1,0 +1,12 @@
+--- !ruby/object:Provider::Ansible::Example
+task: !ruby/object:Provider::Ansible::Task
+  name: azure_rm_computegallery
+  description: Create or update a simple gallery.
+  code:
+    resource_group: myResourceGroup
+    name: myGallery
+    gallery:
+      location: West US
+      properties:
+        description: This is the gallery description.
+  

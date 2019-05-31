@@ -1,0 +1,9 @@
+--- !ruby/object:Provider::Ansible::Example
+task: !ruby/object:Provider::Ansible::Task
+  name: azure_rm_servicebusnamespace
+  description: NameSpaceDelete
+  code:
+    resource_group: myResourceGroup
+    name: my
+    state: absent
+  

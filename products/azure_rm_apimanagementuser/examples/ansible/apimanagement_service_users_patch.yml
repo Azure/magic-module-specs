@@ -1,0 +1,12 @@
+--- !ruby/object:Provider::Ansible::Example
+task: !ruby/object:Provider::Ansible::Task
+  name: azure_rm_apimanagementuser
+  description: ApiManagementUpdateUserBasic
+  code:
+    resource_group: myResourceGroup
+    name: myService
+    uid: myUser
+    email: foobar@outlook.com
+    first_name: foo
+    last_name: bar
+  

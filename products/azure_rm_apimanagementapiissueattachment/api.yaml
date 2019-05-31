@@ -1,0 +1,212 @@
+--- !ruby/object:Api::Product
+name: Azure ApiIssueAttachment Management
+prefix: azure_rm_apimanagementapiissueattachment
+versions:
+  - !ruby/object:Api::Product::Version
+    name: ga
+    base_url: NotUsedInAzure
+scopes:
+  - NotUsedInAzure
+objects:
+  - !ruby/object:Api::Resource
+    name: ApiIssueAttachment
+    api_name: ApiManagement
+    base_url: NotUsedInAzure
+
+    azure_sdk_definition: !ruby/object:Api::Azure::SDKDefinition
+      provider_name: Microsoft.ApiManagement
+      go_client_namespace: apimanagement
+      go_client: apiIssueAttachmentClient
+      python_client_namespace: azure.mgmt.apimanagement
+      python_client: ApiManagementClient.api_issue_attachment
+      create: !ruby/object:Api::Azure::SDKOperationDefinition
+        go_func_name: CreateOrUpdate
+        python_func_name: create_or_update
+        request:
+          'resourceGroupName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            id_portion: resourceGroups
+            go_variable_name: resourceGroup
+            python_parameter_name: resource_group_name
+            python_variable_name: resource_group
+          'serviceName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            id_portion: service
+            go_variable_name: name
+            python_parameter_name: service_name
+            python_variable_name: name
+          'apiId': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            id_portion: apis
+            go_variable_name: apiId
+            python_parameter_name: api_id
+            python_variable_name: api_id
+          'issueId': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            id_portion: issues
+            go_variable_name: issueId
+            python_parameter_name: issue_id
+            python_variable_name: issue_id
+          'attachmentId': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            id_portion: attachments
+            go_variable_name: attachmentId
+            python_parameter_name: attachment_id
+            python_variable_name: attachment_id
+          '/': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            go_variable_name: parameters
+            go_type_name: IssueAttachmentContract
+            python_parameter_name: parameters
+            python_variable_name: parameters
+          '/properties': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            applicable_to: [go]
+            go_field_name: properties
+            go_type_name: IssueAttachmentContractProperties
+          '/title': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: title
+          '/properties/title': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: title
+          '/contentFormat': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: content_format
+          '/properties/contentFormat': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: contentFormat
+          '/content': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: content
+          '/properties/content': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: content
+        response:
+          '/id': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            go_field_name: id
+            python_field_name: id
+          '/name': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            go_field_name: name
+            python_field_name: name
+          '/type': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            go_field_name: type
+            python_field_name: type
+      delete: !ruby/object:Api::Azure::SDKOperationDefinition
+        go_func_name: Delete
+        python_func_name: delete
+        request:
+          'resourceGroupName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            id_portion: resourceGroups
+            go_variable_name: resourceGroup
+            python_parameter_name: resource_group_name
+            python_variable_name: resource_group
+          'serviceName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            id_portion: service
+            go_variable_name: name
+            python_parameter_name: service_name
+            python_variable_name: name
+          'apiId': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            id_portion: apis
+            go_variable_name: apiId
+            python_parameter_name: api_id
+            python_variable_name: api_id
+          'issueId': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            id_portion: issues
+            go_variable_name: issueId
+            python_parameter_name: issue_id
+            python_variable_name: issue_id
+          'attachmentId': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            id_portion: attachments
+            go_variable_name: attachmentId
+            python_parameter_name: attachment_id
+            python_variable_name: attachment_id
+      read: !ruby/object:Api::Azure::SDKOperationDefinition
+        go_func_name: Get
+        python_func_name: get
+        request:
+          'resourceGroupName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            id_portion: resourceGroups
+            go_variable_name: resourceGroup
+            python_parameter_name: resource_group_name
+            python_variable_name: resource_group
+          'serviceName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            id_portion: service
+            go_variable_name: name
+            python_parameter_name: service_name
+            python_variable_name: name
+          'apiId': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            id_portion: apis
+            go_variable_name: apiId
+            python_parameter_name: api_id
+            python_variable_name: api_id
+          'issueId': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            id_portion: issues
+            go_variable_name: issueId
+            python_parameter_name: issue_id
+            python_variable_name: issue_id
+          'attachmentId': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            id_portion: attachments
+            go_variable_name: attachmentId
+            python_parameter_name: attachment_id
+            python_variable_name: attachment_id
+        response:
+          '/id': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            go_field_name: id
+            python_field_name: id
+          '/name': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            go_field_name: name
+            python_field_name: name
+          '/type': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            go_field_name: type
+            python_field_name: type
+
+    description: |
+      Manage Azure ApiIssueAttachment instance.
+    properties:
+      - !ruby/object:Api::Azure::Type::ResourceGroupName
+        name: 'resourceGroup'
+        description: 'The name of the resource group.'
+        required: true
+        input: true
+        sample_value: myResourceGroup
+        azure_sdk_references: ['resourceGroupName']
+      - !ruby/object:Api::Type::String
+        name: 'name'
+        description: 'The name of the API Management service.'
+        required: true
+        input: true
+        sample_value: myService
+        azure_sdk_references: ['serviceName']
+      - !ruby/object:Api::Type::String
+        name: 'apiId'
+        description: 'API identifier. Must be unique in the current API Management service instance.'
+        required: true
+        input: true
+        sample_value: myApis
+        azure_sdk_references: ['apiId']
+      - !ruby/object:Api::Type::String
+        name: 'issueId'
+        description: 'Issue identifier. Must be unique in the current API Management service instance.'
+        required: true
+        input: true
+        sample_value: myIssue
+        azure_sdk_references: ['issueId']
+      - !ruby/object:Api::Type::String
+        name: 'attachmentId'
+        description: 'Attachment identifier within an Issue. Must be unique in the current Issue.'
+        required: true
+        input: true
+        sample_value: myAttachment
+        azure_sdk_references: ['attachmentId']
+      - !ruby/object:Api::Type::String
+        name: 'title'
+        description: 'Filename by which the binary data will be saved.'
+        required: true
+        sample_value: Issue attachment.
+        azure_sdk_references: ['/title', '/properties/title']
+      - !ruby/object:Api::Type::String
+        name: 'contentFormat'
+        description: 'Either 'link' if content is provided via an HTTP link or the MIME type of the Base64-encoded binary data provided in the 'content' property.'
+        required: true
+        sample_value: image/jpeg
+        azure_sdk_references: ['/contentFormat', '/properties/contentFormat']
+      - !ruby/object:Api::Type::String
+        name: 'content'
+        description: 'An HTTP link or Base64-encoded binary data.'
+        required: true
+        sample_value: IEJhc2U2NA==
+        azure_sdk_references: ['/content', '/properties/content']

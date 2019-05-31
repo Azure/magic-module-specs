@@ -1,0 +1,8 @@
+--- !ruby/object:Provider::Ansible::Example
+task: !ruby/object:Provider::Ansible::Task
+  name: azure_rm_eventgrideventsubscription_info
+  description: EventSubscriptions_ListRegionalByResourceGroup
+  code:
+    location: myLocation
+    resource_group: myResourceGroup
+  

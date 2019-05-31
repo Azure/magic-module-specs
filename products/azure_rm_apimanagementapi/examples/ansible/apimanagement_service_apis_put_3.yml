@@ -1,0 +1,16 @@
+--- !ruby/object:Provider::Ansible::Example
+task: !ruby/object:Provider::Ansible::Task
+  name: azure_rm_apimanagementapi
+  description: ApiManagementCreateSoapPassThroughApiUsingWsdlImport
+  code:
+    resource_group: myResourceGroup
+    name: myService
+    api_id: myApis
+    path: currency
+    content_value: 'http://www.webservicex.net/CurrencyConvertor.asmx?WSDL'
+    content_format: wsdl-link
+    wsdl_selector:
+      wsdl_service_name: CurrencyConvertor
+      wsdl_endpoint_name: CurrencyConvertorSoap
+    api_type: soap
+  

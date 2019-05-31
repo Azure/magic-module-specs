@@ -1,0 +1,9 @@
+--- !ruby/object:Provider::Ansible::Example
+task: !ruby/object:Provider::Ansible::Task
+  name: azure_rm_apimanagementproductsubscription_info
+  description: ApiManagementListProductSubscriptions
+  code:
+    resource_group: myResourceGroup
+    name: myService
+    product_id: myProduct
+  

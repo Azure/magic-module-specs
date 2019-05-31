@@ -1,0 +1,10 @@
+--- !ruby/object:Provider::Ansible::Example
+task: !ruby/object:Provider::Ansible::Task
+  name: azure_rm_apimanagementopenidconnectprovider
+  description: ApiManagementUpdateOpenIdConnectProvider
+  code:
+    resource_group: myResourceGroup
+    name: myService
+    opid: myOpenidConnectProvider
+    client_secret: updatedsecret
+  
