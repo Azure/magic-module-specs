@@ -30,7 +30,7 @@ objects:
             python_variable_name: resource_group
           'serviceName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             id_portion: service
-            go_variable_name: serviceName
+            go_variable_name: ServiceName
             python_parameter_name: service_name
             python_variable_name: service_name
           'templateName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
@@ -39,7 +39,7 @@ objects:
             python_parameter_name: template_name
             python_variable_name: name
           '/properties/parameters': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
-            go_field_name: parameters
+            go_field_name: Parameters
             go_type_name: {"$id":"2686","$type":"SequenceType","elementType":{"$ref":"2579"},"name":{"$id":"2687","fixed":false},"deprecated":false}
             python_field_name: parameters
           '/parameters/name': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
@@ -47,28 +47,28 @@ objects:
             python_field_name: name
           '/properties/parameters/name': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             applicable_to: [go]
-            go_field_name: name
+            go_field_name: Name
           '/parameters/title': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             applicable_to: [python]
             python_field_name: title
           '/properties/parameters/title': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             applicable_to: [go]
-            go_field_name: title
+            go_field_name: Title
           '/parameters/description': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             applicable_to: [python]
             python_field_name: description
           '/properties/parameters/description': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             applicable_to: [go]
-            go_field_name: description
+            go_field_name: Description
         response:
           '/id': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
-            go_field_name: id
+            go_field_name: ID
             python_field_name: id
           '/name': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
-            go_field_name: name
+            go_field_name: Name
             python_field_name: name
           '/type': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
-            go_field_name: type
+            go_field_name: Type
             python_field_name: type
       update: !ruby/object:Api::Azure::SDKOperationDefinition
         go_func_name: Update
@@ -81,7 +81,7 @@ objects:
             python_variable_name: resource_group
           'serviceName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             id_portion: service
-            go_variable_name: serviceName
+            go_variable_name: ServiceName
             python_parameter_name: service_name
             python_variable_name: service_name
           'templateName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
@@ -90,7 +90,7 @@ objects:
             python_parameter_name: template_name
             python_variable_name: name
           '/properties/parameters': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
-            go_field_name: parameters
+            go_field_name: Parameters
             go_type_name: {"$id":"2686","$type":"SequenceType","elementType":{"$ref":"2579"},"name":{"$id":"2687","fixed":false},"deprecated":false}
             python_field_name: parameters
           '/parameters/name': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
@@ -98,28 +98,28 @@ objects:
             python_field_name: name
           '/properties/parameters/name': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             applicable_to: [go]
-            go_field_name: name
+            go_field_name: Name
           '/parameters/title': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             applicable_to: [python]
             python_field_name: title
           '/properties/parameters/title': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             applicable_to: [go]
-            go_field_name: title
+            go_field_name: Title
           '/parameters/description': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             applicable_to: [python]
             python_field_name: description
           '/properties/parameters/description': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             applicable_to: [go]
-            go_field_name: description
+            go_field_name: Description
         response:
           '/id': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
-            go_field_name: id
+            go_field_name: ID
             python_field_name: id
           '/name': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
-            go_field_name: name
+            go_field_name: Name
             python_field_name: name
           '/type': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
-            go_field_name: type
+            go_field_name: Type
             python_field_name: type
       delete: !ruby/object:Api::Azure::SDKOperationDefinition
         go_func_name: Delete
@@ -132,7 +132,7 @@ objects:
             python_variable_name: resource_group
           'serviceName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             id_portion: service
-            go_variable_name: serviceName
+            go_variable_name: ServiceName
             python_parameter_name: service_name
             python_variable_name: service_name
           'templateName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
@@ -151,7 +151,7 @@ objects:
             python_variable_name: resource_group
           'serviceName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             id_portion: service
-            go_variable_name: serviceName
+            go_variable_name: ServiceName
             python_parameter_name: service_name
             python_variable_name: service_name
           'templateName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
@@ -161,13 +161,13 @@ objects:
             python_variable_name: name
         response:
           '/id': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
-            go_field_name: id
+            go_field_name: ID
             python_field_name: id
           '/name': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
-            go_field_name: name
+            go_field_name: Name
             python_field_name: name
           '/type': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
-            go_field_name: type
+            go_field_name: Type
             python_field_name: type
 
     description: |

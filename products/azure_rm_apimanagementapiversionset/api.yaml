@@ -35,58 +35,58 @@ objects:
             python_variable_name: name
           'versionSetId': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             id_portion: api-version-sets
-            go_variable_name: versionSetId
+            go_variable_name: VersionSetID
             python_parameter_name: version_set_id
             python_variable_name: version_set_id
           '/': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
-            go_variable_name: parameters
+            go_variable_name: Parameters
             go_type_name: ApiVersionSetContract
             python_parameter_name: parameters
             python_variable_name: parameters
           '/properties': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
             applicable_to: [go]
-            go_field_name: properties
+            go_field_name: Properties
             go_type_name: ApiVersionSetContractProperties
           '/description': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             applicable_to: [python]
             python_field_name: description
           '/properties/description': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             applicable_to: [go]
-            go_field_name: description
+            go_field_name: Description
           '/versionQueryName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             applicable_to: [python]
             python_field_name: version_query_name
           '/properties/versionQueryName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             applicable_to: [go]
-            go_field_name: versionQueryName
+            go_field_name: VersionQueryName
           '/versionHeaderName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             applicable_to: [python]
             python_field_name: version_header_name
           '/properties/versionHeaderName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             applicable_to: [go]
-            go_field_name: versionHeaderName
+            go_field_name: VersionHeaderName
           '/displayName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             applicable_to: [python]
             python_field_name: display_name
           '/properties/displayName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             applicable_to: [go]
-            go_field_name: displayName
+            go_field_name: DisplayName
           '/versioningScheme': !ruby/object:Api::Azure::SDKTypeDefinition::EnumObject
             applicable_to: [python]
             python_field_name: versioning_scheme
           '/properties/versioningScheme': !ruby/object:Api::Azure::SDKTypeDefinition::EnumObject
             applicable_to: [go]
-            go_field_name: versioningScheme
+            go_field_name: VersioningScheme
             go_enum_type_name: versioningScheme
         response:
           '/id': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
-            go_field_name: id
+            go_field_name: ID
             python_field_name: id
           '/name': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
-            go_field_name: name
+            go_field_name: Name
             python_field_name: name
           '/type': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
-            go_field_name: type
+            go_field_name: Type
             python_field_name: type
       update: !ruby/object:Api::Azure::SDKOperationDefinition
         go_func_name: Update
@@ -104,58 +104,58 @@ objects:
             python_variable_name: name
           'versionSetId': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             id_portion: api-version-sets
-            go_variable_name: versionSetId
+            go_variable_name: VersionSetID
             python_parameter_name: version_set_id
             python_variable_name: version_set_id
           '/': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
-            go_variable_name: parameters
+            go_variable_name: Parameters
             go_type_name: ApiVersionSetContract
             python_parameter_name: parameters
             python_variable_name: parameters
           '/properties': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
             applicable_to: [go]
-            go_field_name: properties
+            go_field_name: Properties
             go_type_name: ApiVersionSetContractProperties
           '/description': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             applicable_to: [python]
             python_field_name: description
           '/properties/description': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             applicable_to: [go]
-            go_field_name: description
+            go_field_name: Description
           '/versionQueryName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             applicable_to: [python]
             python_field_name: version_query_name
           '/properties/versionQueryName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             applicable_to: [go]
-            go_field_name: versionQueryName
+            go_field_name: VersionQueryName
           '/versionHeaderName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             applicable_to: [python]
             python_field_name: version_header_name
           '/properties/versionHeaderName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             applicable_to: [go]
-            go_field_name: versionHeaderName
+            go_field_name: VersionHeaderName
           '/displayName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             applicable_to: [python]
             python_field_name: display_name
           '/properties/displayName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             applicable_to: [go]
-            go_field_name: displayName
+            go_field_name: DisplayName
           '/versioningScheme': !ruby/object:Api::Azure::SDKTypeDefinition::EnumObject
             applicable_to: [python]
             python_field_name: versioning_scheme
           '/properties/versioningScheme': !ruby/object:Api::Azure::SDKTypeDefinition::EnumObject
             applicable_to: [go]
-            go_field_name: versioningScheme
+            go_field_name: VersioningScheme
             go_enum_type_name: versioningScheme
         response:
           '/id': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
-            go_field_name: id
+            go_field_name: ID
             python_field_name: id
           '/name': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
-            go_field_name: name
+            go_field_name: Name
             python_field_name: name
           '/type': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
-            go_field_name: type
+            go_field_name: Type
             python_field_name: type
       delete: !ruby/object:Api::Azure::SDKOperationDefinition
         go_func_name: Delete
@@ -173,7 +173,7 @@ objects:
             python_variable_name: name
           'versionSetId': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             id_portion: api-version-sets
-            go_variable_name: versionSetId
+            go_variable_name: VersionSetID
             python_parameter_name: version_set_id
             python_variable_name: version_set_id
       read: !ruby/object:Api::Azure::SDKOperationDefinition
@@ -192,18 +192,18 @@ objects:
             python_variable_name: name
           'versionSetId': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             id_portion: api-version-sets
-            go_variable_name: versionSetId
+            go_variable_name: VersionSetID
             python_parameter_name: version_set_id
             python_variable_name: version_set_id
         response:
           '/id': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
-            go_field_name: id
+            go_field_name: ID
             python_field_name: id
           '/name': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
-            go_field_name: name
+            go_field_name: Name
             python_field_name: name
           '/type': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
-            go_field_name: type
+            go_field_name: Type
             python_field_name: type
 
     description: |

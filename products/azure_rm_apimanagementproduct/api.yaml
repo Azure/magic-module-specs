@@ -35,70 +35,70 @@ objects:
             python_variable_name: name
           'productId': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             id_portion: products
-            go_variable_name: productId
+            go_variable_name: ProductID
             python_parameter_name: product_id
             python_variable_name: product_id
           '/': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
-            go_variable_name: parameters
+            go_variable_name: Parameters
             go_type_name: ProductContract
             python_parameter_name: parameters
             python_variable_name: parameters
           '/properties': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
             applicable_to: [go]
-            go_field_name: properties
+            go_field_name: Properties
             go_type_name: ProductContractProperties
           '/description': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             applicable_to: [python]
             python_field_name: description
           '/properties/description': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             applicable_to: [go]
-            go_field_name: description
+            go_field_name: Description
           '/terms': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             applicable_to: [python]
             python_field_name: terms
           '/properties/terms': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             applicable_to: [go]
-            go_field_name: terms
+            go_field_name: Terms
           '/subscriptionRequired': !ruby/object:Api::Azure::SDKTypeDefinition::BooleanObject
             applicable_to: [python]
             python_field_name: subscription_required
           '/properties/subscriptionRequired': !ruby/object:Api::Azure::SDKTypeDefinition::BooleanObject
             applicable_to: [go]
-            go_field_name: subscriptionRequired
+            go_field_name: SubscriptionRequired
           '/approvalRequired': !ruby/object:Api::Azure::SDKTypeDefinition::BooleanObject
             applicable_to: [python]
             python_field_name: approval_required
           '/properties/approvalRequired': !ruby/object:Api::Azure::SDKTypeDefinition::BooleanObject
             applicable_to: [go]
-            go_field_name: approvalRequired
+            go_field_name: ApprovalRequired
           '/subscriptionsLimit': 
             applicable_to: [python]
             python_field_name: subscriptions_limit
           '/properties/subscriptionsLimit': 
             applicable_to: [go]
-            go_field_name: subscriptionsLimit
+            go_field_name: SubscriptionsLimit
           '/state': !ruby/object:Api::Azure::SDKTypeDefinition::EnumObject
             applicable_to: [python]
             python_field_name: state
           '/properties/state': !ruby/object:Api::Azure::SDKTypeDefinition::EnumObject
             applicable_to: [go]
-            go_field_name: state
+            go_field_name: State
             go_enum_type_name: ProductState
           '/displayName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             applicable_to: [python]
             python_field_name: display_name
           '/properties/displayName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             applicable_to: [go]
-            go_field_name: displayName
+            go_field_name: DisplayName
         response:
           '/id': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
-            go_field_name: id
+            go_field_name: ID
             python_field_name: id
           '/name': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
-            go_field_name: name
+            go_field_name: Name
             python_field_name: name
           '/type': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
-            go_field_name: type
+            go_field_name: Type
             python_field_name: type
       update: !ruby/object:Api::Azure::SDKOperationDefinition
         go_func_name: Update
@@ -116,70 +116,70 @@ objects:
             python_variable_name: name
           'productId': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             id_portion: products
-            go_variable_name: productId
+            go_variable_name: ProductID
             python_parameter_name: product_id
             python_variable_name: product_id
           '/': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
-            go_variable_name: parameters
+            go_variable_name: Parameters
             go_type_name: ProductContract
             python_parameter_name: parameters
             python_variable_name: parameters
           '/properties': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
             applicable_to: [go]
-            go_field_name: properties
+            go_field_name: Properties
             go_type_name: ProductContractProperties
           '/description': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             applicable_to: [python]
             python_field_name: description
           '/properties/description': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             applicable_to: [go]
-            go_field_name: description
+            go_field_name: Description
           '/terms': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             applicable_to: [python]
             python_field_name: terms
           '/properties/terms': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             applicable_to: [go]
-            go_field_name: terms
+            go_field_name: Terms
           '/subscriptionRequired': !ruby/object:Api::Azure::SDKTypeDefinition::BooleanObject
             applicable_to: [python]
             python_field_name: subscription_required
           '/properties/subscriptionRequired': !ruby/object:Api::Azure::SDKTypeDefinition::BooleanObject
             applicable_to: [go]
-            go_field_name: subscriptionRequired
+            go_field_name: SubscriptionRequired
           '/approvalRequired': !ruby/object:Api::Azure::SDKTypeDefinition::BooleanObject
             applicable_to: [python]
             python_field_name: approval_required
           '/properties/approvalRequired': !ruby/object:Api::Azure::SDKTypeDefinition::BooleanObject
             applicable_to: [go]
-            go_field_name: approvalRequired
+            go_field_name: ApprovalRequired
           '/subscriptionsLimit': 
             applicable_to: [python]
             python_field_name: subscriptions_limit
           '/properties/subscriptionsLimit': 
             applicable_to: [go]
-            go_field_name: subscriptionsLimit
+            go_field_name: SubscriptionsLimit
           '/state': !ruby/object:Api::Azure::SDKTypeDefinition::EnumObject
             applicable_to: [python]
             python_field_name: state
           '/properties/state': !ruby/object:Api::Azure::SDKTypeDefinition::EnumObject
             applicable_to: [go]
-            go_field_name: state
+            go_field_name: State
             go_enum_type_name: ProductState
           '/displayName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             applicable_to: [python]
             python_field_name: display_name
           '/properties/displayName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             applicable_to: [go]
-            go_field_name: displayName
+            go_field_name: DisplayName
         response:
           '/id': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
-            go_field_name: id
+            go_field_name: ID
             python_field_name: id
           '/name': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
-            go_field_name: name
+            go_field_name: Name
             python_field_name: name
           '/type': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
-            go_field_name: type
+            go_field_name: Type
             python_field_name: type
       delete: !ruby/object:Api::Azure::SDKOperationDefinition
         go_func_name: Delete
@@ -197,7 +197,7 @@ objects:
             python_variable_name: name
           'productId': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             id_portion: products
-            go_variable_name: productId
+            go_variable_name: ProductID
             python_parameter_name: product_id
             python_variable_name: product_id
       read: !ruby/object:Api::Azure::SDKOperationDefinition
@@ -216,18 +216,18 @@ objects:
             python_variable_name: name
           'productId': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             id_portion: products
-            go_variable_name: productId
+            go_variable_name: ProductID
             python_parameter_name: product_id
             python_variable_name: product_id
         response:
           '/id': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
-            go_field_name: id
+            go_field_name: ID
             python_field_name: id
           '/name': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
-            go_field_name: name
+            go_field_name: Name
             python_field_name: name
           '/type': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
-            go_field_name: type
+            go_field_name: Type
             python_field_name: type
 
     description: |

@@ -31,7 +31,7 @@ objects:
             python_variable_name: resource_group
           'accountName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             id_portion: batchAccounts
-            go_variable_name: accountName
+            go_variable_name: AccountName
             python_parameter_name: account_name
             python_variable_name: account_name
           'certificateName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
@@ -40,57 +40,57 @@ objects:
             python_parameter_name: certificate_name
             python_variable_name: name
           '/': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
-            go_variable_name: parameters
+            go_variable_name: Parameters
             go_type_name: CertificateCreateOrUpdateParameters
             python_parameter_name: parameters
             python_variable_name: parameters
           '/properties': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
             applicable_to: [go]
-            go_field_name: properties
+            go_field_name: Properties
             go_type_name: CertificateCreateOrUpdateProperties
           '/thumbprintAlgorithm': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             applicable_to: [python]
             python_field_name: thumbprint_algorithm
           '/properties/thumbprintAlgorithm': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             applicable_to: [go]
-            go_field_name: thumbprintAlgorithm
+            go_field_name: ThumbprintAlgorithm
           '/thumbprint': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             applicable_to: [python]
             python_field_name: thumbprint
           '/properties/thumbprint': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             applicable_to: [go]
-            go_field_name: thumbprint
+            go_field_name: Thumbprint
           '/format': !ruby/object:Api::Azure::SDKTypeDefinition::EnumObject
             applicable_to: [python]
             python_field_name: format
           '/properties/format': !ruby/object:Api::Azure::SDKTypeDefinition::EnumObject
             applicable_to: [go]
-            go_field_name: format
+            go_field_name: Format
             go_enum_type_name: CertificateFormat
           '/data': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             applicable_to: [python]
             python_field_name: data
           '/properties/data': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             applicable_to: [go]
-            go_field_name: data
+            go_field_name: Data
           '/password': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             applicable_to: [python]
             python_field_name: password
           '/properties/password': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             applicable_to: [go]
-            go_field_name: password
+            go_field_name: Password
         response:
           '/id': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
-            go_field_name: id
+            go_field_name: ID
             python_field_name: id
           '/name': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
-            go_field_name: name
+            go_field_name: Name
             python_field_name: name
           '/type': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
-            go_field_name: type
+            go_field_name: Type
             python_field_name: type
           '/etag': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
-            go_field_name: etag
+            go_field_name: Etag
             python_field_name: etag
       update: !ruby/object:Api::Azure::SDKOperationDefinition
         go_func_name: Update
@@ -103,7 +103,7 @@ objects:
             python_variable_name: resource_group
           'accountName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             id_portion: batchAccounts
-            go_variable_name: accountName
+            go_variable_name: AccountName
             python_parameter_name: account_name
             python_variable_name: account_name
           'certificateName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
@@ -112,57 +112,57 @@ objects:
             python_parameter_name: certificate_name
             python_variable_name: name
           '/': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
-            go_variable_name: parameters
+            go_variable_name: Parameters
             go_type_name: CertificateCreateOrUpdateParameters
             python_parameter_name: parameters
             python_variable_name: parameters
           '/properties': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
             applicable_to: [go]
-            go_field_name: properties
+            go_field_name: Properties
             go_type_name: CertificateCreateOrUpdateProperties
           '/thumbprintAlgorithm': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             applicable_to: [python]
             python_field_name: thumbprint_algorithm
           '/properties/thumbprintAlgorithm': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             applicable_to: [go]
-            go_field_name: thumbprintAlgorithm
+            go_field_name: ThumbprintAlgorithm
           '/thumbprint': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             applicable_to: [python]
             python_field_name: thumbprint
           '/properties/thumbprint': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             applicable_to: [go]
-            go_field_name: thumbprint
+            go_field_name: Thumbprint
           '/format': !ruby/object:Api::Azure::SDKTypeDefinition::EnumObject
             applicable_to: [python]
             python_field_name: format
           '/properties/format': !ruby/object:Api::Azure::SDKTypeDefinition::EnumObject
             applicable_to: [go]
-            go_field_name: format
+            go_field_name: Format
             go_enum_type_name: CertificateFormat
           '/data': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             applicable_to: [python]
             python_field_name: data
           '/properties/data': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             applicable_to: [go]
-            go_field_name: data
+            go_field_name: Data
           '/password': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             applicable_to: [python]
             python_field_name: password
           '/properties/password': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             applicable_to: [go]
-            go_field_name: password
+            go_field_name: Password
         response:
           '/id': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
-            go_field_name: id
+            go_field_name: ID
             python_field_name: id
           '/name': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
-            go_field_name: name
+            go_field_name: Name
             python_field_name: name
           '/type': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
-            go_field_name: type
+            go_field_name: Type
             python_field_name: type
           '/etag': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
-            go_field_name: etag
+            go_field_name: Etag
             python_field_name: etag
       delete: !ruby/object:Api::Azure::SDKOperationDefinition
         async: true
@@ -176,7 +176,7 @@ objects:
             python_variable_name: resource_group
           'accountName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             id_portion: batchAccounts
-            go_variable_name: accountName
+            go_variable_name: AccountName
             python_parameter_name: account_name
             python_variable_name: account_name
           'certificateName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
@@ -195,7 +195,7 @@ objects:
             python_variable_name: resource_group
           'accountName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             id_portion: batchAccounts
-            go_variable_name: accountName
+            go_variable_name: AccountName
             python_parameter_name: account_name
             python_variable_name: account_name
           'certificateName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
@@ -205,16 +205,16 @@ objects:
             python_variable_name: name
         response:
           '/id': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
-            go_field_name: id
+            go_field_name: ID
             python_field_name: id
           '/name': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
-            go_field_name: name
+            go_field_name: Name
             python_field_name: name
           '/type': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
-            go_field_name: type
+            go_field_name: Type
             python_field_name: type
           '/etag': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
-            go_field_name: etag
+            go_field_name: Etag
             python_field_name: etag
 
     description: |

@@ -30,7 +30,7 @@ objects:
             python_variable_name: resource_group
           'automationAccountName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             id_portion: automationAccounts
-            go_variable_name: automationAccountName
+            go_variable_name: AutomationAccountName
             python_parameter_name: automation_account_name
             python_variable_name: automation_account_name
           'jobName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
@@ -39,22 +39,22 @@ objects:
             python_parameter_name: job_name
             python_variable_name: name
           '/properties/parameters': 
-            go_field_name: parameters
+            go_field_name: Parameters
             python_field_name: parameters
           'clientRequestId': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             id_portion: null
-            go_variable_name: clientRequestId
+            go_variable_name: ClientRequestID
             python_parameter_name: client_request_id
             python_variable_name: client_request_id
         response:
           '/id': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
-            go_field_name: id
+            go_field_name: ID
             python_field_name: id
           '/name': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
-            go_field_name: name
+            go_field_name: Name
             python_field_name: name
           '/type': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
-            go_field_name: type
+            go_field_name: Type
             python_field_name: type
       read: !ruby/object:Api::Azure::SDKOperationDefinition
         go_func_name: Get
@@ -67,7 +67,7 @@ objects:
             python_variable_name: resource_group
           'automationAccountName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             id_portion: automationAccounts
-            go_variable_name: automationAccountName
+            go_variable_name: AutomationAccountName
             python_parameter_name: automation_account_name
             python_variable_name: automation_account_name
           'jobName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
@@ -77,18 +77,18 @@ objects:
             python_variable_name: name
           'clientRequestId': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             id_portion: null
-            go_variable_name: clientRequestId
+            go_variable_name: ClientRequestID
             python_parameter_name: client_request_id
             python_variable_name: client_request_id
         response:
           '/id': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
-            go_field_name: id
+            go_field_name: ID
             python_field_name: id
           '/name': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
-            go_field_name: name
+            go_field_name: Name
             python_field_name: name
           '/type': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
-            go_field_name: type
+            go_field_name: Type
             python_field_name: type
 
     description: |

@@ -35,52 +35,52 @@ objects:
             python_variable_name: name
           'loggerid': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             id_portion: loggers
-            go_variable_name: loggerid
+            go_variable_name: Loggerid
             python_parameter_name: loggerid
             python_variable_name: loggerid
           '/': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
-            go_variable_name: parameters
+            go_variable_name: Parameters
             go_type_name: LoggerContract
             python_parameter_name: parameters
             python_variable_name: parameters
           '/properties': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
             applicable_to: [go]
-            go_field_name: properties
+            go_field_name: Properties
             go_type_name: LoggerContractProperties
           '/loggerType': !ruby/object:Api::Azure::SDKTypeDefinition::EnumObject
             applicable_to: [python]
             python_field_name: logger_type
           '/properties/loggerType': !ruby/object:Api::Azure::SDKTypeDefinition::EnumObject
             applicable_to: [go]
-            go_field_name: loggerType
+            go_field_name: LoggerType
             go_enum_type_name: LoggerType
           '/description': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             applicable_to: [python]
             python_field_name: description
           '/properties/description': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             applicable_to: [go]
-            go_field_name: description
+            go_field_name: Description
           '/credentials': 
             applicable_to: [python]
             python_field_name: credentials
           '/properties/credentials': 
             applicable_to: [go]
-            go_field_name: credentials
+            go_field_name: Credentials
           '/isBuffered': !ruby/object:Api::Azure::SDKTypeDefinition::BooleanObject
             applicable_to: [python]
             python_field_name: is_buffered
           '/properties/isBuffered': !ruby/object:Api::Azure::SDKTypeDefinition::BooleanObject
             applicable_to: [go]
-            go_field_name: isBuffered
+            go_field_name: IsBuffered
         response:
           '/id': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
-            go_field_name: id
+            go_field_name: ID
             python_field_name: id
           '/name': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
-            go_field_name: name
+            go_field_name: Name
             python_field_name: name
           '/type': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
-            go_field_name: type
+            go_field_name: Type
             python_field_name: type
       update: !ruby/object:Api::Azure::SDKOperationDefinition
         go_func_name: Update
@@ -98,52 +98,52 @@ objects:
             python_variable_name: name
           'loggerid': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             id_portion: loggers
-            go_variable_name: loggerid
+            go_variable_name: Loggerid
             python_parameter_name: loggerid
             python_variable_name: loggerid
           '/': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
-            go_variable_name: parameters
+            go_variable_name: Parameters
             go_type_name: LoggerContract
             python_parameter_name: parameters
             python_variable_name: parameters
           '/properties': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
             applicable_to: [go]
-            go_field_name: properties
+            go_field_name: Properties
             go_type_name: LoggerContractProperties
           '/loggerType': !ruby/object:Api::Azure::SDKTypeDefinition::EnumObject
             applicable_to: [python]
             python_field_name: logger_type
           '/properties/loggerType': !ruby/object:Api::Azure::SDKTypeDefinition::EnumObject
             applicable_to: [go]
-            go_field_name: loggerType
+            go_field_name: LoggerType
             go_enum_type_name: LoggerType
           '/description': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             applicable_to: [python]
             python_field_name: description
           '/properties/description': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             applicable_to: [go]
-            go_field_name: description
+            go_field_name: Description
           '/credentials': 
             applicable_to: [python]
             python_field_name: credentials
           '/properties/credentials': 
             applicable_to: [go]
-            go_field_name: credentials
+            go_field_name: Credentials
           '/isBuffered': !ruby/object:Api::Azure::SDKTypeDefinition::BooleanObject
             applicable_to: [python]
             python_field_name: is_buffered
           '/properties/isBuffered': !ruby/object:Api::Azure::SDKTypeDefinition::BooleanObject
             applicable_to: [go]
-            go_field_name: isBuffered
+            go_field_name: IsBuffered
         response:
           '/id': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
-            go_field_name: id
+            go_field_name: ID
             python_field_name: id
           '/name': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
-            go_field_name: name
+            go_field_name: Name
             python_field_name: name
           '/type': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
-            go_field_name: type
+            go_field_name: Type
             python_field_name: type
       delete: !ruby/object:Api::Azure::SDKOperationDefinition
         go_func_name: Delete
@@ -161,7 +161,7 @@ objects:
             python_variable_name: name
           'loggerid': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             id_portion: loggers
-            go_variable_name: loggerid
+            go_variable_name: Loggerid
             python_parameter_name: loggerid
             python_variable_name: loggerid
       read: !ruby/object:Api::Azure::SDKOperationDefinition
@@ -180,18 +180,18 @@ objects:
             python_variable_name: name
           'loggerid': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             id_portion: loggers
-            go_variable_name: loggerid
+            go_variable_name: Loggerid
             python_parameter_name: loggerid
             python_variable_name: loggerid
         response:
           '/id': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
-            go_field_name: id
+            go_field_name: ID
             python_field_name: id
           '/name': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
-            go_field_name: name
+            go_field_name: Name
             python_field_name: name
           '/type': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
-            go_field_name: type
+            go_field_name: Type
             python_field_name: type
 
     description: |

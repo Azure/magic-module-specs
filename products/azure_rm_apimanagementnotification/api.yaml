@@ -30,7 +30,7 @@ objects:
             python_variable_name: resource_group
           'serviceName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             id_portion: service
-            go_variable_name: serviceName
+            go_variable_name: ServiceName
             python_parameter_name: service_name
             python_variable_name: service_name
           'notificationName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
@@ -40,13 +40,13 @@ objects:
             python_variable_name: name
         response:
           '/id': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
-            go_field_name: id
+            go_field_name: ID
             python_field_name: id
           '/name': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
-            go_field_name: name
+            go_field_name: Name
             python_field_name: name
           '/type': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
-            go_field_name: type
+            go_field_name: Type
             python_field_name: type
       read: !ruby/object:Api::Azure::SDKOperationDefinition
         go_func_name: Get
@@ -59,7 +59,7 @@ objects:
             python_variable_name: resource_group
           'serviceName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             id_portion: service
-            go_variable_name: serviceName
+            go_variable_name: ServiceName
             python_parameter_name: service_name
             python_variable_name: service_name
           'notificationName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
@@ -69,13 +69,13 @@ objects:
             python_variable_name: name
         response:
           '/id': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
-            go_field_name: id
+            go_field_name: ID
             python_field_name: id
           '/name': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
-            go_field_name: name
+            go_field_name: Name
             python_field_name: name
           '/type': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
-            go_field_name: type
+            go_field_name: Type
             python_field_name: type
 
     description: |
