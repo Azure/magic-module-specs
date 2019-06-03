@@ -1,0 +1,15 @@
+--- !ruby/object:Provider::Ansible::Example
+task: !ruby/object:Provider::Ansible::Task
+  name: azure_rm_apimanagementapioperationpolicy
+  description: ApiManagementCreateApiOperationPolicy
+  code:
+    resource_group: myResourceGroup
+    name: myService
+    api_id: myApis
+    operation_id: myOperation
+    policy_id: myPolicy
+    policy_content: >-
+      <policies> <inbound /> <backend>    <forward-request />  </backend> 
+      <outbound /></policies>
+    content_format: xml
+  

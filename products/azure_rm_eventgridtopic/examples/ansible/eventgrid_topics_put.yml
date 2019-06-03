@@ -1,0 +1,13 @@
+--- !ruby/object:Provider::Ansible::Example
+task: !ruby/object:Provider::Ansible::Task
+  name: azure_rm_eventgridtopic
+  description: Topics_CreateOrUpdate
+  code:
+    resource_group: myResourceGroup
+    name: myTopic
+    topic_info:
+      location: westus2
+      tags:
+        tag1: value1
+        tag2: value2
+  

@@ -1,0 +1,10 @@
+--- !ruby/object:Provider::Ansible::Example
+task: !ruby/object:Provider::Ansible::Task
+  name: azure_rm_automationjobstream_info
+  description: Get job stream
+  code:
+    resource_group: myResourceGroup
+    automation_account_name: myAutomationAccount
+    name: myJob
+    job_stream_id: myStream
+  

@@ -1,0 +1,23 @@
+--- !ruby/object:Provider::Ansible::Example
+task: !ruby/object:Provider::Ansible::Task
+  name: azure_rm_apimanagementapi
+  description: ApiManagementCreateApiRevision
+  code:
+    resource_group: myResourceGroup
+    name: myService
+    api_id: myApis
+    description: >-
+      This is a sample server Petstore server.  You can find out more about
+      Swagger at [http://swagger.io](http://swagger.io) or on [irc.freenode.net,
+      #swagger](http://swagger.io/irc/).  For this sample, you can use the api key
+      `special-key` to test the authorization filters.
+    subscription_key_parameter_names:
+      header: Ocp-Apim-Subscription-Key
+      query: subscription-key
+    api_revision_description: moved to swagger petstore backend
+    display_name: Echo API
+    service_url: 'http://petstore.swagger.io/v5'
+    path: petstore2
+    protocols:
+      - https
+  

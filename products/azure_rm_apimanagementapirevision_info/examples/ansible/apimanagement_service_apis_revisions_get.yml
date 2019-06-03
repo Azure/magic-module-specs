@@ -1,0 +1,9 @@
+--- !ruby/object:Provider::Ansible::Example
+task: !ruby/object:Provider::Ansible::Task
+  name: azure_rm_apimanagementapirevision_info
+  description: ApiManagementListApiRevisions
+  code:
+    resource_group: myResourceGroup
+    name: myService
+    api_id: myApis
+  

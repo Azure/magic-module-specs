@@ -1,0 +1,8 @@
+--- !ruby/object:Provider::Ansible::Example
+task: !ruby/object:Provider::Ansible::Task
+  name: azure_rm_eventgrideventsubscription_info
+  description: EventSubscriptions_ListGlobalByResourceGroupForTopicType
+  code:
+    topic_type_name: myTopicType
+    resource_group: myResourceGroup
+  

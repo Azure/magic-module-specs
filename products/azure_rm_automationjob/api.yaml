@@ -1,0 +1,145 @@
+--- !ruby/object:Api::Product
+name: Azure Job Management
+prefix: azure_rm_automationjob
+versions:
+  - !ruby/object:Api::Product::Version
+    name: ga
+    base_url: NotUsedInAzure
+scopes:
+  - NotUsedInAzure
+objects:
+  - !ruby/object:Api::Resource
+    name: Job
+    api_name: Automation
+    base_url: NotUsedInAzure
+
+    azure_sdk_definition: !ruby/object:Api::Azure::SDKDefinition
+      provider_name: Microsoft.Automation
+      go_client_namespace: automation
+      go_client: jobClient
+      python_client_namespace: azure.mgmt.automation
+      python_client: AutomationManagementClient.job
+      create: !ruby/object:Api::Azure::SDKOperationDefinition
+        go_func_name: Create
+        python_func_name: create
+        request:
+          'resourceGroupName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            id_portion: resourceGroups
+            go_variable_name: resourceGroup
+            python_parameter_name: resource_group_name
+            python_variable_name: resource_group
+          'automationAccountName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            id_portion: automationAccounts
+            go_variable_name: automationAccountName
+            python_parameter_name: automation_account_name
+            python_variable_name: automation_account_name
+          'jobName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            id_portion: jobs
+            go_variable_name: name
+            python_parameter_name: job_name
+            python_variable_name: name
+          '/properties/parameters': 
+            go_field_name: parameters
+            python_field_name: parameters
+          'clientRequestId': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            id_portion: null
+            go_variable_name: clientRequestId
+            python_parameter_name: client_request_id
+            python_variable_name: client_request_id
+        response:
+          '/id': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            go_field_name: id
+            python_field_name: id
+          '/name': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            go_field_name: name
+            python_field_name: name
+          '/type': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            go_field_name: type
+            python_field_name: type
+      read: !ruby/object:Api::Azure::SDKOperationDefinition
+        go_func_name: Get
+        python_func_name: get
+        request:
+          'resourceGroupName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            id_portion: resourceGroups
+            go_variable_name: resourceGroup
+            python_parameter_name: resource_group_name
+            python_variable_name: resource_group
+          'automationAccountName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            id_portion: automationAccounts
+            go_variable_name: automationAccountName
+            python_parameter_name: automation_account_name
+            python_variable_name: automation_account_name
+          'jobName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            id_portion: jobs
+            go_variable_name: name
+            python_parameter_name: job_name
+            python_variable_name: name
+          'clientRequestId': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            id_portion: null
+            go_variable_name: clientRequestId
+            python_parameter_name: client_request_id
+            python_variable_name: client_request_id
+        response:
+          '/id': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            go_field_name: id
+            python_field_name: id
+          '/name': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            go_field_name: name
+            python_field_name: name
+          '/type': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            go_field_name: type
+            python_field_name: type
+
+    description: |
+      Manage Azure Job instance.
+    properties:
+      - !ruby/object:Api::Azure::Type::ResourceGroupName
+        name: 'resourceGroup'
+        description: 'Name of an Azure Resource group.'
+        required: true
+        input: true
+        sample_value: myResourceGroup
+        azure_sdk_references: ['resourceGroupName']
+      - !ruby/object:Api::Type::String
+        name: 'automationAccountName'
+        description: 'The name of the automation account.'
+        required: true
+        input: true
+        sample_value: myAutomationAccount
+        azure_sdk_references: ['automationAccountName']
+      - !ruby/object:Api::Type::String
+        name: 'name'
+        description: 'The job name.'
+        required: true
+        input: true
+        sample_value: myJob
+        azure_sdk_references: ['jobName']
+      - !ruby/object:Api::Type::NestedObject
+        name: 'runbook'
+        description: 'Gets or sets the runbook.'
+        required: false
+        azure_sdk_references: ['/runbook', '/properties/runbook']
+        properties:
+          - !ruby/object:Api::Type::String
+            name: 'name'
+            description: 'Gets or sets the name of the runbook.'
+            required: false
+            sample_value: TestRunbook
+            azure_sdk_references: ['/runbook/name', '/properties/runbook/name']
+      - 
+        name: 'parameters'
+        description: 'Gets or sets the parameters of the job.'
+        required: false
+        azure_sdk_references: ['/parameters', '/properties/parameters']
+      - !ruby/object:Api::Type::String
+        name: 'runOn'
+        description: 'Gets or sets the runOn which specifies the group name where the job is to be executed.'
+        required: false
+        azure_sdk_references: ['/runOn', '/properties/runOn']
+      - !ruby/object:Api::Type::String
+        name: 'clientRequestId'
+        description: 'Identifies this specific client request.'
+        required: false
+        input: true
+        azure_sdk_references: ['clientRequestId']

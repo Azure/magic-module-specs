@@ -1,0 +1,8 @@
+--- !ruby/object:Provider::Ansible::Example
+task: !ruby/object:Provider::Ansible::Task
+  name: azure_rm_servicebustopic_info
+  description: TopicGet
+  code:
+    resource_group: myResourceGroup
+    namespace_name: my
+  

@@ -1,0 +1,9 @@
+--- !ruby/object:Provider::Ansible::Example
+task: !ruby/object:Provider::Ansible::Task
+  name: azure_rm_automationjob_info
+  description: List jobs by automation account
+  code:
+    resource_group: myResourceGroup
+    automation_account_name: myAutomationAccount
+    name: foo
+  

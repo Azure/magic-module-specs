@@ -1,0 +1,10 @@
+--- !ruby/object:Provider::Ansible::Example
+task: !ruby/object:Provider::Ansible::Task
+  name: azure_rm_apimanagementdiagnostic
+  description: ApiManagementCreateDiagnostic
+  code:
+    resource_group: myResourceGroup
+    name: myService
+    diagnostic_id: myDiagnostic
+    enabled: true
+  
