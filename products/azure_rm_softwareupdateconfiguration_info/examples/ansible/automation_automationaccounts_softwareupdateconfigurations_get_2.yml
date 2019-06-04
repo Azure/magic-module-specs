@@ -1,8 +1,0 @@
---- !ruby/object:Provider::Ansible::Example
-task: !ruby/object:Provider::Ansible::Task
-  name: azure_rm_softwareupdateconfiguration_info
-  description: List software update configurations Targeting a specific azure virtual machine
-  code:
-    resource_group: myResourceGroup
-    automation_account_name: myAutomationAccount
-  
