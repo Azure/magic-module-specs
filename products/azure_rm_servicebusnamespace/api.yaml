@@ -35,44 +35,44 @@ objects:
             python_parameter_name: namespace_name
             python_variable_name: name
           '/': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
-            go_variable_name: parameters
+            go_variable_name: Parameters
             go_type_name: SBNamespace
             python_parameter_name: parameters
             python_variable_name: parameters
           '/location': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
-            go_field_name: location
+            go_field_name: Location
             python_field_name: location
           '/tags': !ruby/object:Api::Azure::SDKTypeDefinition::StringMapObject
-            go_field_name: tags
+            go_field_name: Tags
             python_field_name: tags
           '/sku': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
-            go_field_name: sku
+            go_field_name: Sku
             go_type_name: SBSku
             python_field_name: sku
           '/sku/name': !ruby/object:Api::Azure::SDKTypeDefinition::EnumObject
-            go_field_name: name
+            go_field_name: Name
             go_enum_type_name: SkuName
             python_field_name: name
           '/sku/tier': !ruby/object:Api::Azure::SDKTypeDefinition::EnumObject
-            go_field_name: tier
+            go_field_name: Tier
             go_enum_type_name: SkuTier
             python_field_name: tier
           '/sku/capacity': 
-            go_field_name: capacity
+            go_field_name: Capacity
             python_field_name: capacity
           '/properties': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
             applicable_to: [go]
-            go_field_name: properties
+            go_field_name: Properties
             go_type_name: SBNamespaceProperties
         response:
           '/id': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
-            go_field_name: id
+            go_field_name: ID
             python_field_name: id
           '/name': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
-            go_field_name: name
+            go_field_name: Name
             python_field_name: name
           '/type': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
-            go_field_name: type
+            go_field_name: Type
             python_field_name: type
       update: !ruby/object:Api::Azure::SDKOperationDefinition
         go_func_name: Update
@@ -89,44 +89,44 @@ objects:
             python_parameter_name: namespace_name
             python_variable_name: name
           '/': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
-            go_variable_name: parameters
+            go_variable_name: Parameters
             go_type_name: SBNamespace
             python_parameter_name: parameters
             python_variable_name: parameters
           '/location': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
-            go_field_name: location
+            go_field_name: Location
             python_field_name: location
           '/tags': !ruby/object:Api::Azure::SDKTypeDefinition::StringMapObject
-            go_field_name: tags
+            go_field_name: Tags
             python_field_name: tags
           '/sku': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
-            go_field_name: sku
+            go_field_name: Sku
             go_type_name: SBSku
             python_field_name: sku
           '/sku/name': !ruby/object:Api::Azure::SDKTypeDefinition::EnumObject
-            go_field_name: name
+            go_field_name: Name
             go_enum_type_name: SkuName
             python_field_name: name
           '/sku/tier': !ruby/object:Api::Azure::SDKTypeDefinition::EnumObject
-            go_field_name: tier
+            go_field_name: Tier
             go_enum_type_name: SkuTier
             python_field_name: tier
           '/sku/capacity': 
-            go_field_name: capacity
+            go_field_name: Capacity
             python_field_name: capacity
           '/properties': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
             applicable_to: [go]
-            go_field_name: properties
+            go_field_name: Properties
             go_type_name: SBNamespaceProperties
         response:
           '/id': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
-            go_field_name: id
+            go_field_name: ID
             python_field_name: id
           '/name': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
-            go_field_name: name
+            go_field_name: Name
             python_field_name: name
           '/type': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
-            go_field_name: type
+            go_field_name: Type
             python_field_name: type
       delete: !ruby/object:Api::Azure::SDKOperationDefinition
         async: true
@@ -159,13 +159,13 @@ objects:
             python_variable_name: name
         response:
           '/id': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
-            go_field_name: id
+            go_field_name: ID
             python_field_name: id
           '/name': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
-            go_field_name: name
+            go_field_name: Name
             python_field_name: name
           '/type': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
-            go_field_name: type
+            go_field_name: Type
             python_field_name: type
 
     description: |

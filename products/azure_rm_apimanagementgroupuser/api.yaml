@@ -35,23 +35,23 @@ objects:
             python_variable_name: name
           'groupId': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             id_portion: groups
-            go_variable_name: groupId
+            go_variable_name: GroupID
             python_parameter_name: group_id
             python_variable_name: group_id
           'uid': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             id_portion: users
-            go_variable_name: uid
+            go_variable_name: Uid
             python_parameter_name: uid
             python_variable_name: uid
         response:
           '/id': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
-            go_field_name: id
+            go_field_name: ID
             python_field_name: id
           '/name': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
-            go_field_name: name
+            go_field_name: Name
             python_field_name: name
           '/type': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
-            go_field_name: type
+            go_field_name: Type
             python_field_name: type
       delete: !ruby/object:Api::Azure::SDKOperationDefinition
         go_func_name: Delete
@@ -69,12 +69,12 @@ objects:
             python_variable_name: name
           'groupId': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             id_portion: groups
-            go_variable_name: groupId
+            go_variable_name: GroupID
             python_parameter_name: group_id
             python_variable_name: group_id
           'uid': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             id_portion: users
-            go_variable_name: uid
+            go_variable_name: Uid
             python_parameter_name: uid
             python_variable_name: uid
 

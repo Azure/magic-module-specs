@@ -35,29 +35,29 @@ objects:
             python_variable_name: name
           'apiId': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             id_portion: apis
-            go_variable_name: apiId
+            go_variable_name: ApiID
             python_parameter_name: api_id
             python_variable_name: api_id
           'schemaId': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             id_portion: schemas
-            go_variable_name: schemaId
+            go_variable_name: SchemaID
             python_parameter_name: schema_id
             python_variable_name: schema_id
           '/': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
-            go_variable_name: parameters
+            go_variable_name: Parameters
             go_type_name: SchemaContract
             python_parameter_name: parameters
             python_variable_name: parameters
           '/properties': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
             applicable_to: [go]
-            go_field_name: properties
+            go_field_name: Properties
             go_type_name: SchemaContractProperties
           '/contentType': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             applicable_to: [python]
             python_field_name: content_type
           '/properties/contentType': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             applicable_to: [go]
-            go_field_name: contentType
+            go_field_name: ContentType
           '/document': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
             applicable_to: [python]
             python_field_name: document
@@ -66,20 +66,20 @@ objects:
             python_field_name: value
           '/properties/document': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
             applicable_to: [go]
-            go_field_name: document
+            go_field_name: Document
             go_type_name: SchemaDocumentProperties
           '/properties/document/value': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             applicable_to: [go]
-            go_field_name: value
+            go_field_name: Value
         response:
           '/id': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
-            go_field_name: id
+            go_field_name: ID
             python_field_name: id
           '/name': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
-            go_field_name: name
+            go_field_name: Name
             python_field_name: name
           '/type': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
-            go_field_name: type
+            go_field_name: Type
             python_field_name: type
       delete: !ruby/object:Api::Azure::SDKOperationDefinition
         go_func_name: Delete
@@ -97,12 +97,12 @@ objects:
             python_variable_name: name
           'apiId': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             id_portion: apis
-            go_variable_name: apiId
+            go_variable_name: ApiID
             python_parameter_name: api_id
             python_variable_name: api_id
           'schemaId': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             id_portion: schemas
-            go_variable_name: schemaId
+            go_variable_name: SchemaID
             python_parameter_name: schema_id
             python_variable_name: schema_id
       read: !ruby/object:Api::Azure::SDKOperationDefinition
@@ -121,23 +121,23 @@ objects:
             python_variable_name: name
           'apiId': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             id_portion: apis
-            go_variable_name: apiId
+            go_variable_name: ApiID
             python_parameter_name: api_id
             python_variable_name: api_id
           'schemaId': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             id_portion: schemas
-            go_variable_name: schemaId
+            go_variable_name: SchemaID
             python_parameter_name: schema_id
             python_variable_name: schema_id
         response:
           '/id': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
-            go_field_name: id
+            go_field_name: ID
             python_field_name: id
           '/name': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
-            go_field_name: name
+            go_field_name: Name
             python_field_name: name
           '/type': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
-            go_field_name: type
+            go_field_name: Type
             python_field_name: type
 
     description: |

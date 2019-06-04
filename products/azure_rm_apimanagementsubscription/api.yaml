@@ -35,69 +35,69 @@ objects:
             python_variable_name: name
           'sid': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             id_portion: subscriptions
-            go_variable_name: sid
+            go_variable_name: Sid
             python_parameter_name: sid
             python_variable_name: sid
           '/': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
-            go_variable_name: parameters
+            go_variable_name: Parameters
             go_type_name: SubscriptionCreateParameters
             python_parameter_name: parameters
             python_variable_name: parameters
           '/properties': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
             applicable_to: [go]
-            go_field_name: properties
+            go_field_name: Properties
             go_type_name: SubscriptionCreateParameterProperties
           '/userId': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             applicable_to: [python]
             python_field_name: user_id
           '/properties/userId': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             applicable_to: [go]
-            go_field_name: userId
+            go_field_name: UserID
           '/productId': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             applicable_to: [python]
             python_field_name: product_id
           '/properties/productId': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             applicable_to: [go]
-            go_field_name: productId
+            go_field_name: ProductID
           '/displayName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             applicable_to: [python]
             python_field_name: display_name
           '/properties/displayName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             applicable_to: [go]
-            go_field_name: displayName
+            go_field_name: DisplayName
           '/primaryKey': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             applicable_to: [python]
             python_field_name: primary_key
           '/properties/primaryKey': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             applicable_to: [go]
-            go_field_name: primaryKey
+            go_field_name: PrimaryKey
           '/secondaryKey': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             applicable_to: [python]
             python_field_name: secondary_key
           '/properties/secondaryKey': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             applicable_to: [go]
-            go_field_name: secondaryKey
+            go_field_name: SecondaryKey
           '/state': !ruby/object:Api::Azure::SDKTypeDefinition::EnumObject
             applicable_to: [python]
             python_field_name: state
           '/properties/state': !ruby/object:Api::Azure::SDKTypeDefinition::EnumObject
             applicable_to: [go]
-            go_field_name: state
+            go_field_name: State
             go_enum_type_name: SubscriptionState
           'notify': !ruby/object:Api::Azure::SDKTypeDefinition::BooleanObject
             id_portion: null
-            go_variable_name: notify
+            go_variable_name: Notify
             python_parameter_name: notify
             python_variable_name: notify
         response:
           '/id': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
-            go_field_name: id
+            go_field_name: ID
             python_field_name: id
           '/name': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
-            go_field_name: name
+            go_field_name: Name
             python_field_name: name
           '/type': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
-            go_field_name: type
+            go_field_name: Type
             python_field_name: type
       update: !ruby/object:Api::Azure::SDKOperationDefinition
         go_func_name: Update
@@ -115,69 +115,69 @@ objects:
             python_variable_name: name
           'sid': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             id_portion: subscriptions
-            go_variable_name: sid
+            go_variable_name: Sid
             python_parameter_name: sid
             python_variable_name: sid
           '/': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
-            go_variable_name: parameters
+            go_variable_name: Parameters
             go_type_name: SubscriptionCreateParameters
             python_parameter_name: parameters
             python_variable_name: parameters
           '/properties': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
             applicable_to: [go]
-            go_field_name: properties
+            go_field_name: Properties
             go_type_name: SubscriptionCreateParameterProperties
           '/userId': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             applicable_to: [python]
             python_field_name: user_id
           '/properties/userId': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             applicable_to: [go]
-            go_field_name: userId
+            go_field_name: UserID
           '/productId': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             applicable_to: [python]
             python_field_name: product_id
           '/properties/productId': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             applicable_to: [go]
-            go_field_name: productId
+            go_field_name: ProductID
           '/displayName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             applicable_to: [python]
             python_field_name: display_name
           '/properties/displayName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             applicable_to: [go]
-            go_field_name: displayName
+            go_field_name: DisplayName
           '/primaryKey': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             applicable_to: [python]
             python_field_name: primary_key
           '/properties/primaryKey': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             applicable_to: [go]
-            go_field_name: primaryKey
+            go_field_name: PrimaryKey
           '/secondaryKey': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             applicable_to: [python]
             python_field_name: secondary_key
           '/properties/secondaryKey': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             applicable_to: [go]
-            go_field_name: secondaryKey
+            go_field_name: SecondaryKey
           '/state': !ruby/object:Api::Azure::SDKTypeDefinition::EnumObject
             applicable_to: [python]
             python_field_name: state
           '/properties/state': !ruby/object:Api::Azure::SDKTypeDefinition::EnumObject
             applicable_to: [go]
-            go_field_name: state
+            go_field_name: State
             go_enum_type_name: SubscriptionState
           'notify': !ruby/object:Api::Azure::SDKTypeDefinition::BooleanObject
             id_portion: null
-            go_variable_name: notify
+            go_variable_name: Notify
             python_parameter_name: notify
             python_variable_name: notify
         response:
           '/id': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
-            go_field_name: id
+            go_field_name: ID
             python_field_name: id
           '/name': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
-            go_field_name: name
+            go_field_name: Name
             python_field_name: name
           '/type': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
-            go_field_name: type
+            go_field_name: Type
             python_field_name: type
       delete: !ruby/object:Api::Azure::SDKOperationDefinition
         go_func_name: Delete
@@ -195,7 +195,7 @@ objects:
             python_variable_name: name
           'sid': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             id_portion: subscriptions
-            go_variable_name: sid
+            go_variable_name: Sid
             python_parameter_name: sid
             python_variable_name: sid
       read: !ruby/object:Api::Azure::SDKOperationDefinition
@@ -214,18 +214,18 @@ objects:
             python_variable_name: name
           'sid': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             id_portion: subscriptions
-            go_variable_name: sid
+            go_variable_name: Sid
             python_parameter_name: sid
             python_variable_name: sid
         response:
           '/id': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
-            go_field_name: id
+            go_field_name: ID
             python_field_name: id
           '/name': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
-            go_field_name: name
+            go_field_name: Name
             python_field_name: name
           '/type': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
-            go_field_name: type
+            go_field_name: Type
             python_field_name: type
 
     description: |

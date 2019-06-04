@@ -30,7 +30,7 @@ objects:
             python_variable_name: resource_group
           'namespaceName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             id_portion: namespaces
-            go_variable_name: namespaceName
+            go_variable_name: NamespaceName
             python_parameter_name: namespace_name
             python_variable_name: namespace_name
           'topicName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
@@ -39,84 +39,84 @@ objects:
             python_parameter_name: topic_name
             python_variable_name: name
           '/': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
-            go_variable_name: parameters
+            go_variable_name: Parameters
             go_type_name: SBTopic
             python_parameter_name: parameters
             python_variable_name: parameters
           '/properties': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
             applicable_to: [go]
-            go_field_name: properties
+            go_field_name: Properties
             go_type_name: SBTopicProperties
           '/defaultMessageTimeToLive': 
             applicable_to: [python]
             python_field_name: default_message_time_to_live
           '/properties/defaultMessageTimeToLive': 
             applicable_to: [go]
-            go_field_name: defaultMessageTimeToLive
+            go_field_name: DefaultMessageTimeToLive
           '/maxSizeInMegabytes': 
             applicable_to: [python]
             python_field_name: max_size_in_megabytes
           '/properties/maxSizeInMegabytes': 
             applicable_to: [go]
-            go_field_name: maxSizeInMegabytes
+            go_field_name: MaxSizeInMegabytes
           '/requiresDuplicateDetection': !ruby/object:Api::Azure::SDKTypeDefinition::BooleanObject
             applicable_to: [python]
             python_field_name: requires_duplicate_detection
           '/properties/requiresDuplicateDetection': !ruby/object:Api::Azure::SDKTypeDefinition::BooleanObject
             applicable_to: [go]
-            go_field_name: requiresDuplicateDetection
+            go_field_name: RequiresDuplicateDetection
           '/duplicateDetectionHistoryTimeWindow': 
             applicable_to: [python]
             python_field_name: duplicate_detection_history_time_window
           '/properties/duplicateDetectionHistoryTimeWindow': 
             applicable_to: [go]
-            go_field_name: duplicateDetectionHistoryTimeWindow
+            go_field_name: DuplicateDetectionHistoryTimeWindow
           '/enableBatchedOperations': !ruby/object:Api::Azure::SDKTypeDefinition::BooleanObject
             applicable_to: [python]
             python_field_name: enable_batched_operations
           '/properties/enableBatchedOperations': !ruby/object:Api::Azure::SDKTypeDefinition::BooleanObject
             applicable_to: [go]
-            go_field_name: enableBatchedOperations
+            go_field_name: EnableBatchedOperations
           '/status': !ruby/object:Api::Azure::SDKTypeDefinition::EnumObject
             applicable_to: [python]
             python_field_name: status
           '/properties/status': !ruby/object:Api::Azure::SDKTypeDefinition::EnumObject
             applicable_to: [go]
-            go_field_name: status
+            go_field_name: Status
             go_enum_type_name: EntityStatus
           '/supportOrdering': !ruby/object:Api::Azure::SDKTypeDefinition::BooleanObject
             applicable_to: [python]
             python_field_name: support_ordering
           '/properties/supportOrdering': !ruby/object:Api::Azure::SDKTypeDefinition::BooleanObject
             applicable_to: [go]
-            go_field_name: supportOrdering
+            go_field_name: SupportOrdering
           '/autoDeleteOnIdle': 
             applicable_to: [python]
             python_field_name: auto_delete_on_idle
           '/properties/autoDeleteOnIdle': 
             applicable_to: [go]
-            go_field_name: autoDeleteOnIdle
+            go_field_name: AutoDeleteOnIdle
           '/enablePartitioning': !ruby/object:Api::Azure::SDKTypeDefinition::BooleanObject
             applicable_to: [python]
             python_field_name: enable_partitioning
           '/properties/enablePartitioning': !ruby/object:Api::Azure::SDKTypeDefinition::BooleanObject
             applicable_to: [go]
-            go_field_name: enablePartitioning
+            go_field_name: EnablePartitioning
           '/enableExpress': !ruby/object:Api::Azure::SDKTypeDefinition::BooleanObject
             applicable_to: [python]
             python_field_name: enable_express
           '/properties/enableExpress': !ruby/object:Api::Azure::SDKTypeDefinition::BooleanObject
             applicable_to: [go]
-            go_field_name: enableExpress
+            go_field_name: EnableExpress
         response:
           '/id': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
-            go_field_name: id
+            go_field_name: ID
             python_field_name: id
           '/name': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
-            go_field_name: name
+            go_field_name: Name
             python_field_name: name
           '/type': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
-            go_field_name: type
+            go_field_name: Type
             python_field_name: type
       delete: !ruby/object:Api::Azure::SDKOperationDefinition
         go_func_name: Delete
@@ -129,7 +129,7 @@ objects:
             python_variable_name: resource_group
           'namespaceName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             id_portion: namespaces
-            go_variable_name: namespaceName
+            go_variable_name: NamespaceName
             python_parameter_name: namespace_name
             python_variable_name: namespace_name
           'topicName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
@@ -148,7 +148,7 @@ objects:
             python_variable_name: resource_group
           'namespaceName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             id_portion: namespaces
-            go_variable_name: namespaceName
+            go_variable_name: NamespaceName
             python_parameter_name: namespace_name
             python_variable_name: namespace_name
           'topicName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
@@ -158,13 +158,13 @@ objects:
             python_variable_name: name
         response:
           '/id': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
-            go_field_name: id
+            go_field_name: ID
             python_field_name: id
           '/name': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
-            go_field_name: name
+            go_field_name: Name
             python_field_name: name
           '/type': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
-            go_field_name: type
+            go_field_name: Type
             python_field_name: type
 
     description: |

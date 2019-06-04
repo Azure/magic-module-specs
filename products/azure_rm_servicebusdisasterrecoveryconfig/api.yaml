@@ -35,39 +35,39 @@ objects:
             python_variable_name: name
           'alias': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             id_portion: disasterRecoveryConfigs
-            go_variable_name: alias
+            go_variable_name: Alias
             python_parameter_name: alias
             python_variable_name: alias
           '/': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
-            go_variable_name: parameters
+            go_variable_name: Parameters
             go_type_name: ArmDisasterRecovery
             python_parameter_name: parameters
             python_variable_name: parameters
           '/properties': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
             applicable_to: [go]
-            go_field_name: properties
+            go_field_name: Properties
             go_type_name: ArmDisasterRecovery_properties
           '/partnerNamespace': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             applicable_to: [python]
             python_field_name: partner_namespace
           '/properties/partnerNamespace': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             applicable_to: [go]
-            go_field_name: partnerNamespace
+            go_field_name: PartnerNamespace
           '/alternateName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             applicable_to: [python]
             python_field_name: alternate_name
           '/properties/alternateName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             applicable_to: [go]
-            go_field_name: alternateName
+            go_field_name: AlternateName
         response:
           '/id': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
-            go_field_name: id
+            go_field_name: ID
             python_field_name: id
           '/name': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
-            go_field_name: name
+            go_field_name: Name
             python_field_name: name
           '/type': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
-            go_field_name: type
+            go_field_name: Type
             python_field_name: type
       delete: !ruby/object:Api::Azure::SDKOperationDefinition
         go_func_name: Delete
@@ -85,7 +85,7 @@ objects:
             python_variable_name: name
           'alias': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             id_portion: disasterRecoveryConfigs
-            go_variable_name: alias
+            go_variable_name: Alias
             python_parameter_name: alias
             python_variable_name: alias
       read: !ruby/object:Api::Azure::SDKOperationDefinition
@@ -104,18 +104,18 @@ objects:
             python_variable_name: name
           'alias': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             id_portion: disasterRecoveryConfigs
-            go_variable_name: alias
+            go_variable_name: Alias
             python_parameter_name: alias
             python_variable_name: alias
         response:
           '/id': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
-            go_field_name: id
+            go_field_name: ID
             python_field_name: id
           '/name': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
-            go_field_name: name
+            go_field_name: Name
             python_field_name: name
           '/type': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
-            go_field_name: type
+            go_field_name: Type
             python_field_name: type
 
     description: |
