@@ -30,12 +30,12 @@ objects:
             python_variable_name: resource_group
           'namespaceName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             id_portion: namespaces
-            go_variable_name: namespaceName
+            go_variable_name: NamespaceName
             python_parameter_name: namespace_name
             python_variable_name: namespace_name
           'topicName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             id_portion: topics
-            go_variable_name: topicName
+            go_variable_name: TopicName
             python_parameter_name: topic_name
             python_variable_name: topic_name
           'subscriptionName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
@@ -44,96 +44,96 @@ objects:
             python_parameter_name: subscription_name
             python_variable_name: name
           '/': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
-            go_variable_name: parameters
+            go_variable_name: Parameters
             go_type_name: SBSubscription
             python_parameter_name: parameters
             python_variable_name: parameters
           '/properties': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
             applicable_to: [go]
-            go_field_name: properties
+            go_field_name: Properties
             go_type_name: SBSubscriptionProperties
           '/lockDuration': 
             applicable_to: [python]
             python_field_name: lock_duration
           '/properties/lockDuration': 
             applicable_to: [go]
-            go_field_name: lockDuration
+            go_field_name: LockDuration
           '/requiresSession': !ruby/object:Api::Azure::SDKTypeDefinition::BooleanObject
             applicable_to: [python]
             python_field_name: requires_session
           '/properties/requiresSession': !ruby/object:Api::Azure::SDKTypeDefinition::BooleanObject
             applicable_to: [go]
-            go_field_name: requiresSession
+            go_field_name: RequiresSession
           '/defaultMessageTimeToLive': 
             applicable_to: [python]
             python_field_name: default_message_time_to_live
           '/properties/defaultMessageTimeToLive': 
             applicable_to: [go]
-            go_field_name: defaultMessageTimeToLive
+            go_field_name: DefaultMessageTimeToLive
           '/deadLetteringOnFilterEvaluationExceptions': !ruby/object:Api::Azure::SDKTypeDefinition::BooleanObject
             applicable_to: [python]
             python_field_name: dead_lettering_on_filter_evaluation_exceptions
           '/properties/deadLetteringOnFilterEvaluationExceptions': !ruby/object:Api::Azure::SDKTypeDefinition::BooleanObject
             applicable_to: [go]
-            go_field_name: deadLetteringOnFilterEvaluationExceptions
+            go_field_name: DeadLetteringOnFilterEvaluationExceptions
           '/deadLetteringOnMessageExpiration': !ruby/object:Api::Azure::SDKTypeDefinition::BooleanObject
             applicable_to: [python]
             python_field_name: dead_lettering_on_message_expiration
           '/properties/deadLetteringOnMessageExpiration': !ruby/object:Api::Azure::SDKTypeDefinition::BooleanObject
             applicable_to: [go]
-            go_field_name: deadLetteringOnMessageExpiration
+            go_field_name: DeadLetteringOnMessageExpiration
           '/duplicateDetectionHistoryTimeWindow': 
             applicable_to: [python]
             python_field_name: duplicate_detection_history_time_window
           '/properties/duplicateDetectionHistoryTimeWindow': 
             applicable_to: [go]
-            go_field_name: duplicateDetectionHistoryTimeWindow
+            go_field_name: DuplicateDetectionHistoryTimeWindow
           '/maxDeliveryCount': 
             applicable_to: [python]
             python_field_name: max_delivery_count
           '/properties/maxDeliveryCount': 
             applicable_to: [go]
-            go_field_name: maxDeliveryCount
+            go_field_name: MaxDeliveryCount
           '/status': !ruby/object:Api::Azure::SDKTypeDefinition::EnumObject
             applicable_to: [python]
             python_field_name: status
           '/properties/status': !ruby/object:Api::Azure::SDKTypeDefinition::EnumObject
             applicable_to: [go]
-            go_field_name: status
+            go_field_name: Status
             go_enum_type_name: EntityStatus
           '/enableBatchedOperations': !ruby/object:Api::Azure::SDKTypeDefinition::BooleanObject
             applicable_to: [python]
             python_field_name: enable_batched_operations
           '/properties/enableBatchedOperations': !ruby/object:Api::Azure::SDKTypeDefinition::BooleanObject
             applicable_to: [go]
-            go_field_name: enableBatchedOperations
+            go_field_name: EnableBatchedOperations
           '/autoDeleteOnIdle': 
             applicable_to: [python]
             python_field_name: auto_delete_on_idle
           '/properties/autoDeleteOnIdle': 
             applicable_to: [go]
-            go_field_name: autoDeleteOnIdle
+            go_field_name: AutoDeleteOnIdle
           '/forwardTo': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             applicable_to: [python]
             python_field_name: forward_to
           '/properties/forwardTo': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             applicable_to: [go]
-            go_field_name: forwardTo
+            go_field_name: ForwardTo
           '/forwardDeadLetteredMessagesTo': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             applicable_to: [python]
             python_field_name: forward_dead_lettered_messages_to
           '/properties/forwardDeadLetteredMessagesTo': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             applicable_to: [go]
-            go_field_name: forwardDeadLetteredMessagesTo
+            go_field_name: ForwardDeadLetteredMessagesTo
         response:
           '/id': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
-            go_field_name: id
+            go_field_name: ID
             python_field_name: id
           '/name': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
-            go_field_name: name
+            go_field_name: Name
             python_field_name: name
           '/type': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
-            go_field_name: type
+            go_field_name: Type
             python_field_name: type
       delete: !ruby/object:Api::Azure::SDKOperationDefinition
         go_func_name: Delete
@@ -146,12 +146,12 @@ objects:
             python_variable_name: resource_group
           'namespaceName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             id_portion: namespaces
-            go_variable_name: namespaceName
+            go_variable_name: NamespaceName
             python_parameter_name: namespace_name
             python_variable_name: namespace_name
           'topicName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             id_portion: topics
-            go_variable_name: topicName
+            go_variable_name: TopicName
             python_parameter_name: topic_name
             python_variable_name: topic_name
           'subscriptionName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
@@ -170,12 +170,12 @@ objects:
             python_variable_name: resource_group
           'namespaceName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             id_portion: namespaces
-            go_variable_name: namespaceName
+            go_variable_name: NamespaceName
             python_parameter_name: namespace_name
             python_variable_name: namespace_name
           'topicName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             id_portion: topics
-            go_variable_name: topicName
+            go_variable_name: TopicName
             python_parameter_name: topic_name
             python_variable_name: topic_name
           'subscriptionName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
@@ -185,13 +185,13 @@ objects:
             python_variable_name: name
         response:
           '/id': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
-            go_field_name: id
+            go_field_name: ID
             python_field_name: id
           '/name': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
-            go_field_name: name
+            go_field_name: Name
             python_field_name: name
           '/type': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
-            go_field_name: type
+            go_field_name: Type
             python_field_name: type
 
     description: |

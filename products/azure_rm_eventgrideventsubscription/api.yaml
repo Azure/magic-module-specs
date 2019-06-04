@@ -26,7 +26,7 @@ objects:
         request:
           'scope': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             id_portion: 
-            go_variable_name: scope
+            go_variable_name: Scope
             python_parameter_name: scope
             python_variable_name: scope
           'eventSubscriptionName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
@@ -36,19 +36,19 @@ objects:
             python_variable_name: name
           'eventSubscriptionInfo': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
             id_portion: null
-            go_variable_name: eventSubscriptionInfo
+            go_variable_name: EventSubscriptionInfo
             go_type_name: null
             python_parameter_name: event_subscription_info
             python_variable_name: event_subscription_info
         response:
           '/id': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
-            go_field_name: id
+            go_field_name: ID
             python_field_name: id
           '/name': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
-            go_field_name: name
+            go_field_name: Name
             python_field_name: name
           '/type': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
-            go_field_name: type
+            go_field_name: Type
             python_field_name: type
       update: !ruby/object:Api::Azure::SDKOperationDefinition
         async: true
@@ -57,7 +57,7 @@ objects:
         request:
           'scope': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             id_portion: 
-            go_variable_name: scope
+            go_variable_name: Scope
             python_parameter_name: scope
             python_variable_name: scope
           'eventSubscriptionName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
@@ -67,13 +67,13 @@ objects:
             python_variable_name: name
         response:
           '/id': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
-            go_field_name: id
+            go_field_name: ID
             python_field_name: id
           '/name': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
-            go_field_name: name
+            go_field_name: Name
             python_field_name: name
           '/type': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
-            go_field_name: type
+            go_field_name: Type
             python_field_name: type
       delete: !ruby/object:Api::Azure::SDKOperationDefinition
         async: true
@@ -82,7 +82,7 @@ objects:
         request:
           'scope': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             id_portion: 
-            go_variable_name: scope
+            go_variable_name: Scope
             python_parameter_name: scope
             python_variable_name: scope
           'eventSubscriptionName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
@@ -96,7 +96,7 @@ objects:
         request:
           'scope': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             id_portion: 
-            go_variable_name: scope
+            go_variable_name: Scope
             python_parameter_name: scope
             python_variable_name: scope
           'eventSubscriptionName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
@@ -106,13 +106,13 @@ objects:
             python_variable_name: name
         response:
           '/id': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
-            go_field_name: id
+            go_field_name: ID
             python_field_name: id
           '/name': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
-            go_field_name: name
+            go_field_name: Name
             python_field_name: name
           '/type': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
-            go_field_name: type
+            go_field_name: Type
             python_field_name: type
 
     description: |

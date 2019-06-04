@@ -35,83 +35,83 @@ objects:
             python_variable_name: name
           'apiId': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             id_portion: apis
-            go_variable_name: apiId
+            go_variable_name: ApiID
             python_parameter_name: api_id
             python_variable_name: api_id
           'operationId': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             id_portion: operations
-            go_variable_name: operationId
+            go_variable_name: OperationID
             python_parameter_name: operation_id
             python_variable_name: operation_id
           '/': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
-            go_variable_name: parameters
+            go_variable_name: Parameters
             go_type_name: OperationContract
             python_parameter_name: parameters
             python_variable_name: parameters
           '/properties': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
             applicable_to: [go]
-            go_field_name: properties
+            go_field_name: Properties
             go_type_name: OperationContractProperties
           '/templateParameters': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
             applicable_to: [python]
             python_field_name: template_parameters
           '/properties/templateParameters': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
             applicable_to: [go]
-            go_field_name: templateParameters
+            go_field_name: TemplateParameters
             go_type_name: {"$id":"661","$type":"SequenceType","elementType":{"$id":"662","$type":"CompositeType","properties":[{"$id":"663","isReadOnly":false,"realPath":["name"],"collectionFormat":"none","defaultValue":{"$id":"664","fixed":false},"deprecated":false,"documentation":{"$id":"665","fixed":false,"raw":"Parameter name."},"isRequired":true,"isConstant":false,"name":{"$id":"666","fixed":false,"raw":"name"},"serializedName":"name","modelType":{"$id":"667","$type":"PrimaryType","knownPrimaryType":"string","name":{"$id":"668","fixed":false,"raw":"String"},"deprecated":false}},{"$id":"669","isReadOnly":false,"realPath":["description"],"collectionFormat":"none","defaultValue":{"$id":"670","fixed":false},"deprecated":false,"documentation":{"$id":"671","fixed":false,"raw":"Parameter description."},"isRequired":false,"isConstant":false,"name":{"$id":"672","fixed":false,"raw":"description"},"serializedName":"description","modelType":{"$id":"673","$type":"PrimaryType","knownPrimaryType":"string","name":{"$id":"674","fixed":false,"raw":"String"},"deprecated":false}},{"$id":"675","isReadOnly":false,"realPath":["type"],"collectionFormat":"none","defaultValue":{"$id":"676","fixed":false},"deprecated":false,"documentation":{"$id":"677","fixed":false,"raw":"Parameter type."},"isRequired":true,"isConstant":false,"name":{"$id":"678","fixed":false,"raw":"type"},"serializedName":"type","modelType":{"$id":"679","$type":"PrimaryType","knownPrimaryType":"string","name":{"$id":"680","fixed":false,"raw":"String"},"deprecated":false}},{"$id":"681","isReadOnly":false,"realPath":["defaultValue"],"collectionFormat":"none","defaultValue":{"$id":"682","fixed":false},"deprecated":false,"documentation":{"$id":"683","fixed":false,"raw":"Default parameter value."},"isRequired":false,"isConstant":false,"name":{"$id":"684","fixed":false,"raw":"defaultValue"},"serializedName":"defaultValue","modelType":{"$id":"685","$type":"PrimaryType","knownPrimaryType":"string","name":{"$id":"686","fixed":false,"raw":"String"},"deprecated":false}},{"$id":"687","isReadOnly":false,"realPath":["required"],"collectionFormat":"none","defaultValue":{"$id":"688","fixed":false},"deprecated":false,"documentation":{"$id":"689","fixed":false,"raw":"whether parameter is required or not."},"isRequired":false,"isConstant":false,"name":{"$id":"690","fixed":false,"raw":"required"},"serializedName":"required","modelType":{"$id":"691","$type":"PrimaryType","knownPrimaryType":"boolean","name":{"$id":"692","fixed":false,"raw":"Boolean"},"deprecated":false}},{"$id":"693","isReadOnly":false,"realPath":["values"],"collectionFormat":"none","defaultValue":{"$id":"694","fixed":false},"deprecated":false,"documentation":{"$id":"695","fixed":false,"raw":"Parameter values."},"isRequired":false,"isConstant":false,"name":{"$id":"696","fixed":false,"raw":"values"},"serializedName":"values","modelType":{"$id":"697","$type":"SequenceType","elementType":{"$id":"698","$type":"PrimaryType","knownPrimaryType":"string","name":{"$id":"699","fixed":false,"raw":"String"},"deprecated":false},"name":{"$id":"700","fixed":false},"deprecated":false}}],"serializedName":"ParameterContract","documentation":"Operation parameters details.","containsConstantProperties":false,"name":{"$id":"701","fixed":false,"raw":"ParameterContract"},"deprecated":false},"name":{"$id":"702","fixed":false},"deprecated":false}
           '/description': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             applicable_to: [python]
             python_field_name: description
           '/properties/description': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             applicable_to: [go]
-            go_field_name: description
+            go_field_name: Description
           '/request': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
             applicable_to: [python]
             python_field_name: request
           '/properties/request': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
             applicable_to: [go]
-            go_field_name: request
+            go_field_name: Request
             go_type_name: RequestContract
           '/responses': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
             applicable_to: [python]
             python_field_name: responses
           '/properties/responses': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
             applicable_to: [go]
-            go_field_name: responses
+            go_field_name: Responses
             go_type_name: {"$id":"775","$type":"SequenceType","elementType":{"$id":"776","$type":"CompositeType","properties":[{"$id":"777","isReadOnly":false,"realPath":["statusCode"],"collectionFormat":"none","defaultValue":{"$id":"778","fixed":false},"deprecated":false,"documentation":{"$id":"779","fixed":false,"raw":"Operation response HTTP status code."},"isRequired":true,"isConstant":false,"name":{"$id":"780","fixed":false,"raw":"statusCode"},"serializedName":"statusCode","modelType":{"$id":"781","$type":"PrimaryType","format":"int32","knownPrimaryType":"int","name":{"$id":"782","fixed":false,"raw":"Int"},"deprecated":false}},{"$id":"783","isReadOnly":false,"realPath":["description"],"collectionFormat":"none","defaultValue":{"$id":"784","fixed":false},"deprecated":false,"documentation":{"$id":"785","fixed":false,"raw":"Operation response description."},"isRequired":false,"isConstant":false,"name":{"$id":"786","fixed":false,"raw":"description"},"serializedName":"description","modelType":{"$id":"787","$type":"PrimaryType","knownPrimaryType":"string","name":{"$id":"788","fixed":false,"raw":"String"},"deprecated":false}},{"$id":"789","isReadOnly":false,"realPath":["representations"],"collectionFormat":"none","defaultValue":{"$id":"790","fixed":false},"deprecated":false,"documentation":{"$id":"791","fixed":false,"raw":"Collection of operation response representations."},"isRequired":false,"isConstant":false,"name":{"$id":"792","fixed":false,"raw":"representations"},"serializedName":"representations","modelType":{"$id":"793","$type":"SequenceType","elementType":{"$ref":"737"},"name":{"$id":"794","fixed":false},"deprecated":false}},{"$id":"795","isReadOnly":false,"realPath":["headers"],"collectionFormat":"none","defaultValue":{"$id":"796","fixed":false},"deprecated":false,"documentation":{"$id":"797","fixed":false,"raw":"Collection of operation response headers."},"isRequired":false,"isConstant":false,"name":{"$id":"798","fixed":false,"raw":"headers"},"serializedName":"headers","modelType":{"$id":"799","$type":"SequenceType","elementType":{"$ref":"662"},"name":{"$id":"800","fixed":false},"deprecated":false}}],"serializedName":"ResponseContract","documentation":"Operation response details.","containsConstantProperties":false,"name":{"$id":"801","fixed":false,"raw":"ResponseContract"},"deprecated":false},"name":{"$id":"802","fixed":false},"deprecated":false}
           '/policies': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             applicable_to: [python]
             python_field_name: policies
           '/properties/policies': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             applicable_to: [go]
-            go_field_name: policies
+            go_field_name: Policies
           '/displayName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             applicable_to: [python]
             python_field_name: display_name
           '/properties/displayName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             applicable_to: [go]
-            go_field_name: displayName
+            go_field_name: DisplayName
           '/method': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             applicable_to: [python]
             python_field_name: method
           '/properties/method': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             applicable_to: [go]
-            go_field_name: method
+            go_field_name: Method
           '/urlTemplate': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             applicable_to: [python]
             python_field_name: url_template
           '/properties/urlTemplate': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             applicable_to: [go]
-            go_field_name: urlTemplate
+            go_field_name: URLTemplate
         response:
           '/id': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
-            go_field_name: id
+            go_field_name: ID
             python_field_name: id
           '/name': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
-            go_field_name: name
+            go_field_name: Name
             python_field_name: name
           '/type': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
-            go_field_name: type
+            go_field_name: Type
             python_field_name: type
       update: !ruby/object:Api::Azure::SDKOperationDefinition
         go_func_name: Update
@@ -129,83 +129,83 @@ objects:
             python_variable_name: name
           'apiId': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             id_portion: apis
-            go_variable_name: apiId
+            go_variable_name: ApiID
             python_parameter_name: api_id
             python_variable_name: api_id
           'operationId': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             id_portion: operations
-            go_variable_name: operationId
+            go_variable_name: OperationID
             python_parameter_name: operation_id
             python_variable_name: operation_id
           '/': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
-            go_variable_name: parameters
+            go_variable_name: Parameters
             go_type_name: OperationContract
             python_parameter_name: parameters
             python_variable_name: parameters
           '/properties': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
             applicable_to: [go]
-            go_field_name: properties
+            go_field_name: Properties
             go_type_name: OperationContractProperties
           '/templateParameters': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
             applicable_to: [python]
             python_field_name: template_parameters
           '/properties/templateParameters': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
             applicable_to: [go]
-            go_field_name: templateParameters
+            go_field_name: TemplateParameters
             go_type_name: {"$id":"661","$type":"SequenceType","elementType":{"$id":"662","$type":"CompositeType","properties":[{"$id":"663","isReadOnly":false,"realPath":["name"],"collectionFormat":"none","defaultValue":{"$id":"664","fixed":false},"deprecated":false,"documentation":{"$id":"665","fixed":false,"raw":"Parameter name."},"isRequired":true,"isConstant":false,"name":{"$id":"666","fixed":false,"raw":"name"},"serializedName":"name","modelType":{"$id":"667","$type":"PrimaryType","knownPrimaryType":"string","name":{"$id":"668","fixed":false,"raw":"String"},"deprecated":false}},{"$id":"669","isReadOnly":false,"realPath":["description"],"collectionFormat":"none","defaultValue":{"$id":"670","fixed":false},"deprecated":false,"documentation":{"$id":"671","fixed":false,"raw":"Parameter description."},"isRequired":false,"isConstant":false,"name":{"$id":"672","fixed":false,"raw":"description"},"serializedName":"description","modelType":{"$id":"673","$type":"PrimaryType","knownPrimaryType":"string","name":{"$id":"674","fixed":false,"raw":"String"},"deprecated":false}},{"$id":"675","isReadOnly":false,"realPath":["type"],"collectionFormat":"none","defaultValue":{"$id":"676","fixed":false},"deprecated":false,"documentation":{"$id":"677","fixed":false,"raw":"Parameter type."},"isRequired":true,"isConstant":false,"name":{"$id":"678","fixed":false,"raw":"type"},"serializedName":"type","modelType":{"$id":"679","$type":"PrimaryType","knownPrimaryType":"string","name":{"$id":"680","fixed":false,"raw":"String"},"deprecated":false}},{"$id":"681","isReadOnly":false,"realPath":["defaultValue"],"collectionFormat":"none","defaultValue":{"$id":"682","fixed":false},"deprecated":false,"documentation":{"$id":"683","fixed":false,"raw":"Default parameter value."},"isRequired":false,"isConstant":false,"name":{"$id":"684","fixed":false,"raw":"defaultValue"},"serializedName":"defaultValue","modelType":{"$id":"685","$type":"PrimaryType","knownPrimaryType":"string","name":{"$id":"686","fixed":false,"raw":"String"},"deprecated":false}},{"$id":"687","isReadOnly":false,"realPath":["required"],"collectionFormat":"none","defaultValue":{"$id":"688","fixed":false},"deprecated":false,"documentation":{"$id":"689","fixed":false,"raw":"whether parameter is required or not."},"isRequired":false,"isConstant":false,"name":{"$id":"690","fixed":false,"raw":"required"},"serializedName":"required","modelType":{"$id":"691","$type":"PrimaryType","knownPrimaryType":"boolean","name":{"$id":"692","fixed":false,"raw":"Boolean"},"deprecated":false}},{"$id":"693","isReadOnly":false,"realPath":["values"],"collectionFormat":"none","defaultValue":{"$id":"694","fixed":false},"deprecated":false,"documentation":{"$id":"695","fixed":false,"raw":"Parameter values."},"isRequired":false,"isConstant":false,"name":{"$id":"696","fixed":false,"raw":"values"},"serializedName":"values","modelType":{"$id":"697","$type":"SequenceType","elementType":{"$id":"698","$type":"PrimaryType","knownPrimaryType":"string","name":{"$id":"699","fixed":false,"raw":"String"},"deprecated":false},"name":{"$id":"700","fixed":false},"deprecated":false}}],"serializedName":"ParameterContract","documentation":"Operation parameters details.","containsConstantProperties":false,"name":{"$id":"701","fixed":false,"raw":"ParameterContract"},"deprecated":false},"name":{"$id":"702","fixed":false},"deprecated":false}
           '/description': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             applicable_to: [python]
             python_field_name: description
           '/properties/description': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             applicable_to: [go]
-            go_field_name: description
+            go_field_name: Description
           '/request': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
             applicable_to: [python]
             python_field_name: request
           '/properties/request': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
             applicable_to: [go]
-            go_field_name: request
+            go_field_name: Request
             go_type_name: RequestContract
           '/responses': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
             applicable_to: [python]
             python_field_name: responses
           '/properties/responses': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
             applicable_to: [go]
-            go_field_name: responses
+            go_field_name: Responses
             go_type_name: {"$id":"775","$type":"SequenceType","elementType":{"$id":"776","$type":"CompositeType","properties":[{"$id":"777","isReadOnly":false,"realPath":["statusCode"],"collectionFormat":"none","defaultValue":{"$id":"778","fixed":false},"deprecated":false,"documentation":{"$id":"779","fixed":false,"raw":"Operation response HTTP status code."},"isRequired":true,"isConstant":false,"name":{"$id":"780","fixed":false,"raw":"statusCode"},"serializedName":"statusCode","modelType":{"$id":"781","$type":"PrimaryType","format":"int32","knownPrimaryType":"int","name":{"$id":"782","fixed":false,"raw":"Int"},"deprecated":false}},{"$id":"783","isReadOnly":false,"realPath":["description"],"collectionFormat":"none","defaultValue":{"$id":"784","fixed":false},"deprecated":false,"documentation":{"$id":"785","fixed":false,"raw":"Operation response description."},"isRequired":false,"isConstant":false,"name":{"$id":"786","fixed":false,"raw":"description"},"serializedName":"description","modelType":{"$id":"787","$type":"PrimaryType","knownPrimaryType":"string","name":{"$id":"788","fixed":false,"raw":"String"},"deprecated":false}},{"$id":"789","isReadOnly":false,"realPath":["representations"],"collectionFormat":"none","defaultValue":{"$id":"790","fixed":false},"deprecated":false,"documentation":{"$id":"791","fixed":false,"raw":"Collection of operation response representations."},"isRequired":false,"isConstant":false,"name":{"$id":"792","fixed":false,"raw":"representations"},"serializedName":"representations","modelType":{"$id":"793","$type":"SequenceType","elementType":{"$ref":"737"},"name":{"$id":"794","fixed":false},"deprecated":false}},{"$id":"795","isReadOnly":false,"realPath":["headers"],"collectionFormat":"none","defaultValue":{"$id":"796","fixed":false},"deprecated":false,"documentation":{"$id":"797","fixed":false,"raw":"Collection of operation response headers."},"isRequired":false,"isConstant":false,"name":{"$id":"798","fixed":false,"raw":"headers"},"serializedName":"headers","modelType":{"$id":"799","$type":"SequenceType","elementType":{"$ref":"662"},"name":{"$id":"800","fixed":false},"deprecated":false}}],"serializedName":"ResponseContract","documentation":"Operation response details.","containsConstantProperties":false,"name":{"$id":"801","fixed":false,"raw":"ResponseContract"},"deprecated":false},"name":{"$id":"802","fixed":false},"deprecated":false}
           '/policies': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             applicable_to: [python]
             python_field_name: policies
           '/properties/policies': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             applicable_to: [go]
-            go_field_name: policies
+            go_field_name: Policies
           '/displayName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             applicable_to: [python]
             python_field_name: display_name
           '/properties/displayName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             applicable_to: [go]
-            go_field_name: displayName
+            go_field_name: DisplayName
           '/method': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             applicable_to: [python]
             python_field_name: method
           '/properties/method': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             applicable_to: [go]
-            go_field_name: method
+            go_field_name: Method
           '/urlTemplate': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             applicable_to: [python]
             python_field_name: url_template
           '/properties/urlTemplate': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             applicable_to: [go]
-            go_field_name: urlTemplate
+            go_field_name: URLTemplate
         response:
           '/id': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
-            go_field_name: id
+            go_field_name: ID
             python_field_name: id
           '/name': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
-            go_field_name: name
+            go_field_name: Name
             python_field_name: name
           '/type': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
-            go_field_name: type
+            go_field_name: Type
             python_field_name: type
       delete: !ruby/object:Api::Azure::SDKOperationDefinition
         go_func_name: Delete
@@ -223,12 +223,12 @@ objects:
             python_variable_name: name
           'apiId': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             id_portion: apis
-            go_variable_name: apiId
+            go_variable_name: ApiID
             python_parameter_name: api_id
             python_variable_name: api_id
           'operationId': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             id_portion: operations
-            go_variable_name: operationId
+            go_variable_name: OperationID
             python_parameter_name: operation_id
             python_variable_name: operation_id
       read: !ruby/object:Api::Azure::SDKOperationDefinition
@@ -247,23 +247,23 @@ objects:
             python_variable_name: name
           'apiId': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             id_portion: apis
-            go_variable_name: apiId
+            go_variable_name: ApiID
             python_parameter_name: api_id
             python_variable_name: api_id
           'operationId': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             id_portion: operations
-            go_variable_name: operationId
+            go_variable_name: OperationID
             python_parameter_name: operation_id
             python_variable_name: operation_id
         response:
           '/id': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
-            go_field_name: id
+            go_field_name: ID
             python_field_name: id
           '/name': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
-            go_field_name: name
+            go_field_name: Name
             python_field_name: name
           '/type': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
-            go_field_name: type
+            go_field_name: Type
             python_field_name: type
 
     description: |

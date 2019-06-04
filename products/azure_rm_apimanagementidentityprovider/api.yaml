@@ -30,7 +30,7 @@ objects:
             python_variable_name: resource_group
           'serviceName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             id_portion: service
-            go_variable_name: serviceName
+            go_variable_name: ServiceName
             python_parameter_name: service_name
             python_variable_name: service_name
           'identityProviderName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
@@ -39,72 +39,72 @@ objects:
             python_parameter_name: identity_provider_name
             python_variable_name: name
           '/': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
-            go_variable_name: parameters
+            go_variable_name: Parameters
             go_type_name: IdentityProviderContract
             python_parameter_name: parameters
             python_variable_name: parameters
           '/properties': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
             applicable_to: [go]
-            go_field_name: properties
+            go_field_name: Properties
             go_type_name: IdentityProviderContractProperties
           '/type': !ruby/object:Api::Azure::SDKTypeDefinition::EnumObject
             applicable_to: [python]
             python_field_name: type
           '/properties/type': !ruby/object:Api::Azure::SDKTypeDefinition::EnumObject
             applicable_to: [go]
-            go_field_name: type
+            go_field_name: Type
             go_enum_type_name: IdentityProviderType
           '/allowedTenants': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             applicable_to: [python]
             python_field_name: allowed_tenants
           '/properties/allowedTenants': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             applicable_to: [go]
-            go_field_name: allowedTenants
+            go_field_name: AllowedTenants
           '/signupPolicyName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             applicable_to: [python]
             python_field_name: signup_policy_name
           '/properties/signupPolicyName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             applicable_to: [go]
-            go_field_name: signupPolicyName
+            go_field_name: SignupPolicyName
           '/signinPolicyName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             applicable_to: [python]
             python_field_name: signin_policy_name
           '/properties/signinPolicyName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             applicable_to: [go]
-            go_field_name: signinPolicyName
+            go_field_name: SigninPolicyName
           '/profileEditingPolicyName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             applicable_to: [python]
             python_field_name: profile_editing_policy_name
           '/properties/profileEditingPolicyName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             applicable_to: [go]
-            go_field_name: profileEditingPolicyName
+            go_field_name: ProfileEditingPolicyName
           '/passwordResetPolicyName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             applicable_to: [python]
             python_field_name: password_reset_policy_name
           '/properties/passwordResetPolicyName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             applicable_to: [go]
-            go_field_name: passwordResetPolicyName
+            go_field_name: PasswordResetPolicyName
           '/clientId': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             applicable_to: [python]
             python_field_name: client_id
           '/properties/clientId': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             applicable_to: [go]
-            go_field_name: clientId
+            go_field_name: ClientID
           '/clientSecret': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             applicable_to: [python]
             python_field_name: client_secret
           '/properties/clientSecret': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             applicable_to: [go]
-            go_field_name: clientSecret
+            go_field_name: ClientSecret
         response:
           '/id': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
-            go_field_name: id
+            go_field_name: ID
             python_field_name: id
           '/name': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
-            go_field_name: name
+            go_field_name: Name
             python_field_name: name
           '/type': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
-            go_field_name: type
+            go_field_name: Type
             python_field_name: type
       update: !ruby/object:Api::Azure::SDKOperationDefinition
         go_func_name: Update
@@ -117,7 +117,7 @@ objects:
             python_variable_name: resource_group
           'serviceName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             id_portion: service
-            go_variable_name: serviceName
+            go_variable_name: ServiceName
             python_parameter_name: service_name
             python_variable_name: service_name
           'identityProviderName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
@@ -126,72 +126,72 @@ objects:
             python_parameter_name: identity_provider_name
             python_variable_name: name
           '/': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
-            go_variable_name: parameters
+            go_variable_name: Parameters
             go_type_name: IdentityProviderContract
             python_parameter_name: parameters
             python_variable_name: parameters
           '/properties': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
             applicable_to: [go]
-            go_field_name: properties
+            go_field_name: Properties
             go_type_name: IdentityProviderContractProperties
           '/type': !ruby/object:Api::Azure::SDKTypeDefinition::EnumObject
             applicable_to: [python]
             python_field_name: type
           '/properties/type': !ruby/object:Api::Azure::SDKTypeDefinition::EnumObject
             applicable_to: [go]
-            go_field_name: type
+            go_field_name: Type
             go_enum_type_name: IdentityProviderType
           '/allowedTenants': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             applicable_to: [python]
             python_field_name: allowed_tenants
           '/properties/allowedTenants': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             applicable_to: [go]
-            go_field_name: allowedTenants
+            go_field_name: AllowedTenants
           '/signupPolicyName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             applicable_to: [python]
             python_field_name: signup_policy_name
           '/properties/signupPolicyName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             applicable_to: [go]
-            go_field_name: signupPolicyName
+            go_field_name: SignupPolicyName
           '/signinPolicyName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             applicable_to: [python]
             python_field_name: signin_policy_name
           '/properties/signinPolicyName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             applicable_to: [go]
-            go_field_name: signinPolicyName
+            go_field_name: SigninPolicyName
           '/profileEditingPolicyName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             applicable_to: [python]
             python_field_name: profile_editing_policy_name
           '/properties/profileEditingPolicyName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             applicable_to: [go]
-            go_field_name: profileEditingPolicyName
+            go_field_name: ProfileEditingPolicyName
           '/passwordResetPolicyName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             applicable_to: [python]
             python_field_name: password_reset_policy_name
           '/properties/passwordResetPolicyName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             applicable_to: [go]
-            go_field_name: passwordResetPolicyName
+            go_field_name: PasswordResetPolicyName
           '/clientId': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             applicable_to: [python]
             python_field_name: client_id
           '/properties/clientId': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             applicable_to: [go]
-            go_field_name: clientId
+            go_field_name: ClientID
           '/clientSecret': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             applicable_to: [python]
             python_field_name: client_secret
           '/properties/clientSecret': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             applicable_to: [go]
-            go_field_name: clientSecret
+            go_field_name: ClientSecret
         response:
           '/id': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
-            go_field_name: id
+            go_field_name: ID
             python_field_name: id
           '/name': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
-            go_field_name: name
+            go_field_name: Name
             python_field_name: name
           '/type': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
-            go_field_name: type
+            go_field_name: Type
             python_field_name: type
       delete: !ruby/object:Api::Azure::SDKOperationDefinition
         go_func_name: Delete
@@ -204,7 +204,7 @@ objects:
             python_variable_name: resource_group
           'serviceName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             id_portion: service
-            go_variable_name: serviceName
+            go_variable_name: ServiceName
             python_parameter_name: service_name
             python_variable_name: service_name
           'identityProviderName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
@@ -223,7 +223,7 @@ objects:
             python_variable_name: resource_group
           'serviceName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             id_portion: service
-            go_variable_name: serviceName
+            go_variable_name: ServiceName
             python_parameter_name: service_name
             python_variable_name: service_name
           'identityProviderName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
@@ -233,13 +233,13 @@ objects:
             python_variable_name: name
         response:
           '/id': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
-            go_field_name: id
+            go_field_name: ID
             python_field_name: id
           '/name': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
-            go_field_name: name
+            go_field_name: Name
             python_field_name: name
           '/type': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
-            go_field_name: type
+            go_field_name: Type
             python_field_name: type
 
     description: |

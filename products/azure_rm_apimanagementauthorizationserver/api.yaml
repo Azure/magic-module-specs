@@ -35,124 +35,124 @@ objects:
             python_variable_name: name
           'authsid': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             id_portion: authorizationServers
-            go_variable_name: authsid
+            go_variable_name: Authsid
             python_parameter_name: authsid
             python_variable_name: authsid
           '/': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
-            go_variable_name: parameters
+            go_variable_name: Parameters
             go_type_name: AuthorizationServerContract
             python_parameter_name: parameters
             python_variable_name: parameters
           '/properties': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
             applicable_to: [go]
-            go_field_name: properties
+            go_field_name: Properties
             go_type_name: AuthorizationServerContractProperties
           '/description': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             applicable_to: [python]
             python_field_name: description
           '/properties/description': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             applicable_to: [go]
-            go_field_name: description
+            go_field_name: Description
           '/authorizationMethods': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             applicable_to: [python]
             python_field_name: authorization_methods
           '/properties/authorizationMethods': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             applicable_to: [go]
-            go_field_name: authorizationMethods
+            go_field_name: AuthorizationMethods
           '/clientAuthenticationMethod': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             applicable_to: [python]
             python_field_name: client_authentication_method
           '/properties/clientAuthenticationMethod': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             applicable_to: [go]
-            go_field_name: clientAuthenticationMethod
+            go_field_name: ClientAuthenticationMethod
           '/tokenBodyParameters': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
             applicable_to: [python]
             python_field_name: token_body_parameters
           '/properties/tokenBodyParameters': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
             applicable_to: [go]
-            go_field_name: tokenBodyParameters
+            go_field_name: TokenBodyParameters
             go_type_name: {"$id":"1462","$type":"SequenceType","elementType":{"$id":"1463","$type":"CompositeType","properties":[{"$id":"1464","isReadOnly":false,"realPath":["name"],"collectionFormat":"none","defaultValue":{"$id":"1465","fixed":false},"deprecated":false,"documentation":{"$id":"1466","fixed":false,"raw":"body parameter name."},"isRequired":true,"isConstant":false,"name":{"$id":"1467","fixed":false,"raw":"name"},"serializedName":"name","modelType":{"$id":"1468","$type":"PrimaryType","knownPrimaryType":"string","name":{"$id":"1469","fixed":false,"raw":"String"},"deprecated":false}},{"$id":"1470","isReadOnly":false,"realPath":["value"],"collectionFormat":"none","defaultValue":{"$id":"1471","fixed":false},"deprecated":false,"documentation":{"$id":"1472","fixed":false,"raw":"body parameter value."},"isRequired":true,"isConstant":false,"name":{"$id":"1473","fixed":false,"raw":"value"},"serializedName":"value","modelType":{"$id":"1474","$type":"PrimaryType","knownPrimaryType":"string","name":{"$id":"1475","fixed":false,"raw":"String"},"deprecated":false}}],"serializedName":"TokenBodyParameterContract","documentation":"OAuth acquire token request body parameter (www-url-form-encoded).","containsConstantProperties":false,"name":{"$id":"1476","fixed":false,"raw":"TokenBodyParameterContract"},"deprecated":false},"name":{"$id":"1477","fixed":false},"deprecated":false}
           '/tokenEndpoint': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             applicable_to: [python]
             python_field_name: token_endpoint
           '/properties/tokenEndpoint': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             applicable_to: [go]
-            go_field_name: tokenEndpoint
+            go_field_name: TokenEndpoint
           '/supportState': !ruby/object:Api::Azure::SDKTypeDefinition::BooleanObject
             applicable_to: [python]
             python_field_name: support_state
           '/properties/supportState': !ruby/object:Api::Azure::SDKTypeDefinition::BooleanObject
             applicable_to: [go]
-            go_field_name: supportState
+            go_field_name: SupportState
           '/defaultScope': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             applicable_to: [python]
             python_field_name: default_scope
           '/properties/defaultScope': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             applicable_to: [go]
-            go_field_name: defaultScope
+            go_field_name: DefaultScope
           '/bearerTokenSendingMethods': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             applicable_to: [python]
             python_field_name: bearer_token_sending_methods
           '/properties/bearerTokenSendingMethods': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             applicable_to: [go]
-            go_field_name: bearerTokenSendingMethods
+            go_field_name: BearerTokenSendingMethods
           '/clientSecret': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             applicable_to: [python]
             python_field_name: client_secret
           '/properties/clientSecret': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             applicable_to: [go]
-            go_field_name: clientSecret
+            go_field_name: ClientSecret
           '/resourceOwnerUsername': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             applicable_to: [python]
             python_field_name: resource_owner_username
           '/properties/resourceOwnerUsername': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             applicable_to: [go]
-            go_field_name: resourceOwnerUsername
+            go_field_name: ResourceOwnerUsername
           '/resourceOwnerPassword': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             applicable_to: [python]
             python_field_name: resource_owner_password
           '/properties/resourceOwnerPassword': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             applicable_to: [go]
-            go_field_name: resourceOwnerPassword
+            go_field_name: ResourceOwnerPassword
           '/displayName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             applicable_to: [python]
             python_field_name: display_name
           '/properties/displayName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             applicable_to: [go]
-            go_field_name: displayName
+            go_field_name: DisplayName
           '/clientRegistrationEndpoint': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             applicable_to: [python]
             python_field_name: client_registration_endpoint
           '/properties/clientRegistrationEndpoint': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             applicable_to: [go]
-            go_field_name: clientRegistrationEndpoint
+            go_field_name: ClientRegistrationEndpoint
           '/authorizationEndpoint': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             applicable_to: [python]
             python_field_name: authorization_endpoint
           '/properties/authorizationEndpoint': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             applicable_to: [go]
-            go_field_name: authorizationEndpoint
+            go_field_name: AuthorizationEndpoint
           '/grantTypes': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             applicable_to: [python]
             python_field_name: grant_types
           '/properties/grantTypes': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             applicable_to: [go]
-            go_field_name: grantTypes
+            go_field_name: GrantTypes
           '/clientId': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             applicable_to: [python]
             python_field_name: client_id
           '/properties/clientId': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             applicable_to: [go]
-            go_field_name: clientId
+            go_field_name: ClientID
         response:
           '/id': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
-            go_field_name: id
+            go_field_name: ID
             python_field_name: id
           '/name': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
-            go_field_name: name
+            go_field_name: Name
             python_field_name: name
           '/type': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
-            go_field_name: type
+            go_field_name: Type
             python_field_name: type
       update: !ruby/object:Api::Azure::SDKOperationDefinition
         go_func_name: Update
@@ -170,124 +170,124 @@ objects:
             python_variable_name: name
           'authsid': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             id_portion: authorizationServers
-            go_variable_name: authsid
+            go_variable_name: Authsid
             python_parameter_name: authsid
             python_variable_name: authsid
           '/': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
-            go_variable_name: parameters
+            go_variable_name: Parameters
             go_type_name: AuthorizationServerContract
             python_parameter_name: parameters
             python_variable_name: parameters
           '/properties': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
             applicable_to: [go]
-            go_field_name: properties
+            go_field_name: Properties
             go_type_name: AuthorizationServerContractProperties
           '/description': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             applicable_to: [python]
             python_field_name: description
           '/properties/description': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             applicable_to: [go]
-            go_field_name: description
+            go_field_name: Description
           '/authorizationMethods': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             applicable_to: [python]
             python_field_name: authorization_methods
           '/properties/authorizationMethods': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             applicable_to: [go]
-            go_field_name: authorizationMethods
+            go_field_name: AuthorizationMethods
           '/clientAuthenticationMethod': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             applicable_to: [python]
             python_field_name: client_authentication_method
           '/properties/clientAuthenticationMethod': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             applicable_to: [go]
-            go_field_name: clientAuthenticationMethod
+            go_field_name: ClientAuthenticationMethod
           '/tokenBodyParameters': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
             applicable_to: [python]
             python_field_name: token_body_parameters
           '/properties/tokenBodyParameters': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
             applicable_to: [go]
-            go_field_name: tokenBodyParameters
+            go_field_name: TokenBodyParameters
             go_type_name: {"$id":"1462","$type":"SequenceType","elementType":{"$id":"1463","$type":"CompositeType","properties":[{"$id":"1464","isReadOnly":false,"realPath":["name"],"collectionFormat":"none","defaultValue":{"$id":"1465","fixed":false},"deprecated":false,"documentation":{"$id":"1466","fixed":false,"raw":"body parameter name."},"isRequired":true,"isConstant":false,"name":{"$id":"1467","fixed":false,"raw":"name"},"serializedName":"name","modelType":{"$id":"1468","$type":"PrimaryType","knownPrimaryType":"string","name":{"$id":"1469","fixed":false,"raw":"String"},"deprecated":false}},{"$id":"1470","isReadOnly":false,"realPath":["value"],"collectionFormat":"none","defaultValue":{"$id":"1471","fixed":false},"deprecated":false,"documentation":{"$id":"1472","fixed":false,"raw":"body parameter value."},"isRequired":true,"isConstant":false,"name":{"$id":"1473","fixed":false,"raw":"value"},"serializedName":"value","modelType":{"$id":"1474","$type":"PrimaryType","knownPrimaryType":"string","name":{"$id":"1475","fixed":false,"raw":"String"},"deprecated":false}}],"serializedName":"TokenBodyParameterContract","documentation":"OAuth acquire token request body parameter (www-url-form-encoded).","containsConstantProperties":false,"name":{"$id":"1476","fixed":false,"raw":"TokenBodyParameterContract"},"deprecated":false},"name":{"$id":"1477","fixed":false},"deprecated":false}
           '/tokenEndpoint': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             applicable_to: [python]
             python_field_name: token_endpoint
           '/properties/tokenEndpoint': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             applicable_to: [go]
-            go_field_name: tokenEndpoint
+            go_field_name: TokenEndpoint
           '/supportState': !ruby/object:Api::Azure::SDKTypeDefinition::BooleanObject
             applicable_to: [python]
             python_field_name: support_state
           '/properties/supportState': !ruby/object:Api::Azure::SDKTypeDefinition::BooleanObject
             applicable_to: [go]
-            go_field_name: supportState
+            go_field_name: SupportState
           '/defaultScope': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             applicable_to: [python]
             python_field_name: default_scope
           '/properties/defaultScope': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             applicable_to: [go]
-            go_field_name: defaultScope
+            go_field_name: DefaultScope
           '/bearerTokenSendingMethods': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             applicable_to: [python]
             python_field_name: bearer_token_sending_methods
           '/properties/bearerTokenSendingMethods': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             applicable_to: [go]
-            go_field_name: bearerTokenSendingMethods
+            go_field_name: BearerTokenSendingMethods
           '/clientSecret': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             applicable_to: [python]
             python_field_name: client_secret
           '/properties/clientSecret': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             applicable_to: [go]
-            go_field_name: clientSecret
+            go_field_name: ClientSecret
           '/resourceOwnerUsername': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             applicable_to: [python]
             python_field_name: resource_owner_username
           '/properties/resourceOwnerUsername': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             applicable_to: [go]
-            go_field_name: resourceOwnerUsername
+            go_field_name: ResourceOwnerUsername
           '/resourceOwnerPassword': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             applicable_to: [python]
             python_field_name: resource_owner_password
           '/properties/resourceOwnerPassword': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             applicable_to: [go]
-            go_field_name: resourceOwnerPassword
+            go_field_name: ResourceOwnerPassword
           '/displayName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             applicable_to: [python]
             python_field_name: display_name
           '/properties/displayName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             applicable_to: [go]
-            go_field_name: displayName
+            go_field_name: DisplayName
           '/clientRegistrationEndpoint': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             applicable_to: [python]
             python_field_name: client_registration_endpoint
           '/properties/clientRegistrationEndpoint': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             applicable_to: [go]
-            go_field_name: clientRegistrationEndpoint
+            go_field_name: ClientRegistrationEndpoint
           '/authorizationEndpoint': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             applicable_to: [python]
             python_field_name: authorization_endpoint
           '/properties/authorizationEndpoint': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             applicable_to: [go]
-            go_field_name: authorizationEndpoint
+            go_field_name: AuthorizationEndpoint
           '/grantTypes': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             applicable_to: [python]
             python_field_name: grant_types
           '/properties/grantTypes': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             applicable_to: [go]
-            go_field_name: grantTypes
+            go_field_name: GrantTypes
           '/clientId': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             applicable_to: [python]
             python_field_name: client_id
           '/properties/clientId': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             applicable_to: [go]
-            go_field_name: clientId
+            go_field_name: ClientID
         response:
           '/id': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
-            go_field_name: id
+            go_field_name: ID
             python_field_name: id
           '/name': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
-            go_field_name: name
+            go_field_name: Name
             python_field_name: name
           '/type': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
-            go_field_name: type
+            go_field_name: Type
             python_field_name: type
       delete: !ruby/object:Api::Azure::SDKOperationDefinition
         go_func_name: Delete
@@ -305,7 +305,7 @@ objects:
             python_variable_name: name
           'authsid': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             id_portion: authorizationServers
-            go_variable_name: authsid
+            go_variable_name: Authsid
             python_parameter_name: authsid
             python_variable_name: authsid
       read: !ruby/object:Api::Azure::SDKOperationDefinition
@@ -324,18 +324,18 @@ objects:
             python_variable_name: name
           'authsid': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             id_portion: authorizationServers
-            go_variable_name: authsid
+            go_variable_name: Authsid
             python_parameter_name: authsid
             python_variable_name: authsid
         response:
           '/id': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
-            go_field_name: id
+            go_field_name: ID
             python_field_name: id
           '/name': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
-            go_field_name: name
+            go_field_name: Name
             python_field_name: name
           '/type': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
-            go_field_name: type
+            go_field_name: Type
             python_field_name: type
 
     description: |

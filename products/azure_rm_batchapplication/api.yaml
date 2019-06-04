@@ -30,7 +30,7 @@ objects:
             python_variable_name: resource_group
           'accountName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             id_portion: batchAccounts
-            go_variable_name: accountName
+            go_variable_name: AccountName
             python_parameter_name: account_name
             python_variable_name: account_name
           'applicationName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
@@ -39,44 +39,44 @@ objects:
             python_parameter_name: application_name
             python_variable_name: name
           '/': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
-            go_variable_name: parameters
+            go_variable_name: Parameters
             go_type_name: Application
             python_parameter_name: parameters
             python_variable_name: parameters
           '/properties': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
             applicable_to: [go]
-            go_field_name: properties
+            go_field_name: Properties
             go_type_name: ApplicationProperties
           '/displayName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             applicable_to: [python]
             python_field_name: display_name
           '/properties/displayName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             applicable_to: [go]
-            go_field_name: displayName
+            go_field_name: DisplayName
           '/allowUpdates': !ruby/object:Api::Azure::SDKTypeDefinition::BooleanObject
             applicable_to: [python]
             python_field_name: allow_updates
           '/properties/allowUpdates': !ruby/object:Api::Azure::SDKTypeDefinition::BooleanObject
             applicable_to: [go]
-            go_field_name: allowUpdates
+            go_field_name: AllowUpdates
           '/defaultVersion': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             applicable_to: [python]
             python_field_name: default_version
           '/properties/defaultVersion': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             applicable_to: [go]
-            go_field_name: defaultVersion
+            go_field_name: DefaultVersion
         response:
           '/id': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
-            go_field_name: id
+            go_field_name: ID
             python_field_name: id
           '/name': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
-            go_field_name: name
+            go_field_name: Name
             python_field_name: name
           '/type': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
-            go_field_name: type
+            go_field_name: Type
             python_field_name: type
           '/etag': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
-            go_field_name: etag
+            go_field_name: Etag
             python_field_name: etag
       update: !ruby/object:Api::Azure::SDKOperationDefinition
         go_func_name: Update
@@ -89,7 +89,7 @@ objects:
             python_variable_name: resource_group
           'accountName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             id_portion: batchAccounts
-            go_variable_name: accountName
+            go_variable_name: AccountName
             python_parameter_name: account_name
             python_variable_name: account_name
           'applicationName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
@@ -98,44 +98,44 @@ objects:
             python_parameter_name: application_name
             python_variable_name: name
           '/': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
-            go_variable_name: parameters
+            go_variable_name: Parameters
             go_type_name: Application
             python_parameter_name: parameters
             python_variable_name: parameters
           '/properties': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
             applicable_to: [go]
-            go_field_name: properties
+            go_field_name: Properties
             go_type_name: ApplicationProperties
           '/displayName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             applicable_to: [python]
             python_field_name: display_name
           '/properties/displayName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             applicable_to: [go]
-            go_field_name: displayName
+            go_field_name: DisplayName
           '/allowUpdates': !ruby/object:Api::Azure::SDKTypeDefinition::BooleanObject
             applicable_to: [python]
             python_field_name: allow_updates
           '/properties/allowUpdates': !ruby/object:Api::Azure::SDKTypeDefinition::BooleanObject
             applicable_to: [go]
-            go_field_name: allowUpdates
+            go_field_name: AllowUpdates
           '/defaultVersion': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             applicable_to: [python]
             python_field_name: default_version
           '/properties/defaultVersion': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             applicable_to: [go]
-            go_field_name: defaultVersion
+            go_field_name: DefaultVersion
         response:
           '/id': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
-            go_field_name: id
+            go_field_name: ID
             python_field_name: id
           '/name': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
-            go_field_name: name
+            go_field_name: Name
             python_field_name: name
           '/type': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
-            go_field_name: type
+            go_field_name: Type
             python_field_name: type
           '/etag': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
-            go_field_name: etag
+            go_field_name: Etag
             python_field_name: etag
       delete: !ruby/object:Api::Azure::SDKOperationDefinition
         go_func_name: Delete
@@ -148,7 +148,7 @@ objects:
             python_variable_name: resource_group
           'accountName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             id_portion: batchAccounts
-            go_variable_name: accountName
+            go_variable_name: AccountName
             python_parameter_name: account_name
             python_variable_name: account_name
           'applicationName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
@@ -167,7 +167,7 @@ objects:
             python_variable_name: resource_group
           'accountName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             id_portion: batchAccounts
-            go_variable_name: accountName
+            go_variable_name: AccountName
             python_parameter_name: account_name
             python_variable_name: account_name
           'applicationName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
@@ -177,16 +177,16 @@ objects:
             python_variable_name: name
         response:
           '/id': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
-            go_field_name: id
+            go_field_name: ID
             python_field_name: id
           '/name': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
-            go_field_name: name
+            go_field_name: Name
             python_field_name: name
           '/type': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
-            go_field_name: type
+            go_field_name: Type
             python_field_name: type
           '/etag': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
-            go_field_name: etag
+            go_field_name: Etag
             python_field_name: etag
 
     description: |

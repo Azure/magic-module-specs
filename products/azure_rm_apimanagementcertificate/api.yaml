@@ -35,39 +35,39 @@ objects:
             python_variable_name: name
           'certificateId': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             id_portion: certificates
-            go_variable_name: certificateId
+            go_variable_name: CertificateID
             python_parameter_name: certificate_id
             python_variable_name: certificate_id
           '/': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
-            go_variable_name: parameters
+            go_variable_name: Parameters
             go_type_name: CertificateCreateOrUpdateParameters
             python_parameter_name: parameters
             python_variable_name: parameters
           '/properties': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
             applicable_to: [go]
-            go_field_name: properties
+            go_field_name: Properties
             go_type_name: CertificateCreateOrUpdateProperties
           '/data': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             applicable_to: [python]
             python_field_name: data
           '/properties/data': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             applicable_to: [go]
-            go_field_name: data
+            go_field_name: Data
           '/password': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             applicable_to: [python]
             python_field_name: password
           '/properties/password': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             applicable_to: [go]
-            go_field_name: password
+            go_field_name: Password
         response:
           '/id': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
-            go_field_name: id
+            go_field_name: ID
             python_field_name: id
           '/name': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
-            go_field_name: name
+            go_field_name: Name
             python_field_name: name
           '/type': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
-            go_field_name: type
+            go_field_name: Type
             python_field_name: type
       delete: !ruby/object:Api::Azure::SDKOperationDefinition
         go_func_name: Delete
@@ -85,7 +85,7 @@ objects:
             python_variable_name: name
           'certificateId': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             id_portion: certificates
-            go_variable_name: certificateId
+            go_variable_name: CertificateID
             python_parameter_name: certificate_id
             python_variable_name: certificate_id
       read: !ruby/object:Api::Azure::SDKOperationDefinition
@@ -104,18 +104,18 @@ objects:
             python_variable_name: name
           'certificateId': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             id_portion: certificates
-            go_variable_name: certificateId
+            go_variable_name: CertificateID
             python_parameter_name: certificate_id
             python_variable_name: certificate_id
         response:
           '/id': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
-            go_field_name: id
+            go_field_name: ID
             python_field_name: id
           '/name': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
-            go_field_name: name
+            go_field_name: Name
             python_field_name: name
           '/type': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
-            go_field_name: type
+            go_field_name: Type
             python_field_name: type
 
     description: |
