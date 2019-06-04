@@ -1,0 +1,2042 @@
+--- !ruby/object:Api::Product
+name: Azure Pool Management
+prefix: azure_rm_batchpool
+versions:
+  - !ruby/object:Api::Product::Version
+    name: ga
+    base_url: NotUsedInAzure
+scopes:
+  - NotUsedInAzure
+objects:
+  - !ruby/object:Api::Resource
+    name: Pool
+    api_name: Batch
+    base_url: NotUsedInAzure
+
+    azure_sdk_definition: !ruby/object:Api::Azure::SDKDefinition
+      provider_name: Microsoft.Batch
+      go_client_namespace: batch
+      go_client: poolClient
+      python_client_namespace: azure.mgmt.batch
+      python_client: BatchManagementClient.pool
+      create: !ruby/object:Api::Azure::SDKOperationDefinition
+        async: true
+        go_func_name: Create
+        python_func_name: create
+        request:
+          'resourceGroupName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            id_portion: resourceGroups
+            go_variable_name: resourceGroup
+            python_parameter_name: resource_group_name
+            python_variable_name: resource_group
+          'accountName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            id_portion: batchAccounts
+            go_variable_name: AccountName
+            python_parameter_name: account_name
+            python_variable_name: account_name
+          'poolName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            id_portion: pools
+            go_variable_name: name
+            python_parameter_name: pool_name
+            python_variable_name: name
+          '/': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            go_variable_name: Parameters
+            go_type_name: Pool
+            python_parameter_name: parameters
+            python_variable_name: parameters
+          '/properties': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            applicable_to: [go]
+            go_field_name: Properties
+            go_type_name: PoolProperties
+          '/displayName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: display_name
+          '/properties/displayName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: DisplayName
+          '/vmSize': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: vm_size
+          '/properties/vmSize': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: VmSize
+          '/deploymentConfiguration': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            applicable_to: [python]
+            python_field_name: deployment_configuration
+          '/deploymentConfiguration/cloudServiceConfiguration': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            applicable_to: [python]
+            python_field_name: cloud_service_configuration
+          '/deploymentConfiguration/cloudServiceConfiguration/osFamily': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: os_family
+          '/deploymentConfiguration/cloudServiceConfiguration/osVersion': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: os_version
+          '/deploymentConfiguration/virtualMachineConfiguration': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            applicable_to: [python]
+            python_field_name: virtual_machine_configuration
+          '/deploymentConfiguration/virtualMachineConfiguration/imageReference': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            applicable_to: [python]
+            python_field_name: image_reference
+          '/deploymentConfiguration/virtualMachineConfiguration/imageReference/publisher': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: publisher
+          '/deploymentConfiguration/virtualMachineConfiguration/imageReference/offer': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: offer
+          '/deploymentConfiguration/virtualMachineConfiguration/imageReference/sku': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: sku
+          '/deploymentConfiguration/virtualMachineConfiguration/imageReference/version': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: version
+          '/deploymentConfiguration/virtualMachineConfiguration/imageReference/id': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: id
+          '/deploymentConfiguration/virtualMachineConfiguration/nodeAgentSkuId': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: node_agent_sku_id
+          '/deploymentConfiguration/virtualMachineConfiguration/windowsConfiguration': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            applicable_to: [python]
+            python_field_name: windows_configuration
+          '/deploymentConfiguration/virtualMachineConfiguration/windowsConfiguration/enableAutomaticUpdates': !ruby/object:Api::Azure::SDKTypeDefinition::BooleanObject
+            applicable_to: [python]
+            python_field_name: enable_automatic_updates
+          '/deploymentConfiguration/virtualMachineConfiguration/dataDisks': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexArrayObject
+            applicable_to: [python]
+            python_field_name: data_disks
+          '/deploymentConfiguration/virtualMachineConfiguration/dataDisks/lun': 
+            applicable_to: [python]
+            python_field_name: lun
+          '/deploymentConfiguration/virtualMachineConfiguration/dataDisks/caching': !ruby/object:Api::Azure::SDKTypeDefinition::EnumObject
+            applicable_to: [python]
+            python_field_name: caching
+          '/deploymentConfiguration/virtualMachineConfiguration/dataDisks/diskSizeGB': 
+            applicable_to: [python]
+            python_field_name: disk_size_gb
+          '/deploymentConfiguration/virtualMachineConfiguration/dataDisks/storageAccountType': !ruby/object:Api::Azure::SDKTypeDefinition::EnumObject
+            applicable_to: [python]
+            python_field_name: storage_account_type
+          '/deploymentConfiguration/virtualMachineConfiguration/licenseType': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: license_type
+          '/deploymentConfiguration/virtualMachineConfiguration/containerConfiguration': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            applicable_to: [python]
+            python_field_name: container_configuration
+          '/deploymentConfiguration/virtualMachineConfiguration/containerConfiguration/type': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: type
+          '/deploymentConfiguration/virtualMachineConfiguration/containerConfiguration/containerImageNames': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: container_image_names
+          '/deploymentConfiguration/virtualMachineConfiguration/containerConfiguration/containerRegistries': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexArrayObject
+            applicable_to: [python]
+            python_field_name: container_registries
+          '/properties/deploymentConfiguration': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            applicable_to: [go]
+            go_field_name: DeploymentConfiguration
+            go_type_name: DeploymentConfiguration
+          '/properties/deploymentConfiguration/cloudServiceConfiguration': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            applicable_to: [go]
+            go_field_name: CloudServiceConfiguration
+            go_type_name: CloudServiceConfiguration
+          '/properties/deploymentConfiguration/cloudServiceConfiguration/osFamily': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: OsFamily
+          '/properties/deploymentConfiguration/cloudServiceConfiguration/osVersion': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: OsVersion
+          '/properties/deploymentConfiguration/virtualMachineConfiguration': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            applicable_to: [go]
+            go_field_name: VirtualMachineConfiguration
+            go_type_name: VirtualMachineConfiguration
+          '/properties/deploymentConfiguration/virtualMachineConfiguration/imageReference': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            applicable_to: [go]
+            go_field_name: ImageReference
+            go_type_name: ImageReference
+          '/properties/deploymentConfiguration/virtualMachineConfiguration/imageReference/publisher': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: Publisher
+          '/properties/deploymentConfiguration/virtualMachineConfiguration/imageReference/offer': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: Offer
+          '/properties/deploymentConfiguration/virtualMachineConfiguration/imageReference/sku': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: Sku
+          '/properties/deploymentConfiguration/virtualMachineConfiguration/imageReference/version': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: Version
+          '/properties/deploymentConfiguration/virtualMachineConfiguration/imageReference/id': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: ID
+          '/properties/deploymentConfiguration/virtualMachineConfiguration/nodeAgentSkuId': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: NodeAgentSkuID
+          '/properties/deploymentConfiguration/virtualMachineConfiguration/windowsConfiguration': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            applicable_to: [go]
+            go_field_name: WindowsConfiguration
+            go_type_name: WindowsConfiguration
+          '/properties/deploymentConfiguration/virtualMachineConfiguration/windowsConfiguration/enableAutomaticUpdates': !ruby/object:Api::Azure::SDKTypeDefinition::BooleanObject
+            applicable_to: [go]
+            go_field_name: EnableAutomaticUpdates
+          '/properties/deploymentConfiguration/virtualMachineConfiguration/dataDisks': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexArrayObject
+            applicable_to: [go]
+            go_field_name: DataDisks
+            go_type_name: {"$id":"653","$type":"SequenceType","elementType":{"$ref":"557"},"name":{"$id":"654","fixed":false},"deprecated":false}
+          '/properties/deploymentConfiguration/virtualMachineConfiguration/dataDisks/lun': 
+            applicable_to: [go]
+            go_field_name: Lun
+          '/properties/deploymentConfiguration/virtualMachineConfiguration/dataDisks/caching': !ruby/object:Api::Azure::SDKTypeDefinition::EnumObject
+            applicable_to: [go]
+            go_field_name: Caching
+            go_enum_type_name: CachingType
+          '/properties/deploymentConfiguration/virtualMachineConfiguration/dataDisks/diskSizeGB': 
+            applicable_to: [go]
+            go_field_name: DiskSizeGb
+          '/properties/deploymentConfiguration/virtualMachineConfiguration/dataDisks/storageAccountType': !ruby/object:Api::Azure::SDKTypeDefinition::EnumObject
+            applicable_to: [go]
+            go_field_name: StorageAccountType
+            go_enum_type_name: StorageAccountType
+          '/properties/deploymentConfiguration/virtualMachineConfiguration/licenseType': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: LicenseType
+          '/properties/deploymentConfiguration/virtualMachineConfiguration/containerConfiguration': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            applicable_to: [go]
+            go_field_name: ContainerConfiguration
+            go_type_name: ContainerConfiguration
+          '/properties/deploymentConfiguration/virtualMachineConfiguration/containerConfiguration/type': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: Type
+          '/properties/deploymentConfiguration/virtualMachineConfiguration/containerConfiguration/containerImageNames': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: ContainerImageNames
+          '/properties/deploymentConfiguration/virtualMachineConfiguration/containerConfiguration/containerRegistries': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexArrayObject
+            applicable_to: [go]
+            go_field_name: ContainerRegistries
+            go_type_name: {"$id":"631","$type":"SequenceType","elementType":{"$ref":"592"},"name":{"$id":"632","fixed":false},"deprecated":false}
+          '/scaleSettings': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            applicable_to: [python]
+            python_field_name: scale_settings
+          '/scaleSettings/fixedScale': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            applicable_to: [python]
+            python_field_name: fixed_scale
+          '/scaleSettings/fixedScale/resizeTimeout': 
+            applicable_to: [python]
+            python_field_name: resize_timeout
+          '/scaleSettings/fixedScale/targetDedicatedNodes': 
+            applicable_to: [python]
+            python_field_name: target_dedicated_nodes
+          '/scaleSettings/fixedScale/targetLowPriorityNodes': 
+            applicable_to: [python]
+            python_field_name: target_low_priority_nodes
+          '/scaleSettings/fixedScale/nodeDeallocationOption': !ruby/object:Api::Azure::SDKTypeDefinition::EnumObject
+            applicable_to: [python]
+            python_field_name: node_deallocation_option
+          '/scaleSettings/autoScale': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            applicable_to: [python]
+            python_field_name: auto_scale
+          '/scaleSettings/autoScale/formula': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: formula
+          '/scaleSettings/autoScale/evaluationInterval': 
+            applicable_to: [python]
+            python_field_name: evaluation_interval
+          '/properties/scaleSettings': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            applicable_to: [go]
+            go_field_name: ScaleSettings
+            go_type_name: ScaleSettings
+          '/properties/scaleSettings/fixedScale': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            applicable_to: [go]
+            go_field_name: FixedScale
+            go_type_name: FixedScaleSettings
+          '/properties/scaleSettings/fixedScale/resizeTimeout': 
+            applicable_to: [go]
+            go_field_name: ResizeTimeout
+          '/properties/scaleSettings/fixedScale/targetDedicatedNodes': 
+            applicable_to: [go]
+            go_field_name: TargetDedicatedNodes
+          '/properties/scaleSettings/fixedScale/targetLowPriorityNodes': 
+            applicable_to: [go]
+            go_field_name: TargetLowPriorityNodes
+          '/properties/scaleSettings/fixedScale/nodeDeallocationOption': !ruby/object:Api::Azure::SDKTypeDefinition::EnumObject
+            applicable_to: [go]
+            go_field_name: NodeDeallocationOption
+            go_enum_type_name: ComputeNodeDeallocationOption
+          '/properties/scaleSettings/autoScale': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            applicable_to: [go]
+            go_field_name: AutoScale
+            go_type_name: AutoScaleSettings
+          '/properties/scaleSettings/autoScale/formula': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: Formula
+          '/properties/scaleSettings/autoScale/evaluationInterval': 
+            applicable_to: [go]
+            go_field_name: EvaluationInterval
+          '/interNodeCommunication': !ruby/object:Api::Azure::SDKTypeDefinition::EnumObject
+            applicable_to: [python]
+            python_field_name: inter_node_communication
+          '/properties/interNodeCommunication': !ruby/object:Api::Azure::SDKTypeDefinition::EnumObject
+            applicable_to: [go]
+            go_field_name: InterNodeCommunication
+            go_enum_type_name: InterNodeCommunicationState
+          '/networkConfiguration': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            applicable_to: [python]
+            python_field_name: network_configuration
+          '/networkConfiguration/subnetId': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: subnet_id
+          '/networkConfiguration/endpointConfiguration': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            applicable_to: [python]
+            python_field_name: endpoint_configuration
+          '/networkConfiguration/endpointConfiguration/inboundNatPools': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexArrayObject
+            applicable_to: [python]
+            python_field_name: inbound_nat_pools
+          '/networkConfiguration/endpointConfiguration/inboundNatPools/name': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: name
+          '/networkConfiguration/endpointConfiguration/inboundNatPools/protocol': !ruby/object:Api::Azure::SDKTypeDefinition::EnumObject
+            applicable_to: [python]
+            python_field_name: protocol
+          '/networkConfiguration/endpointConfiguration/inboundNatPools/backendPort': 
+            applicable_to: [python]
+            python_field_name: backend_port
+          '/networkConfiguration/endpointConfiguration/inboundNatPools/frontendPortRangeStart': 
+            applicable_to: [python]
+            python_field_name: frontend_port_range_start
+          '/networkConfiguration/endpointConfiguration/inboundNatPools/frontendPortRangeEnd': 
+            applicable_to: [python]
+            python_field_name: frontend_port_range_end
+          '/networkConfiguration/endpointConfiguration/inboundNatPools/networkSecurityGroupRules': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexArrayObject
+            applicable_to: [python]
+            python_field_name: network_security_group_rules
+          '/properties/networkConfiguration': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            applicable_to: [go]
+            go_field_name: NetworkConfiguration
+            go_type_name: NetworkConfiguration
+          '/properties/networkConfiguration/subnetId': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: SubnetID
+          '/properties/networkConfiguration/endpointConfiguration': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            applicable_to: [go]
+            go_field_name: EndpointConfiguration
+            go_type_name: PoolEndpointConfiguration
+          '/properties/networkConfiguration/endpointConfiguration/inboundNatPools': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexArrayObject
+            applicable_to: [go]
+            go_field_name: InboundNatPools
+            go_type_name: {"$id":"841","$type":"SequenceType","elementType":{"$ref":"794"},"name":{"$id":"842","fixed":false},"deprecated":false}
+          '/properties/networkConfiguration/endpointConfiguration/inboundNatPools/name': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: Name
+          '/properties/networkConfiguration/endpointConfiguration/inboundNatPools/protocol': !ruby/object:Api::Azure::SDKTypeDefinition::EnumObject
+            applicable_to: [go]
+            go_field_name: Protocol
+            go_enum_type_name: InboundEndpointProtocol
+          '/properties/networkConfiguration/endpointConfiguration/inboundNatPools/backendPort': 
+            applicable_to: [go]
+            go_field_name: BackendPort
+          '/properties/networkConfiguration/endpointConfiguration/inboundNatPools/frontendPortRangeStart': 
+            applicable_to: [go]
+            go_field_name: FrontendPortRangeStart
+          '/properties/networkConfiguration/endpointConfiguration/inboundNatPools/frontendPortRangeEnd': 
+            applicable_to: [go]
+            go_field_name: FrontendPortRangeEnd
+          '/properties/networkConfiguration/endpointConfiguration/inboundNatPools/networkSecurityGroupRules': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexArrayObject
+            applicable_to: [go]
+            go_field_name: NetworkSecurityGroupRules
+            go_type_name: {"$id":"833","$type":"SequenceType","elementType":{"$ref":"770"},"name":{"$id":"834","fixed":false},"deprecated":false}
+          '/maxTasksPerNode': 
+            applicable_to: [python]
+            python_field_name: max_tasks_per_node
+          '/properties/maxTasksPerNode': 
+            applicable_to: [go]
+            go_field_name: MaxTasksPerNode
+          '/taskSchedulingPolicy': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            applicable_to: [python]
+            python_field_name: task_scheduling_policy
+          '/taskSchedulingPolicy/nodeFillType': !ruby/object:Api::Azure::SDKTypeDefinition::EnumObject
+            applicable_to: [python]
+            python_field_name: node_fill_type
+          '/properties/taskSchedulingPolicy': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            applicable_to: [go]
+            go_field_name: TaskSchedulingPolicy
+            go_type_name: TaskSchedulingPolicy
+          '/properties/taskSchedulingPolicy/nodeFillType': !ruby/object:Api::Azure::SDKTypeDefinition::EnumObject
+            applicable_to: [go]
+            go_field_name: NodeFillType
+            go_enum_type_name: ComputeNodeFillType
+          '/userAccounts': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexArrayObject
+            applicable_to: [python]
+            python_field_name: user_accounts
+          '/userAccounts/name': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: name
+          '/userAccounts/password': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: password
+          '/userAccounts/elevationLevel': !ruby/object:Api::Azure::SDKTypeDefinition::EnumObject
+            applicable_to: [python]
+            python_field_name: elevation_level
+          '/userAccounts/linuxUserConfiguration': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            applicable_to: [python]
+            python_field_name: linux_user_configuration
+          '/userAccounts/linuxUserConfiguration/uid': 
+            applicable_to: [python]
+            python_field_name: uid
+          '/userAccounts/linuxUserConfiguration/gid': 
+            applicable_to: [python]
+            python_field_name: gid
+          '/userAccounts/linuxUserConfiguration/sshPrivateKey': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: ssh_private_key
+          '/userAccounts/windowsUserConfiguration': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            applicable_to: [python]
+            python_field_name: windows_user_configuration
+          '/userAccounts/windowsUserConfiguration/loginMode': !ruby/object:Api::Azure::SDKTypeDefinition::EnumObject
+            applicable_to: [python]
+            python_field_name: login_mode
+          '/properties/userAccounts': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexArrayObject
+            applicable_to: [go]
+            go_field_name: UserAccounts
+            go_type_name: {"$id":"1301","$type":"SequenceType","elementType":{"$ref":"900"},"name":{"$id":"1302","fixed":false},"deprecated":false}
+          '/properties/userAccounts/name': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: Name
+          '/properties/userAccounts/password': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: Password
+          '/properties/userAccounts/elevationLevel': !ruby/object:Api::Azure::SDKTypeDefinition::EnumObject
+            applicable_to: [go]
+            go_field_name: ElevationLevel
+            go_enum_type_name: ElevationLevel
+          '/properties/userAccounts/linuxUserConfiguration': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            applicable_to: [go]
+            go_field_name: LinuxUserConfiguration
+            go_type_name: LinuxUserConfiguration
+          '/properties/userAccounts/linuxUserConfiguration/uid': 
+            applicable_to: [go]
+            go_field_name: Uid
+          '/properties/userAccounts/linuxUserConfiguration/gid': 
+            applicable_to: [go]
+            go_field_name: Gid
+          '/properties/userAccounts/linuxUserConfiguration/sshPrivateKey': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: SshPrivateKey
+          '/properties/userAccounts/windowsUserConfiguration': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            applicable_to: [go]
+            go_field_name: WindowsUserConfiguration
+            go_type_name: WindowsUserConfiguration
+          '/properties/userAccounts/windowsUserConfiguration/loginMode': !ruby/object:Api::Azure::SDKTypeDefinition::EnumObject
+            applicable_to: [go]
+            go_field_name: LoginMode
+            go_enum_type_name: LoginMode
+          '/metadata': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexArrayObject
+            applicable_to: [python]
+            python_field_name: metadata
+          '/metadata/name': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: name
+          '/metadata/value': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: value
+          '/properties/metadata': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexArrayObject
+            applicable_to: [go]
+            go_field_name: Metadata
+            go_type_name: {"$id":"1307","$type":"SequenceType","elementType":{"$ref":"932"},"name":{"$id":"1308","fixed":false},"deprecated":false}
+          '/properties/metadata/name': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: Name
+          '/properties/metadata/value': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: Value
+          '/startTask': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            applicable_to: [python]
+            python_field_name: start_task
+          '/startTask/commandLine': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: command_line
+          '/startTask/resourceFiles': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexArrayObject
+            applicable_to: [python]
+            python_field_name: resource_files
+          '/startTask/resourceFiles/autoStorageContainerName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: auto_storage_container_name
+          '/startTask/resourceFiles/storageContainerUrl': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: storage_container_url
+          '/startTask/resourceFiles/httpUrl': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: http_url
+          '/startTask/resourceFiles/blobPrefix': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: blob_prefix
+          '/startTask/resourceFiles/filePath': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: file_path
+          '/startTask/resourceFiles/fileMode': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: file_mode
+          '/startTask/environmentSettings': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexArrayObject
+            applicable_to: [python]
+            python_field_name: environment_settings
+          '/startTask/environmentSettings/name': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: name
+          '/startTask/environmentSettings/value': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: value
+          '/startTask/userIdentity': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            applicable_to: [python]
+            python_field_name: user_identity
+          '/startTask/userIdentity/userName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: user_name
+          '/startTask/userIdentity/autoUser': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            applicable_to: [python]
+            python_field_name: auto_user
+          '/startTask/userIdentity/autoUser/scope': !ruby/object:Api::Azure::SDKTypeDefinition::EnumObject
+            applicable_to: [python]
+            python_field_name: scope
+          '/startTask/userIdentity/autoUser/elevationLevel': !ruby/object:Api::Azure::SDKTypeDefinition::EnumObject
+            applicable_to: [python]
+            python_field_name: elevation_level
+          '/startTask/maxTaskRetryCount': 
+            applicable_to: [python]
+            python_field_name: max_task_retry_count
+          '/startTask/waitForSuccess': !ruby/object:Api::Azure::SDKTypeDefinition::BooleanObject
+            applicable_to: [python]
+            python_field_name: wait_for_success
+          '/startTask/containerSettings': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            applicable_to: [python]
+            python_field_name: container_settings
+          '/startTask/containerSettings/containerRunOptions': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: container_run_options
+          '/startTask/containerSettings/imageName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: image_name
+          '/startTask/containerSettings/registry': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            applicable_to: [python]
+            python_field_name: registry
+          '/startTask/containerSettings/registry/registryServer': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: registry_server
+          '/startTask/containerSettings/registry/username': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: username
+          '/startTask/containerSettings/registry/password': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: password
+          '/properties/startTask': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            applicable_to: [go]
+            go_field_name: StartTask
+            go_type_name: StartTask
+          '/properties/startTask/commandLine': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: CommandLine
+          '/properties/startTask/resourceFiles': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexArrayObject
+            applicable_to: [go]
+            go_field_name: ResourceFiles
+            go_type_name: {"$id":"1055","$type":"SequenceType","elementType":{"$ref":"946"},"name":{"$id":"1056","fixed":false},"deprecated":false}
+          '/properties/startTask/resourceFiles/autoStorageContainerName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: AutoStorageContainerName
+          '/properties/startTask/resourceFiles/storageContainerUrl': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: StorageContainerURL
+          '/properties/startTask/resourceFiles/httpUrl': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: HttpURL
+          '/properties/startTask/resourceFiles/blobPrefix': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: BlobPrefix
+          '/properties/startTask/resourceFiles/filePath': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: FilePath
+          '/properties/startTask/resourceFiles/fileMode': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: FileMode
+          '/properties/startTask/environmentSettings': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexArrayObject
+            applicable_to: [go]
+            go_field_name: EnvironmentSettings
+            go_type_name: {"$id":"1061","$type":"SequenceType","elementType":{"$ref":"984"},"name":{"$id":"1062","fixed":false},"deprecated":false}
+          '/properties/startTask/environmentSettings/name': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: Name
+          '/properties/startTask/environmentSettings/value': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: Value
+          '/properties/startTask/userIdentity': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            applicable_to: [go]
+            go_field_name: UserIdentity
+            go_type_name: UserIdentity
+          '/properties/startTask/userIdentity/userName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: UserName
+          '/properties/startTask/userIdentity/autoUser': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            applicable_to: [go]
+            go_field_name: AutoUser
+            go_type_name: AutoUserSpecification
+          '/properties/startTask/userIdentity/autoUser/scope': !ruby/object:Api::Azure::SDKTypeDefinition::EnumObject
+            applicable_to: [go]
+            go_field_name: Scope
+            go_enum_type_name: AutoUserScope
+          '/properties/startTask/userIdentity/autoUser/elevationLevel': !ruby/object:Api::Azure::SDKTypeDefinition::EnumObject
+            applicable_to: [go]
+            go_field_name: ElevationLevel
+            go_enum_type_name: ElevationLevel
+          '/properties/startTask/maxTaskRetryCount': 
+            applicable_to: [go]
+            go_field_name: MaxTaskRetryCount
+          '/properties/startTask/waitForSuccess': !ruby/object:Api::Azure::SDKTypeDefinition::BooleanObject
+            applicable_to: [go]
+            go_field_name: WaitForSuccess
+          '/properties/startTask/containerSettings': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            applicable_to: [go]
+            go_field_name: ContainerSettings
+            go_type_name: TaskContainerSettings
+          '/properties/startTask/containerSettings/containerRunOptions': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: ContainerRunOptions
+          '/properties/startTask/containerSettings/imageName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: ImageName
+          '/properties/startTask/containerSettings/registry': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            applicable_to: [go]
+            go_field_name: Registry
+            go_type_name: ContainerRegistry
+          '/properties/startTask/containerSettings/registry/registryServer': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: RegistryServer
+          '/properties/startTask/containerSettings/registry/username': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: Username
+          '/properties/startTask/containerSettings/registry/password': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: Password
+          '/certificates': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexArrayObject
+            applicable_to: [python]
+            python_field_name: certificates
+          '/certificates/id': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: id
+          '/certificates/storeLocation': !ruby/object:Api::Azure::SDKTypeDefinition::EnumObject
+            applicable_to: [python]
+            python_field_name: store_location
+          '/certificates/storeName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: store_name
+          '/certificates/visibility': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: visibility
+          '/properties/certificates': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexArrayObject
+            applicable_to: [go]
+            go_field_name: Certificates
+            go_type_name: {"$id":"1317","$type":"SequenceType","elementType":{"$ref":"1084"},"name":{"$id":"1318","fixed":false},"deprecated":false}
+          '/properties/certificates/id': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: ID
+          '/properties/certificates/storeLocation': !ruby/object:Api::Azure::SDKTypeDefinition::EnumObject
+            applicable_to: [go]
+            go_field_name: StoreLocation
+            go_enum_type_name: CertificateStoreLocation
+          '/properties/certificates/storeName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: StoreName
+          '/properties/certificates/visibility': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: Visibility
+          '/applicationPackages': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexArrayObject
+            applicable_to: [python]
+            python_field_name: application_packages
+          '/applicationPackages/id': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: id
+          '/applicationPackages/version': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: version
+          '/properties/applicationPackages': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexArrayObject
+            applicable_to: [go]
+            go_field_name: ApplicationPackages
+            go_type_name: {"$id":"1323","$type":"SequenceType","elementType":{"$ref":"1121"},"name":{"$id":"1324","fixed":false},"deprecated":false}
+          '/properties/applicationPackages/id': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: ID
+          '/properties/applicationPackages/version': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: Version
+          '/applicationLicenses': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: application_licenses
+          '/properties/applicationLicenses': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: ApplicationLicenses
+        response:
+          '/id': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            go_field_name: ID
+            python_field_name: id
+          '/name': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            go_field_name: Name
+            python_field_name: name
+          '/type': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            go_field_name: Type
+            python_field_name: type
+          '/etag': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            go_field_name: Etag
+            python_field_name: etag
+      update: !ruby/object:Api::Azure::SDKOperationDefinition
+        go_func_name: Update
+        python_func_name: update
+        request:
+          'resourceGroupName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            id_portion: resourceGroups
+            go_variable_name: resourceGroup
+            python_parameter_name: resource_group_name
+            python_variable_name: resource_group
+          'accountName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            id_portion: batchAccounts
+            go_variable_name: AccountName
+            python_parameter_name: account_name
+            python_variable_name: account_name
+          'poolName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            id_portion: pools
+            go_variable_name: name
+            python_parameter_name: pool_name
+            python_variable_name: name
+          '/': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            go_variable_name: Parameters
+            go_type_name: Pool
+            python_parameter_name: parameters
+            python_variable_name: parameters
+          '/properties': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            applicable_to: [go]
+            go_field_name: Properties
+            go_type_name: PoolProperties
+          '/displayName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: display_name
+          '/properties/displayName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: DisplayName
+          '/vmSize': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: vm_size
+          '/properties/vmSize': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: VmSize
+          '/deploymentConfiguration': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            applicable_to: [python]
+            python_field_name: deployment_configuration
+          '/deploymentConfiguration/cloudServiceConfiguration': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            applicable_to: [python]
+            python_field_name: cloud_service_configuration
+          '/deploymentConfiguration/cloudServiceConfiguration/osFamily': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: os_family
+          '/deploymentConfiguration/cloudServiceConfiguration/osVersion': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: os_version
+          '/deploymentConfiguration/virtualMachineConfiguration': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            applicable_to: [python]
+            python_field_name: virtual_machine_configuration
+          '/deploymentConfiguration/virtualMachineConfiguration/imageReference': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            applicable_to: [python]
+            python_field_name: image_reference
+          '/deploymentConfiguration/virtualMachineConfiguration/imageReference/publisher': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: publisher
+          '/deploymentConfiguration/virtualMachineConfiguration/imageReference/offer': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: offer
+          '/deploymentConfiguration/virtualMachineConfiguration/imageReference/sku': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: sku
+          '/deploymentConfiguration/virtualMachineConfiguration/imageReference/version': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: version
+          '/deploymentConfiguration/virtualMachineConfiguration/imageReference/id': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: id
+          '/deploymentConfiguration/virtualMachineConfiguration/nodeAgentSkuId': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: node_agent_sku_id
+          '/deploymentConfiguration/virtualMachineConfiguration/windowsConfiguration': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            applicable_to: [python]
+            python_field_name: windows_configuration
+          '/deploymentConfiguration/virtualMachineConfiguration/windowsConfiguration/enableAutomaticUpdates': !ruby/object:Api::Azure::SDKTypeDefinition::BooleanObject
+            applicable_to: [python]
+            python_field_name: enable_automatic_updates
+          '/deploymentConfiguration/virtualMachineConfiguration/dataDisks': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexArrayObject
+            applicable_to: [python]
+            python_field_name: data_disks
+          '/deploymentConfiguration/virtualMachineConfiguration/dataDisks/lun': 
+            applicable_to: [python]
+            python_field_name: lun
+          '/deploymentConfiguration/virtualMachineConfiguration/dataDisks/caching': !ruby/object:Api::Azure::SDKTypeDefinition::EnumObject
+            applicable_to: [python]
+            python_field_name: caching
+          '/deploymentConfiguration/virtualMachineConfiguration/dataDisks/diskSizeGB': 
+            applicable_to: [python]
+            python_field_name: disk_size_gb
+          '/deploymentConfiguration/virtualMachineConfiguration/dataDisks/storageAccountType': !ruby/object:Api::Azure::SDKTypeDefinition::EnumObject
+            applicable_to: [python]
+            python_field_name: storage_account_type
+          '/deploymentConfiguration/virtualMachineConfiguration/licenseType': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: license_type
+          '/deploymentConfiguration/virtualMachineConfiguration/containerConfiguration': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            applicable_to: [python]
+            python_field_name: container_configuration
+          '/deploymentConfiguration/virtualMachineConfiguration/containerConfiguration/type': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: type
+          '/deploymentConfiguration/virtualMachineConfiguration/containerConfiguration/containerImageNames': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: container_image_names
+          '/deploymentConfiguration/virtualMachineConfiguration/containerConfiguration/containerRegistries': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexArrayObject
+            applicable_to: [python]
+            python_field_name: container_registries
+          '/properties/deploymentConfiguration': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            applicable_to: [go]
+            go_field_name: DeploymentConfiguration
+            go_type_name: DeploymentConfiguration
+          '/properties/deploymentConfiguration/cloudServiceConfiguration': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            applicable_to: [go]
+            go_field_name: CloudServiceConfiguration
+            go_type_name: CloudServiceConfiguration
+          '/properties/deploymentConfiguration/cloudServiceConfiguration/osFamily': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: OsFamily
+          '/properties/deploymentConfiguration/cloudServiceConfiguration/osVersion': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: OsVersion
+          '/properties/deploymentConfiguration/virtualMachineConfiguration': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            applicable_to: [go]
+            go_field_name: VirtualMachineConfiguration
+            go_type_name: VirtualMachineConfiguration
+          '/properties/deploymentConfiguration/virtualMachineConfiguration/imageReference': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            applicable_to: [go]
+            go_field_name: ImageReference
+            go_type_name: ImageReference
+          '/properties/deploymentConfiguration/virtualMachineConfiguration/imageReference/publisher': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: Publisher
+          '/properties/deploymentConfiguration/virtualMachineConfiguration/imageReference/offer': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: Offer
+          '/properties/deploymentConfiguration/virtualMachineConfiguration/imageReference/sku': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: Sku
+          '/properties/deploymentConfiguration/virtualMachineConfiguration/imageReference/version': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: Version
+          '/properties/deploymentConfiguration/virtualMachineConfiguration/imageReference/id': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: ID
+          '/properties/deploymentConfiguration/virtualMachineConfiguration/nodeAgentSkuId': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: NodeAgentSkuID
+          '/properties/deploymentConfiguration/virtualMachineConfiguration/windowsConfiguration': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            applicable_to: [go]
+            go_field_name: WindowsConfiguration
+            go_type_name: WindowsConfiguration
+          '/properties/deploymentConfiguration/virtualMachineConfiguration/windowsConfiguration/enableAutomaticUpdates': !ruby/object:Api::Azure::SDKTypeDefinition::BooleanObject
+            applicable_to: [go]
+            go_field_name: EnableAutomaticUpdates
+          '/properties/deploymentConfiguration/virtualMachineConfiguration/dataDisks': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexArrayObject
+            applicable_to: [go]
+            go_field_name: DataDisks
+            go_type_name: {"$id":"653","$type":"SequenceType","elementType":{"$ref":"557"},"name":{"$id":"654","fixed":false},"deprecated":false}
+          '/properties/deploymentConfiguration/virtualMachineConfiguration/dataDisks/lun': 
+            applicable_to: [go]
+            go_field_name: Lun
+          '/properties/deploymentConfiguration/virtualMachineConfiguration/dataDisks/caching': !ruby/object:Api::Azure::SDKTypeDefinition::EnumObject
+            applicable_to: [go]
+            go_field_name: Caching
+            go_enum_type_name: CachingType
+          '/properties/deploymentConfiguration/virtualMachineConfiguration/dataDisks/diskSizeGB': 
+            applicable_to: [go]
+            go_field_name: DiskSizeGb
+          '/properties/deploymentConfiguration/virtualMachineConfiguration/dataDisks/storageAccountType': !ruby/object:Api::Azure::SDKTypeDefinition::EnumObject
+            applicable_to: [go]
+            go_field_name: StorageAccountType
+            go_enum_type_name: StorageAccountType
+          '/properties/deploymentConfiguration/virtualMachineConfiguration/licenseType': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: LicenseType
+          '/properties/deploymentConfiguration/virtualMachineConfiguration/containerConfiguration': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            applicable_to: [go]
+            go_field_name: ContainerConfiguration
+            go_type_name: ContainerConfiguration
+          '/properties/deploymentConfiguration/virtualMachineConfiguration/containerConfiguration/type': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: Type
+          '/properties/deploymentConfiguration/virtualMachineConfiguration/containerConfiguration/containerImageNames': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: ContainerImageNames
+          '/properties/deploymentConfiguration/virtualMachineConfiguration/containerConfiguration/containerRegistries': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexArrayObject
+            applicable_to: [go]
+            go_field_name: ContainerRegistries
+            go_type_name: {"$id":"631","$type":"SequenceType","elementType":{"$ref":"592"},"name":{"$id":"632","fixed":false},"deprecated":false}
+          '/scaleSettings': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            applicable_to: [python]
+            python_field_name: scale_settings
+          '/scaleSettings/fixedScale': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            applicable_to: [python]
+            python_field_name: fixed_scale
+          '/scaleSettings/fixedScale/resizeTimeout': 
+            applicable_to: [python]
+            python_field_name: resize_timeout
+          '/scaleSettings/fixedScale/targetDedicatedNodes': 
+            applicable_to: [python]
+            python_field_name: target_dedicated_nodes
+          '/scaleSettings/fixedScale/targetLowPriorityNodes': 
+            applicable_to: [python]
+            python_field_name: target_low_priority_nodes
+          '/scaleSettings/fixedScale/nodeDeallocationOption': !ruby/object:Api::Azure::SDKTypeDefinition::EnumObject
+            applicable_to: [python]
+            python_field_name: node_deallocation_option
+          '/scaleSettings/autoScale': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            applicable_to: [python]
+            python_field_name: auto_scale
+          '/scaleSettings/autoScale/formula': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: formula
+          '/scaleSettings/autoScale/evaluationInterval': 
+            applicable_to: [python]
+            python_field_name: evaluation_interval
+          '/properties/scaleSettings': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            applicable_to: [go]
+            go_field_name: ScaleSettings
+            go_type_name: ScaleSettings
+          '/properties/scaleSettings/fixedScale': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            applicable_to: [go]
+            go_field_name: FixedScale
+            go_type_name: FixedScaleSettings
+          '/properties/scaleSettings/fixedScale/resizeTimeout': 
+            applicable_to: [go]
+            go_field_name: ResizeTimeout
+          '/properties/scaleSettings/fixedScale/targetDedicatedNodes': 
+            applicable_to: [go]
+            go_field_name: TargetDedicatedNodes
+          '/properties/scaleSettings/fixedScale/targetLowPriorityNodes': 
+            applicable_to: [go]
+            go_field_name: TargetLowPriorityNodes
+          '/properties/scaleSettings/fixedScale/nodeDeallocationOption': !ruby/object:Api::Azure::SDKTypeDefinition::EnumObject
+            applicable_to: [go]
+            go_field_name: NodeDeallocationOption
+            go_enum_type_name: ComputeNodeDeallocationOption
+          '/properties/scaleSettings/autoScale': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            applicable_to: [go]
+            go_field_name: AutoScale
+            go_type_name: AutoScaleSettings
+          '/properties/scaleSettings/autoScale/formula': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: Formula
+          '/properties/scaleSettings/autoScale/evaluationInterval': 
+            applicable_to: [go]
+            go_field_name: EvaluationInterval
+          '/interNodeCommunication': !ruby/object:Api::Azure::SDKTypeDefinition::EnumObject
+            applicable_to: [python]
+            python_field_name: inter_node_communication
+          '/properties/interNodeCommunication': !ruby/object:Api::Azure::SDKTypeDefinition::EnumObject
+            applicable_to: [go]
+            go_field_name: InterNodeCommunication
+            go_enum_type_name: InterNodeCommunicationState
+          '/networkConfiguration': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            applicable_to: [python]
+            python_field_name: network_configuration
+          '/networkConfiguration/subnetId': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: subnet_id
+          '/networkConfiguration/endpointConfiguration': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            applicable_to: [python]
+            python_field_name: endpoint_configuration
+          '/networkConfiguration/endpointConfiguration/inboundNatPools': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexArrayObject
+            applicable_to: [python]
+            python_field_name: inbound_nat_pools
+          '/networkConfiguration/endpointConfiguration/inboundNatPools/name': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: name
+          '/networkConfiguration/endpointConfiguration/inboundNatPools/protocol': !ruby/object:Api::Azure::SDKTypeDefinition::EnumObject
+            applicable_to: [python]
+            python_field_name: protocol
+          '/networkConfiguration/endpointConfiguration/inboundNatPools/backendPort': 
+            applicable_to: [python]
+            python_field_name: backend_port
+          '/networkConfiguration/endpointConfiguration/inboundNatPools/frontendPortRangeStart': 
+            applicable_to: [python]
+            python_field_name: frontend_port_range_start
+          '/networkConfiguration/endpointConfiguration/inboundNatPools/frontendPortRangeEnd': 
+            applicable_to: [python]
+            python_field_name: frontend_port_range_end
+          '/networkConfiguration/endpointConfiguration/inboundNatPools/networkSecurityGroupRules': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexArrayObject
+            applicable_to: [python]
+            python_field_name: network_security_group_rules
+          '/properties/networkConfiguration': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            applicable_to: [go]
+            go_field_name: NetworkConfiguration
+            go_type_name: NetworkConfiguration
+          '/properties/networkConfiguration/subnetId': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: SubnetID
+          '/properties/networkConfiguration/endpointConfiguration': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            applicable_to: [go]
+            go_field_name: EndpointConfiguration
+            go_type_name: PoolEndpointConfiguration
+          '/properties/networkConfiguration/endpointConfiguration/inboundNatPools': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexArrayObject
+            applicable_to: [go]
+            go_field_name: InboundNatPools
+            go_type_name: {"$id":"841","$type":"SequenceType","elementType":{"$ref":"794"},"name":{"$id":"842","fixed":false},"deprecated":false}
+          '/properties/networkConfiguration/endpointConfiguration/inboundNatPools/name': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: Name
+          '/properties/networkConfiguration/endpointConfiguration/inboundNatPools/protocol': !ruby/object:Api::Azure::SDKTypeDefinition::EnumObject
+            applicable_to: [go]
+            go_field_name: Protocol
+            go_enum_type_name: InboundEndpointProtocol
+          '/properties/networkConfiguration/endpointConfiguration/inboundNatPools/backendPort': 
+            applicable_to: [go]
+            go_field_name: BackendPort
+          '/properties/networkConfiguration/endpointConfiguration/inboundNatPools/frontendPortRangeStart': 
+            applicable_to: [go]
+            go_field_name: FrontendPortRangeStart
+          '/properties/networkConfiguration/endpointConfiguration/inboundNatPools/frontendPortRangeEnd': 
+            applicable_to: [go]
+            go_field_name: FrontendPortRangeEnd
+          '/properties/networkConfiguration/endpointConfiguration/inboundNatPools/networkSecurityGroupRules': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexArrayObject
+            applicable_to: [go]
+            go_field_name: NetworkSecurityGroupRules
+            go_type_name: {"$id":"833","$type":"SequenceType","elementType":{"$ref":"770"},"name":{"$id":"834","fixed":false},"deprecated":false}
+          '/maxTasksPerNode': 
+            applicable_to: [python]
+            python_field_name: max_tasks_per_node
+          '/properties/maxTasksPerNode': 
+            applicable_to: [go]
+            go_field_name: MaxTasksPerNode
+          '/taskSchedulingPolicy': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            applicable_to: [python]
+            python_field_name: task_scheduling_policy
+          '/taskSchedulingPolicy/nodeFillType': !ruby/object:Api::Azure::SDKTypeDefinition::EnumObject
+            applicable_to: [python]
+            python_field_name: node_fill_type
+          '/properties/taskSchedulingPolicy': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            applicable_to: [go]
+            go_field_name: TaskSchedulingPolicy
+            go_type_name: TaskSchedulingPolicy
+          '/properties/taskSchedulingPolicy/nodeFillType': !ruby/object:Api::Azure::SDKTypeDefinition::EnumObject
+            applicable_to: [go]
+            go_field_name: NodeFillType
+            go_enum_type_name: ComputeNodeFillType
+          '/userAccounts': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexArrayObject
+            applicable_to: [python]
+            python_field_name: user_accounts
+          '/userAccounts/name': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: name
+          '/userAccounts/password': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: password
+          '/userAccounts/elevationLevel': !ruby/object:Api::Azure::SDKTypeDefinition::EnumObject
+            applicable_to: [python]
+            python_field_name: elevation_level
+          '/userAccounts/linuxUserConfiguration': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            applicable_to: [python]
+            python_field_name: linux_user_configuration
+          '/userAccounts/linuxUserConfiguration/uid': 
+            applicable_to: [python]
+            python_field_name: uid
+          '/userAccounts/linuxUserConfiguration/gid': 
+            applicable_to: [python]
+            python_field_name: gid
+          '/userAccounts/linuxUserConfiguration/sshPrivateKey': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: ssh_private_key
+          '/userAccounts/windowsUserConfiguration': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            applicable_to: [python]
+            python_field_name: windows_user_configuration
+          '/userAccounts/windowsUserConfiguration/loginMode': !ruby/object:Api::Azure::SDKTypeDefinition::EnumObject
+            applicable_to: [python]
+            python_field_name: login_mode
+          '/properties/userAccounts': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexArrayObject
+            applicable_to: [go]
+            go_field_name: UserAccounts
+            go_type_name: {"$id":"1301","$type":"SequenceType","elementType":{"$ref":"900"},"name":{"$id":"1302","fixed":false},"deprecated":false}
+          '/properties/userAccounts/name': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: Name
+          '/properties/userAccounts/password': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: Password
+          '/properties/userAccounts/elevationLevel': !ruby/object:Api::Azure::SDKTypeDefinition::EnumObject
+            applicable_to: [go]
+            go_field_name: ElevationLevel
+            go_enum_type_name: ElevationLevel
+          '/properties/userAccounts/linuxUserConfiguration': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            applicable_to: [go]
+            go_field_name: LinuxUserConfiguration
+            go_type_name: LinuxUserConfiguration
+          '/properties/userAccounts/linuxUserConfiguration/uid': 
+            applicable_to: [go]
+            go_field_name: Uid
+          '/properties/userAccounts/linuxUserConfiguration/gid': 
+            applicable_to: [go]
+            go_field_name: Gid
+          '/properties/userAccounts/linuxUserConfiguration/sshPrivateKey': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: SshPrivateKey
+          '/properties/userAccounts/windowsUserConfiguration': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            applicable_to: [go]
+            go_field_name: WindowsUserConfiguration
+            go_type_name: WindowsUserConfiguration
+          '/properties/userAccounts/windowsUserConfiguration/loginMode': !ruby/object:Api::Azure::SDKTypeDefinition::EnumObject
+            applicable_to: [go]
+            go_field_name: LoginMode
+            go_enum_type_name: LoginMode
+          '/metadata': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexArrayObject
+            applicable_to: [python]
+            python_field_name: metadata
+          '/metadata/name': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: name
+          '/metadata/value': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: value
+          '/properties/metadata': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexArrayObject
+            applicable_to: [go]
+            go_field_name: Metadata
+            go_type_name: {"$id":"1307","$type":"SequenceType","elementType":{"$ref":"932"},"name":{"$id":"1308","fixed":false},"deprecated":false}
+          '/properties/metadata/name': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: Name
+          '/properties/metadata/value': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: Value
+          '/startTask': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            applicable_to: [python]
+            python_field_name: start_task
+          '/startTask/commandLine': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: command_line
+          '/startTask/resourceFiles': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexArrayObject
+            applicable_to: [python]
+            python_field_name: resource_files
+          '/startTask/resourceFiles/autoStorageContainerName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: auto_storage_container_name
+          '/startTask/resourceFiles/storageContainerUrl': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: storage_container_url
+          '/startTask/resourceFiles/httpUrl': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: http_url
+          '/startTask/resourceFiles/blobPrefix': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: blob_prefix
+          '/startTask/resourceFiles/filePath': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: file_path
+          '/startTask/resourceFiles/fileMode': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: file_mode
+          '/startTask/environmentSettings': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexArrayObject
+            applicable_to: [python]
+            python_field_name: environment_settings
+          '/startTask/environmentSettings/name': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: name
+          '/startTask/environmentSettings/value': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: value
+          '/startTask/userIdentity': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            applicable_to: [python]
+            python_field_name: user_identity
+          '/startTask/userIdentity/userName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: user_name
+          '/startTask/userIdentity/autoUser': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            applicable_to: [python]
+            python_field_name: auto_user
+          '/startTask/userIdentity/autoUser/scope': !ruby/object:Api::Azure::SDKTypeDefinition::EnumObject
+            applicable_to: [python]
+            python_field_name: scope
+          '/startTask/userIdentity/autoUser/elevationLevel': !ruby/object:Api::Azure::SDKTypeDefinition::EnumObject
+            applicable_to: [python]
+            python_field_name: elevation_level
+          '/startTask/maxTaskRetryCount': 
+            applicable_to: [python]
+            python_field_name: max_task_retry_count
+          '/startTask/waitForSuccess': !ruby/object:Api::Azure::SDKTypeDefinition::BooleanObject
+            applicable_to: [python]
+            python_field_name: wait_for_success
+          '/startTask/containerSettings': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            applicable_to: [python]
+            python_field_name: container_settings
+          '/startTask/containerSettings/containerRunOptions': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: container_run_options
+          '/startTask/containerSettings/imageName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: image_name
+          '/startTask/containerSettings/registry': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            applicable_to: [python]
+            python_field_name: registry
+          '/startTask/containerSettings/registry/registryServer': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: registry_server
+          '/startTask/containerSettings/registry/username': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: username
+          '/startTask/containerSettings/registry/password': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: password
+          '/properties/startTask': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            applicable_to: [go]
+            go_field_name: StartTask
+            go_type_name: StartTask
+          '/properties/startTask/commandLine': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: CommandLine
+          '/properties/startTask/resourceFiles': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexArrayObject
+            applicable_to: [go]
+            go_field_name: ResourceFiles
+            go_type_name: {"$id":"1055","$type":"SequenceType","elementType":{"$ref":"946"},"name":{"$id":"1056","fixed":false},"deprecated":false}
+          '/properties/startTask/resourceFiles/autoStorageContainerName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: AutoStorageContainerName
+          '/properties/startTask/resourceFiles/storageContainerUrl': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: StorageContainerURL
+          '/properties/startTask/resourceFiles/httpUrl': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: HttpURL
+          '/properties/startTask/resourceFiles/blobPrefix': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: BlobPrefix
+          '/properties/startTask/resourceFiles/filePath': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: FilePath
+          '/properties/startTask/resourceFiles/fileMode': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: FileMode
+          '/properties/startTask/environmentSettings': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexArrayObject
+            applicable_to: [go]
+            go_field_name: EnvironmentSettings
+            go_type_name: {"$id":"1061","$type":"SequenceType","elementType":{"$ref":"984"},"name":{"$id":"1062","fixed":false},"deprecated":false}
+          '/properties/startTask/environmentSettings/name': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: Name
+          '/properties/startTask/environmentSettings/value': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: Value
+          '/properties/startTask/userIdentity': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            applicable_to: [go]
+            go_field_name: UserIdentity
+            go_type_name: UserIdentity
+          '/properties/startTask/userIdentity/userName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: UserName
+          '/properties/startTask/userIdentity/autoUser': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            applicable_to: [go]
+            go_field_name: AutoUser
+            go_type_name: AutoUserSpecification
+          '/properties/startTask/userIdentity/autoUser/scope': !ruby/object:Api::Azure::SDKTypeDefinition::EnumObject
+            applicable_to: [go]
+            go_field_name: Scope
+            go_enum_type_name: AutoUserScope
+          '/properties/startTask/userIdentity/autoUser/elevationLevel': !ruby/object:Api::Azure::SDKTypeDefinition::EnumObject
+            applicable_to: [go]
+            go_field_name: ElevationLevel
+            go_enum_type_name: ElevationLevel
+          '/properties/startTask/maxTaskRetryCount': 
+            applicable_to: [go]
+            go_field_name: MaxTaskRetryCount
+          '/properties/startTask/waitForSuccess': !ruby/object:Api::Azure::SDKTypeDefinition::BooleanObject
+            applicable_to: [go]
+            go_field_name: WaitForSuccess
+          '/properties/startTask/containerSettings': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            applicable_to: [go]
+            go_field_name: ContainerSettings
+            go_type_name: TaskContainerSettings
+          '/properties/startTask/containerSettings/containerRunOptions': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: ContainerRunOptions
+          '/properties/startTask/containerSettings/imageName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: ImageName
+          '/properties/startTask/containerSettings/registry': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            applicable_to: [go]
+            go_field_name: Registry
+            go_type_name: ContainerRegistry
+          '/properties/startTask/containerSettings/registry/registryServer': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: RegistryServer
+          '/properties/startTask/containerSettings/registry/username': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: Username
+          '/properties/startTask/containerSettings/registry/password': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: Password
+          '/certificates': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexArrayObject
+            applicable_to: [python]
+            python_field_name: certificates
+          '/certificates/id': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: id
+          '/certificates/storeLocation': !ruby/object:Api::Azure::SDKTypeDefinition::EnumObject
+            applicable_to: [python]
+            python_field_name: store_location
+          '/certificates/storeName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: store_name
+          '/certificates/visibility': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: visibility
+          '/properties/certificates': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexArrayObject
+            applicable_to: [go]
+            go_field_name: Certificates
+            go_type_name: {"$id":"1317","$type":"SequenceType","elementType":{"$ref":"1084"},"name":{"$id":"1318","fixed":false},"deprecated":false}
+          '/properties/certificates/id': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: ID
+          '/properties/certificates/storeLocation': !ruby/object:Api::Azure::SDKTypeDefinition::EnumObject
+            applicable_to: [go]
+            go_field_name: StoreLocation
+            go_enum_type_name: CertificateStoreLocation
+          '/properties/certificates/storeName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: StoreName
+          '/properties/certificates/visibility': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: Visibility
+          '/applicationPackages': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexArrayObject
+            applicable_to: [python]
+            python_field_name: application_packages
+          '/applicationPackages/id': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: id
+          '/applicationPackages/version': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: version
+          '/properties/applicationPackages': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexArrayObject
+            applicable_to: [go]
+            go_field_name: ApplicationPackages
+            go_type_name: {"$id":"1323","$type":"SequenceType","elementType":{"$ref":"1121"},"name":{"$id":"1324","fixed":false},"deprecated":false}
+          '/properties/applicationPackages/id': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: ID
+          '/properties/applicationPackages/version': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: Version
+          '/applicationLicenses': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: application_licenses
+          '/properties/applicationLicenses': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: ApplicationLicenses
+        response:
+          '/id': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            go_field_name: ID
+            python_field_name: id
+          '/name': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            go_field_name: Name
+            python_field_name: name
+          '/type': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            go_field_name: Type
+            python_field_name: type
+          '/etag': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            go_field_name: Etag
+            python_field_name: etag
+      delete: !ruby/object:Api::Azure::SDKOperationDefinition
+        async: true
+        go_func_name: Delete
+        python_func_name: delete
+        request:
+          'resourceGroupName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            id_portion: resourceGroups
+            go_variable_name: resourceGroup
+            python_parameter_name: resource_group_name
+            python_variable_name: resource_group
+          'accountName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            id_portion: batchAccounts
+            go_variable_name: AccountName
+            python_parameter_name: account_name
+            python_variable_name: account_name
+          'poolName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            id_portion: pools
+            go_variable_name: name
+            python_parameter_name: pool_name
+            python_variable_name: name
+      read: !ruby/object:Api::Azure::SDKOperationDefinition
+        go_func_name: Get
+        python_func_name: get
+        request:
+          'resourceGroupName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            id_portion: resourceGroups
+            go_variable_name: resourceGroup
+            python_parameter_name: resource_group_name
+            python_variable_name: resource_group
+          'accountName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            id_portion: batchAccounts
+            go_variable_name: AccountName
+            python_parameter_name: account_name
+            python_variable_name: account_name
+          'poolName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            id_portion: pools
+            go_variable_name: name
+            python_parameter_name: pool_name
+            python_variable_name: name
+        response:
+          '/id': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            go_field_name: ID
+            python_field_name: id
+          '/name': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            go_field_name: Name
+            python_field_name: name
+          '/type': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            go_field_name: Type
+            python_field_name: type
+          '/etag': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            go_field_name: Etag
+            python_field_name: etag
+
+    description: |
+      Manage Azure Pool instance.
+    properties:
+      - !ruby/object:Api::Azure::Type::ResourceGroupName
+        name: 'resourceGroup'
+        description: 'The name of the resource group that contains the Batch account.'
+        required: true
+        input: true
+        sample_value: myResourceGroup
+        azure_sdk_references: ['resourceGroupName']
+      - !ruby/object:Api::Type::String
+        name: 'accountName'
+        description: 'The name of the Batch account.'
+        required: true
+        input: true
+        sample_value: myBatchAccount
+        azure_sdk_references: ['accountName']
+      - !ruby/object:Api::Type::String
+        name: 'name'
+        description: 'The pool name. This must be unique within the account.'
+        required: true
+        input: true
+        sample_value: myPool
+        azure_sdk_references: ['poolName']
+      - !ruby/object:Api::Type::String
+        name: 'displayName'
+        description: 'The display name need not be unique and can contain any Unicode characters up to a maximum length of 1024.'
+        required: false
+        sample_value: my-pool-name
+        azure_sdk_references: ['/displayName', '/properties/displayName']
+      - !ruby/object:Api::Type::String
+        name: 'vmSize'
+        description: 'For information about available sizes of virtual machines for Cloud Services pools (pools created with cloudServiceConfiguration), see Sizes for Cloud Services (http://azure.microsoft.com/documentation/articles/cloud-services-sizes-specs/). Batch supports all Cloud Services VM sizes except ExtraSmall. For information about available VM sizes for pools using images from the Virtual Machines Marketplace (pools created with virtualMachineConfiguration) see Sizes for Virtual Machines (Linux) (https://azure.microsoft.com/documentation/articles/virtual-machines-linux-sizes/) or Sizes for Virtual Machines (Windows) (https://azure.microsoft.com/documentation/articles/virtual-machines-windows-sizes/). Batch supports all Azure VM sizes except STANDARD_A0 and those with premium storage (STANDARD_GS, STANDARD_DS, and STANDARD_DSV2 series).'
+        required: false
+        sample_value: STANDARD_D4
+        azure_sdk_references: ['/vmSize', '/properties/vmSize']
+      - !ruby/object:Api::Type::NestedObject
+        name: 'deploymentConfiguration'
+        description: 'Using CloudServiceConfiguration specifies that the nodes should be creating using Azure Cloud Services (PaaS), while VirtualMachineConfiguration uses Azure Virtual Machines (IaaS).'
+        required: false
+        azure_sdk_references: ['/deploymentConfiguration', '/properties/deploymentConfiguration']
+        properties:
+          - !ruby/object:Api::Type::NestedObject
+            name: 'cloudServiceConfiguration'
+            description: 'This property and virtualMachineConfiguration are mutually exclusive and one of the properties must be specified. This property cannot be specified if the Batch account was created with its poolAllocationMode property set to 'UserSubscription'.'
+            required: false
+            azure_sdk_references: ['/deploymentConfiguration/cloudServiceConfiguration', '/properties/deploymentConfiguration/cloudServiceConfiguration']
+            properties:
+              - !ruby/object:Api::Type::String
+                name: 'osFamily'
+                description: 'Possible values are: 2 - OS Family 2, equivalent to Windows Server 2008 R2 SP1. 3 - OS Family 3, equivalent to Windows Server 2012. 4 - OS Family 4, equivalent to Windows Server 2012 R2. 5 - OS Family 5, equivalent to Windows Server 2016. For more information, see Azure Guest OS Releases (https://azure.microsoft.com/documentation/articles/cloud-services-guestos-update-matrix/#releases).'
+                required: true
+                sample_value: 4
+                azure_sdk_references: ['/deploymentConfiguration/cloudServiceConfiguration/osFamily', '/properties/deploymentConfiguration/cloudServiceConfiguration/osFamily']
+              - !ruby/object:Api::Type::String
+                name: 'osVersion'
+                description: 'The default value is * which specifies the latest operating system version for the specified OS family.'
+                required: false
+                sample_value: WA-GUEST-OS-4.45_201708-01
+                azure_sdk_references: ['/deploymentConfiguration/cloudServiceConfiguration/osVersion', '/properties/deploymentConfiguration/cloudServiceConfiguration/osVersion']
+          - !ruby/object:Api::Type::NestedObject
+            name: 'virtualMachineConfiguration'
+            description: 'This property and cloudServiceConfiguration are mutually exclusive and one of the properties must be specified.'
+            required: false
+            azure_sdk_references: ['/deploymentConfiguration/virtualMachineConfiguration', '/properties/deploymentConfiguration/virtualMachineConfiguration']
+            properties:
+              - !ruby/object:Api::Type::NestedObject
+                name: 'imageReference'
+                description: 'undefined'
+                required: true
+                azure_sdk_references: ['/deploymentConfiguration/virtualMachineConfiguration/imageReference', '/properties/deploymentConfiguration/virtualMachineConfiguration/imageReference']
+                properties:
+                  - !ruby/object:Api::Type::String
+                    name: 'publisher'
+                    description: 'For example, Canonical or MicrosoftWindowsServer.'
+                    required: false
+                    sample_value: MicrosoftWindowsServer
+                    azure_sdk_references: ['/deploymentConfiguration/virtualMachineConfiguration/imageReference/publisher', '/properties/deploymentConfiguration/virtualMachineConfiguration/imageReference/publisher']
+                  - !ruby/object:Api::Type::String
+                    name: 'offer'
+                    description: 'For example, UbuntuServer or WindowsServer.'
+                    required: false
+                    sample_value: WindowsServer
+                    azure_sdk_references: ['/deploymentConfiguration/virtualMachineConfiguration/imageReference/offer', '/properties/deploymentConfiguration/virtualMachineConfiguration/imageReference/offer']
+                  - !ruby/object:Api::Type::String
+                    name: 'sku'
+                    description: 'For example, 14.04.0-LTS or 2012-R2-Datacenter.'
+                    required: false
+                    sample_value: 2016-Datacenter-SmallDisk
+                    azure_sdk_references: ['/deploymentConfiguration/virtualMachineConfiguration/imageReference/sku', '/properties/deploymentConfiguration/virtualMachineConfiguration/imageReference/sku']
+                  - !ruby/object:Api::Type::String
+                    name: 'version'
+                    description: 'A value of 'latest' can be specified to select the latest version of an image. If omitted, the default is 'latest'.'
+                    required: false
+                    sample_value: latest
+                    azure_sdk_references: ['/deploymentConfiguration/virtualMachineConfiguration/imageReference/version', '/properties/deploymentConfiguration/virtualMachineConfiguration/imageReference/version']
+                  - !ruby/object:Api::Type::ResourceReference
+                    name: 'id'
+                    description: 'This property is mutually exclusive with other properties. The virtual machine image must be in the same region and subscription as the Azure Batch account. For information about the firewall settings for Batch node agent to communicate with Batch service see https://docs.microsoft.com/en-us/azure/batch/batch-api-basics#virtual-network-vnet-and-firewall-configuration .'
+                    required: false
+                    sample_value: /subscriptions/{{ subscription_id }}/resourceGroups/{{ resource_group }}/providers/Microsoft.Compute/images/{{ name }}
+                    azure_sdk_references: ['/deploymentConfiguration/virtualMachineConfiguration/imageReference/id', '/properties/deploymentConfiguration/virtualMachineConfiguration/imageReference/id']
+              - !ruby/object:Api::Type::String
+                name: 'nodeAgentSkuId'
+                description: 'The Batch node agent is a program that runs on each node in the pool, and provides the command-and-control interface between the node and the Batch service. There are different implementations of the node agent, known as SKUs, for different operating systems. You must specify a node agent SKU which matches the selected image reference. To get the list of supported node agent SKUs along with their list of verified image references, see the 'List supported node agent SKUs' operation.'
+                required: true
+                sample_value: batch.node.windows amd64
+                azure_sdk_references: ['/deploymentConfiguration/virtualMachineConfiguration/nodeAgentSkuId', '/properties/deploymentConfiguration/virtualMachineConfiguration/nodeAgentSkuId']
+              - !ruby/object:Api::Type::NestedObject
+                name: 'windowsConfiguration'
+                description: 'This property must not be specified if the imageReference specifies a Linux OS image.'
+                required: false
+                azure_sdk_references: ['/deploymentConfiguration/virtualMachineConfiguration/windowsConfiguration', '/properties/deploymentConfiguration/virtualMachineConfiguration/windowsConfiguration']
+                properties:
+                  - !ruby/object:Api::Type::Boolean
+                    name: 'enableAutomaticUpdates'
+                    description: 'If omitted, the default value is true.'
+                    required: false
+                    azure_sdk_references: ['/deploymentConfiguration/virtualMachineConfiguration/windowsConfiguration/enableAutomaticUpdates', '/properties/deploymentConfiguration/virtualMachineConfiguration/windowsConfiguration/enableAutomaticUpdates']
+              - !ruby/object:Api::Type::NestedObject
+                name: 'dataDisks'
+                description: 'This property must be specified if the compute nodes in the pool need to have empty data disks attached to them.'
+                required: false
+                azure_sdk_references: ['/deploymentConfiguration/virtualMachineConfiguration/dataDisks', '/properties/deploymentConfiguration/virtualMachineConfiguration/dataDisks']
+                properties:
+                  - 
+                    name: 'lun'
+                    description: 'The lun is used to uniquely identify each data disk. If attaching multiple disks, each should have a distinct lun.'
+                    required: true
+                    sample_value: 1
+                    azure_sdk_references: ['/deploymentConfiguration/virtualMachineConfiguration/dataDisks/lun', '/properties/deploymentConfiguration/virtualMachineConfiguration/dataDisks/lun']
+                  - !ruby/object:Api::Type::EnumType
+                    name: 'caching'
+                    description: 'Values are:
+
+ none - The caching mode for the disk is not enabled.
+ readOnly - The caching mode for the disk is read only.
+ readWrite - The caching mode for the disk is read and write.
+
+ The default value for caching is none. For information about the caching options see: https://blogs.msdn.microsoft.com/windowsazurestorage/2012/06/27/exploring-windows-azure-drives-disks-and-images/.'
+                    required: false
+                    values:
+                       - :None
+                       - :ReadOnly
+                       - :ReadWrite
+                    sample_value: None
+                    azure_sdk_references: ['/deploymentConfiguration/virtualMachineConfiguration/dataDisks/caching', '/properties/deploymentConfiguration/virtualMachineConfiguration/dataDisks/caching']
+                  - 
+                    name: 'diskSizeGb'
+                    description: 'undefined'
+                    required: true
+                    sample_value: 200
+                    azure_sdk_references: ['/deploymentConfiguration/virtualMachineConfiguration/dataDisks/diskSizeGB', '/properties/deploymentConfiguration/virtualMachineConfiguration/dataDisks/diskSizeGB']
+                  - !ruby/object:Api::Type::EnumType
+                    name: 'storageAccountType'
+                    description: 'If omitted, the default is "Standard_LRS". Values are:
+
+ Standard_LRS - The data disk should use standard locally redundant storage.
+ Premium_LRS - The data disk should use premium locally redundant storage.'
+                    required: false
+                    values:
+                       - :Standard_LRS
+                       - :Premium_LRS
+                    sample_value: Standard_LRS
+                    azure_sdk_references: ['/deploymentConfiguration/virtualMachineConfiguration/dataDisks/storageAccountType', '/properties/deploymentConfiguration/virtualMachineConfiguration/dataDisks/storageAccountType']
+              - !ruby/object:Api::Type::String
+                name: 'licenseType'
+                description: 'This only applies to images that contain the Windows operating system, and should only be used when you hold valid on-premises licenses for the nodes which will be deployed. If omitted, no on-premises licensing discount is applied. Values are:
+
+ Windows_Server - The on-premises license is for Windows Server.
+ Windows_Client - The on-premises license is for Windows Client.
+'
+                required: false
+                sample_value: Windows_Server
+                azure_sdk_references: ['/deploymentConfiguration/virtualMachineConfiguration/licenseType', '/properties/deploymentConfiguration/virtualMachineConfiguration/licenseType']
+              - !ruby/object:Api::Type::NestedObject
+                name: 'containerConfiguration'
+                description: 'If specified, setup is performed on each node in the pool to allow tasks to run in containers. All regular tasks and job manager tasks run on this pool must specify the containerSettings property, and all other tasks may specify it.'
+                required: false
+                azure_sdk_references: ['/deploymentConfiguration/virtualMachineConfiguration/containerConfiguration', '/properties/deploymentConfiguration/virtualMachineConfiguration/containerConfiguration']
+                properties:
+                  - !ruby/object:Api::Type::String
+                    name: 'type'
+                    description: 'undefined'
+                    required: true
+                    azure_sdk_references: ['/deploymentConfiguration/virtualMachineConfiguration/containerConfiguration/type', '/properties/deploymentConfiguration/virtualMachineConfiguration/containerConfiguration/type']
+                  - !ruby/object:Api::Type::String
+                    name: 'containerImageNames'
+                    description: 'This is the full image reference, as would be specified to "docker pull". An image will be sourced from the default Docker registry unless the image is fully qualified with an alternative registry.'
+                    required: false
+                    azure_sdk_references: ['/deploymentConfiguration/virtualMachineConfiguration/containerConfiguration/containerImageNames', '/properties/deploymentConfiguration/virtualMachineConfiguration/containerConfiguration/containerImageNames']
+                  - !ruby/object:Api::Type::NestedObject
+                    name: 'containerRegistries'
+                    description: 'If any images must be downloaded from a private registry which requires credentials, then those credentials must be provided here.'
+                    required: false
+                    azure_sdk_references: ['/deploymentConfiguration/virtualMachineConfiguration/containerConfiguration/containerRegistries', '/properties/deploymentConfiguration/virtualMachineConfiguration/containerConfiguration/containerRegistries']
+      - !ruby/object:Api::Type::NestedObject
+        name: 'scaleSettings'
+        description: 'undefined'
+        required: false
+        azure_sdk_references: ['/scaleSettings', '/properties/scaleSettings']
+        properties:
+          - !ruby/object:Api::Type::NestedObject
+            name: 'fixedScale'
+            description: 'This property and autoScale are mutually exclusive and one of the properties must be specified.'
+            required: false
+            azure_sdk_references: ['/scaleSettings/fixedScale', '/properties/scaleSettings/fixedScale']
+            properties:
+              - 
+                name: 'resizeTimeout'
+                description: 'The default value is 15 minutes. Timeout values use ISO 8601 format. For example, use PT10M for 10 minutes. The minimum value is 5 minutes. If you specify a value less than 5 minutes, the Batch service rejects the request with an error; if you are calling the REST API directly, the HTTP status code is 400 (Bad Request).'
+                required: false
+                sample_value: PT8M
+                azure_sdk_references: ['/scaleSettings/fixedScale/resizeTimeout', '/properties/scaleSettings/fixedScale/resizeTimeout']
+              - 
+                name: 'targetDedicatedNodes'
+                description: 'At least one of targetDedicatedNodes, targetLowPriority nodes must be set.'
+                required: false
+                sample_value: 5
+                azure_sdk_references: ['/scaleSettings/fixedScale/targetDedicatedNodes', '/properties/scaleSettings/fixedScale/targetDedicatedNodes']
+              - 
+                name: 'targetLowPriorityNodes'
+                description: 'At least one of targetDedicatedNodes, targetLowPriority nodes must be set.'
+                required: false
+                sample_value: 0
+                azure_sdk_references: ['/scaleSettings/fixedScale/targetLowPriorityNodes', '/properties/scaleSettings/fixedScale/targetLowPriorityNodes']
+              - !ruby/object:Api::Type::EnumType
+                name: 'nodeDeallocationOption'
+                description: 'If omitted, the default value is Requeue.'
+                required: false
+                values:
+                   - :Requeue
+                   - :Terminate
+                   - :TaskCompletion
+                   - :RetainedData
+                sample_value: TaskCompletion
+                azure_sdk_references: ['/scaleSettings/fixedScale/nodeDeallocationOption', '/properties/scaleSettings/fixedScale/nodeDeallocationOption']
+          - !ruby/object:Api::Type::NestedObject
+            name: 'autoScale'
+            description: 'This property and fixedScale are mutually exclusive and one of the properties must be specified.'
+            required: false
+            azure_sdk_references: ['/scaleSettings/autoScale', '/properties/scaleSettings/autoScale']
+            properties:
+              - !ruby/object:Api::Type::String
+                name: 'formula'
+                description: 'undefined'
+                required: true
+                sample_value: $TargetDedicatedNodes=34
+                azure_sdk_references: ['/scaleSettings/autoScale/formula', '/properties/scaleSettings/autoScale/formula']
+              - 
+                name: 'evaluationInterval'
+                description: 'If omitted, the default value is 15 minutes (PT15M).'
+                required: false
+                sample_value: PT5M
+                azure_sdk_references: ['/scaleSettings/autoScale/evaluationInterval', '/properties/scaleSettings/autoScale/evaluationInterval']
+      - !ruby/object:Api::Type::EnumType
+        name: 'interNodeCommunication'
+        description: 'This imposes restrictions on which nodes can be assigned to the pool. Enabling this value can reduce the chance of the requested number of nodes to be allocated in the pool. If not specified, this value defaults to 'Disabled'.'
+        required: false
+        values:
+           - :Enabled
+           - :Disabled
+        sample_value: Enabled
+        azure_sdk_references: ['/interNodeCommunication', '/properties/interNodeCommunication']
+      - !ruby/object:Api::Type::NestedObject
+        name: 'networkConfiguration'
+        description: 'undefined'
+        required: false
+        azure_sdk_references: ['/networkConfiguration', '/properties/networkConfiguration']
+        properties:
+          - !ruby/object:Api::Type::ResourceReference
+            name: 'subnetId'
+            description: 'The virtual network must be in the same region and subscription as the Azure Batch account. The specified subnet should have enough free IP addresses to accommodate the number of nodes in the pool. If the subnet doesn't have enough free IP addresses, the pool will partially allocate compute nodes, and a resize error will occur. The 'MicrosoftAzureBatch' service principal must have the 'Classic Virtual Machine Contributor' Role-Based Access Control (RBAC) role for the specified VNet. The specified subnet must allow communication from the Azure Batch service to be able to schedule tasks on the compute nodes. This can be verified by checking if the specified VNet has any associated Network Security Groups (NSG). If communication to the compute nodes in the specified subnet is denied by an NSG, then the Batch service will set the state of the compute nodes to unusable. For pools created via virtualMachineConfiguration the Batch account must have poolAllocationMode userSubscription in order to use a VNet. If the specified VNet has any associated Network Security Groups (NSG), then a few reserved system ports must be enabled for inbound communication. For pools created with a virtual machine configuration, enable ports 29876 and 29877, as well as port 22 for Linux and port 3389 for Windows. For pools created with a cloud service configuration, enable ports 10100, 20100, and 30100. Also enable outbound connections to Azure Storage on port 443. For more details see: https://docs.microsoft.com/en-us/azure/batch/batch-api-basics#virtual-network-vnet-and-firewall-configuration'
+            required: false
+            sample_value: /subscriptions/{{ subscription_id }}/resourceGroups/{{ resource_group }}/providers/Microsoft.Network/virtualNetworks/{{ virtual_network_name }}/subnets/{{ name }}
+            azure_sdk_references: ['/networkConfiguration/subnetId', '/properties/networkConfiguration/subnetId']
+          - !ruby/object:Api::Type::NestedObject
+            name: 'endpointConfiguration'
+            description: 'Pool endpoint configuration is only supported on pools with the virtualMachineConfiguration property.'
+            required: false
+            azure_sdk_references: ['/networkConfiguration/endpointConfiguration', '/properties/networkConfiguration/endpointConfiguration']
+            properties:
+              - !ruby/object:Api::Type::NestedObject
+                name: 'inboundNatPools'
+                description: 'The maximum number of inbound NAT pools per Batch pool is 5. If the maximum number of inbound NAT pools is exceeded the request fails with HTTP status code 400.'
+                required: true
+                azure_sdk_references: ['/networkConfiguration/endpointConfiguration/inboundNatPools', '/properties/networkConfiguration/endpointConfiguration/inboundNatPools']
+                properties:
+                  - !ruby/object:Api::Type::String
+                    name: 'name'
+                    description: 'The name must be unique within a Batch pool, can contain letters, numbers, underscores, periods, and hyphens. Names must start with a letter or number, must end with a letter, number, or underscore, and cannot exceed 77 characters.  If any invalid values are provided the request fails with HTTP status code 400.'
+                    required: true
+                    sample_value: testnat
+                    azure_sdk_references: ['/networkConfiguration/endpointConfiguration/inboundNatPools/name', '/properties/networkConfiguration/endpointConfiguration/inboundNatPools/name']
+                  - !ruby/object:Api::Type::EnumType
+                    name: 'protocol'
+                    description: 'undefined'
+                    required: true
+                    values:
+                       - :TCP
+                       - :UDP
+                    sample_value: TCP
+                    azure_sdk_references: ['/networkConfiguration/endpointConfiguration/inboundNatPools/protocol', '/properties/networkConfiguration/endpointConfiguration/inboundNatPools/protocol']
+                  - 
+                    name: 'backendPort'
+                    description: 'This must be unique within a Batch pool. Acceptable values are between 1 and 65535 except for 22, 3389, 29876 and 29877 as these are reserved. If any reserved values are provided the request fails with HTTP status code 400.'
+                    required: true
+                    sample_value: 12001
+                    azure_sdk_references: ['/networkConfiguration/endpointConfiguration/inboundNatPools/backendPort', '/properties/networkConfiguration/endpointConfiguration/inboundNatPools/backendPort']
+                  - 
+                    name: 'frontendPortRangeStart'
+                    description: 'Acceptable values range between 1 and 65534 except ports from 50000 to 55000 which are reserved. All ranges within a pool must be distinct and cannot overlap. If any reserved or overlapping values are provided the request fails with HTTP status code 400.'
+                    required: true
+                    sample_value: 15000
+                    azure_sdk_references: ['/networkConfiguration/endpointConfiguration/inboundNatPools/frontendPortRangeStart', '/properties/networkConfiguration/endpointConfiguration/inboundNatPools/frontendPortRangeStart']
+                  - 
+                    name: 'frontendPortRangeEnd'
+                    description: 'Acceptable values range between 1 and 65534 except ports from 50000 to 55000 which are reserved by the Batch service. All ranges within a pool must be distinct and cannot overlap. If any reserved or overlapping values are provided the request fails with HTTP status code 400.'
+                    required: true
+                    sample_value: 15100
+                    azure_sdk_references: ['/networkConfiguration/endpointConfiguration/inboundNatPools/frontendPortRangeEnd', '/properties/networkConfiguration/endpointConfiguration/inboundNatPools/frontendPortRangeEnd']
+                  - !ruby/object:Api::Type::NestedObject
+                    name: 'networkSecurityGroupRules'
+                    description: 'The maximum number of rules that can be specified across all the endpoints on a Batch pool is 25. If no network security group rules are specified, a default rule will be created to allow inbound access to the specified backendPort. If the maximum number of network security group rules is exceeded the request fails with HTTP status code 400.'
+                    required: false
+                    sample_value: [object Object]
+                    azure_sdk_references: ['/networkConfiguration/endpointConfiguration/inboundNatPools/networkSecurityGroupRules', '/properties/networkConfiguration/endpointConfiguration/inboundNatPools/networkSecurityGroupRules']
+      - 
+        name: 'maxTasksPerNode'
+        description: 'undefined'
+        required: false
+        sample_value: 13
+        azure_sdk_references: ['/maxTasksPerNode', '/properties/maxTasksPerNode']
+      - !ruby/object:Api::Type::NestedObject
+        name: 'taskSchedulingPolicy'
+        description: 'undefined'
+        required: false
+        azure_sdk_references: ['/taskSchedulingPolicy', '/properties/taskSchedulingPolicy']
+        properties:
+          - !ruby/object:Api::Type::EnumType
+            name: 'nodeFillType'
+            description: 'undefined'
+            required: true
+            values:
+               - :Spread
+               - :Pack
+            sample_value: Pack
+            azure_sdk_references: ['/taskSchedulingPolicy/nodeFillType', '/properties/taskSchedulingPolicy/nodeFillType']
+      - !ruby/object:Api::Type::NestedObject
+        name: 'userAccounts'
+        description: 'undefined'
+        required: false
+        azure_sdk_references: ['/userAccounts', '/properties/userAccounts']
+        properties:
+          - !ruby/object:Api::Type::String
+            name: 'name'
+            description: 'undefined'
+            required: true
+            sample_value: username1
+            azure_sdk_references: ['/userAccounts/name', '/properties/userAccounts/name']
+          - !ruby/object:Api::Type::String
+            name: 'password'
+            description: 'undefined'
+            required: true
+            sample_value: examplepassword
+            azure_sdk_references: ['/userAccounts/password', '/properties/userAccounts/password']
+          - !ruby/object:Api::Type::EnumType
+            name: 'elevationLevel'
+            description: 'nonAdmin - The auto user is a standard user without elevated access. admin - The auto user is a user with elevated access and operates with full Administrator permissions. The default value is nonAdmin.'
+            required: false
+            values:
+               - :NonAdmin
+               - :Admin
+            sample_value: Admin
+            azure_sdk_references: ['/userAccounts/elevationLevel', '/properties/userAccounts/elevationLevel']
+          - !ruby/object:Api::Type::NestedObject
+            name: 'linuxUserConfiguration'
+            description: 'This property is ignored if specified on a Windows pool. If not specified, the user is created with the default options.'
+            required: false
+            azure_sdk_references: ['/userAccounts/linuxUserConfiguration', '/properties/userAccounts/linuxUserConfiguration']
+            properties:
+              - 
+                name: 'uid'
+                description: 'The uid and gid properties must be specified together or not at all. If not specified the underlying operating system picks the uid.'
+                required: false
+                sample_value: 1234
+                azure_sdk_references: ['/userAccounts/linuxUserConfiguration/uid', '/properties/userAccounts/linuxUserConfiguration/uid']
+              - 
+                name: 'gid'
+                description: 'The uid and gid properties must be specified together or not at all. If not specified the underlying operating system picks the gid.'
+                required: false
+                sample_value: 4567
+                azure_sdk_references: ['/userAccounts/linuxUserConfiguration/gid', '/properties/userAccounts/linuxUserConfiguration/gid']
+              - !ruby/object:Api::Type::String
+                name: 'sshPrivateKey'
+                description: 'The private key must not be password protected. The private key is used to automatically configure asymmetric-key based authentication for SSH between nodes in a Linux pool when the pool's enableInterNodeCommunication property is true (it is ignored if enableInterNodeCommunication is false). It does this by placing the key pair into the user's .ssh directory. If not specified, password-less SSH is not configured between nodes (no modification of the user's .ssh directory is done).'
+                required: false
+                sample_value: sshprivatekeyvalue
+                azure_sdk_references: ['/userAccounts/linuxUserConfiguration/sshPrivateKey', '/properties/userAccounts/linuxUserConfiguration/sshPrivateKey']
+          - !ruby/object:Api::Type::NestedObject
+            name: 'windowsUserConfiguration'
+            description: 'This property can only be specified if the user is on a Windows pool. If not specified and on a Windows pool, the user is created with the default options.'
+            required: false
+            azure_sdk_references: ['/userAccounts/windowsUserConfiguration', '/properties/userAccounts/windowsUserConfiguration']
+            properties:
+              - !ruby/object:Api::Type::EnumType
+                name: 'loginMode'
+                description: 'Specifies login mode for the user. The default value for VirtualMachineConfiguration pools is interactive mode and for CloudServiceConfiguration pools is batch mode.'
+                required: false
+                values:
+                   - :Batch
+                   - :Interactive
+                azure_sdk_references: ['/userAccounts/windowsUserConfiguration/loginMode', '/properties/userAccounts/windowsUserConfiguration/loginMode']
+      - !ruby/object:Api::Type::NestedObject
+        name: 'metadata'
+        description: 'The Batch service does not assign any meaning to metadata; it is solely for the use of user code.'
+        required: false
+        azure_sdk_references: ['/metadata', '/properties/metadata']
+        properties:
+          - !ruby/object:Api::Type::String
+            name: 'name'
+            description: 'undefined'
+            required: true
+            sample_value: key1
+            azure_sdk_references: ['/metadata/name', '/properties/metadata/name']
+          - !ruby/object:Api::Type::String
+            name: 'value'
+            description: 'undefined'
+            required: true
+            sample_value: value1
+            azure_sdk_references: ['/metadata/value', '/properties/metadata/value']
+      - !ruby/object:Api::Type::NestedObject
+        name: 'startTask'
+        description: 'In an PATCH (update) operation, this property can be set to an empty object to remove the start task from the pool.'
+        required: false
+        azure_sdk_references: ['/startTask', '/properties/startTask']
+        properties:
+          - !ruby/object:Api::Type::String
+            name: 'commandLine'
+            description: 'The command line does not run under a shell, and therefore cannot take advantage of shell features such as environment variable expansion. If you want to take advantage of such features, you should invoke the shell in the command line, for example using "cmd /c MyCommand" in Windows or "/bin/sh -c MyCommand" in Linux. Required if any other properties of the startTask are specified.'
+            required: false
+            sample_value: cmd /c SET
+            azure_sdk_references: ['/startTask/commandLine', '/properties/startTask/commandLine']
+          - !ruby/object:Api::Type::NestedObject
+            name: 'resourceFiles'
+            description: 'undefined'
+            required: false
+            azure_sdk_references: ['/startTask/resourceFiles', '/properties/startTask/resourceFiles']
+            properties:
+              - !ruby/object:Api::Type::String
+                name: 'autoStorageContainerName'
+                description: 'The autoStorageContainerName, storageContainerUrl and httpUrl properties are mutually exclusive and one of them must be specified.'
+                required: false
+                azure_sdk_references: ['/startTask/resourceFiles/autoStorageContainerName', '/properties/startTask/resourceFiles/autoStorageContainerName']
+              - !ruby/object:Api::Type::String
+                name: 'storageContainerUrl'
+                description: 'The autoStorageContainerName, storageContainerUrl and httpUrl properties are mutually exclusive and one of them must be specified. This URL must be readable and listable using anonymous access; that is, the Batch service does not present any credentials when downloading the blob. There are two ways to get such a URL for a blob in Azure storage: include a Shared Access Signature (SAS) granting read and list permissions on the blob, or set the ACL for the blob or its container to allow public access.'
+                required: false
+                azure_sdk_references: ['/startTask/resourceFiles/storageContainerUrl', '/properties/startTask/resourceFiles/storageContainerUrl']
+              - !ruby/object:Api::Type::String
+                name: 'httpUrl'
+                description: 'The autoStorageContainerName, storageContainerUrl and httpUrl properties are mutually exclusive and one of them must be specified. If the URL is Azure Blob Storage, it must be readable using anonymous access; that is, the Batch service does not present any credentials when downloading the blob. There are two ways to get such a URL for a blob in Azure storage: include a Shared Access Signature (SAS) granting read permissions on the blob, or set the ACL for the blob or its container to allow public access.'
+                required: false
+                sample_value: https://testaccount.blob.core.windows.net/example-blob-file
+                azure_sdk_references: ['/startTask/resourceFiles/httpUrl', '/properties/startTask/resourceFiles/httpUrl']
+              - !ruby/object:Api::Type::String
+                name: 'blobPrefix'
+                description: 'The property is valid only when autoStorageContainerName or storageContainerUrl is used. This prefix can be a partial filename or a subdirectory. If a prefix is not specified, all the files in the container will be downloaded.'
+                required: false
+                azure_sdk_references: ['/startTask/resourceFiles/blobPrefix', '/properties/startTask/resourceFiles/blobPrefix']
+              - !ruby/object:Api::Type::String
+                name: 'filePath'
+                description: 'If the httpUrl property is specified, the filePath is required and describes the path which the file will be downloaded to, including the filename. Otherwise, if the autoStorageContainerName or storageContainerUrl property is specified, filePath is optional and is the directory to download the files to. In the case where filePath is used as a directory, any directory structure already associated with the input data will be retained in full and appended to the specified filePath directory. The specified relative path cannot break out of the task's working directory (for example by using '..').'
+                required: false
+                sample_value: c:\temp\gohere
+                azure_sdk_references: ['/startTask/resourceFiles/filePath', '/properties/startTask/resourceFiles/filePath']
+              - !ruby/object:Api::Type::String
+                name: 'fileMode'
+                description: 'This property applies only to files being downloaded to Linux compute nodes. It will be ignored if it is specified for a resourceFile which will be downloaded to a Windows node. If this property is not specified for a Linux node, then a default value of 0770 is applied to the file.'
+                required: false
+                sample_value: 777
+                azure_sdk_references: ['/startTask/resourceFiles/fileMode', '/properties/startTask/resourceFiles/fileMode']
+          - !ruby/object:Api::Type::NestedObject
+            name: 'environmentSettings'
+            description: 'undefined'
+            required: false
+            azure_sdk_references: ['/startTask/environmentSettings', '/properties/startTask/environmentSettings']
+            properties:
+              - !ruby/object:Api::Type::String
+                name: 'name'
+                description: 'undefined'
+                required: true
+                sample_value: MYSET
+                azure_sdk_references: ['/startTask/environmentSettings/name', '/properties/startTask/environmentSettings/name']
+              - !ruby/object:Api::Type::String
+                name: 'value'
+                description: 'undefined'
+                required: false
+                sample_value: 1234
+                azure_sdk_references: ['/startTask/environmentSettings/value', '/properties/startTask/environmentSettings/value']
+          - !ruby/object:Api::Type::NestedObject
+            name: 'userIdentity'
+            description: 'If omitted, the task runs as a non-administrative user unique to the task.'
+            required: false
+            azure_sdk_references: ['/startTask/userIdentity', '/properties/startTask/userIdentity']
+            properties:
+              - !ruby/object:Api::Type::String
+                name: 'userName'
+                description: 'The userName and autoUser properties are mutually exclusive; you must specify one but not both.'
+                required: false
+                azure_sdk_references: ['/startTask/userIdentity/userName', '/properties/startTask/userIdentity/userName']
+              - !ruby/object:Api::Type::NestedObject
+                name: 'autoUser'
+                description: 'The userName and autoUser properties are mutually exclusive; you must specify one but not both.'
+                required: false
+                azure_sdk_references: ['/startTask/userIdentity/autoUser', '/properties/startTask/userIdentity/autoUser']
+                properties:
+                  - !ruby/object:Api::Type::EnumType
+                    name: 'scope'
+                    description: 'The default value is task.'
+                    required: false
+                    values:
+                       - :Task
+                       - :Pool
+                    sample_value: Pool
+                    azure_sdk_references: ['/startTask/userIdentity/autoUser/scope', '/properties/startTask/userIdentity/autoUser/scope']
+                  - !ruby/object:Api::Type::EnumType
+                    name: 'elevationLevel'
+                    description: 'nonAdmin - The auto user is a standard user without elevated access. admin - The auto user is a user with elevated access and operates with full Administrator permissions. The default value is nonAdmin.'
+                    required: false
+                    values:
+                       - :NonAdmin
+                       - :Admin
+                    sample_value: Admin
+                    azure_sdk_references: ['/startTask/userIdentity/autoUser/elevationLevel', '/properties/startTask/userIdentity/autoUser/elevationLevel']
+          - 
+            name: 'maxTaskRetryCount'
+            description: 'The Batch service retries a task if its exit code is nonzero. Note that this value specifically controls the number of retries. The Batch service will try the task once, and may then retry up to this limit. For example, if the maximum retry count is 3, Batch tries the task up to 4 times (one initial try and 3 retries). If the maximum retry count is 0, the Batch service does not retry the task. If the maximum retry count is -1, the Batch service retries the task without limit.'
+            required: false
+            sample_value: 6
+            azure_sdk_references: ['/startTask/maxTaskRetryCount', '/properties/startTask/maxTaskRetryCount']
+          - !ruby/object:Api::Type::Boolean
+            name: 'waitForSuccess'
+            description: 'If true and the start task fails on a compute node, the Batch service retries the start task up to its maximum retry count (maxTaskRetryCount). If the task has still not completed successfully after all retries, then the Batch service marks the compute node unusable, and will not schedule tasks to it. This condition can be detected via the node state and scheduling error detail. If false, the Batch service will not wait for the start task to complete. In this case, other tasks can start executing on the compute node while the start task is still running; and even if the start task fails, new tasks will continue to be scheduled on the node. The default is false.'
+            required: false
+            sample_value: true
+            azure_sdk_references: ['/startTask/waitForSuccess', '/properties/startTask/waitForSuccess']
+          - !ruby/object:Api::Type::NestedObject
+            name: 'containerSettings'
+            description: 'When this is specified, all directories recursively below the AZ_BATCH_NODE_ROOT_DIR (the root of Azure Batch directories on the node) are mapped into the container, all task environment variables are mapped into the container, and the task command line is executed in the container.'
+            required: false
+            azure_sdk_references: ['/startTask/containerSettings', '/properties/startTask/containerSettings']
+            properties:
+              - !ruby/object:Api::Type::String
+                name: 'containerRunOptions'
+                description: 'These additional options are supplied as arguments to the "docker create" command, in addition to those controlled by the Batch Service.'
+                required: false
+                azure_sdk_references: ['/startTask/containerSettings/containerRunOptions', '/properties/startTask/containerSettings/containerRunOptions']
+              - !ruby/object:Api::Type::String
+                name: 'imageName'
+                description: 'This is the full image reference, as would be specified to "docker pull". If no tag is provided as part of the image name, the tag ":latest" is used as a default.'
+                required: true
+                azure_sdk_references: ['/startTask/containerSettings/imageName', '/properties/startTask/containerSettings/imageName']
+              - !ruby/object:Api::Type::NestedObject
+                name: 'registry'
+                description: 'This setting can be omitted if was already provided at pool creation.'
+                required: false
+                azure_sdk_references: ['/startTask/containerSettings/registry', '/properties/startTask/containerSettings/registry']
+                properties:
+                  - !ruby/object:Api::Type::String
+                    name: 'registryServer'
+                    description: 'If omitted, the default is "docker.io".'
+                    required: false
+                    azure_sdk_references: ['/startTask/containerSettings/registry/registryServer', '/properties/startTask/containerSettings/registry/registryServer']
+                  - !ruby/object:Api::Type::String
+                    name: 'username'
+                    description: 'undefined'
+                    required: true
+                    azure_sdk_references: ['/startTask/containerSettings/registry/username', '/properties/startTask/containerSettings/registry/username']
+                  - !ruby/object:Api::Type::String
+                    name: 'password'
+                    description: 'undefined'
+                    required: true
+                    azure_sdk_references: ['/startTask/containerSettings/registry/password', '/properties/startTask/containerSettings/registry/password']
+      - !ruby/object:Api::Type::NestedObject
+        name: 'certificates'
+        description: 'For Windows compute nodes, the Batch service installs the certificates to the specified certificate store and location. For Linux compute nodes, the certificates are stored in a directory inside the task working directory and an environment variable AZ_BATCH_CERTIFICATES_DIR is supplied to the task to query for this location. For certificates with visibility of 'remoteUser', a 'certs' directory is created in the user's home directory (e.g., /home/{user-name}/certs) and certificates are placed in that directory.'
+        required: false
+        azure_sdk_references: ['/certificates', '/properties/certificates']
+        properties:
+          - !ruby/object:Api::Type::ResourceReference
+            name: 'id'
+            description: 'undefined'
+            required: true
+            sample_value: /subscriptions/{{ subscription_id }}/resourceGroups/{{ resource_group }}/providers/Microsoft.Batch/batchAccounts/{{ batch_account_name }}/pools/{{ pool_name }}/certificates/{{ name }}
+            azure_sdk_references: ['/certificates/id', '/properties/certificates/id']
+          - !ruby/object:Api::Type::EnumType
+            name: 'storeLocation'
+            description: 'The default value is currentUser. This property is applicable only for pools configured with Windows nodes (that is, created with cloudServiceConfiguration, or with virtualMachineConfiguration using a Windows image reference). For Linux compute nodes, the certificates are stored in a directory inside the task working directory and an environment variable AZ_BATCH_CERTIFICATES_DIR is supplied to the task to query for this location. For certificates with visibility of 'remoteUser', a 'certs' directory is created in the user's home directory (e.g., /home/{user-name}/certs) and certificates are placed in that directory.'
+            required: false
+            values:
+               - :CurrentUser
+               - :LocalMachine
+            sample_value: LocalMachine
+            azure_sdk_references: ['/certificates/storeLocation', '/properties/certificates/storeLocation']
+          - !ruby/object:Api::Type::String
+            name: 'storeName'
+            description: 'This property is applicable only for pools configured with Windows nodes (that is, created with cloudServiceConfiguration, or with virtualMachineConfiguration using a Windows image reference). Common store names include: My, Root, CA, Trust, Disallowed, TrustedPeople, TrustedPublisher, AuthRoot, AddressBook, but any custom store name can also be used. The default value is My.'
+            required: false
+            sample_value: MY
+            azure_sdk_references: ['/certificates/storeName', '/properties/certificates/storeName']
+          - !ruby/object:Api::Type::String
+            name: 'visibility'
+            description: 'undefined'
+            required: false
+            sample_value: RemoteUser
+            azure_sdk_references: ['/certificates/visibility', '/properties/certificates/visibility']
+      - !ruby/object:Api::Type::NestedObject
+        name: 'applicationPackages'
+        description: 'Changes to application packages affect all new compute nodes joining the pool, but do not affect compute nodes that are already in the pool until they are rebooted or reimaged.'
+        required: false
+        azure_sdk_references: ['/applicationPackages', '/properties/applicationPackages']
+        properties:
+          - !ruby/object:Api::Type::ResourceReference
+            name: 'id'
+            description: 'undefined'
+            required: true
+            sample_value: /subscriptions/{{ subscription_id }}/resourceGroups/{{ resource_group }}/providers/Microsoft.Batch/batchAccounts/{{ batch_account_name }}/pools/{{ pool_name }}/applications/{{ name }}
+            azure_sdk_references: ['/applicationPackages/id', '/properties/applicationPackages/id']
+          - !ruby/object:Api::Type::String
+            name: 'version'
+            description: 'If this is omitted, and no default version is specified for this application, the request fails with the error code InvalidApplicationPackageReferences. If you are calling the REST API directly, the HTTP status code is 409.'
+            required: false
+            sample_value: 1.0
+            azure_sdk_references: ['/applicationPackages/version', '/properties/applicationPackages/version']
+      - !ruby/object:Api::Type::String
+        name: 'applicationLicenses'
+        description: 'The list of application licenses must be a subset of available Batch service application licenses. If a license is requested which is not supported, pool creation will fail.'
+        required: false
+        sample_value: app-license1
+        azure_sdk_references: ['/applicationLicenses', '/properties/applicationLicenses']

@@ -1,8 +1,0 @@
---- !ruby/object:Provider::Ansible::Example
-task: !ruby/object:Provider::Ansible::Task
-  name: azure_rm_apimanagementreport_info
-  description: ApiManagementGetReportsBySubscription
-  code:
-    resource_group: myResourceGroup
-    name: myService
-  

@@ -1,9 +1,0 @@
---- !ruby/object:Provider::Ansible::Example
-task: !ruby/object:Provider::Ansible::Task
-  name: azure_rm_apimanagementquotabycounterkey_info
-  description: ApiManagementGetQuotaCounterKeys
-  code:
-    resource_group: myResourceGroup
-    name: myService
-    quota_counter_key: myQuota
-  
