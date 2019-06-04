@@ -52,7 +52,7 @@ objects:
           '/properties/notificationSenderEmail': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             applicable_to: [go]
             go_field_name: NotificationSenderEmail
-          '/hostnameConfigurations': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+          '/hostnameConfigurations': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexArrayObject
             applicable_to: [python]
             python_field_name: hostname_configurations
           '/hostnameConfigurations/type': !ruby/object:Api::Azure::SDKTypeDefinition::EnumObject
@@ -88,7 +88,7 @@ objects:
           '/hostnameConfigurations/certificate/subject': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             applicable_to: [python]
             python_field_name: subject
-          '/properties/hostnameConfigurations': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+          '/properties/hostnameConfigurations': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexArrayObject
             applicable_to: [go]
             go_field_name: HostnameConfigurations
             go_type_name: {"$id":"2241","$type":"SequenceType","elementType":{"$ref":"2019"},"name":{"$id":"2242","fixed":false},"deprecated":false}
@@ -140,7 +140,7 @@ objects:
           '/properties/virtualNetworkConfiguration/subnetResourceId': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             applicable_to: [go]
             go_field_name: SubnetResourceID
-          '/additionalLocations': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+          '/additionalLocations': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexArrayObject
             applicable_to: [python]
             python_field_name: additional_locations
           '/additionalLocations/location': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
@@ -161,7 +161,7 @@ objects:
           '/additionalLocations/virtualNetworkConfiguration/subnetResourceId': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             applicable_to: [python]
             python_field_name: subnet_resource_id
-          '/properties/additionalLocations': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+          '/properties/additionalLocations': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexArrayObject
             applicable_to: [go]
             go_field_name: AdditionalLocations
             go_type_name: {"$id":"2267","$type":"SequenceType","elementType":{"$ref":"2105"},"name":{"$id":"2268","fixed":false},"deprecated":false}
@@ -192,7 +192,7 @@ objects:
           '/properties/customProperties': 
             applicable_to: [go]
             go_field_name: CustomProperties
-          '/certificates': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+          '/certificates': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexArrayObject
             applicable_to: [python]
             python_field_name: certificates
           '/certificates/encodedCertificate': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
@@ -216,7 +216,7 @@ objects:
           '/certificates/certificate/subject': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             applicable_to: [python]
             python_field_name: subject
-          '/properties/certificates': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+          '/properties/certificates': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexArrayObject
             applicable_to: [go]
             go_field_name: Certificates
             go_type_name: {"$id":"2281","$type":"SequenceType","elementType":{"$ref":"1991"},"name":{"$id":"2282","fixed":false},"deprecated":false}
@@ -329,7 +329,7 @@ objects:
           '/properties/notificationSenderEmail': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             applicable_to: [go]
             go_field_name: NotificationSenderEmail
-          '/hostnameConfigurations': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+          '/hostnameConfigurations': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexArrayObject
             applicable_to: [python]
             python_field_name: hostname_configurations
           '/hostnameConfigurations/type': !ruby/object:Api::Azure::SDKTypeDefinition::EnumObject
@@ -365,7 +365,7 @@ objects:
           '/hostnameConfigurations/certificate/subject': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             applicable_to: [python]
             python_field_name: subject
-          '/properties/hostnameConfigurations': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+          '/properties/hostnameConfigurations': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexArrayObject
             applicable_to: [go]
             go_field_name: HostnameConfigurations
             go_type_name: {"$id":"2241","$type":"SequenceType","elementType":{"$ref":"2019"},"name":{"$id":"2242","fixed":false},"deprecated":false}
@@ -417,7 +417,7 @@ objects:
           '/properties/virtualNetworkConfiguration/subnetResourceId': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             applicable_to: [go]
             go_field_name: SubnetResourceID
-          '/additionalLocations': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+          '/additionalLocations': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexArrayObject
             applicable_to: [python]
             python_field_name: additional_locations
           '/additionalLocations/location': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
@@ -438,7 +438,7 @@ objects:
           '/additionalLocations/virtualNetworkConfiguration/subnetResourceId': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             applicable_to: [python]
             python_field_name: subnet_resource_id
-          '/properties/additionalLocations': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+          '/properties/additionalLocations': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexArrayObject
             applicable_to: [go]
             go_field_name: AdditionalLocations
             go_type_name: {"$id":"2267","$type":"SequenceType","elementType":{"$ref":"2105"},"name":{"$id":"2268","fixed":false},"deprecated":false}
@@ -469,7 +469,7 @@ objects:
           '/properties/customProperties': 
             applicable_to: [go]
             go_field_name: CustomProperties
-          '/certificates': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+          '/certificates': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexArrayObject
             applicable_to: [python]
             python_field_name: certificates
           '/certificates/encodedCertificate': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
@@ -493,7 +493,7 @@ objects:
           '/certificates/certificate/subject': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             applicable_to: [python]
             python_field_name: subject
-          '/properties/certificates': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+          '/properties/certificates': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexArrayObject
             applicable_to: [go]
             go_field_name: Certificates
             go_type_name: {"$id":"2281","$type":"SequenceType","elementType":{"$ref":"1991"},"name":{"$id":"2282","fixed":false},"deprecated":false}

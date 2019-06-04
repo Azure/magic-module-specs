@@ -38,7 +38,7 @@ objects:
             go_variable_name: name
             python_parameter_name: template_name
             python_variable_name: name
-          '/properties/parameters': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+          '/properties/parameters': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexArrayObject
             go_field_name: Parameters
             go_type_name: {"$id":"2686","$type":"SequenceType","elementType":{"$ref":"2579"},"name":{"$id":"2687","fixed":false},"deprecated":false}
             python_field_name: parameters
@@ -89,7 +89,7 @@ objects:
             go_variable_name: name
             python_parameter_name: template_name
             python_variable_name: name
-          '/properties/parameters': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+          '/properties/parameters': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexArrayObject
             go_field_name: Parameters
             go_type_name: {"$id":"2686","$type":"SequenceType","elementType":{"$ref":"2579"},"name":{"$id":"2687","fixed":false},"deprecated":false}
             python_field_name: parameters

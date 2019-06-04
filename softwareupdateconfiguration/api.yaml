@@ -100,7 +100,7 @@ objects:
           '/updateConfiguration/targets': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
             applicable_to: [python]
             python_field_name: targets
-          '/updateConfiguration/targets/azureQueries': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+          '/updateConfiguration/targets/azureQueries': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexArrayObject
             applicable_to: [python]
             python_field_name: azure_queries
           '/updateConfiguration/targets/azureQueries/scope': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
@@ -112,7 +112,7 @@ objects:
           '/updateConfiguration/targets/azureQueries/tagSettings': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
             applicable_to: [python]
             python_field_name: tag_settings
-          '/updateConfiguration/targets/nonAzureQueries': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+          '/updateConfiguration/targets/nonAzureQueries': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexArrayObject
             applicable_to: [python]
             python_field_name: non_azure_queries
           '/updateConfiguration/targets/nonAzureQueries/functionAlias': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
@@ -176,7 +176,7 @@ objects:
             applicable_to: [go]
             go_field_name: Targets
             go_type_name: TargetProperties
-          '/properties/updateConfiguration/targets/azureQueries': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+          '/properties/updateConfiguration/targets/azureQueries': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexArrayObject
             applicable_to: [go]
             go_field_name: AzureQueries
             go_type_name: {"$id":"142","$type":"SequenceType","elementType":{"$ref":"101"},"name":{"$id":"143","fixed":false},"deprecated":false}
@@ -190,7 +190,7 @@ objects:
             applicable_to: [go]
             go_field_name: TagSettings
             go_type_name: TagSettingsProperties
-          '/properties/updateConfiguration/targets/nonAzureQueries': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+          '/properties/updateConfiguration/targets/nonAzureQueries': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexArrayObject
             applicable_to: [go]
             go_field_name: NonAzureQueries
             go_type_name: {"$id":"148","$type":"SequenceType","elementType":{"$ref":"123"},"name":{"$id":"149","fixed":false},"deprecated":false}
@@ -239,7 +239,7 @@ objects:
           '/scheduleInfo/advancedSchedule/monthDays': 
             applicable_to: [python]
             python_field_name: month_days
-          '/scheduleInfo/advancedSchedule/monthlyOccurrences': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+          '/scheduleInfo/advancedSchedule/monthlyOccurrences': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexArrayObject
             applicable_to: [python]
             python_field_name: monthly_occurrences
           '/scheduleInfo/advancedSchedule/monthlyOccurrences/occurrence': 
@@ -299,7 +299,7 @@ objects:
           '/properties/scheduleInfo/advancedSchedule/monthDays': 
             applicable_to: [go]
             go_field_name: MonthDays
-          '/properties/scheduleInfo/advancedSchedule/monthlyOccurrences': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+          '/properties/scheduleInfo/advancedSchedule/monthlyOccurrences': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexArrayObject
             applicable_to: [go]
             go_field_name: MonthlyOccurrences
             go_type_name: {"$id":"241","$type":"SequenceType","elementType":{"$ref":"197"},"name":{"$id":"242","fixed":false},"deprecated":false}

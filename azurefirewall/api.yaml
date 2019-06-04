@@ -52,7 +52,7 @@ objects:
             applicable_to: [go]
             go_field_name: Properties
             go_type_name: AzureFirewallPropertiesFormat
-          '/applicationRuleCollections': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+          '/applicationRuleCollections': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexArrayObject
             applicable_to: [python]
             python_field_name: application_rule_collections
           '/applicationRuleCollections/priority': 
@@ -61,7 +61,7 @@ objects:
           '/applicationRuleCollections/action': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
             applicable_to: [python]
             python_field_name: action
-          '/applicationRuleCollections/rules': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+          '/applicationRuleCollections/rules': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexArrayObject
             applicable_to: [python]
             python_field_name: rules
           '/applicationRuleCollections/rules/name': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
@@ -73,7 +73,7 @@ objects:
           '/applicationRuleCollections/rules/sourceAddresses': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             applicable_to: [python]
             python_field_name: source_addresses
-          '/applicationRuleCollections/rules/protocols': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+          '/applicationRuleCollections/rules/protocols': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexArrayObject
             applicable_to: [python]
             python_field_name: protocols
           '/applicationRuleCollections/rules/targetFqdns': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
@@ -85,7 +85,7 @@ objects:
           '/applicationRuleCollections/name': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             applicable_to: [python]
             python_field_name: name
-          '/properties/applicationRuleCollections': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+          '/properties/applicationRuleCollections': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexArrayObject
             applicable_to: [go]
             go_field_name: ApplicationRuleCollections
             go_type_name: {"$id":"375","$type":"SequenceType","elementType":{"$ref":"152"},"name":{"$id":"376","fixed":false},"deprecated":false}
@@ -107,7 +107,7 @@ objects:
             applicable_to: [go]
             go_field_name: Type
             go_enum_type_name: AzureFirewallRCActionType
-          '/properties/applicationRuleCollections/properties/rules': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+          '/properties/applicationRuleCollections/properties/rules': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexArrayObject
             applicable_to: [go]
             go_field_name: Rules
             go_type_name: {"$id":"145","$type":"SequenceType","elementType":{"$ref":"86"},"name":{"$id":"146","fixed":false},"deprecated":false}
@@ -120,7 +120,7 @@ objects:
           '/properties/applicationRuleCollections/properties/rules/sourceAddresses': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             applicable_to: [go]
             go_field_name: SourceAddresses
-          '/properties/applicationRuleCollections/properties/rules/protocols': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+          '/properties/applicationRuleCollections/properties/rules/protocols': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexArrayObject
             applicable_to: [go]
             go_field_name: Protocols
             go_type_name: {"$id":"111","$type":"SequenceType","elementType":{"$ref":"68"},"name":{"$id":"112","fixed":false},"deprecated":false}
@@ -133,7 +133,7 @@ objects:
           '/properties/applicationRuleCollections/name': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             applicable_to: [go]
             go_field_name: Name
-          '/natRuleCollections': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+          '/natRuleCollections': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexArrayObject
             applicable_to: [python]
             python_field_name: nat_rule_collections
           '/natRuleCollections/priority': 
@@ -145,7 +145,7 @@ objects:
           '/natRuleCollections/action/type': !ruby/object:Api::Azure::SDKTypeDefinition::EnumObject
             applicable_to: [python]
             python_field_name: type
-          '/natRuleCollections/rules': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+          '/natRuleCollections/rules': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexArrayObject
             applicable_to: [python]
             python_field_name: rules
           '/natRuleCollections/rules/name': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
@@ -175,7 +175,7 @@ objects:
           '/natRuleCollections/name': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             applicable_to: [python]
             python_field_name: name
-          '/properties/natRuleCollections': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+          '/properties/natRuleCollections': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexArrayObject
             applicable_to: [go]
             go_field_name: NatRuleCollections
             go_type_name: {"$id":"381","$type":"SequenceType","elementType":{"$ref":"268"},"name":{"$id":"382","fixed":false},"deprecated":false}
@@ -197,7 +197,7 @@ objects:
             applicable_to: [go]
             go_field_name: Type
             go_enum_type_name: AzureFirewallNatRCActionType
-          '/properties/natRuleCollections/properties/rules': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+          '/properties/natRuleCollections/properties/rules': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexArrayObject
             applicable_to: [go]
             go_field_name: Rules
             go_type_name: {"$id":"261","$type":"SequenceType","elementType":{"$ref":"182"},"name":{"$id":"262","fixed":false},"deprecated":false}
@@ -228,7 +228,7 @@ objects:
           '/properties/natRuleCollections/name': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             applicable_to: [go]
             go_field_name: Name
-          '/networkRuleCollections': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+          '/networkRuleCollections': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexArrayObject
             applicable_to: [python]
             python_field_name: network_rule_collections
           '/networkRuleCollections/priority': 
@@ -240,7 +240,7 @@ objects:
           '/networkRuleCollections/action/type': !ruby/object:Api::Azure::SDKTypeDefinition::EnumObject
             applicable_to: [python]
             python_field_name: type
-          '/networkRuleCollections/rules': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+          '/networkRuleCollections/rules': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexArrayObject
             applicable_to: [python]
             python_field_name: rules
           '/networkRuleCollections/rules/name': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
@@ -264,7 +264,7 @@ objects:
           '/networkRuleCollections/name': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             applicable_to: [python]
             python_field_name: name
-          '/properties/networkRuleCollections': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+          '/properties/networkRuleCollections': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexArrayObject
             applicable_to: [go]
             go_field_name: NetworkRuleCollections
             go_type_name: {"$id":"387","$type":"SequenceType","elementType":{"$ref":"352"},"name":{"$id":"388","fixed":false},"deprecated":false}
@@ -286,7 +286,7 @@ objects:
             applicable_to: [go]
             go_field_name: Type
             go_enum_type_name: AzureFirewallRCActionType
-          '/properties/networkRuleCollections/properties/rules': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+          '/properties/networkRuleCollections/properties/rules': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexArrayObject
             applicable_to: [go]
             go_field_name: Rules
             go_type_name: {"$id":"345","$type":"SequenceType","elementType":{"$ref":"286"},"name":{"$id":"346","fixed":false},"deprecated":false}
@@ -311,7 +311,7 @@ objects:
           '/properties/networkRuleCollections/name': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             applicable_to: [go]
             go_field_name: Name
-          '/ipConfigurations': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+          '/ipConfigurations': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexArrayObject
             applicable_to: [python]
             python_field_name: ip_configurations
           '/ipConfigurations/subnet/id': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
@@ -323,7 +323,7 @@ objects:
           '/ipConfigurations/name': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             applicable_to: [python]
             python_field_name: name
-          '/properties/ipConfigurations': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+          '/properties/ipConfigurations': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexArrayObject
             applicable_to: [go]
             go_field_name: IpConfigurations
             go_type_name: {"$id":"393","$type":"SequenceType","elementType":{"$ref":"38"},"name":{"$id":"394","fixed":false},"deprecated":false}

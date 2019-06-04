@@ -60,7 +60,7 @@ objects:
           '/properties/note': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             applicable_to: [go]
             go_field_name: Note
-          '/identities': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+          '/identities': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexArrayObject
             applicable_to: [python]
             python_field_name: identities
           '/identities/provider': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
@@ -69,7 +69,7 @@ objects:
           '/identities/id': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             applicable_to: [python]
             python_field_name: id
-          '/properties/identities': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+          '/properties/identities': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexArrayObject
             applicable_to: [go]
             go_field_name: Identities
             go_type_name: {"$id":"2874","$type":"SequenceType","elementType":{"$ref":"2812"},"name":{"$id":"2875","fixed":false},"deprecated":false}
@@ -161,7 +161,7 @@ objects:
           '/properties/note': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             applicable_to: [go]
             go_field_name: Note
-          '/identities': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+          '/identities': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexArrayObject
             applicable_to: [python]
             python_field_name: identities
           '/identities/provider': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
@@ -170,7 +170,7 @@ objects:
           '/identities/id': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             applicable_to: [python]
             python_field_name: id
-          '/properties/identities': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+          '/properties/identities': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexArrayObject
             applicable_to: [go]
             go_field_name: Identities
             go_type_name: {"$id":"2874","$type":"SequenceType","elementType":{"$ref":"2812"},"name":{"$id":"2875","fixed":false},"deprecated":false}

@@ -84,7 +84,7 @@ objects:
           '/serviceFabricCluster/serverCertificateThumbprints': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             applicable_to: [python]
             python_field_name: server_certificate_thumbprints
-          '/serviceFabricCluster/serverX509Names': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+          '/serviceFabricCluster/serverX509Names': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexArrayObject
             applicable_to: [python]
             python_field_name: server_x509names
           '/serviceFabricCluster/serverX509Names/name': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
@@ -109,7 +109,7 @@ objects:
           '/properties/properties/serviceFabricCluster/serverCertificateThumbprints': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             applicable_to: [go]
             go_field_name: ServerCertificateThumbprints
-          '/properties/properties/serviceFabricCluster/serverX509Names': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+          '/properties/properties/serviceFabricCluster/serverX509Names': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexArrayObject
             applicable_to: [go]
             go_field_name: ServerX509names
             go_type_name: {"$id":"1653","$type":"SequenceType","elementType":{"$ref":"1606"},"name":{"$id":"1654","fixed":false},"deprecated":false}
@@ -295,7 +295,7 @@ objects:
           '/serviceFabricCluster/serverCertificateThumbprints': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             applicable_to: [python]
             python_field_name: server_certificate_thumbprints
-          '/serviceFabricCluster/serverX509Names': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+          '/serviceFabricCluster/serverX509Names': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexArrayObject
             applicable_to: [python]
             python_field_name: server_x509names
           '/serviceFabricCluster/serverX509Names/name': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
@@ -320,7 +320,7 @@ objects:
           '/properties/properties/serviceFabricCluster/serverCertificateThumbprints': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             applicable_to: [go]
             go_field_name: ServerCertificateThumbprints
-          '/properties/properties/serviceFabricCluster/serverX509Names': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+          '/properties/properties/serviceFabricCluster/serverX509Names': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexArrayObject
             applicable_to: [go]
             go_field_name: ServerX509names
             go_type_name: {"$id":"1653","$type":"SequenceType","elementType":{"$ref":"1606"},"name":{"$id":"1654","fixed":false},"deprecated":false}
