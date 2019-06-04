@@ -9,22 +9,22 @@ task: !ruby/object:Provider::Ansible::Task
     operation_id: myOperation
     template_parameters: []
     request:
-      queryParameters:
+      query_parameters:
         - name: param1
           description: >-
             A sample parameter that is required and has a default value of
             "sample".
           type: string
-          defaultValue: sample
+          default_value: sample
           required: true
           values:
             - sample
     responses:
-      - statusCode: '200'
+      - status_code: '200'
         description: Returned in all cases.
         representations: []
         headers: []
-      - statusCode: '500'
+      - status_code: '500'
         description: Server Error.
         representations: []
         headers: []

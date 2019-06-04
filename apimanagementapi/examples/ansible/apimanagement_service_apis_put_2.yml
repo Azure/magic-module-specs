@@ -1,15 +1,13 @@
 --- !ruby/object:Provider::Ansible::Example
 task: !ruby/object:Provider::Ansible::Task
   name: azure_rm_apimanagementapi
-  description: ApiManagementCreateSoapToRestApiUsingWsdlImport
+  description: ApiManagementCreateApiUsingWadlImport
   code:
     resource_group: myResourceGroup
     name: myService
     api_id: myApis
-    path: currency
-    content_value: 'http://www.webservicex.net/CurrencyConvertor.asmx?WSDL'
-    content_format: wsdl-link
-    wsdl_selector:
-      wsdl_service_name: CurrencyConvertor
-      wsdl_endpoint_name: CurrencyConvertorSoap
+    path: collector
+    value: >-
+      https://developer.cisco.com/media/wae-release-6-2-api-reference/wae-collector-rest-api/application.wadl
+    format: wadl-link-json
   

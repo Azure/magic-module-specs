@@ -20,6 +20,7 @@ objects:
       python_client_namespace: azure.mgmt.apimanagement
       python_client: ApiManagementClient.api
       create: !ruby/object:Api::Azure::SDKOperationDefinition
+        async: true
         go_func_name: CreateOrUpdate
         python_func_name: create_or_update
         request:
@@ -56,17 +57,73 @@ objects:
           '/authenticationSettings': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
             applicable_to: [python]
             python_field_name: authentication_settings
+          '/authenticationSettings/oAuth2': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            applicable_to: [python]
+            python_field_name: o_auth2
+          '/authenticationSettings/oAuth2/authorizationServerId': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: authorization_server_id
+          '/authenticationSettings/oAuth2/scope': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: scope
+          '/authenticationSettings/openid': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            applicable_to: [python]
+            python_field_name: openid
+          '/authenticationSettings/openid/openidProviderId': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: openid_provider_id
+          '/authenticationSettings/openid/bearerTokenSendingMethods': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: bearer_token_sending_methods
+          '/authenticationSettings/subscriptionKeyRequired': !ruby/object:Api::Azure::SDKTypeDefinition::BooleanObject
+            applicable_to: [python]
+            python_field_name: subscription_key_required
           '/properties/authenticationSettings': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
             applicable_to: [go]
             go_field_name: AuthenticationSettings
             go_type_name: AuthenticationSettingsContract
+          '/properties/authenticationSettings/oAuth2': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            applicable_to: [go]
+            go_field_name: OAuth2
+            go_type_name: OAuth2AuthenticationSettingsContract
+          '/properties/authenticationSettings/oAuth2/authorizationServerId': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: AuthorizationServerID
+          '/properties/authenticationSettings/oAuth2/scope': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: Scope
+          '/properties/authenticationSettings/openid': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            applicable_to: [go]
+            go_field_name: Openid
+            go_type_name: OpenIdAuthenticationSettingsContract
+          '/properties/authenticationSettings/openid/openidProviderId': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: OpenidProviderID
+          '/properties/authenticationSettings/openid/bearerTokenSendingMethods': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: BearerTokenSendingMethods
+          '/properties/authenticationSettings/subscriptionKeyRequired': !ruby/object:Api::Azure::SDKTypeDefinition::BooleanObject
+            applicable_to: [go]
+            go_field_name: SubscriptionKeyRequired
           '/subscriptionKeyParameterNames': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
             applicable_to: [python]
             python_field_name: subscription_key_parameter_names
+          '/subscriptionKeyParameterNames/header': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: header
+          '/subscriptionKeyParameterNames/query': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: query
           '/properties/subscriptionKeyParameterNames': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
             applicable_to: [go]
             go_field_name: SubscriptionKeyParameterNames
             go_type_name: SubscriptionKeyParameterNamesContract
+          '/properties/subscriptionKeyParameterNames/header': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: Header
+          '/properties/subscriptionKeyParameterNames/query': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: Query
           '/type': !ruby/object:Api::Azure::SDKTypeDefinition::EnumObject
             applicable_to: [python]
             python_field_name: type
@@ -86,6 +143,12 @@ objects:
           '/properties/apiVersion': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             applicable_to: [go]
             go_field_name: ApiVersion
+          '/isCurrent': !ruby/object:Api::Azure::SDKTypeDefinition::BooleanObject
+            applicable_to: [python]
+            python_field_name: is_current
+          '/properties/isCurrent': !ruby/object:Api::Azure::SDKTypeDefinition::BooleanObject
+            applicable_to: [go]
+            go_field_name: IsCurrent
           '/apiRevisionDescription': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             applicable_to: [python]
             python_field_name: api_revision_description
@@ -104,6 +167,18 @@ objects:
           '/properties/apiVersionSetId': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             applicable_to: [go]
             go_field_name: ApiVersionSetID
+          '/subscriptionRequired': !ruby/object:Api::Azure::SDKTypeDefinition::BooleanObject
+            applicable_to: [python]
+            python_field_name: subscription_required
+          '/properties/subscriptionRequired': !ruby/object:Api::Azure::SDKTypeDefinition::BooleanObject
+            applicable_to: [go]
+            go_field_name: SubscriptionRequired
+          '/sourceApiId': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: source_api_id
+          '/properties/sourceApiId': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: SourceApiID
           '/displayName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             applicable_to: [python]
             python_field_name: display_name
@@ -122,10 +197,10 @@ objects:
           '/properties/path': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             applicable_to: [go]
             go_field_name: Path
-          '/protocols': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+          '/protocols': 
             applicable_to: [python]
             python_field_name: protocols
-          '/properties/protocols': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+          '/properties/protocols': 
             applicable_to: [go]
             go_field_name: Protocols
           '/apiVersionSet': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
@@ -134,6 +209,9 @@ objects:
           '/apiVersionSet/id': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             applicable_to: [python]
             python_field_name: id
+          '/apiVersionSet/name': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: name
           '/apiVersionSet/description': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             applicable_to: [python]
             python_field_name: description
@@ -153,6 +231,9 @@ objects:
           '/properties/apiVersionSet/id': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             applicable_to: [go]
             go_field_name: ID
+          '/properties/apiVersionSet/name': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: Name
           '/properties/apiVersionSet/description': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             applicable_to: [go]
             go_field_name: Description
@@ -166,18 +247,18 @@ objects:
           '/properties/apiVersionSet/versionHeaderName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             applicable_to: [go]
             go_field_name: VersionHeaderName
-          '/contentValue': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+          '/value': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             applicable_to: [python]
-            python_field_name: content_value
-          '/properties/contentValue': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            python_field_name: value
+          '/properties/value': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             applicable_to: [go]
-            go_field_name: ContentValue
-          '/contentFormat': !ruby/object:Api::Azure::SDKTypeDefinition::EnumObject
+            go_field_name: Value
+          '/format': !ruby/object:Api::Azure::SDKTypeDefinition::EnumObject
             applicable_to: [python]
-            python_field_name: content_format
-          '/properties/contentFormat': !ruby/object:Api::Azure::SDKTypeDefinition::EnumObject
+            python_field_name: format
+          '/properties/format': !ruby/object:Api::Azure::SDKTypeDefinition::EnumObject
             applicable_to: [go]
-            go_field_name: ContentFormat
+            go_field_name: Format
             go_enum_type_name: ContentFormat
           '/wsdlSelector': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
             applicable_to: [python]
@@ -252,17 +333,73 @@ objects:
           '/authenticationSettings': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
             applicable_to: [python]
             python_field_name: authentication_settings
+          '/authenticationSettings/oAuth2': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            applicable_to: [python]
+            python_field_name: o_auth2
+          '/authenticationSettings/oAuth2/authorizationServerId': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: authorization_server_id
+          '/authenticationSettings/oAuth2/scope': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: scope
+          '/authenticationSettings/openid': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            applicable_to: [python]
+            python_field_name: openid
+          '/authenticationSettings/openid/openidProviderId': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: openid_provider_id
+          '/authenticationSettings/openid/bearerTokenSendingMethods': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: bearer_token_sending_methods
+          '/authenticationSettings/subscriptionKeyRequired': !ruby/object:Api::Azure::SDKTypeDefinition::BooleanObject
+            applicable_to: [python]
+            python_field_name: subscription_key_required
           '/properties/authenticationSettings': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
             applicable_to: [go]
             go_field_name: AuthenticationSettings
             go_type_name: AuthenticationSettingsContract
+          '/properties/authenticationSettings/oAuth2': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            applicable_to: [go]
+            go_field_name: OAuth2
+            go_type_name: OAuth2AuthenticationSettingsContract
+          '/properties/authenticationSettings/oAuth2/authorizationServerId': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: AuthorizationServerID
+          '/properties/authenticationSettings/oAuth2/scope': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: Scope
+          '/properties/authenticationSettings/openid': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            applicable_to: [go]
+            go_field_name: Openid
+            go_type_name: OpenIdAuthenticationSettingsContract
+          '/properties/authenticationSettings/openid/openidProviderId': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: OpenidProviderID
+          '/properties/authenticationSettings/openid/bearerTokenSendingMethods': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: BearerTokenSendingMethods
+          '/properties/authenticationSettings/subscriptionKeyRequired': !ruby/object:Api::Azure::SDKTypeDefinition::BooleanObject
+            applicable_to: [go]
+            go_field_name: SubscriptionKeyRequired
           '/subscriptionKeyParameterNames': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
             applicable_to: [python]
             python_field_name: subscription_key_parameter_names
+          '/subscriptionKeyParameterNames/header': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: header
+          '/subscriptionKeyParameterNames/query': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: query
           '/properties/subscriptionKeyParameterNames': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
             applicable_to: [go]
             go_field_name: SubscriptionKeyParameterNames
             go_type_name: SubscriptionKeyParameterNamesContract
+          '/properties/subscriptionKeyParameterNames/header': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: Header
+          '/properties/subscriptionKeyParameterNames/query': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: Query
           '/type': !ruby/object:Api::Azure::SDKTypeDefinition::EnumObject
             applicable_to: [python]
             python_field_name: type
@@ -282,6 +419,12 @@ objects:
           '/properties/apiVersion': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             applicable_to: [go]
             go_field_name: ApiVersion
+          '/isCurrent': !ruby/object:Api::Azure::SDKTypeDefinition::BooleanObject
+            applicable_to: [python]
+            python_field_name: is_current
+          '/properties/isCurrent': !ruby/object:Api::Azure::SDKTypeDefinition::BooleanObject
+            applicable_to: [go]
+            go_field_name: IsCurrent
           '/apiRevisionDescription': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             applicable_to: [python]
             python_field_name: api_revision_description
@@ -300,6 +443,18 @@ objects:
           '/properties/apiVersionSetId': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             applicable_to: [go]
             go_field_name: ApiVersionSetID
+          '/subscriptionRequired': !ruby/object:Api::Azure::SDKTypeDefinition::BooleanObject
+            applicable_to: [python]
+            python_field_name: subscription_required
+          '/properties/subscriptionRequired': !ruby/object:Api::Azure::SDKTypeDefinition::BooleanObject
+            applicable_to: [go]
+            go_field_name: SubscriptionRequired
+          '/sourceApiId': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: source_api_id
+          '/properties/sourceApiId': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: SourceApiID
           '/displayName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             applicable_to: [python]
             python_field_name: display_name
@@ -318,10 +473,10 @@ objects:
           '/properties/path': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             applicable_to: [go]
             go_field_name: Path
-          '/protocols': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+          '/protocols': 
             applicable_to: [python]
             python_field_name: protocols
-          '/properties/protocols': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+          '/properties/protocols': 
             applicable_to: [go]
             go_field_name: Protocols
           '/apiVersionSet': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
@@ -330,6 +485,9 @@ objects:
           '/apiVersionSet/id': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             applicable_to: [python]
             python_field_name: id
+          '/apiVersionSet/name': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: name
           '/apiVersionSet/description': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             applicable_to: [python]
             python_field_name: description
@@ -349,6 +507,9 @@ objects:
           '/properties/apiVersionSet/id': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             applicable_to: [go]
             go_field_name: ID
+          '/properties/apiVersionSet/name': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: Name
           '/properties/apiVersionSet/description': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             applicable_to: [go]
             go_field_name: Description
@@ -362,18 +523,18 @@ objects:
           '/properties/apiVersionSet/versionHeaderName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             applicable_to: [go]
             go_field_name: VersionHeaderName
-          '/contentValue': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+          '/value': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             applicable_to: [python]
-            python_field_name: content_value
-          '/properties/contentValue': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            python_field_name: value
+          '/properties/value': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             applicable_to: [go]
-            go_field_name: ContentValue
-          '/contentFormat': !ruby/object:Api::Azure::SDKTypeDefinition::EnumObject
+            go_field_name: Value
+          '/format': !ruby/object:Api::Azure::SDKTypeDefinition::EnumObject
             applicable_to: [python]
-            python_field_name: content_format
-          '/properties/contentFormat': !ruby/object:Api::Azure::SDKTypeDefinition::EnumObject
+            python_field_name: format
+          '/properties/format': !ruby/object:Api::Azure::SDKTypeDefinition::EnumObject
             applicable_to: [go]
-            go_field_name: ContentFormat
+            go_field_name: Format
             go_enum_type_name: ContentFormat
           '/wsdlSelector': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
             applicable_to: [python]
@@ -494,14 +655,67 @@ objects:
         name: 'authenticationSettings'
         description: 'Collection of authentication settings included into this API.'
         required: false
-        sample_value: [object Object]
         azure_sdk_references: ['/authenticationSettings', '/properties/authenticationSettings']
+        properties:
+          - !ruby/object:Api::Type::NestedObject
+            name: 'oAuth2'
+            description: 'OAuth2 Authentication settings'
+            required: false
+            azure_sdk_references: ['/authenticationSettings/oAuth2', '/properties/authenticationSettings/oAuth2']
+            properties:
+              - !ruby/object:Api::Type::String
+                name: 'authorizationServerId'
+                description: 'OAuth authorization server identifier.'
+                required: false
+                sample_value: authorizationServerId2283
+                azure_sdk_references: ['/authenticationSettings/oAuth2/authorizationServerId', '/properties/authenticationSettings/oAuth2/authorizationServerId']
+              - !ruby/object:Api::Type::String
+                name: 'scope'
+                description: 'operations scope.'
+                required: false
+                sample_value: oauth2scope2580
+                azure_sdk_references: ['/authenticationSettings/oAuth2/scope', '/properties/authenticationSettings/oAuth2/scope']
+          - !ruby/object:Api::Type::NestedObject
+            name: 'openid'
+            description: 'OpenID Connect Authentication Settings'
+            required: false
+            azure_sdk_references: ['/authenticationSettings/openid', '/properties/authenticationSettings/openid']
+            properties:
+              - !ruby/object:Api::Type::String
+                name: 'openidProviderId'
+                description: 'OAuth authorization server identifier.'
+                required: false
+                sample_value: testopenid
+                azure_sdk_references: ['/authenticationSettings/openid/openidProviderId', '/properties/authenticationSettings/openid/openidProviderId']
+              - !ruby/object:Api::Type::String
+                name: 'bearerTokenSendingMethods'
+                description: 'How to send token to the server.'
+                required: false
+                sample_value: authorizationHeader
+                azure_sdk_references: ['/authenticationSettings/openid/bearerTokenSendingMethods', '/properties/authenticationSettings/openid/bearerTokenSendingMethods']
+          - !ruby/object:Api::Type::Boolean
+            name: 'subscriptionKeyRequired'
+            description: 'Specifies whether subscription key is required during call to this API, true - API is included into closed products only, false - API is included into open products alone, null - there is a mix of products.'
+            required: false
+            azure_sdk_references: ['/authenticationSettings/subscriptionKeyRequired', '/properties/authenticationSettings/subscriptionKeyRequired']
       - !ruby/object:Api::Type::NestedObject
         name: 'subscriptionKeyParameterNames'
         description: 'Protocols over which API is made available.'
         required: false
-        sample_value: [object Object]
         azure_sdk_references: ['/subscriptionKeyParameterNames', '/properties/subscriptionKeyParameterNames']
+        properties:
+          - !ruby/object:Api::Type::String
+            name: 'header'
+            description: 'Subscription key header name.'
+            required: false
+            sample_value: Ocp-Apim-Subscription-Key
+            azure_sdk_references: ['/subscriptionKeyParameterNames/header', '/properties/subscriptionKeyParameterNames/header']
+          - !ruby/object:Api::Type::String
+            name: 'query'
+            description: 'Subscription key query string parameter name.'
+            required: false
+            sample_value: subscription-key
+            azure_sdk_references: ['/subscriptionKeyParameterNames/query', '/properties/subscriptionKeyParameterNames/query']
       - !ruby/object:Api::Type::EnumType
         name: 'type'
         description: 'Type of API.'
@@ -519,32 +733,52 @@ objects:
         name: 'apiVersion'
         description: 'Indicates the Version identifier of the API if the API is versioned'
         required: false
+        sample_value: v4
         azure_sdk_references: ['/apiVersion', '/properties/apiVersion']
+      - !ruby/object:Api::Type::Boolean
+        name: 'isCurrent'
+        description: 'Indicates if API revision is current api revision.'
+        required: false
+        sample_value: true
+        azure_sdk_references: ['/isCurrent', '/properties/isCurrent']
       - !ruby/object:Api::Type::String
         name: 'apiRevisionDescription'
         description: 'Description of the Api Revision.'
         required: false
-        sample_value: moved to swagger petstore backend
+        sample_value: Creating a Revision of an existing API
         azure_sdk_references: ['/apiRevisionDescription', '/properties/apiRevisionDescription']
       - !ruby/object:Api::Type::String
         name: 'apiVersionDescription'
         description: 'Description of the Api Version.'
         required: false
         azure_sdk_references: ['/apiVersionDescription', '/properties/apiVersionDescription']
-      - !ruby/object:Api::Type::String
+      - !ruby/object:Api::Type::ResourceReference
         name: 'apiVersionSetId'
         description: 'A resource identifier for the related ApiVersionSet.'
         required: false
+        sample_value: /subscriptions/{{ subscription_id }}/resourceGroups/{{ resource_group }}/providers/Microsoft.ApiManagement/service/{{ service_name }}/apiVersionSets/{{ name }}
         azure_sdk_references: ['/apiVersionSetId', '/properties/apiVersionSetId']
+      - !ruby/object:Api::Type::Boolean
+        name: 'subscriptionRequired'
+        description: 'Specifies whether an API or Product subscription is required for accessing the API.'
+        required: false
+        sample_value: true
+        azure_sdk_references: ['/subscriptionRequired', '/properties/subscriptionRequired']
+      - !ruby/object:Api::Type::ResourceReference
+        name: 'sourceApiId'
+        description: 'API identifier of the source API.'
+        required: false
+        sample_value: /subscriptions/{{ subscription_id }}/resourceGroups/{{ resource_group }}/providers/Microsoft.ApiManagement/service/{{ service_name }}/apis/{{ name }}
+        azure_sdk_references: ['/sourceApiId', '/properties/sourceApiId']
       - !ruby/object:Api::Type::String
         name: 'displayName'
-        description: 'API name.'
+        description: 'API name. Must be 1 to 300 characters long.'
         required: false
         sample_value: Echo API New
         azure_sdk_references: ['/displayName', '/properties/displayName']
       - !ruby/object:Api::Type::String
         name: 'serviceUrl'
-        description: 'Absolute URL of the backend service implementing this API.'
+        description: 'Absolute URL of the backend service implementing this API. Cannot be more than 2000 characters long.'
         required: false
         sample_value: http://echoapi.cloudapp.net/api2
         azure_sdk_references: ['/serviceUrl', '/properties/serviceUrl']
@@ -554,7 +788,7 @@ objects:
         required: true
         sample_value: newecho
         azure_sdk_references: ['/path', '/properties/path']
-      - !ruby/object:Api::Type::String
+      - 
         name: 'protocols'
         description: 'Describes on which protocols the operations in this API can be invoked.'
         required: false
@@ -562,7 +796,7 @@ objects:
         azure_sdk_references: ['/protocols', '/properties/protocols']
       - !ruby/object:Api::Type::NestedObject
         name: 'apiVersionSet'
-        description: 'undefined'
+        description: 'Version set details'
         required: false
         azure_sdk_references: ['/apiVersionSet', '/properties/apiVersionSet']
         properties:
@@ -571,6 +805,11 @@ objects:
             description: 'Identifier for existing API Version Set. Omit this value to create a new Version Set.'
             required: false
             azure_sdk_references: ['/apiVersionSet/id', '/properties/apiVersionSet/id']
+          - !ruby/object:Api::Type::String
+            name: 'name'
+            description: 'The display Name of the API Version Set.'
+            required: false
+            azure_sdk_references: ['/apiVersionSet/name', '/properties/apiVersionSet/name']
           - !ruby/object:Api::Type::String
             name: 'description'
             description: 'Description of API Version Set.'
@@ -596,13 +835,13 @@ objects:
             required: false
             azure_sdk_references: ['/apiVersionSet/versionHeaderName', '/properties/apiVersionSet/versionHeaderName']
       - !ruby/object:Api::Type::String
-        name: 'contentValue'
+        name: 'value'
         description: 'Content value when Importing an API.'
         required: false
         sample_value: http://www.webservicex.net/CurrencyConvertor.asmx?WSDL
-        azure_sdk_references: ['/contentValue', '/properties/contentValue']
+        azure_sdk_references: ['/value', '/properties/value']
       - !ruby/object:Api::Type::EnumType
-        name: 'contentFormat'
+        name: 'format'
         description: 'Format of the Content in which the API is getting imported.'
         required: false
         values:
@@ -612,8 +851,11 @@ objects:
            - :swagger-link-json
            - :wsdl
            - :wsdl-link
+           - :openapi
+           - :openapi+json
+           - :openapi-link
         sample_value: wsdl-link
-        azure_sdk_references: ['/contentFormat', '/properties/contentFormat']
+        azure_sdk_references: ['/format', '/properties/format']
       - !ruby/object:Api::Type::NestedObject
         name: 'wsdlSelector'
         description: 'Criteria to limit import of WSDL to a subset of the document.'

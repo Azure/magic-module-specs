@@ -91,7 +91,7 @@ objects:
           '/properties/hostnameConfigurations': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexArrayObject
             applicable_to: [go]
             go_field_name: HostnameConfigurations
-            go_type_name: {"$id":"2241","$type":"SequenceType","elementType":{"$ref":"2019"},"name":{"$id":"2242","fixed":false},"deprecated":false}
+            go_type_name: {"$id":"2467","$type":"SequenceType","elementType":{"$ref":"2244"},"name":{"$id":"2468","fixed":false},"deprecated":false}
           '/properties/hostnameConfigurations/type': !ruby/object:Api::Azure::SDKTypeDefinition::EnumObject
             applicable_to: [go]
             go_field_name: Type
@@ -164,7 +164,7 @@ objects:
           '/properties/additionalLocations': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexArrayObject
             applicable_to: [go]
             go_field_name: AdditionalLocations
-            go_type_name: {"$id":"2267","$type":"SequenceType","elementType":{"$ref":"2105"},"name":{"$id":"2268","fixed":false},"deprecated":false}
+            go_type_name: {"$id":"2493","$type":"SequenceType","elementType":{"$ref":"2331"},"name":{"$id":"2494","fixed":false},"deprecated":false}
           '/properties/additionalLocations/location': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             applicable_to: [go]
             go_field_name: Location
@@ -219,7 +219,7 @@ objects:
           '/properties/certificates': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexArrayObject
             applicable_to: [go]
             go_field_name: Certificates
-            go_type_name: {"$id":"2281","$type":"SequenceType","elementType":{"$ref":"1991"},"name":{"$id":"2282","fixed":false},"deprecated":false}
+            go_type_name: {"$id":"2507","$type":"SequenceType","elementType":{"$ref":"2216"},"name":{"$id":"2508","fixed":false},"deprecated":false}
           '/properties/certificates/encodedCertificate': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             applicable_to: [go]
             go_field_name: EncodedCertificate
@@ -243,6 +243,12 @@ objects:
           '/properties/certificates/certificate/subject': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             applicable_to: [go]
             go_field_name: Subject
+          '/enableClientCertificate': !ruby/object:Api::Azure::SDKTypeDefinition::BooleanObject
+            applicable_to: [python]
+            python_field_name: enable_client_certificate
+          '/properties/enableClientCertificate': !ruby/object:Api::Azure::SDKTypeDefinition::BooleanObject
+            applicable_to: [go]
+            go_field_name: EnableClientCertificate
           '/virtualNetworkType': !ruby/object:Api::Azure::SDKTypeDefinition::EnumObject
             applicable_to: [python]
             python_field_name: virtual_network_type
@@ -368,7 +374,7 @@ objects:
           '/properties/hostnameConfigurations': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexArrayObject
             applicable_to: [go]
             go_field_name: HostnameConfigurations
-            go_type_name: {"$id":"2241","$type":"SequenceType","elementType":{"$ref":"2019"},"name":{"$id":"2242","fixed":false},"deprecated":false}
+            go_type_name: {"$id":"2467","$type":"SequenceType","elementType":{"$ref":"2244"},"name":{"$id":"2468","fixed":false},"deprecated":false}
           '/properties/hostnameConfigurations/type': !ruby/object:Api::Azure::SDKTypeDefinition::EnumObject
             applicable_to: [go]
             go_field_name: Type
@@ -441,7 +447,7 @@ objects:
           '/properties/additionalLocations': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexArrayObject
             applicable_to: [go]
             go_field_name: AdditionalLocations
-            go_type_name: {"$id":"2267","$type":"SequenceType","elementType":{"$ref":"2105"},"name":{"$id":"2268","fixed":false},"deprecated":false}
+            go_type_name: {"$id":"2493","$type":"SequenceType","elementType":{"$ref":"2331"},"name":{"$id":"2494","fixed":false},"deprecated":false}
           '/properties/additionalLocations/location': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             applicable_to: [go]
             go_field_name: Location
@@ -496,7 +502,7 @@ objects:
           '/properties/certificates': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexArrayObject
             applicable_to: [go]
             go_field_name: Certificates
-            go_type_name: {"$id":"2281","$type":"SequenceType","elementType":{"$ref":"1991"},"name":{"$id":"2282","fixed":false},"deprecated":false}
+            go_type_name: {"$id":"2507","$type":"SequenceType","elementType":{"$ref":"2216"},"name":{"$id":"2508","fixed":false},"deprecated":false}
           '/properties/certificates/encodedCertificate': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             applicable_to: [go]
             go_field_name: EncodedCertificate
@@ -520,6 +526,12 @@ objects:
           '/properties/certificates/certificate/subject': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             applicable_to: [go]
             go_field_name: Subject
+          '/enableClientCertificate': !ruby/object:Api::Azure::SDKTypeDefinition::BooleanObject
+            applicable_to: [python]
+            python_field_name: enable_client_certificate
+          '/properties/enableClientCertificate': !ruby/object:Api::Azure::SDKTypeDefinition::BooleanObject
+            applicable_to: [go]
+            go_field_name: EnableClientCertificate
           '/virtualNetworkType': !ruby/object:Api::Azure::SDKTypeDefinition::EnumObject
             applicable_to: [python]
             python_field_name: virtual_network_type
@@ -574,6 +586,7 @@ objects:
             go_field_name: Etag
             python_field_name: etag
       delete: !ruby/object:Api::Azure::SDKOperationDefinition
+        async: true
         go_func_name: Delete
         python_func_name: delete
         request:
@@ -659,6 +672,7 @@ objects:
                - :Portal
                - :Management
                - :Scm
+               - :DeveloperPortal
             sample_value: Portal
             azure_sdk_references: ['/hostnameConfigurations/type', '/properties/hostnameConfigurations/type']
           - !ruby/object:Api::Type::String
@@ -739,7 +753,7 @@ objects:
             description: 'The location name of the additional region among Azure Data center regions.'
             required: true
             input: true
-            sample_value: West US
+            sample_value: North Europe
             azure_sdk_references: ['/additionalLocations/location', '/properties/additionalLocations/location']
           - !ruby/object:Api::Type::NestedObject
             name: 'sku'
@@ -756,6 +770,7 @@ objects:
                    - :Standard
                    - :Premium
                    - :Basic
+                   - :Consumption
                 sample_value: Premium
                 azure_sdk_references: ['/additionalLocations/sku/name', '/properties/additionalLocations/sku/name']
               - 
@@ -792,13 +807,13 @@ objects:
             name: 'encodedCertificate'
             description: 'Base64 Encoded certificate.'
             required: false
-            sample_value: ************Base 64 Encoded Pfx Certificate************************
+            sample_value: *******Base64 encoded Certificate******************
             azure_sdk_references: ['/certificates/encodedCertificate', '/properties/certificates/encodedCertificate']
           - !ruby/object:Api::Type::String
             name: 'certificatePassword'
             description: 'Certificate Password.'
             required: false
-            sample_value: **************Password of the Certificate************************************************
+            sample_value: Password
             azure_sdk_references: ['/certificates/certificatePassword', '/properties/certificates/certificatePassword']
           - !ruby/object:Api::Type::EnumType
             name: 'storeName'
@@ -830,6 +845,11 @@ objects:
                 description: 'Subject of the certificate.'
                 required: true
                 azure_sdk_references: ['/certificates/certificate/subject', '/properties/certificates/certificate/subject']
+      - !ruby/object:Api::Type::Boolean
+        name: 'enableClientCertificate'
+        description: 'Property only meant to be used for Consumption SKU Service. This enforces a client certificate to be presented on each request to the gateway. This also enables the ability to authenticate the certificate in the policy on the gateway.'
+        required: false
+        azure_sdk_references: ['/enableClientCertificate', '/properties/enableClientCertificate']
       - !ruby/object:Api::Type::EnumType
         name: 'virtualNetworkType'
         description: 'The type of VPN in which API Management service needs to be configured in. None (Default Value) means the API Management service is not part of any Virtual Network, External means the API Management deployment is set up inside a Virtual Network having an Internet Facing Endpoint, and Internal means that API Management deployment is setup inside a Virtual Network having an Intranet Facing Endpoint only.'
@@ -867,6 +887,7 @@ objects:
                - :Standard
                - :Premium
                - :Basic
+               - :Consumption
             sample_value: Basic
             azure_sdk_references: ['/sku/name']
           - 

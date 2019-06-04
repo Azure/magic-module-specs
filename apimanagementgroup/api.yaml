@@ -242,7 +242,7 @@ objects:
         azure_sdk_references: ['/type', '/properties/type']
       - !ruby/object:Api::Type::String
         name: 'externalId'
-        description: 'Identifier of the external groups, this property contains the id of the group from the external identity provider, e.g. for Azure Active Directory aad://<tenant>.onmicrosoft.com/groups/<group object id>; otherwise the value is null.'
+        description: 'Identifier of the external groups, this property contains the id of the group from the external identity provider, e.g. for Azure Active Directory `aad://<tenant>.onmicrosoft.com/groups/<group object id>`; otherwise the value is null.'
         required: false
         sample_value: aad://samiraad.onmicrosoft.com/groups/83cf2753-5831-4675-bc0e-2f8dc067c58d
         azure_sdk_references: ['/externalId', '/properties/externalId']

@@ -33,11 +33,11 @@ objects:
             go_variable_name: name
             python_parameter_name: service_name
             python_variable_name: name
-          'uid': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+          'userId': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             id_portion: users
-            go_variable_name: Uid
-            python_parameter_name: uid
-            python_variable_name: uid
+            go_variable_name: UserID
+            python_parameter_name: user_id
+            python_variable_name: user_id
           '/': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
             go_variable_name: Parameters
             go_type_name: UserCreateParameters
@@ -72,7 +72,7 @@ objects:
           '/properties/identities': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexArrayObject
             applicable_to: [go]
             go_field_name: Identities
-            go_type_name: {"$id":"2874","$type":"SequenceType","elementType":{"$ref":"2812"},"name":{"$id":"2875","fixed":false},"deprecated":false}
+            go_type_name: {"$id":"2941","$type":"SequenceType","elementType":{"$ref":"2879"},"name":{"$id":"2942","fixed":false},"deprecated":false}
           '/properties/identities/provider': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             applicable_to: [go]
             go_field_name: Provider
@@ -134,11 +134,11 @@ objects:
             go_variable_name: name
             python_parameter_name: service_name
             python_variable_name: name
-          'uid': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+          'userId': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             id_portion: users
-            go_variable_name: Uid
-            python_parameter_name: uid
-            python_variable_name: uid
+            go_variable_name: UserID
+            python_parameter_name: user_id
+            python_variable_name: user_id
           '/': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
             go_variable_name: Parameters
             go_type_name: UserCreateParameters
@@ -173,7 +173,7 @@ objects:
           '/properties/identities': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexArrayObject
             applicable_to: [go]
             go_field_name: Identities
-            go_type_name: {"$id":"2874","$type":"SequenceType","elementType":{"$ref":"2812"},"name":{"$id":"2875","fixed":false},"deprecated":false}
+            go_type_name: {"$id":"2941","$type":"SequenceType","elementType":{"$ref":"2879"},"name":{"$id":"2942","fixed":false},"deprecated":false}
           '/properties/identities/provider': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             applicable_to: [go]
             go_field_name: Provider
@@ -235,11 +235,11 @@ objects:
             go_variable_name: name
             python_parameter_name: service_name
             python_variable_name: name
-          'uid': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+          'userId': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             id_portion: users
-            go_variable_name: Uid
-            python_parameter_name: uid
-            python_variable_name: uid
+            go_variable_name: UserID
+            python_parameter_name: user_id
+            python_variable_name: user_id
       read: !ruby/object:Api::Azure::SDKOperationDefinition
         go_func_name: Get
         python_func_name: get
@@ -254,11 +254,11 @@ objects:
             go_variable_name: name
             python_parameter_name: service_name
             python_variable_name: name
-          'uid': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+          'userId': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             id_portion: users
-            go_variable_name: Uid
-            python_parameter_name: uid
-            python_variable_name: uid
+            go_variable_name: UserID
+            python_parameter_name: user_id
+            python_variable_name: user_id
         response:
           '/id': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             go_field_name: ID
@@ -288,12 +288,12 @@ objects:
         sample_value: myService
         azure_sdk_references: ['serviceName']
       - !ruby/object:Api::Type::String
-        name: 'uid'
+        name: 'userId'
         description: 'User identifier. Must be unique in the current API Management service instance.'
         required: true
         input: true
         sample_value: myUser
-        azure_sdk_references: ['uid']
+        azure_sdk_references: ['userId']
       - !ruby/object:Api::Type::EnumType
         name: 'state'
         description: 'Account state. Specifies whether the user is active or not. Blocked users are unable to sign into the developer portal or call any APIs of subscribed products. Default state is Active.'

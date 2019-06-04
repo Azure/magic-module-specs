@@ -10,10 +10,8 @@ task: !ruby/object:Provider::Ansible::Task
       tag2: value2
       tag3: value3
     certificates:
-      - encoded_certificate: '************Base 64 Encoded Pfx Certificate************************'
-        certificate_password: >-
-          **************Password of the
-          Certificate************************************************
+      - encoded_certificate: '*******Base64 encoded Certificate******************'
+        certificate_password: Password
         store_name: CertificateAuthority
     publisher_email: apim@autorestsdk.com
     publisher_name: autorestsdk

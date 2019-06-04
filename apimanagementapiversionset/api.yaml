@@ -34,7 +34,7 @@ objects:
             python_parameter_name: service_name
             python_variable_name: name
           'versionSetId': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
-            id_portion: api-version-sets
+            id_portion: apiVersionSets
             go_variable_name: VersionSetID
             python_parameter_name: version_set_id
             python_variable_name: version_set_id
@@ -103,7 +103,7 @@ objects:
             python_parameter_name: service_name
             python_variable_name: name
           'versionSetId': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
-            id_portion: api-version-sets
+            id_portion: apiVersionSets
             go_variable_name: VersionSetID
             python_parameter_name: version_set_id
             python_variable_name: version_set_id
@@ -172,7 +172,7 @@ objects:
             python_parameter_name: service_name
             python_variable_name: name
           'versionSetId': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
-            id_portion: api-version-sets
+            id_portion: apiVersionSets
             go_variable_name: VersionSetID
             python_parameter_name: version_set_id
             python_variable_name: version_set_id
@@ -191,7 +191,7 @@ objects:
             python_parameter_name: service_name
             python_variable_name: name
           'versionSetId': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
-            id_portion: api-version-sets
+            id_portion: apiVersionSets
             go_variable_name: VersionSetID
             python_parameter_name: version_set_id
             python_variable_name: version_set_id

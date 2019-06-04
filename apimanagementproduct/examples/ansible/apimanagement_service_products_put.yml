@@ -1,7 +1,7 @@
 --- !ruby/object:Provider::Ansible::Example
 task: !ruby/object:Provider::Ansible::Task
   name: azure_rm_apimanagementproduct
-  description: ApiManagementCreateProductBasic
+  description: ApiManagementCreateProduct
   code:
     resource_group: myResourceGroup
     name: myService

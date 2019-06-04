@@ -6,5 +6,5 @@ task: !ruby/object:Provider::Ansible::Task
     resource_group: myResourceGroup
     name: myService
     group_id: myGroup
-    uid: myUser
+    user_id: myUser
   

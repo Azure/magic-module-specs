@@ -5,7 +5,7 @@ task: !ruby/object:Provider::Ansible::Task
   code:
     resource_group: myResourceGroup
     name: myService
-    loggerid: myLogger
+    logger_id: myLogger
     logger_type: applicationInsights
     description: adding a new logger
     credentials:

@@ -1,0 +1,15 @@
+--- !ruby/object:Provider::Ansible::Example
+task: !ruby/object:Provider::Ansible::Task
+  name: azure_rm_apimanagementapitagdescription
+  description: ApiManagementCreateApiTagDescription
+  code:
+    resource_group: myResourceGroup
+    name: myService
+    api_id: myApis
+    tag_id: myTagDescription
+    description: >-
+      Some description that will be displayed for operation's tag if the tag is
+      assigned to operation of the API
+    external_docs_url: 'http://some.url/additionaldoc'
+    external_docs_description: Description of the external docs resource
+  

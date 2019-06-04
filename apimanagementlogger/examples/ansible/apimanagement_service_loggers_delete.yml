@@ -5,6 +5,6 @@ task: !ruby/object:Provider::Ansible::Task
   code:
     resource_group: myResourceGroup
     name: myService
-    loggerid: myLogger
+    logger_id: myLogger
     state: absent
   

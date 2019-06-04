@@ -5,6 +5,6 @@ task: !ruby/object:Provider::Ansible::Task
   code:
     resource_group: myResourceGroup
     name: myService
-    backendid: myBackend
+    backend_id: myBackend
     state: absent
   

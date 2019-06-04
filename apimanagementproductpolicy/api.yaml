@@ -52,18 +52,18 @@ objects:
             applicable_to: [go]
             go_field_name: Properties
             go_type_name: PolicyContractProperties
-          '/policyContent': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+          '/value': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             applicable_to: [python]
-            python_field_name: policy_content
-          '/properties/policyContent': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            python_field_name: value
+          '/properties/value': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             applicable_to: [go]
-            go_field_name: PolicyContent
-          '/contentFormat': !ruby/object:Api::Azure::SDKTypeDefinition::EnumObject
+            go_field_name: Value
+          '/format': !ruby/object:Api::Azure::SDKTypeDefinition::EnumObject
             applicable_to: [python]
-            python_field_name: content_format
-          '/properties/contentFormat': !ruby/object:Api::Azure::SDKTypeDefinition::EnumObject
+            python_field_name: format
+          '/properties/format': !ruby/object:Api::Azure::SDKTypeDefinition::EnumObject
             applicable_to: [go]
-            go_field_name: ContentFormat
+            go_field_name: Format
             go_enum_type_name: PolicyContentFormat
         response:
           '/id': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
@@ -123,6 +123,10 @@ objects:
             go_variable_name: PolicyID
             python_parameter_name: policy_id
             python_variable_name: policy_id
+          '/properties/format': !ruby/object:Api::Azure::SDKTypeDefinition::EnumObject
+            go_field_name: Format
+            go_enum_type_name: PolicyContentFormat
+            python_field_name: format
         response:
           '/id': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             go_field_name: ID
@@ -166,8 +170,8 @@ objects:
         sample_value: myPolicy
         azure_sdk_references: ['policyId']
       - !ruby/object:Api::Type::String
-        name: 'policyContent'
-        description: 'Json escaped Xml Encoded contents of the Policy.'
+        name: 'value'
+        description: 'Contents of the Policy as defined by the format.'
         required: true
         sample_value: <policies>
   <inbound>
@@ -185,9 +189,9 @@ objects:
     <base />
   </outbound>
 </policies>
-        azure_sdk_references: ['/policyContent', '/properties/policyContent']
+        azure_sdk_references: ['/value', '/properties/value']
       - !ruby/object:Api::Type::EnumType
-        name: 'contentFormat'
+        name: 'format'
         description: 'Format of the policyContent.'
         required: false
         values:
@@ -196,4 +200,4 @@ objects:
            - :rawxml
            - :rawxml-link
         sample_value: xml
-        azure_sdk_references: ['/contentFormat', '/properties/contentFormat']
+        azure_sdk_references: ['/format', '/properties/format']
