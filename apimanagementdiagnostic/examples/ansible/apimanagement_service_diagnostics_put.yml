@@ -6,5 +6,31 @@ task: !ruby/object:Provider::Ansible::Task
     resource_group: myResourceGroup
     name: myService
     diagnostic_id: myDiagnostic
-    enabled: true
+    always_log: allErrors
+    logger_id: /loggers/azuremonitor
+    sampling:
+      sampling_type: fixed
+      percentage: '50'
+    frontend:
+      request:
+        headers:
+          - Content-type
+        body:
+          bytes: '512'
+      response:
+        headers:
+          - Content-type
+        body:
+          bytes: '512'
+    backend:
+      request:
+        headers:
+          - Content-type
+        body:
+          bytes: '512'
+      response:
+        headers:
+          - Content-type
+        body:
+          bytes: '512'
   

@@ -60,6 +60,12 @@ objects:
           '/properties/allowedTenants': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             applicable_to: [go]
             go_field_name: AllowedTenants
+          '/authority': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: authority
+          '/properties/authority': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: Authority
           '/signupPolicyName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             applicable_to: [python]
             python_field_name: signup_policy_name
@@ -147,6 +153,12 @@ objects:
           '/properties/allowedTenants': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             applicable_to: [go]
             go_field_name: AllowedTenants
+          '/authority': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: authority
+          '/properties/authority': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: Authority
           '/signupPolicyName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             applicable_to: [python]
             python_field_name: signup_policy_name
@@ -283,6 +295,11 @@ objects:
         description: 'List of Allowed Tenants when configuring Azure Active Directory login.'
         required: false
         azure_sdk_references: ['/allowedTenants', '/properties/allowedTenants']
+      - !ruby/object:Api::Type::String
+        name: 'authority'
+        description: 'OpenID Connect discovery endpoint hostname for AAD or AAD B2C.'
+        required: false
+        azure_sdk_references: ['/authority', '/properties/authority']
       - !ruby/object:Api::Type::String
         name: 'signupPolicyName'
         description: 'Signup Policy Name. Only applies to AAD B2C Identity Provider.'

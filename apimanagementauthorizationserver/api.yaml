@@ -68,10 +68,22 @@ objects:
           '/tokenBodyParameters': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexArrayObject
             applicable_to: [python]
             python_field_name: token_body_parameters
+          '/tokenBodyParameters/name': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: name
+          '/tokenBodyParameters/value': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: value
           '/properties/tokenBodyParameters': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexArrayObject
             applicable_to: [go]
             go_field_name: TokenBodyParameters
-            go_type_name: {"$id":"1462","$type":"SequenceType","elementType":{"$id":"1463","$type":"CompositeType","properties":[{"$id":"1464","isReadOnly":false,"realPath":["name"],"collectionFormat":"none","defaultValue":{"$id":"1465","fixed":false},"deprecated":false,"documentation":{"$id":"1466","fixed":false,"raw":"body parameter name."},"isRequired":true,"isConstant":false,"name":{"$id":"1467","fixed":false,"raw":"name"},"serializedName":"name","modelType":{"$id":"1468","$type":"PrimaryType","knownPrimaryType":"string","name":{"$id":"1469","fixed":false,"raw":"String"},"deprecated":false}},{"$id":"1470","isReadOnly":false,"realPath":["value"],"collectionFormat":"none","defaultValue":{"$id":"1471","fixed":false},"deprecated":false,"documentation":{"$id":"1472","fixed":false,"raw":"body parameter value."},"isRequired":true,"isConstant":false,"name":{"$id":"1473","fixed":false,"raw":"value"},"serializedName":"value","modelType":{"$id":"1474","$type":"PrimaryType","knownPrimaryType":"string","name":{"$id":"1475","fixed":false,"raw":"String"},"deprecated":false}}],"serializedName":"TokenBodyParameterContract","documentation":"OAuth acquire token request body parameter (www-url-form-encoded).","containsConstantProperties":false,"name":{"$id":"1476","fixed":false,"raw":"TokenBodyParameterContract"},"deprecated":false},"name":{"$id":"1477","fixed":false},"deprecated":false}
+            go_type_name: {"$id":"1634","$type":"SequenceType","elementType":{"$ref":"1540"},"name":{"$id":"1635","fixed":false},"deprecated":false}
+          '/properties/tokenBodyParameters/name': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: Name
+          '/properties/tokenBodyParameters/value': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: Value
           '/tokenEndpoint': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             applicable_to: [python]
             python_field_name: token_endpoint
@@ -203,10 +215,22 @@ objects:
           '/tokenBodyParameters': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexArrayObject
             applicable_to: [python]
             python_field_name: token_body_parameters
+          '/tokenBodyParameters/name': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: name
+          '/tokenBodyParameters/value': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: value
           '/properties/tokenBodyParameters': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexArrayObject
             applicable_to: [go]
             go_field_name: TokenBodyParameters
-            go_type_name: {"$id":"1462","$type":"SequenceType","elementType":{"$id":"1463","$type":"CompositeType","properties":[{"$id":"1464","isReadOnly":false,"realPath":["name"],"collectionFormat":"none","defaultValue":{"$id":"1465","fixed":false},"deprecated":false,"documentation":{"$id":"1466","fixed":false,"raw":"body parameter name."},"isRequired":true,"isConstant":false,"name":{"$id":"1467","fixed":false,"raw":"name"},"serializedName":"name","modelType":{"$id":"1468","$type":"PrimaryType","knownPrimaryType":"string","name":{"$id":"1469","fixed":false,"raw":"String"},"deprecated":false}},{"$id":"1470","isReadOnly":false,"realPath":["value"],"collectionFormat":"none","defaultValue":{"$id":"1471","fixed":false},"deprecated":false,"documentation":{"$id":"1472","fixed":false,"raw":"body parameter value."},"isRequired":true,"isConstant":false,"name":{"$id":"1473","fixed":false,"raw":"value"},"serializedName":"value","modelType":{"$id":"1474","$type":"PrimaryType","knownPrimaryType":"string","name":{"$id":"1475","fixed":false,"raw":"String"},"deprecated":false}}],"serializedName":"TokenBodyParameterContract","documentation":"OAuth acquire token request body parameter (www-url-form-encoded).","containsConstantProperties":false,"name":{"$id":"1476","fixed":false,"raw":"TokenBodyParameterContract"},"deprecated":false},"name":{"$id":"1477","fixed":false},"deprecated":false}
+            go_type_name: {"$id":"1634","$type":"SequenceType","elementType":{"$ref":"1540"},"name":{"$id":"1635","fixed":false},"deprecated":false}
+          '/properties/tokenBodyParameters/name': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: Name
+          '/properties/tokenBodyParameters/value': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: Value
           '/tokenEndpoint': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             applicable_to: [python]
             python_field_name: token_endpoint
@@ -384,6 +408,17 @@ objects:
         description: 'Additional parameters required by the token endpoint of this authorization server represented as an array of JSON objects with name and value string properties, i.e. {"name" : "name value", "value": "a value"}.'
         required: false
         azure_sdk_references: ['/tokenBodyParameters', '/properties/tokenBodyParameters']
+        properties:
+          - !ruby/object:Api::Type::String
+            name: 'name'
+            description: 'body parameter name.'
+            required: true
+            azure_sdk_references: ['/tokenBodyParameters/name', '/properties/tokenBodyParameters/name']
+          - !ruby/object:Api::Type::String
+            name: 'value'
+            description: 'body parameter value.'
+            required: true
+            azure_sdk_references: ['/tokenBodyParameters/value', '/properties/tokenBodyParameters/value']
       - !ruby/object:Api::Type::String
         name: 'tokenEndpoint'
         description: 'OAuth token endpoint. Contains absolute URI to entity being referenced.'

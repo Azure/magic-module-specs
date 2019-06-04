@@ -5,11 +5,15 @@ task: !ruby/object:Provider::Ansible::Task
   code:
     resource_group: myResourceGroup
     name: myService
-    publisher_email: admin@contoso.com
-    publisher_name: Contoso
+    tags:
+      tag1: value1
+      tag2: value2
+      tag3: value3
+    publisher_email: apim@autorestsdk.com
+    publisher_name: autorestsdk
     sku:
-      name: Developer
+      name: Consumption
     identity:
       type: SystemAssigned
-    location: Japan East
+    location: West US
   

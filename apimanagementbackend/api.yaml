@@ -33,11 +33,11 @@ objects:
             go_variable_name: name
             python_parameter_name: service_name
             python_variable_name: name
-          'backendid': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+          'backendId': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             id_portion: backends
-            go_variable_name: Backendid
-            python_parameter_name: backendid
-            python_variable_name: backendid
+            go_variable_name: BackendID
+            python_parameter_name: backend_id
+            python_variable_name: backend_id
           '/': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
             go_variable_name: Parameters
             go_type_name: BackendContract
@@ -112,7 +112,7 @@ objects:
           '/properties/properties/serviceFabricCluster/serverX509Names': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexArrayObject
             applicable_to: [go]
             go_field_name: ServerX509names
-            go_type_name: {"$id":"1653","$type":"SequenceType","elementType":{"$ref":"1606"},"name":{"$id":"1654","fixed":false},"deprecated":false}
+            go_type_name: {"$id":"1893","$type":"SequenceType","elementType":{"$ref":"1846"},"name":{"$id":"1894","fixed":false},"deprecated":false}
           '/properties/properties/serviceFabricCluster/serverX509Names/name': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             applicable_to: [go]
             go_field_name: Name
@@ -244,11 +244,11 @@ objects:
             go_variable_name: name
             python_parameter_name: service_name
             python_variable_name: name
-          'backendid': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+          'backendId': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             id_portion: backends
-            go_variable_name: Backendid
-            python_parameter_name: backendid
-            python_variable_name: backendid
+            go_variable_name: BackendID
+            python_parameter_name: backend_id
+            python_variable_name: backend_id
           '/': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
             go_variable_name: Parameters
             go_type_name: BackendContract
@@ -323,7 +323,7 @@ objects:
           '/properties/properties/serviceFabricCluster/serverX509Names': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexArrayObject
             applicable_to: [go]
             go_field_name: ServerX509names
-            go_type_name: {"$id":"1653","$type":"SequenceType","elementType":{"$ref":"1606"},"name":{"$id":"1654","fixed":false},"deprecated":false}
+            go_type_name: {"$id":"1893","$type":"SequenceType","elementType":{"$ref":"1846"},"name":{"$id":"1894","fixed":false},"deprecated":false}
           '/properties/properties/serviceFabricCluster/serverX509Names/name': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             applicable_to: [go]
             go_field_name: Name
@@ -455,11 +455,11 @@ objects:
             go_variable_name: name
             python_parameter_name: service_name
             python_variable_name: name
-          'backendid': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+          'backendId': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             id_portion: backends
-            go_variable_name: Backendid
-            python_parameter_name: backendid
-            python_variable_name: backendid
+            go_variable_name: BackendID
+            python_parameter_name: backend_id
+            python_variable_name: backend_id
       read: !ruby/object:Api::Azure::SDKOperationDefinition
         go_func_name: Get
         python_func_name: get
@@ -474,11 +474,11 @@ objects:
             go_variable_name: name
             python_parameter_name: service_name
             python_variable_name: name
-          'backendid': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+          'backendId': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             id_portion: backends
-            go_variable_name: Backendid
-            python_parameter_name: backendid
-            python_variable_name: backendid
+            go_variable_name: BackendID
+            python_parameter_name: backend_id
+            python_variable_name: backend_id
         response:
           '/id': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             go_field_name: ID
@@ -508,12 +508,12 @@ objects:
         sample_value: myService
         azure_sdk_references: ['serviceName']
       - !ruby/object:Api::Type::String
-        name: 'backendid'
+        name: 'backendId'
         description: 'Identifier of the Backend entity. Must be unique in the current API Management service instance.'
         required: true
         input: true
         sample_value: myBackend
-        azure_sdk_references: ['backendid']
+        azure_sdk_references: ['backendId']
       - !ruby/object:Api::Type::String
         name: 'title'
         description: 'Backend Title.'

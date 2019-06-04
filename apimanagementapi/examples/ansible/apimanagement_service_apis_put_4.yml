@@ -1,23 +1,16 @@
 --- !ruby/object:Provider::Ansible::Example
 task: !ruby/object:Provider::Ansible::Task
   name: azure_rm_apimanagementapi
-  description: ApiManagementCreateApi
+  description: ApiManagementCreateSoapPassThroughApiUsingWsdlImport
   code:
     resource_group: myResourceGroup
     name: myService
     api_id: myApis
-    description: apidescription5200
-    authentication_settings:
-      oAuth2:
-        authorizationServerId: authorizationServerId2283
-        scope: oauth2scope2580
-    subscription_key_parameter_names:
-      header: header4520
-      query: query3037
-    display_name: apiname1463
-    service_url: 'http://newechoapi.cloudapp.net/api'
-    path: newapiPath
-    protocols:
-      - https
-      - http
+    path: currency
+    value: 'http://www.webservicex.net/CurrencyConvertor.asmx?WSDL'
+    format: wsdl-link
+    wsdl_selector:
+      wsdl_service_name: CurrencyConvertor
+      wsdl_endpoint_name: CurrencyConvertorSoap
+    api_type: soap
   

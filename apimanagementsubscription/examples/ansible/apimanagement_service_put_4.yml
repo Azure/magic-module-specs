@@ -6,11 +6,11 @@ task: !ruby/object:Provider::Ansible::Task
     resource_group: myResourceGroup
     name: myService
     sid: testsub
-    user_id: >-
+    owner_id: >-
       /subscriptions/{{ subscription_id }}/resourceGroups/{{ resource_group
       }}/providers/Microsoft.ApiManagement/service/{{ service_name }}/users/{{
       user_name }}
-    product_id: >-
+    scope: >-
       /subscriptions/{{ subscription_id }}/resourceGroups/{{ resource_group
       }}/providers/Microsoft.ApiManagement/service/{{ service_name }}/products/{{
       product_name }}

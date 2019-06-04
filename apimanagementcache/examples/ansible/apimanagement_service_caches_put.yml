@@ -1,0 +1,14 @@
+--- !ruby/object:Provider::Ansible::Example
+task: !ruby/object:Provider::Ansible::Task
+  name: azure_rm_apimanagementcache
+  description: ApiManagementCreateCache
+  code:
+    resource_group: myResourceGroup
+    name: myService
+    cache_id: myCache
+    description: Redis cache instances in West India
+    connection_string: 'contoso5.redis.cache.windows.net,ssl=true,password=...'
+    resource_id: >-
+      /subscriptions/{{ subscription_id }}/resourceGroups/{{ resource_group
+      }}/providers/Microsoft.Cache/Redis/{{ redis_name }}
+  

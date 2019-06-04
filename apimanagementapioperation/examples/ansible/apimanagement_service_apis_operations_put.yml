@@ -11,18 +11,18 @@ task: !ruby/object:Provider::Ansible::Task
     description: This can only be done by the logged in user.
     request:
       description: Created user object
-      queryParameters: []
+      query_parameters: []
       headers: []
       representations:
-        - contentType: application/json
-          schemaId: 592f6c1d0af5840ca8897f0c
-          typeName: User
+        - content_type: application/json
+          schema_id: 592f6c1d0af5840ca8897f0c
+          type_name: User
     responses:
-      - statusCode: '200'
+      - status_code: '200'
         description: successful operation
         representations:
-          - contentType: application/xml
-          - contentType: application/json
+          - content_type: application/xml
+          - content_type: application/json
         headers: []
     display_name: createUser2
     method: POST

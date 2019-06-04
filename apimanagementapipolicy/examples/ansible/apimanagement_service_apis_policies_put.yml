@@ -7,8 +7,8 @@ task: !ruby/object:Provider::Ansible::Task
     name: myService
     api_id: myApis
     policy_id: myPolicy
-    policy_content: >-
+    value: >-
       <policies> <inbound /> <backend>    <forward-request />  </backend> 
       <outbound /></policies>
-    content_format: xml
+    format: xml
   

@@ -7,5 +7,31 @@ task: !ruby/object:Provider::Ansible::Task
     name: myService
     api_id: myApis
     diagnostic_id: myDiagnostic
-    enabled: true
+    always_log: allErrors
+    logger_id: /loggers/applicationinsights
+    sampling:
+      sampling_type: fixed
+      percentage: '50'
+    frontend:
+      request:
+        headers:
+          - Content-type
+        body:
+          bytes: '512'
+      response:
+        headers:
+          - Content-type
+        body:
+          bytes: '512'
+    backend:
+      request:
+        headers:
+          - Content-type
+        body:
+          bytes: '512'
+      response:
+        headers:
+          - Content-type
+        body:
+          bytes: '512'
   

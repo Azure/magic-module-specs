@@ -6,6 +6,6 @@ task: !ruby/object:Provider::Ansible::Task
     resource_group: myResourceGroup
     service_name: myService
     name: myNotification
-    uid: myRecipientUser
+    user_id: myRecipientUser
     state: absent
   

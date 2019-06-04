@@ -47,18 +47,18 @@ objects:
             applicable_to: [go]
             go_field_name: Properties
             go_type_name: SubscriptionCreateParameterProperties
-          '/userId': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+          '/ownerId': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             applicable_to: [python]
-            python_field_name: user_id
-          '/properties/userId': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            python_field_name: owner_id
+          '/properties/ownerId': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             applicable_to: [go]
-            go_field_name: UserID
-          '/productId': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            go_field_name: OwnerID
+          '/scope': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             applicable_to: [python]
-            python_field_name: product_id
-          '/properties/productId': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            python_field_name: scope
+          '/properties/scope': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             applicable_to: [go]
-            go_field_name: ProductID
+            go_field_name: Scope
           '/displayName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             applicable_to: [python]
             python_field_name: display_name
@@ -84,6 +84,12 @@ objects:
             applicable_to: [go]
             go_field_name: State
             go_enum_type_name: SubscriptionState
+          '/allowTracing': !ruby/object:Api::Azure::SDKTypeDefinition::BooleanObject
+            applicable_to: [python]
+            python_field_name: allow_tracing
+          '/properties/allowTracing': !ruby/object:Api::Azure::SDKTypeDefinition::BooleanObject
+            applicable_to: [go]
+            go_field_name: AllowTracing
           'notify': !ruby/object:Api::Azure::SDKTypeDefinition::BooleanObject
             id_portion: null
             go_variable_name: Notify
@@ -127,18 +133,18 @@ objects:
             applicable_to: [go]
             go_field_name: Properties
             go_type_name: SubscriptionCreateParameterProperties
-          '/userId': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+          '/ownerId': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             applicable_to: [python]
-            python_field_name: user_id
-          '/properties/userId': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            python_field_name: owner_id
+          '/properties/ownerId': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             applicable_to: [go]
-            go_field_name: UserID
-          '/productId': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            go_field_name: OwnerID
+          '/scope': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             applicable_to: [python]
-            python_field_name: product_id
-          '/properties/productId': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            python_field_name: scope
+          '/properties/scope': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             applicable_to: [go]
-            go_field_name: ProductID
+            go_field_name: Scope
           '/displayName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             applicable_to: [python]
             python_field_name: display_name
@@ -164,6 +170,12 @@ objects:
             applicable_to: [go]
             go_field_name: State
             go_enum_type_name: SubscriptionState
+          '/allowTracing': !ruby/object:Api::Azure::SDKTypeDefinition::BooleanObject
+            applicable_to: [python]
+            python_field_name: allow_tracing
+          '/properties/allowTracing': !ruby/object:Api::Azure::SDKTypeDefinition::BooleanObject
+            applicable_to: [go]
+            go_field_name: AllowTracing
           'notify': !ruby/object:Api::Azure::SDKTypeDefinition::BooleanObject
             id_portion: null
             go_variable_name: Notify
@@ -253,17 +265,17 @@ objects:
         sample_value: testsub
         azure_sdk_references: ['sid']
       - !ruby/object:Api::Type::ResourceReference
-        name: 'userId'
-        description: 'User (user id path) for whom subscription is being created in form /users/{uid}'
-        required: true
+        name: 'ownerId'
+        description: 'User (user id path) for whom subscription is being created in form /users/{userId}'
+        required: false
         sample_value: /subscriptions/{{ subscription_id }}/resourceGroups/{{ resource_group }}/providers/Microsoft.ApiManagement/service/{{ service_name }}/users/{{ name }}
-        azure_sdk_references: ['/userId', '/properties/userId']
+        azure_sdk_references: ['/ownerId', '/properties/ownerId']
       - !ruby/object:Api::Type::ResourceReference
-        name: 'productId'
-        description: 'Product (product id path) for which subscription is being created in form /products/{productId}'
+        name: 'scope'
+        description: 'Scope like /products/{productId} or /apis or /apis/{apiId}.'
         required: true
         sample_value: /subscriptions/{{ subscription_id }}/resourceGroups/{{ resource_group }}/providers/Microsoft.ApiManagement/service/{{ service_name }}/products/{{ name }}
-        azure_sdk_references: ['/productId', '/properties/productId']
+        azure_sdk_references: ['/scope', '/properties/scope']
       - !ruby/object:Api::Type::String
         name: 'displayName'
         description: 'Subscription name.'
@@ -292,6 +304,11 @@ objects:
            - :rejected
            - :cancelled
         azure_sdk_references: ['/state', '/properties/state']
+      - !ruby/object:Api::Type::Boolean
+        name: 'allowTracing'
+        description: 'Determines whether tracing can be enabled'
+        required: false
+        azure_sdk_references: ['/allowTracing', '/properties/allowTracing']
       - !ruby/object:Api::Type::Boolean
         name: 'notify'
         description: 'Notify change in Subscription State. 

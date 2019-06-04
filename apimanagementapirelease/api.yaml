@@ -20,8 +20,8 @@ objects:
       python_client_namespace: azure.mgmt.apimanagement
       python_client: ApiManagementClient.api_release
       create: !ruby/object:Api::Azure::SDKOperationDefinition
-        go_func_name: Create
-        python_func_name: create
+        go_func_name: CreateOrUpdate
+        python_func_name: create_or_update
         request:
           'resourceGroupName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             id_portion: resourceGroups

@@ -38,11 +38,11 @@ objects:
             go_variable_name: GroupID
             python_parameter_name: group_id
             python_variable_name: group_id
-          'uid': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+          'userId': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             id_portion: users
-            go_variable_name: Uid
-            python_parameter_name: uid
-            python_variable_name: uid
+            go_variable_name: UserID
+            python_parameter_name: user_id
+            python_variable_name: user_id
         response:
           '/id': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             go_field_name: ID
@@ -72,11 +72,11 @@ objects:
             go_variable_name: GroupID
             python_parameter_name: group_id
             python_variable_name: group_id
-          'uid': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+          'userId': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             id_portion: users
-            go_variable_name: Uid
-            python_parameter_name: uid
-            python_variable_name: uid
+            go_variable_name: UserID
+            python_parameter_name: user_id
+            python_variable_name: user_id
 
     description: |
       Manage Azure GroupUser instance.
@@ -103,9 +103,9 @@ objects:
         sample_value: myGroup
         azure_sdk_references: ['groupId']
       - !ruby/object:Api::Type::String
-        name: 'uid'
+        name: 'userId'
         description: 'User identifier. Must be unique in the current API Management service instance.'
         required: true
         input: true
         sample_value: myUser
-        azure_sdk_references: ['uid']
+        azure_sdk_references: ['userId']

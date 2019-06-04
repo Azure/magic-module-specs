@@ -31,7 +31,7 @@ task: !ruby/object:Provider::Ansible::Task
         }}/providers/Microsoft.Network/virtualNetworks/{{ virtual_network_name
         }}/subnets/{{ subnet_name }}
     additional_locations:
-      - location: West US
+      - location: North Europe
         sku:
           name: Premium
           capacity: '1'

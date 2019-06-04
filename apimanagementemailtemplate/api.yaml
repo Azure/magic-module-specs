@@ -40,7 +40,7 @@ objects:
             python_variable_name: name
           '/properties/parameters': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexArrayObject
             go_field_name: Parameters
-            go_type_name: {"$id":"2686","$type":"SequenceType","elementType":{"$ref":"2579"},"name":{"$id":"2687","fixed":false},"deprecated":false}
+            go_type_name: {"$id":"2812","$type":"SequenceType","elementType":{"$ref":"2763"},"name":{"$id":"2813","fixed":false},"deprecated":false}
             python_field_name: parameters
           '/parameters/name': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             applicable_to: [python]
@@ -91,7 +91,7 @@ objects:
             python_variable_name: name
           '/properties/parameters': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexArrayObject
             go_field_name: Parameters
-            go_type_name: {"$id":"2686","$type":"SequenceType","elementType":{"$ref":"2579"},"name":{"$id":"2687","fixed":false},"deprecated":false}
+            go_type_name: {"$id":"2812","$type":"SequenceType","elementType":{"$ref":"2763"},"name":{"$id":"2813","fixed":false},"deprecated":false}
             python_field_name: parameters
           '/parameters/name': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             applicable_to: [python]
