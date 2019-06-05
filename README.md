@@ -47,7 +47,7 @@ Specifications of a resource consist of the following items:
 * Zero or more `.erb` files defining special code to be embedded in the generated code
 * Zero or more `.yaml` files under `examples` folder defining examples and test cases
 
-For a detailed description of the items mentioned above, please refer to [RESOURCE_SPEC.md](RESOURCE_SPEC.md).
+For a detailed description of the items mentioned above, please refer to [RESOURCE_SPEC](RESOURCE_SPEC.md).
 
 This repository also includes all generated code in `generated-ansible` and `generated-terraform`. The folder strcture within these generated folders exactly matches the [ansible](https://github.com/ansible/ansible) and [terraform provider for Azure](https://github.com/terraform-providers/terraform-provider-azurerm) respectively.
 
