@@ -1,0 +1,19 @@
+--- !ruby/object:Provider::Ansible::Example
+task: !ruby/object:Provider::Ansible::Task
+  name: azure_rm_batchaccount
+  description: BatchAccountCreate_BYOS
+  code:
+    resource_group: myResourceGroup
+    name: myBatchAccount
+    location: japaneast
+    auto_storage:
+      storage_account_id: >-
+        /subscriptions/{{ subscription_id }}/resourceGroups/{{ resource_group
+        }}/providers/Microsoft.Storage/storageAccounts/{{ storage_account_name }}
+    pool_allocation_mode: UserSubscription
+    key_vault_reference:
+      id: >-
+        /subscriptions/{{ subscription_id }}/resourceGroups/{{ resource_group
+        }}/providers/Microsoft.KeyVault/vaults/{{ vault_name }}
+      url: 'http://sample.vault.azure.net/'
+  
