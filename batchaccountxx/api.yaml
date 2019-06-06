@@ -35,7 +35,7 @@ objects:
             python_parameter_name: account_name
             python_variable_name: name
           '/': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
-            go_variable_name: Parameters
+            go_variable_name: parameters
             go_type_name: AccountCreateParameters
             python_parameter_name: parameters
             python_variable_name: batch_account
@@ -47,7 +47,7 @@ objects:
             python_field_name: tags
           '/properties': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
             applicable_to: [go]
-            go_field_name: Properties
+            go_field_name: AccountCreateProperties
             go_type_name: AccountCreateProperties
           '/autoStorage': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
             applicable_to: [python]
@@ -120,57 +120,33 @@ objects:
             python_variable_name: name
           '/': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
             applicable_to: [go]
-            go_variable_name: Parameters
+            go_variable_name: parameters
             go_type_name: AccountUpdateParameters
-            python_parameter_name: parameters
-            python_variable_name: parameters
-          '/location': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
-            go_field_name: Location
-            python_field_name: location
           '/tags': !ruby/object:Api::Azure::SDKTypeDefinition::StringMapObject
+            applicable_to: [go]
             go_field_name: Tags
-            python_field_name: tags
           '/properties': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
             applicable_to: [go]
-            go_field_name: Properties
-            go_type_name: AccountCreateProperties
-          '/autoStorage': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            go_field_name: AccountUpdateProperties
+            go_type_name: AccountUpdateProperties
+          'autoStorage': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
             applicable_to: [python]
             python_parameter_name: auto_storage
-            python_variable_name:  batch_account.get('auto_storage') 
-          '/autoStorage/storageAccountId': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            python_variable_name: batch_account.get('auto_storage')
+          'autoStorage/storageAccountId': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             applicable_to: [python]
             python_field_name: storage_account_id
           '/properties/autoStorage': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
             applicable_to: [go]
             go_field_name: AutoStorage
             go_type_name: AutoStorageBaseProperties
-          '/poolAllocationMode': !ruby/object:Api::Azure::SDKTypeDefinition::EnumObject
-            applicable_to: [python]
-            python_field_name: pool_allocation_mode
-          '/properties/poolAllocationMode': !ruby/object:Api::Azure::SDKTypeDefinition::EnumObject
+          '/properties/autoStorage/storageAccountId': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             applicable_to: [go]
-            go_field_name: PoolAllocationMode
-            go_enum_type_name: PoolAllocationMode
-          '/keyVaultReference': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            go_field_name: StorageAccountID
+          'tags': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             applicable_to: [python]
-            python_field_name: key_vault_reference
-          '/keyVaultReference/id': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
-            applicable_to: [python]
-            python_field_name: id
-          '/keyVaultReference/url': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
-            applicable_to: [python]
-            python_field_name: url
-          '/properties/keyVaultReference': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
-            applicable_to: [go]
-            go_field_name: KeyVaultReference
-            go_type_name: KeyVaultReference
-          '/properties/keyVaultReference/id': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
-            applicable_to: [go]
-            go_field_name: ID
-          '/properties/keyVaultReference/url': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
-            applicable_to: [go]
-            go_field_name: URL
+            python_parameter_name: tags
+            python_variable_name: tags
         response:
           '/id': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             go_field_name: ID
@@ -280,6 +256,14 @@ objects:
             python_field_name: pool_allocation_mode
           '/tags': !ruby/object:Api::Azure::SDKTypeDefinition::StringMapObject
             go_field_name: Tags
+      list_by_resource_group: !ruby/object:Api::Azure::SDKOperationDefinition
+        python_func_name: list_by_resource_group
+        go_func_name: ListByResourceGroup
+        request:
+          'resourceGroupName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            id_portion: resourceGroups
+            python_parameter_name: resource_group_name
+            python_variable_name: resource_group
 
     description: |
       Manage Azure BatchAccount instance.
@@ -305,55 +289,58 @@ objects:
         input: true
         sample_value: japaneast
         azure_sdk_references: ['/location']
-      - 
+      - !ruby/object:Api::Azure::Type::Tags
         name: 'tags'
         description: 'The user-specified tags associated with the account.'
         required: false
-        input: true
-        azure_sdk_references: ['/tags']
-      - !ruby/object:Api::Type::NestedObject
-        name: 'autoStorage'
-        description: 'The properties related to the auto-storage account.'
-        required: false
-        azure_sdk_references: ['/autoStorage', '/properties/autoStorage']
-        properties:
-          - !ruby/object:Api::Type::ResourceReference
-            name: 'storageAccountId'
-            description: 'The resource ID of the storage account to be used for auto-storage account.'
-            required: true
-            sample_value: /subscriptions/{{ subscription_id }}/resourceGroups/{{ resource_group }}/providers/Microsoft.Storage/storageAccounts/{{ name }}
-            azure_sdk_references: ['/autoStorage/storageAccountId', '/properties/autoStorage/storageAccountId']
-      - !ruby/object:Api::Type::EnumType
+        azure_sdk_references: ['tags', '/tags']
+      - !ruby/object:Api::Azure::Type::ResourceReference
+        name: autoStorageAccountId
+        description: 'The resource ID of the storage account to be used for auto-storage account.'
+        azure_sdk_references: ['/autoStorage/storageAccountId', '/properties/autoStorage/storageAccountId']
+        resource_type_name: storage account
+        sample_value: '/subscriptions/{subscription_id}/resourceGroups/{resource_group}/providers/Microsoft.Storage/storageAccounts/{name}'
+      - !ruby/object:Api::Type::Enum
         name: 'poolAllocationMode'
         description: 'The pool allocation mode also affects how clients may authenticate to the Batch Service API. If the mode is BatchService, clients may authenticate using access keys or Azure Active Directory. If the mode is UserSubscription, clients must use Azure Active Directory. The default is BatchService.'
         required: false
+        input: true
         values:
-           - :BatchService
-           - :UserSubscription
+          - :BatchService
+          - :UserSubscription
+        default_value: :BatchService
         sample_value: UserSubscription
         azure_sdk_references: ['/poolAllocationMode', '/properties/poolAllocationMode']
       - !ruby/object:Api::Type::NestedObject
         name: 'keyVaultReference'
         description: 'A reference to the Azure key vault associated with the Batch account.'
         input: true
-        required: false
         azure_sdk_references: ['/keyVaultReference', '/properties/keyVaultReference']
         properties:
           - !ruby/object:Api::Type::ResourceReference
             name: 'id'
             description: 'The resource ID of the Azure key vault associated with the Batch account.'
             required: true
-            sample_value: /subscriptions/{{ subscription_id }}/resourceGroups/{{ resource_group }}/providers/Microsoft.KeyVault/vaults/{{ name }}
+            input: true
+            sample_value: /subscriptions/{subscription_id}/resourceGroups/{resource_group}/providers/Microsoft.KeyVault/vaults/{name}
             azure_sdk_references: ['/keyVaultReference/id', '/properties/keyVaultReference/id']
           - !ruby/object:Api::Type::String
             name: 'url'
             description: 'The URL of the Azure key vault associated with the Batch account.'
             required: true
+            input: true
             sample_value: http://sample.vault.azure.net/
             azure_sdk_references: ['/keyVaultReference/url', '/properties/keyVaultReference/url']
-          - !ruby/object:Api::Type::String
-            name: 'accountEndpoint'
-            description: 'The account endpoint used to interact with the Batch service.'
-            required: true
-            sample_value: /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/myResourceGroup/providers/Microsoft.Batch/batchAccounts/sampleacct
-            azure_sdk_references: ['/accountEndpoint', '/properties/accountEndpoint']
+      - !ruby/object:Api::Azure::Type::ResourceReference
+        name: 'id'
+        description: The ID of the Batch account.
+        resource_type_name: batch account
+        output: true
+        azure_sdk_references: ['/id']
+        sample_value: '/subscriptions/{subscription_id}/resourceGroups/{resource_group}/providers/Microsoft.Batch/batchAccounts/{name}'
+      - !ruby/object:Api::Type::String
+        name: 'accountEndpoint'
+        description: 'The account endpoint used to interact with the Batch service.'
+        output: true
+        sample_value: sampleacct.westus.batch.azure.com
+        azure_sdk_references: ['/accountEndpoint', '/properties/accountEndpoint']
