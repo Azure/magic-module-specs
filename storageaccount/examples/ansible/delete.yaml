@@ -1,0 +1,7 @@
+--- !ruby/object:Provider::Azure::Example
+resource: azure_rm_batchaccount
+description: Delete Storage Account
+properties:
+  resourceGroup: "<%= get_resource_name('resourceGroups', 'resource_group') -%>"
+  name: "<%= get_resource_name('storageAccounts', 'storage_account_name', 'st') -%>"
+  state: absent

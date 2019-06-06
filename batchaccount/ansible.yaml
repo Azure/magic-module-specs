@@ -43,3 +43,4 @@ overrides: !ruby/object:Provider::ResourceOverrides
     inttests:
       - !ruby/object:Provider::Azure::Ansible::ResourceOverride::IntegrationTestDefinition
         example: basic
+        delete_example: delete
