@@ -1,0 +1,15 @@
+--- !ruby/object:Provider::Ansible::Example
+task: !ruby/object:Provider::Ansible::Task
+  name: azure_rm_frontdoorhealthprobesetting
+  description: Create or update specific HealthProbeSettings
+  code:
+    resource_group: myResourceGroup
+    front_door_name: myFrontDoor
+    name: myHealthProbeSetting
+    health_probe_settings_parameters:
+      name: healthProbeSettings1
+      properties:
+        path: /
+        protocol: Http
+        intervalInSeconds: '120'
+  

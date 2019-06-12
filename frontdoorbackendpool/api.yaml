@@ -1,0 +1,133 @@
+--- !ruby/object:Api::Product
+name: Azure BackendPool Management
+prefix: azure_rm_frontdoorbackendpool
+versions:
+  - !ruby/object:Api::Product::Version
+    name: ga
+    base_url: NotUsedInAzure
+scopes:
+  - NotUsedInAzure
+objects:
+  - !ruby/object:Api::Resource
+    name: BackendPool
+    api_name: Network
+    base_url: NotUsedInAzure
+
+    azure_sdk_definition: !ruby/object:Api::Azure::SDKDefinition
+      provider_name: Microsoft.Network
+      go_client_namespace: frontdoor
+      go_client: backendPoolsClient
+      python_client_namespace: azure.mgmt.frontdoor
+      python_client: FrontdoorClient.backend_pools
+      create: !ruby/object:Api::Azure::SDKOperationDefinition
+        async: true
+        go_func_name: CreateOrUpdate
+        python_func_name: create_or_update
+        request:
+          'resourceGroupName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            id_portion: resourceGroups
+            go_variable_name: resourceGroup
+            python_parameter_name: resource_group_name
+            python_variable_name: resource_group
+          'frontDoorName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            id_portion: frontDoors
+            go_variable_name: frontDoorName
+            python_parameter_name: front_door_name
+            python_variable_name: front_door_name
+          'backendPoolName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            id_portion: backendPools
+            go_variable_name: name
+            python_parameter_name: backend_pool_name
+            python_variable_name: name
+          'backendPoolParameters': 
+            id_portion: null
+            go_variable_name: backendPoolParameters
+            python_parameter_name: backend_pool_parameters
+            python_variable_name: backend_pool_parameters
+      delete: !ruby/object:Api::Azure::SDKOperationDefinition
+        async: true
+        go_func_name: Delete
+        python_func_name: delete
+        request:
+          'resourceGroupName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            id_portion: resourceGroups
+            go_variable_name: resourceGroup
+            python_parameter_name: resource_group_name
+            python_variable_name: resource_group
+          'frontDoorName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            id_portion: frontDoors
+            go_variable_name: frontDoorName
+            python_parameter_name: front_door_name
+            python_variable_name: front_door_name
+          'backendPoolName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            id_portion: backendPools
+            go_variable_name: name
+            python_parameter_name: backend_pool_name
+            python_variable_name: name
+      read: !ruby/object:Api::Azure::SDKOperationDefinition
+        go_func_name: Get
+        python_func_name: get
+        request:
+          'resourceGroupName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            id_portion: resourceGroups
+            go_variable_name: resourceGroup
+            python_parameter_name: resource_group_name
+            python_variable_name: resource_group
+          'frontDoorName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            id_portion: frontDoors
+            go_variable_name: frontDoorName
+            python_parameter_name: front_door_name
+            python_variable_name: front_door_name
+          'backendPoolName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            id_portion: backendPools
+            go_variable_name: name
+            python_parameter_name: backend_pool_name
+            python_variable_name: name
+        response:
+      list_by_front_door: !ruby/object:Api::Azure::SDKOperationDefinition
+        go_func_name: ListByFrontDoor
+        python_func_name: list_by_front_door
+        request:
+          'resourceGroupName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            id_portion: resourceGroups
+            go_variable_name: resourceGroup
+            python_parameter_name: resource_group_name
+            python_variable_name: resource_group
+          'frontDoorName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            id_portion: frontDoors
+            go_variable_name: frontDoorName
+            python_parameter_name: front_door_name
+            python_variable_name: front_door_name
+
+    description: |
+      Manage Azure BackendPool instance.
+    properties:
+      - !ruby/object:Api::Azure::Type::ResourceGroupName
+        name: 'resourceGroup'
+        description: 'Name of the Resource group within the Azure subscription.'
+        required: true
+        input: true
+        sample_value: myResourceGroup
+        azure_sdk_references: ['resourceGroupName']
+      - !ruby/object:Api::Type::String
+        name: 'frontDoorName'
+        description: 'Name of the Front Door which is globally unique.'
+        required: true
+        input: true
+        sample_value: myFrontDoor
+        azure_sdk_references: ['frontDoorName']
+      - !ruby/object:Api::Type::String
+        name: 'name'
+        description: 'Name of the Backend Pool which is unique within the Front Door.'
+        required: true
+        input: true
+        sample_value: myBackendPool
+        azure_sdk_references: ['backendPoolName', '/name']
+      - 
+        name: 'backendPoolParameters'
+        description: 'Backend Pool properties needed to create a new Pool.'
+        required: true
+        input: true
+        sample_value: [object Object]
+        azure_sdk_references: ['backendPoolParameters']
+      # read only values included only in response

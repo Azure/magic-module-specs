@@ -1,0 +1,104 @@
+--- !ruby/object:Provider::Ansible::Example
+task: !ruby/object:Provider::Ansible::Task
+  name: azure_rm_frontdoor
+  description: Create or update specific Front Door
+  code:
+    resource_group: myResourceGroup
+    name: myFrontDoor
+    front_door_parameters:
+      id: >-
+        /subscriptions/{{ subscription_id }}/resourceGroups/{{ resource_group
+        }}/providers/Microsoft.Network/frontDoors/{{ front_door_name }}
+      location: westus
+      tags:
+        tag1: value1
+        tag2: value2
+      properties:
+        routingRules:
+          - name: routingRule1
+            properties:
+              frontendEndpoints:
+                - id: >-
+                    /subscriptions/{{ subscription_id }}/resourceGroups/{{
+                    resource_group }}/providers/Microsoft.Network/frontDoors/{{
+                    front_door_name }}/frontendEndpoints/{{ frontend_endpoint_name
+                    }}
+                - id: >-
+                    /subscriptions/{{ subscription_id }}/resourceGroups/{{
+                    resource_group }}/providers/Microsoft.Network/frontDoors/{{
+                    front_door_name }}/frontendEndpoints/{{ frontend_endpoint_name
+                    }}
+              acceptedProtocols:
+                - Http
+              patternsToMatch:
+                - /*
+              routeConfiguration:
+                '@odata.type': >-
+                  #Microsoft.Azure.FrontDoor.Models.FrontdoorForwardingConfiguration
+                backendPool:
+                  id: >-
+                    /subscriptions/{{ subscription_id }}/resourceGroups/{{
+                    resource_group }}/providers/Microsoft.Network/frontDoors/{{
+                    front_door_name }}/backendPools/{{ backend_pool_name }}
+              enabledState: Enabled
+        healthProbeSettings:
+          - name: healthProbeSettings1
+            properties:
+              path: /
+              protocol: Http
+              intervalInSeconds: '120'
+        loadBalancingSettings:
+          - name: loadBalancingSettings1
+            properties:
+              sampleSize: '4'
+              successfulSamplesRequired: '2'
+        backendPools:
+          - name: backendPool1
+            properties:
+              backends:
+                - address: w3.contoso.com
+                  httpPort: '80'
+                  httpsPort: '443'
+                  weight: '1'
+                  priority: '2'
+                - address: contoso.com.website-us-west-2.othercloud.net
+                  httpPort: '80'
+                  httpsPort: '443'
+                  weight: '2'
+                  priority: '1'
+                - address: contoso1.azurewebsites.net
+                  httpPort: '80'
+                  httpsPort: '443'
+                  weight: '1'
+                  priority: '1'
+              loadBalancingSettings:
+                id: >-
+                  /subscriptions/{{ subscription_id }}/resourceGroups/{{
+                  resource_group }}/providers/Microsoft.Network/frontDoors/{{
+                  front_door_name }}/loadBalancingSettings/{{
+                  load_balancing_setting_name }}
+              healthProbeSettings:
+                id: >-
+                  /subscriptions/{{ subscription_id }}/resourceGroups/{{
+                  resource_group }}/providers/Microsoft.Network/frontDoors/{{
+                  front_door_name }}/healthProbeSettings/{{
+                  health_probe_setting_name }}
+        frontendEndpoints:
+          - name: frontendEndpoint1
+            properties:
+              hostName: www.contoso.com
+              sessionAffinityEnabledState: Enabled
+              sessionAffinityTtlSeconds: '60'
+              webApplicationFirewallPolicyLink:
+                id: >-
+                  /subscriptions/{{ subscription_id }}/resourceGroups/{{
+                  resource_group
+                  }}/providers/Microsoft.Network/frontDoorWebApplicationFirewallPolicies/{{
+                  front_door_web_application_firewall_policy_name }}
+          - name: default
+            properties:
+              hostName: frontDoor1.azurefd.net
+        backendPoolsSettings:
+          enforceCertificateNameCheck: Enabled
+        enabledState: Enabled
+  
