@@ -1,0 +1,300 @@
+--- !ruby/object:Api::Product
+name: Azure FrontDoor Management
+prefix: azure_rm_frontdoor
+versions:
+  - !ruby/object:Api::Product::Version
+    name: ga
+    base_url: NotUsedInAzure
+scopes:
+  - NotUsedInAzure
+objects:
+  - !ruby/object:Api::Resource
+    name: FrontDoor
+    api_name: Network
+    base_url: NotUsedInAzure
+
+    azure_sdk_definition: !ruby/object:Api::Azure::SDKDefinition
+      provider_name: Microsoft.Network
+      go_client_namespace: frontdoor
+      go_client: frontDoorsClient
+      python_client_namespace: azure.mgmt.frontdoor
+      python_client: FrontdoorClient.front_doors
+      create: !ruby/object:Api::Azure::SDKOperationDefinition
+        async: true
+        go_func_name: CreateOrUpdate
+        python_func_name: create_or_update
+        request:
+          'resourceGroupName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            id_portion: resourceGroups
+            go_variable_name: resourceGroup
+            python_parameter_name: resource_group_name
+            python_variable_name: resource_group
+          'frontDoorName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            id_portion: frontDoors
+            go_variable_name: name
+            python_parameter_name: front_door_name
+            python_variable_name: name
+          'frontDoorParameters': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            id_portion: null
+            go_variable_name: frontDoorParameters
+            go_type_name: null
+            python_parameter_name: front_door_parameters
+            python_variable_name: front_door_parameters
+      delete: !ruby/object:Api::Azure::SDKOperationDefinition
+        async: true
+        go_func_name: Delete
+        python_func_name: delete
+        request:
+          'resourceGroupName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            id_portion: resourceGroups
+            go_variable_name: resourceGroup
+            python_parameter_name: resource_group_name
+            python_variable_name: resource_group
+          'frontDoorName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            id_portion: frontDoors
+            go_variable_name: name
+            python_parameter_name: front_door_name
+            python_variable_name: name
+      read: !ruby/object:Api::Azure::SDKOperationDefinition
+        go_func_name: Get
+        python_func_name: get
+        request:
+          'resourceGroupName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            id_portion: resourceGroups
+            go_variable_name: resourceGroup
+            python_parameter_name: resource_group_name
+            python_variable_name: resource_group
+          'frontDoorName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            id_portion: frontDoors
+            go_variable_name: name
+            python_parameter_name: front_door_name
+            python_variable_name: name
+        response:
+          '/location': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            go_field_name: Location
+            python_field_name: location
+          '/tags': !ruby/object:Api::Azure::SDKTypeDefinition::StringMapObject
+            go_field_name: Tags
+            python_field_name: tags
+          '/properties': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            applicable_to: [go]
+            go_field_name: Properties
+            go_type_name: Properties
+          '/properties/friendlyName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: FriendlyName
+          '/friendlyName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: friendly_name
+          '/properties/routingRules': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexArrayObject
+            applicable_to: [go]
+            go_field_name: RoutingRules
+            go_type_name: undefined
+          '/routingRules': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexArrayObject
+            applicable_to: [python]
+            python_field_name: routing_rules
+          '/properties/loadBalancingSettings': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexArrayObject
+            applicable_to: [go]
+            go_field_name: LoadBalancingSettings
+            go_type_name: undefined
+          '/loadBalancingSettings': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexArrayObject
+            applicable_to: [python]
+            python_field_name: load_balancing_settings
+          '/properties/healthProbeSettings': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexArrayObject
+            applicable_to: [go]
+            go_field_name: HealthProbeSettings
+            go_type_name: undefined
+          '/healthProbeSettings': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexArrayObject
+            applicable_to: [python]
+            python_field_name: health_probe_settings
+          '/properties/backendPools': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexArrayObject
+            applicable_to: [go]
+            go_field_name: BackendPools
+            go_type_name: undefined
+          '/backendPools': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexArrayObject
+            applicable_to: [python]
+            python_field_name: backend_pools
+          '/properties/frontendEndpoints': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexArrayObject
+            applicable_to: [go]
+            go_field_name: FrontendEndpoints
+            go_type_name: undefined
+          '/frontendEndpoints': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexArrayObject
+            applicable_to: [python]
+            python_field_name: frontend_endpoints
+          '/properties/backendPoolsSettings': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            applicable_to: [go]
+            go_field_name: BackendPoolsSettings
+            go_type_name: BackendPoolsSettings
+          '/backendPoolsSettings': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            applicable_to: [python]
+            python_field_name: backend_pools_settings
+          '/properties/enabledState': !ruby/object:Api::Azure::SDKTypeDefinition::EnumObject
+            applicable_to: [go]
+            go_field_name: EnabledState
+            go_enum_type_name: EnabledState
+          '/enabledState': !ruby/object:Api::Azure::SDKTypeDefinition::EnumObject
+            applicable_to: [python]
+            python_field_name: enabled_state
+          '/properties/resourceState': !ruby/object:Api::Azure::SDKTypeDefinition::EnumObject
+            applicable_to: [go]
+            go_field_name: ResourceState
+            go_enum_type_name: ResourceState
+          '/resourceState': !ruby/object:Api::Azure::SDKTypeDefinition::EnumObject
+            applicable_to: [python]
+            python_field_name: resource_state
+          '/properties/provisioningState': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: ProvisioningState
+          '/provisioningState': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: provisioning_state
+          '/properties/cname': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: Cname
+          '/cname': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: cname
+          '/id': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            go_field_name: ID
+            python_field_name: id
+          '/name': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            go_field_name: Name
+            python_field_name: name
+          '/type': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            go_field_name: Type
+            python_field_name: type
+      list: !ruby/object:Api::Azure::SDKOperationDefinition
+        go_func_name: List
+        python_func_name: list
+        request:
+      list_by_resource_group: !ruby/object:Api::Azure::SDKOperationDefinition
+        go_func_name: ListByResourceGroup
+        python_func_name: list_by_resource_group
+        request:
+          'resourceGroupName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            id_portion: resourceGroups
+            go_variable_name: resourceGroup
+            python_parameter_name: resource_group_name
+            python_variable_name: resource_group
+
+    description: |
+      Manage Azure FrontDoor instance.
+    properties:
+      - !ruby/object:Api::Azure::Type::ResourceGroupName
+        name: 'resourceGroup'
+        description: 'Name of the Resource group within the Azure subscription.'
+        required: true
+        input: true
+        sample_value: myResourceGroup
+        azure_sdk_references: ['resourceGroupName']
+      - !ruby/object:Api::Type::String
+        name: 'name'
+        description: 'Name of the Front Door which is globally unique.'
+        required: true
+        input: true
+        sample_value: myFrontDoor
+        azure_sdk_references: ['frontDoorName', '/name']
+      - !ruby/object:Api::Type::NestedObject
+        name: 'frontDoorParameters'
+        description: 'Front Door properties needed to create a new Front Door.'
+        required: true
+        sample_value: [object Object]
+        azure_sdk_references: ['frontDoorParameters']
+      - !ruby/object:Api::Azure::Type::Location
+        name: 'location'
+        description: 'Resource location.'
+        required: false
+        input: true
+        azure_sdk_references: ['/location']
+      - !ruby/object:Api::Azure::Type::Tags
+        name: 'tags'
+        description: 'Resource tags.'
+        required: false
+        input: true
+        azure_sdk_references: ['tags', '/tags']
+      - !ruby/object:Api::Type::String
+        name: 'friendlyName'
+        description: 'A friendly name for the frontDoor'
+        required: false
+        azure_sdk_references: ['/friendlyName', '/properties/friendlyName']
+      - !ruby/object:Api::Type::NestedObject
+        name: 'routingRules'
+        description: 'Routing rules associated with this Front Door.'
+        required: false
+        azure_sdk_references: ['/routingRules', '/properties/routingRules']
+      - !ruby/object:Api::Type::NestedObject
+        name: 'loadBalancingSettings'
+        description: 'Load balancing settings associated with this Front Door instance.'
+        required: false
+        azure_sdk_references: ['/loadBalancingSettings', '/properties/loadBalancingSettings']
+      - !ruby/object:Api::Type::NestedObject
+        name: 'healthProbeSettings'
+        description: 'Health probe settings associated with this Front Door instance.'
+        required: false
+        azure_sdk_references: ['/healthProbeSettings', '/properties/healthProbeSettings']
+      - !ruby/object:Api::Type::NestedObject
+        name: 'backendPools'
+        description: 'Backend pools available to routing rules.'
+        required: false
+        azure_sdk_references: ['/backendPools', '/properties/backendPools']
+      - !ruby/object:Api::Type::NestedObject
+        name: 'frontendEndpoints'
+        description: 'Frontend endpoints available to routing rules.'
+        required: false
+        azure_sdk_references: ['/frontendEndpoints', '/properties/frontendEndpoints']
+      - !ruby/object:Api::Type::NestedObject
+        name: 'backendPoolsSettings'
+        description: 'Settings for all backendPools'
+        required: false
+        azure_sdk_references: ['/backendPoolsSettings', '/properties/backendPoolsSettings']
+      - !ruby/object:Api::Type::Enum
+        name: 'enabledState'
+        description: 'Operational status of the Front Door load balancer. Permitted values are 'Enabled' or 'Disabled''
+        required: false
+        values:
+          - :Enabled
+          - :Disabled
+        default_value: :Enabled
+        azure_sdk_references: ['/enabledState', '/properties/enabledState']
+      - !ruby/object:Api::Type::Enum
+        name: 'resourceState'
+        description: 'Resource status of the Front Door.'
+        required: false
+        values:
+          - :Creating
+          - :Enabling
+          - :Enabled
+          - :Disabling
+          - :Disabled
+          - :Deleting
+        default_value: :Creating
+        azure_sdk_references: ['/resourceState', '/properties/resourceState']
+      # read only values included only in response
+      - !ruby/object:Api::Type::String
+        name: 'provisioningState'
+        description: 'Provisioning state of the Front Door.'
+        output: true
+        azure_sdk_references: ['/provisioningState', '/properties/provisioningState']
+      - !ruby/object:Api::Type::String
+        name: 'cname'
+        description: 'The host that each frontendEndpoint must CNAME to.'
+        output: true
+        azure_sdk_references: ['/cname', '/properties/cname']
+      - !ruby/object:Api::Type::String
+        name: 'id'
+        description: 'Resource ID.'
+        input: true
+        output: true
+        azure_sdk_references: ['/id']
+      - !ruby/object:Api::Type::String
+        name: 'name'
+        description: 'Resource name.'
+        input: true
+        output: true
+        azure_sdk_references: ['/name', '/name']
+      - !ruby/object:Api::Type::String
+        name: 'type'
+        description: 'Resource type.'
+        input: true
+        output: true
+        azure_sdk_references: ['/type']

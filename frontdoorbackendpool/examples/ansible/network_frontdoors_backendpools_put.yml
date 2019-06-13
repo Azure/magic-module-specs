@@ -1,0 +1,38 @@
+--- !ruby/object:Provider::Ansible::Example
+task: !ruby/object:Provider::Ansible::Task
+  name: azure_rm_frontdoorbackendpool
+  description: Create or update specific Backend Pool
+  code:
+    resource_group: myResourceGroup
+    front_door_name: myFrontDoor
+    name: myBackendPool
+    backend_pool_parameters:
+      name: backendPool1
+      properties:
+        backends:
+          - address: w3.contoso.com
+            httpPort: '80'
+            httpsPort: '443'
+            weight: '1'
+            priority: '2'
+          - address: contoso.com.website-us-west-2.othercloud.net
+            httpPort: '80'
+            httpsPort: '443'
+            weight: '2'
+            priority: '1'
+          - address: contoso1.azurewebsites.net
+            httpPort: '80'
+            httpsPort: '443'
+            weight: '1'
+            priority: '1'
+        loadBalancingSettings:
+          id: >-
+            /subscriptions/{{ subscription_id }}/resourceGroups/{{ resource_group
+            }}/providers/Microsoft.Network/frontDoors/{{ front_door_name
+            }}/loadBalancingSettings/{{ load_balancing_setting_name }}
+        healthProbeSettings:
+          id: >-
+            /subscriptions/{{ subscription_id }}/resourceGroups/{{ resource_group
+            }}/providers/Microsoft.Network/frontDoors/{{ front_door_name
+            }}/healthProbeSettings/{{ health_probe_setting_name }}
+  

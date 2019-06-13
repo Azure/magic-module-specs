@@ -1,0 +1,14 @@
+--- !ruby/object:Provider::Ansible::Example
+task: !ruby/object:Provider::Ansible::Task
+  name: azure_rm_frontdoorloadbalancingsetting
+  description: Create or update specific LoadBalancingSettings
+  code:
+    resource_group: myResourceGroup
+    front_door_name: myFrontDoor
+    name: myLoadBalancingSetting
+    load_balancing_settings_parameters:
+      name: loadBalancingSettings1
+      properties:
+        sampleSize: '4'
+        successfulSamplesRequired: '2'
+  
