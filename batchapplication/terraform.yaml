@@ -1,0 +1,5 @@
+--- !ruby/object:Provider::Terraform::Config
+overrides: !ruby/object:Provider::ResourceOverrides
+  Application: !ruby/object:Provider::Azure::Terraform::ResourceOverride
+    name: BatchApplication
+    properties: {}
