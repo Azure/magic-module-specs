@@ -151,7 +151,6 @@ class AzureRMBatchAccountInfo(AzureRMModuleBase):
         self.resource_group = None
         self.name = None
         self.tags = None
-        self.tags = None
         super(AzureRMBatchAccountInfo, self).__init__(self.module_arg_spec, supports_tags=False)
 
     def exec_module(self, **kwargs):
@@ -206,7 +205,7 @@ class AzureRMBatchAccountInfo(AzureRMModuleBase):
             'location': d['location'],
             'account_endpoint': d['account_endpoint'],
             'auto_storage_account': d['auto_storage']['storage_account_id'],
-            'key_vault': d['key_vault_reference'],
+            'key_vault': d['key_vault_reference']['id'],
             'pool_allocation_mode': d['pool_allocation_mode'],
             'tags': d['tags'],
         }

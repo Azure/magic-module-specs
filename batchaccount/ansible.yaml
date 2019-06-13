@@ -33,6 +33,7 @@ overrides: !ruby/object:Provider::ResourceOverrides
         resource_type_name: key vault
         sample_value: '/subscriptions/{subscription_id}/resourceGroups/{resource_group}/providers/Microsoft.KeyVault/vaults/{name}'
         custom_normalize: ./ansible_keyvault_normalize.erb
+        inline_custom_response_format: ./ansible_keyvault_response_format.erb
     examples:
       - !ruby/object:Provider::Azure::Ansible::ResourceOverride::DocumentExampleReference
         example: basic
