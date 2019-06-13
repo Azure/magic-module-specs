@@ -222,7 +222,7 @@ objects:
             go_variable_name: name
             python_parameter_name: account_name
             python_variable_name: name
-      list_by_rg: !ruby/object:Api::Azure::SDKOperationDefinition
+      list_by_resource_group: !ruby/object:Api::Azure::SDKOperationDefinition
         python_func_name: list_by_resource_group
         go_func_name: ListByResourceGroup
         request:

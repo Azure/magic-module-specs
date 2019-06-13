@@ -60,7 +60,7 @@ Firstly I would like to give you a big picture of what `api.yaml` looks like (we
  34           <Delete operation definitions, required>
  35           request:
  36             <Delete request parameters definitions, required>
- 37         list_by_rg: !ruby/object:Api::Azure::SDKOperationDefinition
+ 37         list_by_resource_group: !ruby/object:Api::Azure::SDKOperationDefinition
  38           <List by resource group operation definitions, optional, only used in Ansible info module>
  39           request:
  40             <List by resource group request parameters definitions, required>
@@ -125,7 +125,7 @@ Next, it is time to define all SDK CRUD operations of the resource. We supports 
 * `read`: operation to get a resource
 * `update`: operation to update a resource (if exists in SDK)
 * `delete`: operation to delete a resource
-* `list_by_rg`: operation to list all resources of this type in a resource group
+* `list_by_resource_group`: operation to list all resources of this type in a resource group
 
 Magic-module cares about `request`s of all operations, and only needs the `response` of `read` operations. So you can omit `response`s in operations other than `read`.
 
@@ -146,7 +146,7 @@ When Azure SDK uses `create or update` to provision a resource (like [service bu
  12     <Delete operation definitions, required>
  13     request:
  14       <Delete request parameters definitions, required>
- 15   list_by_rg: !ruby/object:Api::Azure::SDKOperationDefinition
+ 15   list_by_resource_group: !ruby/object:Api::Azure::SDKOperationDefinition
  16     <List by resource group operation definitions, optional, only used in Ansible info module>
  17     request:
  18       <List by resource group request parameters definitions, required>
