@@ -35,13 +35,13 @@ func resourceArmBatchApplication() *schema.Resource {
                 ForceNew: true,
             },
 
+            "resource_group_name": resourceGroupNameSchema(),
+
             "account_name": {
                 Type: schema.TypeString,
                 Required: true,
                 ForceNew: true,
             },
-
-            "resource_group": resourceGroupNameSchema(),
 
             "allow_updates": {
                 Type: schema.TypeBool,
@@ -66,7 +66,7 @@ func resourceArmBatchApplicationCreate(d *schema.ResourceData, meta interface{})
     ctx := meta.(*ArmClient).StopContext
 
     name := d.Get("name").(string)
-    resourceGroup := d.Get("resource_group").(string)
+    resourceGroup := d.Get("resource_group_name").(string)
     AccountName := d.Get("account_name").(string)
 
     if requireResourcesToBeImported {
@@ -135,7 +135,7 @@ func resourceArmBatchApplicationRead(d *schema.ResourceData, meta interface{}) e
 
 
     d.Set("name", name)
-    d.Set("resource_group", resourceGroup)
+    d.Set("resource_group_name", resourceGroup)
     d.Set("account_name", AccountName)
 
     return nil
@@ -146,7 +146,7 @@ func resourceArmBatchApplicationUpdate(d *schema.ResourceData, meta interface{})
     ctx := meta.(*ArmClient).StopContext
 
     name := d.Get("name").(string)
-    resourceGroup := d.Get("resource_group").(string)
+    resourceGroup := d.Get("resource_group_name").(string)
     AccountName := d.Get("account_name").(string)
     allowUpdates := d.Get("allow_updates").(bool)
     defaultVersion := d.Get("default_version").(string)

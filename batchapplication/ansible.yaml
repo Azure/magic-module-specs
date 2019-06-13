@@ -12,4 +12,15 @@ manifest: !ruby/object:Provider::Ansible::Manifest
 overrides: !ruby/object:Provider::ResourceOverrides
   Application: !ruby/object:Provider::Azure::Ansible::ResourceOverride
     name: BatchApplication
-    examples: []
+    examples:
+      - !ruby/object:Provider::Azure::Ansible::ResourceOverride::DocumentExampleReference
+        example: basic
+        resource_name_hints:
+          resourceGroups: MyResGroup
+          storageAccounts: mystorageaccountname
+          batchAccounts: mybatchaccount
+          batchApplications: mybatchapplication
+    inttests:
+      - !ruby/object:Provider::Azure::Ansible::ResourceOverride::IntegrationTestDefinition
+        example: basic
+        delete_example: delete

@@ -24,6 +24,31 @@ import (
     "github.com/terraform-providers/terraform-provider-azurerm/azurerm/utils"
 )
 
+func TestAccAzureRMBatchApplication_basic(t *testing.T) {
+    resourceName := "azurerm_batch_application.test"
+    ri := tf.AccRandTimeInt()
+    location := testLocation()
+
+    resource.ParallelTest(t, resource.TestCase{
+        PreCheck:     func() { testAccPreCheck(t) },
+        Providers:    testAccProviders,
+        CheckDestroy: testCheckAzureRMBatchApplicationDestroy,
+        Steps: []resource.TestStep{
+            {
+                Config: testAccAzureRMBatchApplication_basic(ri, location),
+                Check: resource.ComposeTestCheckFunc(
+                    testCheckAzureRMBatchApplicationExists(resourceName),
+                ),
+            },
+            {
+                ResourceName:      resourceName,
+                ImportState:       true,
+                ImportStateVerify: true,
+            },
+        },
+    })
+}
+
 
 func testCheckAzureRMBatchApplicationExists(resourceName string) resource.TestCheckFunc {
     return func(s *terraform.State) error {
@@ -33,7 +58,7 @@ func testCheckAzureRMBatchApplicationExists(resourceName string) resource.TestCh
         }
 
         name := rs.Primary.Attributes["name"]
-        resourceGroup := rs.Primary.Attributes["resource_group"]
+        resourceGroup := rs.Primary.Attributes["resource_group_name"]
         AccountName := rs.Primary.Attributes["account_name"]
 
         client := testAccProvider.Meta().(*ArmClient).applicationClient
@@ -60,7 +85,7 @@ func testCheckAzureRMBatchApplicationDestroy(s *terraform.State) error {
         }
 
         name := rs.Primary.Attributes["name"]
-        resourceGroup := rs.Primary.Attributes["resource_group"]
+        resourceGroup := rs.Primary.Attributes["resource_group_name"]
         AccountName := rs.Primary.Attributes["account_name"]
 
         if resp, err := client.Get(ctx, resourceGroup, AccountName, name); err != nil {
@@ -73,4 +98,35 @@ func testCheckAzureRMBatchApplicationDestroy(s *terraform.State) error {
     }
 
     return nil
+}
+
+func testAccAzureRMBatchApplication_basic(rInt int, location string) string {
+    return fmt.Sprintf(`
+resource "azurerm_resource_group" "test" {
+  name     = "acctestRG-%d"
+  location = "%s"
+}
+
+resource "azurerm_storage_account" "test" {
+  name                   = "acctestsa-%d"
+  resource_group_name    = "${azurerm_resource_group.test.name}"
+  location               = "${azurerm_resource_group.test.location}"
+  accountTier            = "Standard"
+  accountReplicationType = "LRS"
+}
+
+resource "azurerm_batch_account" "test" {
+  name                = "acctestbatch-%d"
+  resource_group_name = "${azurerm_resource_group.test.name}"
+  location            = "${azurerm_resource_group.test.location}"
+  poolAllocationMode  = "BatchService"
+  storageAccountId    = "${azurerm_storage_account.test.id}"
+}
+
+resource "azurerm_batch_application" "test" {
+  name                = "acctestbatchapp-%d"
+  resource_group_name = "${azurerm_resource_group.test.name}"
+  account_name        = "${azurerm_batch_account.test.name}"
+}
+`, rInt, location, rInt, rInt, rInt)
 }

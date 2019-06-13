@@ -72,13 +72,20 @@ author:
     - "Junyi Yi (@JunyiYi)"
 '''
 
+EXAMPLES = '''
+  - name: Create Batch Application
+    azure_rm_batchapplication:
+        resource_group: MyResGroup
+        name: mybatchapplication
+        account_name: mybatchaccount
+'''
 
 RETURN = '''
 --- {}
 '''
 
 import time
-from ansible.module_utils.azure_rm_common import from ansible.module_utils.azure_rm_common_ext import AzureRMModuleBaseExt
+from ansible.module_utils.azure_rm_common_ext import AzureRMModuleBaseExt
 from ansible.module_utils.common.dict_transformations import _snake_to_camel
 
 try:

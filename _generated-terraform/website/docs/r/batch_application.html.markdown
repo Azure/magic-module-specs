@@ -24,13 +24,44 @@ description: |-
 Manage Azure Application instance.
 
 
+## Example Usage
+
+```hcl
+resource "azurerm_resource_group" "example" {
+  name     = "example-rg"
+  location = "West US"
+}
+
+resource "azurerm_storage_account" "example" {
+  name                   = "examplesa"
+  resource_group_name    = "${azurerm_resource_group.example.name}"
+  location               = "${azurerm_resource_group.example.location}"
+  accountTier            = "Standard"
+  accountReplicationType = "LRS"
+}
+
+resource "azurerm_batch_account" "example" {
+  name                = "example-batch-account"
+  resource_group_name = "${azurerm_resource_group.example.name}"
+  location            = "${azurerm_resource_group.example.location}"
+  poolAllocationMode  = "BatchService"
+  storageAccountId    = "${azurerm_storage_account.example.id}"
+}
+
+resource "azurerm_batch_application" "example" {
+  name                = "example-batch-application"
+  resource_group_name = "${azurerm_resource_group.example.name}"
+  account_name        = "${azurerm_batch_account.example.name}"
+}
+```
+
 ## Argument Reference
 
 The following arguments are supported:
 
 * `name` - (Required) The name of the application. This must be unique within the account. Changing this forces a new resource to be created.
 
-* `resource_group` - (Required) The name of the resource group that contains the Batch account. Changing this forces a new resource to be created.
+* `resource_group_name` - (Required) The name of the resource group that contains the Batch account. Changing this forces a new resource to be created.
 
 * `account_name` - (Required) The name of the Batch account. Changing this forces a new resource to be created.
 
@@ -43,3 +74,12 @@ The following arguments are supported:
 ## Attributes Reference
 
 The following attributes are exported:
+
+
+## Import
+
+Batch Application can be imported using the `resource id`, e.g.
+
+```shell
+$ terraform import azurerm_batch_application.example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example-rg/providers/Microsoft.Batch/batchAccounts/example-batch-account/applications/example-batch-application
+```
