@@ -35,7 +35,7 @@ objects:
             python_parameter_name: azure_firewall_name
             python_variable_name: name
           '/': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
-            go_variable_name: Parameters
+            go_variable_name: parameters
             go_type_name: AzureFirewall
             python_parameter_name: parameters
             python_variable_name: parameters
@@ -55,7 +55,7 @@ objects:
           '/applicationRuleCollections': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexArrayObject
             applicable_to: [python]
             python_field_name: application_rule_collections
-          '/applicationRuleCollections/priority': 
+          '/applicationRuleCollections/priority': !ruby/object:Api::Azure::SDKTypeDefinition::IntegerObject
             applicable_to: [python]
             python_field_name: priority
           '/applicationRuleCollections/action': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
@@ -88,15 +88,12 @@ objects:
           '/properties/applicationRuleCollections': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexArrayObject
             applicable_to: [go]
             go_field_name: ApplicationRuleCollections
-            go_type_name: {"$id":"375","$type":"SequenceType","elementType":{"$ref":"152"},"name":{"$id":"376","fixed":false},"deprecated":false}
-          '/properties/applicationRuleCollections/id': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
-            applicable_to: [go]
-            go_field_name: ID
+            go_type_name: AzureFirewallApplicationRuleCollection
           '/properties/applicationRuleCollections/properties': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
             applicable_to: [go]
             go_field_name: Properties
             go_type_name: AzureFirewallApplicationRuleCollectionPropertiesFormat
-          '/properties/applicationRuleCollections/properties/priority': 
+          '/properties/applicationRuleCollections/properties/priority': !ruby/object:Api::Azure::SDKTypeDefinition::IntegerObject
             applicable_to: [go]
             go_field_name: Priority
           '/properties/applicationRuleCollections/properties/action': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
@@ -110,7 +107,7 @@ objects:
           '/properties/applicationRuleCollections/properties/rules': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexArrayObject
             applicable_to: [go]
             go_field_name: Rules
-            go_type_name: {"$id":"145","$type":"SequenceType","elementType":{"$ref":"86"},"name":{"$id":"146","fixed":false},"deprecated":false}
+            go_type_name: AzureFirewallApplicationRule
           '/properties/applicationRuleCollections/properties/rules/name': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             applicable_to: [go]
             go_field_name: Name
@@ -123,7 +120,7 @@ objects:
           '/properties/applicationRuleCollections/properties/rules/protocols': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexArrayObject
             applicable_to: [go]
             go_field_name: Protocols
-            go_type_name: {"$id":"111","$type":"SequenceType","elementType":{"$ref":"68"},"name":{"$id":"112","fixed":false},"deprecated":false}
+            go_type_name: AzureFirewallApplicationRuleProtocol
           '/properties/applicationRuleCollections/properties/rules/targetFqdns': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             applicable_to: [go]
             go_field_name: TargetFqdns
@@ -136,7 +133,7 @@ objects:
           '/natRuleCollections': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexArrayObject
             applicable_to: [python]
             python_field_name: nat_rule_collections
-          '/natRuleCollections/priority': 
+          '/natRuleCollections/priority': !ruby/object:Api::Azure::SDKTypeDefinition::IntegerObject
             applicable_to: [python]
             python_field_name: priority
           '/natRuleCollections/action': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
@@ -163,7 +160,7 @@ objects:
           '/natRuleCollections/rules/destinationPorts': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             applicable_to: [python]
             python_field_name: destination_ports
-          '/natRuleCollections/rules/protocols': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+          '/natRuleCollections/rules/protocols': !ruby/object:Api::Azure::SDKTypeDefinition::EnumObject
             applicable_to: [python]
             python_field_name: protocols
           '/natRuleCollections/rules/translatedAddress': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
@@ -178,15 +175,12 @@ objects:
           '/properties/natRuleCollections': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexArrayObject
             applicable_to: [go]
             go_field_name: NatRuleCollections
-            go_type_name: {"$id":"381","$type":"SequenceType","elementType":{"$ref":"268"},"name":{"$id":"382","fixed":false},"deprecated":false}
-          '/properties/natRuleCollections/id': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
-            applicable_to: [go]
-            go_field_name: ID
+            go_type_name: AzureFirewallNatRuleCollection
           '/properties/natRuleCollections/properties': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
             applicable_to: [go]
             go_field_name: Properties
             go_type_name: AzureFirewallNatRuleCollectionProperties
-          '/properties/natRuleCollections/properties/priority': 
+          '/properties/natRuleCollections/properties/priority': !ruby/object:Api::Azure::SDKTypeDefinition::IntegerObject
             applicable_to: [go]
             go_field_name: Priority
           '/properties/natRuleCollections/properties/action': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
@@ -200,7 +194,7 @@ objects:
           '/properties/natRuleCollections/properties/rules': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexArrayObject
             applicable_to: [go]
             go_field_name: Rules
-            go_type_name: {"$id":"261","$type":"SequenceType","elementType":{"$ref":"182"},"name":{"$id":"262","fixed":false},"deprecated":false}
+            go_type_name: AzureFirewallNatRule
           '/properties/natRuleCollections/properties/rules/name': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             applicable_to: [go]
             go_field_name: Name
@@ -216,9 +210,10 @@ objects:
           '/properties/natRuleCollections/properties/rules/destinationPorts': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             applicable_to: [go]
             go_field_name: DestinationPorts
-          '/properties/natRuleCollections/properties/rules/protocols': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+          '/properties/natRuleCollections/properties/rules/protocols': !ruby/object:Api::Azure::SDKTypeDefinition::EnumObject
             applicable_to: [go]
             go_field_name: Protocols
+            go_enum_type_name: AzureFirewallNetworkRuleProtocol
           '/properties/natRuleCollections/properties/rules/translatedAddress': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             applicable_to: [go]
             go_field_name: TranslatedAddress
@@ -231,7 +226,7 @@ objects:
           '/networkRuleCollections': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexArrayObject
             applicable_to: [python]
             python_field_name: network_rule_collections
-          '/networkRuleCollections/priority': 
+          '/networkRuleCollections/priority': !ruby/object:Api::Azure::SDKTypeDefinition::IntegerObject
             applicable_to: [python]
             python_field_name: priority
           '/networkRuleCollections/action': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
@@ -249,7 +244,7 @@ objects:
           '/networkRuleCollections/rules/description': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             applicable_to: [python]
             python_field_name: description
-          '/networkRuleCollections/rules/protocols': 
+          '/networkRuleCollections/rules/protocols': !ruby/object:Api::Azure::SDKTypeDefinition::EnumObject
             applicable_to: [python]
             python_field_name: protocols
           '/networkRuleCollections/rules/sourceAddresses': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
@@ -267,15 +262,12 @@ objects:
           '/properties/networkRuleCollections': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexArrayObject
             applicable_to: [go]
             go_field_name: NetworkRuleCollections
-            go_type_name: {"$id":"387","$type":"SequenceType","elementType":{"$ref":"352"},"name":{"$id":"388","fixed":false},"deprecated":false}
-          '/properties/networkRuleCollections/id': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
-            applicable_to: [go]
-            go_field_name: ID
+            go_type_name: AzureFirewallNetworkRuleCollection
           '/properties/networkRuleCollections/properties': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
             applicable_to: [go]
             go_field_name: Properties
             go_type_name: AzureFirewallNetworkRuleCollectionPropertiesFormat
-          '/properties/networkRuleCollections/properties/priority': 
+          '/properties/networkRuleCollections/properties/priority': !ruby/object:Api::Azure::SDKTypeDefinition::IntegerObject
             applicable_to: [go]
             go_field_name: Priority
           '/properties/networkRuleCollections/properties/action': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
@@ -289,16 +281,17 @@ objects:
           '/properties/networkRuleCollections/properties/rules': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexArrayObject
             applicable_to: [go]
             go_field_name: Rules
-            go_type_name: {"$id":"345","$type":"SequenceType","elementType":{"$ref":"286"},"name":{"$id":"346","fixed":false},"deprecated":false}
+            go_type_name: AzureFirewallNetworkRule
           '/properties/networkRuleCollections/properties/rules/name': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             applicable_to: [go]
             go_field_name: Name
           '/properties/networkRuleCollections/properties/rules/description': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             applicable_to: [go]
             go_field_name: Description
-          '/properties/networkRuleCollections/properties/rules/protocols': 
+          '/properties/networkRuleCollections/properties/rules/protocols': !ruby/object:Api::Azure::SDKTypeDefinition::EnumObject
             applicable_to: [go]
             go_field_name: Protocols
+            go_enum_type_name: AzureFirewallNetworkRuleProtocol
           '/properties/networkRuleCollections/properties/rules/sourceAddresses': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             applicable_to: [go]
             go_field_name: SourceAddresses
@@ -316,20 +309,17 @@ objects:
             python_field_name: ip_configurations
           '/ipConfigurations/subnet/id': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             applicable_to: [python]
-            python_field_name: subnet
+            python_field_name: id
           '/ipConfigurations/publicIPAddress/id': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             applicable_to: [python]
-            python_field_name: public_ip_address
+            python_field_name: id
           '/ipConfigurations/name': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             applicable_to: [python]
             python_field_name: name
           '/properties/ipConfigurations': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexArrayObject
             applicable_to: [go]
             go_field_name: IpConfigurations
-            go_type_name: {"$id":"393","$type":"SequenceType","elementType":{"$ref":"38"},"name":{"$id":"394","fixed":false},"deprecated":false}
-          '/properties/ipConfigurations/id': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
-            applicable_to: [go]
-            go_field_name: ID
+            go_type_name: AzureFirewallIPConfiguration
           '/properties/ipConfigurations/properties': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
             applicable_to: [go]
             go_field_name: Properties
@@ -340,21 +330,17 @@ objects:
             go_type_name: SubResource
           '/properties/ipConfigurations/properties/subnet/id': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             applicable_to: [go]
-            go_field_name: Subnet
+            go_field_name: *
           '/properties/ipConfigurations/properties/publicIPAddress': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
             applicable_to: [go]
             go_field_name: PublicIpAddress
             go_type_name: SubResource
           '/properties/ipConfigurations/properties/publicIPAddress/id': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             applicable_to: [go]
-            go_field_name: PublicIpAddress
+            go_field_name: *
           '/properties/ipConfigurations/name': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             applicable_to: [go]
             go_field_name: Name
-        response:
-          '/id': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
-            go_field_name: ID
-            python_field_name: id
       delete: !ruby/object:Api::Azure::SDKOperationDefinition
         async: true
         go_func_name: Delete
@@ -388,6 +374,392 @@ objects:
           '/id': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             go_field_name: ID
             python_field_name: id
+          '/location': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            go_field_name: Location
+            python_field_name: location
+          '/tags': !ruby/object:Api::Azure::SDKTypeDefinition::StringMapObject
+            go_field_name: Tags
+            python_field_name: tags
+          '/properties': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            applicable_to: [go]
+            go_field_name: Properties
+            go_type_name: AzureFirewallPropertiesFormat
+          '/properties/applicationRuleCollections': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexArrayObject
+            applicable_to: [go]
+            go_field_name: ApplicationRuleCollections
+            go_type_name: AzureFirewallApplicationRuleCollection
+          '/properties/applicationRuleCollections/properties': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            applicable_to: [go]
+            go_field_name: Properties
+            go_type_name: AzureFirewallApplicationRuleCollectionPropertiesFormat
+          '/properties/applicationRuleCollections/properties/priority': !ruby/object:Api::Azure::SDKTypeDefinition::IntegerObject
+            applicable_to: [go]
+            go_field_name: Priority
+          '/properties/applicationRuleCollections/properties/action': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            applicable_to: [go]
+            go_field_name: Action
+            go_type_name: AzureFirewallRCAction
+          '/properties/applicationRuleCollections/properties/action/type': !ruby/object:Api::Azure::SDKTypeDefinition::EnumObject
+            applicable_to: [go]
+            go_field_name: Type
+            go_enum_type_name: AzureFirewallRCActionType
+          '/properties/applicationRuleCollections/properties/rules': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexArrayObject
+            applicable_to: [go]
+            go_field_name: Rules
+            go_type_name: AzureFirewallApplicationRule
+          '/properties/applicationRuleCollections/properties/rules/name': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: Name
+          '/properties/applicationRuleCollections/properties/rules/description': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: Description
+          '/properties/applicationRuleCollections/properties/rules/sourceAddresses': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: SourceAddresses
+          '/properties/applicationRuleCollections/properties/rules/protocols': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexArrayObject
+            applicable_to: [go]
+            go_field_name: Protocols
+            go_type_name: AzureFirewallApplicationRuleProtocol
+          '/properties/applicationRuleCollections/properties/rules/targetFqdns': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: TargetFqdns
+          '/properties/applicationRuleCollections/properties/rules/fqdnTags': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: FqdnTags
+          '/properties/applicationRuleCollections/properties/provisioningState': !ruby/object:Api::Azure::SDKTypeDefinition::EnumObject
+            applicable_to: [go]
+            go_field_name: ProvisioningState
+            go_enum_type_name: ProvisioningState
+          '/properties/applicationRuleCollections/name': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: Name
+          '/properties/applicationRuleCollections/etag': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: Etag
+          '/applicationRuleCollections': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexArrayObject
+            applicable_to: [python]
+            python_field_name: application_rule_collections
+          '/applicationRuleCollections/priority': !ruby/object:Api::Azure::SDKTypeDefinition::IntegerObject
+            applicable_to: [python]
+            python_field_name: priority
+          '/applicationRuleCollections/action': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            applicable_to: [python]
+            python_field_name: action
+          '/applicationRuleCollections/rules': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexArrayObject
+            applicable_to: [python]
+            python_field_name: rules
+          '/applicationRuleCollections/rules/name': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: name
+          '/applicationRuleCollections/rules/description': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: description
+          '/applicationRuleCollections/rules/sourceAddresses': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: source_addresses
+          '/applicationRuleCollections/rules/protocols': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexArrayObject
+            applicable_to: [python]
+            python_field_name: protocols
+          '/applicationRuleCollections/rules/targetFqdns': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: target_fqdns
+          '/applicationRuleCollections/rules/fqdnTags': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: fqdn_tags
+          '/applicationRuleCollections/provisioningState': !ruby/object:Api::Azure::SDKTypeDefinition::EnumObject
+            applicable_to: [python]
+            python_field_name: provisioning_state
+          '/applicationRuleCollections/name': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: name
+          '/applicationRuleCollections/etag': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: etag
+          '/properties/natRuleCollections': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexArrayObject
+            applicable_to: [go]
+            go_field_name: NatRuleCollections
+            go_type_name: AzureFirewallNatRuleCollection
+          '/properties/natRuleCollections/properties': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            applicable_to: [go]
+            go_field_name: Properties
+            go_type_name: AzureFirewallNatRuleCollectionProperties
+          '/properties/natRuleCollections/properties/priority': !ruby/object:Api::Azure::SDKTypeDefinition::IntegerObject
+            applicable_to: [go]
+            go_field_name: Priority
+          '/properties/natRuleCollections/properties/action': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            applicable_to: [go]
+            go_field_name: Action
+            go_type_name: AzureFirewallNatRCAction
+          '/properties/natRuleCollections/properties/action/type': !ruby/object:Api::Azure::SDKTypeDefinition::EnumObject
+            applicable_to: [go]
+            go_field_name: Type
+            go_enum_type_name: AzureFirewallNatRCActionType
+          '/properties/natRuleCollections/properties/rules': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexArrayObject
+            applicable_to: [go]
+            go_field_name: Rules
+            go_type_name: AzureFirewallNatRule
+          '/properties/natRuleCollections/properties/rules/name': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: Name
+          '/properties/natRuleCollections/properties/rules/description': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: Description
+          '/properties/natRuleCollections/properties/rules/sourceAddresses': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: SourceAddresses
+          '/properties/natRuleCollections/properties/rules/destinationAddresses': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: DestinationAddresses
+          '/properties/natRuleCollections/properties/rules/destinationPorts': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: DestinationPorts
+          '/properties/natRuleCollections/properties/rules/protocols': !ruby/object:Api::Azure::SDKTypeDefinition::EnumObject
+            applicable_to: [go]
+            go_field_name: Protocols
+            go_enum_type_name: AzureFirewallNetworkRuleProtocol
+          '/properties/natRuleCollections/properties/rules/translatedAddress': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: TranslatedAddress
+          '/properties/natRuleCollections/properties/rules/translatedPort': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: TranslatedPort
+          '/properties/natRuleCollections/properties/provisioningState': !ruby/object:Api::Azure::SDKTypeDefinition::EnumObject
+            applicable_to: [go]
+            go_field_name: ProvisioningState
+            go_enum_type_name: ProvisioningState
+          '/properties/natRuleCollections/name': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: Name
+          '/properties/natRuleCollections/etag': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: Etag
+          '/natRuleCollections': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexArrayObject
+            applicable_to: [python]
+            python_field_name: nat_rule_collections
+          '/natRuleCollections/priority': !ruby/object:Api::Azure::SDKTypeDefinition::IntegerObject
+            applicable_to: [python]
+            python_field_name: priority
+          '/natRuleCollections/action': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            applicable_to: [python]
+            python_field_name: action
+          '/natRuleCollections/action/type': !ruby/object:Api::Azure::SDKTypeDefinition::EnumObject
+            applicable_to: [python]
+            python_field_name: type
+          '/natRuleCollections/rules': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexArrayObject
+            applicable_to: [python]
+            python_field_name: rules
+          '/natRuleCollections/rules/name': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: name
+          '/natRuleCollections/rules/description': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: description
+          '/natRuleCollections/rules/sourceAddresses': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: source_addresses
+          '/natRuleCollections/rules/destinationAddresses': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: destination_addresses
+          '/natRuleCollections/rules/destinationPorts': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: destination_ports
+          '/natRuleCollections/rules/protocols': !ruby/object:Api::Azure::SDKTypeDefinition::EnumObject
+            applicable_to: [python]
+            python_field_name: protocols
+          '/natRuleCollections/rules/translatedAddress': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: translated_address
+          '/natRuleCollections/rules/translatedPort': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: translated_port
+          '/natRuleCollections/provisioningState': !ruby/object:Api::Azure::SDKTypeDefinition::EnumObject
+            applicable_to: [python]
+            python_field_name: provisioning_state
+          '/natRuleCollections/name': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: name
+          '/natRuleCollections/etag': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: etag
+          '/properties/networkRuleCollections': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexArrayObject
+            applicable_to: [go]
+            go_field_name: NetworkRuleCollections
+            go_type_name: AzureFirewallNetworkRuleCollection
+          '/properties/networkRuleCollections/properties': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            applicable_to: [go]
+            go_field_name: Properties
+            go_type_name: AzureFirewallNetworkRuleCollectionPropertiesFormat
+          '/properties/networkRuleCollections/properties/priority': !ruby/object:Api::Azure::SDKTypeDefinition::IntegerObject
+            applicable_to: [go]
+            go_field_name: Priority
+          '/properties/networkRuleCollections/properties/action': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            applicable_to: [go]
+            go_field_name: Action
+            go_type_name: AzureFirewallRCAction
+          '/properties/networkRuleCollections/properties/action/type': !ruby/object:Api::Azure::SDKTypeDefinition::EnumObject
+            applicable_to: [go]
+            go_field_name: Type
+            go_enum_type_name: AzureFirewallRCActionType
+          '/properties/networkRuleCollections/properties/rules': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexArrayObject
+            applicable_to: [go]
+            go_field_name: Rules
+            go_type_name: AzureFirewallNetworkRule
+          '/properties/networkRuleCollections/properties/rules/name': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: Name
+          '/properties/networkRuleCollections/properties/rules/description': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: Description
+          '/properties/networkRuleCollections/properties/rules/protocols': !ruby/object:Api::Azure::SDKTypeDefinition::EnumObject
+            applicable_to: [go]
+            go_field_name: Protocols
+            go_enum_type_name: AzureFirewallNetworkRuleProtocol
+          '/properties/networkRuleCollections/properties/rules/sourceAddresses': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: SourceAddresses
+          '/properties/networkRuleCollections/properties/rules/destinationAddresses': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: DestinationAddresses
+          '/properties/networkRuleCollections/properties/rules/destinationPorts': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: DestinationPorts
+          '/properties/networkRuleCollections/properties/provisioningState': !ruby/object:Api::Azure::SDKTypeDefinition::EnumObject
+            applicable_to: [go]
+            go_field_name: ProvisioningState
+            go_enum_type_name: ProvisioningState
+          '/properties/networkRuleCollections/name': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: Name
+          '/properties/networkRuleCollections/etag': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: Etag
+          '/networkRuleCollections': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexArrayObject
+            applicable_to: [python]
+            python_field_name: network_rule_collections
+          '/networkRuleCollections/priority': !ruby/object:Api::Azure::SDKTypeDefinition::IntegerObject
+            applicable_to: [python]
+            python_field_name: priority
+          '/networkRuleCollections/action': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            applicable_to: [python]
+            python_field_name: action
+          '/networkRuleCollections/action/type': !ruby/object:Api::Azure::SDKTypeDefinition::EnumObject
+            applicable_to: [python]
+            python_field_name: type
+          '/networkRuleCollections/rules': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexArrayObject
+            applicable_to: [python]
+            python_field_name: rules
+          '/networkRuleCollections/rules/name': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: name
+          '/networkRuleCollections/rules/description': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: description
+          '/networkRuleCollections/rules/protocols': !ruby/object:Api::Azure::SDKTypeDefinition::EnumObject
+            applicable_to: [python]
+            python_field_name: protocols
+          '/networkRuleCollections/rules/sourceAddresses': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: source_addresses
+          '/networkRuleCollections/rules/destinationAddresses': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: destination_addresses
+          '/networkRuleCollections/rules/destinationPorts': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: destination_ports
+          '/networkRuleCollections/provisioningState': !ruby/object:Api::Azure::SDKTypeDefinition::EnumObject
+            applicable_to: [python]
+            python_field_name: provisioning_state
+          '/networkRuleCollections/name': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: name
+          '/networkRuleCollections/etag': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: etag
+          '/properties/ipConfigurations': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexArrayObject
+            applicable_to: [go]
+            go_field_name: IpConfigurations
+            go_type_name: AzureFirewallIPConfiguration
+          '/properties/ipConfigurations/properties': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            applicable_to: [go]
+            go_field_name: Properties
+            go_type_name: AzureFirewallIPConfigurationPropertiesFormat
+          '/properties/ipConfigurations/properties/subnet': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            applicable_to: [go]
+            go_field_name: Subnet
+            go_type_name: SubResource
+          '/properties/ipConfigurations/properties/subnet/id': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: *
+          '/properties/ipConfigurations/properties/publicIPAddress': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            applicable_to: [go]
+            go_field_name: PublicIpAddress
+            go_type_name: SubResource
+          '/properties/ipConfigurations/properties/publicIPAddress/id': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: *
+          '/properties/ipConfigurations/properties/privateIPAddress': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: PrivateIpAddress
+          '/properties/ipConfigurations/properties/provisioningState': !ruby/object:Api::Azure::SDKTypeDefinition::EnumObject
+            applicable_to: [go]
+            go_field_name: ProvisioningState
+            go_enum_type_name: ProvisioningState
+          '/properties/ipConfigurations/name': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: Name
+          '/properties/ipConfigurations/etag': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: Etag
+          '/ipConfigurations': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexArrayObject
+            applicable_to: [python]
+            python_field_name: ip_configurations
+          '/ipConfigurations/subnet/id': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: id
+          '/ipConfigurations/publicIPAddress/id': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: id
+          '/ipConfigurations/privateIPAddress': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: private_ip_address
+          '/ipConfigurations/provisioningState': !ruby/object:Api::Azure::SDKTypeDefinition::EnumObject
+            applicable_to: [python]
+            python_field_name: provisioning_state
+          '/ipConfigurations/name': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: name
+          '/ipConfigurations/etag': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: etag
+          '/properties/provisioningState': !ruby/object:Api::Azure::SDKTypeDefinition::EnumObject
+            applicable_to: [go]
+            go_field_name: ProvisioningState
+            go_enum_type_name: ProvisioningState
+          '/provisioningState': !ruby/object:Api::Azure::SDKTypeDefinition::EnumObject
+            applicable_to: [python]
+            python_field_name: provisioning_state
+          '/name': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            go_field_name: Name
+            python_field_name: name
+          '/type': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            go_field_name: Type
+            python_field_name: type
+          '/etag': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            go_field_name: Etag
+            python_field_name: etag
+      list_all: !ruby/object:Api::Azure::SDKOperationDefinition
+        go_func_name: ListAll
+        python_func_name: list_all
+        request:
+      list: !ruby/object:Api::Azure::SDKOperationDefinition
+        go_func_name: List
+        python_func_name: list
+        request:
+          'resourceGroupName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            id_portion: resourceGroups
+            go_variable_name: resourceGroup
+            python_parameter_name: resource_group_name
+            python_variable_name: resource_group
 
     description: |
       Manage Azure AzureFirewall instance.
@@ -405,7 +777,7 @@ objects:
         required: true
         input: true
         sample_value: myAzureFirewall
-        azure_sdk_references: ['azureFirewallName']
+        azure_sdk_references: ['azureFirewallName', '/name']
       - !ruby/object:Api::Type::String
         name: 'id'
         description: 'Resource ID.'
@@ -418,20 +790,20 @@ objects:
         required: false
         input: true
         azure_sdk_references: ['/location']
-      - 
+      - !ruby/object:Api::Azure::Type::Tags
         name: 'tags'
         description: 'Resource tags.'
         required: false
         input: true
         sample_value: [object Object]
-        azure_sdk_references: ['/tags']
+        azure_sdk_references: ['tags', '/tags']
       - !ruby/object:Api::Type::NestedObject
         name: 'applicationRuleCollections'
         description: 'Collection of application rule collections used by Azure Firewall.'
         required: false
         azure_sdk_references: ['/applicationRuleCollections', '/properties/applicationRuleCollections']
         properties:
-          - 
+          - !ruby/object:Api::Azure::Type::Integer
             name: 'priority'
             description: 'Priority of the application rule collection resource.'
             required: false
@@ -454,7 +826,7 @@ objects:
                 description: 'Name of the application rule.'
                 required: false
                 sample_value: rule1
-                azure_sdk_references: ['/applicationRuleCollections/rules/name', '/properties/applicationRuleCollections/properties/rules/name']
+                azure_sdk_references: ['/applicationRuleCollections/rules/name', '/properties/applicationRuleCollections/properties/rules/name', '/name']
               - !ruby/object:Api::Type::String
                 name: 'description'
                 description: 'Description of the rule.'
@@ -489,14 +861,14 @@ objects:
             description: 'Gets name of the resource that is unique within a resource group. This name can be used to access the resource.'
             required: false
             sample_value: apprulecoll
-            azure_sdk_references: ['/applicationRuleCollections/name', '/properties/applicationRuleCollections/name']
+            azure_sdk_references: ['/applicationRuleCollections/name', '/properties/applicationRuleCollections/name', '/name']
       - !ruby/object:Api::Type::NestedObject
         name: 'natRuleCollections'
         description: 'Collection of NAT rule collections used by Azure Firewall.'
         required: false
         azure_sdk_references: ['/natRuleCollections', '/properties/natRuleCollections']
         properties:
-          - 
+          - !ruby/object:Api::Azure::Type::Integer
             name: 'priority'
             description: 'Priority of the NAT rule collection resource.'
             required: false
@@ -508,13 +880,14 @@ objects:
             required: false
             azure_sdk_references: ['/natRuleCollections/action', '/properties/natRuleCollections/properties/action']
             properties:
-              - !ruby/object:Api::Type::EnumType
+              - !ruby/object:Api::Type::Enum
                 name: 'type'
                 description: 'The type of action.'
                 required: false
                 values:
-                   - :Snat
-                   - :Dnat
+                  - :Snat
+                  - :Dnat
+                default_value: :Snat
                 sample_value: Dnat
                 azure_sdk_references: ['/natRuleCollections/action/type', '/properties/natRuleCollections/properties/action/type']
           - !ruby/object:Api::Type::NestedObject
@@ -528,7 +901,7 @@ objects:
                 description: 'Name of the NAT rule.'
                 required: false
                 sample_value: DNAT-HTTPS-traffic
-                azure_sdk_references: ['/natRuleCollections/rules/name', '/properties/natRuleCollections/properties/rules/name']
+                azure_sdk_references: ['/natRuleCollections/rules/name', '/properties/natRuleCollections/properties/rules/name', '/name']
               - !ruby/object:Api::Type::String
                 name: 'description'
                 description: 'Description of the rule.'
@@ -553,10 +926,16 @@ objects:
                 required: false
                 sample_value: 443
                 azure_sdk_references: ['/natRuleCollections/rules/destinationPorts', '/properties/natRuleCollections/properties/rules/destinationPorts']
-              - !ruby/object:Api::Type::String
+              - !ruby/object:Api::Type::Enum
                 name: 'protocols'
                 description: 'Array of AzureFirewallNetworkRuleProtocols applicable to this NAT rule.'
                 required: false
+                values:
+                  - :TCP
+                  - :UDP
+                  - :Any
+                  - :ICMP
+                default_value: :TCP
                 sample_value: TCP
                 azure_sdk_references: ['/natRuleCollections/rules/protocols', '/properties/natRuleCollections/properties/rules/protocols']
               - !ruby/object:Api::Type::String
@@ -576,14 +955,14 @@ objects:
             description: 'Gets name of the resource that is unique within a resource group. This name can be used to access the resource.'
             required: false
             sample_value: natrulecoll
-            azure_sdk_references: ['/natRuleCollections/name', '/properties/natRuleCollections/name']
+            azure_sdk_references: ['/natRuleCollections/name', '/properties/natRuleCollections/name', '/name']
       - !ruby/object:Api::Type::NestedObject
         name: 'networkRuleCollections'
         description: 'Collection of network rule collections used by Azure Firewall.'
         required: false
         azure_sdk_references: ['/networkRuleCollections', '/properties/networkRuleCollections']
         properties:
-          - 
+          - !ruby/object:Api::Azure::Type::Integer
             name: 'priority'
             description: 'Priority of the network rule collection resource.'
             required: false
@@ -595,13 +974,14 @@ objects:
             required: false
             azure_sdk_references: ['/networkRuleCollections/action', '/properties/networkRuleCollections/properties/action']
             properties:
-              - !ruby/object:Api::Type::EnumType
+              - !ruby/object:Api::Type::Enum
                 name: 'type'
                 description: 'The type of action.'
                 required: false
                 values:
-                   - :Allow
-                   - :Deny
+                  - :Allow
+                  - :Deny
+                default_value: :Allow
                 sample_value: Deny
                 azure_sdk_references: ['/networkRuleCollections/action/type', '/properties/networkRuleCollections/properties/action/type']
           - !ruby/object:Api::Type::NestedObject
@@ -615,17 +995,23 @@ objects:
                 description: 'Name of the network rule.'
                 required: false
                 sample_value: L4-traffic
-                azure_sdk_references: ['/networkRuleCollections/rules/name', '/properties/networkRuleCollections/properties/rules/name']
+                azure_sdk_references: ['/networkRuleCollections/rules/name', '/properties/networkRuleCollections/properties/rules/name', '/name']
               - !ruby/object:Api::Type::String
                 name: 'description'
                 description: 'Description of the rule.'
                 required: false
                 sample_value: Block traffic based on source IPs and ports
                 azure_sdk_references: ['/networkRuleCollections/rules/description', '/properties/networkRuleCollections/properties/rules/description']
-              - 
+              - !ruby/object:Api::Type::Enum
                 name: 'protocols'
                 description: 'Array of AzureFirewallNetworkRuleProtocols.'
                 required: false
+                values:
+                  - :TCP
+                  - :UDP
+                  - :Any
+                  - :ICMP
+                default_value: :TCP
                 sample_value: TCP
                 azure_sdk_references: ['/networkRuleCollections/rules/protocols', '/properties/networkRuleCollections/properties/rules/protocols']
               - !ruby/object:Api::Type::String
@@ -651,21 +1037,21 @@ objects:
             description: 'Gets name of the resource that is unique within a resource group. This name can be used to access the resource.'
             required: false
             sample_value: netrulecoll
-            azure_sdk_references: ['/networkRuleCollections/name', '/properties/networkRuleCollections/name']
+            azure_sdk_references: ['/networkRuleCollections/name', '/properties/networkRuleCollections/name', '/name']
       - !ruby/object:Api::Type::NestedObject
         name: 'ipConfigurations'
         description: 'IP configuration of the Azure Firewall resource.'
         required: false
         azure_sdk_references: ['/ipConfigurations', '/properties/ipConfigurations']
         properties:
-          - !ruby/object:Api::Type::ResourceReference
-            name: 'subnet'
+          - !ruby/object:Api::Azure::Type::ResourceReference
+            name: ''
             description: 'Resource ID.'
             required: false
             sample_value: /subscriptions/{{ subscription_id }}/resourceGroups/{{ resource_group }}/providers/Microsoft.Network/virtualNetworks/{{ virtual_network_name }}/subnets/{{ name }}
             azure_sdk_references: ['/ipConfigurations/subnet/id', '/properties/ipConfigurations/properties/subnet/id']
-          - !ruby/object:Api::Type::ResourceReference
-            name: 'publicIpAddress'
+          - !ruby/object:Api::Azure::Type::ResourceReference
+            name: ''
             description: 'Resource ID.'
             required: false
             sample_value: /subscriptions/{{ subscription_id }}/resourceGroups/{{ resource_group }}/providers/Microsoft.Network/publicIPAddresses/{{ name }}
@@ -675,4 +1061,34 @@ objects:
             description: 'Name of the resource that is unique within a resource group. This name can be used to access the resource.'
             required: false
             sample_value: azureFirewallIpConfiguration
-            azure_sdk_references: ['/ipConfigurations/name', '/properties/ipConfigurations/name']
+            azure_sdk_references: ['/ipConfigurations/name', '/properties/ipConfigurations/name', '/name']
+      # read only values included only in response
+      - !ruby/object:Api::Type::Enum
+        name: 'provisioningState'
+        description: 'The provisioning state of the resource.'
+        output: true
+        values:
+          - :Succeeded
+          - :Updating
+          - :Deleting
+          - :Failed
+        default_value: :Succeeded
+        azure_sdk_references: ['/provisioningState', '/properties/provisioningState']
+      - !ruby/object:Api::Type::String
+        name: 'name'
+        description: 'Resource name.'
+        input: true
+        output: true
+        azure_sdk_references: ['/name', '/name']
+      - !ruby/object:Api::Type::String
+        name: 'type'
+        description: 'Resource type.'
+        input: true
+        output: true
+        azure_sdk_references: ['/type']
+      - !ruby/object:Api::Type::String
+        name: 'etag'
+        description: 'Gets a unique read-only string that changes whenever the resource is updated.'
+        input: true
+        output: true
+        azure_sdk_references: ['/etag']

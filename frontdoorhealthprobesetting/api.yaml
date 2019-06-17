@@ -39,11 +39,6 @@ objects:
             go_variable_name: name
             python_parameter_name: health_probe_settings_name
             python_variable_name: name
-          'healthProbeSettingsParameters': 
-            id_portion: null
-            go_variable_name: healthProbeSettingsParameters
-            python_parameter_name: health_probe_settings_parameters
-            python_variable_name: health_probe_settings_parameters
       delete: !ruby/object:Api::Azure::SDKOperationDefinition
         async: true
         go_func_name: Delete
@@ -84,6 +79,45 @@ objects:
             python_parameter_name: health_probe_settings_name
             python_variable_name: name
         response:
+          '/id': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            go_field_name: ID
+            python_field_name: id
+          '/properties': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            applicable_to: [go]
+            go_field_name: Properties
+            go_type_name: HealthProbeSettingsProperties
+          '/properties/path': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: Path
+          '/path': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: path
+          '/properties/protocol': !ruby/object:Api::Azure::SDKTypeDefinition::EnumObject
+            applicable_to: [go]
+            go_field_name: Protocol
+            go_enum_type_name: Protocol
+          '/protocol': !ruby/object:Api::Azure::SDKTypeDefinition::EnumObject
+            applicable_to: [python]
+            python_field_name: protocol
+          '/properties/intervalInSeconds': !ruby/object:Api::Azure::SDKTypeDefinition::IntegerObject
+            applicable_to: [go]
+            go_field_name: IntervalInSeconds
+          '/intervalInSeconds': !ruby/object:Api::Azure::SDKTypeDefinition::IntegerObject
+            applicable_to: [python]
+            python_field_name: interval_in_seconds
+          '/properties/resourceState': !ruby/object:Api::Azure::SDKTypeDefinition::EnumObject
+            applicable_to: [go]
+            go_field_name: ResourceState
+            go_enum_type_name: ResourceState
+          '/resourceState': !ruby/object:Api::Azure::SDKTypeDefinition::EnumObject
+            applicable_to: [python]
+            python_field_name: resource_state
+          '/name': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            go_field_name: Name
+            python_field_name: name
+          '/type': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            go_field_name: Type
+            python_field_name: type
       list_by_front_door: !ruby/object:Api::Azure::SDKOperationDefinition
         go_func_name: ListByFrontDoor
         python_func_name: list_by_front_door
@@ -123,11 +157,54 @@ objects:
         input: true
         sample_value: myHealthProbeSetting
         azure_sdk_references: ['healthProbeSettingsName', '/name']
-      - 
-        name: 'healthProbeSettingsParameters'
-        description: 'HealthProbeSettings properties needed to create a new Front Door.'
-        required: true
+      - !ruby/object:Api::Type::String
+        name: 'id'
+        description: 'Resource ID.'
+        required: false
         input: true
-        sample_value: [object Object]
-        azure_sdk_references: ['healthProbeSettingsParameters']
+        azure_sdk_references: ['/id']
+      - !ruby/object:Api::Type::String
+        name: 'path'
+        description: 'The path to use for the health probe. Default is /'
+        required: false
+        azure_sdk_references: ['/path', '/properties/path']
+      - !ruby/object:Api::Type::Enum
+        name: 'protocol'
+        description: 'Protocol scheme to use for this probe'
+        required: false
+        values:
+          - :Http
+          - :Https
+        default_value: :Http
+        azure_sdk_references: ['/protocol', '/properties/protocol']
+      - !ruby/object:Api::Azure::Type::Integer
+        name: 'intervalInSeconds'
+        description: 'The number of seconds between health probes.'
+        required: false
+        azure_sdk_references: ['/intervalInSeconds', '/properties/intervalInSeconds']
+      - !ruby/object:Api::Type::Enum
+        name: 'resourceState'
+        description: 'Resource status.'
+        required: false
+        values:
+          - :Creating
+          - :Enabling
+          - :Enabled
+          - :Disabling
+          - :Disabled
+          - :Deleting
+        default_value: :Creating
+        azure_sdk_references: ['/resourceState', '/properties/resourceState']
+      - !ruby/object:Api::Type::String
+        name: 'name'
+        description: 'Resource name.'
+        required: false
+        input: true
+        azure_sdk_references: ['/name', '/name']
       # read only values included only in response
+      - !ruby/object:Api::Type::String
+        name: 'type'
+        description: 'Resource type.'
+        input: true
+        output: true
+        azure_sdk_references: ['/type']

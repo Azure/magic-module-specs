@@ -31,7 +31,7 @@ objects:
             python_variable_name: resource_group
           'accountName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             id_portion: batchAccounts
-            go_variable_name: AccountName
+            go_variable_name: accountName
             python_parameter_name: account_name
             python_variable_name: account_name
           'certificateName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
@@ -40,7 +40,7 @@ objects:
             python_parameter_name: certificate_name
             python_variable_name: name
           '/': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
-            go_variable_name: Parameters
+            go_variable_name: parameters
             go_type_name: CertificateCreateOrUpdateParameters
             python_parameter_name: parameters
             python_variable_name: parameters
@@ -79,19 +79,6 @@ objects:
           '/properties/password': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             applicable_to: [go]
             go_field_name: Password
-        response:
-          '/id': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
-            go_field_name: ID
-            python_field_name: id
-          '/name': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
-            go_field_name: Name
-            python_field_name: name
-          '/type': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
-            go_field_name: Type
-            python_field_name: type
-          '/etag': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
-            go_field_name: Etag
-            python_field_name: etag
       update: !ruby/object:Api::Azure::SDKOperationDefinition
         go_func_name: Update
         python_func_name: update
@@ -103,7 +90,7 @@ objects:
             python_variable_name: resource_group
           'accountName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             id_portion: batchAccounts
-            go_variable_name: AccountName
+            go_variable_name: accountName
             python_parameter_name: account_name
             python_variable_name: account_name
           'certificateName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
@@ -112,7 +99,7 @@ objects:
             python_parameter_name: certificate_name
             python_variable_name: name
           '/': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
-            go_variable_name: Parameters
+            go_variable_name: parameters
             go_type_name: CertificateCreateOrUpdateParameters
             python_parameter_name: parameters
             python_variable_name: parameters
@@ -151,19 +138,6 @@ objects:
           '/properties/password': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             applicable_to: [go]
             go_field_name: Password
-        response:
-          '/id': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
-            go_field_name: ID
-            python_field_name: id
-          '/name': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
-            go_field_name: Name
-            python_field_name: name
-          '/type': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
-            go_field_name: Type
-            python_field_name: type
-          '/etag': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
-            go_field_name: Etag
-            python_field_name: etag
       delete: !ruby/object:Api::Azure::SDKOperationDefinition
         async: true
         go_func_name: Delete
@@ -176,7 +150,7 @@ objects:
             python_variable_name: resource_group
           'accountName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             id_portion: batchAccounts
-            go_variable_name: AccountName
+            go_variable_name: accountName
             python_parameter_name: account_name
             python_variable_name: account_name
           'certificateName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
@@ -195,7 +169,7 @@ objects:
             python_variable_name: resource_group
           'accountName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             id_portion: batchAccounts
-            go_variable_name: AccountName
+            go_variable_name: accountName
             python_parameter_name: account_name
             python_variable_name: account_name
           'certificateName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
@@ -204,18 +178,81 @@ objects:
             python_parameter_name: certificate_name
             python_variable_name: name
         response:
+          '/properties': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            applicable_to: [go]
+            go_field_name: Properties
+            go_type_name: CertificateCreateOrUpdateProperties
+          '/properties/thumbprintAlgorithm': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: ThumbprintAlgorithm
+          '/thumbprintAlgorithm': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: thumbprint_algorithm
+          '/properties/thumbprint': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: Thumbprint
+          '/thumbprint': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: thumbprint
+          '/properties/format': !ruby/object:Api::Azure::SDKTypeDefinition::EnumObject
+            applicable_to: [go]
+            go_field_name: Format
+            go_enum_type_name: CertificateFormat
+          '/format': !ruby/object:Api::Azure::SDKTypeDefinition::EnumObject
+            applicable_to: [python]
+            python_field_name: format
+          '/properties/provisioningStateTransitionTime': !ruby/object:Api::Azure::SDKTypeDefinition::ISO8601DateTimeObject
+            applicable_to: [go]
+            go_field_name: ProvisioningStateTransitionTime
+          '/provisioningStateTransitionTime': !ruby/object:Api::Azure::SDKTypeDefinition::ISO8601DateTimeObject
+            applicable_to: [python]
+            python_field_name: provisioning_state_transition_time
+          '/properties/previousProvisioningState': !ruby/object:Api::Azure::SDKTypeDefinition::EnumObject
+            applicable_to: [go]
+            go_field_name: PreviousProvisioningState
+            go_enum_type_name: CertificateProvisioningState
+          '/previousProvisioningState': !ruby/object:Api::Azure::SDKTypeDefinition::EnumObject
+            applicable_to: [python]
+            python_field_name: previous_provisioning_state
+          '/properties/previousProvisioningStateTransitionTime': !ruby/object:Api::Azure::SDKTypeDefinition::ISO8601DateTimeObject
+            applicable_to: [go]
+            go_field_name: PreviousProvisioningStateTransitionTime
+          '/previousProvisioningStateTransitionTime': !ruby/object:Api::Azure::SDKTypeDefinition::ISO8601DateTimeObject
+            applicable_to: [python]
+            python_field_name: previous_provisioning_state_transition_time
+          '/properties/publicData': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: PublicData
+          '/publicData': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: public_data
+          '/properties/deleteCertificateError': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            applicable_to: [go]
+            go_field_name: DeleteCertificateError
+            go_type_name: DeleteCertificateError
+          '/deleteCertificateError': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            applicable_to: [python]
+            python_field_name: delete_certificate_error
           '/id': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             go_field_name: ID
             python_field_name: id
-          '/name': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
-            go_field_name: Name
-            python_field_name: name
-          '/type': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
-            go_field_name: Type
-            python_field_name: type
           '/etag': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             go_field_name: Etag
             python_field_name: etag
+      list_by_batch_account: !ruby/object:Api::Azure::SDKOperationDefinition
+        go_func_name: ListByBatchAccount
+        python_func_name: list_by_batch_account
+        request:
+          'resourceGroupName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            id_portion: resourceGroups
+            go_variable_name: resourceGroup
+            python_parameter_name: resource_group_name
+            python_variable_name: resource_group
+          'accountName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            id_portion: batchAccounts
+            go_variable_name: accountName
+            python_parameter_name: account_name
+            python_variable_name: account_name
 
     description: |
       Manage Azure Certificate instance.
@@ -240,7 +277,7 @@ objects:
         required: true
         input: true
         sample_value: myCertificate
-        azure_sdk_references: ['certificateName']
+        azure_sdk_references: ['certificateName', '/name']
       - !ruby/object:Api::Type::String
         name: 'thumbprintAlgorithm'
         description: 'This must match the first portion of the certificate name. Currently required to be 'SHA1'.'
@@ -253,13 +290,14 @@ objects:
         required: false
         sample_value: 0A0E4F50D51BEADEAC1D35AFC5116098E7902E6E
         azure_sdk_references: ['/thumbprint', '/properties/thumbprint']
-      - !ruby/object:Api::Type::EnumType
+      - !ruby/object:Api::Type::Enum
         name: 'format'
         description: 'The format of the certificate - either Pfx or Cer. If omitted, the default is Pfx.'
         required: false
         values:
-           - :Pfx
-           - :Cer
+          - :Pfx
+          - :Cer
+        default_value: :Pfx
         sample_value: Pfx
         azure_sdk_references: ['/format', '/properties/format']
       - !ruby/object:Api::Type::String
@@ -274,3 +312,109 @@ objects:
         required: false
         sample_value: KG0UY40e...
         azure_sdk_references: ['/password', '/properties/password']
+      # read only values included only in response
+      - !ruby/object:Api::Azure::Type::ISO8601DateTime
+        name: 'provisioningStateTransitionTime'
+        description: 'undefined'
+        output: true
+        azure_sdk_references: ['/provisioningStateTransitionTime', '/properties/provisioningStateTransitionTime']
+      - !ruby/object:Api::Type::Enum
+        name: 'previousProvisioningState'
+        description: 'The previous provisioned state of the resource'
+        output: true
+        values:
+          - :Succeeded
+          - :Deleting
+          - :Failed
+        default_value: :Succeeded
+        azure_sdk_references: ['/previousProvisioningState', '/properties/previousProvisioningState']
+      - !ruby/object:Api::Azure::Type::ISO8601DateTime
+        name: 'previousProvisioningStateTransitionTime'
+        description: 'undefined'
+        output: true
+        azure_sdk_references: ['/previousProvisioningStateTransitionTime', '/properties/previousProvisioningStateTransitionTime']
+      - !ruby/object:Api::Type::String
+        name: 'publicData'
+        description: 'The public key of the certificate.'
+        output: true
+        azure_sdk_references: ['/publicData', '/properties/publicData']
+      - !ruby/object:Api::Type::NestedObject
+        name: 'deleteCertificateError'
+        description: 'This is only returned when the certificate provisioningState is 'Failed'.'
+        output: true
+        azure_sdk_references: ['/deleteCertificateError', '/properties/deleteCertificateError']
+        properties:
+          - !ruby/object:Api::Type::String
+            name: 'code'
+            description: 'An identifier for the error. Codes are invariant and are intended to be consumed programmatically.'
+            required: true
+            azure_sdk_references: ['/deleteCertificateError/code', '/properties/deleteCertificateError/code']
+          - !ruby/object:Api::Type::String
+            name: 'message'
+            description: 'A message describing the error, intended to be suitable for display in a user interface.'
+            required: true
+            azure_sdk_references: ['/deleteCertificateError/message', '/properties/deleteCertificateError/message']
+          - !ruby/object:Api::Type::String
+            name: 'target'
+            description: 'The target of the particular error. For example, the name of the property in error.'
+            required: false
+            azure_sdk_references: ['/deleteCertificateError/target', '/properties/deleteCertificateError/target']
+          - !ruby/object:Api::Type::NestedObject
+            name: 'details'
+            description: 'A list of additional details about the error.'
+            required: false
+            azure_sdk_references: ['/deleteCertificateError/details', '/properties/deleteCertificateError/details']
+            properties:
+              - !ruby/object:Api::Type::String
+                name: 'code'
+                description: 'An identifier for the error. Codes are invariant and are intended to be consumed programmatically.'
+                required: true
+                azure_sdk_references: ['/deleteCertificateError/details/code', '/properties/deleteCertificateError/details/code']
+              - !ruby/object:Api::Type::String
+                name: 'message'
+                description: 'A message describing the error, intended to be suitable for display in a user interface.'
+                required: true
+                azure_sdk_references: ['/deleteCertificateError/details/message', '/properties/deleteCertificateError/details/message']
+              - !ruby/object:Api::Type::String
+                name: 'target'
+                description: 'The target of the particular error. For example, the name of the property in error.'
+                required: false
+                azure_sdk_references: ['/deleteCertificateError/details/target', '/properties/deleteCertificateError/details/target']
+              - !ruby/object:Api::Type::NestedObject
+                name: 'details'
+                description: 'A list of additional details about the error.'
+                required: false
+                azure_sdk_references: ['/deleteCertificateError/details/details', '/properties/deleteCertificateError/details/details']
+                properties:
+                  - !ruby/object:Api::Type::String
+                    name: 'code'
+                    description: 'An identifier for the error. Codes are invariant and are intended to be consumed programmatically.'
+                    required: true
+                    azure_sdk_references: ['/deleteCertificateError/details/details/code', '/properties/deleteCertificateError/details/details/code']
+                  - !ruby/object:Api::Type::String
+                    name: 'message'
+                    description: 'A message describing the error, intended to be suitable for display in a user interface.'
+                    required: true
+                    azure_sdk_references: ['/deleteCertificateError/details/details/message', '/properties/deleteCertificateError/details/details/message']
+                  - !ruby/object:Api::Type::String
+                    name: 'target'
+                    description: 'The target of the particular error. For example, the name of the property in error.'
+                    required: false
+                    azure_sdk_references: ['/deleteCertificateError/details/details/target', '/properties/deleteCertificateError/details/details/target']
+                  - !ruby/object:Api::Type::NestedObject
+                    name: 'details'
+                    description: 'A list of additional details about the error.'
+                    required: false
+                    azure_sdk_references: ['/deleteCertificateError/details/details/details', '/properties/deleteCertificateError/details/details/details']
+      - !ruby/object:Api::Type::String
+        name: 'id'
+        description: 'The ID of the resource.'
+        input: true
+        output: true
+        azure_sdk_references: ['/id']
+      - !ruby/object:Api::Type::String
+        name: 'etag'
+        description: 'The ETag of the resource, used for concurrency statements.'
+        input: true
+        output: true
+        azure_sdk_references: ['/etag']

@@ -31,12 +31,12 @@ objects:
             python_variable_name: resource_group
           'galleryName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             id_portion: galleries
-            go_variable_name: GalleryName
+            go_variable_name: galleryName
             python_parameter_name: gallery_name
             python_variable_name: gallery_name
           'galleryImageName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             id_portion: images
-            go_variable_name: GalleryImageName
+            go_variable_name: galleryImageName
             python_parameter_name: gallery_image_name
             python_variable_name: gallery_image_name
           'galleryImageVersionName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
@@ -44,22 +44,6 @@ objects:
             go_variable_name: name
             python_parameter_name: gallery_image_version_name
             python_variable_name: name
-          'galleryImageVersion': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
-            id_portion: null
-            go_variable_name: GalleryImageVersion
-            go_type_name: null
-            python_parameter_name: gallery_image_version
-            python_variable_name: gallery_image_version
-        response:
-          '/id': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
-            go_field_name: ID
-            python_field_name: id
-          '/name': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
-            go_field_name: Name
-            python_field_name: name
-          '/type': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
-            go_field_name: Type
-            python_field_name: type
       delete: !ruby/object:Api::Azure::SDKOperationDefinition
         async: true
         go_func_name: Delete
@@ -72,12 +56,12 @@ objects:
             python_variable_name: resource_group
           'galleryName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             id_portion: galleries
-            go_variable_name: GalleryName
+            go_variable_name: galleryName
             python_parameter_name: gallery_name
             python_variable_name: gallery_name
           'galleryImageName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             id_portion: images
-            go_variable_name: GalleryImageName
+            go_variable_name: galleryImageName
             python_parameter_name: gallery_image_name
             python_variable_name: gallery_image_name
           'galleryImageVersionName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
@@ -96,12 +80,12 @@ objects:
             python_variable_name: resource_group
           'galleryName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             id_portion: galleries
-            go_variable_name: GalleryName
+            go_variable_name: galleryName
             python_parameter_name: gallery_name
             python_variable_name: gallery_name
           'galleryImageName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             id_portion: images
-            go_variable_name: GalleryImageName
+            go_variable_name: galleryImageName
             python_parameter_name: gallery_image_name
             python_variable_name: gallery_image_name
           'galleryImageVersionName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
@@ -110,6 +94,121 @@ objects:
             python_parameter_name: gallery_image_version_name
             python_variable_name: name
         response:
+          '/location': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            go_field_name: Location
+            python_field_name: location
+          '/tags': !ruby/object:Api::Azure::SDKTypeDefinition::StringMapObject
+            go_field_name: Tags
+            python_field_name: tags
+          '/properties': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            applicable_to: [go]
+            go_field_name: Properties
+            go_type_name: GalleryImageVersionProperties
+          '/properties/publishingProfile': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            applicable_to: [go]
+            go_field_name: PublishingProfile
+            go_type_name: GalleryImageVersionPublishingProfile
+          '/properties/publishingProfile/targetRegions': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexArrayObject
+            applicable_to: [go]
+            go_field_name: TargetRegions
+            go_type_name: TargetRegion
+          '/properties/publishingProfile/targetRegions/name': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: Name
+          '/properties/publishingProfile/targetRegions/regionalReplicaCount': !ruby/object:Api::Azure::SDKTypeDefinition::IntegerObject
+            applicable_to: [go]
+            go_field_name: RegionalReplicaCount
+          '/properties/publishingProfile/targetRegions/storageAccountType': !ruby/object:Api::Azure::SDKTypeDefinition::EnumObject
+            applicable_to: [go]
+            go_field_name: StorageAccountType
+            go_enum_type_name: StorageAccountType
+          '/properties/publishingProfile/source': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            applicable_to: [go]
+            go_field_name: Source
+            go_type_name: GalleryArtifactSource
+          '/properties/publishingProfile/source/managedImage': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            applicable_to: [go]
+            go_field_name: ManagedImage
+            go_type_name: ManagedArtifact
+          '/properties/publishingProfile/source/managedImage/id': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: ID
+          '/properties/publishingProfile/replicaCount': !ruby/object:Api::Azure::SDKTypeDefinition::IntegerObject
+            applicable_to: [go]
+            go_field_name: ReplicaCount
+          '/properties/publishingProfile/excludeFromLatest': !ruby/object:Api::Azure::SDKTypeDefinition::BooleanObject
+            applicable_to: [go]
+            go_field_name: ExcludeFromLatest
+          '/properties/publishingProfile/endOfLifeDate': !ruby/object:Api::Azure::SDKTypeDefinition::ISO8601DateTimeObject
+            applicable_to: [go]
+            go_field_name: EndOfLifeDate
+          '/properties/publishingProfile/storageAccountType': !ruby/object:Api::Azure::SDKTypeDefinition::EnumObject
+            applicable_to: [go]
+            go_field_name: StorageAccountType
+            go_enum_type_name: StorageAccountType
+          '/properties/publishingProfile/publishedDate': !ruby/object:Api::Azure::SDKTypeDefinition::ISO8601DateTimeObject
+            applicable_to: [go]
+            go_field_name: PublishedDate
+          '/publishingProfile': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            applicable_to: [python]
+            python_field_name: publishing_profile
+          '/publishingProfile/targetRegions': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexArrayObject
+            applicable_to: [python]
+            python_field_name: target_regions
+          '/publishingProfile/targetRegions/name': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: name
+          '/publishingProfile/targetRegions/regionalReplicaCount': !ruby/object:Api::Azure::SDKTypeDefinition::IntegerObject
+            applicable_to: [python]
+            python_field_name: regional_replica_count
+          '/publishingProfile/targetRegions/storageAccountType': !ruby/object:Api::Azure::SDKTypeDefinition::EnumObject
+            applicable_to: [python]
+            python_field_name: storage_account_type
+          '/publishingProfile/source': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            applicable_to: [python]
+            python_field_name: source
+          '/publishingProfile/source/managedImage': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            applicable_to: [python]
+            python_field_name: managed_image
+          '/publishingProfile/source/managedImage/id': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: id
+          '/publishingProfile/replicaCount': !ruby/object:Api::Azure::SDKTypeDefinition::IntegerObject
+            applicable_to: [python]
+            python_field_name: replica_count
+          '/publishingProfile/excludeFromLatest': !ruby/object:Api::Azure::SDKTypeDefinition::BooleanObject
+            applicable_to: [python]
+            python_field_name: exclude_from_latest
+          '/publishingProfile/endOfLifeDate': !ruby/object:Api::Azure::SDKTypeDefinition::ISO8601DateTimeObject
+            applicable_to: [python]
+            python_field_name: end_of_life_date
+          '/publishingProfile/storageAccountType': !ruby/object:Api::Azure::SDKTypeDefinition::EnumObject
+            applicable_to: [python]
+            python_field_name: storage_account_type
+          '/publishingProfile/publishedDate': !ruby/object:Api::Azure::SDKTypeDefinition::ISO8601DateTimeObject
+            applicable_to: [python]
+            python_field_name: published_date
+          '/properties/provisioningState': !ruby/object:Api::Azure::SDKTypeDefinition::EnumObject
+            applicable_to: [go]
+            go_field_name: ProvisioningState
+            go_enum_type_name: 
+          '/provisioningState': !ruby/object:Api::Azure::SDKTypeDefinition::EnumObject
+            applicable_to: [python]
+            python_field_name: provisioning_state
+          '/properties/storageProfile': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            applicable_to: [go]
+            go_field_name: StorageProfile
+            go_type_name: GalleryImageVersionStorageProfile
+          '/storageProfile': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            applicable_to: [python]
+            python_field_name: storage_profile
+          '/properties/replicationStatus': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            applicable_to: [go]
+            go_field_name: ReplicationStatus
+            go_type_name: ReplicationStatus
+          '/replicationStatus': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            applicable_to: [python]
+            python_field_name: replication_status
           '/id': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             go_field_name: ID
             python_field_name: id
@@ -119,6 +218,25 @@ objects:
           '/type': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             go_field_name: Type
             python_field_name: type
+      list_by_gallery_image: !ruby/object:Api::Azure::SDKOperationDefinition
+        go_func_name: ListByGalleryImage
+        python_func_name: list_by_gallery_image
+        request:
+          'resourceGroupName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            id_portion: resourceGroups
+            go_variable_name: resourceGroup
+            python_parameter_name: resource_group_name
+            python_variable_name: resource_group
+          'galleryName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            id_portion: galleries
+            go_variable_name: galleryName
+            python_parameter_name: gallery_name
+            python_variable_name: gallery_name
+          'galleryImageName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            id_portion: images
+            go_variable_name: galleryImageName
+            python_parameter_name: gallery_image_name
+            python_variable_name: gallery_image_name
 
     description: |
       Manage Azure GalleryImageVersion instance.
@@ -150,25 +268,19 @@ objects:
         required: true
         input: true
         sample_value: myVersion
-        azure_sdk_references: ['galleryImageVersionName']
-      - !ruby/object:Api::Type::NestedObject
-        name: 'galleryImageVersion'
-        description: 'Parameters supplied to the create or update gallery Image Version operation.'
-        required: true
-        sample_value: [object Object]
-        azure_sdk_references: ['galleryImageVersion']
+        azure_sdk_references: ['galleryImageVersionName', '/name']
       - !ruby/object:Api::Azure::Type::Location
         name: 'location'
         description: 'Resource location'
         required: true
         input: true
         azure_sdk_references: ['/location']
-      - 
+      - !ruby/object:Api::Azure::Type::Tags
         name: 'tags'
         description: 'Resource tags'
         required: false
         input: true
-        azure_sdk_references: ['/tags']
+        azure_sdk_references: ['tags', '/tags']
       - !ruby/object:Api::Type::NestedObject
         name: 'publishingProfile'
         description: 'undefined'
@@ -180,12 +292,44 @@ objects:
             description: 'The target regions where the Image Version is going to be replicated to. This property is updatable.'
             required: false
             azure_sdk_references: ['/publishingProfile/targetRegions', '/properties/publishingProfile/targetRegions']
+            properties:
+              - !ruby/object:Api::Type::String
+                name: 'name'
+                description: 'The name of the region.'
+                required: true
+                azure_sdk_references: ['/publishingProfile/targetRegions/name', '/properties/publishingProfile/targetRegions/name', '/name']
+              - !ruby/object:Api::Azure::Type::Integer
+                name: 'regionalReplicaCount'
+                description: 'The number of replicas of the Image Version to be created per region. This property is updatable.'
+                required: false
+                azure_sdk_references: ['/publishingProfile/targetRegions/regionalReplicaCount', '/properties/publishingProfile/targetRegions/regionalReplicaCount']
+              - !ruby/object:Api::Type::Enum
+                name: 'storageAccountType'
+                description: 'Specifies the storage account type to be used to store the image. This property is not updatable.'
+                required: false
+                values:
+                  - :Standard_LRS
+                  - :Standard_ZRS
+                default_value: :Standard_LRS
+                azure_sdk_references: ['/publishingProfile/targetRegions/storageAccountType', '/properties/publishingProfile/targetRegions/storageAccountType']
           - !ruby/object:Api::Type::NestedObject
             name: 'source'
             description: 'undefined'
             required: true
             azure_sdk_references: ['/publishingProfile/source', '/properties/publishingProfile/source']
-          - 
+            properties:
+              - !ruby/object:Api::Type::NestedObject
+                name: 'managedImage'
+                description: 'undefined'
+                required: true
+                azure_sdk_references: ['/publishingProfile/source/managedImage', '/properties/publishingProfile/source/managedImage']
+                properties:
+                  - !ruby/object:Api::Type::String
+                    name: 'id'
+                    description: 'The managed artifact id.'
+                    required: true
+                    azure_sdk_references: ['/publishingProfile/source/managedImage/id', '/properties/publishingProfile/source/managedImage/id']
+          - !ruby/object:Api::Azure::Type::Integer
             name: 'replicaCount'
             description: 'The number of replicas of the Image Version to be created per region. This property would take effect for a region when regionalReplicaCount is not specified. This property is updatable.'
             required: false
@@ -195,16 +339,151 @@ objects:
             description: 'If set to true, Virtual Machines deployed from the latest version of the Image Definition won't use this Image Version.'
             required: false
             azure_sdk_references: ['/publishingProfile/excludeFromLatest', '/properties/publishingProfile/excludeFromLatest']
-          - 
+          - !ruby/object:Api::Azure::Type::ISO8601DateTime
             name: 'endOfLifeDate'
             description: 'The end of life date of the gallery Image Version. This property can be used for decommissioning purposes. This property is updatable.'
             required: false
             azure_sdk_references: ['/publishingProfile/endOfLifeDate', '/properties/publishingProfile/endOfLifeDate']
-          - !ruby/object:Api::Type::EnumType
+          - !ruby/object:Api::Type::Enum
             name: 'storageAccountType'
             description: 'Specifies the storage account type to be used to store the image. This property is not updatable.'
             required: false
             values:
-               - :Standard_LRS
-               - :Standard_ZRS
+              - :Standard_LRS
+              - :Standard_ZRS
+            default_value: :Standard_LRS
             azure_sdk_references: ['/publishingProfile/storageAccountType', '/properties/publishingProfile/storageAccountType']
+      # read only values included only in response
+      - !ruby/object:Api::Type::Enum
+        name: 'provisioningState'
+        description: 'The provisioning state, which only appears in the response.'
+        output: true
+        values:
+          - :Creating
+          - :Updating
+          - :Failed
+          - :Succeeded
+          - :Deleting
+          - :Migrating
+        default_value: :Creating
+        azure_sdk_references: ['/provisioningState', '/properties/provisioningState']
+      - !ruby/object:Api::Type::NestedObject
+        name: 'storageProfile'
+        description: 'undefined'
+        output: true
+        azure_sdk_references: ['/storageProfile', '/properties/storageProfile']
+        properties:
+          - !ruby/object:Api::Type::NestedObject
+            name: 'osDiskImage'
+            description: 'undefined'
+            required: false
+            azure_sdk_references: ['/storageProfile/osDiskImage', '/properties/storageProfile/osDiskImage']
+            properties:
+              - !ruby/object:Api::Azure::Type::Integer
+                name: 'sizeInGb'
+                description: 'This property indicates the size of the VHD to be created.'
+                required: false
+                azure_sdk_references: ['/storageProfile/osDiskImage/sizeInGB', '/properties/storageProfile/osDiskImage/sizeInGB']
+              - !ruby/object:Api::Type::Enum
+                name: 'hostCaching'
+                description: 'The host caching of the disk. Valid values are 'None', 'ReadOnly', and 'ReadWrite''
+                required: false
+                values:
+                  - :None
+                  - :ReadOnly
+                  - :ReadWrite
+                default_value: :None
+                azure_sdk_references: ['/storageProfile/osDiskImage/hostCaching', '/properties/storageProfile/osDiskImage/hostCaching']
+          - !ruby/object:Api::Type::NestedObject
+            name: 'dataDiskImages'
+            description: 'A list of data disk images.'
+            required: false
+            azure_sdk_references: ['/storageProfile/dataDiskImages', '/properties/storageProfile/dataDiskImages']
+            properties:
+              - !ruby/object:Api::Azure::Type::Integer
+                name: 'sizeInGb'
+                description: 'This property indicates the size of the VHD to be created.'
+                required: false
+                azure_sdk_references: ['/storageProfile/dataDiskImages/sizeInGB', '/properties/storageProfile/dataDiskImages/sizeInGB']
+              - !ruby/object:Api::Type::Enum
+                name: 'hostCaching'
+                description: 'The host caching of the disk. Valid values are 'None', 'ReadOnly', and 'ReadWrite''
+                required: false
+                values:
+                  - :None
+                  - :ReadOnly
+                  - :ReadWrite
+                default_value: :None
+                azure_sdk_references: ['/storageProfile/dataDiskImages/hostCaching', '/properties/storageProfile/dataDiskImages/hostCaching']
+              - !ruby/object:Api::Azure::Type::Integer
+                name: 'lun'
+                description: 'This property specifies the logical unit number of the data disk. This value is used to identify data disks within the Virtual Machine and therefore must be unique for each data disk attached to the Virtual Machine.'
+                required: false
+                azure_sdk_references: ['/storageProfile/dataDiskImages/lun', '/properties/storageProfile/dataDiskImages/lun']
+      - !ruby/object:Api::Type::NestedObject
+        name: 'replicationStatus'
+        description: 'undefined'
+        output: true
+        azure_sdk_references: ['/replicationStatus', '/properties/replicationStatus']
+        properties:
+          - !ruby/object:Api::Type::Enum
+            name: 'aggregatedState'
+            description: 'This is the aggregated replication status based on all the regional replication status flags.'
+            required: false
+            values:
+              - :Unknown
+              - :InProgress
+              - :Completed
+              - :Failed
+            default_value: :Unknown
+            azure_sdk_references: ['/replicationStatus/aggregatedState', '/properties/replicationStatus/aggregatedState']
+          - !ruby/object:Api::Type::NestedObject
+            name: 'summary'
+            description: 'This is a summary of replication status for each region.'
+            required: false
+            azure_sdk_references: ['/replicationStatus/summary', '/properties/replicationStatus/summary']
+            properties:
+              - !ruby/object:Api::Type::String
+                name: 'region'
+                description: 'The region to which the gallery Image Version is being replicated to.'
+                required: false
+                azure_sdk_references: ['/replicationStatus/summary/region', '/properties/replicationStatus/summary/region']
+              - !ruby/object:Api::Type::Enum
+                name: 'state'
+                description: 'This is the regional replication state.'
+                required: false
+                values:
+                  - :Unknown
+                  - :Replicating
+                  - :Completed
+                  - :Failed
+                default_value: :Unknown
+                azure_sdk_references: ['/replicationStatus/summary/state', '/properties/replicationStatus/summary/state']
+              - !ruby/object:Api::Type::String
+                name: 'details'
+                description: 'The details of the replication status.'
+                required: false
+                azure_sdk_references: ['/replicationStatus/summary/details', '/properties/replicationStatus/summary/details']
+              - !ruby/object:Api::Azure::Type::Integer
+                name: 'progress'
+                description: 'It indicates progress of the replication job.'
+                required: false
+                azure_sdk_references: ['/replicationStatus/summary/progress', '/properties/replicationStatus/summary/progress']
+      - !ruby/object:Api::Type::String
+        name: 'id'
+        description: 'Resource Id'
+        input: true
+        output: true
+        azure_sdk_references: ['/id']
+      - !ruby/object:Api::Type::String
+        name: 'name'
+        description: 'Resource name'
+        input: true
+        output: true
+        azure_sdk_references: ['/name', '/name']
+      - !ruby/object:Api::Type::String
+        name: 'type'
+        description: 'Resource type'
+        input: true
+        output: true
+        azure_sdk_references: ['/type']

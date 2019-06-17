@@ -1,0 +1,7 @@
+--- !ruby/object:Provider::Ansible::Example
+task: !ruby/object:Provider::Ansible::Task
+  name: azure_rm_managementgroup
+  description: PatchManagementGroup
+  code:
+    group_id: myManagementGroup
+  

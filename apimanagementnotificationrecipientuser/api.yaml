@@ -30,7 +30,7 @@ objects:
             python_variable_name: resource_group
           'serviceName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             id_portion: service
-            go_variable_name: ServiceName
+            go_variable_name: serviceName
             python_parameter_name: service_name
             python_variable_name: service_name
           'notificationName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
@@ -40,19 +40,9 @@ objects:
             python_variable_name: name
           'userId': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             id_portion: recipientUsers
-            go_variable_name: UserID
+            go_variable_name: userID
             python_parameter_name: user_id
             python_variable_name: user_id
-        response:
-          '/id': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
-            go_field_name: ID
-            python_field_name: id
-          '/name': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
-            go_field_name: Name
-            python_field_name: name
-          '/type': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
-            go_field_name: Type
-            python_field_name: type
       delete: !ruby/object:Api::Azure::SDKOperationDefinition
         go_func_name: Delete
         python_func_name: delete
@@ -64,7 +54,7 @@ objects:
             python_variable_name: resource_group
           'serviceName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             id_portion: service
-            go_variable_name: ServiceName
+            go_variable_name: serviceName
             python_parameter_name: service_name
             python_variable_name: service_name
           'notificationName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
@@ -74,9 +64,28 @@ objects:
             python_variable_name: name
           'userId': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             id_portion: recipientUsers
-            go_variable_name: UserID
+            go_variable_name: userID
             python_parameter_name: user_id
             python_variable_name: user_id
+      list_by_notification: !ruby/object:Api::Azure::SDKOperationDefinition
+        go_func_name: ListByNotification
+        python_func_name: list_by_notification
+        request:
+          'resourceGroupName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            id_portion: resourceGroups
+            go_variable_name: resourceGroup
+            python_parameter_name: resource_group_name
+            python_variable_name: resource_group
+          'serviceName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            id_portion: service
+            go_variable_name: serviceName
+            python_parameter_name: service_name
+            python_variable_name: service_name
+          'notificationName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            id_portion: notifications
+            go_variable_name: name
+            python_parameter_name: notification_name
+            python_variable_name: name
 
     description: |
       Manage Azure NotificationRecipientUser instance.
@@ -101,7 +110,7 @@ objects:
         required: true
         input: true
         sample_value: myNotification
-        azure_sdk_references: ['notificationName']
+        azure_sdk_references: ['notificationName', '/name']
       - !ruby/object:Api::Type::String
         name: 'userId'
         description: 'User identifier. Must be unique in the current API Management service instance.'
@@ -109,3 +118,27 @@ objects:
         input: true
         sample_value: myRecipientUser
         azure_sdk_references: ['userId']
+      - !ruby/object:Api::Type::String
+        name: 'userId'
+        description: 'API Management UserId subscribed to notification.'
+        required: false
+        azure_sdk_references: ['/userId', '/properties/userId']
+      # read only values included only in response
+      - !ruby/object:Api::Type::String
+        name: 'id'
+        description: 'Resource ID.'
+        input: true
+        output: true
+        azure_sdk_references: ['/id']
+      - !ruby/object:Api::Type::String
+        name: 'name'
+        description: 'Resource name.'
+        input: true
+        output: true
+        azure_sdk_references: ['/name', '/name']
+      - !ruby/object:Api::Type::String
+        name: 'type'
+        description: 'Resource type for API Management resource.'
+        input: true
+        output: true
+        azure_sdk_references: ['/type']

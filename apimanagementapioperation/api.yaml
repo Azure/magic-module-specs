@@ -35,16 +35,16 @@ objects:
             python_variable_name: name
           'apiId': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             id_portion: apis
-            go_variable_name: ApiID
+            go_variable_name: apiID
             python_parameter_name: api_id
             python_variable_name: api_id
           'operationId': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             id_portion: operations
-            go_variable_name: OperationID
+            go_variable_name: operationID
             python_parameter_name: operation_id
             python_variable_name: operation_id
           '/': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
-            go_variable_name: Parameters
+            go_variable_name: parameters
             go_type_name: OperationContract
             python_parameter_name: parameters
             python_variable_name: parameters
@@ -76,7 +76,7 @@ objects:
           '/properties/templateParameters': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexArrayObject
             applicable_to: [go]
             go_field_name: TemplateParameters
-            go_type_name: {"$id":"1249","$type":"SequenceType","elementType":{"$ref":"1101"},"name":{"$id":"1250","fixed":false},"deprecated":false}
+            go_type_name: ParameterContract
           '/properties/templateParameters/name': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             applicable_to: [go]
             go_field_name: Name
@@ -195,7 +195,7 @@ objects:
           '/properties/request/queryParameters': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexArrayObject
             applicable_to: [go]
             go_field_name: QueryParameters
-            go_type_name: {"$id":"1210","$type":"SequenceType","elementType":{"$ref":"1101"},"name":{"$id":"1211","fixed":false},"deprecated":false}
+            go_type_name: ParameterContract
           '/properties/request/queryParameters/name': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             applicable_to: [go]
             go_field_name: Name
@@ -217,7 +217,7 @@ objects:
           '/properties/request/headers': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexArrayObject
             applicable_to: [go]
             go_field_name: Headers
-            go_type_name: {"$id":"1216","$type":"SequenceType","elementType":{"$ref":"1101"},"name":{"$id":"1217","fixed":false},"deprecated":false}
+            go_type_name: ParameterContract
           '/properties/request/headers/name': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             applicable_to: [go]
             go_field_name: Name
@@ -239,7 +239,7 @@ objects:
           '/properties/request/representations': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexArrayObject
             applicable_to: [go]
             go_field_name: Representations
-            go_type_name: {"$id":"1222","$type":"SequenceType","elementType":{"$ref":"1141"},"name":{"$id":"1223","fixed":false},"deprecated":false}
+            go_type_name: RepresentationContract
           '/properties/request/representations/contentType': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             applicable_to: [go]
             go_field_name: ContentType
@@ -255,7 +255,7 @@ objects:
           '/properties/request/representations/formParameters': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexArrayObject
             applicable_to: [go]
             go_field_name: FormParameters
-            go_type_name: {"$id":"1170","$type":"SequenceType","elementType":{"$ref":"1101"},"name":{"$id":"1171","fixed":false},"deprecated":false}
+            go_type_name: ParameterContract
           '/properties/request/representations/formParameters/name': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             applicable_to: [go]
             go_field_name: Name
@@ -277,7 +277,7 @@ objects:
           '/responses': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexArrayObject
             applicable_to: [python]
             python_field_name: responses
-          '/responses/statusCode': 
+          '/responses/statusCode': !ruby/object:Api::Azure::SDKTypeDefinition::IntegerObject
             applicable_to: [python]
             python_field_name: status_code
           '/responses/description': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
@@ -343,8 +343,8 @@ objects:
           '/properties/responses': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexArrayObject
             applicable_to: [go]
             go_field_name: Responses
-            go_type_name: {"$id":"1265","$type":"SequenceType","elementType":{"$ref":"1173"},"name":{"$id":"1266","fixed":false},"deprecated":false}
-          '/properties/responses/statusCode': 
+            go_type_name: ResponseContract
+          '/properties/responses/statusCode': !ruby/object:Api::Azure::SDKTypeDefinition::IntegerObject
             applicable_to: [go]
             go_field_name: StatusCode
           '/properties/responses/description': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
@@ -353,7 +353,7 @@ objects:
           '/properties/responses/representations': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexArrayObject
             applicable_to: [go]
             go_field_name: Representations
-            go_type_name: {"$id":"1190","$type":"SequenceType","elementType":{"$ref":"1141"},"name":{"$id":"1191","fixed":false},"deprecated":false}
+            go_type_name: RepresentationContract
           '/properties/responses/representations/contentType': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             applicable_to: [go]
             go_field_name: ContentType
@@ -369,7 +369,7 @@ objects:
           '/properties/responses/representations/formParameters': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexArrayObject
             applicable_to: [go]
             go_field_name: FormParameters
-            go_type_name: {"$id":"1170","$type":"SequenceType","elementType":{"$ref":"1101"},"name":{"$id":"1171","fixed":false},"deprecated":false}
+            go_type_name: ParameterContract
           '/properties/responses/representations/formParameters/name': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             applicable_to: [go]
             go_field_name: Name
@@ -391,7 +391,7 @@ objects:
           '/properties/responses/headers': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexArrayObject
             applicable_to: [go]
             go_field_name: Headers
-            go_type_name: {"$id":"1196","$type":"SequenceType","elementType":{"$ref":"1101"},"name":{"$id":"1197","fixed":false},"deprecated":false}
+            go_type_name: ParameterContract
           '/properties/responses/headers/name': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             applicable_to: [go]
             go_field_name: Name
@@ -434,16 +434,6 @@ objects:
           '/properties/urlTemplate': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             applicable_to: [go]
             go_field_name: URLTemplate
-        response:
-          '/id': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
-            go_field_name: ID
-            python_field_name: id
-          '/name': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
-            go_field_name: Name
-            python_field_name: name
-          '/type': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
-            go_field_name: Type
-            python_field_name: type
       update: !ruby/object:Api::Azure::SDKOperationDefinition
         go_func_name: Update
         python_func_name: update
@@ -460,16 +450,16 @@ objects:
             python_variable_name: name
           'apiId': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             id_portion: apis
-            go_variable_name: ApiID
+            go_variable_name: apiID
             python_parameter_name: api_id
             python_variable_name: api_id
           'operationId': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             id_portion: operations
-            go_variable_name: OperationID
+            go_variable_name: operationID
             python_parameter_name: operation_id
             python_variable_name: operation_id
           '/': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
-            go_variable_name: Parameters
+            go_variable_name: parameters
             go_type_name: OperationContract
             python_parameter_name: parameters
             python_variable_name: parameters
@@ -501,7 +491,7 @@ objects:
           '/properties/templateParameters': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexArrayObject
             applicable_to: [go]
             go_field_name: TemplateParameters
-            go_type_name: {"$id":"1249","$type":"SequenceType","elementType":{"$ref":"1101"},"name":{"$id":"1250","fixed":false},"deprecated":false}
+            go_type_name: ParameterContract
           '/properties/templateParameters/name': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             applicable_to: [go]
             go_field_name: Name
@@ -620,7 +610,7 @@ objects:
           '/properties/request/queryParameters': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexArrayObject
             applicable_to: [go]
             go_field_name: QueryParameters
-            go_type_name: {"$id":"1210","$type":"SequenceType","elementType":{"$ref":"1101"},"name":{"$id":"1211","fixed":false},"deprecated":false}
+            go_type_name: ParameterContract
           '/properties/request/queryParameters/name': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             applicable_to: [go]
             go_field_name: Name
@@ -642,7 +632,7 @@ objects:
           '/properties/request/headers': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexArrayObject
             applicable_to: [go]
             go_field_name: Headers
-            go_type_name: {"$id":"1216","$type":"SequenceType","elementType":{"$ref":"1101"},"name":{"$id":"1217","fixed":false},"deprecated":false}
+            go_type_name: ParameterContract
           '/properties/request/headers/name': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             applicable_to: [go]
             go_field_name: Name
@@ -664,7 +654,7 @@ objects:
           '/properties/request/representations': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexArrayObject
             applicable_to: [go]
             go_field_name: Representations
-            go_type_name: {"$id":"1222","$type":"SequenceType","elementType":{"$ref":"1141"},"name":{"$id":"1223","fixed":false},"deprecated":false}
+            go_type_name: RepresentationContract
           '/properties/request/representations/contentType': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             applicable_to: [go]
             go_field_name: ContentType
@@ -680,7 +670,7 @@ objects:
           '/properties/request/representations/formParameters': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexArrayObject
             applicable_to: [go]
             go_field_name: FormParameters
-            go_type_name: {"$id":"1170","$type":"SequenceType","elementType":{"$ref":"1101"},"name":{"$id":"1171","fixed":false},"deprecated":false}
+            go_type_name: ParameterContract
           '/properties/request/representations/formParameters/name': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             applicable_to: [go]
             go_field_name: Name
@@ -702,7 +692,7 @@ objects:
           '/responses': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexArrayObject
             applicable_to: [python]
             python_field_name: responses
-          '/responses/statusCode': 
+          '/responses/statusCode': !ruby/object:Api::Azure::SDKTypeDefinition::IntegerObject
             applicable_to: [python]
             python_field_name: status_code
           '/responses/description': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
@@ -768,8 +758,8 @@ objects:
           '/properties/responses': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexArrayObject
             applicable_to: [go]
             go_field_name: Responses
-            go_type_name: {"$id":"1265","$type":"SequenceType","elementType":{"$ref":"1173"},"name":{"$id":"1266","fixed":false},"deprecated":false}
-          '/properties/responses/statusCode': 
+            go_type_name: ResponseContract
+          '/properties/responses/statusCode': !ruby/object:Api::Azure::SDKTypeDefinition::IntegerObject
             applicable_to: [go]
             go_field_name: StatusCode
           '/properties/responses/description': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
@@ -778,7 +768,7 @@ objects:
           '/properties/responses/representations': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexArrayObject
             applicable_to: [go]
             go_field_name: Representations
-            go_type_name: {"$id":"1190","$type":"SequenceType","elementType":{"$ref":"1141"},"name":{"$id":"1191","fixed":false},"deprecated":false}
+            go_type_name: RepresentationContract
           '/properties/responses/representations/contentType': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             applicable_to: [go]
             go_field_name: ContentType
@@ -794,7 +784,7 @@ objects:
           '/properties/responses/representations/formParameters': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexArrayObject
             applicable_to: [go]
             go_field_name: FormParameters
-            go_type_name: {"$id":"1170","$type":"SequenceType","elementType":{"$ref":"1101"},"name":{"$id":"1171","fixed":false},"deprecated":false}
+            go_type_name: ParameterContract
           '/properties/responses/representations/formParameters/name': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             applicable_to: [go]
             go_field_name: Name
@@ -816,7 +806,7 @@ objects:
           '/properties/responses/headers': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexArrayObject
             applicable_to: [go]
             go_field_name: Headers
-            go_type_name: {"$id":"1196","$type":"SequenceType","elementType":{"$ref":"1101"},"name":{"$id":"1197","fixed":false},"deprecated":false}
+            go_type_name: ParameterContract
           '/properties/responses/headers/name': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             applicable_to: [go]
             go_field_name: Name
@@ -859,16 +849,6 @@ objects:
           '/properties/urlTemplate': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             applicable_to: [go]
             go_field_name: URLTemplate
-        response:
-          '/id': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
-            go_field_name: ID
-            python_field_name: id
-          '/name': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
-            go_field_name: Name
-            python_field_name: name
-          '/type': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
-            go_field_name: Type
-            python_field_name: type
       delete: !ruby/object:Api::Azure::SDKOperationDefinition
         go_func_name: Delete
         python_func_name: delete
@@ -885,12 +865,12 @@ objects:
             python_variable_name: name
           'apiId': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             id_portion: apis
-            go_variable_name: ApiID
+            go_variable_name: apiID
             python_parameter_name: api_id
             python_variable_name: api_id
           'operationId': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             id_portion: operations
-            go_variable_name: OperationID
+            go_variable_name: operationID
             python_parameter_name: operation_id
             python_variable_name: operation_id
       read: !ruby/object:Api::Azure::SDKOperationDefinition
@@ -909,15 +889,401 @@ objects:
             python_variable_name: name
           'apiId': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             id_portion: apis
-            go_variable_name: ApiID
+            go_variable_name: apiID
             python_parameter_name: api_id
             python_variable_name: api_id
           'operationId': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             id_portion: operations
-            go_variable_name: OperationID
+            go_variable_name: operationID
             python_parameter_name: operation_id
             python_variable_name: operation_id
         response:
+          '/properties': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            applicable_to: [go]
+            go_field_name: Properties
+            go_type_name: OperationContractProperties
+          '/properties/templateParameters': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexArrayObject
+            applicable_to: [go]
+            go_field_name: TemplateParameters
+            go_type_name: ParameterContract
+          '/properties/templateParameters/name': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: Name
+          '/properties/templateParameters/description': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: Description
+          '/properties/templateParameters/type': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: Type
+          '/properties/templateParameters/defaultValue': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: DefaultValue
+          '/properties/templateParameters/required': !ruby/object:Api::Azure::SDKTypeDefinition::BooleanObject
+            applicable_to: [go]
+            go_field_name: Required
+          '/properties/templateParameters/values': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: Values
+          '/templateParameters': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexArrayObject
+            applicable_to: [python]
+            python_field_name: template_parameters
+          '/templateParameters/name': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: name
+          '/templateParameters/description': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: description
+          '/templateParameters/type': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: type
+          '/templateParameters/defaultValue': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: default_value
+          '/templateParameters/required': !ruby/object:Api::Azure::SDKTypeDefinition::BooleanObject
+            applicable_to: [python]
+            python_field_name: required
+          '/templateParameters/values': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: values
+          '/properties/description': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: Description
+          '/description': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: description
+          '/properties/request': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            applicable_to: [go]
+            go_field_name: Request
+            go_type_name: RequestContract
+          '/properties/request/description': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: Description
+          '/properties/request/queryParameters': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexArrayObject
+            applicable_to: [go]
+            go_field_name: QueryParameters
+            go_type_name: ParameterContract
+          '/properties/request/queryParameters/name': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: Name
+          '/properties/request/queryParameters/description': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: Description
+          '/properties/request/queryParameters/type': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: Type
+          '/properties/request/queryParameters/defaultValue': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: DefaultValue
+          '/properties/request/queryParameters/required': !ruby/object:Api::Azure::SDKTypeDefinition::BooleanObject
+            applicable_to: [go]
+            go_field_name: Required
+          '/properties/request/queryParameters/values': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: Values
+          '/properties/request/headers': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexArrayObject
+            applicable_to: [go]
+            go_field_name: Headers
+            go_type_name: ParameterContract
+          '/properties/request/headers/name': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: Name
+          '/properties/request/headers/description': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: Description
+          '/properties/request/headers/type': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: Type
+          '/properties/request/headers/defaultValue': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: DefaultValue
+          '/properties/request/headers/required': !ruby/object:Api::Azure::SDKTypeDefinition::BooleanObject
+            applicable_to: [go]
+            go_field_name: Required
+          '/properties/request/headers/values': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: Values
+          '/properties/request/representations': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexArrayObject
+            applicable_to: [go]
+            go_field_name: Representations
+            go_type_name: RepresentationContract
+          '/properties/request/representations/contentType': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: ContentType
+          '/properties/request/representations/sample': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: Sample
+          '/properties/request/representations/schemaId': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: SchemaID
+          '/properties/request/representations/typeName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: TypeName
+          '/properties/request/representations/formParameters': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexArrayObject
+            applicable_to: [go]
+            go_field_name: FormParameters
+            go_type_name: ParameterContract
+          '/properties/request/representations/formParameters/name': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: Name
+          '/properties/request/representations/formParameters/description': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: Description
+          '/properties/request/representations/formParameters/type': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: Type
+          '/properties/request/representations/formParameters/defaultValue': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: DefaultValue
+          '/properties/request/representations/formParameters/required': !ruby/object:Api::Azure::SDKTypeDefinition::BooleanObject
+            applicable_to: [go]
+            go_field_name: Required
+          '/properties/request/representations/formParameters/values': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: Values
+          '/request': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            applicable_to: [python]
+            python_field_name: request
+          '/request/description': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: description
+          '/request/queryParameters': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexArrayObject
+            applicable_to: [python]
+            python_field_name: query_parameters
+          '/request/queryParameters/name': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: name
+          '/request/queryParameters/description': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: description
+          '/request/queryParameters/type': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: type
+          '/request/queryParameters/defaultValue': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: default_value
+          '/request/queryParameters/required': !ruby/object:Api::Azure::SDKTypeDefinition::BooleanObject
+            applicable_to: [python]
+            python_field_name: required
+          '/request/queryParameters/values': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: values
+          '/request/headers': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexArrayObject
+            applicable_to: [python]
+            python_field_name: headers
+          '/request/headers/name': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: name
+          '/request/headers/description': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: description
+          '/request/headers/type': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: type
+          '/request/headers/defaultValue': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: default_value
+          '/request/headers/required': !ruby/object:Api::Azure::SDKTypeDefinition::BooleanObject
+            applicable_to: [python]
+            python_field_name: required
+          '/request/headers/values': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: values
+          '/request/representations': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexArrayObject
+            applicable_to: [python]
+            python_field_name: representations
+          '/request/representations/contentType': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: content_type
+          '/request/representations/sample': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: sample
+          '/request/representations/schemaId': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: schema_id
+          '/request/representations/typeName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: type_name
+          '/request/representations/formParameters': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexArrayObject
+            applicable_to: [python]
+            python_field_name: form_parameters
+          '/request/representations/formParameters/name': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: name
+          '/request/representations/formParameters/description': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: description
+          '/request/representations/formParameters/type': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: type
+          '/request/representations/formParameters/defaultValue': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: default_value
+          '/request/representations/formParameters/required': !ruby/object:Api::Azure::SDKTypeDefinition::BooleanObject
+            applicable_to: [python]
+            python_field_name: required
+          '/request/representations/formParameters/values': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: values
+          '/properties/responses': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexArrayObject
+            applicable_to: [go]
+            go_field_name: Responses
+            go_type_name: ResponseContract
+          '/properties/responses/statusCode': !ruby/object:Api::Azure::SDKTypeDefinition::IntegerObject
+            applicable_to: [go]
+            go_field_name: StatusCode
+          '/properties/responses/description': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: Description
+          '/properties/responses/representations': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexArrayObject
+            applicable_to: [go]
+            go_field_name: Representations
+            go_type_name: RepresentationContract
+          '/properties/responses/representations/contentType': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: ContentType
+          '/properties/responses/representations/sample': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: Sample
+          '/properties/responses/representations/schemaId': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: SchemaID
+          '/properties/responses/representations/typeName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: TypeName
+          '/properties/responses/representations/formParameters': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexArrayObject
+            applicable_to: [go]
+            go_field_name: FormParameters
+            go_type_name: ParameterContract
+          '/properties/responses/representations/formParameters/name': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: Name
+          '/properties/responses/representations/formParameters/description': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: Description
+          '/properties/responses/representations/formParameters/type': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: Type
+          '/properties/responses/representations/formParameters/defaultValue': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: DefaultValue
+          '/properties/responses/representations/formParameters/required': !ruby/object:Api::Azure::SDKTypeDefinition::BooleanObject
+            applicable_to: [go]
+            go_field_name: Required
+          '/properties/responses/representations/formParameters/values': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: Values
+          '/properties/responses/headers': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexArrayObject
+            applicable_to: [go]
+            go_field_name: Headers
+            go_type_name: ParameterContract
+          '/properties/responses/headers/name': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: Name
+          '/properties/responses/headers/description': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: Description
+          '/properties/responses/headers/type': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: Type
+          '/properties/responses/headers/defaultValue': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: DefaultValue
+          '/properties/responses/headers/required': !ruby/object:Api::Azure::SDKTypeDefinition::BooleanObject
+            applicable_to: [go]
+            go_field_name: Required
+          '/properties/responses/headers/values': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: Values
+          '/responses': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexArrayObject
+            applicable_to: [python]
+            python_field_name: responses
+          '/responses/statusCode': !ruby/object:Api::Azure::SDKTypeDefinition::IntegerObject
+            applicable_to: [python]
+            python_field_name: status_code
+          '/responses/description': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: description
+          '/responses/representations': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexArrayObject
+            applicable_to: [python]
+            python_field_name: representations
+          '/responses/representations/contentType': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: content_type
+          '/responses/representations/sample': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: sample
+          '/responses/representations/schemaId': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: schema_id
+          '/responses/representations/typeName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: type_name
+          '/responses/representations/formParameters': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexArrayObject
+            applicable_to: [python]
+            python_field_name: form_parameters
+          '/responses/representations/formParameters/name': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: name
+          '/responses/representations/formParameters/description': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: description
+          '/responses/representations/formParameters/type': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: type
+          '/responses/representations/formParameters/defaultValue': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: default_value
+          '/responses/representations/formParameters/required': !ruby/object:Api::Azure::SDKTypeDefinition::BooleanObject
+            applicable_to: [python]
+            python_field_name: required
+          '/responses/representations/formParameters/values': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: values
+          '/responses/headers': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexArrayObject
+            applicable_to: [python]
+            python_field_name: headers
+          '/responses/headers/name': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: name
+          '/responses/headers/description': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: description
+          '/responses/headers/type': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: type
+          '/responses/headers/defaultValue': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: default_value
+          '/responses/headers/required': !ruby/object:Api::Azure::SDKTypeDefinition::BooleanObject
+            applicable_to: [python]
+            python_field_name: required
+          '/responses/headers/values': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: values
+          '/properties/policies': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: Policies
+          '/policies': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: policies
+          '/properties/displayName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: DisplayName
+          '/displayName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: display_name
+          '/properties/method': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: Method
+          '/method': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: method
+          '/properties/urlTemplate': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: URLTemplate
+          '/urlTemplate': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: url_template
           '/id': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             go_field_name: ID
             python_field_name: id
@@ -927,6 +1293,25 @@ objects:
           '/type': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             go_field_name: Type
             python_field_name: type
+      list_by_api: !ruby/object:Api::Azure::SDKOperationDefinition
+        go_func_name: ListByApi
+        python_func_name: list_by_api
+        request:
+          'resourceGroupName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            id_portion: resourceGroups
+            go_variable_name: resourceGroup
+            python_parameter_name: resource_group_name
+            python_variable_name: resource_group
+          'serviceName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            id_portion: service
+            go_variable_name: name
+            python_parameter_name: service_name
+            python_variable_name: name
+          'apiId': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            id_portion: apis
+            go_variable_name: apiID
+            python_parameter_name: api_id
+            python_variable_name: api_id
 
     description: |
       Manage Azure ApiOperation instance.
@@ -944,7 +1329,7 @@ objects:
         required: true
         input: true
         sample_value: myService
-        azure_sdk_references: ['serviceName']
+        azure_sdk_references: ['serviceName', '/name']
       - !ruby/object:Api::Type::String
         name: 'apiId'
         description: 'API revision identifier. Must be unique in the current API Management service instance. Non-current revision has ;rev=n as a suffix where n is the revision number.'
@@ -969,7 +1354,7 @@ objects:
             name: 'name'
             description: 'Parameter name.'
             required: true
-            azure_sdk_references: ['/templateParameters/name', '/properties/templateParameters/name']
+            azure_sdk_references: ['/templateParameters/name', '/properties/templateParameters/name', '/name']
           - !ruby/object:Api::Type::String
             name: 'description'
             description: 'Parameter description.'
@@ -1024,7 +1409,7 @@ objects:
                 description: 'Parameter name.'
                 required: true
                 sample_value: param1
-                azure_sdk_references: ['/request/queryParameters/name', '/properties/request/queryParameters/name']
+                azure_sdk_references: ['/request/queryParameters/name', '/properties/request/queryParameters/name', '/name']
               - !ruby/object:Api::Type::String
                 name: 'description'
                 description: 'Parameter description.'
@@ -1065,7 +1450,7 @@ objects:
                 name: 'name'
                 description: 'Parameter name.'
                 required: true
-                azure_sdk_references: ['/request/headers/name', '/properties/request/headers/name']
+                azure_sdk_references: ['/request/headers/name', '/properties/request/headers/name', '/name']
               - !ruby/object:Api::Type::String
                 name: 'description'
                 description: 'Parameter description.'
@@ -1130,7 +1515,7 @@ objects:
                     name: 'name'
                     description: 'Parameter name.'
                     required: true
-                    azure_sdk_references: ['/request/representations/formParameters/name', '/properties/request/representations/formParameters/name']
+                    azure_sdk_references: ['/request/representations/formParameters/name', '/properties/request/representations/formParameters/name', '/name']
                   - !ruby/object:Api::Type::String
                     name: 'description'
                     description: 'Parameter description.'
@@ -1162,7 +1547,7 @@ objects:
         required: false
         azure_sdk_references: ['/responses', '/properties/responses']
         properties:
-          - 
+          - !ruby/object:Api::Azure::Type::Integer
             name: 'statusCode'
             description: 'Operation response HTTP status code.'
             required: true
@@ -1211,7 +1596,7 @@ objects:
                     name: 'name'
                     description: 'Parameter name.'
                     required: true
-                    azure_sdk_references: ['/responses/representations/formParameters/name', '/properties/responses/representations/formParameters/name']
+                    azure_sdk_references: ['/responses/representations/formParameters/name', '/properties/responses/representations/formParameters/name', '/name']
                   - !ruby/object:Api::Type::String
                     name: 'description'
                     description: 'Parameter description.'
@@ -1247,7 +1632,7 @@ objects:
                 name: 'name'
                 description: 'Parameter name.'
                 required: true
-                azure_sdk_references: ['/responses/headers/name', '/properties/responses/headers/name']
+                azure_sdk_references: ['/responses/headers/name', '/properties/responses/headers/name', '/name']
               - !ruby/object:Api::Type::String
                 name: 'description'
                 description: 'Parameter description.'
@@ -1296,3 +1681,22 @@ objects:
         required: true
         sample_value: /resource
         azure_sdk_references: ['/urlTemplate', '/properties/urlTemplate']
+      # read only values included only in response
+      - !ruby/object:Api::Type::String
+        name: 'id'
+        description: 'Resource ID.'
+        input: true
+        output: true
+        azure_sdk_references: ['/id']
+      - !ruby/object:Api::Type::String
+        name: 'name'
+        description: 'Resource name.'
+        input: true
+        output: true
+        azure_sdk_references: ['/name', '/name']
+      - !ruby/object:Api::Type::String
+        name: 'type'
+        description: 'Resource type for API Management resource.'
+        input: true
+        output: true
+        azure_sdk_references: ['/type']

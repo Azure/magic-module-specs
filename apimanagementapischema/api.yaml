@@ -35,16 +35,16 @@ objects:
             python_variable_name: name
           'apiId': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             id_portion: apis
-            go_variable_name: ApiID
+            go_variable_name: apiID
             python_parameter_name: api_id
             python_variable_name: api_id
           'schemaId': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             id_portion: schemas
-            go_variable_name: SchemaID
+            go_variable_name: schemaID
             python_parameter_name: schema_id
             python_variable_name: schema_id
           '/': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
-            go_variable_name: Parameters
+            go_variable_name: parameters
             go_type_name: SchemaContract
             python_parameter_name: parameters
             python_variable_name: parameters
@@ -71,16 +71,6 @@ objects:
           '/properties/document/value': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             applicable_to: [go]
             go_field_name: Value
-        response:
-          '/id': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
-            go_field_name: ID
-            python_field_name: id
-          '/name': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
-            go_field_name: Name
-            python_field_name: name
-          '/type': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
-            go_field_name: Type
-            python_field_name: type
       delete: !ruby/object:Api::Azure::SDKOperationDefinition
         go_func_name: Delete
         python_func_name: delete
@@ -97,12 +87,12 @@ objects:
             python_variable_name: name
           'apiId': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             id_portion: apis
-            go_variable_name: ApiID
+            go_variable_name: apiID
             python_parameter_name: api_id
             python_variable_name: api_id
           'schemaId': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             id_portion: schemas
-            go_variable_name: SchemaID
+            go_variable_name: schemaID
             python_parameter_name: schema_id
             python_variable_name: schema_id
       read: !ruby/object:Api::Azure::SDKOperationDefinition
@@ -121,15 +111,38 @@ objects:
             python_variable_name: name
           'apiId': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             id_portion: apis
-            go_variable_name: ApiID
+            go_variable_name: apiID
             python_parameter_name: api_id
             python_variable_name: api_id
           'schemaId': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             id_portion: schemas
-            go_variable_name: SchemaID
+            go_variable_name: schemaID
             python_parameter_name: schema_id
             python_variable_name: schema_id
         response:
+          '/properties': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            applicable_to: [go]
+            go_field_name: Properties
+            go_type_name: SchemaContractProperties
+          '/properties/contentType': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: ContentType
+          '/contentType': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: content_type
+          '/properties/document': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            applicable_to: [go]
+            go_field_name: Document
+            go_type_name: SchemaDocumentProperties
+          '/properties/document/value': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: Value
+          '/document': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            applicable_to: [python]
+            python_field_name: document
+          '/document/value': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: value
           '/id': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             go_field_name: ID
             python_field_name: id
@@ -139,6 +152,25 @@ objects:
           '/type': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             go_field_name: Type
             python_field_name: type
+      list_by_api: !ruby/object:Api::Azure::SDKOperationDefinition
+        go_func_name: ListByApi
+        python_func_name: list_by_api
+        request:
+          'resourceGroupName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            id_portion: resourceGroups
+            go_variable_name: resourceGroup
+            python_parameter_name: resource_group_name
+            python_variable_name: resource_group
+          'serviceName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            id_portion: service
+            go_variable_name: name
+            python_parameter_name: service_name
+            python_variable_name: name
+          'apiId': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            id_portion: apis
+            go_variable_name: apiID
+            python_parameter_name: api_id
+            python_variable_name: api_id
 
     description: |
       Manage Azure ApiSchema instance.
@@ -156,7 +188,7 @@ objects:
         required: true
         input: true
         sample_value: myService
-        azure_sdk_references: ['serviceName']
+        azure_sdk_references: ['serviceName', '/name']
       - !ruby/object:Api::Type::String
         name: 'apiId'
         description: 'API revision identifier. Must be unique in the current API Management service instance. Non-current revision has ;rev=n as a suffix where n is the revision number.'
@@ -297,3 +329,22 @@ objects:
   <s:element name="WeatherReturn" type="tns:WeatherReturn" />
 </s:schema>
             azure_sdk_references: ['/document/value', '/properties/document/value']
+      # read only values included only in response
+      - !ruby/object:Api::Type::String
+        name: 'id'
+        description: 'Resource ID.'
+        input: true
+        output: true
+        azure_sdk_references: ['/id']
+      - !ruby/object:Api::Type::String
+        name: 'name'
+        description: 'Resource name.'
+        input: true
+        output: true
+        azure_sdk_references: ['/name', '/name']
+      - !ruby/object:Api::Type::String
+        name: 'type'
+        description: 'Resource type for API Management resource.'
+        input: true
+        output: true
+        azure_sdk_references: ['/type']

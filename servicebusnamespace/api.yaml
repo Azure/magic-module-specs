@@ -35,7 +35,7 @@ objects:
             python_parameter_name: namespace_name
             python_variable_name: name
           '/': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
-            go_variable_name: Parameters
+            go_variable_name: parameters
             go_type_name: SBNamespace
             python_parameter_name: parameters
             python_variable_name: parameters
@@ -57,23 +57,13 @@ objects:
             go_field_name: Tier
             go_enum_type_name: SkuTier
             python_field_name: tier
-          '/sku/capacity': 
+          '/sku/capacity': !ruby/object:Api::Azure::SDKTypeDefinition::IntegerObject
             go_field_name: Capacity
             python_field_name: capacity
           '/properties': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
             applicable_to: [go]
             go_field_name: Properties
             go_type_name: SBNamespaceProperties
-        response:
-          '/id': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
-            go_field_name: ID
-            python_field_name: id
-          '/name': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
-            go_field_name: Name
-            python_field_name: name
-          '/type': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
-            go_field_name: Type
-            python_field_name: type
       update: !ruby/object:Api::Azure::SDKOperationDefinition
         go_func_name: Update
         python_func_name: update
@@ -89,7 +79,7 @@ objects:
             python_parameter_name: namespace_name
             python_variable_name: name
           '/': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
-            go_variable_name: Parameters
+            go_variable_name: parameters
             go_type_name: SBNamespace
             python_parameter_name: parameters
             python_variable_name: parameters
@@ -111,23 +101,13 @@ objects:
             go_field_name: Tier
             go_enum_type_name: SkuTier
             python_field_name: tier
-          '/sku/capacity': 
+          '/sku/capacity': !ruby/object:Api::Azure::SDKTypeDefinition::IntegerObject
             go_field_name: Capacity
             python_field_name: capacity
           '/properties': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
             applicable_to: [go]
             go_field_name: Properties
             go_type_name: SBNamespaceProperties
-        response:
-          '/id': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
-            go_field_name: ID
-            python_field_name: id
-          '/name': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
-            go_field_name: Name
-            python_field_name: name
-          '/type': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
-            go_field_name: Type
-            python_field_name: type
       delete: !ruby/object:Api::Azure::SDKOperationDefinition
         async: true
         go_func_name: Delete
@@ -158,6 +138,61 @@ objects:
             python_parameter_name: namespace_name
             python_variable_name: name
         response:
+          '/location': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            go_field_name: Location
+            python_field_name: location
+          '/tags': !ruby/object:Api::Azure::SDKTypeDefinition::StringMapObject
+            go_field_name: Tags
+            python_field_name: tags
+          '/sku': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            go_field_name: Sku
+            go_type_name: SBSku
+            python_field_name: sku
+          '/sku/name': !ruby/object:Api::Azure::SDKTypeDefinition::EnumObject
+            go_field_name: Name
+            go_enum_type_name: SkuName
+            python_field_name: name
+          '/sku/tier': !ruby/object:Api::Azure::SDKTypeDefinition::EnumObject
+            go_field_name: Tier
+            go_enum_type_name: SkuTier
+            python_field_name: tier
+          '/sku/capacity': !ruby/object:Api::Azure::SDKTypeDefinition::IntegerObject
+            go_field_name: Capacity
+            python_field_name: capacity
+          '/properties': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            applicable_to: [go]
+            go_field_name: Properties
+            go_type_name: SBNamespaceProperties
+          '/properties/provisioningState': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: ProvisioningState
+          '/provisioningState': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: provisioning_state
+          '/properties/createdAt': !ruby/object:Api::Azure::SDKTypeDefinition::ISO8601DateTimeObject
+            applicable_to: [go]
+            go_field_name: CreatedAt
+          '/createdAt': !ruby/object:Api::Azure::SDKTypeDefinition::ISO8601DateTimeObject
+            applicable_to: [python]
+            python_field_name: created_at
+          '/properties/updatedAt': !ruby/object:Api::Azure::SDKTypeDefinition::ISO8601DateTimeObject
+            applicable_to: [go]
+            go_field_name: UpdatedAt
+          '/updatedAt': !ruby/object:Api::Azure::SDKTypeDefinition::ISO8601DateTimeObject
+            applicable_to: [python]
+            python_field_name: updated_at
+          '/properties/serviceBusEndpoint': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: ServiceBusEndpoint
+          '/serviceBusEndpoint': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: service_bus_endpoint
+          '/properties/metricId': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: MetricID
+          '/metricId': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: metric_id
           '/id': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             go_field_name: ID
             python_field_name: id
@@ -167,6 +202,33 @@ objects:
           '/type': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             go_field_name: Type
             python_field_name: type
+      list: !ruby/object:Api::Azure::SDKOperationDefinition
+        go_func_name: List
+        python_func_name: list
+        request:
+      list_by_resource_group: !ruby/object:Api::Azure::SDKOperationDefinition
+        go_func_name: ListByResourceGroup
+        python_func_name: list_by_resource_group
+        request:
+          'resourceGroupName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            id_portion: resourceGroups
+            go_variable_name: resourceGroup
+            python_parameter_name: resource_group_name
+            python_variable_name: resource_group
+      list_authorization_rules: !ruby/object:Api::Azure::SDKOperationDefinition
+        go_func_name: ListAuthorizationRules
+        python_func_name: list_authorization_rules
+        request:
+          'resourceGroupName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            id_portion: resourceGroups
+            go_variable_name: resourceGroup
+            python_parameter_name: resource_group_name
+            python_variable_name: resource_group
+          'namespaceName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            id_portion: namespaces
+            go_variable_name: name
+            python_parameter_name: namespace_name
+            python_variable_name: name
 
     description: |
       Manage Azure Namespace instance.
@@ -184,7 +246,7 @@ objects:
         required: true
         input: true
         sample_value: my
-        azure_sdk_references: ['namespaceName']
+        azure_sdk_references: ['namespaceName', '/name']
       - !ruby/object:Api::Azure::Type::Location
         name: 'location'
         description: 'The Geo-location where the resource lives'
@@ -192,41 +254,87 @@ objects:
         input: true
         sample_value: South Central US
         azure_sdk_references: ['/location']
-      - 
+      - !ruby/object:Api::Azure::Type::Tags
         name: 'tags'
         description: 'Resource tags'
         required: false
         input: true
         sample_value: [object Object]
-        azure_sdk_references: ['/tags']
+        azure_sdk_references: ['tags', '/tags']
       - !ruby/object:Api::Type::NestedObject
         name: 'sku'
         description: 'Properties of Sku'
         required: false
         azure_sdk_references: ['/sku']
         properties:
-          - !ruby/object:Api::Type::EnumType
+          - !ruby/object:Api::Type::Enum
             name: 'name'
             description: 'Name of this SKU.'
             required: true
             values:
-               - :Basic
-               - :Standard
-               - :Premium
+              - :Basic
+              - :Standard
+              - :Premium
+            default_value: :Basic
             sample_value: Standard
-            azure_sdk_references: ['/sku/name']
-          - !ruby/object:Api::Type::EnumType
+            azure_sdk_references: ['/sku/name', '/name']
+          - !ruby/object:Api::Type::Enum
             name: 'tier'
             description: 'The billing tier of this particular SKU.'
             required: false
             values:
-               - :Basic
-               - :Standard
-               - :Premium
+              - :Basic
+              - :Standard
+              - :Premium
+            default_value: :Basic
             sample_value: Standard
             azure_sdk_references: ['/sku/tier']
-          - 
+          - !ruby/object:Api::Azure::Type::Integer
             name: 'capacity'
             description: 'The specified messaging units for the tier. For Premium tier, capacity are 1,2 and 4.'
             required: false
             azure_sdk_references: ['/sku/capacity']
+      # read only values included only in response
+      - !ruby/object:Api::Type::String
+        name: 'provisioningState'
+        description: 'Provisioning state of the namespace.'
+        output: true
+        azure_sdk_references: ['/provisioningState', '/properties/provisioningState']
+      - !ruby/object:Api::Azure::Type::ISO8601DateTime
+        name: 'createdAt'
+        description: 'The time the namespace was created.'
+        output: true
+        azure_sdk_references: ['/createdAt', '/properties/createdAt']
+      - !ruby/object:Api::Azure::Type::ISO8601DateTime
+        name: 'updatedAt'
+        description: 'The time the namespace was updated.'
+        output: true
+        azure_sdk_references: ['/updatedAt', '/properties/updatedAt']
+      - !ruby/object:Api::Type::String
+        name: 'serviceBusEndpoint'
+        description: 'Endpoint you can use to perform Service Bus operations.'
+        output: true
+        azure_sdk_references: ['/serviceBusEndpoint', '/properties/serviceBusEndpoint']
+      - !ruby/object:Api::Type::String
+        name: 'metricId'
+        description: 'Identifier for Azure Insights metrics'
+        output: true
+        azure_sdk_references: ['/metricId', '/properties/metricId']
+      - !ruby/object:Api::Type::String
+        name: 'id'
+        description: 'Resource Id'
+        input: true
+        output: true
+        azure_sdk_references: ['/id']
+      - !ruby/object:Api::Type::String
+        name: 'name'
+        description: 'Resource name'
+        input: true
+        output: true
+        azure_sdk_references: ['/name', '/name']
+      - !ruby/object:Api::Type::String
+        name: 'type'
+        description: 'Resource type'
+        input: true
+        output: true
+        azure_sdk_references: ['/type']

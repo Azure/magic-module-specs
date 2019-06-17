@@ -30,17 +30,17 @@ objects:
             python_variable_name: resource_group
           'namespaceName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             id_portion: namespaces
-            go_variable_name: NamespaceName
+            go_variable_name: namespaceName
             python_parameter_name: namespace_name
             python_variable_name: namespace_name
           'topicName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             id_portion: topics
-            go_variable_name: TopicName
+            go_variable_name: topicName
             python_parameter_name: topic_name
             python_variable_name: topic_name
           'subscriptionName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             id_portion: subscriptions
-            go_variable_name: SubscriptionName
+            go_variable_name: subscriptionName
             python_parameter_name: subscription_name
             python_variable_name: subscription_name
           'ruleName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
@@ -49,7 +49,7 @@ objects:
             python_parameter_name: rule_name
             python_variable_name: name
           '/': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
-            go_variable_name: Parameters
+            go_variable_name: parameters
             go_type_name: Rule
             python_parameter_name: parameters
             python_variable_name: parameters
@@ -63,7 +63,7 @@ objects:
           '/action/sqlExpression': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             applicable_to: [python]
             python_field_name: sql_expression
-          '/action/compatibilityLevel': 
+          '/action/compatibilityLevel': !ruby/object:Api::Azure::SDKTypeDefinition::IntegerObject
             applicable_to: [python]
             python_field_name: compatibility_level
           '/action/requiresPreprocessing': !ruby/object:Api::Azure::SDKTypeDefinition::BooleanObject
@@ -76,7 +76,7 @@ objects:
           '/properties/action/sqlExpression': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             applicable_to: [go]
             go_field_name: SqlExpression
-          '/properties/action/compatibilityLevel': 
+          '/properties/action/compatibilityLevel': !ruby/object:Api::Azure::SDKTypeDefinition::IntegerObject
             applicable_to: [go]
             go_field_name: CompatibilityLevel
           '/properties/action/requiresPreprocessing': !ruby/object:Api::Azure::SDKTypeDefinition::BooleanObject
@@ -142,7 +142,7 @@ objects:
             applicable_to: [go]
             go_field_name: CorrelationFilter
             go_type_name: CorrelationFilter
-          '/properties/correlationFilter/properties': 
+          '/properties/correlationFilter/properties': !ruby/object:Api::Azure::SDKTypeDefinition::StringMapObject
             applicable_to: [go]
             go_field_name: Properties
           '/properties/correlationFilter/correlationId': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
@@ -172,16 +172,6 @@ objects:
           '/properties/correlationFilter/requiresPreprocessing': !ruby/object:Api::Azure::SDKTypeDefinition::BooleanObject
             applicable_to: [go]
             go_field_name: RequiresPreprocessing
-        response:
-          '/id': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
-            go_field_name: ID
-            python_field_name: id
-          '/name': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
-            go_field_name: Name
-            python_field_name: name
-          '/type': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
-            go_field_name: Type
-            python_field_name: type
       delete: !ruby/object:Api::Azure::SDKOperationDefinition
         go_func_name: Delete
         python_func_name: delete
@@ -193,17 +183,17 @@ objects:
             python_variable_name: resource_group
           'namespaceName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             id_portion: namespaces
-            go_variable_name: NamespaceName
+            go_variable_name: namespaceName
             python_parameter_name: namespace_name
             python_variable_name: namespace_name
           'topicName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             id_portion: topics
-            go_variable_name: TopicName
+            go_variable_name: topicName
             python_parameter_name: topic_name
             python_variable_name: topic_name
           'subscriptionName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             id_portion: subscriptions
-            go_variable_name: SubscriptionName
+            go_variable_name: subscriptionName
             python_parameter_name: subscription_name
             python_variable_name: subscription_name
           'ruleName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
@@ -222,17 +212,17 @@ objects:
             python_variable_name: resource_group
           'namespaceName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             id_portion: namespaces
-            go_variable_name: NamespaceName
+            go_variable_name: namespaceName
             python_parameter_name: namespace_name
             python_variable_name: namespace_name
           'topicName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             id_portion: topics
-            go_variable_name: TopicName
+            go_variable_name: topicName
             python_parameter_name: topic_name
             python_variable_name: topic_name
           'subscriptionName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             id_portion: subscriptions
-            go_variable_name: SubscriptionName
+            go_variable_name: subscriptionName
             python_parameter_name: subscription_name
             python_variable_name: subscription_name
           'ruleName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
@@ -241,6 +231,131 @@ objects:
             python_parameter_name: rule_name
             python_variable_name: name
         response:
+          '/properties': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            applicable_to: [go]
+            go_field_name: Properties
+            go_type_name: Ruleproperties
+          '/properties/action': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            applicable_to: [go]
+            go_field_name: Action
+            go_type_name: Action
+          '/properties/action/sqlExpression': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: SqlExpression
+          '/properties/action/compatibilityLevel': !ruby/object:Api::Azure::SDKTypeDefinition::IntegerObject
+            applicable_to: [go]
+            go_field_name: CompatibilityLevel
+          '/properties/action/requiresPreprocessing': !ruby/object:Api::Azure::SDKTypeDefinition::BooleanObject
+            applicable_to: [go]
+            go_field_name: RequiresPreprocessing
+          '/action': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            applicable_to: [python]
+            python_field_name: action
+          '/action/sqlExpression': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: sql_expression
+          '/action/compatibilityLevel': !ruby/object:Api::Azure::SDKTypeDefinition::IntegerObject
+            applicable_to: [python]
+            python_field_name: compatibility_level
+          '/action/requiresPreprocessing': !ruby/object:Api::Azure::SDKTypeDefinition::BooleanObject
+            applicable_to: [python]
+            python_field_name: requires_preprocessing
+          '/properties/filterType': !ruby/object:Api::Azure::SDKTypeDefinition::EnumObject
+            applicable_to: [go]
+            go_field_name: FilterType
+            go_enum_type_name: FilterType
+          '/filterType': !ruby/object:Api::Azure::SDKTypeDefinition::EnumObject
+            applicable_to: [python]
+            python_field_name: filter_type
+          '/properties/sqlFilter': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            applicable_to: [go]
+            go_field_name: SqlFilter
+            go_type_name: SqlFilter
+          '/properties/sqlFilter/sqlExpression': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: SqlExpression
+          '/properties/sqlFilter/requiresPreprocessing': !ruby/object:Api::Azure::SDKTypeDefinition::BooleanObject
+            applicable_to: [go]
+            go_field_name: RequiresPreprocessing
+          '/properties/sqlFilter/compatibilityLevel': !ruby/object:Api::Azure::SDKTypeDefinition::IntegerObject
+            applicable_to: [go]
+            go_field_name: CompatibilityLevel
+          '/sqlFilter': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            applicable_to: [python]
+            python_field_name: sql_filter
+          '/sqlFilter/sqlExpression': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: sql_expression
+          '/sqlFilter/requiresPreprocessing': !ruby/object:Api::Azure::SDKTypeDefinition::BooleanObject
+            applicable_to: [python]
+            python_field_name: requires_preprocessing
+          '/sqlFilter/compatibilityLevel': !ruby/object:Api::Azure::SDKTypeDefinition::IntegerObject
+            applicable_to: [python]
+            python_field_name: compatibility_level
+          '/properties/correlationFilter': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            applicable_to: [go]
+            go_field_name: CorrelationFilter
+            go_type_name: CorrelationFilter
+          '/properties/correlationFilter/properties': !ruby/object:Api::Azure::SDKTypeDefinition::StringMapObject
+            applicable_to: [go]
+            go_field_name: Properties
+          '/properties/correlationFilter/correlationId': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: CorrelationID
+          '/properties/correlationFilter/messageId': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: MessageID
+          '/properties/correlationFilter/to': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: To
+          '/properties/correlationFilter/replyTo': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: ReplyTo
+          '/properties/correlationFilter/label': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: Label
+          '/properties/correlationFilter/sessionId': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: SessionID
+          '/properties/correlationFilter/replyToSessionId': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: ReplyToSessionID
+          '/properties/correlationFilter/contentType': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: ContentType
+          '/properties/correlationFilter/requiresPreprocessing': !ruby/object:Api::Azure::SDKTypeDefinition::BooleanObject
+            applicable_to: [go]
+            go_field_name: RequiresPreprocessing
+          '/correlationFilter': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            applicable_to: [python]
+            python_field_name: correlation_filter
+          '/correlationFilter/correlationId': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: correlation_id
+          '/correlationFilter/messageId': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: message_id
+          '/correlationFilter/to': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: to
+          '/correlationFilter/replyTo': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: reply_to
+          '/correlationFilter/label': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: label
+          '/correlationFilter/sessionId': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: session_id
+          '/correlationFilter/replyToSessionId': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: reply_to_session_id
+          '/correlationFilter/contentType': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: content_type
+          '/correlationFilter/requiresPreprocessing': !ruby/object:Api::Azure::SDKTypeDefinition::BooleanObject
+            applicable_to: [python]
+            python_field_name: requires_preprocessing
           '/id': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             go_field_name: ID
             python_field_name: id
@@ -250,6 +365,30 @@ objects:
           '/type': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             go_field_name: Type
             python_field_name: type
+      list_by_subscriptions: !ruby/object:Api::Azure::SDKOperationDefinition
+        go_func_name: ListBySubscriptions
+        python_func_name: list_by_subscriptions
+        request:
+          'resourceGroupName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            id_portion: resourceGroups
+            go_variable_name: resourceGroup
+            python_parameter_name: resource_group_name
+            python_variable_name: resource_group
+          'namespaceName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            id_portion: namespaces
+            go_variable_name: namespaceName
+            python_parameter_name: namespace_name
+            python_variable_name: namespace_name
+          'topicName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            id_portion: topics
+            go_variable_name: topicName
+            python_parameter_name: topic_name
+            python_variable_name: topic_name
+          'subscriptionName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            id_portion: subscriptions
+            go_variable_name: subscriptionName
+            python_parameter_name: subscription_name
+            python_variable_name: subscription_name
 
     description: |
       Manage Azure Rule instance.
@@ -288,7 +427,7 @@ objects:
         required: true
         input: true
         sample_value: myRule
-        azure_sdk_references: ['ruleName']
+        azure_sdk_references: ['ruleName', '/name']
       - !ruby/object:Api::Type::NestedObject
         name: 'action'
         description: 'Represents the filter actions which are allowed for the transformation of a message that have been matched by a filter expression.'
@@ -300,7 +439,7 @@ objects:
             description: 'SQL expression. e.g. MyProperty='ABC''
             required: false
             azure_sdk_references: ['/action/sqlExpression', '/properties/action/sqlExpression']
-          - 
+          - !ruby/object:Api::Azure::Type::Integer
             name: 'compatibilityLevel'
             description: 'This property is reserved for future use. An integer value showing the compatibility level, currently hard-coded to 20.'
             required: false
@@ -310,13 +449,14 @@ objects:
             description: 'Value that indicates whether the rule action requires preprocessing.'
             required: false
             azure_sdk_references: ['/action/requiresPreprocessing', '/properties/action/requiresPreprocessing']
-      - !ruby/object:Api::Type::EnumType
+      - !ruby/object:Api::Type::Enum
         name: 'filterType'
         description: 'Filter type that is evaluated against a BrokeredMessage.'
         required: false
         values:
-           - :SqlFilter
-           - :CorrelationFilter
+          - :SqlFilter
+          - :CorrelationFilter
+        default_value: :SqlFilter
         sample_value: CorrelationFilter
         azure_sdk_references: ['/filterType', '/properties/filterType']
       - !ruby/object:Api::Type::NestedObject
@@ -387,3 +527,22 @@ objects:
             description: 'Value that indicates whether the rule action requires preprocessing.'
             required: false
             azure_sdk_references: ['/correlationFilter/requiresPreprocessing', '/properties/correlationFilter/requiresPreprocessing']
+      # read only values included only in response
+      - !ruby/object:Api::Type::String
+        name: 'id'
+        description: 'Resource Id'
+        input: true
+        output: true
+        azure_sdk_references: ['/id']
+      - !ruby/object:Api::Type::String
+        name: 'name'
+        description: 'Resource name'
+        input: true
+        output: true
+        azure_sdk_references: ['/name', '/name']
+      - !ruby/object:Api::Type::String
+        name: 'type'
+        description: 'Resource type'
+        input: true
+        output: true
+        azure_sdk_references: ['/type']

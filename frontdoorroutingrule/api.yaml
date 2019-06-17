@@ -39,11 +39,6 @@ objects:
             go_variable_name: name
             python_parameter_name: routing_rule_name
             python_variable_name: name
-          'routingRuleParameters': 
-            id_portion: null
-            go_variable_name: routingRuleParameters
-            python_parameter_name: routing_rule_parameters
-            python_variable_name: routing_rule_parameters
       delete: !ruby/object:Api::Azure::SDKOperationDefinition
         async: true
         go_func_name: Delete
@@ -84,6 +79,66 @@ objects:
             python_parameter_name: routing_rule_name
             python_variable_name: name
         response:
+          '/id': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            go_field_name: ID
+            python_field_name: id
+          '/properties': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            applicable_to: [go]
+            go_field_name: Properties
+            go_type_name: RoutingRuleProperties
+          '/properties/frontendEndpoints': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexArrayObject
+            applicable_to: [go]
+            go_field_name: FrontendEndpoints
+            go_type_name: SubResource
+          '/properties/frontendEndpoints/id': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: ID
+          '/frontendEndpoints': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexArrayObject
+            applicable_to: [python]
+            python_field_name: frontend_endpoints
+          '/frontendEndpoints/id': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: id
+          '/properties/acceptedProtocols': !ruby/object:Api::Azure::SDKTypeDefinition::EnumObject
+            applicable_to: [go]
+            go_field_name: AcceptedProtocols
+            go_enum_type_name: Protocol
+          '/acceptedProtocols': !ruby/object:Api::Azure::SDKTypeDefinition::EnumObject
+            applicable_to: [python]
+            python_field_name: accepted_protocols
+          '/properties/patternsToMatch': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: PatternsToMatch
+          '/patternsToMatch': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: patterns_to_match
+          '/properties/enabledState': !ruby/object:Api::Azure::SDKTypeDefinition::EnumObject
+            applicable_to: [go]
+            go_field_name: EnabledState
+            go_enum_type_name: routingRuleEnabledState
+          '/enabledState': !ruby/object:Api::Azure::SDKTypeDefinition::EnumObject
+            applicable_to: [python]
+            python_field_name: enabled_state
+          '/properties/routeConfiguration': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            applicable_to: [go]
+            go_field_name: RouteConfiguration
+            go_type_name: RouteConfiguration
+          '/routeConfiguration': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            applicable_to: [python]
+            python_field_name: route_configuration
+          '/properties/resourceState': !ruby/object:Api::Azure::SDKTypeDefinition::EnumObject
+            applicable_to: [go]
+            go_field_name: ResourceState
+            go_enum_type_name: ResourceState
+          '/resourceState': !ruby/object:Api::Azure::SDKTypeDefinition::EnumObject
+            applicable_to: [python]
+            python_field_name: resource_state
+          '/name': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            go_field_name: Name
+            python_field_name: name
+          '/type': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            go_field_name: Type
+            python_field_name: type
       list_by_front_door: !ruby/object:Api::Azure::SDKOperationDefinition
         go_func_name: ListByFrontDoor
         python_func_name: list_by_front_door
@@ -123,11 +178,74 @@ objects:
         input: true
         sample_value: myRoutingRule
         azure_sdk_references: ['routingRuleName', '/name']
-      - 
-        name: 'routingRuleParameters'
-        description: 'Routing Rule properties needed to create a new Front Door.'
-        required: true
+      - !ruby/object:Api::Type::String
+        name: 'id'
+        description: 'Resource ID.'
+        required: false
         input: true
-        sample_value: [object Object]
-        azure_sdk_references: ['routingRuleParameters']
+        azure_sdk_references: ['/id']
+      - !ruby/object:Api::Type::NestedObject
+        name: 'frontendEndpoints'
+        description: 'Frontend endpoints associated with this rule'
+        required: false
+        azure_sdk_references: ['/frontendEndpoints', '/properties/frontendEndpoints']
+        properties:
+          - !ruby/object:Api::Type::String
+            name: 'id'
+            description: 'Resource ID.'
+            required: false
+            azure_sdk_references: ['/frontendEndpoints/id', '/properties/frontendEndpoints/id']
+      - !ruby/object:Api::Type::Enum
+        name: 'acceptedProtocols'
+        description: 'Protocol schemes to match for this rule'
+        required: false
+        values:
+          - :Http
+          - :Https
+        default_value: :Http
+        azure_sdk_references: ['/acceptedProtocols', '/properties/acceptedProtocols']
+      - !ruby/object:Api::Type::String
+        name: 'patternsToMatch'
+        description: 'The route patterns of the rule.'
+        required: false
+        azure_sdk_references: ['/patternsToMatch', '/properties/patternsToMatch']
+      - !ruby/object:Api::Type::Enum
+        name: 'enabledState'
+        description: 'Whether to enable use of this rule. Permitted values are 'Enabled' or 'Disabled''
+        required: false
+        values:
+          - :Enabled
+          - :Disabled
+        default_value: :Enabled
+        azure_sdk_references: ['/enabledState', '/properties/enabledState']
+      - !ruby/object:Api::Type::NestedObject
+        name: 'routeConfiguration'
+        description: 'A reference to the routing configuration.'
+        required: false
+        azure_sdk_references: ['/routeConfiguration', '/properties/routeConfiguration']
+      - !ruby/object:Api::Type::Enum
+        name: 'resourceState'
+        description: 'Resource status.'
+        required: false
+        values:
+          - :Creating
+          - :Enabling
+          - :Enabled
+          - :Disabling
+          - :Disabled
+          - :Deleting
+        default_value: :Creating
+        azure_sdk_references: ['/resourceState', '/properties/resourceState']
+      - !ruby/object:Api::Type::String
+        name: 'name'
+        description: 'Resource name.'
+        required: false
+        input: true
+        azure_sdk_references: ['/name', '/name']
       # read only values included only in response
+      - !ruby/object:Api::Type::String
+        name: 'type'
+        description: 'Resource type.'
+        input: true
+        output: true
+        azure_sdk_references: ['/type']

@@ -35,11 +35,11 @@ objects:
             python_variable_name: name
           'cacheId': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             id_portion: caches
-            go_variable_name: CacheID
+            go_variable_name: cacheID
             python_parameter_name: cache_id
             python_variable_name: cache_id
           '/': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
-            go_variable_name: Parameters
+            go_variable_name: parameters
             go_type_name: CacheContract
             python_parameter_name: parameters
             python_variable_name: parameters
@@ -65,16 +65,6 @@ objects:
           '/properties/resourceId': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             applicable_to: [go]
             go_field_name: ResourceID
-        response:
-          '/id': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
-            go_field_name: ID
-            python_field_name: id
-          '/name': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
-            go_field_name: Name
-            python_field_name: name
-          '/type': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
-            go_field_name: Type
-            python_field_name: type
       update: !ruby/object:Api::Azure::SDKOperationDefinition
         go_func_name: Update
         python_func_name: update
@@ -91,11 +81,11 @@ objects:
             python_variable_name: name
           'cacheId': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             id_portion: caches
-            go_variable_name: CacheID
+            go_variable_name: cacheID
             python_parameter_name: cache_id
             python_variable_name: cache_id
           '/': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
-            go_variable_name: Parameters
+            go_variable_name: parameters
             go_type_name: CacheContract
             python_parameter_name: parameters
             python_variable_name: parameters
@@ -121,16 +111,6 @@ objects:
           '/properties/resourceId': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             applicable_to: [go]
             go_field_name: ResourceID
-        response:
-          '/id': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
-            go_field_name: ID
-            python_field_name: id
-          '/name': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
-            go_field_name: Name
-            python_field_name: name
-          '/type': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
-            go_field_name: Type
-            python_field_name: type
       delete: !ruby/object:Api::Azure::SDKOperationDefinition
         go_func_name: Delete
         python_func_name: delete
@@ -147,7 +127,7 @@ objects:
             python_variable_name: name
           'cacheId': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             id_portion: caches
-            go_variable_name: CacheID
+            go_variable_name: cacheID
             python_parameter_name: cache_id
             python_variable_name: cache_id
       read: !ruby/object:Api::Azure::SDKOperationDefinition
@@ -166,10 +146,32 @@ objects:
             python_variable_name: name
           'cacheId': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             id_portion: caches
-            go_variable_name: CacheID
+            go_variable_name: cacheID
             python_parameter_name: cache_id
             python_variable_name: cache_id
         response:
+          '/properties': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            applicable_to: [go]
+            go_field_name: Properties
+            go_type_name: CacheContractProperties
+          '/properties/description': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: Description
+          '/description': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: description
+          '/properties/connectionString': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: ConnectionString
+          '/connectionString': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: connection_string
+          '/properties/resourceId': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: ResourceID
+          '/resourceId': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: resource_id
           '/id': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             go_field_name: ID
             python_field_name: id
@@ -179,6 +181,20 @@ objects:
           '/type': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             go_field_name: Type
             python_field_name: type
+      list_by_service: !ruby/object:Api::Azure::SDKOperationDefinition
+        go_func_name: ListByService
+        python_func_name: list_by_service
+        request:
+          'resourceGroupName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            id_portion: resourceGroups
+            go_variable_name: resourceGroup
+            python_parameter_name: resource_group_name
+            python_variable_name: resource_group
+          'serviceName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            id_portion: service
+            go_variable_name: name
+            python_parameter_name: service_name
+            python_variable_name: name
 
     description: |
       Manage Azure Cache instance.
@@ -196,7 +212,7 @@ objects:
         required: true
         input: true
         sample_value: myService
-        azure_sdk_references: ['serviceName']
+        azure_sdk_references: ['serviceName', '/name']
       - !ruby/object:Api::Type::String
         name: 'cacheId'
         description: 'Identifier of the Cache entity. Cache identifier (should be either 'default' or valid Azure region identifier).'
@@ -216,9 +232,28 @@ objects:
         required: true
         sample_value: contoso5.redis.cache.windows.net,ssl=true,password=...
         azure_sdk_references: ['/connectionString', '/properties/connectionString']
-      - !ruby/object:Api::Type::ResourceReference
+      - !ruby/object:Api::Azure::Type::ResourceReference
         name: 'resourceId'
         description: 'Original uri of entity in external system cache points to'
         required: false
         sample_value: /subscriptions/{{ subscription_id }}/resourceGroups/{{ resource_group }}/providers/Microsoft.Cache/Redis/{{ name }}
         azure_sdk_references: ['/resourceId', '/properties/resourceId']
+      # read only values included only in response
+      - !ruby/object:Api::Type::String
+        name: 'id'
+        description: 'Resource ID.'
+        input: true
+        output: true
+        azure_sdk_references: ['/id']
+      - !ruby/object:Api::Type::String
+        name: 'name'
+        description: 'Resource name.'
+        input: true
+        output: true
+        azure_sdk_references: ['/name', '/name']
+      - !ruby/object:Api::Type::String
+        name: 'type'
+        description: 'Resource type for API Management resource.'
+        input: true
+        output: true
+        azure_sdk_references: ['/type']
