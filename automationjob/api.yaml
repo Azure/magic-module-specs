@@ -30,7 +30,7 @@ objects:
             python_variable_name: resource_group
           'automationAccountName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             id_portion: automationAccounts
-            go_variable_name: AutomationAccountName
+            go_variable_name: automationAccountName
             python_parameter_name: automation_account_name
             python_variable_name: automation_account_name
           'jobName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
@@ -38,24 +38,17 @@ objects:
             go_variable_name: name
             python_parameter_name: job_name
             python_variable_name: name
-          '/properties/parameters': 
+          '/properties/parameters': !ruby/object:Api::Azure::SDKTypeDefinition::StringMapObject
+            applicable_to: [go]
             go_field_name: Parameters
+          '/parameters': !ruby/object:Api::Azure::SDKTypeDefinition::StringMapObject
+            applicable_to: [python]
             python_field_name: parameters
           'clientRequestId': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             id_portion: null
-            go_variable_name: ClientRequestID
+            go_variable_name: clientRequestID
             python_parameter_name: client_request_id
             python_variable_name: client_request_id
-        response:
-          '/id': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
-            go_field_name: ID
-            python_field_name: id
-          '/name': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
-            go_field_name: Name
-            python_field_name: name
-          '/type': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
-            go_field_name: Type
-            python_field_name: type
       read: !ruby/object:Api::Azure::SDKOperationDefinition
         go_func_name: Get
         python_func_name: get
@@ -67,7 +60,7 @@ objects:
             python_variable_name: resource_group
           'automationAccountName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             id_portion: automationAccounts
-            go_variable_name: AutomationAccountName
+            go_variable_name: automationAccountName
             python_parameter_name: automation_account_name
             python_variable_name: automation_account_name
           'jobName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
@@ -77,10 +70,107 @@ objects:
             python_variable_name: name
           'clientRequestId': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             id_portion: null
-            go_variable_name: ClientRequestID
+            go_variable_name: clientRequestID
             python_parameter_name: client_request_id
             python_variable_name: client_request_id
         response:
+          '/properties': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            applicable_to: [go]
+            go_field_name: Properties
+            go_type_name: JobCreateProperties
+          '/properties/runbook': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            applicable_to: [go]
+            go_field_name: Runbook
+            go_type_name: RunbookAssociationProperty
+          '/properties/runbook/name': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: Name
+          '/runbook': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            applicable_to: [python]
+            python_field_name: runbook
+          '/runbook/name': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: name
+          '/properties/parameters': !ruby/object:Api::Azure::SDKTypeDefinition::StringMapObject
+            applicable_to: [go]
+            go_field_name: Parameters
+          '/parameters': !ruby/object:Api::Azure::SDKTypeDefinition::StringMapObject
+            applicable_to: [python]
+            python_field_name: parameters
+          '/properties/runOn': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: RunOn
+          '/runOn': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: run_on
+          '/properties/startedBy': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: StartedBy
+          '/startedBy': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: started_by
+          '/properties/jobId': !ruby/object:Api::Azure::SDKTypeDefinition::[unknown-primary[uuid]]
+            applicable_to: [go]
+            go_field_name: JobID
+          '/jobId': !ruby/object:Api::Azure::SDKTypeDefinition::[unknown-primary[uuid]]
+            applicable_to: [python]
+            python_field_name: job_id
+          '/properties/creationTime': !ruby/object:Api::Azure::SDKTypeDefinition::ISO8601DateTimeObject
+            applicable_to: [go]
+            go_field_name: CreationTime
+          '/creationTime': !ruby/object:Api::Azure::SDKTypeDefinition::ISO8601DateTimeObject
+            applicable_to: [python]
+            python_field_name: creation_time
+          '/properties/status': !ruby/object:Api::Azure::SDKTypeDefinition::EnumObject
+            applicable_to: [go]
+            go_field_name: Status
+            go_enum_type_name: JobStatus
+          '/status': !ruby/object:Api::Azure::SDKTypeDefinition::EnumObject
+            applicable_to: [python]
+            python_field_name: status
+          '/properties/statusDetails': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: StatusDetails
+          '/statusDetails': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: status_details
+          '/properties/startTime': !ruby/object:Api::Azure::SDKTypeDefinition::ISO8601DateTimeObject
+            applicable_to: [go]
+            go_field_name: StartTime
+          '/startTime': !ruby/object:Api::Azure::SDKTypeDefinition::ISO8601DateTimeObject
+            applicable_to: [python]
+            python_field_name: start_time
+          '/properties/endTime': !ruby/object:Api::Azure::SDKTypeDefinition::ISO8601DateTimeObject
+            applicable_to: [go]
+            go_field_name: EndTime
+          '/endTime': !ruby/object:Api::Azure::SDKTypeDefinition::ISO8601DateTimeObject
+            applicable_to: [python]
+            python_field_name: end_time
+          '/properties/exception': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: Exception
+          '/exception': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: exception
+          '/properties/lastModifiedTime': !ruby/object:Api::Azure::SDKTypeDefinition::ISO8601DateTimeObject
+            applicable_to: [go]
+            go_field_name: LastModifiedTime
+          '/lastModifiedTime': !ruby/object:Api::Azure::SDKTypeDefinition::ISO8601DateTimeObject
+            applicable_to: [python]
+            python_field_name: last_modified_time
+          '/properties/lastStatusModifiedTime': !ruby/object:Api::Azure::SDKTypeDefinition::ISO8601DateTimeObject
+            applicable_to: [go]
+            go_field_name: LastStatusModifiedTime
+          '/lastStatusModifiedTime': !ruby/object:Api::Azure::SDKTypeDefinition::ISO8601DateTimeObject
+            applicable_to: [python]
+            python_field_name: last_status_modified_time
+          '/properties/provisioningState': !ruby/object:Api::Azure::SDKTypeDefinition::EnumObject
+            applicable_to: [go]
+            go_field_name: ProvisioningState
+            go_enum_type_name: JobProvisioningState
+          '/provisioningState': !ruby/object:Api::Azure::SDKTypeDefinition::EnumObject
+            applicable_to: [python]
+            python_field_name: provisioning_state
           '/id': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             go_field_name: ID
             python_field_name: id
@@ -90,6 +180,25 @@ objects:
           '/type': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             go_field_name: Type
             python_field_name: type
+      list_by_automation_account: !ruby/object:Api::Azure::SDKOperationDefinition
+        go_func_name: ListByAutomationAccount
+        python_func_name: list_by_automation_account
+        request:
+          'resourceGroupName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            id_portion: resourceGroups
+            go_variable_name: resourceGroup
+            python_parameter_name: resource_group_name
+            python_variable_name: resource_group
+          'automationAccountName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            id_portion: automationAccounts
+            go_variable_name: automationAccountName
+            python_parameter_name: automation_account_name
+            python_variable_name: automation_account_name
+          'clientRequestId': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            id_portion: null
+            go_variable_name: clientRequestID
+            python_parameter_name: client_request_id
+            python_variable_name: client_request_id
 
     description: |
       Manage Azure Job instance.
@@ -114,7 +223,7 @@ objects:
         required: true
         input: true
         sample_value: myJob
-        azure_sdk_references: ['jobName']
+        azure_sdk_references: ['jobName', '/name']
       - !ruby/object:Api::Type::NestedObject
         name: 'runbook'
         description: 'Gets or sets the runbook.'
@@ -126,8 +235,8 @@ objects:
             description: 'Gets or sets the name of the runbook.'
             required: false
             sample_value: TestRunbook
-            azure_sdk_references: ['/runbook/name', '/properties/runbook/name']
-      - 
+            azure_sdk_references: ['/runbook/name', '/properties/runbook/name', '/name']
+      - !ruby/object:Api::Type::KeyValuePairs
         name: 'parameters'
         description: 'Gets or sets the parameters of the job.'
         required: false
@@ -143,3 +252,98 @@ objects:
         required: false
         input: true
         azure_sdk_references: ['clientRequestId']
+      # read only values included only in response
+      - !ruby/object:Api::Type::String
+        name: 'startedBy'
+        description: 'Gets or sets the job started by.'
+        output: true
+        azure_sdk_references: ['/startedBy', '/properties/startedBy']
+      - !ruby/object:Api::Azure::Type::[unknown-primary[uuid]]
+        name: 'jobId'
+        description: 'Gets or sets the id of the job.'
+        output: true
+        azure_sdk_references: ['/jobId', '/properties/jobId']
+      - !ruby/object:Api::Azure::Type::ISO8601DateTime
+        name: 'creationTime'
+        description: 'Gets or sets the creation time of the job.'
+        output: true
+        azure_sdk_references: ['/creationTime', '/properties/creationTime']
+      - !ruby/object:Api::Type::Enum
+        name: 'status'
+        description: 'Gets or sets the status of the job.'
+        output: true
+        values:
+          - :New
+          - :Activating
+          - :Running
+          - :Completed
+          - :Failed
+          - :Stopped
+          - :Blocked
+          - :Suspended
+          - :Disconnected
+          - :Suspending
+          - :Stopping
+          - :Resuming
+          - :Removing
+        default_value: :New
+        azure_sdk_references: ['/status', '/properties/status']
+      - !ruby/object:Api::Type::String
+        name: 'statusDetails'
+        description: 'Gets or sets the status details of the job.'
+        output: true
+        azure_sdk_references: ['/statusDetails', '/properties/statusDetails']
+      - !ruby/object:Api::Azure::Type::ISO8601DateTime
+        name: 'startTime'
+        description: 'Gets or sets the start time of the job.'
+        output: true
+        azure_sdk_references: ['/startTime', '/properties/startTime']
+      - !ruby/object:Api::Azure::Type::ISO8601DateTime
+        name: 'endTime'
+        description: 'Gets or sets the end time of the job.'
+        output: true
+        azure_sdk_references: ['/endTime', '/properties/endTime']
+      - !ruby/object:Api::Type::String
+        name: 'exception'
+        description: 'Gets or sets the exception of the job.'
+        output: true
+        azure_sdk_references: ['/exception', '/properties/exception']
+      - !ruby/object:Api::Azure::Type::ISO8601DateTime
+        name: 'lastModifiedTime'
+        description: 'Gets or sets the last modified time of the job.'
+        output: true
+        azure_sdk_references: ['/lastModifiedTime', '/properties/lastModifiedTime']
+      - !ruby/object:Api::Azure::Type::ISO8601DateTime
+        name: 'lastStatusModifiedTime'
+        description: 'Gets or sets the last status modified time of the job.'
+        output: true
+        azure_sdk_references: ['/lastStatusModifiedTime', '/properties/lastStatusModifiedTime']
+      - !ruby/object:Api::Type::Enum
+        name: 'provisioningState'
+        description: 'The current provisioning state of the job.'
+        output: true
+        values:
+          - :Failed
+          - :Succeeded
+          - :Suspended
+          - :Processing
+        default_value: :Failed
+        azure_sdk_references: ['/provisioningState', '/properties/provisioningState']
+      - !ruby/object:Api::Type::String
+        name: 'id'
+        description: 'Fully qualified resource Id for the resource'
+        input: true
+        output: true
+        azure_sdk_references: ['/id']
+      - !ruby/object:Api::Type::String
+        name: 'name'
+        description: 'The name of the resource'
+        input: true
+        output: true
+        azure_sdk_references: ['/name', '/name']
+      - !ruby/object:Api::Type::String
+        name: 'type'
+        description: 'The type of the resource.'
+        input: true
+        output: true
+        azure_sdk_references: ['/type']

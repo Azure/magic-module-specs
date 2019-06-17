@@ -35,11 +35,11 @@ objects:
             python_variable_name: name
           'alias': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             id_portion: disasterRecoveryConfigs
-            go_variable_name: Alias
+            go_variable_name: alias
             python_parameter_name: alias
             python_variable_name: alias
           '/': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
-            go_variable_name: Parameters
+            go_variable_name: parameters
             go_type_name: ArmDisasterRecovery
             python_parameter_name: parameters
             python_variable_name: parameters
@@ -59,16 +59,6 @@ objects:
           '/properties/alternateName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             applicable_to: [go]
             go_field_name: AlternateName
-        response:
-          '/id': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
-            go_field_name: ID
-            python_field_name: id
-          '/name': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
-            go_field_name: Name
-            python_field_name: name
-          '/type': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
-            go_field_name: Type
-            python_field_name: type
       delete: !ruby/object:Api::Azure::SDKOperationDefinition
         go_func_name: Delete
         python_func_name: delete
@@ -85,7 +75,7 @@ objects:
             python_variable_name: name
           'alias': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             id_portion: disasterRecoveryConfigs
-            go_variable_name: Alias
+            go_variable_name: alias
             python_parameter_name: alias
             python_variable_name: alias
       read: !ruby/object:Api::Azure::SDKOperationDefinition
@@ -104,10 +94,46 @@ objects:
             python_variable_name: name
           'alias': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             id_portion: disasterRecoveryConfigs
-            go_variable_name: Alias
+            go_variable_name: alias
             python_parameter_name: alias
             python_variable_name: alias
         response:
+          '/properties': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            applicable_to: [go]
+            go_field_name: Properties
+            go_type_name: ArmDisasterRecovery_properties
+          '/properties/partnerNamespace': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: PartnerNamespace
+          '/partnerNamespace': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: partner_namespace
+          '/properties/alternateName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: AlternateName
+          '/alternateName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: alternate_name
+          '/properties/provisioningState': !ruby/object:Api::Azure::SDKTypeDefinition::EnumObject
+            applicable_to: [go]
+            go_field_name: ProvisioningState
+            go_enum_type_name: ProvisioningStateDR
+          '/provisioningState': !ruby/object:Api::Azure::SDKTypeDefinition::EnumObject
+            applicable_to: [python]
+            python_field_name: provisioning_state
+          '/properties/pendingReplicationOperationsCount': !ruby/object:Api::Azure::SDKTypeDefinition::IntegerObject
+            applicable_to: [go]
+            go_field_name: PendingReplicationOperationsCount
+          '/pendingReplicationOperationsCount': !ruby/object:Api::Azure::SDKTypeDefinition::IntegerObject
+            applicable_to: [python]
+            python_field_name: pending_replication_operations_count
+          '/properties/role': !ruby/object:Api::Azure::SDKTypeDefinition::EnumObject
+            applicable_to: [go]
+            go_field_name: Role
+            go_enum_type_name: RoleDisasterRecovery
+          '/role': !ruby/object:Api::Azure::SDKTypeDefinition::EnumObject
+            applicable_to: [python]
+            python_field_name: role
           '/id': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             go_field_name: ID
             python_field_name: id
@@ -117,6 +143,39 @@ objects:
           '/type': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             go_field_name: Type
             python_field_name: type
+      list: !ruby/object:Api::Azure::SDKOperationDefinition
+        go_func_name: List
+        python_func_name: list
+        request:
+          'resourceGroupName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            id_portion: resourceGroups
+            go_variable_name: resourceGroup
+            python_parameter_name: resource_group_name
+            python_variable_name: resource_group
+          'namespaceName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            id_portion: namespaces
+            go_variable_name: name
+            python_parameter_name: namespace_name
+            python_variable_name: name
+      list_authorization_rules: !ruby/object:Api::Azure::SDKOperationDefinition
+        go_func_name: ListAuthorizationRules
+        python_func_name: list_authorization_rules
+        request:
+          'resourceGroupName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            id_portion: resourceGroups
+            go_variable_name: resourceGroup
+            python_parameter_name: resource_group_name
+            python_variable_name: resource_group
+          'namespaceName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            id_portion: namespaces
+            go_variable_name: name
+            python_parameter_name: namespace_name
+            python_variable_name: name
+          'alias': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            id_portion: disasterRecoveryConfigs
+            go_variable_name: alias
+            python_parameter_name: alias
+            python_variable_name: alias
 
     description: |
       Manage Azure DisasterRecoveryConfig instance.
@@ -134,7 +193,7 @@ objects:
         required: true
         input: true
         sample_value: my
-        azure_sdk_references: ['namespaceName']
+        azure_sdk_references: ['namespaceName', '/name']
       - !ruby/object:Api::Type::String
         name: 'alias'
         description: 'The Disaster Recovery configuration name'
@@ -154,3 +213,47 @@ objects:
         required: false
         sample_value: alternameforAlias-Namespace-8860
         azure_sdk_references: ['/alternateName', '/properties/alternateName']
+      # read only values included only in response
+      - !ruby/object:Api::Type::Enum
+        name: 'provisioningState'
+        description: 'Provisioning state of the Alias(Disaster Recovery configuration) - possible values 'Accepted' or 'Succeeded' or 'Failed''
+        output: true
+        values:
+          - :Accepted
+          - :Succeeded
+          - :Failed
+        default_value: :Accepted
+        azure_sdk_references: ['/provisioningState', '/properties/provisioningState']
+      - !ruby/object:Api::Azure::Type::Integer
+        name: 'pendingReplicationOperationsCount'
+        description: 'Number of entities pending to be replicated.'
+        output: true
+        azure_sdk_references: ['/pendingReplicationOperationsCount', '/properties/pendingReplicationOperationsCount']
+      - !ruby/object:Api::Type::Enum
+        name: 'role'
+        description: 'role of namespace in GEO DR - possible values 'Primary' or 'PrimaryNotReplicating' or 'Secondary''
+        output: true
+        values:
+          - :Primary
+          - :PrimaryNotReplicating
+          - :Secondary
+        default_value: :Primary
+        azure_sdk_references: ['/role', '/properties/role']
+      - !ruby/object:Api::Type::String
+        name: 'id'
+        description: 'Resource Id'
+        input: true
+        output: true
+        azure_sdk_references: ['/id']
+      - !ruby/object:Api::Type::String
+        name: 'name'
+        description: 'Resource name'
+        input: true
+        output: true
+        azure_sdk_references: ['/name', '/name']
+      - !ruby/object:Api::Type::String
+        name: 'type'
+        description: 'Resource type'
+        input: true
+        output: true
+        azure_sdk_references: ['/type']

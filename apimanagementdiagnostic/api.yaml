@@ -35,11 +35,11 @@ objects:
             python_variable_name: name
           'diagnosticId': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             id_portion: diagnostics
-            go_variable_name: DiagnosticID
+            go_variable_name: diagnosticID
             python_parameter_name: diagnostic_id
             python_variable_name: diagnostic_id
           '/': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
-            go_variable_name: Parameters
+            go_variable_name: parameters
             go_type_name: DiagnosticContract
             python_parameter_name: parameters
             python_variable_name: parameters
@@ -66,7 +66,7 @@ objects:
           '/sampling/samplingType': !ruby/object:Api::Azure::SDKTypeDefinition::EnumObject
             applicable_to: [python]
             python_field_name: sampling_type
-          '/sampling/percentage': 
+          '/sampling/percentage': !ruby/object:Api::Azure::SDKTypeDefinition::IntegerObject
             applicable_to: [python]
             python_field_name: percentage
           '/properties/sampling': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
@@ -77,7 +77,7 @@ objects:
             applicable_to: [go]
             go_field_name: SamplingType
             go_enum_type_name: SamplingType
-          '/properties/sampling/percentage': 
+          '/properties/sampling/percentage': !ruby/object:Api::Azure::SDKTypeDefinition::IntegerObject
             applicable_to: [go]
             go_field_name: Percentage
           '/frontend': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
@@ -92,7 +92,7 @@ objects:
           '/frontend/request/body': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
             applicable_to: [python]
             python_field_name: body
-          '/frontend/request/body/bytes': 
+          '/frontend/request/body/bytes': !ruby/object:Api::Azure::SDKTypeDefinition::IntegerObject
             applicable_to: [python]
             python_field_name: bytes
           '/frontend/response': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
@@ -104,7 +104,7 @@ objects:
           '/frontend/response/body': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
             applicable_to: [python]
             python_field_name: body
-          '/frontend/response/body/bytes': 
+          '/frontend/response/body/bytes': !ruby/object:Api::Azure::SDKTypeDefinition::IntegerObject
             applicable_to: [python]
             python_field_name: bytes
           '/properties/frontend': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
@@ -122,7 +122,7 @@ objects:
             applicable_to: [go]
             go_field_name: Body
             go_type_name: BodyDiagnosticSettings
-          '/properties/frontend/request/body/bytes': 
+          '/properties/frontend/request/body/bytes': !ruby/object:Api::Azure::SDKTypeDefinition::IntegerObject
             applicable_to: [go]
             go_field_name: Bytes
           '/properties/frontend/response': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
@@ -136,7 +136,7 @@ objects:
             applicable_to: [go]
             go_field_name: Body
             go_type_name: BodyDiagnosticSettings
-          '/properties/frontend/response/body/bytes': 
+          '/properties/frontend/response/body/bytes': !ruby/object:Api::Azure::SDKTypeDefinition::IntegerObject
             applicable_to: [go]
             go_field_name: Bytes
           '/backend': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
@@ -151,7 +151,7 @@ objects:
           '/backend/request/body': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
             applicable_to: [python]
             python_field_name: body
-          '/backend/request/body/bytes': 
+          '/backend/request/body/bytes': !ruby/object:Api::Azure::SDKTypeDefinition::IntegerObject
             applicable_to: [python]
             python_field_name: bytes
           '/backend/response': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
@@ -163,7 +163,7 @@ objects:
           '/backend/response/body': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
             applicable_to: [python]
             python_field_name: body
-          '/backend/response/body/bytes': 
+          '/backend/response/body/bytes': !ruby/object:Api::Azure::SDKTypeDefinition::IntegerObject
             applicable_to: [python]
             python_field_name: bytes
           '/properties/backend': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
@@ -181,7 +181,7 @@ objects:
             applicable_to: [go]
             go_field_name: Body
             go_type_name: BodyDiagnosticSettings
-          '/properties/backend/request/body/bytes': 
+          '/properties/backend/request/body/bytes': !ruby/object:Api::Azure::SDKTypeDefinition::IntegerObject
             applicable_to: [go]
             go_field_name: Bytes
           '/properties/backend/response': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
@@ -195,7 +195,7 @@ objects:
             applicable_to: [go]
             go_field_name: Body
             go_type_name: BodyDiagnosticSettings
-          '/properties/backend/response/body/bytes': 
+          '/properties/backend/response/body/bytes': !ruby/object:Api::Azure::SDKTypeDefinition::IntegerObject
             applicable_to: [go]
             go_field_name: Bytes
           '/enableHttpCorrelationHeaders': !ruby/object:Api::Azure::SDKTypeDefinition::BooleanObject
@@ -204,16 +204,6 @@ objects:
           '/properties/enableHttpCorrelationHeaders': !ruby/object:Api::Azure::SDKTypeDefinition::BooleanObject
             applicable_to: [go]
             go_field_name: EnableHttpCorrelationHeaders
-        response:
-          '/id': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
-            go_field_name: ID
-            python_field_name: id
-          '/name': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
-            go_field_name: Name
-            python_field_name: name
-          '/type': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
-            go_field_name: Type
-            python_field_name: type
       update: !ruby/object:Api::Azure::SDKOperationDefinition
         go_func_name: Update
         python_func_name: update
@@ -230,11 +220,11 @@ objects:
             python_variable_name: name
           'diagnosticId': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             id_portion: diagnostics
-            go_variable_name: DiagnosticID
+            go_variable_name: diagnosticID
             python_parameter_name: diagnostic_id
             python_variable_name: diagnostic_id
           '/': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
-            go_variable_name: Parameters
+            go_variable_name: parameters
             go_type_name: DiagnosticContract
             python_parameter_name: parameters
             python_variable_name: parameters
@@ -261,7 +251,7 @@ objects:
           '/sampling/samplingType': !ruby/object:Api::Azure::SDKTypeDefinition::EnumObject
             applicable_to: [python]
             python_field_name: sampling_type
-          '/sampling/percentage': 
+          '/sampling/percentage': !ruby/object:Api::Azure::SDKTypeDefinition::IntegerObject
             applicable_to: [python]
             python_field_name: percentage
           '/properties/sampling': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
@@ -272,7 +262,7 @@ objects:
             applicable_to: [go]
             go_field_name: SamplingType
             go_enum_type_name: SamplingType
-          '/properties/sampling/percentage': 
+          '/properties/sampling/percentage': !ruby/object:Api::Azure::SDKTypeDefinition::IntegerObject
             applicable_to: [go]
             go_field_name: Percentage
           '/frontend': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
@@ -287,7 +277,7 @@ objects:
           '/frontend/request/body': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
             applicable_to: [python]
             python_field_name: body
-          '/frontend/request/body/bytes': 
+          '/frontend/request/body/bytes': !ruby/object:Api::Azure::SDKTypeDefinition::IntegerObject
             applicable_to: [python]
             python_field_name: bytes
           '/frontend/response': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
@@ -299,7 +289,7 @@ objects:
           '/frontend/response/body': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
             applicable_to: [python]
             python_field_name: body
-          '/frontend/response/body/bytes': 
+          '/frontend/response/body/bytes': !ruby/object:Api::Azure::SDKTypeDefinition::IntegerObject
             applicable_to: [python]
             python_field_name: bytes
           '/properties/frontend': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
@@ -317,7 +307,7 @@ objects:
             applicable_to: [go]
             go_field_name: Body
             go_type_name: BodyDiagnosticSettings
-          '/properties/frontend/request/body/bytes': 
+          '/properties/frontend/request/body/bytes': !ruby/object:Api::Azure::SDKTypeDefinition::IntegerObject
             applicable_to: [go]
             go_field_name: Bytes
           '/properties/frontend/response': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
@@ -331,7 +321,7 @@ objects:
             applicable_to: [go]
             go_field_name: Body
             go_type_name: BodyDiagnosticSettings
-          '/properties/frontend/response/body/bytes': 
+          '/properties/frontend/response/body/bytes': !ruby/object:Api::Azure::SDKTypeDefinition::IntegerObject
             applicable_to: [go]
             go_field_name: Bytes
           '/backend': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
@@ -346,7 +336,7 @@ objects:
           '/backend/request/body': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
             applicable_to: [python]
             python_field_name: body
-          '/backend/request/body/bytes': 
+          '/backend/request/body/bytes': !ruby/object:Api::Azure::SDKTypeDefinition::IntegerObject
             applicable_to: [python]
             python_field_name: bytes
           '/backend/response': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
@@ -358,7 +348,7 @@ objects:
           '/backend/response/body': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
             applicable_to: [python]
             python_field_name: body
-          '/backend/response/body/bytes': 
+          '/backend/response/body/bytes': !ruby/object:Api::Azure::SDKTypeDefinition::IntegerObject
             applicable_to: [python]
             python_field_name: bytes
           '/properties/backend': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
@@ -376,7 +366,7 @@ objects:
             applicable_to: [go]
             go_field_name: Body
             go_type_name: BodyDiagnosticSettings
-          '/properties/backend/request/body/bytes': 
+          '/properties/backend/request/body/bytes': !ruby/object:Api::Azure::SDKTypeDefinition::IntegerObject
             applicable_to: [go]
             go_field_name: Bytes
           '/properties/backend/response': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
@@ -390,7 +380,7 @@ objects:
             applicable_to: [go]
             go_field_name: Body
             go_type_name: BodyDiagnosticSettings
-          '/properties/backend/response/body/bytes': 
+          '/properties/backend/response/body/bytes': !ruby/object:Api::Azure::SDKTypeDefinition::IntegerObject
             applicable_to: [go]
             go_field_name: Bytes
           '/enableHttpCorrelationHeaders': !ruby/object:Api::Azure::SDKTypeDefinition::BooleanObject
@@ -399,16 +389,6 @@ objects:
           '/properties/enableHttpCorrelationHeaders': !ruby/object:Api::Azure::SDKTypeDefinition::BooleanObject
             applicable_to: [go]
             go_field_name: EnableHttpCorrelationHeaders
-        response:
-          '/id': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
-            go_field_name: ID
-            python_field_name: id
-          '/name': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
-            go_field_name: Name
-            python_field_name: name
-          '/type': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
-            go_field_name: Type
-            python_field_name: type
       delete: !ruby/object:Api::Azure::SDKOperationDefinition
         go_func_name: Delete
         python_func_name: delete
@@ -425,7 +405,7 @@ objects:
             python_variable_name: name
           'diagnosticId': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             id_portion: diagnostics
-            go_variable_name: DiagnosticID
+            go_variable_name: diagnosticID
             python_parameter_name: diagnostic_id
             python_variable_name: diagnostic_id
       read: !ruby/object:Api::Azure::SDKOperationDefinition
@@ -444,10 +424,171 @@ objects:
             python_variable_name: name
           'diagnosticId': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             id_portion: diagnostics
-            go_variable_name: DiagnosticID
+            go_variable_name: diagnosticID
             python_parameter_name: diagnostic_id
             python_variable_name: diagnostic_id
         response:
+          '/properties': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            applicable_to: [go]
+            go_field_name: Properties
+            go_type_name: DiagnosticContractProperties
+          '/properties/alwaysLog': !ruby/object:Api::Azure::SDKTypeDefinition::EnumObject
+            applicable_to: [go]
+            go_field_name: AlwaysLog
+            go_enum_type_name: AlwaysLog
+          '/alwaysLog': !ruby/object:Api::Azure::SDKTypeDefinition::EnumObject
+            applicable_to: [python]
+            python_field_name: always_log
+          '/properties/loggerId': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: LoggerID
+          '/loggerId': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: logger_id
+          '/properties/sampling': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            applicable_to: [go]
+            go_field_name: Sampling
+            go_type_name: SamplingSettings
+          '/properties/sampling/samplingType': !ruby/object:Api::Azure::SDKTypeDefinition::EnumObject
+            applicable_to: [go]
+            go_field_name: SamplingType
+            go_enum_type_name: SamplingType
+          '/properties/sampling/percentage': !ruby/object:Api::Azure::SDKTypeDefinition::IntegerObject
+            applicable_to: [go]
+            go_field_name: Percentage
+          '/sampling': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            applicable_to: [python]
+            python_field_name: sampling
+          '/sampling/samplingType': !ruby/object:Api::Azure::SDKTypeDefinition::EnumObject
+            applicable_to: [python]
+            python_field_name: sampling_type
+          '/sampling/percentage': !ruby/object:Api::Azure::SDKTypeDefinition::IntegerObject
+            applicable_to: [python]
+            python_field_name: percentage
+          '/properties/frontend': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            applicable_to: [go]
+            go_field_name: Frontend
+            go_type_name: PipelineDiagnosticSettings
+          '/properties/frontend/request': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            applicable_to: [go]
+            go_field_name: Request
+            go_type_name: HttpMessageDiagnostic
+          '/properties/frontend/request/headers': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: Headers
+          '/properties/frontend/request/body': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            applicable_to: [go]
+            go_field_name: Body
+            go_type_name: BodyDiagnosticSettings
+          '/properties/frontend/request/body/bytes': !ruby/object:Api::Azure::SDKTypeDefinition::IntegerObject
+            applicable_to: [go]
+            go_field_name: Bytes
+          '/properties/frontend/response': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            applicable_to: [go]
+            go_field_name: Response
+            go_type_name: HttpMessageDiagnostic
+          '/properties/frontend/response/headers': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: Headers
+          '/properties/frontend/response/body': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            applicable_to: [go]
+            go_field_name: Body
+            go_type_name: BodyDiagnosticSettings
+          '/properties/frontend/response/body/bytes': !ruby/object:Api::Azure::SDKTypeDefinition::IntegerObject
+            applicable_to: [go]
+            go_field_name: Bytes
+          '/frontend': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            applicable_to: [python]
+            python_field_name: frontend
+          '/frontend/request': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            applicable_to: [python]
+            python_field_name: request
+          '/frontend/request/headers': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: headers
+          '/frontend/request/body': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            applicable_to: [python]
+            python_field_name: body
+          '/frontend/request/body/bytes': !ruby/object:Api::Azure::SDKTypeDefinition::IntegerObject
+            applicable_to: [python]
+            python_field_name: bytes
+          '/frontend/response': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            applicable_to: [python]
+            python_field_name: response
+          '/frontend/response/headers': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: headers
+          '/frontend/response/body': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            applicable_to: [python]
+            python_field_name: body
+          '/frontend/response/body/bytes': !ruby/object:Api::Azure::SDKTypeDefinition::IntegerObject
+            applicable_to: [python]
+            python_field_name: bytes
+          '/properties/backend': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            applicable_to: [go]
+            go_field_name: Backend
+            go_type_name: PipelineDiagnosticSettings
+          '/properties/backend/request': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            applicable_to: [go]
+            go_field_name: Request
+            go_type_name: HttpMessageDiagnostic
+          '/properties/backend/request/headers': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: Headers
+          '/properties/backend/request/body': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            applicable_to: [go]
+            go_field_name: Body
+            go_type_name: BodyDiagnosticSettings
+          '/properties/backend/request/body/bytes': !ruby/object:Api::Azure::SDKTypeDefinition::IntegerObject
+            applicable_to: [go]
+            go_field_name: Bytes
+          '/properties/backend/response': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            applicable_to: [go]
+            go_field_name: Response
+            go_type_name: HttpMessageDiagnostic
+          '/properties/backend/response/headers': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: Headers
+          '/properties/backend/response/body': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            applicable_to: [go]
+            go_field_name: Body
+            go_type_name: BodyDiagnosticSettings
+          '/properties/backend/response/body/bytes': !ruby/object:Api::Azure::SDKTypeDefinition::IntegerObject
+            applicable_to: [go]
+            go_field_name: Bytes
+          '/backend': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            applicable_to: [python]
+            python_field_name: backend
+          '/backend/request': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            applicable_to: [python]
+            python_field_name: request
+          '/backend/request/headers': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: headers
+          '/backend/request/body': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            applicable_to: [python]
+            python_field_name: body
+          '/backend/request/body/bytes': !ruby/object:Api::Azure::SDKTypeDefinition::IntegerObject
+            applicable_to: [python]
+            python_field_name: bytes
+          '/backend/response': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            applicable_to: [python]
+            python_field_name: response
+          '/backend/response/headers': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: headers
+          '/backend/response/body': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            applicable_to: [python]
+            python_field_name: body
+          '/backend/response/body/bytes': !ruby/object:Api::Azure::SDKTypeDefinition::IntegerObject
+            applicable_to: [python]
+            python_field_name: bytes
+          '/properties/enableHttpCorrelationHeaders': !ruby/object:Api::Azure::SDKTypeDefinition::BooleanObject
+            applicable_to: [go]
+            go_field_name: EnableHttpCorrelationHeaders
+          '/enableHttpCorrelationHeaders': !ruby/object:Api::Azure::SDKTypeDefinition::BooleanObject
+            applicable_to: [python]
+            python_field_name: enable_http_correlation_headers
           '/id': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             go_field_name: ID
             python_field_name: id
@@ -457,6 +598,20 @@ objects:
           '/type': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             go_field_name: Type
             python_field_name: type
+      list_by_service: !ruby/object:Api::Azure::SDKOperationDefinition
+        go_func_name: ListByService
+        python_func_name: list_by_service
+        request:
+          'resourceGroupName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            id_portion: resourceGroups
+            go_variable_name: resourceGroup
+            python_parameter_name: resource_group_name
+            python_variable_name: resource_group
+          'serviceName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            id_portion: service
+            go_variable_name: name
+            python_parameter_name: service_name
+            python_variable_name: name
 
     description: |
       Manage Azure Diagnostic instance.
@@ -474,7 +629,7 @@ objects:
         required: true
         input: true
         sample_value: myService
-        azure_sdk_references: ['serviceName']
+        azure_sdk_references: ['serviceName', '/name']
       - !ruby/object:Api::Type::String
         name: 'diagnosticId'
         description: 'Diagnostic identifier. Must be unique in the current API Management service instance.'
@@ -482,12 +637,13 @@ objects:
         input: true
         sample_value: myDiagnostic
         azure_sdk_references: ['diagnosticId']
-      - !ruby/object:Api::Type::EnumType
+      - !ruby/object:Api::Type::Enum
         name: 'alwaysLog'
         description: 'Specifies for what type of messages sampling settings should not apply.'
         required: false
         values:
-           - :allErrors
+          - :allErrors
+        default_value: :allErrors
         sample_value: allErrors
         azure_sdk_references: ['/alwaysLog', '/properties/alwaysLog']
       - !ruby/object:Api::Type::String
@@ -502,15 +658,16 @@ objects:
         required: false
         azure_sdk_references: ['/sampling', '/properties/sampling']
         properties:
-          - !ruby/object:Api::Type::EnumType
+          - !ruby/object:Api::Type::Enum
             name: 'samplingType'
             description: 'Sampling type.'
             required: false
             values:
-               - :fixed
+              - :fixed
+            default_value: :fixed
             sample_value: fixed
             azure_sdk_references: ['/sampling/samplingType', '/properties/sampling/samplingType']
-          - 
+          - !ruby/object:Api::Azure::Type::Integer
             name: 'percentage'
             description: 'Rate of sampling for fixed-rate sampling.'
             required: false
@@ -540,7 +697,7 @@ objects:
                 required: false
                 azure_sdk_references: ['/frontend/request/body', '/properties/frontend/request/body']
                 properties:
-                  - 
+                  - !ruby/object:Api::Azure::Type::Integer
                     name: 'bytes'
                     description: 'Number of request body bytes to log.'
                     required: false
@@ -564,7 +721,7 @@ objects:
                 required: false
                 azure_sdk_references: ['/frontend/response/body', '/properties/frontend/response/body']
                 properties:
-                  - 
+                  - !ruby/object:Api::Azure::Type::Integer
                     name: 'bytes'
                     description: 'Number of request body bytes to log.'
                     required: false
@@ -594,7 +751,7 @@ objects:
                 required: false
                 azure_sdk_references: ['/backend/request/body', '/properties/backend/request/body']
                 properties:
-                  - 
+                  - !ruby/object:Api::Azure::Type::Integer
                     name: 'bytes'
                     description: 'Number of request body bytes to log.'
                     required: false
@@ -618,7 +775,7 @@ objects:
                 required: false
                 azure_sdk_references: ['/backend/response/body', '/properties/backend/response/body']
                 properties:
-                  - 
+                  - !ruby/object:Api::Azure::Type::Integer
                     name: 'bytes'
                     description: 'Number of request body bytes to log.'
                     required: false
@@ -629,3 +786,22 @@ objects:
         description: 'Whether to process Correlation Headers coming to Api Management Service. Only applicable to Application Insights diagnostics. Default is true.'
         required: false
         azure_sdk_references: ['/enableHttpCorrelationHeaders', '/properties/enableHttpCorrelationHeaders']
+      # read only values included only in response
+      - !ruby/object:Api::Type::String
+        name: 'id'
+        description: 'Resource ID.'
+        input: true
+        output: true
+        azure_sdk_references: ['/id']
+      - !ruby/object:Api::Type::String
+        name: 'name'
+        description: 'Resource name.'
+        input: true
+        output: true
+        azure_sdk_references: ['/name', '/name']
+      - !ruby/object:Api::Type::String
+        name: 'type'
+        description: 'Resource type for API Management resource.'
+        input: true
+        output: true
+        azure_sdk_references: ['/type']

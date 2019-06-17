@@ -39,11 +39,6 @@ objects:
             go_variable_name: name
             python_parameter_name: load_balancing_settings_name
             python_variable_name: name
-          'loadBalancingSettingsParameters': 
-            id_portion: null
-            go_variable_name: loadBalancingSettingsParameters
-            python_parameter_name: load_balancing_settings_parameters
-            python_variable_name: load_balancing_settings_parameters
       delete: !ruby/object:Api::Azure::SDKOperationDefinition
         async: true
         go_func_name: Delete
@@ -84,6 +79,44 @@ objects:
             python_parameter_name: load_balancing_settings_name
             python_variable_name: name
         response:
+          '/id': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            go_field_name: ID
+            python_field_name: id
+          '/properties': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            applicable_to: [go]
+            go_field_name: Properties
+            go_type_name: LoadBalancingSettingsProperties
+          '/properties/sampleSize': !ruby/object:Api::Azure::SDKTypeDefinition::IntegerObject
+            applicable_to: [go]
+            go_field_name: SampleSize
+          '/sampleSize': !ruby/object:Api::Azure::SDKTypeDefinition::IntegerObject
+            applicable_to: [python]
+            python_field_name: sample_size
+          '/properties/successfulSamplesRequired': !ruby/object:Api::Azure::SDKTypeDefinition::IntegerObject
+            applicable_to: [go]
+            go_field_name: SuccessfulSamplesRequired
+          '/successfulSamplesRequired': !ruby/object:Api::Azure::SDKTypeDefinition::IntegerObject
+            applicable_to: [python]
+            python_field_name: successful_samples_required
+          '/properties/additionalLatencyMilliseconds': !ruby/object:Api::Azure::SDKTypeDefinition::IntegerObject
+            applicable_to: [go]
+            go_field_name: AdditionalLatencyMilliseconds
+          '/additionalLatencyMilliseconds': !ruby/object:Api::Azure::SDKTypeDefinition::IntegerObject
+            applicable_to: [python]
+            python_field_name: additional_latency_milliseconds
+          '/properties/resourceState': !ruby/object:Api::Azure::SDKTypeDefinition::EnumObject
+            applicable_to: [go]
+            go_field_name: ResourceState
+            go_enum_type_name: ResourceState
+          '/resourceState': !ruby/object:Api::Azure::SDKTypeDefinition::EnumObject
+            applicable_to: [python]
+            python_field_name: resource_state
+          '/name': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            go_field_name: Name
+            python_field_name: name
+          '/type': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            go_field_name: Type
+            python_field_name: type
       list_by_front_door: !ruby/object:Api::Azure::SDKOperationDefinition
         go_func_name: ListByFrontDoor
         python_func_name: list_by_front_door
@@ -123,11 +156,50 @@ objects:
         input: true
         sample_value: myLoadBalancingSetting
         azure_sdk_references: ['loadBalancingSettingsName', '/name']
-      - 
-        name: 'loadBalancingSettingsParameters'
-        description: 'LoadBalancingSettings properties needed to create a new Front Door.'
-        required: true
+      - !ruby/object:Api::Type::String
+        name: 'id'
+        description: 'Resource ID.'
+        required: false
         input: true
-        sample_value: [object Object]
-        azure_sdk_references: ['loadBalancingSettingsParameters']
+        azure_sdk_references: ['/id']
+      - !ruby/object:Api::Azure::Type::Integer
+        name: 'sampleSize'
+        description: 'The number of samples to consider for load balancing decisions'
+        required: false
+        azure_sdk_references: ['/sampleSize', '/properties/sampleSize']
+      - !ruby/object:Api::Azure::Type::Integer
+        name: 'successfulSamplesRequired'
+        description: 'The number of samples within the sample period that must succeed'
+        required: false
+        azure_sdk_references: ['/successfulSamplesRequired', '/properties/successfulSamplesRequired']
+      - !ruby/object:Api::Azure::Type::Integer
+        name: 'additionalLatencyMilliseconds'
+        description: 'The additional latency in milliseconds for probes to fall into the lowest latency bucket'
+        required: false
+        azure_sdk_references: ['/additionalLatencyMilliseconds', '/properties/additionalLatencyMilliseconds']
+      - !ruby/object:Api::Type::Enum
+        name: 'resourceState'
+        description: 'Resource status.'
+        required: false
+        values:
+          - :Creating
+          - :Enabling
+          - :Enabled
+          - :Disabling
+          - :Disabled
+          - :Deleting
+        default_value: :Creating
+        azure_sdk_references: ['/resourceState', '/properties/resourceState']
+      - !ruby/object:Api::Type::String
+        name: 'name'
+        description: 'Resource name.'
+        required: false
+        input: true
+        azure_sdk_references: ['/name', '/name']
       # read only values included only in response
+      - !ruby/object:Api::Type::String
+        name: 'type'
+        description: 'Resource type.'
+        input: true
+        output: true
+        azure_sdk_references: ['/type']

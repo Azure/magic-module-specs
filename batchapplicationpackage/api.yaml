@@ -30,12 +30,12 @@ objects:
             python_variable_name: resource_group
           'accountName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             id_portion: batchAccounts
-            go_variable_name: AccountName
+            go_variable_name: accountName
             python_parameter_name: account_name
             python_variable_name: account_name
           'applicationName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             id_portion: applications
-            go_variable_name: ApplicationName
+            go_variable_name: applicationName
             python_parameter_name: application_name
             python_variable_name: application_name
           'versionName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
@@ -44,7 +44,7 @@ objects:
             python_parameter_name: version_name
             python_variable_name: name
           '/': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
-            go_variable_name: Parameters
+            go_variable_name: parameters
             go_type_name: ApplicationPackage
             python_parameter_name: parameters
             python_variable_name: parameters
@@ -52,19 +52,6 @@ objects:
             applicable_to: [go]
             go_field_name: Properties
             go_type_name: ApplicationPackageProperties
-        response:
-          '/id': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
-            go_field_name: ID
-            python_field_name: id
-          '/name': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
-            go_field_name: Name
-            python_field_name: name
-          '/type': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
-            go_field_name: Type
-            python_field_name: type
-          '/etag': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
-            go_field_name: Etag
-            python_field_name: etag
       delete: !ruby/object:Api::Azure::SDKOperationDefinition
         go_func_name: Delete
         python_func_name: delete
@@ -76,12 +63,12 @@ objects:
             python_variable_name: resource_group
           'accountName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             id_portion: batchAccounts
-            go_variable_name: AccountName
+            go_variable_name: accountName
             python_parameter_name: account_name
             python_variable_name: account_name
           'applicationName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             id_portion: applications
-            go_variable_name: ApplicationName
+            go_variable_name: applicationName
             python_parameter_name: application_name
             python_variable_name: application_name
           'versionName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
@@ -100,12 +87,12 @@ objects:
             python_variable_name: resource_group
           'accountName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             id_portion: batchAccounts
-            go_variable_name: AccountName
+            go_variable_name: accountName
             python_parameter_name: account_name
             python_variable_name: account_name
           'applicationName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             id_portion: applications
-            go_variable_name: ApplicationName
+            go_variable_name: applicationName
             python_parameter_name: application_name
             python_variable_name: application_name
           'versionName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
@@ -114,18 +101,66 @@ objects:
             python_parameter_name: version_name
             python_variable_name: name
         response:
+          '/properties': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            applicable_to: [go]
+            go_field_name: Properties
+            go_type_name: ApplicationPackageProperties
+          '/properties/state': !ruby/object:Api::Azure::SDKTypeDefinition::EnumObject
+            applicable_to: [go]
+            go_field_name: State
+            go_enum_type_name: PackageState
+          '/state': !ruby/object:Api::Azure::SDKTypeDefinition::EnumObject
+            applicable_to: [python]
+            python_field_name: state
+          '/properties/format': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: Format
+          '/format': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: format
+          '/properties/storageUrl': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: StorageURL
+          '/storageUrl': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: storage_url
+          '/properties/storageUrlExpiry': !ruby/object:Api::Azure::SDKTypeDefinition::ISO8601DateTimeObject
+            applicable_to: [go]
+            go_field_name: StorageURLExpiry
+          '/storageUrlExpiry': !ruby/object:Api::Azure::SDKTypeDefinition::ISO8601DateTimeObject
+            applicable_to: [python]
+            python_field_name: storage_url_expiry
+          '/properties/lastActivationTime': !ruby/object:Api::Azure::SDKTypeDefinition::ISO8601DateTimeObject
+            applicable_to: [go]
+            go_field_name: LastActivationTime
+          '/lastActivationTime': !ruby/object:Api::Azure::SDKTypeDefinition::ISO8601DateTimeObject
+            applicable_to: [python]
+            python_field_name: last_activation_time
           '/id': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             go_field_name: ID
             python_field_name: id
-          '/name': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
-            go_field_name: Name
-            python_field_name: name
-          '/type': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
-            go_field_name: Type
-            python_field_name: type
           '/etag': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             go_field_name: Etag
             python_field_name: etag
+      list: !ruby/object:Api::Azure::SDKOperationDefinition
+        go_func_name: List
+        python_func_name: list
+        request:
+          'resourceGroupName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            id_portion: resourceGroups
+            go_variable_name: resourceGroup
+            python_parameter_name: resource_group_name
+            python_variable_name: resource_group
+          'accountName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            id_portion: batchAccounts
+            go_variable_name: accountName
+            python_parameter_name: account_name
+            python_variable_name: account_name
+          'applicationName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            id_portion: applications
+            go_variable_name: applicationName
+            python_parameter_name: application_name
+            python_variable_name: application_name
 
     description: |
       Manage Azure ApplicationPackage instance.
@@ -157,4 +192,46 @@ objects:
         required: true
         input: true
         sample_value: myVersion
-        azure_sdk_references: ['versionName']
+        azure_sdk_references: ['versionName', '/name']
+      # read only values included only in response
+      - !ruby/object:Api::Type::Enum
+        name: 'state'
+        description: 'The current state of the application package.'
+        output: true
+        values:
+          - :Pending
+          - :Active
+        default_value: :Pending
+        azure_sdk_references: ['/state', '/properties/state']
+      - !ruby/object:Api::Type::String
+        name: 'format'
+        description: 'The format of the application package, if the package is active.'
+        output: true
+        azure_sdk_references: ['/format', '/properties/format']
+      - !ruby/object:Api::Type::String
+        name: 'storageUrl'
+        description: 'The URL for the application package in Azure Storage.'
+        output: true
+        azure_sdk_references: ['/storageUrl', '/properties/storageUrl']
+      - !ruby/object:Api::Azure::Type::ISO8601DateTime
+        name: 'storageUrlExpiry'
+        description: 'The UTC time at which the Azure Storage URL will expire.'
+        output: true
+        azure_sdk_references: ['/storageUrlExpiry', '/properties/storageUrlExpiry']
+      - !ruby/object:Api::Azure::Type::ISO8601DateTime
+        name: 'lastActivationTime'
+        description: 'The time at which the package was last activated, if the package is active.'
+        output: true
+        azure_sdk_references: ['/lastActivationTime', '/properties/lastActivationTime']
+      - !ruby/object:Api::Type::String
+        name: 'id'
+        description: 'The ID of the resource.'
+        input: true
+        output: true
+        azure_sdk_references: ['/id']
+      - !ruby/object:Api::Type::String
+        name: 'etag'
+        description: 'The ETag of the resource, used for concurrency statements.'
+        input: true
+        output: true
+        azure_sdk_references: ['/etag']

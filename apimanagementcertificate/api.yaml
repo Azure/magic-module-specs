@@ -35,11 +35,11 @@ objects:
             python_variable_name: name
           'certificateId': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             id_portion: certificates
-            go_variable_name: CertificateID
+            go_variable_name: certificateID
             python_parameter_name: certificate_id
             python_variable_name: certificate_id
           '/': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
-            go_variable_name: Parameters
+            go_variable_name: parameters
             go_type_name: CertificateCreateOrUpdateParameters
             python_parameter_name: parameters
             python_variable_name: parameters
@@ -59,16 +59,6 @@ objects:
           '/properties/password': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             applicable_to: [go]
             go_field_name: Password
-        response:
-          '/id': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
-            go_field_name: ID
-            python_field_name: id
-          '/name': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
-            go_field_name: Name
-            python_field_name: name
-          '/type': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
-            go_field_name: Type
-            python_field_name: type
       delete: !ruby/object:Api::Azure::SDKOperationDefinition
         go_func_name: Delete
         python_func_name: delete
@@ -85,7 +75,7 @@ objects:
             python_variable_name: name
           'certificateId': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             id_portion: certificates
-            go_variable_name: CertificateID
+            go_variable_name: certificateID
             python_parameter_name: certificate_id
             python_variable_name: certificate_id
       read: !ruby/object:Api::Azure::SDKOperationDefinition
@@ -104,10 +94,32 @@ objects:
             python_variable_name: name
           'certificateId': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             id_portion: certificates
-            go_variable_name: CertificateID
+            go_variable_name: certificateID
             python_parameter_name: certificate_id
             python_variable_name: certificate_id
         response:
+          '/properties': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            applicable_to: [go]
+            go_field_name: Properties
+            go_type_name: CertificateCreateOrUpdateProperties
+          '/properties/subject': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: Subject
+          '/subject': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: subject
+          '/properties/thumbprint': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: Thumbprint
+          '/thumbprint': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: thumbprint
+          '/properties/expirationDate': !ruby/object:Api::Azure::SDKTypeDefinition::ISO8601DateTimeObject
+            applicable_to: [go]
+            go_field_name: ExpirationDate
+          '/expirationDate': !ruby/object:Api::Azure::SDKTypeDefinition::ISO8601DateTimeObject
+            applicable_to: [python]
+            python_field_name: expiration_date
           '/id': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             go_field_name: ID
             python_field_name: id
@@ -117,6 +129,20 @@ objects:
           '/type': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             go_field_name: Type
             python_field_name: type
+      list_by_service: !ruby/object:Api::Azure::SDKOperationDefinition
+        go_func_name: ListByService
+        python_func_name: list_by_service
+        request:
+          'resourceGroupName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            id_portion: resourceGroups
+            go_variable_name: resourceGroup
+            python_parameter_name: resource_group_name
+            python_variable_name: resource_group
+          'serviceName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            id_portion: service
+            go_variable_name: name
+            python_parameter_name: service_name
+            python_variable_name: name
 
     description: |
       Manage Azure Certificate instance.
@@ -134,7 +160,7 @@ objects:
         required: true
         input: true
         sample_value: myService
-        azure_sdk_references: ['serviceName']
+        azure_sdk_references: ['serviceName', '/name']
       - !ruby/object:Api::Type::String
         name: 'certificateId'
         description: 'Identifier of the certificate entity. Must be unique in the current API Management service instance.'
@@ -154,3 +180,38 @@ objects:
         required: true
         sample_value: ****Certificate Password******
         azure_sdk_references: ['/password', '/properties/password']
+      # read only values included only in response
+      - !ruby/object:Api::Type::String
+        name: 'subject'
+        description: 'Subject attribute of the certificate.'
+        output: true
+        azure_sdk_references: ['/subject', '/properties/subject']
+      - !ruby/object:Api::Type::String
+        name: 'thumbprint'
+        description: 'Thumbprint of the certificate.'
+        output: true
+        azure_sdk_references: ['/thumbprint', '/properties/thumbprint']
+      - !ruby/object:Api::Azure::Type::ISO8601DateTime
+        name: 'expirationDate'
+        description: 'Expiration date of the certificate. The date conforms to the following format: `yyyy-MM-ddTHH:mm:ssZ` as specified by the ISO 8601 standard.
+'
+        output: true
+        azure_sdk_references: ['/expirationDate', '/properties/expirationDate']
+      - !ruby/object:Api::Type::String
+        name: 'id'
+        description: 'Resource ID.'
+        input: true
+        output: true
+        azure_sdk_references: ['/id']
+      - !ruby/object:Api::Type::String
+        name: 'name'
+        description: 'Resource name.'
+        input: true
+        output: true
+        azure_sdk_references: ['/name', '/name']
+      - !ruby/object:Api::Type::String
+        name: 'type'
+        description: 'Resource type for API Management resource.'
+        input: true
+        output: true
+        azure_sdk_references: ['/type']

@@ -1,0 +1,640 @@
+--- !ruby/object:Api::Product
+name: Azure DatabaseAccount Management
+prefix: azure_rm_cosmosdbdatabaseaccount
+versions:
+  - !ruby/object:Api::Product::Version
+    name: ga
+    base_url: NotUsedInAzure
+scopes:
+  - NotUsedInAzure
+objects:
+  - !ruby/object:Api::Resource
+    name: DatabaseAccount
+    api_name: DocumentDB
+    base_url: NotUsedInAzure
+
+    azure_sdk_definition: !ruby/object:Api::Azure::SDKDefinition
+      provider_name: Microsoft.DocumentDB
+      go_client_namespace: cosmosdb
+      go_client: databaseAccountsClient
+      python_client_namespace: azure.mgmt.cosmosdb
+      python_client: CosmosDBClient.database_accounts
+      create: !ruby/object:Api::Azure::SDKOperationDefinition
+        async: true
+        go_func_name: CreateOrUpdate
+        python_func_name: create_or_update
+        request:
+          'resourceGroupName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            id_portion: resourceGroups
+            go_variable_name: resourceGroup
+            python_parameter_name: resource_group_name
+            python_variable_name: resource_group
+          'accountName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            id_portion: databaseAccounts
+            go_variable_name: name
+            python_parameter_name: account_name
+            python_variable_name: name
+      delete: !ruby/object:Api::Azure::SDKOperationDefinition
+        async: true
+        go_func_name: Delete
+        python_func_name: delete
+        request:
+          'resourceGroupName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            id_portion: resourceGroups
+            go_variable_name: resourceGroup
+            python_parameter_name: resource_group_name
+            python_variable_name: resource_group
+          'accountName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            id_portion: databaseAccounts
+            go_variable_name: name
+            python_parameter_name: account_name
+            python_variable_name: name
+      read: !ruby/object:Api::Azure::SDKOperationDefinition
+        go_func_name: Get
+        python_func_name: get
+        request:
+          'resourceGroupName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            id_portion: resourceGroups
+            go_variable_name: resourceGroup
+            python_parameter_name: resource_group_name
+            python_variable_name: resource_group
+          'accountName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            id_portion: databaseAccounts
+            go_variable_name: name
+            python_parameter_name: account_name
+            python_variable_name: name
+        response:
+          '/location': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            go_field_name: Location
+            python_field_name: location
+          '/tags': !ruby/object:Api::Azure::SDKTypeDefinition::StringMapObject
+            go_field_name: Tags
+            python_field_name: tags
+          '/kind': !ruby/object:Api::Azure::SDKTypeDefinition::EnumObject
+            go_field_name: Kind
+            go_enum_type_name: DatabaseAccountKind
+            python_field_name: kind
+          '/properties': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            applicable_to: [go]
+            go_field_name: Properties
+            go_type_name: DatabaseAccountCreateUpdateProperties
+          '/properties/consistencyPolicy': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            applicable_to: [go]
+            go_field_name: ConsistencyPolicy
+            go_type_name: ConsistencyPolicy
+          '/properties/consistencyPolicy/defaultConsistencyLevel': !ruby/object:Api::Azure::SDKTypeDefinition::EnumObject
+            applicable_to: [go]
+            go_field_name: DefaultConsistencyLevel
+            go_enum_type_name: DefaultConsistencyLevel
+          '/properties/consistencyPolicy/maxStalenessPrefix': !ruby/object:Api::Azure::SDKTypeDefinition::IntegerObject
+            applicable_to: [go]
+            go_field_name: MaxStalenessPrefix
+          '/properties/consistencyPolicy/maxIntervalInSeconds': !ruby/object:Api::Azure::SDKTypeDefinition::IntegerObject
+            applicable_to: [go]
+            go_field_name: MaxIntervalInSeconds
+          '/consistencyPolicy': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            applicable_to: [python]
+            python_field_name: consistency_policy
+          '/consistencyPolicy/defaultConsistencyLevel': !ruby/object:Api::Azure::SDKTypeDefinition::EnumObject
+            applicable_to: [python]
+            python_field_name: default_consistency_level
+          '/consistencyPolicy/maxStalenessPrefix': !ruby/object:Api::Azure::SDKTypeDefinition::IntegerObject
+            applicable_to: [python]
+            python_field_name: max_staleness_prefix
+          '/consistencyPolicy/maxIntervalInSeconds': !ruby/object:Api::Azure::SDKTypeDefinition::IntegerObject
+            applicable_to: [python]
+            python_field_name: max_interval_in_seconds
+          '/properties/databaseAccountOfferType': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: DatabaseAccountOfferType
+          '/databaseAccountOfferType': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: database_account_offer_type
+          '/properties/ipRangeFilter': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: IpRangeFilter
+          '/ipRangeFilter': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: ip_range_filter
+          '/properties/isVirtualNetworkFilterEnabled': !ruby/object:Api::Azure::SDKTypeDefinition::BooleanObject
+            applicable_to: [go]
+            go_field_name: IsVirtualNetworkFilterEnabled
+          '/isVirtualNetworkFilterEnabled': !ruby/object:Api::Azure::SDKTypeDefinition::BooleanObject
+            applicable_to: [python]
+            python_field_name: is_virtual_network_filter_enabled
+          '/properties/enableAutomaticFailover': !ruby/object:Api::Azure::SDKTypeDefinition::BooleanObject
+            applicable_to: [go]
+            go_field_name: EnableAutomaticFailover
+          '/enableAutomaticFailover': !ruby/object:Api::Azure::SDKTypeDefinition::BooleanObject
+            applicable_to: [python]
+            python_field_name: enable_automatic_failover
+          '/properties/capabilities': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexArrayObject
+            applicable_to: [go]
+            go_field_name: Capabilities
+            go_type_name: Capability
+          '/properties/capabilities/name': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: Name
+          '/capabilities': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexArrayObject
+            applicable_to: [python]
+            python_field_name: capabilities
+          '/capabilities/name': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: name
+          '/properties/virtualNetworkRules': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexArrayObject
+            applicable_to: [go]
+            go_field_name: VirtualNetworkRules
+            go_type_name: VirtualNetworkRule
+          '/properties/virtualNetworkRules/id': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: ID
+          '/properties/virtualNetworkRules/ignoreMissingVNetServiceEndpoint': !ruby/object:Api::Azure::SDKTypeDefinition::BooleanObject
+            applicable_to: [go]
+            go_field_name: IgnoreMissingVnetServiceEndpoint
+          '/virtualNetworkRules': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexArrayObject
+            applicable_to: [python]
+            python_field_name: virtual_network_rules
+          '/virtualNetworkRules/id': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: id
+          '/virtualNetworkRules/ignoreMissingVNetServiceEndpoint': !ruby/object:Api::Azure::SDKTypeDefinition::BooleanObject
+            applicable_to: [python]
+            python_field_name: ignore_missing_vnet_service_endpoint
+          '/properties/enableMultipleWriteLocations': !ruby/object:Api::Azure::SDKTypeDefinition::BooleanObject
+            applicable_to: [go]
+            go_field_name: EnableMultipleWriteLocations
+          '/enableMultipleWriteLocations': !ruby/object:Api::Azure::SDKTypeDefinition::BooleanObject
+            applicable_to: [python]
+            python_field_name: enable_multiple_write_locations
+          '/properties/provisioningState': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: ProvisioningState
+          '/provisioningState': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: provisioning_state
+          '/properties/documentEndpoint': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: DocumentEndpoint
+          '/documentEndpoint': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: document_endpoint
+          '/properties/writeLocations': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexArrayObject
+            applicable_to: [go]
+            go_field_name: WriteLocations
+            go_type_name: Location
+          '/writeLocations': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexArrayObject
+            applicable_to: [python]
+            python_field_name: write_locations
+          '/properties/readLocations': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexArrayObject
+            applicable_to: [go]
+            go_field_name: ReadLocations
+            go_type_name: Location
+          '/readLocations': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexArrayObject
+            applicable_to: [python]
+            python_field_name: read_locations
+          '/properties/failoverPolicies': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexArrayObject
+            applicable_to: [go]
+            go_field_name: FailoverPolicies
+            go_type_name: FailoverPolicy
+          '/failoverPolicies': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexArrayObject
+            applicable_to: [python]
+            python_field_name: failover_policies
+          '/id': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            go_field_name: ID
+            python_field_name: id
+          '/name': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            go_field_name: Name
+            python_field_name: name
+          '/type': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            go_field_name: Type
+            python_field_name: type
+      list: !ruby/object:Api::Azure::SDKOperationDefinition
+        go_func_name: List
+        python_func_name: list
+        request:
+      list_by_resource_group: !ruby/object:Api::Azure::SDKOperationDefinition
+        go_func_name: ListByResourceGroup
+        python_func_name: list_by_resource_group
+        request:
+          'resourceGroupName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            id_portion: resourceGroups
+            go_variable_name: resourceGroup
+            python_parameter_name: resource_group_name
+            python_variable_name: resource_group
+      list_usages: !ruby/object:Api::Azure::SDKOperationDefinition
+        go_func_name: ListUsages
+        python_func_name: list_usages
+        request:
+          'resourceGroupName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            id_portion: resourceGroups
+            go_variable_name: resourceGroup
+            python_parameter_name: resource_group_name
+            python_variable_name: resource_group
+          'accountName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            id_portion: databaseAccounts
+            go_variable_name: name
+            python_parameter_name: account_name
+            python_variable_name: name
+      list_metrics: !ruby/object:Api::Azure::SDKOperationDefinition
+        go_func_name: ListMetrics
+        python_func_name: list_metrics
+        request:
+          'resourceGroupName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            id_portion: resourceGroups
+            go_variable_name: resourceGroup
+            python_parameter_name: resource_group_name
+            python_variable_name: resource_group
+          'accountName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            id_portion: databaseAccounts
+            go_variable_name: name
+            python_parameter_name: account_name
+            python_variable_name: name
+      list_metric_definitions: !ruby/object:Api::Azure::SDKOperationDefinition
+        go_func_name: ListMetricDefinitions
+        python_func_name: list_metric_definitions
+        request:
+          'resourceGroupName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            id_portion: resourceGroups
+            go_variable_name: resourceGroup
+            python_parameter_name: resource_group_name
+            python_variable_name: resource_group
+          'accountName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            id_portion: databaseAccounts
+            go_variable_name: name
+            python_parameter_name: account_name
+            python_variable_name: name
+      list_tables: !ruby/object:Api::Azure::SDKOperationDefinition
+        go_func_name: ListTables
+        python_func_name: list_tables
+        request:
+          'resourceGroupName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            id_portion: resourceGroups
+            go_variable_name: resourceGroup
+            python_parameter_name: resource_group_name
+            python_variable_name: resource_group
+          'accountName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            id_portion: databaseAccounts
+            go_variable_name: name
+            python_parameter_name: account_name
+            python_variable_name: name
+      list_sql_databases: !ruby/object:Api::Azure::SDKOperationDefinition
+        go_func_name: ListSqlDatabases
+        python_func_name: list_sql_databases
+        request:
+          'resourceGroupName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            id_portion: resourceGroups
+            go_variable_name: resourceGroup
+            python_parameter_name: resource_group_name
+            python_variable_name: resource_group
+          'accountName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            id_portion: databaseAccounts
+            go_variable_name: name
+            python_parameter_name: account_name
+            python_variable_name: name
+      list_mongo_databases: !ruby/object:Api::Azure::SDKOperationDefinition
+        go_func_name: ListMongoDatabases
+        python_func_name: list_mongo_databases
+        request:
+          'resourceGroupName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            id_portion: resourceGroups
+            go_variable_name: resourceGroup
+            python_parameter_name: resource_group_name
+            python_variable_name: resource_group
+          'accountName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            id_portion: databaseAccounts
+            go_variable_name: name
+            python_parameter_name: account_name
+            python_variable_name: name
+      list_gremlin_databases: !ruby/object:Api::Azure::SDKOperationDefinition
+        go_func_name: ListGremlinDatabases
+        python_func_name: list_gremlin_databases
+        request:
+          'resourceGroupName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            id_portion: resourceGroups
+            go_variable_name: resourceGroup
+            python_parameter_name: resource_group_name
+            python_variable_name: resource_group
+          'accountName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            id_portion: databaseAccounts
+            go_variable_name: name
+            python_parameter_name: account_name
+            python_variable_name: name
+      list_cassandra_keyspaces: !ruby/object:Api::Azure::SDKOperationDefinition
+        go_func_name: ListCassandraKeyspaces
+        python_func_name: list_cassandra_keyspaces
+        request:
+          'resourceGroupName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            id_portion: resourceGroups
+            go_variable_name: resourceGroup
+            python_parameter_name: resource_group_name
+            python_variable_name: resource_group
+          'accountName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            id_portion: databaseAccounts
+            go_variable_name: name
+            python_parameter_name: account_name
+            python_variable_name: name
+      list_sql_containers: !ruby/object:Api::Azure::SDKOperationDefinition
+        go_func_name: ListSqlContainers
+        python_func_name: list_sql_containers
+        request:
+          'resourceGroupName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            id_portion: resourceGroups
+            go_variable_name: resourceGroup
+            python_parameter_name: resource_group_name
+            python_variable_name: resource_group
+          'accountName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            id_portion: databaseAccounts
+            go_variable_name: name
+            python_parameter_name: account_name
+            python_variable_name: name
+      list_cassandra_tables: !ruby/object:Api::Azure::SDKOperationDefinition
+        go_func_name: ListCassandraTables
+        python_func_name: list_cassandra_tables
+        request:
+          'resourceGroupName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            id_portion: resourceGroups
+            go_variable_name: resourceGroup
+            python_parameter_name: resource_group_name
+            python_variable_name: resource_group
+          'accountName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            id_portion: databaseAccounts
+            go_variable_name: name
+            python_parameter_name: account_name
+            python_variable_name: name
+      list_mongo_collections: !ruby/object:Api::Azure::SDKOperationDefinition
+        go_func_name: ListMongoCollections
+        python_func_name: list_mongo_collections
+        request:
+          'resourceGroupName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            id_portion: resourceGroups
+            go_variable_name: resourceGroup
+            python_parameter_name: resource_group_name
+            python_variable_name: resource_group
+          'accountName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            id_portion: databaseAccounts
+            go_variable_name: name
+            python_parameter_name: account_name
+            python_variable_name: name
+      list_gremlin_containers: !ruby/object:Api::Azure::SDKOperationDefinition
+        go_func_name: ListGremlinContainers
+        python_func_name: list_gremlin_containers
+        request:
+          'resourceGroupName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            id_portion: resourceGroups
+            go_variable_name: resourceGroup
+            python_parameter_name: resource_group_name
+            python_variable_name: resource_group
+          'accountName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            id_portion: databaseAccounts
+            go_variable_name: name
+            python_parameter_name: account_name
+            python_variable_name: name
+
+    description: |
+      Manage Azure DatabaseAccount instance.
+    properties:
+      - !ruby/object:Api::Azure::Type::ResourceGroupName
+        name: 'resourceGroup'
+        description: 'Name of an Azure resource group.'
+        required: true
+        input: true
+        sample_value: myResourceGroup
+        azure_sdk_references: ['resourceGroupName']
+      - !ruby/object:Api::Type::String
+        name: 'name'
+        description: 'Cosmos DB database account name.'
+        required: true
+        input: true
+        sample_value: myDatabaseAccount
+        azure_sdk_references: ['accountName', '/name']
+      - !ruby/object:Api::Azure::Type::Location
+        name: 'location'
+        description: 'The location of the resource group to which the resource belongs.'
+        required: false
+        input: true
+        azure_sdk_references: ['/location']
+      - !ruby/object:Api::Azure::Type::Tags
+        name: 'tags'
+        description: 'undefined'
+        required: false
+        input: true
+        azure_sdk_references: ['tags', '/tags']
+      - !ruby/object:Api::Type::Enum
+        name: 'kind'
+        description: 'Indicates the type of database account. This can only be set at database account creation.'
+        required: false
+        input: true
+        values:
+          - :GlobalDocumentDB
+          - :MongoDB
+          - :Parse
+        default_value: :GlobalDocumentDB
+        azure_sdk_references: ['/kind']
+      - !ruby/object:Api::Type::NestedObject
+        name: 'consistencyPolicy'
+        description: 'The consistency policy for the Cosmos DB account.'
+        required: false
+        azure_sdk_references: ['/consistencyPolicy', '/properties/consistencyPolicy']
+        properties:
+          - !ruby/object:Api::Type::Enum
+            name: 'defaultConsistencyLevel'
+            description: 'The default consistency level and configuration settings of the Cosmos DB account.'
+            required: true
+            values:
+              - :Eventual
+              - :Session
+              - :BoundedStaleness
+              - :Strong
+              - :ConsistentPrefix
+            default_value: :Eventual
+            azure_sdk_references: ['/consistencyPolicy/defaultConsistencyLevel', '/properties/consistencyPolicy/defaultConsistencyLevel']
+          - !ruby/object:Api::Azure::Type::Integer
+            name: 'maxStalenessPrefix'
+            description: 'When used with the Bounded Staleness consistency level, this value represents the number of stale requests tolerated. Accepted range for this value is 1 – 2,147,483,647. Required when defaultConsistencyPolicy is set to 'BoundedStaleness'.'
+            required: false
+            azure_sdk_references: ['/consistencyPolicy/maxStalenessPrefix', '/properties/consistencyPolicy/maxStalenessPrefix']
+          - !ruby/object:Api::Azure::Type::Integer
+            name: 'maxIntervalInSeconds'
+            description: 'When used with the Bounded Staleness consistency level, this value represents the time amount of staleness (in seconds) tolerated. Accepted range for this value is 5 - 86400. Required when defaultConsistencyPolicy is set to 'BoundedStaleness'.'
+            required: false
+            azure_sdk_references: ['/consistencyPolicy/maxIntervalInSeconds', '/properties/consistencyPolicy/maxIntervalInSeconds']
+      - !ruby/object:Api::Type::NestedObject
+        name: 'locations'
+        description: 'An array that contains the georeplication locations enabled for the Cosmos DB account.'
+        required: true
+        azure_sdk_references: ['/locations', '/properties/locations']
+        properties:
+          - !ruby/object:Api::Type::String
+            name: 'locationName'
+            description: 'The name of the region.'
+            required: false
+            azure_sdk_references: ['/locations/locationName', '/properties/locations/locationName']
+          - !ruby/object:Api::Azure::Type::Integer
+            name: 'failoverPriority'
+            description: 'The failover priority of the region. A failover priority of 0 indicates a write region. The maximum value for a failover priority = (total number of regions - 1). Failover priority values must be unique for each of the regions in which the database account exists.'
+            required: false
+            azure_sdk_references: ['/locations/failoverPriority', '/properties/locations/failoverPriority']
+      - !ruby/object:Api::Type::String
+        name: 'databaseAccountOfferType'
+        description: 'The offer type for the database'
+        required: true
+        azure_sdk_references: ['/databaseAccountOfferType', '/properties/databaseAccountOfferType']
+      - !ruby/object:Api::Type::String
+        name: 'ipRangeFilter'
+        description: 'Cosmos DB Firewall Support: This value specifies the set of IP addresses or IP address ranges in CIDR form to be included as the allowed list of client IPs for a given database account. IP addresses/ranges must be comma separated and must not contain any spaces.'
+        required: false
+        azure_sdk_references: ['/ipRangeFilter', '/properties/ipRangeFilter']
+      - !ruby/object:Api::Type::Boolean
+        name: 'isVirtualNetworkFilterEnabled'
+        description: 'Flag to indicate whether to enable/disable Virtual Network ACL rules.'
+        required: false
+        azure_sdk_references: ['/isVirtualNetworkFilterEnabled', '/properties/isVirtualNetworkFilterEnabled']
+      - !ruby/object:Api::Type::Boolean
+        name: 'enableAutomaticFailover'
+        description: 'Enables automatic failover of the write region in the rare event that the region is unavailable due to an outage. Automatic failover will result in a new write region for the account and is chosen based on the failover priorities configured for the account.'
+        required: false
+        azure_sdk_references: ['/enableAutomaticFailover', '/properties/enableAutomaticFailover']
+      - !ruby/object:Api::Type::NestedObject
+        name: 'capabilities'
+        description: 'List of Cosmos DB capabilities for the account'
+        required: false
+        azure_sdk_references: ['/capabilities', '/properties/capabilities']
+        properties:
+          - !ruby/object:Api::Type::String
+            name: 'name'
+            description: 'Name of the Cosmos DB capability. For example, "name": "EnableCassandra". Current values also include "EnableTable" and "EnableGremlin".'
+            required: false
+            azure_sdk_references: ['/capabilities/name', '/properties/capabilities/name', '/name']
+      - !ruby/object:Api::Type::NestedObject
+        name: 'virtualNetworkRules'
+        description: 'List of Virtual Network ACL rules configured for the Cosmos DB account.'
+        required: false
+        azure_sdk_references: ['/virtualNetworkRules', '/properties/virtualNetworkRules']
+        properties:
+          - !ruby/object:Api::Type::String
+            name: 'id'
+            description: 'Resource ID of a subnet, for example: /subscriptions/{subscriptionId}/resourceGroups/{groupName}/providers/Microsoft.Network/virtualNetworks/{virtualNetworkName}/subnets/{subnetName}.'
+            required: false
+            azure_sdk_references: ['/virtualNetworkRules/id', '/properties/virtualNetworkRules/id']
+          - !ruby/object:Api::Type::Boolean
+            name: 'ignoreMissingVnetServiceEndpoint'
+            description: 'Create firewall rule before the virtual network has vnet service endpoint enabled.'
+            required: false
+            azure_sdk_references: ['/virtualNetworkRules/ignoreMissingVNetServiceEndpoint', '/properties/virtualNetworkRules/ignoreMissingVNetServiceEndpoint']
+      - !ruby/object:Api::Type::Boolean
+        name: 'enableMultipleWriteLocations'
+        description: 'Enables the account to write in multiple locations'
+        required: false
+        azure_sdk_references: ['/enableMultipleWriteLocations', '/properties/enableMultipleWriteLocations']
+      # read only values included only in response
+      - !ruby/object:Api::Type::String
+        name: 'provisioningState'
+        description: 'undefined'
+        output: true
+        azure_sdk_references: ['/provisioningState', '/properties/provisioningState']
+      - !ruby/object:Api::Type::String
+        name: 'documentEndpoint'
+        description: 'The connection endpoint for the Cosmos DB database account.'
+        output: true
+        azure_sdk_references: ['/documentEndpoint', '/properties/documentEndpoint']
+      - !ruby/object:Api::Type::NestedObject
+        name: 'writeLocations'
+        description: 'An array that contains the write location for the Cosmos DB account.'
+        output: true
+        azure_sdk_references: ['/writeLocations', '/properties/writeLocations']
+        properties:
+          - !ruby/object:Api::Type::String
+            name: 'id'
+            description: 'The unique identifier of the region within the database account. Example: &lt;accountName&gt;-&lt;locationName&gt;.'
+            required: false
+            azure_sdk_references: ['/writeLocations/id', '/properties/writeLocations/id']
+          - !ruby/object:Api::Type::String
+            name: 'locationName'
+            description: 'The name of the region.'
+            required: false
+            azure_sdk_references: ['/writeLocations/locationName', '/properties/writeLocations/locationName']
+          - !ruby/object:Api::Type::String
+            name: 'documentEndpoint'
+            description: 'The connection endpoint for the specific region. Example: https://&lt;accountName&gt;-&lt;locationName&gt;.documents.azure.com:443/'
+            required: false
+            azure_sdk_references: ['/writeLocations/documentEndpoint', '/properties/writeLocations/documentEndpoint']
+          - !ruby/object:Api::Type::String
+            name: 'provisioningState'
+            description: 'undefined'
+            required: false
+            azure_sdk_references: ['/writeLocations/provisioningState', '/properties/writeLocations/provisioningState']
+          - !ruby/object:Api::Azure::Type::Integer
+            name: 'failoverPriority'
+            description: 'The failover priority of the region. A failover priority of 0 indicates a write region. The maximum value for a failover priority = (total number of regions - 1). Failover priority values must be unique for each of the regions in which the database account exists.'
+            required: false
+            azure_sdk_references: ['/writeLocations/failoverPriority', '/properties/writeLocations/failoverPriority']
+      - !ruby/object:Api::Type::NestedObject
+        name: 'readLocations'
+        description: 'An array that contains of the read locations enabled for the Cosmos DB account.'
+        output: true
+        azure_sdk_references: ['/readLocations', '/properties/readLocations']
+        properties:
+          - !ruby/object:Api::Type::String
+            name: 'id'
+            description: 'The unique identifier of the region within the database account. Example: &lt;accountName&gt;-&lt;locationName&gt;.'
+            required: false
+            azure_sdk_references: ['/readLocations/id', '/properties/readLocations/id']
+          - !ruby/object:Api::Type::String
+            name: 'locationName'
+            description: 'The name of the region.'
+            required: false
+            azure_sdk_references: ['/readLocations/locationName', '/properties/readLocations/locationName']
+          - !ruby/object:Api::Type::String
+            name: 'documentEndpoint'
+            description: 'The connection endpoint for the specific region. Example: https://&lt;accountName&gt;-&lt;locationName&gt;.documents.azure.com:443/'
+            required: false
+            azure_sdk_references: ['/readLocations/documentEndpoint', '/properties/readLocations/documentEndpoint']
+          - !ruby/object:Api::Type::String
+            name: 'provisioningState'
+            description: 'undefined'
+            required: false
+            azure_sdk_references: ['/readLocations/provisioningState', '/properties/readLocations/provisioningState']
+          - !ruby/object:Api::Azure::Type::Integer
+            name: 'failoverPriority'
+            description: 'The failover priority of the region. A failover priority of 0 indicates a write region. The maximum value for a failover priority = (total number of regions - 1). Failover priority values must be unique for each of the regions in which the database account exists.'
+            required: false
+            azure_sdk_references: ['/readLocations/failoverPriority', '/properties/readLocations/failoverPriority']
+      - !ruby/object:Api::Type::NestedObject
+        name: 'failoverPolicies'
+        description: 'An array that contains the regions ordered by their failover priorities.'
+        output: true
+        azure_sdk_references: ['/failoverPolicies', '/properties/failoverPolicies']
+        properties:
+          - !ruby/object:Api::Type::String
+            name: 'id'
+            description: 'The unique identifier of the region in which the database account replicates to. Example: &lt;accountName&gt;-&lt;locationName&gt;.'
+            required: false
+            azure_sdk_references: ['/failoverPolicies/id', '/properties/failoverPolicies/id']
+          - !ruby/object:Api::Type::String
+            name: 'locationName'
+            description: 'The name of the region in which the database account exists.'
+            required: false
+            azure_sdk_references: ['/failoverPolicies/locationName', '/properties/failoverPolicies/locationName']
+          - !ruby/object:Api::Azure::Type::Integer
+            name: 'failoverPriority'
+            description: 'The failover priority of the region. A failover priority of 0 indicates a write region. The maximum value for a failover priority = (total number of regions - 1). Failover priority values must be unique for each of the regions in which the database account exists.'
+            required: false
+            azure_sdk_references: ['/failoverPolicies/failoverPriority', '/properties/failoverPolicies/failoverPriority']
+      - !ruby/object:Api::Type::String
+        name: 'id'
+        description: 'The unique resource identifier of the database account.'
+        input: true
+        output: true
+        azure_sdk_references: ['/id']
+      - !ruby/object:Api::Type::String
+        name: 'name'
+        description: 'The name of the database account.'
+        input: true
+        output: true
+        azure_sdk_references: ['/name', '/name']
+      - !ruby/object:Api::Type::String
+        name: 'type'
+        description: 'The type of Azure resource.'
+        input: true
+        output: true
+        azure_sdk_references: ['/type']

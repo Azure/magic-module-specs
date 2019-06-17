@@ -1,0 +1,51 @@
+--- !ruby/object:Api::Product
+name: Azure ManagementGroupSubscription Management
+prefix: azure_rm_managementgroupsubscription
+versions:
+  - !ruby/object:Api::Product::Version
+    name: ga
+    base_url: NotUsedInAzure
+scopes:
+  - NotUsedInAzure
+objects:
+  - !ruby/object:Api::Resource
+    name: ManagementGroupSubscription
+    api_name: Management
+    base_url: NotUsedInAzure
+
+    azure_sdk_definition: !ruby/object:Api::Azure::SDKDefinition
+      provider_name: Microsoft.Management
+      go_client_namespace: managementgroups
+      go_client: managementGroupSubscriptionsClient
+      python_client_namespace: azure.mgmt.managementgroups
+      python_client: ManagementGroupsClient.management_group_subscriptions
+      create: !ruby/object:Api::Azure::SDKOperationDefinition
+        go_func_name: Create
+        python_func_name: create
+        request:
+          'groupId': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            id_portion: managementGroups
+            go_variable_name: groupID
+            python_parameter_name: group_id
+            python_variable_name: group_id
+      delete: !ruby/object:Api::Azure::SDKOperationDefinition
+        go_func_name: Delete
+        python_func_name: delete
+        request:
+          'groupId': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            id_portion: managementGroups
+            go_variable_name: groupID
+            python_parameter_name: group_id
+            python_variable_name: group_id
+
+    description: |
+      Manage Azure ManagementGroupSubscription instance.
+    properties:
+      - !ruby/object:Api::Type::String
+        name: 'groupId'
+        description: 'Management Group ID.'
+        required: true
+        input: true
+        sample_value: myManagementGroup
+        azure_sdk_references: ['groupId']
+      # read only values included only in response
