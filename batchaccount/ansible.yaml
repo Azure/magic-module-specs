@@ -20,8 +20,16 @@ datasources: !ruby/object:Provider::ResourceOverrides
     examples:
       - !ruby/object:Provider::Azure::Ansible::ResourceOverride::DocumentExampleReference
         example: infoget
+        resource_name_hints:
+          resourceGroups: MyResourceGroup
+          storageAccounts: mystorageaccountname
+          batchAccounts: mybatchaccount
       - !ruby/object:Provider::Azure::Ansible::ResourceOverride::DocumentExampleReference
         example: infolist
+        resource_name_hints:
+          resourceGroups: MyResourceGroup
+          storageAccounts: mystorageaccountname
+          batchAccounts: mybatchaccount
 overrides: !ruby/object:Provider::ResourceOverrides
   BatchAccount: !ruby/object:Provider::Azure::Ansible::ResourceOverride
     properties:
@@ -51,3 +59,5 @@ overrides: !ruby/object:Provider::ResourceOverrides
       - !ruby/object:Provider::Azure::Ansible::ResourceOverride::IntegrationTestDefinition
         example: basic
         delete_example: delete
+        info_by_name_example: infoget
+        info_by_resource_group_example: infolist

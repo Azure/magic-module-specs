@@ -39,13 +39,16 @@ options:
         description:
         - The name of the resource group in which to create the Batch Account.
         required: true
+        type: str
     name:
         description:
         - The name of the Batch Account.
         required: true
+        type: str
     location:
         description:
         - Specifies the supported Azure location where the resource exists.
+        type: str
     auto_storage_account:
         description:
         - Existing storage account with which to associate the Batch Account.
@@ -53,6 +56,7 @@ options:
         - "It can be the storage account ID. e.g.,
           /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/myResourceGroup/providers/Microsoft.Storage/storageAccounts/mystorageaccount."
         - It can be a dict which contains C(name) and C(resource_group) of the storage account.
+        type: raw
     key_vault:
         description:
         - Existing key vault with which to associate the Batch Account.
@@ -60,10 +64,12 @@ options:
         - "It can be the key vault ID. e.g.,
           /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/myResourceGroup/providers/Microsoft.KeyVault/vaults/myKeyVault."
         - It can be a dict which contains C(name) and C(resource_group) of the key vault.
+        type: raw
     pool_allocation_mode:
         description:
         - The pool acclocation mode of the Batch Account.
         default: batch_service
+        type: str
         choices:
         - batch_service
         - user_subscription

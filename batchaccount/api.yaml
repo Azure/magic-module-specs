@@ -230,6 +230,10 @@ objects:
             id_portion: resourceGroups
             python_parameter_name: resource_group_name
             python_variable_name: resource_group
+      list_by_subscription: !ruby/object:Api::Azure::SDKOperationDefinition
+        python_func_name: list
+        go_func_name: List
+        request: {}
 
 
     description: |
