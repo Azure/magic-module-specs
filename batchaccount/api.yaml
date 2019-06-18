@@ -230,6 +230,10 @@ objects:
             id_portion: resourceGroups
             python_parameter_name: resource_group_name
             python_variable_name: resource_group
+      list_by_subscription: !ruby/object:Api::Azure::SDKOperationDefinition
+        python_func_name: list
+        go_func_name: List
+        request: {}
 
 
     description: |
@@ -297,7 +301,7 @@ objects:
         resource_type_name: batch account
         output: true
         azure_sdk_references: ['/id']
-        sample_value: '/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/myResourceGroup/providers/Microsoft.Batch/batchAccounts/sampleacct'
+        sample_value: '/subscriptions/{subscription_id}/resourceGroups/{resource_group}/providers/Microsoft.Batch/batchAccounts/{name}'
       - !ruby/object:Api::Type::String
         name: accountEndpoint
         description: The account endpoint used to interact with the Batch service.

@@ -1,6 +1,6 @@
 --- !ruby/object:Provider::Azure::Example
-resource: azure_rm_batchaccount
+resource: azure_rm_batchaccount_info
 description: Get instance of Batch Account
 properties:
-  resourceGroup: MyResGroup
-  name: test_object
+  resourceGroup: "<%= get_resource_name('resourceGroups', 'resource_group') -%>"
+  name: "<%= get_resource_name('batchAccounts', 'batch_account_name', 'ba') -%>"
