@@ -2,5 +2,5 @@
 resource: azure_rm_batchaccount
 description: Get instance of Batch Account
 properties:
-  resourceGroup: MyResGroup
-  name: test_object
+  resourceGroup: myResourceGroup
+  name: mybatchaccount

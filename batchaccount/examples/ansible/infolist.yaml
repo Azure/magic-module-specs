@@ -2,4 +2,4 @@
 resource: azure_rm_batchaccount
 description: List instances of Batch Account
 properties:
-  resourceGroup: MyResGroup
+  resourceGroup: myResourceGroup
