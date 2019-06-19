@@ -46,8 +46,10 @@ task: !ruby/object:Provider::Ansible::Task
                     - tag2Value3
               filterOperator: All
         non_azure_queries:
-          - {}
-          - {}
+          - function_alias: SavedSearch1
+            workspace_id: WorkspaceId1
+          - function_alias: SavedSearch2
+            workspace_id: WorkspaceId2
     schedule_info:
       start_time: '2017-10-19T12:22:57+00:00'
       expiry_time: '2018-11-09T11:22:57+00:00'

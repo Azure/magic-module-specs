@@ -12,4 +12,5 @@ task: !ruby/object:Provider::Ansible::Task
         locations:
           - failoverPriority: '0'
             locationName: southcentralus
+            isZoneRedundant: false
   
