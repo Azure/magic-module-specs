@@ -22,8 +22,10 @@ task: !ruby/object:Provider::Ansible::Task
         locations:
           - failoverPriority: '0'
             locationName: southcentralus
+            isZoneRedundant: false
           - failoverPriority: '1'
             locationName: eastus
+            isZoneRedundant: false
         consistencyPolicy:
           defaultConsistencyLevel: BoundedStaleness
           maxIntervalInSeconds: '10'

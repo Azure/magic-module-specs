@@ -1122,7 +1122,7 @@ objects:
                 azure_sdk_references: ['/additionalLocations/sku/name', '/properties/additionalLocations/sku/name', '/name']
               - !ruby/object:Api::Azure::Type::Integer
                 name: 'capacity'
-                description: 'Capacity of the SKU (number of deployed units of the SKU). The default value is 1.'
+                description: 'Capacity of the SKU (number of deployed units of the SKU).'
                 required: false
                 sample_value: 1
                 azure_sdk_references: ['/additionalLocations/sku/capacity', '/properties/additionalLocations/sku/capacity']
@@ -1140,7 +1140,7 @@ objects:
                 azure_sdk_references: ['/additionalLocations/virtualNetworkConfiguration/subnetResourceId', '/properties/additionalLocations/virtualNetworkConfiguration/subnetResourceId']
       - !ruby/object:Api::Type::KeyValuePairs
         name: 'customProperties'
-        description: 'Custom properties of the API Management service. Setting `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Ciphers.TripleDes168` will disable the cipher TLS_RSA_WITH_3DES_EDE_CBC_SHA for all TLS(1.0, 1.1 and 1.2). Setting `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Protocols.Tls11` can be used to disable just TLS 1.1 and setting `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Protocols.Tls10` can be used to disable TLS 1.0 on an API Management service.'
+        description: 'Custom properties of the API Management service.</br>Setting `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Ciphers.TripleDes168` will disable the cipher TLS_RSA_WITH_3DES_EDE_CBC_SHA for all TLS(1.0, 1.1 and 1.2).</br>Setting `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Protocols.Tls11` can be used to disable just TLS 1.1.</br>Setting `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Protocols.Tls10` can be used to disable TLS 1.0 on an API Management service.</br>Setting `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Backend.Protocols.Tls11` can be used to disable just TLS 1.1 for communications with backends.</br>Setting `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Backend.Protocols.Tls10` can be used to disable TLS 1.0 for communications with backends.</br>Setting `Microsoft.WindowsAzure.ApiManagement.Gateway.Protocols.Server.Http2` can be used to enable HTTP2 protocol on an API Management service.</br>Not specifying any of these properties on PATCH operation will reset omitted properties' values to their defaults. For all the settings except Http2 the default value is `True` if the service was created on or before April 1st 2018 and `False` otherwise. Http2 setting's default value is `False`.'
         required: false
         sample_value: [object Object]
         azure_sdk_references: ['/customProperties', '/properties/customProperties']
@@ -1242,7 +1242,7 @@ objects:
             azure_sdk_references: ['/sku/name', '/name']
           - !ruby/object:Api::Azure::Type::Integer
             name: 'capacity'
-            description: 'Capacity of the SKU (number of deployed units of the SKU). The default value is 1.'
+            description: 'Capacity of the SKU (number of deployed units of the SKU).'
             required: false
             sample_value: 1
             azure_sdk_references: ['/sku/capacity']

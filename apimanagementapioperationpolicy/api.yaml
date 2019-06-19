@@ -123,6 +123,13 @@ objects:
             go_variable_name: operationID
             python_parameter_name: operation_id
             python_variable_name: operation_id
+          '/properties/format': !ruby/object:Api::Azure::SDKTypeDefinition::EnumObject
+            applicable_to: [go]
+            go_field_name: Format
+            go_enum_type_name: PolicyContentFormat
+          '/format': !ruby/object:Api::Azure::SDKTypeDefinition::EnumObject
+            applicable_to: [python]
+            python_field_name: format
           'policyId': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             id_portion: policies
             go_variable_name: policyID
