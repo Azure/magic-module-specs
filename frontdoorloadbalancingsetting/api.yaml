@@ -235,7 +235,7 @@ objects:
         description: 'Resource name.'
         required: false
         input: true
-        azure_sdk_references: ['/name', '/name']
+        azure_sdk_references: ['/name']
       # read only values included only in response
       - !ruby/object:Api::Type::String
         name: 'type'
