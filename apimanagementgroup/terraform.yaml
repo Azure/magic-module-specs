@@ -1,0 +1,3 @@
+overrides: !ruby/object:Provider::ResourceOverrides
+  Group: !ruby/object:Provider::Azure::Terraform::ResourceOverride
+    properties: {}
