@@ -1,9 +1,9 @@
 [submodule "generated/terraform"]
 	path = generated/terraform
-	url = git@github.com:VSChina/terraform-provider-azurerm.git
+	url = https://github.com/VSChina/terraform-provider-azurerm.git
 [submodule "generated/ansible"]
 	path = generated/ansible
-	url = git@github.com:VSChina/ansible.git
+	url = https://github.com/VSChina/ansible.git
 [submodule "tools/mm"]
 	path = tools/mm
-	url = git@github.com:VSChina/magic-modules.git
+	url = https://github.com/VSChina/magic-modules.git
