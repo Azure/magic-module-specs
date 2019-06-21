@@ -778,7 +778,7 @@ objects:
         description: 'The name of the database account.'
         input: true
         output: true
-        azure_sdk_references: ['/name', '/name']
+        azure_sdk_references: ['/name']
       - !ruby/object:Api::Type::String
         name: 'type'
         description: 'The type of Azure resource.'
