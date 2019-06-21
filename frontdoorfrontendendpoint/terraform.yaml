@@ -1,0 +1,3 @@
+overrides: !ruby/object:Provider::ResourceOverrides
+  FrontendEndpoint: !ruby/object:Provider::Azure::Terraform::ResourceOverride
+    properties: {}
