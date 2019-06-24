@@ -24,22 +24,22 @@ objects:
         python_func_name: create_or_update
         request:
           'resourceGroupName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
-            id_portion: resourceGroups
+            id_portion: null
             go_variable_name: resourceGroup
             python_parameter_name: resource_group_name
             python_variable_name: resource_group
           'serviceName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
-            id_portion: service
+            id_portion: null
             go_variable_name: serviceName
             python_parameter_name: service_name
             python_variable_name: service_name
           'notificationName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
-            id_portion: notifications
+            id_portion: null
             go_variable_name: name
             python_parameter_name: notification_name
             python_variable_name: name
           'userId': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
-            id_portion: recipientUsers
+            id_portion: null
             go_variable_name: userID
             python_parameter_name: user_id
             python_variable_name: user_id
@@ -48,22 +48,22 @@ objects:
         python_func_name: delete
         request:
           'resourceGroupName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
-            id_portion: resourceGroups
+            id_portion: null
             go_variable_name: resourceGroup
             python_parameter_name: resource_group_name
             python_variable_name: resource_group
           'serviceName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
-            id_portion: service
+            id_portion: null
             go_variable_name: serviceName
             python_parameter_name: service_name
             python_variable_name: service_name
           'notificationName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
-            id_portion: notifications
+            id_portion: null
             go_variable_name: name
             python_parameter_name: notification_name
             python_variable_name: name
           'userId': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
-            id_portion: recipientUsers
+            id_portion: null
             go_variable_name: userID
             python_parameter_name: user_id
             python_variable_name: user_id
@@ -72,17 +72,17 @@ objects:
         python_func_name: list_by_notification
         request:
           'resourceGroupName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
-            id_portion: resourceGroups
+            id_portion: null
             go_variable_name: resourceGroup
             python_parameter_name: resource_group_name
             python_variable_name: resource_group
           'serviceName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
-            id_portion: service
+            id_portion: null
             go_variable_name: serviceName
             python_parameter_name: service_name
             python_variable_name: service_name
           'notificationName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
-            id_portion: notifications
+            id_portion: null
             go_variable_name: name
             python_parameter_name: notification_name
             python_variable_name: name

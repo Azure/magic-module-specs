@@ -24,17 +24,17 @@ objects:
         python_func_name: create_or_update
         request:
           'resourceGroupName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
-            id_portion: resourceGroups
+            id_portion: null
             go_variable_name: resourceGroup
             python_parameter_name: resource_group_name
             python_variable_name: resource_group
           'serviceName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
-            id_portion: service
+            id_portion: null
             go_variable_name: name
             python_parameter_name: service_name
             python_variable_name: name
           'diagnosticId': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
-            id_portion: diagnostics
+            id_portion: null
             go_variable_name: diagnosticID
             python_parameter_name: diagnostic_id
             python_variable_name: diagnostic_id
@@ -209,17 +209,17 @@ objects:
         python_func_name: update
         request:
           'resourceGroupName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
-            id_portion: resourceGroups
+            id_portion: null
             go_variable_name: resourceGroup
             python_parameter_name: resource_group_name
             python_variable_name: resource_group
           'serviceName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
-            id_portion: service
+            id_portion: null
             go_variable_name: name
             python_parameter_name: service_name
             python_variable_name: name
           'diagnosticId': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
-            id_portion: diagnostics
+            id_portion: null
             go_variable_name: diagnosticID
             python_parameter_name: diagnostic_id
             python_variable_name: diagnostic_id
@@ -394,17 +394,17 @@ objects:
         python_func_name: delete
         request:
           'resourceGroupName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
-            id_portion: resourceGroups
+            id_portion: null
             go_variable_name: resourceGroup
             python_parameter_name: resource_group_name
             python_variable_name: resource_group
           'serviceName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
-            id_portion: service
+            id_portion: null
             go_variable_name: name
             python_parameter_name: service_name
             python_variable_name: name
           'diagnosticId': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
-            id_portion: diagnostics
+            id_portion: null
             go_variable_name: diagnosticID
             python_parameter_name: diagnostic_id
             python_variable_name: diagnostic_id
@@ -413,17 +413,17 @@ objects:
         python_func_name: get
         request:
           'resourceGroupName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
-            id_portion: resourceGroups
+            id_portion: null
             go_variable_name: resourceGroup
             python_parameter_name: resource_group_name
             python_variable_name: resource_group
           'serviceName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
-            id_portion: service
+            id_portion: null
             go_variable_name: name
             python_parameter_name: service_name
             python_variable_name: name
           'diagnosticId': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
-            id_portion: diagnostics
+            id_portion: null
             go_variable_name: diagnosticID
             python_parameter_name: diagnostic_id
             python_variable_name: diagnostic_id
@@ -603,12 +603,12 @@ objects:
         python_func_name: list_by_service
         request:
           'resourceGroupName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
-            id_portion: resourceGroups
+            id_portion: null
             go_variable_name: resourceGroup
             python_parameter_name: resource_group_name
             python_variable_name: resource_group
           'serviceName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
-            id_portion: service
+            id_portion: null
             go_variable_name: name
             python_parameter_name: service_name
             python_variable_name: name

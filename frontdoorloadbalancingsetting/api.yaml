@@ -25,17 +25,17 @@ objects:
         python_func_name: create_or_update
         request:
           'resourceGroupName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
-            id_portion: resourceGroups
+            id_portion: null
             go_variable_name: resourceGroup
             python_parameter_name: resource_group_name
             python_variable_name: resource_group
           'frontDoorName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
-            id_portion: frontDoors
+            id_portion: null
             go_variable_name: frontDoorName
             python_parameter_name: front_door_name
             python_variable_name: front_door_name
           'loadBalancingSettingsName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
-            id_portion: loadBalancingSettings
+            id_portion: null
             go_variable_name: name
             python_parameter_name: load_balancing_settings_name
             python_variable_name: name
@@ -85,17 +85,17 @@ objects:
         python_func_name: delete
         request:
           'resourceGroupName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
-            id_portion: resourceGroups
+            id_portion: null
             go_variable_name: resourceGroup
             python_parameter_name: resource_group_name
             python_variable_name: resource_group
           'frontDoorName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
-            id_portion: frontDoors
+            id_portion: null
             go_variable_name: frontDoorName
             python_parameter_name: front_door_name
             python_variable_name: front_door_name
           'loadBalancingSettingsName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
-            id_portion: loadBalancingSettings
+            id_portion: null
             go_variable_name: name
             python_parameter_name: load_balancing_settings_name
             python_variable_name: name
@@ -104,17 +104,17 @@ objects:
         python_func_name: get
         request:
           'resourceGroupName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
-            id_portion: resourceGroups
+            id_portion: null
             go_variable_name: resourceGroup
             python_parameter_name: resource_group_name
             python_variable_name: resource_group
           'frontDoorName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
-            id_portion: frontDoors
+            id_portion: null
             go_variable_name: frontDoorName
             python_parameter_name: front_door_name
             python_variable_name: front_door_name
           'loadBalancingSettingsName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
-            id_portion: loadBalancingSettings
+            id_portion: null
             go_variable_name: name
             python_parameter_name: load_balancing_settings_name
             python_variable_name: name
@@ -162,12 +162,12 @@ objects:
         python_func_name: list_by_front_door
         request:
           'resourceGroupName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
-            id_portion: resourceGroups
+            id_portion: null
             go_variable_name: resourceGroup
             python_parameter_name: resource_group_name
             python_variable_name: resource_group
           'frontDoorName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
-            id_portion: frontDoors
+            id_portion: null
             go_variable_name: frontDoorName
             python_parameter_name: front_door_name
             python_variable_name: front_door_name

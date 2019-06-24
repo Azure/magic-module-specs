@@ -25,12 +25,12 @@ objects:
         python_func_name: create_or_update
         request:
           'resourceGroupName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
-            id_portion: resourceGroups
+            id_portion: null
             go_variable_name: resourceGroup
             python_parameter_name: resource_group_name
             python_variable_name: resource_group
           'accountName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
-            id_portion: databaseAccounts
+            id_portion: null
             go_variable_name: name
             python_parameter_name: account_name
             python_variable_name: name
@@ -172,12 +172,12 @@ objects:
         python_func_name: delete
         request:
           'resourceGroupName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
-            id_portion: resourceGroups
+            id_portion: null
             go_variable_name: resourceGroup
             python_parameter_name: resource_group_name
             python_variable_name: resource_group
           'accountName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
-            id_portion: databaseAccounts
+            id_portion: null
             go_variable_name: name
             python_parameter_name: account_name
             python_variable_name: name
@@ -186,12 +186,12 @@ objects:
         python_func_name: get
         request:
           'resourceGroupName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
-            id_portion: resourceGroups
+            id_portion: null
             go_variable_name: resourceGroup
             python_parameter_name: resource_group_name
             python_variable_name: resource_group
           'accountName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
-            id_portion: databaseAccounts
+            id_portion: null
             go_variable_name: name
             python_parameter_name: account_name
             python_variable_name: name
@@ -349,7 +349,7 @@ objects:
         python_func_name: list_by_resource_group
         request:
           'resourceGroupName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
-            id_portion: resourceGroups
+            id_portion: null
             go_variable_name: resourceGroup
             python_parameter_name: resource_group_name
             python_variable_name: resource_group
@@ -358,12 +358,12 @@ objects:
         python_func_name: list_usages
         request:
           'resourceGroupName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
-            id_portion: resourceGroups
+            id_portion: null
             go_variable_name: resourceGroup
             python_parameter_name: resource_group_name
             python_variable_name: resource_group
           'accountName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
-            id_portion: databaseAccounts
+            id_portion: null
             go_variable_name: name
             python_parameter_name: account_name
             python_variable_name: name
@@ -372,12 +372,12 @@ objects:
         python_func_name: list_metrics
         request:
           'resourceGroupName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
-            id_portion: resourceGroups
+            id_portion: null
             go_variable_name: resourceGroup
             python_parameter_name: resource_group_name
             python_variable_name: resource_group
           'accountName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
-            id_portion: databaseAccounts
+            id_portion: null
             go_variable_name: name
             python_parameter_name: account_name
             python_variable_name: name
@@ -386,12 +386,12 @@ objects:
         python_func_name: list_metric_definitions
         request:
           'resourceGroupName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
-            id_portion: resourceGroups
+            id_portion: null
             go_variable_name: resourceGroup
             python_parameter_name: resource_group_name
             python_variable_name: resource_group
           'accountName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
-            id_portion: databaseAccounts
+            id_portion: null
             go_variable_name: name
             python_parameter_name: account_name
             python_variable_name: name
@@ -400,12 +400,12 @@ objects:
         python_func_name: list_tables
         request:
           'resourceGroupName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
-            id_portion: resourceGroups
+            id_portion: null
             go_variable_name: resourceGroup
             python_parameter_name: resource_group_name
             python_variable_name: resource_group
           'accountName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
-            id_portion: databaseAccounts
+            id_portion: null
             go_variable_name: name
             python_parameter_name: account_name
             python_variable_name: name
@@ -414,12 +414,12 @@ objects:
         python_func_name: list_sql_databases
         request:
           'resourceGroupName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
-            id_portion: resourceGroups
+            id_portion: null
             go_variable_name: resourceGroup
             python_parameter_name: resource_group_name
             python_variable_name: resource_group
           'accountName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
-            id_portion: databaseAccounts
+            id_portion: null
             go_variable_name: name
             python_parameter_name: account_name
             python_variable_name: name
@@ -428,12 +428,12 @@ objects:
         python_func_name: list_mongo_dbdatabases
         request:
           'resourceGroupName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
-            id_portion: resourceGroups
+            id_portion: null
             go_variable_name: resourceGroup
             python_parameter_name: resource_group_name
             python_variable_name: resource_group
           'accountName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
-            id_portion: databaseAccounts
+            id_portion: null
             go_variable_name: name
             python_parameter_name: account_name
             python_variable_name: name
@@ -442,12 +442,12 @@ objects:
         python_func_name: list_gremlin_databases
         request:
           'resourceGroupName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
-            id_portion: resourceGroups
+            id_portion: null
             go_variable_name: resourceGroup
             python_parameter_name: resource_group_name
             python_variable_name: resource_group
           'accountName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
-            id_portion: databaseAccounts
+            id_portion: null
             go_variable_name: name
             python_parameter_name: account_name
             python_variable_name: name
@@ -456,12 +456,12 @@ objects:
         python_func_name: list_cassandra_keyspaces
         request:
           'resourceGroupName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
-            id_portion: resourceGroups
+            id_portion: null
             go_variable_name: resourceGroup
             python_parameter_name: resource_group_name
             python_variable_name: resource_group
           'accountName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
-            id_portion: databaseAccounts
+            id_portion: null
             go_variable_name: name
             python_parameter_name: account_name
             python_variable_name: name
@@ -470,12 +470,12 @@ objects:
         python_func_name: list_gremlin_graphs
         request:
           'resourceGroupName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
-            id_portion: resourceGroups
+            id_portion: null
             go_variable_name: resourceGroup
             python_parameter_name: resource_group_name
             python_variable_name: resource_group
           'accountName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
-            id_portion: databaseAccounts
+            id_portion: null
             go_variable_name: name
             python_parameter_name: account_name
             python_variable_name: name
@@ -484,12 +484,12 @@ objects:
         python_func_name: list_sql_containers
         request:
           'resourceGroupName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
-            id_portion: resourceGroups
+            id_portion: null
             go_variable_name: resourceGroup
             python_parameter_name: resource_group_name
             python_variable_name: resource_group
           'accountName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
-            id_portion: databaseAccounts
+            id_portion: null
             go_variable_name: name
             python_parameter_name: account_name
             python_variable_name: name
@@ -498,12 +498,12 @@ objects:
         python_func_name: list_cassandra_tables
         request:
           'resourceGroupName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
-            id_portion: resourceGroups
+            id_portion: null
             go_variable_name: resourceGroup
             python_parameter_name: resource_group_name
             python_variable_name: resource_group
           'accountName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
-            id_portion: databaseAccounts
+            id_portion: null
             go_variable_name: name
             python_parameter_name: account_name
             python_variable_name: name
@@ -512,12 +512,12 @@ objects:
         python_func_name: list_mongo_dbcollections
         request:
           'resourceGroupName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
-            id_portion: resourceGroups
+            id_portion: null
             go_variable_name: resourceGroup
             python_parameter_name: resource_group_name
             python_variable_name: resource_group
           'accountName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
-            id_portion: databaseAccounts
+            id_portion: null
             go_variable_name: name
             python_parameter_name: account_name
             python_variable_name: name

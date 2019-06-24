@@ -25,7 +25,7 @@ objects:
         python_func_name: create_or_update
         request:
           'groupId': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
-            id_portion: managementGroups
+            id_portion: null
             go_variable_name: groupID
             python_parameter_name: group_id
             python_variable_name: group_id
@@ -34,7 +34,7 @@ objects:
         python_func_name: update
         request:
           'groupId': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
-            id_portion: managementGroups
+            id_portion: null
             go_variable_name: groupID
             python_parameter_name: group_id
             python_variable_name: group_id
@@ -44,7 +44,7 @@ objects:
         python_func_name: delete
         request:
           'groupId': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
-            id_portion: managementGroups
+            id_portion: null
             go_variable_name: groupID
             python_parameter_name: group_id
             python_variable_name: group_id
@@ -53,7 +53,7 @@ objects:
         python_func_name: get
         request:
           'groupId': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
-            id_portion: managementGroups
+            id_portion: null
             go_variable_name: groupID
             python_parameter_name: group_id
             python_variable_name: group_id

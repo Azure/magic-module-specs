@@ -24,22 +24,22 @@ objects:
         python_func_name: create_or_update
         request:
           'resourceGroupName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
-            id_portion: resourceGroups
+            id_portion: null
             go_variable_name: resourceGroup
             python_parameter_name: resource_group_name
             python_variable_name: resource_group
           'serviceName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
-            id_portion: service
+            id_portion: null
             go_variable_name: name
             python_parameter_name: service_name
             python_variable_name: name
           'apiId': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
-            id_portion: apis
+            id_portion: null
             go_variable_name: apiID
             python_parameter_name: api_id
             python_variable_name: api_id
           'schemaId': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
-            id_portion: schemas
+            id_portion: null
             go_variable_name: schemaID
             python_parameter_name: schema_id
             python_variable_name: schema_id
@@ -76,22 +76,22 @@ objects:
         python_func_name: delete
         request:
           'resourceGroupName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
-            id_portion: resourceGroups
+            id_portion: null
             go_variable_name: resourceGroup
             python_parameter_name: resource_group_name
             python_variable_name: resource_group
           'serviceName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
-            id_portion: service
+            id_portion: null
             go_variable_name: name
             python_parameter_name: service_name
             python_variable_name: name
           'apiId': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
-            id_portion: apis
+            id_portion: null
             go_variable_name: apiID
             python_parameter_name: api_id
             python_variable_name: api_id
           'schemaId': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
-            id_portion: schemas
+            id_portion: null
             go_variable_name: schemaID
             python_parameter_name: schema_id
             python_variable_name: schema_id
@@ -100,22 +100,22 @@ objects:
         python_func_name: get
         request:
           'resourceGroupName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
-            id_portion: resourceGroups
+            id_portion: null
             go_variable_name: resourceGroup
             python_parameter_name: resource_group_name
             python_variable_name: resource_group
           'serviceName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
-            id_portion: service
+            id_portion: null
             go_variable_name: name
             python_parameter_name: service_name
             python_variable_name: name
           'apiId': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
-            id_portion: apis
+            id_portion: null
             go_variable_name: apiID
             python_parameter_name: api_id
             python_variable_name: api_id
           'schemaId': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
-            id_portion: schemas
+            id_portion: null
             go_variable_name: schemaID
             python_parameter_name: schema_id
             python_variable_name: schema_id
@@ -151,17 +151,17 @@ objects:
         python_func_name: list_by_api
         request:
           'resourceGroupName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
-            id_portion: resourceGroups
+            id_portion: null
             go_variable_name: resourceGroup
             python_parameter_name: resource_group_name
             python_variable_name: resource_group
           'serviceName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
-            id_portion: service
+            id_portion: null
             go_variable_name: name
             python_parameter_name: service_name
             python_variable_name: name
           'apiId': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
-            id_portion: apis
+            id_portion: null
             go_variable_name: apiID
             python_parameter_name: api_id
             python_variable_name: api_id

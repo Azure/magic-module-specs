@@ -24,22 +24,22 @@ objects:
         python_func_name: create_or_update
         request:
           'resourceGroupName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
-            id_portion: resourceGroups
+            id_portion: null
             go_variable_name: resourceGroup
             python_parameter_name: resource_group_name
             python_variable_name: resource_group
           'namespaceName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
-            id_portion: namespaces
+            id_portion: null
             go_variable_name: namespaceName
             python_parameter_name: namespace_name
             python_variable_name: namespace_name
           'topicName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
-            id_portion: topics
+            id_portion: null
             go_variable_name: topicName
             python_parameter_name: topic_name
             python_variable_name: topic_name
           'subscriptionName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
-            id_portion: subscriptions
+            id_portion: null
             go_variable_name: name
             python_parameter_name: subscription_name
             python_variable_name: name
@@ -130,22 +130,22 @@ objects:
         python_func_name: delete
         request:
           'resourceGroupName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
-            id_portion: resourceGroups
+            id_portion: null
             go_variable_name: resourceGroup
             python_parameter_name: resource_group_name
             python_variable_name: resource_group
           'namespaceName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
-            id_portion: namespaces
+            id_portion: null
             go_variable_name: namespaceName
             python_parameter_name: namespace_name
             python_variable_name: namespace_name
           'topicName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
-            id_portion: topics
+            id_portion: null
             go_variable_name: topicName
             python_parameter_name: topic_name
             python_variable_name: topic_name
           'subscriptionName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
-            id_portion: subscriptions
+            id_portion: null
             go_variable_name: name
             python_parameter_name: subscription_name
             python_variable_name: name
@@ -154,22 +154,22 @@ objects:
         python_func_name: get
         request:
           'resourceGroupName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
-            id_portion: resourceGroups
+            id_portion: null
             go_variable_name: resourceGroup
             python_parameter_name: resource_group_name
             python_variable_name: resource_group
           'namespaceName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
-            id_portion: namespaces
+            id_portion: null
             go_variable_name: namespaceName
             python_parameter_name: namespace_name
             python_variable_name: namespace_name
           'topicName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
-            id_portion: topics
+            id_portion: null
             go_variable_name: topicName
             python_parameter_name: topic_name
             python_variable_name: topic_name
           'subscriptionName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
-            id_portion: subscriptions
+            id_portion: null
             go_variable_name: name
             python_parameter_name: subscription_name
             python_variable_name: name
@@ -296,17 +296,17 @@ objects:
         python_func_name: list_by_topic
         request:
           'resourceGroupName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
-            id_portion: resourceGroups
+            id_portion: null
             go_variable_name: resourceGroup
             python_parameter_name: resource_group_name
             python_variable_name: resource_group
           'namespaceName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
-            id_portion: namespaces
+            id_portion: null
             go_variable_name: namespaceName
             python_parameter_name: namespace_name
             python_variable_name: namespace_name
           'topicName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
-            id_portion: topics
+            id_portion: null
             go_variable_name: topicName
             python_parameter_name: topic_name
             python_variable_name: topic_name
