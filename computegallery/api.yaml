@@ -25,12 +25,12 @@ objects:
         python_func_name: create_or_update
         request:
           'resourceGroupName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
-            id_portion: null
+            id_portion: resourceGroups
             go_variable_name: resourceGroup
             python_parameter_name: resource_group_name
             python_variable_name: resource_group
           'galleryName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
-            id_portion: null
+            id_portion: galleries
             go_variable_name: name
             python_parameter_name: gallery_name
             python_variable_name: name
@@ -40,12 +40,12 @@ objects:
         python_func_name: delete
         request:
           'resourceGroupName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
-            id_portion: null
+            id_portion: resourceGroups
             go_variable_name: resourceGroup
             python_parameter_name: resource_group_name
             python_variable_name: resource_group
           'galleryName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
-            id_portion: null
+            id_portion: galleries
             go_variable_name: name
             python_parameter_name: gallery_name
             python_variable_name: name
@@ -54,12 +54,12 @@ objects:
         python_func_name: get
         request:
           'resourceGroupName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
-            id_portion: null
+            id_portion: resourceGroups
             go_variable_name: resourceGroup
             python_parameter_name: resource_group_name
             python_variable_name: resource_group
           'galleryName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
-            id_portion: null
+            id_portion: galleries
             go_variable_name: name
             python_parameter_name: gallery_name
             python_variable_name: name
@@ -118,7 +118,7 @@ objects:
         python_func_name: list_by_resource_group
         request:
           'resourceGroupName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
-            id_portion: null
+            id_portion: resourceGroups
             go_variable_name: resourceGroup
             python_parameter_name: resource_group_name
             python_variable_name: resource_group

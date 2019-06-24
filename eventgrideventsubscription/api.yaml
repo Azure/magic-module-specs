@@ -25,12 +25,12 @@ objects:
         python_func_name: create_or_update
         request:
           'scope': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
-            id_portion: null
+            id_portion: 
             go_variable_name: scope
             python_parameter_name: scope
             python_variable_name: scope
           'eventSubscriptionName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
-            id_portion: null
+            id_portion: eventSubscriptions
             go_variable_name: name
             python_parameter_name: event_subscription_name
             python_variable_name: name
@@ -40,12 +40,12 @@ objects:
         python_func_name: update
         request:
           'scope': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
-            id_portion: null
+            id_portion: 
             go_variable_name: scope
             python_parameter_name: scope
             python_variable_name: scope
           'eventSubscriptionName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
-            id_portion: null
+            id_portion: eventSubscriptions
             go_variable_name: name
             python_parameter_name: event_subscription_name
             python_variable_name: name
@@ -134,12 +134,12 @@ objects:
         python_func_name: delete
         request:
           'scope': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
-            id_portion: null
+            id_portion: 
             go_variable_name: scope
             python_parameter_name: scope
             python_variable_name: scope
           'eventSubscriptionName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
-            id_portion: null
+            id_portion: eventSubscriptions
             go_variable_name: name
             python_parameter_name: event_subscription_name
             python_variable_name: name
@@ -148,12 +148,12 @@ objects:
         python_func_name: get
         request:
           'scope': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
-            id_portion: null
+            id_portion: 
             go_variable_name: scope
             python_parameter_name: scope
             python_variable_name: scope
           'eventSubscriptionName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
-            id_portion: null
+            id_portion: eventSubscriptions
             go_variable_name: name
             python_parameter_name: event_subscription_name
             python_variable_name: name

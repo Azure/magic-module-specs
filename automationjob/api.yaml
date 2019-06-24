@@ -24,17 +24,17 @@ objects:
         python_func_name: create
         request:
           'resourceGroupName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
-            id_portion: null
+            id_portion: resourceGroups
             go_variable_name: resourceGroup
             python_parameter_name: resource_group_name
             python_variable_name: resource_group
           'automationAccountName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
-            id_portion: null
+            id_portion: automationAccounts
             go_variable_name: automationAccountName
             python_parameter_name: automation_account_name
             python_variable_name: automation_account_name
           'jobName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
-            id_portion: null
+            id_portion: jobs
             go_variable_name: name
             python_parameter_name: job_name
             python_variable_name: name
@@ -54,17 +54,17 @@ objects:
         python_func_name: get
         request:
           'resourceGroupName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
-            id_portion: null
+            id_portion: resourceGroups
             go_variable_name: resourceGroup
             python_parameter_name: resource_group_name
             python_variable_name: resource_group
           'automationAccountName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
-            id_portion: null
+            id_portion: automationAccounts
             go_variable_name: automationAccountName
             python_parameter_name: automation_account_name
             python_variable_name: automation_account_name
           'jobName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
-            id_portion: null
+            id_portion: jobs
             go_variable_name: name
             python_parameter_name: job_name
             python_variable_name: name
@@ -185,12 +185,12 @@ objects:
         python_func_name: list_by_automation_account
         request:
           'resourceGroupName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
-            id_portion: null
+            id_portion: resourceGroups
             go_variable_name: resourceGroup
             python_parameter_name: resource_group_name
             python_variable_name: resource_group
           'automationAccountName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
-            id_portion: null
+            id_portion: automationAccounts
             go_variable_name: automationAccountName
             python_parameter_name: automation_account_name
             python_variable_name: automation_account_name
