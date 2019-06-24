@@ -9,7 +9,7 @@ manifest: !ruby/object:Provider::Ansible::Manifest
     - requests >= 2.18.4
   version_added: '2.9'
   author: Junyi Yi (@JunyiYi)
-datasources: !ruby/object:Provider::ResourceOverrides
+datasources: !ruby/object:Overrides::ResourceOverrides
   BatchAccount: !ruby/object:Provider::Azure::Ansible::ResourceOverride
     version_added: '2.9'
     properties:
@@ -30,7 +30,7 @@ datasources: !ruby/object:Provider::ResourceOverrides
           resourceGroups: MyResourceGroup
           storageAccounts: mystorageaccountname
           batchAccounts: mybatchaccount
-overrides: !ruby/object:Provider::ResourceOverrides
+overrides: !ruby/object:Overrides::ResourceOverrides
   BatchAccount: !ruby/object:Provider::Azure::Ansible::ResourceOverride
     properties:
       id: !ruby/object:Provider::Azure::Ansible::PropertyOverride
