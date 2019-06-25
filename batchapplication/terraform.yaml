@@ -1,18 +1,18 @@
---- !ruby/object:Provider::Terraform::Config
-overrides: !ruby/object:Provider::ResourceOverrides
+--- !ruby/object:Provider::Azure::Terraform::Config
+overrides: !ruby/object:Overrides::ResourceOverrides
   Application: !ruby/object:Provider::Azure::Terraform::ResourceOverride
     name: BatchApplication
     properties:
-      name: !ruby/object:Provider::Terraform::PropertyOverride
-        order: 100
-      resourceGroup: !ruby/object:Provider::Terraform::PropertyOverride
+      resourceGroup: !ruby/object:Provider::Azure::Terraform::PropertyOverride
         name: resourceGroupName
+      etag: !ruby/object:Provider::Azure::Terraform::PropertyOverride
+        exclude: true
     acctests:
-      - !ruby/object:Provider::Azure::Terraform::ResourceOverride::AccTestDefinition
+      - !ruby/object:Provider::Azure::Terraform::AccTestDefinition
         name: basic
         steps: [basic]
     document_examples:
-      - !ruby/object:Provider::Azure::Terraform::ResourceOverride::DocumentExampleReference
+      - !ruby/object:Provider::Azure::Terraform::DocumentExampleReference
         title: Example Usage
         example_name: basic
         resource_name_hints:
