@@ -1,6 +1,5 @@
 --- !ruby/object:Api::Product
 name: Azure Batch Account
-prefix: batchaccount
 versions:
   - !ruby/object:Api::Product::Version
     name: ga

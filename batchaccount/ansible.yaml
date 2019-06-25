@@ -1,36 +1,8 @@
---- !ruby/object:Provider::Ansible::Config
-manifest: !ruby/object:Provider::Ansible::Manifest
-  metadata_version: '1.1'
-  status:
-    - preview
-  supported_by: 'community'
-  requirements:
-    - python >= 2.6
-    - requests >= 2.18.4
-  version_added: '2.9'
-  author: Junyi Yi (@JunyiYi)
-datasources: !ruby/object:Provider::ResourceOverrides
-  BatchAccount: !ruby/object:Provider::Azure::Ansible::ResourceOverride
-    version_added: '2.9'
-    properties:
-      name: !ruby/object:Provider::Ansible::PropertyOverride
-        required: false
-      tags: !ruby/object:Provider::Ansible::PropertyOverride
-        description: Resource tags.
-    examples:
-      - !ruby/object:Provider::Azure::Ansible::ResourceOverride::DocumentExampleReference
-        example: infoget
-        resource_name_hints:
-          resourceGroups: MyResourceGroup
-          storageAccounts: mystorageaccountname
-          batchAccounts: mybatchaccount
-      - !ruby/object:Provider::Azure::Ansible::ResourceOverride::DocumentExampleReference
-        example: infolist
-        resource_name_hints:
-          resourceGroups: MyResourceGroup
-          storageAccounts: mystorageaccountname
-          batchAccounts: mybatchaccount
-overrides: !ruby/object:Provider::ResourceOverrides
+--- !ruby/object:Provider::Azure::Ansible::Config
+author: Junyi Yi (@JunyiYi)
+version_added: '2.9'
+
+overrides: !ruby/object:Overrides::ResourceOverrides
   BatchAccount: !ruby/object:Provider::Azure::Ansible::ResourceOverride
     properties:
       id: !ruby/object:Provider::Azure::Ansible::PropertyOverride
@@ -49,15 +21,37 @@ overrides: !ruby/object:Provider::ResourceOverrides
         custom_normalize: ./ansible_keyvault_normalize.erb
         inline_custom_response_format: ./ansible_keyvault_response_format.erb
     examples:
-      - !ruby/object:Provider::Azure::Ansible::ResourceOverride::DocumentExampleReference
+      - !ruby/object:Provider::Azure::Ansible::DocumentExampleReference
         example: basic
         resource_name_hints:
           resourceGroups: MyResourceGroup
           storageAccounts: mystorageaccountname
           batchAccounts: mybatchaccount
     inttests:
-      - !ruby/object:Provider::Azure::Ansible::ResourceOverride::IntegrationTestDefinition
+      - !ruby/object:Provider::Azure::Ansible::IntegrationTestDefinition
         example: basic
         delete_example: delete
         info_by_name_example: infoget
         info_by_resource_group_example: infolist
+
+datasources: !ruby/object:Overrides::ResourceOverrides
+  BatchAccount: !ruby/object:Provider::Azure::Ansible::ResourceOverride
+    description: Gather info for Azure Batch Account
+    properties:
+      name: !ruby/object:Provider::Azure::Ansible::PropertyOverride
+        required: false
+      tags: !ruby/object:Provider::Azure::Ansible::PropertyOverride
+        description: Resource tags.
+    examples:
+      - !ruby/object:Provider::Azure::Ansible::DocumentExampleReference
+        example: infoget
+        resource_name_hints:
+          resourceGroups: MyResourceGroup
+          storageAccounts: mystorageaccountname
+          batchAccounts: mybatchaccount
+      - !ruby/object:Provider::Azure::Ansible::DocumentExampleReference
+        example: infolist
+        resource_name_hints:
+          resourceGroups: MyResourceGroup
+          storageAccounts: mystorageaccountname
+          batchAccounts: mybatchaccount

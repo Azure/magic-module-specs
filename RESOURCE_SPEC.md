@@ -24,59 +24,51 @@ Firstly I would like to give you a big picture of what `api.yaml` looks like (we
 ```yaml
   1   --- !ruby/object:Api::Product
   2   name: <Azure Resource Name, without restrictions>
-  3   prefix: <Any value makes sense, without restrictions>
-  4   versions:
-  5     - !ruby/object:Api::Product::Version
-  6       name: <Not used in Azure but required by GCP>
-  7       base_uirl: <Not used in Azure but required by GCP>
-  8   scopes:
-  9     - <Not used in Azure but required by GCP>
+  3   versions:
+  4     - !ruby/object:Api::Product::Version
+  5       name: <Not used in Azure but required by GCP>
+  6       base_uirl: <Not used in Azure but required by GCP>
+  7   scopes:
+  8     - <Not used in Azure but required by GCP>
 
- 10   objects:
- 11     - !ruby/object:Api::Resource
- 12       name: <Azure Resource Name, used as Terraform resource name and Ansible module name>
- 13       api_name: <Not used in Azure but required by GCP>
- 14       base_url: <Not used in Azure but required by GCP>
+  9   objects:
+ 10     - !ruby/object:Api::Resource
+ 11       name: <Azure Resource Name, used as Terraform resource name and Ansible module name>
+ 12       api_name: <Not used in Azure but required by GCP>
+ 13       base_url: <Not used in Azure but required by GCP>
 
- 15       azure_sdk_definition: !ruby/object:Api::Azure::SDKDefinition
- 16         provider_name: <Azure service provider, see below>
- 17         <Go client definitions, required>
- 18         <Python client definitions, required>
- 19         create: !ruby/object:Api::Azure::SDKOperationDefinition
- 20           <Create operation definitions, required>
- 21           request:
- 22             <Create request parameters and body definitions, required>
- 23         read: !ruby/object:Api::Azure::SDKOperationDefinition
- 24           <Read operation definitions, required>
- 25           request:
- 26             <Read request parameters definitions, required>
- 27           response:
- 28             <Read response body definitions, required>
- 29         update: !ruby/object:Api::Azure::SDKOperationDefinition
- 30           <Update operation definitions, optional if update is included in create>
- 31           request:
- 32             <Update request parameters and body definitions, required>
- 33         delete: !ruby/object:Api::Azure::SDKOperationDefinition
- 34           <Delete operation definitions, required>
- 35           request:
- 36             <Delete request parameters definitions, required>
- 37         list_by_resource_group: !ruby/object:Api::Azure::SDKOperationDefinition
- 38           <List by resource group operation definitions, optional, only used in Ansible info module>
- 39           request:
- 40             <List by resource group request parameters definitions, required>
- 41         list_by_subscription: !ruby/object:Api::Azure::SDKOperationDefinition
- 42           <List by subscription operation definitions, optional, only used in Ansible info module>
- 43           request: {}
- 44         list_by_parent: !ruby/object:Api::Azure::SDKOperationDefinition
- 45           <List sub-resource by its parent resource operation definitions, optional, only used in Ansible info module>
- 46           request:
- 47             <List by resource group request parameters definitions, required>
+ 14       azure_sdk_definition: !ruby/object:Api::Azure::SDKDefinition
+ 15         provider_name: <Azure service provider, see below>
+ 16         <Go client definitions, required>
+ 17         <Python client definitions, required>
+ 18         create: !ruby/object:Api::Azure::SDKOperationDefinition
+ 19           <Create operation definitions, required>
+ 20           request:
+ 21             <Create request parameters and body definitions, required>
+ 22         read: !ruby/object:Api::Azure::SDKOperationDefinition
+ 23           <Read operation definitions, required>
+ 24           request:
+ 25             <Read request parameters definitions, required>
+ 26           response:
+ 27             <Read response body definitions, required>
+ 28         update: !ruby/object:Api::Azure::SDKOperationDefinition
+ 29           <Update operation definitions, optional if update is included in create>
+ 30           request:
+ 31             <Update request parameters and body definitions, required>
+ 32         delete: !ruby/object:Api::Azure::SDKOperationDefinition
+ 33           <Delete operation definitions, required>
+ 34           request:
+ 35             <Delete request parameters definitions, required>
+ 36         list_by_resource_group: !ruby/object:Api::Azure::SDKOperationDefinition
+ 37           <List by resource group operation definitions, optional, only used in Ansible info module>
+ 38           request:
+ 39             <List by resource group request parameters definitions, required>
 
- 48       description: <Any value makes sense, used in documentation>
- 49       parameters:
- 50         <Parameter definitions, user interface of DevOps tools, see below>
- 51       properties:
- 52         <Property definitions, user interface of DevOps tools, see below>
+ 40       description: <Any value makes sense, used in documentation>
+ 41       parameters:
+ 42         <Parameter definitions, user interface of DevOps tools, see below>
+ 43       properties:
+ 44         <Property definitions, user interface of DevOps tools, see below>
 ```
 
 #### Resource Definition
@@ -371,34 +363,45 @@ Support for `!ruby/object:Api::Type::Map` is missing in Azure-extended magic-mod
 
 `ansible.yaml` defines overrides and additional inputs for Ansible. The overall structure is demonstrated below, and please refer to [batchaccount `ansible.yaml`](https://github.com/Azure/magic-module-specs/blob/master/batchaccount/ansible.yaml) as a real-world example.
 
+> Note that all properties illustrated here are optional, which means you do not want to override anything in `api.yaml`.
+
 ```yaml
-  1   --- !ruby/object:Provider::Ansible::Config
-  2   manifest: !ruby/object:Provider::Ansible::Manifest
-  3     metadata_version: <Used in ANSIBLE_METADATA>
-  4     status:
-  5       <Used in ANSIBLE_METADATA>
-  6     supported_by: <Used in ANSIBLE_METADATA>
-  7     requirements:
-  8       <Not used in Azure>
-  9     version_added: <Used in DOCUMENTATION>
- 10     author: <Used in DOCUMENTATION>
+--- !ruby/object:Provider::Azure::Ansible::Config
+author: <Used in DOCUMENTATION>
+version_added: <Used in DOCUMENTATION>
 
- 11   datasources: !ruby/object:Provider::ResourceOverrides
- 12     <objects[0].name in api.yaml>: !ruby/object:Provider::Azure::Ansible::ResourceOverride
- 13       version_added: <Used in DOCUMENTATION of info module>
- 14       properties:
- 15         <Property overrides for info module>
- 16       examples:
- 17         <EXAMPLES definitions for info module>
+overrides: !ruby/object:Overrides::ResourceOverrides
+  <objects[0].name in api.yaml>: !ruby/object:Provider::Azure::Ansible::ResourceOverride
+    azure_sdk_definition: !ruby/object:Api::Azure::SDKDefinitionOverride
+      create: !ruby/object:Api::Azure::SDKOperationDefinitionOverride
+        request:
+          <request key in api.yaml>: !ruby/object:Api::Azure::SDKTypeDefinitionOverride
+            <SDK attribute overrides>
+    properties:
+      <property Name>: !ruby/object:Provider::Azure::Ansible::PropertyOverride
+        <property attribute overrides>
+    examples:
+      - !ruby/object:Provider::Azure::Ansible::DocumentExampleReference
+        example: <filename in ./examples/anisble>
+        resource_name_hints:
+          <id_portion of parameters in request>: <Name used in example>
+    inttests:
+      - !ruby/object:Provider::Azure::Ansible::IntegrationTestDefinition
+        example: <filename in ./examples/anisble, main test for resource module>
+        delete_example: <filename in ./examples/anisble, used to clean up resources>
+        info_by_name_example: <filename in ./examples/anisble, used in info module test>
+        info_by_resource_group_example: <filename in ./examples/anisble, used in info module test>
 
- 18   overrides: !ruby/object:Provider::ResourceOverrides
- 19     <objects[0].name in api.yaml>: !ruby/object:Provider::Azure::Ansible::ResourceOverride
- 20       properties:
- 21         <Property overrides for resource module>
- 22       examples:
- 23         <EXAMPLES definitions for resource module>
- 24       inttests:
- 25         <Integration test definitions for resource module, at most one for now>
+datasources: !ruby/object:Overrides::ResourceOverrides
+  <objects[0].name in api.yaml>: !ruby/object:Provider::Azure::Ansible::ResourceOverride
+    properties:
+      <property Name>: !ruby/object:Provider::Azure::Ansible::PropertyOverride
+        <property attribute overrides>
+    examples:
+      - !ruby/object:Provider::Azure::Ansible::DocumentExampleReference
+        example: <filename in ./examples/anisble>
+        resource_name_hints:
+          <id_portion of parameters in request>: <Name used in example>
 ```
 
 All items and attributes in `parameters`/`properties` mentioned in `api.yaml` could be overriden by this file.
@@ -407,29 +410,45 @@ All items and attributes in `parameters`/`properties` mentioned in `api.yaml` co
 
 `terraform.yaml` defines overrides and additional inputs for Terraform. The overall structure is demonstrated below, and please refer to [batchaccount `terraform.yaml`](https://github.com/Azure/magic-module-specs/blob/master/batchaccount/terraform.yaml) as a real-world example.
 
-```yaml
-  1   --- !ruby/object:Provider::Terraform::Config
-  2   overrides: !ruby/object:Provider::ResourceOverrides
-  3     <objects[0].name in api.yaml>: !ruby/object:Provider::Azure::Terraform::ResourceOverride
-  4       azure_sdk_definition: !ruby/object:Api::Azure::SDKDefinitionOverride
-  5         <Azure SDK structure overrides, optional>
-  6       properties:
-  7         <Property overrides for resource, required>
-  8       custom_code: !ruby/object:Provider::Terraform::CustomCode
-  9         <Customized code snippets for resource, optional>
- 10       document_examples:
- 11         <Example definitions for resource documentation, optional>
- 12       acctests:
- 13         <Acceptance test definitions for resource, optional>
+> Note that all properties illustrated here are optional, which means you do not want to override anything in `api.yaml`.
 
- 14   datasources: !ruby/object:Provider::ResourceOverrides
- 15     <objects[0].name in api.yaml>: !ruby/object:Provider::Azure::Terraform::ResourceOverride
- 16       properties:
- 17         <Property overrides for data source, required>
- 18       datasource_example_outputs:
- 19         <Output variable definition for data source documentation, optional>
- 20       acctests:
- 21         <Acceptance test definitions for data source, optional>
+```yaml
+--- !ruby/object:Provider::Azure::Terraform::Config
+overrides: !ruby/object:Overrides::ResourceOverrides
+  <objects[0].name in api.yaml>: !ruby/object:Provider::Azure::Terraform::ResourceOverride
+    azure_sdk_definition: !ruby/object:Api::Azure::SDKDefinitionOverride
+      create: !ruby/object:Api::Azure::SDKOperationDefinitionOverride
+        request:
+          <request key in api.yaml>: !ruby/object:Api::Azure::SDKTypeDefinitionOverride
+            <SDK attribute overrides>
+    properties:
+      <property Name>: !ruby/object:Provider::Azure::Terraform::PropertyOverride
+        <property attribute overrides>
+    document_examples:
+      - !ruby/object:Provider::Azure::Terraform::DocumentExampleReference
+        title: <Title used in documentation>
+        example_name: <filename in ./examples/terraform>
+        resource_name_hints:
+          <id_portion of parameters in request>: <Name used in example>
+          location: <Location used in example>
+    acctests:
+      - !ruby/object:Provider::Azure::Terraform::AccTestDefinition
+        name: <Test function name in _test.go>
+        steps: [<filenames in ./examples/terraform>]
+    custom_code: !ruby/object:Provider::Terraform::CustomCode
+      <Customized code snippets for resource, optional>
+
+datasources: !ruby/object:Overrides::ResourceOverrides
+  <objects[0].name in api.yaml>: !ruby/object:Provider::Azure::Terraform::ResourceOverride
+    properties:
+      <property Name>: !ruby/object:Provider::Azure::Terraform::PropertyOverride
+        <property attribute overrides>
+    datasource_example_outputs:
+      <Output variable name used in documentation>: <Output variable attribute>
+    acctests:
+      - !ruby/object:Provider::Azure::Terraform::AccTestDefinition
+        name: <Test function name in _test.go>
+        steps: [<filenames in ./examples/terraform>]
 ```
 
 Please note that it is critical to define `overrides` before `datasources` in `terraform.yaml`, otherwise everything defined in `overrides` will be lost in `datasources`.
