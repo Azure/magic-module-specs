@@ -18,17 +18,25 @@ steps:
   displayName: 'Initialize submodules'
 
 - script: |
-    cd ./tools/magic-modules
-    gem install bundler
-    bundle install --retry=3 --jobs=4
-  displayName: 'bundle install'
-
-- script: |
     git config --global user.email "audevbot@microsoft.com"
     git config --global user.name "audevbot"
     git config --global credential.helper store
+    git config --global push.default current
     echo "https://audevbot:$(GH_TOKEN)@github.com" > ~/.git-credentials
   displayName: 'git config'
 
 - script: |
+    cd tools/magic-modules
+    gem install bundler
+    bundle install --retry=3 --jobs=4
+    bundle exec compiler -p ../../batchaccount -e terraform -o ../../generated/terraform-provider-azurerm/
+    # bundle exec compiler -p ../../batchaccount -e ansible -o ../../generated/ansible
   displayName: 'code generation'
+
+- script: |
+    cd tools/magic-modules
+    git checkout autogen || git checkout -b autogen
+    git add -A
+    git commit -m "autogen"
+    git push
+  displayName: 'commit and push'
