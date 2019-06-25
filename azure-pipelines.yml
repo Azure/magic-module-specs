@@ -23,5 +23,12 @@ steps:
     bundle install --retry=3 --jobs=4
   displayName: 'bundle install'
 
-# - script: bundle exec rake
-#   displayName: ''
+- script: |
+    git config --global user.email "audevbot@microsoft.com"
+    git config --global user.name "audevbot"
+    git config --global credential.helper store
+    echo "https://audevbot:$(GH_TOKEN)@github.com" > ~/.git-credentials
+  displayName: 'git config'
+
+- script: |
+  displayName: 'code generation'
