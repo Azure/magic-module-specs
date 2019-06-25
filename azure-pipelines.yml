@@ -34,9 +34,17 @@ steps:
   displayName: 'code generation'
 
 - script: |
-    cd tools/magic-modules
+    cd generated/terraform-provider-azurerm
     git checkout autogen || git checkout -b autogen
     git add -A
     git commit -m "autogen"
     git push
-  displayName: 'commit and push'
+  displayName: 'push generated code for terraform'
+
+  # - script: |
+  #   cd generated/ansible
+  #   git checkout autogen || git checkout -b autogen
+  #   git add -A
+  #   git commit -m "autogen"
+  #   git push
+  # displayName: 'push generated code for ansible'
