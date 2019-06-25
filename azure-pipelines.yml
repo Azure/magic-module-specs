@@ -18,7 +18,7 @@ steps:
   displayName: 'Initialize submodules'
 
 - script: |
-    cd ./tools/mm
+    cd ./tools/magic-modules
     gem install bundler
     bundle install --retry=3 --jobs=4
   displayName: 'bundle install'
