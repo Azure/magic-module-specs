@@ -188,7 +188,7 @@ objects:
         description: 'Resource name'
         input: true
         output: true
-        azure_sdk_references: ['/name', '/name']
+        azure_sdk_references: ['/name']
       - !ruby/object:Api::Type::String
         name: 'type'
         description: 'Resource type'

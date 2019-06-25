@@ -166,7 +166,7 @@ objects:
         description: 'The name of the management group. For example, 00000000-0000-0000-0000-000000000000'
         required: false
         input: true
-        azure_sdk_references: ['/name', '/name']
+        azure_sdk_references: ['/name']
       - !ruby/object:Api::Type::String
         name: 'displayName'
         description: 'The friendly name of the management group. If no value is passed then this  field will be set to the groupId.'
