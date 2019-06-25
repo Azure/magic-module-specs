@@ -123,6 +123,13 @@ objects:
             go_variable_name: operationID
             python_parameter_name: operation_id
             python_variable_name: operation_id
+          '/properties/format': !ruby/object:Api::Azure::SDKTypeDefinition::EnumObject
+            applicable_to: [go]
+            go_field_name: Format
+            go_enum_type_name: PolicyContentFormat
+          '/format': !ruby/object:Api::Azure::SDKTypeDefinition::EnumObject
+            applicable_to: [python]
+            python_field_name: format
           'policyId': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             id_portion: policies
             go_variable_name: policyID
@@ -202,7 +209,7 @@ objects:
         description: 'API revision identifier. Must be unique in the current API Management service instance. Non-current revision has ;rev=n as a suffix where n is the revision number.'
         required: true
         input: true
-        sample_value: myApis
+        sample_value: myApi
         azure_sdk_references: ['apiId']
       - !ruby/object:Api::Type::String
         name: 'operationId'
@@ -248,7 +255,7 @@ objects:
         description: 'Resource name.'
         input: true
         output: true
-        azure_sdk_references: ['/name', '/name']
+        azure_sdk_references: ['/name']
       - !ruby/object:Api::Type::String
         name: 'type'
         description: 'Resource type for API Management resource.'

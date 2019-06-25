@@ -125,6 +125,8 @@ Next, it is time to define all SDK CRUD operations of the resource. We supports 
 * `update`: operation to update a resource (if exists in SDK)
 * `delete`: operation to delete a resource
 * `list_by_resource_group`: operation to list all resources of this type in a resource group
+* `list_by_subscription`: operation to list all resources of this type in a subscription
+* `list_by_parent`: operation to list all sub-resources of this type in its parent resource
 
 Magic-module cares about `request`s of all operations, and only needs the `response` of `read` operations. So you can omit `response`s in operations other than `read`.
 
@@ -145,10 +147,6 @@ When Azure SDK uses `create or update` to provision a resource (like [service bu
  12     <Delete operation definitions, required>
  13     request:
  14       <Delete request parameters definitions, required>
- 15   list_by_resource_group: !ruby/object:Api::Azure::SDKOperationDefinition
- 16     <List by resource group operation definitions, optional, only used in Ansible info module>
- 17     request:
- 18       <List by resource group request parameters definitions, required>
 ```
 
 For all operations, we need to define the function names used in different SDKs.

@@ -1,27 +1,7 @@
 --- !ruby/object:Provider::Azure::Ansible::Config
 author: Junyi Yi (@JunyiYi)
 version_added: '2.9'
-datasources: !ruby/object:Overrides::ResourceOverrides
-  BatchAccount: !ruby/object:Provider::Azure::Ansible::ResourceOverride
-    description: Gather info for Azure Batch Account
-    properties:
-      name: !ruby/object:Provider::Azure::Ansible::PropertyOverride
-        required: false
-      tags: !ruby/object:Provider::Azure::Ansible::PropertyOverride
-        description: Resource tags.
-    examples:
-      - !ruby/object:Provider::Azure::Ansible::DocumentExampleReference
-        example: infoget
-        resource_name_hints:
-          resourceGroups: MyResourceGroup
-          storageAccounts: mystorageaccountname
-          batchAccounts: mybatchaccount
-      - !ruby/object:Provider::Azure::Ansible::DocumentExampleReference
-        example: infolist
-        resource_name_hints:
-          resourceGroups: MyResourceGroup
-          storageAccounts: mystorageaccountname
-          batchAccounts: mybatchaccount
+
 overrides: !ruby/object:Overrides::ResourceOverrides
   BatchAccount: !ruby/object:Provider::Azure::Ansible::ResourceOverride
     properties:
@@ -53,3 +33,25 @@ overrides: !ruby/object:Overrides::ResourceOverrides
         delete_example: delete
         info_by_name_example: infoget
         info_by_resource_group_example: infolist
+
+datasources: !ruby/object:Overrides::ResourceOverrides
+  BatchAccount: !ruby/object:Provider::Azure::Ansible::ResourceOverride
+    description: Gather info for Azure Batch Account
+    properties:
+      name: !ruby/object:Provider::Azure::Ansible::PropertyOverride
+        required: false
+      tags: !ruby/object:Provider::Azure::Ansible::PropertyOverride
+        description: Resource tags.
+    examples:
+      - !ruby/object:Provider::Azure::Ansible::DocumentExampleReference
+        example: infoget
+        resource_name_hints:
+          resourceGroups: MyResourceGroup
+          storageAccounts: mystorageaccountname
+          batchAccounts: mybatchaccount
+      - !ruby/object:Provider::Azure::Ansible::DocumentExampleReference
+        example: infolist
+        resource_name_hints:
+          resourceGroups: MyResourceGroup
+          storageAccounts: mystorageaccountname
+          batchAccounts: mybatchaccount

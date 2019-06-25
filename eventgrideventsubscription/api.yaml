@@ -49,6 +49,85 @@ objects:
             go_variable_name: name
             python_parameter_name: event_subscription_name
             python_variable_name: name
+          '/': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            go_variable_name: eventSubscriptionUpdateParameters
+            go_type_name: EventSubscription
+            python_parameter_name: event_subscription_update_parameters
+            python_variable_name: event_subscription_update_parameters
+          '/properties': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            applicable_to: [go]
+            go_field_name: Properties
+            go_type_name: EventSubscriptionProperties
+          '/destination': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            applicable_to: [python]
+            python_field_name: destination
+          '/properties/destination': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            applicable_to: [go]
+            go_field_name: Destination
+            go_type_name: EventSubscriptionDestination
+          '/filter': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            applicable_to: [python]
+            python_field_name: filter
+          '/filter/subjectBeginsWith': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: subject_begins_with
+          '/filter/subjectEndsWith': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: subject_ends_with
+          '/filter/includedEventTypes': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: included_event_types
+          '/filter/isSubjectCaseSensitive': !ruby/object:Api::Azure::SDKTypeDefinition::BooleanObject
+            applicable_to: [python]
+            python_field_name: is_subject_case_sensitive
+          '/properties/filter': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            applicable_to: [go]
+            go_field_name: Filter
+            go_type_name: EventSubscriptionFilter
+          '/properties/filter/subjectBeginsWith': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: SubjectBeginsWith
+          '/properties/filter/subjectEndsWith': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: SubjectEndsWith
+          '/properties/filter/includedEventTypes': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: IncludedEventTypes
+          '/properties/filter/isSubjectCaseSensitive': !ruby/object:Api::Azure::SDKTypeDefinition::BooleanObject
+            applicable_to: [go]
+            go_field_name: IsSubjectCaseSensitive
+          '/labels': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: labels
+          '/properties/labels': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: Labels
+          '/retryPolicy': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            applicable_to: [python]
+            python_field_name: retry_policy
+          '/retryPolicy/maxDeliveryAttempts': !ruby/object:Api::Azure::SDKTypeDefinition::IntegerObject
+            applicable_to: [python]
+            python_field_name: max_delivery_attempts
+          '/retryPolicy/eventTimeToLiveInMinutes': !ruby/object:Api::Azure::SDKTypeDefinition::IntegerObject
+            applicable_to: [python]
+            python_field_name: event_time_to_live_in_minutes
+          '/properties/retryPolicy': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            applicable_to: [go]
+            go_field_name: RetryPolicy
+            go_type_name: RetryPolicy
+          '/properties/retryPolicy/maxDeliveryAttempts': !ruby/object:Api::Azure::SDKTypeDefinition::IntegerObject
+            applicable_to: [go]
+            go_field_name: MaxDeliveryAttempts
+          '/properties/retryPolicy/eventTimeToLiveInMinutes': !ruby/object:Api::Azure::SDKTypeDefinition::IntegerObject
+            applicable_to: [go]
+            go_field_name: EventTimeToLiveInMinutes
+          '/deadLetterDestination': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            applicable_to: [python]
+            python_field_name: dead_letter_destination
+          '/properties/deadLetterDestination': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            applicable_to: [go]
+            go_field_name: DeadLetterDestination
+            go_type_name: DeadLetterDestination
       delete: !ruby/object:Api::Azure::SDKOperationDefinition
         async: true
         go_func_name: Delete
@@ -322,7 +401,7 @@ should be compared in a case sensitive manner.'
         description: 'Name of the resource'
         input: true
         output: true
-        azure_sdk_references: ['/name', '/name']
+        azure_sdk_references: ['/name']
       - !ruby/object:Api::Type::String
         name: 'type'
         description: 'Type of the resource'

@@ -1008,11 +1008,13 @@ objects:
                     name: 'functionAlias'
                     description: 'Log Analytics Saved Search name.'
                     required: false
+                    sample_value: SavedSearch2
                     azure_sdk_references: ['/updateConfiguration/targets/nonAzureQueries/functionAlias', '/properties/updateConfiguration/targets/nonAzureQueries/functionAlias']
                   - !ruby/object:Api::Type::String
                     name: 'workspaceId'
                     description: 'Workspace Id for Log Analytics in which the saved Search is resided.'
                     required: false
+                    sample_value: WorkspaceId2
                     azure_sdk_references: ['/updateConfiguration/targets/nonAzureQueries/workspaceId', '/properties/updateConfiguration/targets/nonAzureQueries/workspaceId']
       - !ruby/object:Api::Type::NestedObject
         name: 'scheduleInfo'
@@ -1068,6 +1070,7 @@ objects:
               - :Hour
               - :Week
               - :Month
+              - :Minute
             default_value: :OneTime
             sample_value: Hour
             azure_sdk_references: ['/scheduleInfo/frequency', '/properties/scheduleInfo/frequency']
@@ -1221,7 +1224,7 @@ objects:
         description: 'Resource name.'
         input: true
         output: true
-        azure_sdk_references: ['/name', '/name']
+        azure_sdk_references: ['/name']
       - !ruby/object:Api::Type::String
         name: 'id'
         description: 'Resource Id.'
