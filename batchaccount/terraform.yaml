@@ -30,7 +30,7 @@ overrides: !ruby/object:Overrides::ResourceOverrides
           batchAccounts: example-batch-account
           location: West US
 datasources: !ruby/object:Overrides::ResourceOverrides
-  BatchAccount: !ruby/object:Provider::Azure::Terraform::DataSourceOverride
+  BatchAccount: !ruby/object:Provider::Azure::Terraform::ResourceOverride
     properties:
       resourceGroupName: !ruby/object:Provider::Azure::Terraform::PropertyOverride
         description: The Name of the Resource Group where the App Service exists.
