@@ -45,8 +45,14 @@ steps:
     git add -A
     git commit -m "auto code generation for Terraform."
     git push
+  displayName: 'commit and push code for terraform'
+
+
+- script: |
+    cd generated/terraform-provider-azurerm
+    hub checkout autogen-pr-$(Build.BuildNumber)
     hub pull-request -m "auto code generation for Terraform"
-  displayName: 'create pr for terraform'
+  displayName: 'pr for terraform'
 
   # - script: |
   #   cd generated/ansible
