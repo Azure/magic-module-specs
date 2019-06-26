@@ -14,8 +14,13 @@ steps:
   inputs:
     versionSpec: '>= 2.5'
 
+- script: |
+    go get github.com/github/hub
+    hub help
+  displayName: 'install tools'
+
 - script: git submodule update --init
-  displayName: 'Initialize submodules'
+  displayName: 'initialize submodules'
 
 - script: |
     git config --global user.email "audevbot@microsoft.com"
