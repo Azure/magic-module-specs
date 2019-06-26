@@ -46,7 +46,7 @@ steps:
     hub add -A
     hub commit -m "auto code generation for Terraform."
     hub push
-    #hub pull-request -m "auto code generation for Terraform"
+    hub pull-request -m "auto code generation for Terraform"
   displayName: 'create pr for terraform'
 
   # - script: |
