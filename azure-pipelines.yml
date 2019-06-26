@@ -15,8 +15,9 @@ steps:
     versionSpec: '>= 2.5'
 
 - script: |
-    go get github.com/github/hub
-    hub help
+    curl -Ls https://github.com/github/hub/releases/download/v2.12.0/hub-linux-amd64-2.12.0.tgz | \
+    sudo tar -xvz -C /usr/bin --strip-components=2 hub-linux-amd64-2.12.0/bin/hub && \
+    sudo chmod 755 /usr/bin/hub
   displayName: 'install tools'
 
 - script: git submodule update --init
