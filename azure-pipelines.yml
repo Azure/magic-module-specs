@@ -18,18 +18,17 @@ steps:
     curl -Ls https://github.com/github/hub/releases/download/v2.12.0/hub-linux-amd64-2.12.0.tgz | \
     sudo tar -xvz -C /usr/bin --strip-components=2 hub-linux-amd64-2.12.0/bin/hub && \
     sudo chmod 755 /usr/bin/hub
-    hub help
   displayName: 'install tools'
 
 - script: git submodule update --init
   displayName: 'init submodules'
 
 - script: |
-    hub config --global user.email "audevbot@microsoft.com"
-    hub config --global user.name "audevbot"
-    #hub config --global credential.helper store
-    hub config --global push.default current
-    #echo "https://audevbot:$(GITHUB_TOKEN)@github.com" > ~/.git-credentials
+    git config --global user.email "audevbot@microsoft.com"
+    git config --global user.name "audevbot"
+    git config --global credential.helper store
+    git config --global push.default current
+    echo "https://$(GITHUB_USER):$(GITHUB_TOKEN)@github.com" > ~/.git-credentials
   displayName: 'git config'
 
 - script: |
@@ -42,11 +41,11 @@ steps:
 
 - script: |
     cd generated/terraform-provider-azurerm
-    hub checkout -b autogen-pr-$(Build.BuildNumber)
-    hub add -A
-    hub commit -m "auto code generation for Terraform."
-    hub push
-    #hub pull-request -m "auto code generation for Terraform"
+    git checkout -b autogen-pr-$(Build.BuildNumber)
+    git add -A
+    git commit -m "auto code generation for Terraform."
+    git push
+    hub pull-request -m "auto code generation for Terraform"
   displayName: 'create pr for terraform'
 
   # - script: |
