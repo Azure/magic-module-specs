@@ -22,7 +22,7 @@ steps:
   displayName: 'install tools'
 
 - script: git submodule update --init
-  displayName: 'initialize submodules'
+  displayName: 'init submodules'
 
 - script: |
     git config --global user.email "audevbot@microsoft.com"
@@ -42,11 +42,12 @@ steps:
 
 - script: |
     cd generated/terraform-provider-azurerm
-    git checkout autogen || git checkout -b autogen
+    git checkout -b autogen-pr-$(Build.BuildNumber)
     git add -A
-    git commit -m "autogen"
+    git commit -m "auto code generation for Terraform."
     git push
-  displayName: 'push generated code for terraform'
+    hub pull-request -m "auto code generation for Terraform"
+  displayName: 'create pr for terraform'
 
   # - script: |
   #   cd generated/ansible
