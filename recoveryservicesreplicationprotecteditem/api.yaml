@@ -1,0 +1,715 @@
+--- !ruby/object:Api::Product
+name: Azure ReplicationProtectedItem Management
+versions:
+  - !ruby/object:Api::Product::Version
+    name: ga
+    base_url: NotUsedInAzure
+scopes:
+  - NotUsedInAzure
+objects:
+  - !ruby/object:Api::Resource
+    name: ReplicationProtectedItem
+    api_name: RecoveryServices
+    base_url: NotUsedInAzure
+
+    azure_sdk_definition: !ruby/object:Api::Azure::SDKDefinition
+      provider_name: Microsoft.RecoveryServices
+      go_client_namespace: recoveryservices
+      go_client: replicationProtectedItemsClient
+      python_client_namespace: azure.mgmt.recoveryservices
+      python_client: RecoveryServicesClient.replication_protected_items
+      create: !ruby/object:Api::Azure::SDKOperationDefinition
+        async: true
+        go_func_name: Create
+        python_func_name: create
+        request:
+          'resourceName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            id_portion: vaults
+            go_variable_name: resourceName
+            python_parameter_name: resource_name
+            python_variable_name: resource_name
+          'resourceGroupName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            id_portion: resourceGroups
+            go_variable_name: resourceGroup
+            python_parameter_name: resource_group_name
+            python_variable_name: resource_group
+          'fabricName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            id_portion: replicationFabrics
+            go_variable_name: fabricName
+            python_parameter_name: fabric_name
+            python_variable_name: fabric_name
+          'protectionContainerName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            id_portion: replicationProtectionContainers
+            go_variable_name: protectionContainerName
+            python_parameter_name: protection_container_name
+            python_variable_name: protection_container_name
+          'replicatedProtectedItemName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            id_portion: replicationProtectedItems
+            go_variable_name: name
+            python_parameter_name: replicated_protected_item_name
+            python_variable_name: name
+      update: !ruby/object:Api::Azure::SDKOperationDefinition
+        async: true
+        go_func_name: Update
+        python_func_name: update
+        request:
+          'resourceName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            id_portion: vaults
+            go_variable_name: resourceName
+            python_parameter_name: resource_name
+            python_variable_name: resource_name
+          'resourceGroupName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            id_portion: resourceGroups
+            go_variable_name: resourceGroup
+            python_parameter_name: resource_group_name
+            python_variable_name: resource_group
+          'fabricName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            id_portion: replicationFabrics
+            go_variable_name: fabricName
+            python_parameter_name: fabric_name
+            python_variable_name: fabric_name
+          'protectionContainerName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            id_portion: replicationProtectionContainers
+            go_variable_name: protectionContainerName
+            python_parameter_name: protection_container_name
+            python_variable_name: protection_container_name
+          'replicatedProtectedItemName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            id_portion: replicationProtectedItems
+            go_variable_name: name
+            python_parameter_name: replicated_protected_item_name
+            python_variable_name: name
+      delete: !ruby/object:Api::Azure::SDKOperationDefinition
+        async: true
+        go_func_name: Delete
+        python_func_name: delete
+        request:
+          'resourceName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            id_portion: vaults
+            go_variable_name: resourceName
+            python_parameter_name: resource_name
+            python_variable_name: resource_name
+          'resourceGroupName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            id_portion: resourceGroups
+            go_variable_name: resourceGroup
+            python_parameter_name: resource_group_name
+            python_variable_name: resource_group
+          'fabricName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            id_portion: replicationFabrics
+            go_variable_name: fabricName
+            python_parameter_name: fabric_name
+            python_variable_name: fabric_name
+          'protectionContainerName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            id_portion: replicationProtectionContainers
+            go_variable_name: protectionContainerName
+            python_parameter_name: protection_container_name
+            python_variable_name: protection_container_name
+          'replicatedProtectedItemName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            id_portion: replicationProtectedItems
+            go_variable_name: name
+            python_parameter_name: replicated_protected_item_name
+            python_variable_name: name
+      read: !ruby/object:Api::Azure::SDKOperationDefinition
+        go_func_name: Get
+        python_func_name: get
+        request:
+          'resourceName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            id_portion: vaults
+            go_variable_name: resourceName
+            python_parameter_name: resource_name
+            python_variable_name: resource_name
+          'resourceGroupName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            id_portion: resourceGroups
+            go_variable_name: resourceGroup
+            python_parameter_name: resource_group_name
+            python_variable_name: resource_group
+          'fabricName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            id_portion: replicationFabrics
+            go_variable_name: fabricName
+            python_parameter_name: fabric_name
+            python_variable_name: fabric_name
+          'protectionContainerName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            id_portion: replicationProtectionContainers
+            go_variable_name: protectionContainerName
+            python_parameter_name: protection_container_name
+            python_variable_name: protection_container_name
+          'replicatedProtectedItemName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            id_portion: replicationProtectedItems
+            go_variable_name: name
+            python_parameter_name: replicated_protected_item_name
+            python_variable_name: name
+        response:
+          '/properties': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            applicable_to: [go]
+            go_field_name: Properties
+            go_type_name: EnableProtectionInputProperties
+          '/properties/policyId': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: PolicyID
+          '/policyId': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: policy_id
+          '/properties/protectableItemId': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: ProtectableItemID
+          '/protectableItemId': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: protectable_item_id
+          '/properties/providerSpecificDetails': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            applicable_to: [go]
+            go_field_name: ProviderSpecificDetails
+            go_type_name: EnableProtectionProviderSpecificInput
+          '/providerSpecificDetails': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            applicable_to: [python]
+            python_field_name: provider_specific_details
+          '/properties/friendlyName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: FriendlyName
+          '/friendlyName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: friendly_name
+          '/properties/protectedItemType': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: ProtectedItemType
+          '/protectedItemType': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: protected_item_type
+          '/properties/recoveryServicesProviderId': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: RecoveryServicesProviderID
+          '/recoveryServicesProviderId': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: recovery_services_provider_id
+          '/properties/primaryFabricFriendlyName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: PrimaryFabricFriendlyName
+          '/primaryFabricFriendlyName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: primary_fabric_friendly_name
+          '/properties/primaryFabricProvider': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: PrimaryFabricProvider
+          '/primaryFabricProvider': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: primary_fabric_provider
+          '/properties/recoveryFabricFriendlyName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: RecoveryFabricFriendlyName
+          '/recoveryFabricFriendlyName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: recovery_fabric_friendly_name
+          '/properties/recoveryFabricId': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: RecoveryFabricID
+          '/recoveryFabricId': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: recovery_fabric_id
+          '/properties/primaryProtectionContainerFriendlyName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: PrimaryProtectionContainerFriendlyName
+          '/primaryProtectionContainerFriendlyName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: primary_protection_container_friendly_name
+          '/properties/recoveryProtectionContainerFriendlyName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: RecoveryProtectionContainerFriendlyName
+          '/recoveryProtectionContainerFriendlyName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: recovery_protection_container_friendly_name
+          '/properties/protectionState': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: ProtectionState
+          '/protectionState': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: protection_state
+          '/properties/protectionStateDescription': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: ProtectionStateDescription
+          '/protectionStateDescription': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: protection_state_description
+          '/properties/activeLocation': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: ActiveLocation
+          '/activeLocation': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: active_location
+          '/properties/testFailoverState': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: TestFailoverState
+          '/testFailoverState': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: test_failover_state
+          '/properties/testFailoverStateDescription': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: TestFailoverStateDescription
+          '/testFailoverStateDescription': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: test_failover_state_description
+          '/properties/allowedOperations': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: AllowedOperations
+          '/allowedOperations': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: allowed_operations
+          '/properties/replicationHealth': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: ReplicationHealth
+          '/replicationHealth': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: replication_health
+          '/properties/failoverHealth': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: FailoverHealth
+          '/failoverHealth': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: failover_health
+          '/properties/healthErrors': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexArrayObject
+            applicable_to: [go]
+            go_field_name: HealthErrors
+            go_type_name: HealthError
+          '/healthErrors': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexArrayObject
+            applicable_to: [python]
+            python_field_name: health_errors
+          '/properties/policyFriendlyName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: PolicyFriendlyName
+          '/policyFriendlyName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: policy_friendly_name
+          '/properties/lastSuccessfulFailoverTime': !ruby/object:Api::Azure::SDKTypeDefinition::ISO8601DateTimeObject
+            applicable_to: [go]
+            go_field_name: LastSuccessfulFailoverTime
+          '/lastSuccessfulFailoverTime': !ruby/object:Api::Azure::SDKTypeDefinition::ISO8601DateTimeObject
+            applicable_to: [python]
+            python_field_name: last_successful_failover_time
+          '/properties/lastSuccessfulTestFailoverTime': !ruby/object:Api::Azure::SDKTypeDefinition::ISO8601DateTimeObject
+            applicable_to: [go]
+            go_field_name: LastSuccessfulTestFailoverTime
+          '/lastSuccessfulTestFailoverTime': !ruby/object:Api::Azure::SDKTypeDefinition::ISO8601DateTimeObject
+            applicable_to: [python]
+            python_field_name: last_successful_test_failover_time
+          '/properties/currentScenario': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            applicable_to: [go]
+            go_field_name: CurrentScenario
+            go_type_name: CurrentScenarioDetails
+          '/currentScenario': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            applicable_to: [python]
+            python_field_name: current_scenario
+          '/properties/failoverRecoveryPointId': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: FailoverRecoveryPointID
+          '/failoverRecoveryPointId': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: failover_recovery_point_id
+          '/properties/recoveryContainerId': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: RecoveryContainerID
+          '/recoveryContainerId': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: recovery_container_id
+          '/id': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            go_field_name: ID
+            python_field_name: id
+          '/name': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            go_field_name: Name
+            python_field_name: name
+          '/type': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            go_field_name: Type
+            python_field_name: type
+          '/location': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            go_field_name: Location
+            python_field_name: location
+      list: !ruby/object:Api::Azure::SDKOperationDefinition
+        go_func_name: List
+        python_func_name: list
+        request:
+          'resourceName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            id_portion: vaults
+            go_variable_name: resourceName
+            python_parameter_name: resource_name
+            python_variable_name: resource_name
+          'resourceGroupName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            id_portion: resourceGroups
+            go_variable_name: resourceGroup
+            python_parameter_name: resource_group_name
+            python_variable_name: resource_group
+      list_by_replication_protection_containers: !ruby/object:Api::Azure::SDKOperationDefinition
+        go_func_name: ListByReplicationProtectionContainers
+        python_func_name: list_by_replication_protection_containers
+        request:
+          'resourceName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            id_portion: vaults
+            go_variable_name: resourceName
+            python_parameter_name: resource_name
+            python_variable_name: resource_name
+          'resourceGroupName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            id_portion: resourceGroups
+            go_variable_name: resourceGroup
+            python_parameter_name: resource_group_name
+            python_variable_name: resource_group
+          'fabricName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            id_portion: replicationFabrics
+            go_variable_name: fabricName
+            python_parameter_name: fabric_name
+            python_variable_name: fabric_name
+          'protectionContainerName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            id_portion: replicationProtectionContainers
+            go_variable_name: protectionContainerName
+            python_parameter_name: protection_container_name
+            python_variable_name: protection_container_name
+
+    description: |
+      Manage Azure ReplicationProtectedItem instance.
+    properties:
+      - !ruby/object:Api::Type::String
+        name: 'resourceName'
+        description: 'The name of the recovery services vault.'
+        required: true
+        input: true
+        sample_value: myVault
+        azure_sdk_references: ['resourceName']
+      - !ruby/object:Api::Azure::Type::ResourceGroupName
+        name: 'resourceGroup'
+        description: 'The name of the resource group where the recovery services vault is present.'
+        required: true
+        input: true
+        sample_value: myResourceGroup
+        azure_sdk_references: ['resourceGroupName']
+      - !ruby/object:Api::Type::String
+        name: 'fabricName'
+        description: 'Name of the fabric.'
+        required: true
+        input: true
+        sample_value: myReplicationFabric
+        azure_sdk_references: ['fabricName']
+      - !ruby/object:Api::Type::String
+        name: 'protectionContainerName'
+        description: 'Protection container name.'
+        required: true
+        input: true
+        sample_value: myReplicationProtectionContainer
+        azure_sdk_references: ['protectionContainerName']
+      - !ruby/object:Api::Type::String
+        name: 'name'
+        description: 'A name for the replication protected item.'
+        required: true
+        input: true
+        sample_value: myReplicationProtectedItem
+        azure_sdk_references: ['replicatedProtectedItemName', '/name']
+      - !ruby/object:Api::Type::String
+        name: 'policyId'
+        description: 'The Policy Id.'
+        required: false
+        azure_sdk_references: ['/policyId', '/properties/policyId']
+      - !ruby/object:Api::Type::String
+        name: 'protectableItemId'
+        description: 'The protectable item Id.'
+        required: false
+        azure_sdk_references: ['/protectableItemId', '/properties/protectableItemId']
+      - !ruby/object:Api::Type::NestedObject
+        name: 'providerSpecificDetails'
+        description: 'The ReplicationProviderInput. For HyperVReplicaAzure provider, it will be AzureEnableProtectionInput object. For San provider, it will be SanEnableProtectionInput object. For HyperVReplicaAzure provider, it can be null.'
+        required: false
+        azure_sdk_references: ['/providerSpecificDetails', '/properties/providerSpecificDetails']
+      # read only values included only in response
+      - !ruby/object:Api::Type::String
+        name: 'friendlyName'
+        description: 'The name.'
+        output: true
+        azure_sdk_references: ['/friendlyName', '/properties/friendlyName']
+      - !ruby/object:Api::Type::String
+        name: 'protectedItemType'
+        description: 'The type of protected item type.'
+        output: true
+        azure_sdk_references: ['/protectedItemType', '/properties/protectedItemType']
+      - !ruby/object:Api::Type::String
+        name: 'recoveryServicesProviderId'
+        description: 'The recovery provider ARM Id.'
+        output: true
+        azure_sdk_references: ['/recoveryServicesProviderId', '/properties/recoveryServicesProviderId']
+      - !ruby/object:Api::Type::String
+        name: 'primaryFabricFriendlyName'
+        description: 'The friendly name of the primary fabric.'
+        output: true
+        azure_sdk_references: ['/primaryFabricFriendlyName', '/properties/primaryFabricFriendlyName']
+      - !ruby/object:Api::Type::String
+        name: 'primaryFabricProvider'
+        description: 'The fabric provider of the primary fabric.'
+        output: true
+        azure_sdk_references: ['/primaryFabricProvider', '/properties/primaryFabricProvider']
+      - !ruby/object:Api::Type::String
+        name: 'recoveryFabricFriendlyName'
+        description: 'The friendly name of recovery fabric.'
+        output: true
+        azure_sdk_references: ['/recoveryFabricFriendlyName', '/properties/recoveryFabricFriendlyName']
+      - !ruby/object:Api::Type::String
+        name: 'recoveryFabricId'
+        description: 'The Arm Id of recovery fabric.'
+        output: true
+        azure_sdk_references: ['/recoveryFabricId', '/properties/recoveryFabricId']
+      - !ruby/object:Api::Type::String
+        name: 'primaryProtectionContainerFriendlyName'
+        description: 'The name of primary protection container friendly name.'
+        output: true
+        azure_sdk_references: ['/primaryProtectionContainerFriendlyName', '/properties/primaryProtectionContainerFriendlyName']
+      - !ruby/object:Api::Type::String
+        name: 'recoveryProtectionContainerFriendlyName'
+        description: 'The name of recovery container friendly name.'
+        output: true
+        azure_sdk_references: ['/recoveryProtectionContainerFriendlyName', '/properties/recoveryProtectionContainerFriendlyName']
+      - !ruby/object:Api::Type::String
+        name: 'protectionState'
+        description: 'The protection status.'
+        output: true
+        azure_sdk_references: ['/protectionState', '/properties/protectionState']
+      - !ruby/object:Api::Type::String
+        name: 'protectionStateDescription'
+        description: 'The protection state description.'
+        output: true
+        azure_sdk_references: ['/protectionStateDescription', '/properties/protectionStateDescription']
+      - !ruby/object:Api::Type::String
+        name: 'activeLocation'
+        description: 'The Current active location of the PE.'
+        output: true
+        azure_sdk_references: ['/activeLocation', '/properties/activeLocation']
+      - !ruby/object:Api::Type::String
+        name: 'testFailoverState'
+        description: 'The Test failover state.'
+        output: true
+        azure_sdk_references: ['/testFailoverState', '/properties/testFailoverState']
+      - !ruby/object:Api::Type::String
+        name: 'testFailoverStateDescription'
+        description: 'The Test failover state description.'
+        output: true
+        azure_sdk_references: ['/testFailoverStateDescription', '/properties/testFailoverStateDescription']
+      - !ruby/object:Api::Type::String
+        name: 'allowedOperations'
+        description: 'The allowed operations on the Replication protected item.'
+        output: true
+        azure_sdk_references: ['/allowedOperations', '/properties/allowedOperations']
+      - !ruby/object:Api::Type::String
+        name: 'replicationHealth'
+        description: 'The consolidated protection health for the VM taking any issues with SRS as well as all the replication units associated with the VM's replication group into account. This is a string representation of the ProtectionHealth enumeration.'
+        output: true
+        azure_sdk_references: ['/replicationHealth', '/properties/replicationHealth']
+      - !ruby/object:Api::Type::String
+        name: 'failoverHealth'
+        description: 'The consolidated failover health for the VM.'
+        output: true
+        azure_sdk_references: ['/failoverHealth', '/properties/failoverHealth']
+      - !ruby/object:Api::Type::NestedObject
+        name: 'healthErrors'
+        description: 'List of health errors.'
+        output: true
+        azure_sdk_references: ['/healthErrors', '/properties/healthErrors']
+        properties:
+          - !ruby/object:Api::Type::NestedObject
+            name: 'innerHealthErrors'
+            description: 'The inner health errors. HealthError having a list of HealthError as child errors is problematic. InnerHealthError is used because this will prevent an infinite loop of structures when Hydra tries to auto-generate the contract. We are exposing the related health errors as inner health errors and all API consumers can utilize this in the same fashion as Exception -&gt; InnerException.'
+            required: false
+            azure_sdk_references: ['/healthErrors/innerHealthErrors', '/properties/healthErrors/innerHealthErrors']
+            properties:
+              - !ruby/object:Api::Type::String
+                name: 'errorSource'
+                description: 'Source of error.'
+                required: false
+                azure_sdk_references: ['/healthErrors/innerHealthErrors/errorSource', '/properties/healthErrors/innerHealthErrors/errorSource']
+              - !ruby/object:Api::Type::String
+                name: 'errorType'
+                description: 'Type of error.'
+                required: false
+                azure_sdk_references: ['/healthErrors/innerHealthErrors/errorType', '/properties/healthErrors/innerHealthErrors/errorType']
+              - !ruby/object:Api::Type::String
+                name: 'errorLevel'
+                description: 'Level of error.'
+                required: false
+                azure_sdk_references: ['/healthErrors/innerHealthErrors/errorLevel', '/properties/healthErrors/innerHealthErrors/errorLevel']
+              - !ruby/object:Api::Type::String
+                name: 'errorCategory'
+                description: 'Category of error.'
+                required: false
+                azure_sdk_references: ['/healthErrors/innerHealthErrors/errorCategory', '/properties/healthErrors/innerHealthErrors/errorCategory']
+              - !ruby/object:Api::Type::String
+                name: 'errorCode'
+                description: 'Error code.'
+                required: false
+                azure_sdk_references: ['/healthErrors/innerHealthErrors/errorCode', '/properties/healthErrors/innerHealthErrors/errorCode']
+              - !ruby/object:Api::Type::String
+                name: 'summaryMessage'
+                description: 'Summary message of the entity.'
+                required: false
+                azure_sdk_references: ['/healthErrors/innerHealthErrors/summaryMessage', '/properties/healthErrors/innerHealthErrors/summaryMessage']
+              - !ruby/object:Api::Type::String
+                name: 'errorMessage'
+                description: 'Error message.'
+                required: false
+                azure_sdk_references: ['/healthErrors/innerHealthErrors/errorMessage', '/properties/healthErrors/innerHealthErrors/errorMessage']
+              - !ruby/object:Api::Type::String
+                name: 'possibleCauses'
+                description: 'Possible causes of error.'
+                required: false
+                azure_sdk_references: ['/healthErrors/innerHealthErrors/possibleCauses', '/properties/healthErrors/innerHealthErrors/possibleCauses']
+              - !ruby/object:Api::Type::String
+                name: 'recommendedAction'
+                description: 'Recommended action to resolve error.'
+                required: false
+                azure_sdk_references: ['/healthErrors/innerHealthErrors/recommendedAction', '/properties/healthErrors/innerHealthErrors/recommendedAction']
+              - !ruby/object:Api::Azure::Type::ISO8601DateTime
+                name: 'creationTimeUtc'
+                description: 'Error creation time (UTC)'
+                required: false
+                azure_sdk_references: ['/healthErrors/innerHealthErrors/creationTimeUtc', '/properties/healthErrors/innerHealthErrors/creationTimeUtc']
+              - !ruby/object:Api::Type::String
+                name: 'recoveryProviderErrorMessage'
+                description: 'DRA error message.'
+                required: false
+                azure_sdk_references: ['/healthErrors/innerHealthErrors/recoveryProviderErrorMessage', '/properties/healthErrors/innerHealthErrors/recoveryProviderErrorMessage']
+              - !ruby/object:Api::Type::String
+                name: 'entityId'
+                description: 'ID of the entity.'
+                required: false
+                azure_sdk_references: ['/healthErrors/innerHealthErrors/entityId', '/properties/healthErrors/innerHealthErrors/entityId']
+          - !ruby/object:Api::Type::String
+            name: 'errorSource'
+            description: 'Source of error.'
+            required: false
+            azure_sdk_references: ['/healthErrors/errorSource', '/properties/healthErrors/errorSource']
+          - !ruby/object:Api::Type::String
+            name: 'errorType'
+            description: 'Type of error.'
+            required: false
+            azure_sdk_references: ['/healthErrors/errorType', '/properties/healthErrors/errorType']
+          - !ruby/object:Api::Type::String
+            name: 'errorLevel'
+            description: 'Level of error.'
+            required: false
+            azure_sdk_references: ['/healthErrors/errorLevel', '/properties/healthErrors/errorLevel']
+          - !ruby/object:Api::Type::String
+            name: 'errorCategory'
+            description: 'Category of error.'
+            required: false
+            azure_sdk_references: ['/healthErrors/errorCategory', '/properties/healthErrors/errorCategory']
+          - !ruby/object:Api::Type::String
+            name: 'errorCode'
+            description: 'Error code.'
+            required: false
+            azure_sdk_references: ['/healthErrors/errorCode', '/properties/healthErrors/errorCode']
+          - !ruby/object:Api::Type::String
+            name: 'summaryMessage'
+            description: 'Summary message of the entity.'
+            required: false
+            azure_sdk_references: ['/healthErrors/summaryMessage', '/properties/healthErrors/summaryMessage']
+          - !ruby/object:Api::Type::String
+            name: 'errorMessage'
+            description: 'Error message.'
+            required: false
+            azure_sdk_references: ['/healthErrors/errorMessage', '/properties/healthErrors/errorMessage']
+          - !ruby/object:Api::Type::String
+            name: 'possibleCauses'
+            description: 'Possible causes of error.'
+            required: false
+            azure_sdk_references: ['/healthErrors/possibleCauses', '/properties/healthErrors/possibleCauses']
+          - !ruby/object:Api::Type::String
+            name: 'recommendedAction'
+            description: 'Recommended action to resolve error.'
+            required: false
+            azure_sdk_references: ['/healthErrors/recommendedAction', '/properties/healthErrors/recommendedAction']
+          - !ruby/object:Api::Azure::Type::ISO8601DateTime
+            name: 'creationTimeUtc'
+            description: 'Error creation time (UTC)'
+            required: false
+            azure_sdk_references: ['/healthErrors/creationTimeUtc', '/properties/healthErrors/creationTimeUtc']
+          - !ruby/object:Api::Type::String
+            name: 'recoveryProviderErrorMessage'
+            description: 'DRA error message.'
+            required: false
+            azure_sdk_references: ['/healthErrors/recoveryProviderErrorMessage', '/properties/healthErrors/recoveryProviderErrorMessage']
+          - !ruby/object:Api::Type::String
+            name: 'entityId'
+            description: 'ID of the entity.'
+            required: false
+            azure_sdk_references: ['/healthErrors/entityId', '/properties/healthErrors/entityId']
+          - !ruby/object:Api::Type::String
+            name: 'errorId'
+            description: 'The health error unique id.'
+            required: false
+            azure_sdk_references: ['/healthErrors/errorId', '/properties/healthErrors/errorId']
+          - !ruby/object:Api::Type::Enum
+            name: 'customerResolvability'
+            description: 'Value indicating whether the health error is customer resolvable.'
+            required: false
+            values:
+              - :Allowed
+              - :NotAllowed
+            default_value: :Allowed
+            azure_sdk_references: ['/healthErrors/customerResolvability', '/properties/healthErrors/customerResolvability']
+      - !ruby/object:Api::Type::String
+        name: 'policyFriendlyName'
+        description: 'The name of Policy governing this PE.'
+        output: true
+        azure_sdk_references: ['/policyFriendlyName', '/properties/policyFriendlyName']
+      - !ruby/object:Api::Azure::Type::ISO8601DateTime
+        name: 'lastSuccessfulFailoverTime'
+        description: 'The Last successful failover time.'
+        output: true
+        azure_sdk_references: ['/lastSuccessfulFailoverTime', '/properties/lastSuccessfulFailoverTime']
+      - !ruby/object:Api::Azure::Type::ISO8601DateTime
+        name: 'lastSuccessfulTestFailoverTime'
+        description: 'The Last successful test failover time.'
+        output: true
+        azure_sdk_references: ['/lastSuccessfulTestFailoverTime', '/properties/lastSuccessfulTestFailoverTime']
+      - !ruby/object:Api::Type::NestedObject
+        name: 'currentScenario'
+        description: 'The current scenario.'
+        output: true
+        azure_sdk_references: ['/currentScenario', '/properties/currentScenario']
+        properties:
+          - !ruby/object:Api::Type::String
+            name: 'scenarioName'
+            description: 'Scenario name.'
+            required: false
+            azure_sdk_references: ['/currentScenario/scenarioName', '/properties/currentScenario/scenarioName']
+          - !ruby/object:Api::Type::String
+            name: 'jobId'
+            description: 'ARM Id of the job being executed.'
+            required: false
+            azure_sdk_references: ['/currentScenario/jobId', '/properties/currentScenario/jobId']
+          - !ruby/object:Api::Azure::Type::ISO8601DateTime
+            name: 'startTime'
+            description: 'Start time of the workflow.'
+            required: false
+            azure_sdk_references: ['/currentScenario/startTime', '/properties/currentScenario/startTime']
+      - !ruby/object:Api::Type::String
+        name: 'failoverRecoveryPointId'
+        description: 'The recovery point ARM Id to which the Vm was failed over.'
+        output: true
+        azure_sdk_references: ['/failoverRecoveryPointId', '/properties/failoverRecoveryPointId']
+      - !ruby/object:Api::Type::String
+        name: 'recoveryContainerId'
+        description: 'The recovery container Id.'
+        output: true
+        azure_sdk_references: ['/recoveryContainerId', '/properties/recoveryContainerId']
+      - !ruby/object:Api::Type::String
+        name: 'id'
+        description: 'Resource Id'
+        input: true
+        output: true
+        azure_sdk_references: ['/id']
+      - !ruby/object:Api::Type::String
+        name: 'name'
+        description: 'Resource Name'
+        input: true
+        output: true
+        azure_sdk_references: ['/name']
+      - !ruby/object:Api::Type::String
+        name: 'type'
+        description: 'Resource Type'
+        input: true
+        output: true
+        azure_sdk_references: ['/type']
+      - !ruby/object:Api::Azure::Type::Location
+        name: 'location'
+        description: 'Resource Location'
+        input: true
+        output: true
+        azure_sdk_references: ['/location']

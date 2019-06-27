@@ -1,0 +1,4 @@
+--- !ruby/object:Provider::Azure::Terraform::Config
+overrides: !ruby/object:Overrides::ResourceOverrides
+  ReplicationAlertSetting: !ruby/object:Provider::Azure::Terraform::ResourceOverride
+    properties: {}

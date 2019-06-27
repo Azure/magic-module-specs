@@ -1,0 +1,290 @@
+--- !ruby/object:Api::Product
+name: Azure ReplicationProtectionContainer Management
+versions:
+  - !ruby/object:Api::Product::Version
+    name: ga
+    base_url: NotUsedInAzure
+scopes:
+  - NotUsedInAzure
+objects:
+  - !ruby/object:Api::Resource
+    name: ReplicationProtectionContainer
+    api_name: RecoveryServices
+    base_url: NotUsedInAzure
+
+    azure_sdk_definition: !ruby/object:Api::Azure::SDKDefinition
+      provider_name: Microsoft.RecoveryServices
+      go_client_namespace: recoveryservices
+      go_client: replicationProtectionContainersClient
+      python_client_namespace: azure.mgmt.recoveryservices
+      python_client: RecoveryServicesClient.replication_protection_containers
+      create: !ruby/object:Api::Azure::SDKOperationDefinition
+        async: true
+        go_func_name: Create
+        python_func_name: create
+        request:
+          'resourceName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            id_portion: vaults
+            go_variable_name: resourceName
+            python_parameter_name: resource_name
+            python_variable_name: resource_name
+          'resourceGroupName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            id_portion: resourceGroups
+            go_variable_name: resourceGroup
+            python_parameter_name: resource_group_name
+            python_variable_name: resource_group
+          'fabricName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            id_portion: replicationFabrics
+            go_variable_name: fabricName
+            python_parameter_name: fabric_name
+            python_variable_name: fabric_name
+          'protectionContainerName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            id_portion: replicationProtectionContainers
+            go_variable_name: name
+            python_parameter_name: protection_container_name
+            python_variable_name: name
+      delete: !ruby/object:Api::Azure::SDKOperationDefinition
+        async: true
+        go_func_name: Delete
+        python_func_name: delete
+        request:
+          'resourceName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            id_portion: vaults
+            go_variable_name: resourceName
+            python_parameter_name: resource_name
+            python_variable_name: resource_name
+          'resourceGroupName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            id_portion: resourceGroups
+            go_variable_name: resourceGroup
+            python_parameter_name: resource_group_name
+            python_variable_name: resource_group
+          'fabricName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            id_portion: replicationFabrics
+            go_variable_name: fabricName
+            python_parameter_name: fabric_name
+            python_variable_name: fabric_name
+          'protectionContainerName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            id_portion: replicationProtectionContainers
+            go_variable_name: name
+            python_parameter_name: protection_container_name
+            python_variable_name: name
+      read: !ruby/object:Api::Azure::SDKOperationDefinition
+        go_func_name: Get
+        python_func_name: get
+        request:
+          'resourceName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            id_portion: vaults
+            go_variable_name: resourceName
+            python_parameter_name: resource_name
+            python_variable_name: resource_name
+          'resourceGroupName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            id_portion: resourceGroups
+            go_variable_name: resourceGroup
+            python_parameter_name: resource_group_name
+            python_variable_name: resource_group
+          'fabricName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            id_portion: replicationFabrics
+            go_variable_name: fabricName
+            python_parameter_name: fabric_name
+            python_variable_name: fabric_name
+          'protectionContainerName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            id_portion: replicationProtectionContainers
+            go_variable_name: name
+            python_parameter_name: protection_container_name
+            python_variable_name: name
+        response:
+          '/properties': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            applicable_to: [go]
+            go_field_name: Properties
+            go_type_name: CreateProtectionContainerInputProperties
+          '/properties/fabricFriendlyName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: FabricFriendlyName
+          '/fabricFriendlyName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: fabric_friendly_name
+          '/properties/friendlyName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: FriendlyName
+          '/friendlyName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: friendly_name
+          '/properties/fabricType': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: FabricType
+          '/fabricType': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: fabric_type
+          '/properties/protectedItemCount': !ruby/object:Api::Azure::SDKTypeDefinition::IntegerObject
+            applicable_to: [go]
+            go_field_name: ProtectedItemCount
+          '/protectedItemCount': !ruby/object:Api::Azure::SDKTypeDefinition::IntegerObject
+            applicable_to: [python]
+            python_field_name: protected_item_count
+          '/properties/pairingStatus': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: PairingStatus
+          '/pairingStatus': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: pairing_status
+          '/properties/role': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: Role
+          '/role': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: role
+          '/properties/fabricSpecificDetails': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            applicable_to: [go]
+            go_field_name: FabricSpecificDetails
+            go_type_name: ProtectionContainerFabricSpecificDetails
+          '/fabricSpecificDetails': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            applicable_to: [python]
+            python_field_name: fabric_specific_details
+          '/id': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            go_field_name: ID
+            python_field_name: id
+          '/name': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            go_field_name: Name
+            python_field_name: name
+          '/type': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            go_field_name: Type
+            python_field_name: type
+          '/location': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            go_field_name: Location
+            python_field_name: location
+      list: !ruby/object:Api::Azure::SDKOperationDefinition
+        go_func_name: List
+        python_func_name: list
+        request:
+          'resourceName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            id_portion: vaults
+            go_variable_name: resourceName
+            python_parameter_name: resource_name
+            python_variable_name: resource_name
+          'resourceGroupName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            id_portion: resourceGroups
+            go_variable_name: resourceGroup
+            python_parameter_name: resource_group_name
+            python_variable_name: resource_group
+      list_by_replication_fabrics: !ruby/object:Api::Azure::SDKOperationDefinition
+        go_func_name: ListByReplicationFabrics
+        python_func_name: list_by_replication_fabrics
+        request:
+          'resourceName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            id_portion: vaults
+            go_variable_name: resourceName
+            python_parameter_name: resource_name
+            python_variable_name: resource_name
+          'resourceGroupName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            id_portion: resourceGroups
+            go_variable_name: resourceGroup
+            python_parameter_name: resource_group_name
+            python_variable_name: resource_group
+          'fabricName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            id_portion: replicationFabrics
+            go_variable_name: fabricName
+            python_parameter_name: fabric_name
+            python_variable_name: fabric_name
+
+    description: |
+      Manage Azure ReplicationProtectionContainer instance.
+    properties:
+      - !ruby/object:Api::Type::String
+        name: 'resourceName'
+        description: 'The name of the recovery services vault.'
+        required: true
+        input: true
+        sample_value: myVault
+        azure_sdk_references: ['resourceName']
+      - !ruby/object:Api::Azure::Type::ResourceGroupName
+        name: 'resourceGroup'
+        description: 'The name of the resource group where the recovery services vault is present.'
+        required: true
+        input: true
+        sample_value: myResourceGroup
+        azure_sdk_references: ['resourceGroupName']
+      - !ruby/object:Api::Type::String
+        name: 'fabricName'
+        description: 'Unique fabric ARM name.'
+        required: true
+        input: true
+        sample_value: myReplicationFabric
+        azure_sdk_references: ['fabricName']
+      - !ruby/object:Api::Type::String
+        name: 'name'
+        description: 'Unique protection container ARM name.'
+        required: true
+        input: true
+        sample_value: myReplicationProtectionContainer
+        azure_sdk_references: ['protectionContainerName', '/name']
+      - !ruby/object:Api::Type::NestedObject
+        name: 'providerSpecificInput'
+        description: 'Provider specific inputs for container creation.'
+        required: false
+        azure_sdk_references: ['/providerSpecificInput', '/properties/providerSpecificInput']
+      # read only values included only in response
+      - !ruby/object:Api::Type::String
+        name: 'fabricFriendlyName'
+        description: 'Fabric friendly name.'
+        output: true
+        azure_sdk_references: ['/fabricFriendlyName', '/properties/fabricFriendlyName']
+      - !ruby/object:Api::Type::String
+        name: 'friendlyName'
+        description: 'The name.'
+        output: true
+        azure_sdk_references: ['/friendlyName', '/properties/friendlyName']
+      - !ruby/object:Api::Type::String
+        name: 'fabricType'
+        description: 'The fabric type.'
+        output: true
+        azure_sdk_references: ['/fabricType', '/properties/fabricType']
+      - !ruby/object:Api::Azure::Type::Integer
+        name: 'protectedItemCount'
+        description: 'Number of protected PEs'
+        output: true
+        azure_sdk_references: ['/protectedItemCount', '/properties/protectedItemCount']
+      - !ruby/object:Api::Type::String
+        name: 'pairingStatus'
+        description: 'The pairing status of this cloud.'
+        output: true
+        azure_sdk_references: ['/pairingStatus', '/properties/pairingStatus']
+      - !ruby/object:Api::Type::String
+        name: 'role'
+        description: 'The role of this cloud.'
+        output: true
+        azure_sdk_references: ['/role', '/properties/role']
+      - !ruby/object:Api::Type::NestedObject
+        name: 'fabricSpecificDetails'
+        description: 'Fabric specific details.'
+        output: true
+        azure_sdk_references: ['/fabricSpecificDetails', '/properties/fabricSpecificDetails']
+        properties:
+          - !ruby/object:Api::Type::String
+            name: 'instanceType'
+            description: 'Gets the class type. Overridden in derived classes.'
+            required: false
+            azure_sdk_references: ['/fabricSpecificDetails/instanceType', '/properties/fabricSpecificDetails/instanceType']
+      - !ruby/object:Api::Type::String
+        name: 'id'
+        description: 'Resource Id'
+        input: true
+        output: true
+        azure_sdk_references: ['/id']
+      - !ruby/object:Api::Type::String
+        name: 'name'
+        description: 'Resource Name'
+        input: true
+        output: true
+        azure_sdk_references: ['/name']
+      - !ruby/object:Api::Type::String
+        name: 'type'
+        description: 'Resource Type'
+        input: true
+        output: true
+        azure_sdk_references: ['/type']
+      - !ruby/object:Api::Azure::Type::Location
+        name: 'location'
+        description: 'Resource Location'
+        input: true
+        output: true
+        azure_sdk_references: ['/location']

@@ -1,0 +1,4 @@
+--- !ruby/object:Provider::Azure::Ansible::Config
+overrides: !ruby/object:Provider::ResourceOverrides
+  ReplicationPolicy: !ruby/object:Provider::Azure::Ansible::ResourceOverride
+    examples: []
