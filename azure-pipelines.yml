@@ -25,7 +25,6 @@ steps:
   inputs:
     versionSpec: '>=3.6'
 
-steps:
 - bash: |
     shopt -s extglob
     echo `go env`
@@ -33,33 +32,38 @@ steps:
   displayName: 'init Go environment'
   failOnStderr: true
 
-- script: |
+- bash: |
     brew install hub
     hub version
     go get golang.org/x/tools/cmd/goimports
     pip install black
   displayName: 'install tools'
+  failOnStderr: true
 
-- script: git submodule update --init
+- bash: |
+    git submodule update --init
   displayName: 'init submodules'
+  failOnStderr: true
 
-- script: |
+- bash: |
     git config --global user.email "audevbot@microsoft.com"
     git config --global user.name "audevbot"
     git config --global credential.helper store
     git config --global push.default current
     echo "https://$(GITHUB_USER):$(GITHUB_TOKEN)@github.com" > ~/.git-credentials
   displayName: 'git config'
+  failOnStderr: true
 
-- script: |
+- bash: |
     cd tools/magic-modules
     gem install bundler
     bundle install --retry=3 --jobs=4
     jq '.[]' ../../resources.json | xargs -I % sh -c 'bundle exec compiler -p ../../% -e terraform -o ../../generated/terraform-provider-azurerm/'
     jq '.[]' ../../resources.json | xargs -I % sh -c 'bundle exec compiler -p ../../% -e ansible -o ../../generated/ansible/'
   displayName: 'code generation'
+  failOnStderr: true
 
-- script: |
+- bash: |
     cd generated/terraform-provider-azurerm
     make goimports
     make fmt
@@ -72,9 +76,10 @@ steps:
     GITHUB_USER: $(GITHUB_USER)
     GITHUB_TOKEN: $(GITHUB_TOKEN)
   displayName: 'prepare pr for terraform'
+  failOnStderr: true
 
 
-- script: |
+- bash: |
     cd generated/ansible
     # run `black` against the directory of ansible
     git checkout -b autogen-pr-$(Build.BuildNumber)
@@ -86,3 +91,4 @@ steps:
     GITHUB_USER: $(GITHUB_USER)
     GITHUB_TOKEN: $(GITHUB_TOKEN)
   displayName: 'prepare pr for ansible'
+  failOnStderr: true
