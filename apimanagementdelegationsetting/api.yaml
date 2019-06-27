@@ -1,6 +1,5 @@
 --- !ruby/object:Api::Product
 name: Azure DelegationSetting Management
-prefix: azure_rm_apimanagementdelegationsetting
 versions:
   - !ruby/object:Api::Product::Version
     name: ga

@@ -1,6 +1,5 @@
 --- !ruby/object:Api::Product
 name: Azure NotificationRecipientEmail Management
-prefix: azure_rm_apimanagementnotificationrecipientemail
 versions:
   - !ruby/object:Api::Product::Version
     name: ga

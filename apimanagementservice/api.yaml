@@ -1,6 +1,5 @@
 --- !ruby/object:Api::Product
 name: Azure ApiManagementService Management
-prefix: azure_rm_apimanagementservice
 versions:
   - !ruby/object:Api::Product::Version
     name: ga
@@ -273,11 +272,11 @@ objects:
             go_type_name: ServiceSkuProperties
             python_field_name: sku
           '/sku/name': !ruby/object:Api::Azure::SDKTypeDefinition::EnumObject
-            go_field_name: Name
+            go_field_name: skuName
             go_enum_type_name: SkuType
             python_field_name: name
           '/sku/capacity': !ruby/object:Api::Azure::SDKTypeDefinition::IntegerObject
-            go_field_name: Capacity
+            go_field_name: skuCapacity
             python_field_name: capacity
           '/identity': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
             go_field_name: Identity
@@ -543,11 +542,11 @@ objects:
             go_type_name: ServiceSkuProperties
             python_field_name: sku
           '/sku/name': !ruby/object:Api::Azure::SDKTypeDefinition::EnumObject
-            go_field_name: Name
+            go_field_name: skuName
             go_enum_type_name: SkuType
             python_field_name: name
           '/sku/capacity': !ruby/object:Api::Azure::SDKTypeDefinition::IntegerObject
-            go_field_name: Capacity
+            go_field_name: skuCapacity
             python_field_name: capacity
           '/identity': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
             go_field_name: Identity
@@ -925,11 +924,11 @@ objects:
             go_type_name: ServiceSkuProperties
             python_field_name: sku
           '/sku/name': !ruby/object:Api::Azure::SDKTypeDefinition::EnumObject
-            go_field_name: Name
+            go_field_name: skuName
             go_enum_type_name: SkuType
             python_field_name: name
           '/sku/capacity': !ruby/object:Api::Azure::SDKTypeDefinition::IntegerObject
-            go_field_name: Capacity
+            go_field_name: skuCapacity
             python_field_name: capacity
           '/identity': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
             go_field_name: Identity
@@ -1221,31 +1220,25 @@ objects:
         required: true
         sample_value: Contoso Vnext
         azure_sdk_references: ['/publisherName', '/properties/publisherName']
-      - !ruby/object:Api::Type::NestedObject
-        name: 'sku'
-        description: 'SKU properties of the API Management service.'
+      - !ruby/object:Api::Type::Enum
+        name: 'skuName'
+        description: 'Name of the Sku.'
         required: true
-        azure_sdk_references: ['/sku']
-        properties:
-          - !ruby/object:Api::Type::Enum
-            name: 'name'
-            description: 'Name of the Sku.'
-            required: true
-            values:
-              - :Developer
-              - :Standard
-              - :Premium
-              - :Basic
-              - :Consumption
-            default_value: :Developer
-            sample_value: Basic
-            azure_sdk_references: ['/sku/name', '/name']
-          - !ruby/object:Api::Azure::Type::Integer
-            name: 'capacity'
-            description: 'Capacity of the SKU (number of deployed units of the SKU).'
-            required: false
-            sample_value: 1
-            azure_sdk_references: ['/sku/capacity']
+        values:
+          - :Developer
+          - :Standard
+          - :Premium
+          - :Basic
+          - :Consumption
+        default_value: :Developer
+        sample_value: Basic
+        azure_sdk_references: ['/sku/name']
+      - !ruby/object:Api::Azure::Type::Integer
+        name: 'skuCapacity'
+        description: 'Capacity of the SKU (number of deployed units of the SKU).'
+        required: false
+        sample_value: 1
+        azure_sdk_references: ['/sku/capacity']
       - !ruby/object:Api::Type::NestedObject
         name: 'identity'
         description: 'Managed service identity of the Api Management service.'

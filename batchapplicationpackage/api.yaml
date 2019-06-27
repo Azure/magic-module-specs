@@ -1,6 +1,5 @@
 --- !ruby/object:Api::Product
 name: Azure ApplicationPackage Management
-prefix: azure_rm_batchapplicationpackage
 versions:
   - !ruby/object:Api::Product::Version
     name: ga

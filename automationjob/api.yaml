@@ -1,6 +1,5 @@
 --- !ruby/object:Api::Product
 name: Azure Job Management
-prefix: azure_rm_automationjob
 versions:
   - !ruby/object:Api::Product::Version
     name: ga

@@ -1,6 +1,5 @@
 --- !ruby/object:Api::Product
 name: Azure ApiTagDescription Management
-prefix: azure_rm_apimanagementapitagdescription
 versions:
   - !ruby/object:Api::Product::Version
     name: ga

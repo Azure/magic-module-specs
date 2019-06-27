@@ -1,6 +1,5 @@
 --- !ruby/object:Api::Product
 name: Azure Queue Management
-prefix: azure_rm_servicebusqueue
 versions:
   - !ruby/object:Api::Product::Version
     name: ga

@@ -1,6 +1,5 @@
 --- !ruby/object:Api::Product
 name: Azure ApiOperationPolicy Management
-prefix: azure_rm_apimanagementapioperationpolicy
 versions:
   - !ruby/object:Api::Product::Version
     name: ga

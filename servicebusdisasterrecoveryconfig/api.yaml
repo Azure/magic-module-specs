@@ -1,6 +1,5 @@
 --- !ruby/object:Api::Product
 name: Azure DisasterRecoveryConfig Management
-prefix: azure_rm_servicebusdisasterrecoveryconfig
 versions:
   - !ruby/object:Api::Product::Version
     name: ga

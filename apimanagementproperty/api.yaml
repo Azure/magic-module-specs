@@ -1,6 +1,5 @@
 --- !ruby/object:Api::Product
 name: Azure Property Management
-prefix: azure_rm_apimanagementproperty
 versions:
   - !ruby/object:Api::Product::Version
     name: ga

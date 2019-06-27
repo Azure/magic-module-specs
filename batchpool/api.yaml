@@ -1,6 +1,5 @@
 --- !ruby/object:Api::Product
 name: Azure Pool Management
-prefix: azure_rm_batchpool
 versions:
   - !ruby/object:Api::Product::Version
     name: ga

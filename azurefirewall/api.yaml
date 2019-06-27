@@ -1,6 +1,5 @@
 --- !ruby/object:Api::Product
 name: Azure AzureFirewall Management
-prefix: azure_rm_azurefirewall
 versions:
   - !ruby/object:Api::Product::Version
     name: ga
@@ -330,14 +329,14 @@ objects:
             go_type_name: SubResource
           '/properties/ipConfigurations/properties/subnet/id': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             applicable_to: [go]
-            go_field_name: *
+            go_field_name: id
           '/properties/ipConfigurations/properties/publicIPAddress': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
             applicable_to: [go]
             go_field_name: PublicIpAddress
             go_type_name: SubResource
           '/properties/ipConfigurations/properties/publicIPAddress/id': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             applicable_to: [go]
-            go_field_name: *
+            go_field_name: id
           '/properties/ipConfigurations/name': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             applicable_to: [go]
             go_field_name: Name
@@ -689,14 +688,14 @@ objects:
             go_type_name: SubResource
           '/properties/ipConfigurations/properties/subnet/id': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             applicable_to: [go]
-            go_field_name: *
+            go_field_name: id
           '/properties/ipConfigurations/properties/publicIPAddress': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
             applicable_to: [go]
             go_field_name: PublicIpAddress
             go_type_name: SubResource
           '/properties/ipConfigurations/properties/publicIPAddress/id': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             applicable_to: [go]
-            go_field_name: *
+            go_field_name: id
           '/properties/ipConfigurations/properties/privateIPAddress': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             applicable_to: [go]
             go_field_name: PrivateIpAddress
@@ -1045,13 +1044,13 @@ objects:
         azure_sdk_references: ['/ipConfigurations', '/properties/ipConfigurations']
         properties:
           - !ruby/object:Api::Azure::Type::ResourceReference
-            name: ''
+            name: 'id'
             description: 'Resource ID.'
             required: false
             sample_value: /subscriptions/{{ subscription_id }}/resourceGroups/{{ resource_group }}/providers/Microsoft.Network/virtualNetworks/{{ virtual_network_name }}/subnets/{{ name }}
             azure_sdk_references: ['/ipConfigurations/subnet/id', '/properties/ipConfigurations/properties/subnet/id']
           - !ruby/object:Api::Azure::Type::ResourceReference
-            name: ''
+            name: 'id'
             description: 'Resource ID.'
             required: false
             sample_value: /subscriptions/{{ subscription_id }}/resourceGroups/{{ resource_group }}/providers/Microsoft.Network/publicIPAddresses/{{ name }}
