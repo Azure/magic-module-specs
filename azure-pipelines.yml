@@ -42,16 +42,14 @@ steps:
 - bash: |
     git submodule update --init
 
-    pushd
-    cd generated/terraform-provider-azurerm
+    pushd generated/terraform-provider-azurerm
     git checkout autogen-pr-$(system.pullRequest.pullRequestNumber) || git checkout -b autogen-pr-$(system.pullRequest.pullRequestNumber)
     if [[ $(git branch -a --list 'origin/autogen-pr-$(system.pullRequest.pullRequestNumber)') ]]; then
       git pull
     fi
     popd
 
-    pushd
-    cd generated/ansible
+    pushd generated/ansible
     git checkout autogen-pr-$(system.pullRequest.pullRequestNumber) || git checkout -b autogen-pr-$(system.pullRequest.pullRequestNumber)
     if [[ $(git branch -a --list 'origin/autogen-pr-$(system.pullRequest.pullRequestNumber)') ]]; then
       git pull
