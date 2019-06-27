@@ -90,7 +90,7 @@ steps:
     magic-module-specs#$(system.pullRequest.pullRequestNumber) for Terraform
 
     Upstream PR: $PR_URL
-    "
+    " || echo "$PR_URL already exists."
   env:
     GITHUB_USER: $(GITHUB_USER)
     GITHUB_TOKEN: $(GITHUB_TOKEN)
@@ -112,7 +112,7 @@ steps:
     magic-module-specs#$(system.pullRequest.pullRequestNumber) for Ansible
 
     Upstream PR: $PR_URL
-    "
+    " || echo "$PR_URL already exists."
   env:
     GITHUB_USER: $(GITHUB_USER)
     GITHUB_TOKEN: $(GITHUB_TOKEN)
