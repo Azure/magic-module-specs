@@ -65,6 +65,8 @@ steps:
 
 - bash: |
     cd generated/terraform-provider-azurerm
+    export GO111MODULE=on
+    export GOFLAGS=-mod=vendor
     make goimports
     make fmt
     git checkout -b autogen-pr-$(Build.BuildNumber)
