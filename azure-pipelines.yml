@@ -61,7 +61,7 @@ steps:
     jq '.[]' ../../resources.json | xargs -I % sh -c 'bundle exec compiler -p ../../% -e terraform -o ../../generated/terraform-provider-azurerm/'
     jq '.[]' ../../resources.json | xargs -I % sh -c 'bundle exec compiler -p ../../% -e ansible -o ../../generated/ansible/'
   displayName: 'code generation'
-  failOnStderr: true
+  failOnStderr: false
 
 - bash: |
     cd generated/terraform-provider-azurerm
