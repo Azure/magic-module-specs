@@ -23,7 +23,7 @@ steps:
     git config --global user.name "audevbot"
     git config --global credential.helper store
     git config --global push.default current
-    echo "https://$(GITHUB_USER):$(GITHUB_PASSWORD)@github.com" > ~/.git-credentials
+    echo "https://$(GITHUB_USER):$(GITHUB_TOKEN)@github.com" > ~/.git-credentials
   displayName: 'git config'
 
 - script: |
@@ -41,6 +41,9 @@ steps:
     git commit -m "auto code generation for Terraform."
     git push
     hub pull-request -m "auto code generation for Terraform"
+  env:
+    GITHUB_USER: $(GITHUB_USER)
+    GITHUB_TOKEN: $(GITHUB_TOKEN)
   displayName: 'prepare pr for terraform'
 
 
