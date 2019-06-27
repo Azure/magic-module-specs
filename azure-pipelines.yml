@@ -30,8 +30,8 @@ steps:
     cd tools/magic-modules
     gem install bundler
     bundle install --retry=3 --jobs=4
-    bundle exec compiler -p ../../batchaccount -e terraform -o ../../generated/terraform-provider-azurerm/
-    # bundle exec compiler -p ../../batchaccount -e ansible -o ../../generated/ansible
+    ls ../../src | xargs -I % sh -c 'bundle exec compiler -p ../../src/% -e terraform -o ../../generated/terraform-provider-azurerm/'
+    ls ../../src | xargs -I % sh -c 'bundle exec compiler -p ../../src/% -e ansible -o ../../generated/ansible/'
   displayName: 'code generation'
 
 - script: |
@@ -47,10 +47,14 @@ steps:
   displayName: 'prepare pr for terraform'
 
 
-  # - script: |
-  #   cd generated/ansible
-  #   git checkout autogen || git checkout -b autogen
-  #   git add -A
-  #   git commit -m "autogen"
-  #   git push
-  # displayName: 'push generated code for ansible'
+- script: |
+    cd generated/ansible
+    git checkout -b autogen-pr-$(Build.BuildNumber)
+    git add -A
+    git commit -m "auto code generation for Ansible."
+    git push
+    hub pull-request -m "auto code generation for Ansible"
+  env:
+    GITHUB_USER: $(GITHUB_USER)
+    GITHUB_TOKEN: $(GITHUB_TOKEN)
+  displayName: 'prepare pr for ansible'
