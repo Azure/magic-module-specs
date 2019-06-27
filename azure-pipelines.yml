@@ -53,7 +53,7 @@ steps:
 
 - script: |
     cd generated/terraform-provider-azurerm
-    $(GOPATH)/bin/goimports -w azurerm/*.go
+    make goimports
     make fmt
     git checkout -b autogen-pr-$(Build.BuildNumber)
     git add -A
