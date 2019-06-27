@@ -52,9 +52,8 @@ steps:
   displayName: 'code generation'
 
 - script: |
-    export PATH="$GOPATH/bin:$PATH"
     cd generated/terraform-provider-azurerm
-    goimports -w azurerm/*.go
+    $(GOPATH)/bin/goimports -w azurerm/*.go
     make fmt
     git checkout -b autogen-pr-$(Build.BuildNumber)
     git add -A
