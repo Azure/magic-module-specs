@@ -14,7 +14,6 @@ variables:
   GOPATH: $(system.defaultWorkingDirectory)/go-work # Go workspace path
   GOBIN:  $(GOPATH)/bin # Go binaries path
   # TODO: modules should be the default in Go 1.13, so this won't be needed
-  GO111MODULE: on
 
 steps:
 - task: UseRubyVersion@0
@@ -67,14 +66,23 @@ steps:
     cd generated/terraform-provider-azurerm
     make goimports
     make fmt
-    git checkout -b autogen-pr-$(Build.BuildNumber)
+    git checkout autogen-pr-$(system.pullRequest.pullRequestNumber) || git checkout -b autogen-pr-$(system.pullRequest.pullRequestNumber)
     git add -A
-    git commit -m "auto code generation for Terraform."
+    git commit -m "Code generation for Terraform."
     git push
-    hub pull-request -m "auto code generation for Terraform"
+    REPO_URL=$(System.PullRequest.SourceRepositoryURI)
+    PR_URL=${REPO_URL:0:${#REPO_URL}}/pull/$(system.pullRequest.pullRequestNumber)
+
+    hub pull-request -F- <<<"Code generation from
+    magic-module-specs#$(system.pullRequest.pullRequestNumber) for Terraform
+
+    Upstream PR: $PR_URL
+    "
   env:
     GITHUB_USER: $(GITHUB_USER)
     GITHUB_TOKEN: $(GITHUB_TOKEN)
+    GO111MODULE: on
+    GOFLAGS: -mod=vendor
   displayName: 'prepare pr for terraform'
   failOnStderr: false
 
@@ -82,11 +90,17 @@ steps:
 - bash: |
     cd generated/ansible
     # run `black` against the directory of ansible
-    git checkout -b autogen-pr-$(Build.BuildNumber)
+    git checkout autogen-pr-$(system.pullRequest.pullRequestNumber) || git checkout -b autogen-pr-$(system.pullRequest.pullRequestNumber)
     git add -A
-    git commit -m "auto code generation for Ansible."
+    git commit -m "Code generation for Ansible."
     git push
-    hub pull-request -m "auto code generation for Ansible"
+    REPO_URL=$(System.PullRequest.SourceRepositoryURI)
+    PR_URL=${REPO_URL:0:${#REPO_URL}}/pull/$(system.pullRequest.pullRequestNumber)
+    hub pull-request -F- <<<"Code generation from
+    magic-module-specs#$(system.pullRequest.pullRequestNumber) for Ansible
+
+    Upstream PR: $PR_URL
+    "
   env:
     GITHUB_USER: $(GITHUB_USER)
     GITHUB_TOKEN: $(GITHUB_TOKEN)
