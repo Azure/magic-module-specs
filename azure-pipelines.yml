@@ -10,7 +10,7 @@ pool:
   vmImage: 'macOS-10.14'
 
 variables:
-  GOROOT: '/usr/local/go1.12' # Go installation path
+  # GOROOT: '/usr/local/go1.12' # Go installation path
   GOPATH: $(system.defaultWorkingDirectory)/go-work # Go workspace path
   GOBIN:  $(GOPATH)/bin # Go binaries path
   # TODO: modules should be the default in Go 1.13, so this won't be needed
