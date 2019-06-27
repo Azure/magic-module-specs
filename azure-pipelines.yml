@@ -38,12 +38,12 @@ steps:
     go get golang.org/x/tools/cmd/goimports
     pip install black
   displayName: 'install tools'
-  failOnStderr: true
+  failOnStderr: false
 
 - bash: |
     git submodule update --init
   displayName: 'init submodules'
-  failOnStderr: true
+  failOnStderr: false
 
 - bash: |
     git config --global user.email "audevbot@microsoft.com"
