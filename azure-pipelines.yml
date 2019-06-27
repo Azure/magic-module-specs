@@ -59,7 +59,7 @@ steps:
     gem install bundler
     bundle install --retry=3 --jobs=4
     jq '.[]' ../../resources.json | xargs -I '{}' bundle exec compiler -p ../../'{}' -e terraform -o ../../generated/terraform-provider-azurerm/
-    jq '.[]' ../../resources.json | xargs -I '{}' bundle exec compiler -p ../../'{}' -e ansible -o ../../generated/ansible/'
+    jq '.[]' ../../resources.json | xargs -I '{}' bundle exec compiler -p ../../'{}' -e ansible -o ../../generated/ansible/
   displayName: 'code generation'
   failOnStderr: false
 
