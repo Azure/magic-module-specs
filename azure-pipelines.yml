@@ -25,6 +25,14 @@ steps:
   inputs:
     versionSpec: '>=3.6'
 
+steps:
+- bash: |
+    shopt -s extglob
+    echo `go env`
+    echo '##vso[task.prependpath]$(GOBIN)'
+  displayName: 'init Go environment'
+  failOnStderr: true
+
 - script: |
     brew install hub
     hub version
