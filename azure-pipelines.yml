@@ -6,18 +6,13 @@
 trigger:
 - master
 
-pool:
-  vmImage: 'ubuntu-latest'
-
 steps:
 - task: UseRubyVersion@0
   inputs:
     versionSpec: '>= 2.5'
 
 - script: |
-    curl -Ls https://github.com/github/hub/releases/download/v2.12.0/hub-linux-amd64-2.12.0.tgz | \
-    sudo tar -xvz -C /usr/bin --strip-components=2 hub-linux-amd64-2.12.0/bin/hub && \
-    sudo chmod 755 /usr/bin/hub
+    brew install hub
   displayName: 'install tools'
 
 - script: git submodule update --init
@@ -45,14 +40,9 @@ steps:
     git add -A
     git commit -m "auto code generation for Terraform."
     git push
-  displayName: 'commit and push code for terraform'
-
-
-- script: |
-    cd generated/terraform-provider-azurerm
-    hub checkout autogen-pr-$(Build.BuildNumber)
     hub pull-request -m "auto code generation for Terraform"
-  displayName: 'pr for terraform'
+  displayName: 'prepare pr for terraform'
+
 
   # - script: |
   #   cd generated/ansible
