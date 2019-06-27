@@ -67,6 +67,7 @@ steps:
     make goimports
     make fmt
     git checkout autogen-pr-$(system.pullRequest.pullRequestNumber) || git checkout -b autogen-pr-$(system.pullRequest.pullRequestNumber)
+    git pull
     git add -A
     git commit -m "Code generation for Terraform."
     git push
@@ -91,6 +92,7 @@ steps:
     cd generated/ansible
     # run `black` against the directory of ansible
     git checkout autogen-pr-$(system.pullRequest.pullRequestNumber) || git checkout -b autogen-pr-$(system.pullRequest.pullRequestNumber)
+    git pull
     git add -A
     git commit -m "Code generation for Ansible."
     git push
