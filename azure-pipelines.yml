@@ -23,7 +23,7 @@ steps:
     git config --global user.name "audevbot"
     git config --global credential.helper store
     git config --global push.default current
-    echo "https://$(GITHUB_USER):$(GITHUB_TOKEN)@github.com" > ~/.git-credentials
+    echo "https://$(GITHUB_USER):$(GITHUB_PASSWORD)@github.com" > ~/.git-credentials
   displayName: 'git config'
 
 - script: |
