@@ -1,0 +1,12 @@
+[submodule "generated/ansible"]
+	path = generated/ansible
+	url = https://github.com/VSChina/ansible.git
+	branch = devel
+[submodule "generated/terraform-provider-azurerm"]
+	path = generated/terraform-provider-azurerm
+	url = https://github.com/VSChina/terraform-provider-azurerm.git
+	branch = master
+[submodule "tools/magic-modules"]
+	path = tools/magic-modules
+	url = https://github.com/VSChina/magic-modules.git
+	branch = azure_backend

@@ -1,0 +1,94 @@
+# Ruby
+# Package your Ruby project.
+# Add steps that install rails, analyze code, save build artifacts, deploy, and more:
+# https://docs.microsoft.com/azure/devops/pipelines/languages/ruby
+
+trigger:
+- master
+
+pool:
+  vmImage: 'macOS-10.14'
+
+variables:
+  # GOROOT: '/usr/local/go1.12' # Go installation path
+  GOPATH: $(system.defaultWorkingDirectory)/go-work # Go workspace path
+  GOBIN:  $(GOPATH)/bin # Go binaries path
+  # TODO: modules should be the default in Go 1.13, so this won't be needed
+  GO111MODULE: on
+
+steps:
+- task: UseRubyVersion@0
+  inputs:
+    versionSpec: '>= 2.5'
+
+- task: UsePythonVersion@0
+  inputs:
+    versionSpec: '>=3.6'
+
+- bash: |
+    shopt -s extglob
+    echo `go env`
+    echo '##vso[task.prependpath]$(GOBIN)'
+  displayName: 'init Go environment'
+  failOnStderr: true
+
+- bash: |
+    brew install hub
+    hub version
+    go get golang.org/x/tools/cmd/goimports
+    pip install black
+  displayName: 'install tools'
+  failOnStderr: false
+
+- bash: |
+    git submodule update --init
+  displayName: 'init submodules'
+  failOnStderr: false
+
+- bash: |
+    git config --global user.email "audevbot@microsoft.com"
+    git config --global user.name "audevbot"
+    git config --global credential.helper store
+    git config --global push.default current
+    echo "https://$(GITHUB_USER):$(GITHUB_TOKEN)@github.com" > ~/.git-credentials
+  displayName: 'git config'
+  failOnStderr: true
+
+- bash: |
+    cd tools/magic-modules
+    gem install bundler
+    bundle install --retry=3 --jobs=4
+    jq '.[]' ../../resources.json | xargs -I % sh -c 'bundle exec compiler -p ../../% -e terraform -o ../../generated/terraform-provider-azurerm/'
+    jq '.[]' ../../resources.json | xargs -I % sh -c 'bundle exec compiler -p ../../% -e ansible -o ../../generated/ansible/'
+  displayName: 'code generation'
+  failOnStderr: false
+
+- bash: |
+    cd generated/terraform-provider-azurerm
+    make goimports
+    make fmt
+    git checkout -b autogen-pr-$(Build.BuildNumber)
+    git add -A
+    git commit -m "auto code generation for Terraform."
+    git push
+    hub pull-request -m "auto code generation for Terraform"
+  env:
+    GITHUB_USER: $(GITHUB_USER)
+    GITHUB_TOKEN: $(GITHUB_TOKEN)
+  displayName: 'prepare pr for terraform'
+  failOnStderr: false
+
+
+- bash: |
+    cd generated/ansible
+    # run `black` against the directory of ansible
+    git checkout -b autogen-pr-$(Build.BuildNumber)
+    git add -A
+    git commit -m "auto code generation for Ansible."
+    git push
+    hub pull-request -m "auto code generation for Ansible"
+  env:
+    GITHUB_USER: $(GITHUB_USER)
+    GITHUB_TOKEN: $(GITHUB_TOKEN)
+  displayName: 'prepare pr for ansible'
+  failOnStderr: false
