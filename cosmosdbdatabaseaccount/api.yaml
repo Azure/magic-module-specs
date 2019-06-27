@@ -1,6 +1,5 @@
 --- !ruby/object:Api::Product
 name: Azure DatabaseAccount Management
-prefix: azure_rm_cosmosdbdatabaseaccount
 versions:
   - !ruby/object:Api::Product::Version
     name: ga

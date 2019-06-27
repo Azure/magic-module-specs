@@ -1,6 +1,5 @@
 --- !ruby/object:Api::Product
 name: Azure AuthorizationServer Management
-prefix: azure_rm_apimanagementauthorizationserver
 versions:
   - !ruby/object:Api::Product::Version
     name: ga

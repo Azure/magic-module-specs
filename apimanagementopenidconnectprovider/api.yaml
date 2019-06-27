@@ -1,6 +1,5 @@
 --- !ruby/object:Api::Product
 name: Azure OpenIdConnectProvider Management
-prefix: azure_rm_apimanagementopenidconnectprovider
 versions:
   - !ruby/object:Api::Product::Version
     name: ga

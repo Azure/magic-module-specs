@@ -1,6 +1,5 @@
 --- !ruby/object:Api::Product
 name: Azure EmailTemplate Management
-prefix: azure_rm_apimanagementemailtemplate
 versions:
   - !ruby/object:Api::Product::Version
     name: ga

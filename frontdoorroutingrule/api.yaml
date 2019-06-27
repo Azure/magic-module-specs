@@ -1,6 +1,5 @@
 --- !ruby/object:Api::Product
 name: Azure RoutingRule Management
-prefix: azure_rm_frontdoorroutingrule
 versions:
   - !ruby/object:Api::Product::Version
     name: ga

@@ -1,6 +1,5 @@
 --- !ruby/object:Api::Product
 name: Azure User Management
-prefix: azure_rm_apimanagementuser
 versions:
   - !ruby/object:Api::Product::Version
     name: ga

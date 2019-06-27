@@ -1,6 +1,5 @@
 --- !ruby/object:Api::Product
 name: Azure Topic Management
-prefix: azure_rm_servicebustopic
 versions:
   - !ruby/object:Api::Product::Version
     name: ga

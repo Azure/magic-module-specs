@@ -1,6 +1,5 @@
 --- !ruby/object:Api::Product
 name: Azure Certificate Management
-prefix: azure_rm_apimanagementcertificate
 versions:
   - !ruby/object:Api::Product::Version
     name: ga

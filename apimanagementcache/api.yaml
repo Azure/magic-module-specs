@@ -1,6 +1,5 @@
 --- !ruby/object:Api::Product
 name: Azure Cache Management
-prefix: azure_rm_apimanagementcache
 versions:
   - !ruby/object:Api::Product::Version
     name: ga
