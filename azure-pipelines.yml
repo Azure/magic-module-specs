@@ -52,6 +52,7 @@ steps:
   displayName: 'code generation'
 
 - script: |
+    export PATH="$GOPATH/bin:$PATH"
     cd generated/terraform-provider-azurerm
     goimports -w azurerm/*.go
     make fmt
