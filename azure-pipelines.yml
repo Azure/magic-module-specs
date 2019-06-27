@@ -41,6 +41,22 @@ steps:
 
 - bash: |
     git submodule update --init
+
+    pushd
+    cd generated/terraform-provider-azurerm
+    git checkout autogen-pr-$(system.pullRequest.pullRequestNumber) || git checkout -b autogen-pr-$(system.pullRequest.pullRequestNumber)
+    if [[ $(git branch -a --list 'origin/autogen-pr-$(system.pullRequest.pullRequestNumber)') ]]; then
+      git pull
+    fi
+    popd
+
+    pushd
+    cd generated/ansible
+    git checkout autogen-pr-$(system.pullRequest.pullRequestNumber) || git checkout -b autogen-pr-$(system.pullRequest.pullRequestNumber)
+    if [[ $(git branch -a --list 'origin/autogen-pr-$(system.pullRequest.pullRequestNumber)') ]]; then
+      git pull
+    fi
+    popd
   displayName: 'init submodules'
   failOnStderr: false
 
@@ -65,18 +81,13 @@ steps:
 
 - bash: |
     cd generated/terraform-provider-azurerm
-    git checkout autogen-pr-$(system.pullRequest.pullRequestNumber) || git checkout -b autogen-pr-$(system.pullRequest.pullRequestNumber)
     make goimports
     make fmt
     git add -A
     git commit -m "Code generation for Terraform."
-    if [[ $(git branch -a --list 'origin/autogen-pr-$(system.pullRequest.pullRequestNumber)') ]]; then
-      git pull
-    fi
     git push
     REPO_URL=$(System.PullRequest.SourceRepositoryURI)
     PR_URL=${REPO_URL:0:${#REPO_URL}}/pull/$(system.pullRequest.pullRequestNumber)
-
     hub pull-request -F- <<<"Code generation from
     magic-module-specs#$(system.pullRequest.pullRequestNumber) for Terraform
 
@@ -94,12 +105,8 @@ steps:
 - bash: |
     cd generated/ansible
     # run `black` against the directory of ansible
-    git checkout autogen-pr-$(system.pullRequest.pullRequestNumber) || git checkout -b autogen-pr-$(system.pullRequest.pullRequestNumber)
     git add -A
     git commit -m "Code generation for Ansible."
-    if [[ $(git branch -a --list 'origin/autogen-pr-$(system.pullRequest.pullRequestNumber)') ]]; then
-      git pull
-    fi
     git push
     REPO_URL=$(System.PullRequest.SourceRepositoryURI)
     PR_URL=${REPO_URL:0:${#REPO_URL}}/pull/$(system.pullRequest.pullRequestNumber)
