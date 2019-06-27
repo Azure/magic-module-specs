@@ -31,8 +31,8 @@ steps:
     cd tools/magic-modules
     gem install bundler
     bundle install --retry=3 --jobs=4
-    bundle exec compiler -p ../../src/% -e terraform -o ../../generated/terraform-provider-azurerm/
-    bundle exec compiler -p ../../src/% -e ansible -o ../../generated/ansible/
+    bundle exec compiler -p ../../batchaccount -e terraform -o ../../generated/terraform-provider-azurerm/
+    bundle exec compiler -p ../../batchaccount -e ansible -o ../../generated/ansible/
   displayName: 'code generation'
 
 - script: |
