@@ -7,7 +7,7 @@ trigger:
 - master
 
 pool:
-  vmImage: 'macOS-10.14'
+  vmImage: 'ubuntu-latest'
 
 variables:
   # GOROOT: '/usr/local/go1.12' # Go installation path
@@ -32,7 +32,7 @@ steps:
   failOnStderr: true
 
 - bash: |
-    brew install hub
+    go get github.com/github/hub
     hub version
     go get golang.org/x/tools/cmd/goimports
     pip install black
