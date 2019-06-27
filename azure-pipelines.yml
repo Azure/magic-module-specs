@@ -14,6 +14,8 @@ steps:
 - script: |
     brew install hub
     hub version
+    go get golang.org/x/tools/cmd/goimports
+    pip install black
   displayName: 'install tools'
 
 - script: git submodule update --init
@@ -31,12 +33,14 @@ steps:
     cd tools/magic-modules
     gem install bundler
     bundle install --retry=3 --jobs=4
-    bundle exec compiler -p ../../batchaccount -e terraform -o ../../generated/terraform-provider-azurerm/
-    bundle exec compiler -p ../../batchaccount -e ansible -o ../../generated/ansible/
+    jq '.[]' ../../resources.json | xargs -I % sh -c 'bundle exec compiler -p ../../% -e terraform -o ../../generated/terraform-provider-azurerm/'
+    jq '.[]' ../../resources.json | xargs -I % sh -c 'bundle exec compiler -p ../../% -e ansible -o ../../generated/ansible/'
   displayName: 'code generation'
 
 - script: |
     cd generated/terraform-provider-azurerm
+    goimports -w azurerm/*.go
+    make fmt
     git checkout -b autogen-pr-$(Build.BuildNumber)
     git add -A
     git commit -m "auto code generation for Terraform."
@@ -50,6 +54,7 @@ steps:
 
 - script: |
     cd generated/ansible
+    # run `black` against the directory of ansible
     git checkout -b autogen-pr-$(Build.BuildNumber)
     git add -A
     git commit -m "auto code generation for Ansible."
