@@ -6,10 +6,17 @@
 trigger:
 - master
 
+pool:
+  vmImage: 'macOS-10.14'
+
 steps:
 - task: UseRubyVersion@0
   inputs:
     versionSpec: '>= 2.5'
+
+- task: UsePythonVersion@0
+  inputs:
+    versionSpec: '>=3.6'
 
 - script: |
     brew install hub
