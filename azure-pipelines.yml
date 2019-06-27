@@ -13,6 +13,7 @@ steps:
 
 - script: |
     brew install hub
+    hub version
   displayName: 'install tools'
 
 - script: git submodule update --init
