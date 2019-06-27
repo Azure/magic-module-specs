@@ -69,11 +69,16 @@ steps:
     export GOFLAGS=-mod=vendor
     make goimports
     make fmt
-    git checkout -b autogen-pr-$(Build.BuildNumber)
+    git checkout -b autogen-pr-$(system.pullRequest.pullRequestNumber)
     git add -A
     git commit -m "auto code generation for Terraform."
     git push
-    hub pull-request -m "auto code generation for Terraform"
+    hub pull-request -F- <<<"Code generation from
+    '#$(system.pullRequest.pullRequestNumber) for Terraform
+
+    upstream pr
+    $(System.PullRequest.SourceRepositoryURI)/pull/$(system.pullRequest.pullRequestNumber)
+    "
   env:
     GITHUB_USER: $(GITHUB_USER)
     GITHUB_TOKEN: $(GITHUB_TOKEN)
@@ -84,11 +89,16 @@ steps:
 - bash: |
     cd generated/ansible
     # run `black` against the directory of ansible
-    git checkout -b autogen-pr-$(Build.BuildNumber)
+    git checkout -b autogen-pr-$(system.pullRequest.pullRequestNumber)
     git add -A
     git commit -m "auto code generation for Ansible."
     git push
-    hub pull-request -m "auto code generation for Ansible"
+    hub pull-request -F- <<<"Code generation from
+    '#$(system.pullRequest.pullRequestNumber) for Ansible
+
+    upstream pr
+    $(System.PullRequest.SourceRepositoryURI)/pull/$(system.pullRequest.pullRequestNumber)
+    "
   env:
     GITHUB_USER: $(GITHUB_USER)
     GITHUB_TOKEN: $(GITHUB_TOKEN)
