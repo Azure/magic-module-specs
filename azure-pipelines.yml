@@ -49,6 +49,7 @@ steps:
     git config --global user.name "audevbot"
     git config --global credential.helper store
     git config --global push.default current
+    git config --global pull.default current
     echo "https://$(GITHUB_USER):$(GITHUB_TOKEN)@github.com" > ~/.git-credentials
   displayName: 'git config'
   failOnStderr: true
@@ -57,17 +58,19 @@ steps:
     cd tools/magic-modules
     gem install bundler
     bundle install --retry=3 --jobs=4
-    jq '.[]' ../../resources.json | xargs -I % sh -c 'bundle exec compiler -p ../../% -e terraform -o ../../generated/terraform-provider-azurerm/'
-    jq '.[]' ../../resources.json | xargs -I % sh -c 'bundle exec compiler -p ../../% -e ansible -o ../../generated/ansible/'
+    jq '.[]' ../../resources.json | xargs -I '{}' bundle exec compiler -p ../../'{}' -e terraform -o ../../generated/terraform-provider-azurerm/
+    jq '.[]' ../../resources.json | xargs -I '{}' bundle exec compiler -p ../../'{}' -e ansible -o ../../generated/ansible/'
   displayName: 'code generation'
   failOnStderr: false
 
 - bash: |
     cd generated/terraform-provider-azurerm
+    git checkout autogen-pr-$(system.pullRequest.pullRequestNumber) || git checkout -b autogen-pr-$(system.pullRequest.pullRequestNumber)
+    if [[ $(git branch -a --list 'origin/autogen-pr-$(system.pullRequest.pullRequestNumber)') ]]; then
+      git pull
+    fi
     make goimports
     make fmt
-    git checkout autogen-pr-$(system.pullRequest.pullRequestNumber) || git checkout -b autogen-pr-$(system.pullRequest.pullRequestNumber)
-    git pull
     git add -A
     git commit -m "Code generation for Terraform."
     git push
@@ -92,7 +95,9 @@ steps:
     cd generated/ansible
     # run `black` against the directory of ansible
     git checkout autogen-pr-$(system.pullRequest.pullRequestNumber) || git checkout -b autogen-pr-$(system.pullRequest.pullRequestNumber)
-    git pull
+    if [[ $(git branch -a --list 'origin/autogen-pr-$(system.pullRequest.pullRequestNumber)') ]]; then
+      git pull
+    fi
     git add -A
     git commit -m "Code generation for Ansible."
     git push
