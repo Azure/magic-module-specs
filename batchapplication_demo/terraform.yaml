@@ -2,6 +2,11 @@
 overrides: !ruby/object:Overrides::ResourceOverrides
   Application: !ruby/object:Provider::Azure::Terraform::ResourceOverride
     name: BatchApplication
+    azure_sdk_definition: !ruby/object:Api::Azure::SDKDefinitionOverride
+      create: !ruby/object:Api::Azure::SDKOperationDefinitionOverride
+        request:
+          '/': !ruby/object:Api::Azure::SDKTypeDefinitionOverride
+            is_pointer_type: true
     properties:
       resourceGroup: !ruby/object:Provider::Azure::Terraform::PropertyOverride
         name: resourceGroupName
