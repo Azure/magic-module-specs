@@ -54,7 +54,7 @@ steps:
     fi
   workingDirectory: $(TFROOT)
   displayName: 'clone terraform repository'
-  failOnStderr: true
+  failOnStderr: false
 
 - bash: |
     git submodule update --init
@@ -95,7 +95,7 @@ steps:
     git commit -m "Code generation for Terraform."
     git push
     REPO_URL=$(System.PullRequest.SourceRepositoryURI)
-    PR_URL=${REPO_URL:0:${#REPO_URL}}/pull/$(system.pullRequest.pullRequestNumber)
+    PR_URL=${REPO_URL:0:${#REPO_URL}-4}/pull/$(system.pullRequest.pullRequestNumber)
     hub pull-request -F- <<<"Code generation from
     magic-module-specs#$(system.pullRequest.pullRequestNumber) for Terraform
 
@@ -115,7 +115,7 @@ steps:
     git commit -m "Code generation for Ansible."
     git push
     REPO_URL=$(System.PullRequest.SourceRepositoryURI)
-    PR_URL=${REPO_URL:0:${#REPO_URL}}/pull/$(system.pullRequest.pullRequestNumber)
+    PR_URL=${REPO_URL:0:${#REPO_URL}-4}/pull/$(system.pullRequest.pullRequestNumber)
     hub pull-request -F- <<<"Code generation from
     magic-module-specs#$(system.pullRequest.pullRequestNumber) for Ansible
 
