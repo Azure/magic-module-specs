@@ -7,7 +7,7 @@ trigger:
 - master
 
 variables:
-  GOROOT: '$HOME/.goenv/versions/1.12.6' # Go installation path
+  # GOROOT: '$HOME/.goenv/versions/1.12.6' # Go installation path
   GOPATH: '$(system.defaultWorkingDirectory)/$(Build.BuildNumber)/go-work' # Go workspace path
   GOBIN:  '$(GOPATH)/bin' # Go binaries path
   TFROOT: '$(GOPATH)/src/github.com/terraform-providers'
