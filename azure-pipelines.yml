@@ -54,6 +54,7 @@ steps:
     fi
   workingDirectory: $(TFROOT)
   displayName: 'clone terraform repository'
+  failOnStderr: true
 
 - bash: |
     git submodule update --init
