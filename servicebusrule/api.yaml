@@ -1,6 +1,5 @@
 --- !ruby/object:Api::Product
 name: Azure Rule Management
-prefix: azure_rm_servicebusrule
 versions:
   - !ruby/object:Api::Product::Version
     name: ga

@@ -1,6 +1,5 @@
 --- !ruby/object:Api::Product
 name: Azure GalleryImageVersion Management
-prefix: azure_rm_computegalleryimageversion
 versions:
   - !ruby/object:Api::Product::Version
     name: ga

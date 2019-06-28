@@ -1,6 +1,5 @@
 --- !ruby/object:Api::Product
 name: Azure ApiIssueAttachment Management
-prefix: azure_rm_apimanagementapiissueattachment
 versions:
   - !ruby/object:Api::Product::Version
     name: ga

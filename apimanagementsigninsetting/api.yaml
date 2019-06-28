@@ -1,6 +1,5 @@
 --- !ruby/object:Api::Product
 name: Azure SignInSetting Management
-prefix: azure_rm_apimanagementsigninsetting
 versions:
   - !ruby/object:Api::Product::Version
     name: ga
