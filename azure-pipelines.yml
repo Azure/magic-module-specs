@@ -7,14 +7,15 @@ trigger:
 - master
 
 pool:
-  vmImage: 'macOS-10.14'
+  vmImage: 'ubuntu-latest'
 
 variables:
   # GOROOT: '/usr/local/go1.12' # Go installation path
-  GOPATH: $(system.defaultWorkingDirectory)/go-work # Go workspace path
+  GOPATH: $(system.defaultWorkingDirectory)/$(Build.BuildNumber)/go-work # Go workspace path
   GOBIN:  $(GOPATH)/bin # Go binaries path
-  # TODO: modules should be the default in Go 1.13, so this won't be needed
-  GO111MODULE: on
+  TFROOT: $(GOPATH)/src/github.com/terraform-providers
+  TFGITURL: "https://github.com/VSChina/terraform-provider-azurerm.git"
+  TFPROVIDERNAME: "terraform-provider-azurerm"
 
 steps:
 - task: UseRubyVersion@0
@@ -29,11 +30,15 @@ steps:
     shopt -s extglob
     echo `go env`
     echo '##vso[task.prependpath]$(GOBIN)'
+    if [ ! -d "$(TFROOT)" ]
+    then
+      mkdir -p "$(TFROOT)"
+    fi
   displayName: 'init Go environment'
   failOnStderr: true
 
 - bash: |
-    brew install hub
+    go get github.com/github/hub
     hub version
     go get golang.org/x/tools/cmd/goimports
     pip install black
@@ -41,7 +46,25 @@ steps:
   failOnStderr: false
 
 - bash: |
+    git clone $(TFGITURL) $(TFPROVIDERNAME)
+    cd $(TFPROVIDERNAME)
+    git checkout autogen-pr-$(system.pullRequest.pullRequestNumber) || git checkout -b autogen-pr-$(system.pullRequest.pullRequestNumber)
+    if [[ $(git branch -a --list 'origin/autogen-pr-$(system.pullRequest.pullRequestNumber)') ]]; then
+      git pull
+    fi
+  workingDirectory: $(TFROOT)
+  displayName: 'clone terraform repository'
+  failOnStderr: false
+
+- bash: |
     git submodule update --init
+
+    pushd generated/ansible
+    git checkout autogen-pr-$(system.pullRequest.pullRequestNumber) || git checkout -b autogen-pr-$(system.pullRequest.pullRequestNumber)
+    if [[ $(git branch -a --list 'origin/autogen-pr-$(system.pullRequest.pullRequestNumber)') ]]; then
+      git pull
+    fi
+    popd
   displayName: 'init submodules'
   failOnStderr: false
 
@@ -50,6 +73,7 @@ steps:
     git config --global user.name "audevbot"
     git config --global credential.helper store
     git config --global push.default current
+    git config --global pull.default current
     echo "https://$(GITHUB_USER):$(GITHUB_TOKEN)@github.com" > ~/.git-credentials
   displayName: 'git config'
   failOnStderr: true
@@ -58,20 +82,25 @@ steps:
     cd tools/magic-modules
     gem install bundler
     bundle install --retry=3 --jobs=4
-    jq '.[]' ../../resources.json | xargs -I % sh -c 'bundle exec compiler -p ../../% -e terraform -o ../../generated/terraform-provider-azurerm/'
-    jq '.[]' ../../resources.json | xargs -I % sh -c 'bundle exec compiler -p ../../% -e ansible -o ../../generated/ansible/'
+    jq '.[]' ../../resources.json | xargs -I '{}' bundle exec compiler -p ../../'{}' -e terraform -o $(TFROOT)/$(TFPROVIDERNAME)/
+    jq '.[]' ../../resources.json | xargs -I '{}' bundle exec compiler -p ../../'{}' -e ansible -o ../../generated/ansible/
   displayName: 'code generation'
   failOnStderr: false
 
 - bash: |
-    cd generated/terraform-provider-azurerm
-    make goimports
+    cd $(TFROOT)/$(TFPROVIDERNAME)
+    GO111MODULE=on GOFLAGS=-mod=vendor goimports -w azurerm/*.go
     make fmt
-    git checkout -b autogen-pr-$(Build.BuildNumber)
     git add -A
-    git commit -m "auto code generation for Terraform."
+    git commit -m "Code generation for Terraform."
     git push
-    hub pull-request -m "auto code generation for Terraform"
+    REPO_URL=$(System.PullRequest.SourceRepositoryURI)
+    PR_URL=${REPO_URL:0:${#REPO_URL}-4}/pull/$(system.pullRequest.pullRequestNumber)
+    hub pull-request -F- <<<"Code generation from
+    magic-module-specs#$(system.pullRequest.pullRequestNumber) for Terraform
+
+    Upstream PR: $PR_URL
+    " || echo "PR exists."
   env:
     GITHUB_USER: $(GITHUB_USER)
     GITHUB_TOKEN: $(GITHUB_TOKEN)
@@ -82,11 +111,16 @@ steps:
 - bash: |
     cd generated/ansible
     # run `black` against the directory of ansible
-    git checkout -b autogen-pr-$(Build.BuildNumber)
     git add -A
-    git commit -m "auto code generation for Ansible."
+    git commit -m "Code generation for Ansible."
     git push
-    hub pull-request -m "auto code generation for Ansible"
+    REPO_URL=$(System.PullRequest.SourceRepositoryURI)
+    PR_URL=${REPO_URL:0:${#REPO_URL}-4}/pull/$(system.pullRequest.pullRequestNumber)
+    hub pull-request -F- <<<"Code generation from
+    magic-module-specs#$(system.pullRequest.pullRequestNumber) for Ansible
+
+    Upstream PR: $PR_URL
+    " || echo "PR exists."
   env:
     GITHUB_USER: $(GITHUB_USER)
     GITHUB_TOKEN: $(GITHUB_TOKEN)
