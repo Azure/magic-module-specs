@@ -1,4 +1,42 @@
 --- !ruby/object:Provider::Azure::Terraform::Config
 overrides: !ruby/object:Overrides::ResourceOverrides
   BatchAccount: !ruby/object:Provider::Azure::Terraform::ResourceOverride
-    properties: {}
+    azure_sdk_definition: !ruby/object:Api::Azure::SDKDefinitionOverride
+      create: !ruby/object:Api::Azure::SDKOperationDefinitionOverride
+        request:
+          '/properties/autoStorage/storageAccountId': !ruby/object:Api::Azure::SDKTypeDefinitionOverride
+            empty_value_sensitive: true
+    properties:
+      name: !ruby/object:Overrides::Terraform::PropertyOverride
+        validation: !ruby/object:Provider::Terraform::Validation
+          function: validateAzureRMBatchAccountName
+      autoStorageAccountId: !ruby/object:Provider::Azure::Terraform::PropertyOverride
+        name: storageAccountId
+        validation: !ruby/object:Provider::Terraform::Validation
+          function: azure.ValidateResourceIDOrEmpty
+    custom_code: !ruby/object:Provider::Azure::Terraform::CustomCode
+      extra_functions: ./terraform_extra_functions.erb
+    acctests:
+      - !ruby/object:Provider::Azure::Terraform::AccTestDefinition
+        name: basic
+        steps: [basic]
+    document_examples:
+      - !ruby/object:Provider::Azure::Terraform::DocumentExampleReference
+        title: Example Usage
+        example_name: basic
+        resource_name_hints:
+          resourceGroups: example-rg
+          storageAccounts: examplesa
+          batchAccounts: example-batch-account
+          location: West US
+datasources: !ruby/object:Overrides::ResourceOverrides
+  BatchAccount: !ruby/object:Provider::Azure::Terraform::ResourceOverride
+    properties:
+      resourceGroupName: !ruby/object:Provider::Azure::Terraform::PropertyOverride
+        description: The Name of the Resource Group where the App Service exists.
+    acctests:
+      - !ruby/object:Provider::Azure::Terraform::AccTestDefinition
+        name: basic
+        steps: [basic]
+    datasource_example_outputs:
+      batch_id: id
