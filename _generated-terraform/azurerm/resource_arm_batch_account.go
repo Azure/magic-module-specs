@@ -38,7 +38,7 @@ func resourceArmBatchAccount() *schema.Resource {
 
             "location": locationSchema(),
 
-            "resource_group_name": resourceGroupNameSchema(),
+            "resource_group_name": azure.SchemaResourceGroupNameDiffSuppress(),
 
             "key_vault_reference": {
                 Type: schema.TypeList,
