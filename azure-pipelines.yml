@@ -6,9 +6,6 @@
 trigger:
 - master
 
-pool:
-  vmImage: 'ubuntu-latest'
-
 variables:
   # GOROOT: '/usr/local/go1.12' # Go installation path
   GOPATH: $(system.defaultWorkingDirectory)/$(Build.BuildNumber)/go-work # Go workspace path
