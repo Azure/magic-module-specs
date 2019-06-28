@@ -11,9 +11,11 @@ pool:
 
 variables:
   # GOROOT: '/usr/local/go1.12' # Go installation path
-  GOPATH: $(system.defaultWorkingDirectory)/go-work # Go workspace path
+  GOPATH: $(system.defaultWorkingDirectory)/$(Build.BuildNumber)/go-work # Go workspace path
   GOBIN:  $(GOPATH)/bin # Go binaries path
-  # TODO: modules should be the default in Go 1.13, so this won't be needed
+  TFROOT: $(GOPATH)/src/github.com/terraform-providers
+  TFGITURL: "https://github.com/VSChina/terraform-provider-azurerm.git"
+  TFPROVIDERNAME: "terraform-provider-azurerm"
 
 steps:
 - task: UseRubyVersion@0
@@ -28,6 +30,10 @@ steps:
     shopt -s extglob
     echo `go env`
     echo '##vso[task.prependpath]$(GOBIN)'
+    if [ ! -d "$(TFROOT)" ]
+    then
+      mkdir -p "$(TFROOT)"
+    fi
   displayName: 'init Go environment'
   failOnStderr: true
 
@@ -40,14 +46,17 @@ steps:
   failOnStderr: false
 
 - bash: |
-    git submodule update --init
-
-    pushd generated/terraform-provider-azurerm
+    git clone $(TFGITURL) $(TFPROVIDERNAME)
+    cd $(TFPROVIDERNAME)
     git checkout autogen-pr-$(system.pullRequest.pullRequestNumber) || git checkout -b autogen-pr-$(system.pullRequest.pullRequestNumber)
     if [[ $(git branch -a --list 'origin/autogen-pr-$(system.pullRequest.pullRequestNumber)') ]]; then
       git pull
     fi
-    popd
+  workingDirectory: $(TFROOT)
+  displayName: 'clone terraform repository'
+
+- bash: |
+    git submodule update --init
 
     pushd generated/ansible
     git checkout autogen-pr-$(system.pullRequest.pullRequestNumber) || git checkout -b autogen-pr-$(system.pullRequest.pullRequestNumber)
@@ -72,14 +81,14 @@ steps:
     cd tools/magic-modules
     gem install bundler
     bundle install --retry=3 --jobs=4
-    jq '.[]' ../../resources.json | xargs -I '{}' bundle exec compiler -p ../../'{}' -e terraform -o ../../generated/terraform-provider-azurerm/
+    jq '.[]' ../../resources.json | xargs -I '{}' bundle exec compiler -p ../../'{}' -e terraform -o $(TFROOT)/$(TFPROVIDERNAME)/
     jq '.[]' ../../resources.json | xargs -I '{}' bundle exec compiler -p ../../'{}' -e ansible -o ../../generated/ansible/
   displayName: 'code generation'
   failOnStderr: false
 
 - bash: |
-    cd generated/terraform-provider-azurerm
-    GO111MODULE=on GOFLAGS=-mod=vendor goimports -w azurerm/*.go
+    cd $(TFROOT)/$(TFPROVIDERNAME)
+    GO111MODULE=on GOFLAGS=-mod=vendor make goimports
     make fmt
     git add -A
     git commit -m "Code generation for Terraform."
