@@ -15,13 +15,13 @@ variables:
   TFPROVIDERNAME: 'terraform-provider-azurerm'
 
 steps:
-- task: UseRubyVersion@0
-  inputs:
-    versionSpec: '>= 2.5'
+# - task: UseRubyVersion@0
+#   inputs:
+#     versionSpec: '>= 2.5'
 
-- task: UsePythonVersion@0
-  inputs:
-    versionSpec: '>=3.6'
+# - task: UsePythonVersion@0
+#   inputs:
+#     versionSpec: '>=3.6'
 
 - bash: |
     shopt -s extglob
