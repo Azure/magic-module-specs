@@ -1,6 +1,5 @@
 --- !ruby/object:Api::Product
 name: Azure EventSubscription Management
-prefix: azure_rm_eventgrideventsubscription
 versions:
   - !ruby/object:Api::Product::Version
     name: ga

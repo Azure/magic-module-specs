@@ -1,6 +1,5 @@
 --- !ruby/object:Api::Product
 name: Azure ApiIssueComment Management
-prefix: azure_rm_apimanagementapiissuecomment
 versions:
   - !ruby/object:Api::Product::Version
     name: ga

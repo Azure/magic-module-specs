@@ -1,6 +1,5 @@
 --- !ruby/object:Api::Product
 name: Azure HealthProbeSetting Management
-prefix: azure_rm_frontdoorhealthprobesetting
 versions:
   - !ruby/object:Api::Product::Version
     name: ga

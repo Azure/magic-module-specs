@@ -1,6 +1,5 @@
 --- !ruby/object:Api::Product
 name: Azure IdentityProvider Management
-prefix: azure_rm_apimanagementidentityprovider
 versions:
   - !ruby/object:Api::Product::Version
     name: ga

@@ -1,6 +1,5 @@
 --- !ruby/object:Api::Product
 name: Azure FrontDoor Management
-prefix: azure_rm_frontdoor
 versions:
   - !ruby/object:Api::Product::Version
     name: ga

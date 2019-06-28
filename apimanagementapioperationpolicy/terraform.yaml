@@ -1,3 +1,4 @@
-overrides: !ruby/object:Provider::ResourceOverrides
+--- !ruby/object:Provider::Azure::Terraform::Config
+overrides: !ruby/object:Overrides::ResourceOverrides
   ApiOperationPolicy: !ruby/object:Provider::Azure::Terraform::ResourceOverride
     properties: {}

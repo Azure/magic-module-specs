@@ -1,6 +1,5 @@
 --- !ruby/object:Api::Product
 name: Azure FrontendEndpoint Management
-prefix: azure_rm_frontdoorfrontendendpoint
 versions:
   - !ruby/object:Api::Product::Version
     name: ga

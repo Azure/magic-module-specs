@@ -1,6 +1,5 @@
 --- !ruby/object:Api::Product
 name: Azure Logger Management
-prefix: azure_rm_apimanagementlogger
 versions:
   - !ruby/object:Api::Product::Version
     name: ga

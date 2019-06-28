@@ -1,6 +1,5 @@
 --- !ruby/object:Api::Product
 name: Azure SoftwareUpdateConfiguration Management
-prefix: azure_rm_softwareupdateconfiguration
 versions:
   - !ruby/object:Api::Product::Version
     name: ga

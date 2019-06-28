@@ -1,6 +1,5 @@
 --- !ruby/object:Api::Product
 name: Azure ProductGroup Management
-prefix: azure_rm_apimanagementproductgroup
 versions:
   - !ruby/object:Api::Product::Version
     name: ga

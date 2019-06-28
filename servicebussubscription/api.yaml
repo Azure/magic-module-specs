@@ -1,6 +1,5 @@
 --- !ruby/object:Api::Product
 name: Azure Subscription Management
-prefix: azure_rm_servicebussubscription
 versions:
   - !ruby/object:Api::Product::Version
     name: ga

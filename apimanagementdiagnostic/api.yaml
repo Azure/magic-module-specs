@@ -1,6 +1,5 @@
 --- !ruby/object:Api::Product
 name: Azure Diagnostic Management
-prefix: azure_rm_apimanagementdiagnostic
 versions:
   - !ruby/object:Api::Product::Version
     name: ga
