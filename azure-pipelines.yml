@@ -89,7 +89,7 @@ steps:
 
 - bash: |
     cd $(TFROOT)/$(TFPROVIDERNAME)
-    GO111MODULE=on GOFLAGS=-mod=vendor goimports -w azurerm/*.go
+    goimports -w azurerm
     make fmt
     git add -A
     git commit -m "Code generation for Terraform."
@@ -104,6 +104,7 @@ steps:
   env:
     GITHUB_USER: $(GITHUB_USER)
     GITHUB_TOKEN: $(GITHUB_TOKEN)
+    GOPATH: $(GOPATH)
   displayName: 'prepare pr for terraform'
   failOnStderr: false
 
