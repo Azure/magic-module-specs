@@ -1,6 +1,5 @@
 --- !ruby/object:Api::Product
 name: Azure SoftwareUpdateConfiguration Management
-prefix: azure_rm_softwareupdateconfiguration
 versions:
   - !ruby/object:Api::Product::Version
     name: ga
@@ -812,7 +811,7 @@ objects:
           '/type': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             go_field_name: Type
             python_field_name: type
-      list: !ruby/object:Api::Azure::SDKOperationDefinition
+      list_by_parent: !ruby/object:Api::Azure::SDKOperationDefinition
         go_func_name: List
         python_func_name: list
         request:
@@ -960,6 +959,7 @@ objects:
             name: 'azureVirtualMachines'
             description: 'List of azure resource Ids for azure virtual machines targeted by the software update configuration.'
             required: false
+            resource_type_name: 'Virtual Machine'
             sample_value: /subscriptions/5ae68d89-69a4-454f-b5ce-e443cc4e0067/resourceGroups/myresources/providers/Microsoft.Compute/virtualMachines/vm-03
             azure_sdk_references: ['/updateConfiguration/azureVirtualMachines', '/properties/updateConfiguration/azureVirtualMachines']
           - !ruby/object:Api::Type::String
@@ -984,6 +984,7 @@ objects:
                     name: 'scope'
                     description: 'List of Subscription or Resource Group ARM Ids.'
                     required: false
+                    resource_type_name: Subscription
                     sample_value: /subscriptions/5ae68d89-69a4-454f-b5ce-e443cc4e0067
                     azure_sdk_references: ['/updateConfiguration/targets/azureQueries/scope', '/properties/updateConfiguration/targets/azureQueries/scope']
                   - !ruby/object:Api::Type::String
@@ -992,12 +993,6 @@ objects:
                     required: false
                     sample_value: UK South
                     azure_sdk_references: ['/updateConfiguration/targets/azureQueries/locations', '/properties/updateConfiguration/targets/azureQueries/locations']
-                  - !ruby/object:Api::Type::NestedObject
-                    name: 'tagSettings'
-                    description: 'Tag settings for the VM.'
-                    required: false
-                    sample_value: [object Object]
-                    azure_sdk_references: ['/updateConfiguration/targets/azureQueries/tagSettings', '/properties/updateConfiguration/targets/azureQueries/tagSettings']
               - !ruby/object:Api::Type::NestedObject
                 name: 'nonAzureQueries'
                 description: 'List of non Azure queries in the software update configuration.'
@@ -1034,9 +1029,9 @@ objects:
             required: false
             sample_value: 2018-11-09T11:22:57+00:00
             azure_sdk_references: ['/scheduleInfo/expiryTime', '/properties/scheduleInfo/expiryTime']
-          - !ruby/object:Api::Azure::Type::Integer
+          - !ruby/object:Api::Type::Integer
             name: 'expiryTimeOffsetMinutes'
-            description: 'Gets or sets the expiry time's offset in minutes.'
+            description: "Gets or sets the expiry time's offset in minutes."
             required: false
             azure_sdk_references: ['/scheduleInfo/expiryTimeOffsetMinutes', '/properties/scheduleInfo/expiryTimeOffsetMinutes']
           - !ruby/object:Api::Type::Boolean
@@ -1049,12 +1044,12 @@ objects:
             description: 'Gets or sets the next run time of the schedule.'
             required: false
             azure_sdk_references: ['/scheduleInfo/nextRun', '/properties/scheduleInfo/nextRun']
-          - !ruby/object:Api::Azure::Type::Integer
+          - !ruby/object:Api::Type::Integer
             name: 'nextRunOffsetMinutes'
-            description: 'Gets or sets the next run time's offset in minutes.'
+            description: "Gets or sets the next run time's offset in minutes."
             required: false
             azure_sdk_references: ['/scheduleInfo/nextRunOffsetMinutes', '/properties/scheduleInfo/nextRunOffsetMinutes']
-          - !ruby/object:Api::Azure::Type::Integer
+          - !ruby/object:Api::Type::Integer
             name: 'interval'
             description: 'Gets or sets the interval of the schedule.'
             required: false
@@ -1092,7 +1087,7 @@ objects:
                 required: false
                 sample_value: Thursday
                 azure_sdk_references: ['/scheduleInfo/advancedSchedule/weekDays', '/properties/scheduleInfo/advancedSchedule/weekDays']
-              - !ruby/object:Api::Azure::Type::Integer
+              - !ruby/object:Api::Type::Integer
                 name: 'monthDays'
                 description: 'Days of the month that the job should execute on. Must be between 1 and 31.'
                 required: false
@@ -1103,7 +1098,7 @@ objects:
                 required: false
                 azure_sdk_references: ['/scheduleInfo/advancedSchedule/monthlyOccurrences', '/properties/scheduleInfo/advancedSchedule/monthlyOccurrences']
                 properties:
-                  - !ruby/object:Api::Azure::Type::Integer
+                  - !ruby/object:Api::Type::Integer
                     name: 'occurrence'
                     description: 'Occurrence of the week within the month. Must be between 1 and 5'
                     required: false
