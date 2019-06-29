@@ -7,21 +7,21 @@ trigger:
 - master
 
 variables:
-  # GOROOT: '/usr/local/go1.12' # Go installation path
-  GOPATH: $(system.defaultWorkingDirectory)/$(Build.BuildNumber)/go-work # Go workspace path
-  GOBIN:  $(GOPATH)/bin # Go binaries path
-  TFROOT: $(GOPATH)/src/github.com/terraform-providers
-  TFGITURL: "https://github.com/VSChina/terraform-provider-azurerm.git"
-  TFPROVIDERNAME: "terraform-provider-azurerm"
+  # GOROOT: '$HOME/.goenv/versions/1.12.6' # Go installation path
+  GOPATH: '$(system.defaultWorkingDirectory)/$(Build.BuildNumber)/go-work' # Go workspace path
+  GOBIN:  '$(GOPATH)/bin' # Go binaries path
+  TFROOT: '$(GOPATH)/src/github.com/terraform-providers'
+  TFGITURL: 'https://github.com/VSChina/terraform-provider-azurerm.git'
+  TFPROVIDERNAME: 'terraform-provider-azurerm'
 
 steps:
-- task: UseRubyVersion@0
-  inputs:
-    versionSpec: '>= 2.5'
+# - task: UseRubyVersion@0
+#   inputs:
+#     versionSpec: '>= 2.5'
 
-- task: UsePythonVersion@0
-  inputs:
-    versionSpec: '>=3.6'
+# - task: UsePythonVersion@0
+#   inputs:
+#     versionSpec: '>=3.6'
 
 - bash: |
     shopt -s extglob
