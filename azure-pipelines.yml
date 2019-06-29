@@ -81,9 +81,16 @@ steps:
 - bash: |
     make build && \
     make format-terraform
+  displayName: 'code generation'
+  failOnStderr: false
+
+- bash: |
+    cd $(TFROOT)
+    goimports -w azurerm
+    make fmt
   env:
     GOPATH: $(GOPATH)
-  displayName: 'code generation'
+  displayName: 'go import and format'
   failOnStderr: false
 
 - bash: |
