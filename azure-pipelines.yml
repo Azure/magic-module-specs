@@ -85,7 +85,7 @@ steps:
   failOnStderr: false
 
 - bash: |
-    cd $(TFROOT))
+    cd $(TFROOT)
     git add -A
     git commit -m "Code generation for Terraform."
     git push

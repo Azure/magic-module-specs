@@ -9,7 +9,7 @@ ASREPO=ansible
 MMROOT=$(ROOT)/tools/magic-modules
 
 # Environment variables.
-export GOPATH=generated/go
+export GOPATH=$(GENROOT)/go
 
 default: init
 
