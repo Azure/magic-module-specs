@@ -197,53 +197,53 @@ objects:
     properties:
       - !ruby/object:Api::Azure::Type::ResourceGroupName
         name: 'resourceGroup'
-        description: 'T<br>h<br>e<br> <br>n<br>a<br>m<br>e<br> <br>o<br>f<br> <br>t<br>h<br>e<br> <br>r<br>e<br>s<br>o<br>u<br>r<br>c<br>e<br> <br>g<br>r<br>o<br>u<br>p<br> <br>t<br>h<br>a<br>t<br> <br>c<br>o<br>n<br>t<br>a<br>i<br>n<br>s<br> <br>t<br>h<br>e<br> <br>B<br>a<br>t<br>c<br>h<br> <br>a<br>c<br>c<br>o<br>u<br>n<br>t<br>.'
+        description: 'The name of the resource group that contains the Batch account.'
         required: true
         input: true
         sample_value: myResourceGroup
         azure_sdk_references: ['resourceGroupName']
       - !ruby/object:Api::Type::String
         name: 'accountName'
-        description: 'T<br>h<br>e<br> <br>n<br>a<br>m<br>e<br> <br>o<br>f<br> <br>t<br>h<br>e<br> <br>B<br>a<br>t<br>c<br>h<br> <br>a<br>c<br>c<br>o<br>u<br>n<br>t<br>.'
+        description: 'The name of the Batch account.'
         required: true
         input: true
         sample_value: myBatchAccount
         azure_sdk_references: ['accountName']
       - !ruby/object:Api::Type::String
         name: 'name'
-        description: 'T<br>h<br>e<br> <br>n<br>a<br>m<br>e<br> <br>o<br>f<br> <br>t<br>h<br>e<br> <br>a<br>p<br>p<br>l<br>i<br>c<br>a<br>t<br>i<br>o<br>n<br>.<br> <br>T<br>h<br>i<br>s<br> <br>m<br>u<br>s<br>t<br> <br>b<br>e<br> <br>u<br>n<br>i<br>q<br>u<br>e<br> <br>w<br>i<br>t<br>h<br>i<br>n<br> <br>t<br>h<br>e<br> <br>a<br>c<br>c<br>o<br>u<br>n<br>t<br>.'
+        description: 'The name of the application. This must be unique within the account.'
         required: true
         input: true
         sample_value: myApplication
         azure_sdk_references: ['applicationName', '/name']
       - !ruby/object:Api::Type::String
         name: 'displayName'
-        description: 'T<br>h<br>e<br> <br>d<br>i<br>s<br>p<br>l<br>a<br>y<br> <br>n<br>a<br>m<br>e<br> <br>f<br>o<br>r<br> <br>t<br>h<br>e<br> <br>a<br>p<br>p<br>l<br>i<br>c<br>a<br>t<br>i<br>o<br>n<br>.'
+        description: 'The display name for the application.'
         required: false
         sample_value: myAppName
         azure_sdk_references: ['/displayName', '/properties/displayName']
       - !ruby/object:Api::Type::Boolean
         name: 'allowUpdates'
-        description: 'A<br> <br>v<br>a<br>l<br>u<br>e<br> <br>i<br>n<br>d<br>i<br>c<br>a<br>t<br>i<br>n<br>g<br> <br>w<br>h<br>e<br>t<br>h<br>e<br>r<br> <br>p<br>a<br>c<br>k<br>a<br>g<br>e<br>s<br> <br>w<br>i<br>t<br>h<br>i<br>n<br> <br>t<br>h<br>e<br> <br>a<br>p<br>p<br>l<br>i<br>c<br>a<br>t<br>i<br>o<br>n<br> <br>m<br>a<br>y<br> <br>b<br>e<br> <br>o<br>v<br>e<br>r<br>w<br>r<br>i<br>t<br>t<br>e<br>n<br> <br>u<br>s<br>i<br>n<br>g<br> <br>t<br>h<br>e<br> <br>s<br>a<br>m<br>e<br> <br>v<br>e<br>r<br>s<br>i<br>o<br>n<br> <br>s<br>t<br>r<br>i<br>n<br>g<br>.'
+        description: 'A value indicating whether packages within the application may be overwritten using the same version string.'
         required: false
         sample_value: true
         azure_sdk_references: ['/allowUpdates', '/properties/allowUpdates']
       - !ruby/object:Api::Type::String
         name: 'defaultVersion'
-        description: 'T<br>h<br>e<br> <br>p<br>a<br>c<br>k<br>a<br>g<br>e<br> <br>t<br>o<br> <br>u<br>s<br>e<br> <br>i<br>f<br> <br>a<br> <br>c<br>l<br>i<br>e<br>n<br>t<br> <br>r<br>e<br>q<br>u<br>e<br>s<br>t<br>s<br> <br>t<br>h<br>e<br> <br>a<br>p<br>p<br>l<br>i<br>c<br>a<br>t<br>i<br>o<br>n<br> <br>b<br>u<br>t<br> <br>d<br>o<br>e<br>s<br> <br>n<br>o<br>t<br> <br>s<br>p<br>e<br>c<br>i<br>f<br>y<br> <br>a<br> <br>v<br>e<br>r<br>s<br>i<br>o<br>n<br>.<br> <br>T<br>h<br>i<br>s<br> <br>p<br>r<br>o<br>p<br>e<br>r<br>t<br>y<br> <br>c<br>a<br>n<br> <br>o<br>n<br>l<br>y<br> <br>b<br>e<br> <br>s<br>e<br>t<br> <br>t<br>o<br> <br>t<br>h<br>e<br> <br>n<br>a<br>m<br>e<br> <br>o<br>f<br> <br>a<br>n<br> <br>e<br>x<br>i<br>s<br>t<br>i<br>n<br>g<br> <br>p<br>a<br>c<br>k<br>a<br>g<br>e<br>.'
+        description: 'The package to use if a client requests the application but does not specify a version. This property can only be set to the name of an existing package.'
         required: false
         sample_value: 2
         azure_sdk_references: ['/defaultVersion', '/properties/defaultVersion']
       # read only values included only in response
       - !ruby/object:Api::Type::String
         name: 'id'
-        description: 'T<br>h<br>e<br> <br>I<br>D<br> <br>o<br>f<br> <br>t<br>h<br>e<br> <br>r<br>e<br>s<br>o<br>u<br>r<br>c<br>e<br>.'
+        description: 'The ID of the resource.'
         input: true
         output: true
         azure_sdk_references: ['/id']
       - !ruby/object:Api::Type::String
         name: 'etag'
-        description: 'T<br>h<br>e<br> <br>E<br>T<br>a<br>g<br> <br>o<br>f<br> <br>t<br>h<br>e<br> <br>r<br>e<br>s<br>o<br>u<br>r<br>c<br>e<br>,<br> <br>u<br>s<br>e<br>d<br> <br>f<br>o<br>r<br> <br>c<br>o<br>n<br>c<br>u<br>r<br>r<br>e<br>n<br>c<br>y<br> <br>s<br>t<br>a<br>t<br>e<br>m<br>e<br>n<br>t<br>s<br>.'
+        description: 'The ETag of the resource, used for concurrency statements.'
         input: true
         output: true
         azure_sdk_references: ['/etag']
