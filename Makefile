@@ -42,7 +42,7 @@ build: build-terraform build-ansible
 build-terraform:
 	cd $(MMROOT) && \
 	jq '.[]' $(ROOT)/resources.json | xargs -I '{}' bundle exec compiler -d -p $(ROOT)/'{}' -e terraform -o $(TFROOT)/$(TFREPO)/ && \
-	cd $(TFROOT)/$(TFREPO) && \
+	cd $(TFROOT)/$(TFREPO)
 
 format-terraform:
 	make goimports && \
