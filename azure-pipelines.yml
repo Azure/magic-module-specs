@@ -81,6 +81,8 @@ steps:
 - bash: |
     make build && \
     make format-terraform
+  env:
+    GOPATH: $(GOPATH)
   displayName: 'code generation'
   failOnStderr: false
 
