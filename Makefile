@@ -4,8 +4,8 @@ GOSRC=$(GENROOT)/go/src
 TFROOT=$(GOSRC)/github.com/terraform-providers
 TFGITURL=https://github.com/VSChina/terraform-provider-azurerm.git
 TFREPO=terraform-provider-azurerm
-ASBGITURL=https://github.com/VSChina/ansible.git
-ASBREPO=ansible
+ASGITURL=https://github.com/VSChina/ansible.git
+ASREPO=ansible
 MMROOT=$(ROOT)/tools/magic-modules
 
 # Environment variables.
@@ -25,8 +25,8 @@ init:
 		git clone $(TFGITURL) $(TFROOT)/$(TFREPO); \
 	fi
 
-	if [ ! -d "$(GENROOT)/$(ASBREPO)" ]; then \
-		git clone $(ASBGITURL) $(GENROOT)/$(ASBREPO); \
+	if [ ! -d "$(GENROOT)/$(ASREPO)" ]; then \
+		git clone $(ASGITURL) $(GENROOT)/$(ASREPO); \
 	fi
 
 	git submodule update --init && \
@@ -50,6 +50,6 @@ format-terraform:
 
 build-ansible:
 	cd $(MMROOT) && \
-	jq '.[]' $(ROOT)/resources.json | xargs -I '{}' bundle exec compiler -d -p $(ROOT)/'{}' -e ansible -o $(GENROOT)/$(ASBREPO)/
+	jq '.[]' $(ROOT)/resources.json | xargs -I '{}' bundle exec compiler -d -p $(ROOT)/'{}' -e ansible -o $(GENROOT)/$(ASREPO)/
 
 .PHONY: init clean build build-terraform format-terraform build-ansible

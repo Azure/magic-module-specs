@@ -51,7 +51,7 @@ steps:
   failOnStderr: false
 
 - bash: |
-    git clone $(ASBGITURL) $(ASROOT)
+    git clone $(ASGITURL) $(ASROOT)
     cd $(ASROOT)
     git checkout autogen-pr-$(system.pullRequest.pullRequestNumber) || git checkout -b autogen-pr-$(system.pullRequest.pullRequestNumber)
     if [[ $(git branch -a --list 'origin/autogen-pr-$(system.pullRequest.pullRequestNumber)') ]]; then
@@ -105,7 +105,7 @@ steps:
 
 
 - bash: |
-    cd $(ASBROOT)
+    cd $(ASROOT)
     # run `black` against the directory of ansible if neccessary.
     git add -A
     git commit -m "Code generation for Ansible."
