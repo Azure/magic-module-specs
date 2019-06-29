@@ -6,25 +6,22 @@
 trigger:
 - master
 
-pool:
-  vmImage: 'ubuntu-latest'
-
 variables:
-  # GOROOT: '/usr/local/go1.12' # Go installation path
-  GOPATH: $(system.defaultWorkingDirectory)/$(Build.BuildNumber)/go-work # Go workspace path
-  GOBIN:  $(GOPATH)/bin # Go binaries path
-  TFROOT: $(GOPATH)/src/github.com/terraform-providers
-  TFGITURL: "https://github.com/VSChina/terraform-provider-azurerm.git"
-  TFPROVIDERNAME: "terraform-provider-azurerm"
+  # GOROOT: '$HOME/.goenv/versions/1.12.6' # Go installation path
+  GOPATH: '$(system.defaultWorkingDirectory)/$(Build.BuildNumber)/go-work' # Go workspace path
+  GOBIN:  '$(GOPATH)/bin' # Go binaries path
+  TFROOT: '$(GOPATH)/src/github.com/terraform-providers'
+  TFGITURL: 'https://github.com/VSChina/terraform-provider-azurerm.git'
+  TFPROVIDERNAME: 'terraform-provider-azurerm'
 
 steps:
-- task: UseRubyVersion@0
-  inputs:
-    versionSpec: '>= 2.5'
+# - task: UseRubyVersion@0
+#   inputs:
+#     versionSpec: '>= 2.5'
 
-- task: UsePythonVersion@0
-  inputs:
-    versionSpec: '>=3.6'
+# - task: UsePythonVersion@0
+#   inputs:
+#     versionSpec: '>=3.6'
 
 - bash: |
     shopt -s extglob
@@ -82,8 +79,8 @@ steps:
     cd tools/magic-modules
     gem install bundler
     bundle install --retry=3 --jobs=4
-    jq '.[]' ../../resources.json | xargs -I '{}' bundle exec compiler -p ../../'{}' -e terraform -o $(TFROOT)/$(TFPROVIDERNAME)/
-    jq '.[]' ../../resources.json | xargs -I '{}' bundle exec compiler -p ../../'{}' -e ansible -o ../../generated/ansible/
+    jq '.[]' ../../resources.json | xargs -I '{}' bundle exec compiler -d -p ../../'{}' -e terraform -o $(TFROOT)/$(TFPROVIDERNAME)/
+    jq '.[]' ../../resources.json | xargs -I '{}' bundle exec compiler -d -p ../../'{}' -e ansible -o ../../generated/ansible/
   displayName: 'code generation'
   failOnStderr: false
 
