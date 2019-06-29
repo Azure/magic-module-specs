@@ -47,7 +47,7 @@ build-terraform:
 
 format-terraform:
 	cd $(TFROOT)/$(TFREPO) && \
-	make goimports && \
+	goimports -w azurerm && \
 	make fmt
 
 build-ansible:
