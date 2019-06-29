@@ -10,6 +10,8 @@ MMROOT=$(ROOT)/tools/magic-modules
 
 # Environment variables.
 export GOPATH=$(GENROOT)/go
+export GO111MODULE=on
+export GOFLAGS=-mod=vendor
 
 default: init
 
