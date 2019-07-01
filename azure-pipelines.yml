@@ -7,29 +7,27 @@ trigger:
 - master
 
 variables:
-  # GOROOT: '$HOME/.goenv/versions/1.12.6' # Go installation path
-  GOPATH: '$(system.defaultWorkingDirectory)/$(Build.BuildNumber)/go-work' # Go workspace path
+  GENROOT: $(system.defaultWorkingDirectory)/generated
+  GOPATH: '$(GENROOT)/go' # Go workspace path
   GOBIN:  '$(GOPATH)/bin' # Go binaries path
-  TFROOT: '$(GOPATH)/src/github.com/terraform-providers'
+  GOSRC:  '$(GOPATH)/src' # Go source path
+  TFORG: '$(GOPATH)/src/github.com/terraform-providers'
+  TFREPO: 'terraform-provider-azurerm'
+  TFROOT: '$(TFORG)/$(TFREPO)'
   TFGITURL: 'https://github.com/VSChina/terraform-provider-azurerm.git'
-  TFPROVIDERNAME: 'terraform-provider-azurerm'
+  ASREPO: 'ansible'
+  ASROOT: '$(GENROOT)/$(ASREPO)'
+  ASGITURL: 'https://github.com/VSChina/ansible.git'
+  MMROOT: $(system.defaultWorkingDirectory)/tools/magic-modules
 
 steps:
-# - task: UseRubyVersion@0
-#   inputs:
-#     versionSpec: '>= 2.5'
-
-# - task: UsePythonVersion@0
-#   inputs:
-#     versionSpec: '>=3.6'
-
 - bash: |
     shopt -s extglob
     echo `go env`
     echo '##vso[task.prependpath]$(GOBIN)'
-    if [ ! -d "$(TFROOT)" ]
+    if [ ! -d "$(TFORG)" ]
     then
-      mkdir -p "$(TFROOT)"
+      mkdir -p "$(TFORG)"
     fi
   displayName: 'init Go environment'
   failOnStderr: true
@@ -43,26 +41,31 @@ steps:
   failOnStderr: false
 
 - bash: |
-    git clone $(TFGITURL) $(TFPROVIDERNAME)
-    cd $(TFPROVIDERNAME)
+    git clone $(TFGITURL) $(TFROOT)
+    cd $(TFROOT)
     git checkout autogen-pr-$(system.pullRequest.pullRequestNumber) || git checkout -b autogen-pr-$(system.pullRequest.pullRequestNumber)
     if [[ $(git branch -a --list 'origin/autogen-pr-$(system.pullRequest.pullRequestNumber)') ]]; then
       git pull
     fi
-  workingDirectory: $(TFROOT)
   displayName: 'clone terraform repository'
   failOnStderr: false
 
 - bash: |
-    git submodule update --init
-
-    pushd generated/ansible
+    git clone $(ASGITURL) $(ASROOT)
+    cd $(ASROOT)
     git checkout autogen-pr-$(system.pullRequest.pullRequestNumber) || git checkout -b autogen-pr-$(system.pullRequest.pullRequestNumber)
     if [[ $(git branch -a --list 'origin/autogen-pr-$(system.pullRequest.pullRequestNumber)') ]]; then
       git pull
     fi
-    popd
-  displayName: 'init submodules'
+  displayName: 'clone ansible repository'
+  failOnStderr: false
+
+- bash: |
+    git submodule update --init && \
+    cd $(MMROOT) && \
+    gem install bundler && \
+    bundle install --retry=3 --jobs=4
+  displayName: 'init magic modules'
   failOnStderr: false
 
 - bash: |
@@ -76,18 +79,22 @@ steps:
   failOnStderr: true
 
 - bash: |
-    cd tools/magic-modules
-    gem install bundler
-    bundle install --retry=3 --jobs=4
-    jq '.[]' ../../resources.json | xargs -I '{}' bundle exec compiler -d -p ../../'{}' -e terraform -o $(TFROOT)/$(TFPROVIDERNAME)/
-    jq '.[]' ../../resources.json | xargs -I '{}' bundle exec compiler -d -p ../../'{}' -e ansible -o ../../generated/ansible/
+    make build && \
+    make format-terraform
   displayName: 'code generation'
   failOnStderr: false
 
 - bash: |
-    cd $(TFROOT)/$(TFPROVIDERNAME)
+    cd $(TFROOT)
     goimports -w azurerm
     make fmt
+  env:
+    GOPATH: $(GOPATH)
+  displayName: 'go import and format'
+  failOnStderr: false
+
+- bash: |
+    cd $(TFROOT)
     git add -A
     git commit -m "Code generation for Terraform."
     git push
@@ -107,7 +114,7 @@ steps:
 
 
 - bash: |
-    cd generated/ansible
+    cd $(ASROOT)
     # run `black` against the directory of ansible if neccessary.
     git add -A
     git commit -m "Code generation for Ansible."
