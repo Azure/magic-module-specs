@@ -1,3 +1,7 @@
 [
-  "batchaccount"
+  "frontdoor",
+  "apimanagementapirelease",
+  "apimanagementdiagnostic",
+  "automationjob",
+  "softwareupdateconfiguration"
 ]
