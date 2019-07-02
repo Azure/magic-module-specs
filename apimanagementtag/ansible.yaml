@@ -1,4 +1,0 @@
---- !ruby/object:Provider::Azure::Ansible::Config
-overrides: !ruby/object:Provider::ResourceOverrides
-  Tag: !ruby/object:Provider::Azure::Ansible::ResourceOverride
-    examples: []

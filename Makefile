@@ -1,4 +1,5 @@
 ROOT=$(shell pwd)
+SPECROOT=$(ROOT)/specs
 GENROOT=$(ROOT)/generated
 GOSRC=$(GENROOT)/go/src
 TFROOT=$(GOSRC)/github.com/terraform-providers
@@ -18,40 +19,63 @@ default: init
 all: clean init build format-terraform
 
 init:
-	@echo "==> cloning repos of terraform and ansible..."
-	if [ ! -d "$(TFROOT)" ]; then \
+	@echo "==> creating folders for code generation..."
+	@if [ ! -d "$(TFROOT)" ]; then \
 		mkdir -p "$(TFROOT)"; \
 	fi
 
-	if [ ! -d "$(TFROOT)/$(TFREPO)" ]; then \
+	@echo "==> cloning repository for terraform..."
+	@if [ ! -d "$(TFROOT)/$(TFREPO)" ]; then \
 		git clone $(TFGITURL) $(TFROOT)/$(TFREPO); \
 	fi
 
-	if [ ! -d "$(GENROOT)/$(ASREPO)" ]; then \
+	@echo "==> cloning repository for ansible..."
+	@if [ ! -d "$(GENROOT)/$(ASREPO)" ]; then \
 		git clone $(ASGITURL) $(GENROOT)/$(ASREPO); \
 	fi
 
-	git submodule update --init && \
-	cd $(MMROOT) && \
+	@echo "==> initializing submodules..."
+	@git submodule update --init
+
+	@echo "==> installing gem packages..."
+	@cd $(MMROOT) && \
 	gem install bundler && \
 	bundle install --retry=3 --jobs=4
 
 clean:
-	rm -rf $(GENROOT)
+	@echo "==> cleaning code generation folder..."
+	@rm -rf $(GENROOT)
 
 build: build-terraform build-ansible
 
 build-terraform:
-	cd $(MMROOT) && \
-	jq '.[]' $(ROOT)/resources.json | xargs -I '{}' bundle exec compiler -d -p $(ROOT)/'{}' -e terraform -o $(TFROOT)/$(TFREPO)/
+	@echo "==> Generating source code for terraform..."
+	@if [ -z "$(RESOURCE)" ]; then \
+		echo "==> Generating source code for terraform from resource list..."; \
+		cd $(MMROOT) && \
+		jq '.[]' $(ROOT)/resources.json | xargs -I '{}' bundle exec compiler -d -p $(SPECROOT)/'{}' -e terraform -o $(TFROOT)/$(TFREPO)/; \
+	else \
+		echo "==> Generating source code for terraform from given name..."; \
+		cd $(MMROOT) && \
+		bundle exec compiler -d -p $(SPECROOT)/$(RESOURCE) -e terraform -o $(TFROOT)/$(TFREPO)/; \
+	fi
 
 format-terraform:
-	cd $(TFROOT)/$(TFREPO) && \
+	@echo "==> Importing packages and formatting code for terraform..."
+	@cd $(TFROOT)/$(TFREPO) && \
 	goimports -w azurerm && \
 	make fmt
 
 build-ansible:
-	cd $(MMROOT) && \
-	jq '.[]' $(ROOT)/resources.json | xargs -I '{}' bundle exec compiler -d -p $(ROOT)/'{}' -e ansible -o $(GENROOT)/$(ASREPO)/
+	@echo "==> Generating source code for ansible..."
+	@if [ -z "$(RESOURCE)" ]; then \
+		echo "==> Generating source code for ansible from resource list..."; \
+		cd $(MMROOT) && \
+		jq '.[]' $(ROOT)/resources.json | xargs -I '{}' bundle exec compiler -d -p $(SPECROOT)/'{}' -e ansible -o $(GENROOT)/$(ASREPO)/; \
+	else \
+		echo "==> Generating source code for ansible from given name..."; \
+		cd $(MMROOT) && \
+		bundle exec compiler -d -p $(SPECROOT)/$(RESOURCE) -e ansible -o $(GENROOT)/$(ASREPO)/; \
+	fi
 
 .PHONY: init clean build build-terraform format-terraform build-ansible
