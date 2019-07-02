@@ -27,7 +27,7 @@ Firstly I would like to give you a big picture of what `api.yaml` looks like (we
   3   versions:
   4     - !ruby/object:Api::Product::Version
   5       name: <Not used in Azure but required by GCP>
-  6       base_uirl: <Not used in Azure but required by GCP>
+  6       base_url: <Not used in Azure but required by GCP>
   7   scopes:
   8     - <Not used in Azure but required by GCP>
 
@@ -193,7 +193,7 @@ First of all is `resourceGroupName`:
   5     python_variable_name: resource_group
 ```
 
-The hash table key `resourceGroupName` could be actually any string, but we commend to use something make sense. The type `!ruby/object:Api::Azure::SDKTypeDefinition::StringObject` means this is a string value when invoking the SDK. We support the following types:
+The hash table key `resourceGroupName` could be actually any string as long as it follows the rule mentioned in the tree-hash structure above, but we commend to use something make sense. The type `!ruby/object:Api::Azure::SDKTypeDefinition::StringObject` means this is a string value when invoking the SDK. We support the following types:
 
 * `!ruby/object:Api::Azure::SDKTypeDefinition::BooleanObject`: a boolean value in SDK.
 * `!ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject`: a structure value in SDK.
@@ -201,8 +201,10 @@ The hash table key `resourceGroupName` could be actually any string, but we comm
 * `!ruby/object:Api::Azure::SDKTypeDefinition::EnumObject`: an enumeration value in SDK.
 * `!ruby/object:Api::Azure::SDKTypeDefinition::FloatObject`: a double-precision floating-point value in SDK.
 * `!ruby/object:Api::Azure::SDKTypeDefinition::IntegerObject`: a native-bit-size integer value in SDK (like `int` in C).
-* `!ruby/object:Api::Azure::SDKTypeDefinition::Integer32Object`: a 32-bit integer value in SDK (like `int32_t` in C)
-* `!ruby/object:Api::Azure::SDKTypeDefinition::Integer64Object`: a 64-bit integer value in SDK (like `int64_t` in C)
+* `!ruby/object:Api::Azure::SDKTypeDefinition::Integer32Object`: a 32-bit integer value in SDK (like `int32_t` in C).
+* `!ruby/object:Api::Azure::SDKTypeDefinition::Integer64Object`: a 64-bit integer value in SDK (like `int64_t` in C).
+* `!ruby/object:Api::Azure::SDKTypeDefinition::ISO8601DateTimeObject`: a datetime value in SDK.
+* `!ruby/object:Api::Azure::SDKTypeDefinition::ISO8601DurationObject`: a timespan value in SDK.
 * `!ruby/object:Api::Azure::SDKTypeDefinition::StringObject`: a string value in SDK.
 * `!ruby/object:Api::Azure::SDKTypeDefinition::StringArrayObject`: an array of strings value in SDK.
 * `!ruby/object:Api::Azure::SDKTypeDefinition::StringMapObject`: a string-to-string hash table value in SDK.
@@ -210,15 +212,16 @@ The hash table key `resourceGroupName` could be actually any string, but we comm
 All types support the following attributes (all optional, because not every attribute makes sense in different kinds of types):
 
 ```yaml
-  1   id_portion: <Only makes sense in root parameters>
-  2   applicable_to: <only applies to a specific SDK>
-  3   empty_value_sensitive: <null and empty string are different>
-  4   go_variable_name: <Go variable name in Terraform>
-  5   go_field_name: <Go SDK structure field name>
-  6   go_type_name: <Go SDK type name>
-  7   python_variable_name: <Python SDK parameter name>
-  8   python_parameter_name: <Python variable name in Ansible>
-  9   python_field_name: <Python SDK structure field name>
+id_portion: <Only makes sense in root parameters>
+applicable_to: <Only applies to a specific SDK>
+empty_value_sensitive: <null and empty string are different>
+is_pointer_type: <Explicitly tell whether this parameter/field is a Go pointer or not>
+go_variable_name: <Go variable name in Terraform>
+go_field_name: <Go SDK structure field name>
+go_type_name: <Go SDK type name>
+python_variable_name: <Python SDK parameter name>
+python_parameter_name: <Python variable name in Ansible>
+python_field_name: <Python SDK structure field name>
 ```
 
 `id_portion` is part of the resource ID URL. For example, the ID of a batch account looks like `.../resourceGroups/rg/providers/Microsoft.Batch/batchAccounts/ba`. Then the `id_portion` of `resourceGroupName` is `resourceGroups` (the subpart before `/rg/`), and the `id_portion` of `accountName` is `batchAccounts` (the subpart before `/ba`). The `id_portion` only makes sense when it is used to identify a resource, for example, `resourceGroupName` and `accountName`.
@@ -226,6 +229,8 @@ All types support the following attributes (all optional, because not every attr
 You need to specify `applicable_to` when the definition is different between different SDKs. For example, when specifying `applicable_to: [go]`, this definition only applies to Go SDK. By default, it applies to all SDKs.
 
 `empty_value_sensitive` means whether Azure treats zero-value differently than null-value. Most of the time, empty string is equivalent to null for Azure resources. And this undocumented behavior is heavily leveraged in Terraform.
+
+`is_pointer_type` is a boolean value which explicitly specifies whether this parameter or field is a Go pointer or not. Typically we do not need to set it because magic-modules could handle almost all of the cases. But sometimes Go SDK has a weird type definition, and you have to use this field to override the default behavior. We recommend you to override the default behavior in `terraform.yaml` if `api.yaml` is auto-generated.
 
 `go_variable_name` is the variable which will be used in the [generated Terraform code](https://github.com/Azure/magic-module-specs/blob/master/generated-terraform/azurerm/resource_arm_batch_account.go#L96). `go_field_name` and `go_type_name` only makes sense in `ComplexObject` or `ComplexArrayObject`, you can get them from the [Go SDK](https://github.com/Azure/azure-sdk-for-go/blob/master/services/batch/mgmt/2018-12-01/batch/models.go#L585).
 
@@ -340,24 +345,41 @@ It specifies the name of a batch account. When creating/reading/updating/deletin
 `!ruby/object:Api::Type::Array` supports more:
 
 ```yaml
-  1   item_type: <the fully-qualified ruby class name of the type of this array>
-  2   min_size: <the minimum required count of the elements>
-  3   max_size: <the maximum allowed count of the elements>
+item_type: <the fully-qualified ruby class name of the type of this array>
+min_size: <the minimum required count of the elements>
+max_size: <the maximum allowed count of the elements>
 ```
 
 `!ruby/object:Api::Type::Enum` supports one more:
 
 ```yaml
-  1   values: <list of valid string values of this enumeration, it should match SDK constant definitions>
+values: <list of valid string values of this enumeration, it should match SDK constant definitions>
 ```
 
 `!ruby/object:Api::Type::NestedObject` supports additional:
 
 ```yaml
-  1   properties: <sub-properties of this structure>
+properties: <sub-properties of this structure>
 ```
 
-Support for `!ruby/object:Api::Type::Map` is missing in Azure-extended magic-module.
+`!ruby/object:Api::Azure::Type::ResourceReference` supports additional:
+
+```yaml
+resource_type_name: <User-readable type name of this reference, it will be used in Ansible documentation>
+```
+
+To support nested-object in an array, we can use the following snippet (notice the indentation level of `properties`):
+
+```yaml
+- !ruby/object:Api::Type::Array
+  name: 'complexArray'
+  item_type: !ruby/object:Api::Type::NestedObject
+    properties:
+      - !ruby/object:Api::Type::String
+        name: 'subProp1'
+      - !ruby/object:Api::Type::String
+        name: 'subProp2'
+```
 
 ### Ansible Overrides: ansible.yaml
 

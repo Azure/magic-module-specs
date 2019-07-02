@@ -1,7 +1,3 @@
-[submodule "generated/ansible"]
-	path = generated/ansible
-	url = https://github.com/VSChina/ansible.git
-	branch = devel
 [submodule "tools/magic-modules"]
 	path = tools/magic-modules
 	url = https://github.com/VSChina/magic-modules.git
