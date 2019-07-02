@@ -1,4 +1,0 @@
---- !ruby/object:Provider::Azure::Terraform::Config
-overrides: !ruby/object:Overrides::ResourceOverrides
-  SignInSetting: !ruby/object:Provider::Azure::Terraform::ResourceOverride
-    properties: {}
