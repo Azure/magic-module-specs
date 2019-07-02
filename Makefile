@@ -1,4 +1,5 @@
 ROOT=$(shell pwd)
+SPECROOT=$(ROOT)/specs
 GENROOT=$(ROOT)/generated
 GOSRC=$(GENROOT)/go/src
 TFROOT=$(GOSRC)/github.com/terraform-providers
@@ -43,7 +44,7 @@ build: build-terraform build-ansible
 
 build-terraform:
 	cd $(MMROOT) && \
-	jq '.[]' $(ROOT)/resources.json | xargs -I '{}' bundle exec compiler -d -p $(ROOT)/'{}' -e terraform -o $(TFROOT)/$(TFREPO)/
+	jq '.[]' $(ROOT)/resources.json | xargs -I '{}' bundle exec compiler -d -p $(SPECROOT)/'{}' -e terraform -o $(TFROOT)/$(TFREPO)/
 
 format-terraform:
 	cd $(TFROOT)/$(TFREPO) && \
@@ -52,6 +53,6 @@ format-terraform:
 
 build-ansible:
 	cd $(MMROOT) && \
-	jq '.[]' $(ROOT)/resources.json | xargs -I '{}' bundle exec compiler -d -p $(ROOT)/'{}' -e ansible -o $(GENROOT)/$(ASREPO)/
+	jq '.[]' $(ROOT)/resources.json | xargs -I '{}' bundle exec compiler -d -p $(SPECROOT)/'{}' -e ansible -o $(GENROOT)/$(ASREPO)/
 
 .PHONY: init clean build build-terraform format-terraform build-ansible
