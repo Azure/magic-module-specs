@@ -1,4 +1,4 @@
 --- !ruby/object:Provider::Azure::Terraform::Config
 overrides: !ruby/object:Overrides::ResourceOverrides
-  Application: !ruby/object:Provider::Azure::Terraform::ResourceOverride
+  BatchApplication: !ruby/object:Provider::Azure::Terraform::ResourceOverride
     properties: {}

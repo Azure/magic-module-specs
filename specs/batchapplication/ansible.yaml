@@ -1,0 +1,6 @@
+--- !ruby/object:Provider::Azure::Ansible::Config
+author: Azure DevOps Tooling Team
+version_added: '2.9'
+overrides: !ruby/object:Overrides::ResourceOverrides
+  BatchApplication: !ruby/object:Provider::Azure::Ansible::ResourceOverride
+    properties: {}

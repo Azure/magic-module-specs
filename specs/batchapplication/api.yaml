@@ -8,7 +8,7 @@ scopes:
   - NotUsedInAzure
 objects:
   - !ruby/object:Api::Resource
-    name: Application
+    name: BatchApplication
     api_name: Batch
     base_url: NotUsedInAzure
 
