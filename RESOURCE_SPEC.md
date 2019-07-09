@@ -385,7 +385,7 @@ To support nested-object in an array, we can use the following snippet (notice t
 
 `ansible.yaml` defines overrides and additional inputs for Ansible. The overall structure is demonstrated below, and please refer to [batchaccount `ansible.yaml`](https://github.com/Azure/magic-module-specs/blob/master/batchaccount/ansible.yaml) as a real-world example.
 
-> Note that `author`, `version_added` and `overrides.<object>.properties` itself are required, while all other properties illustrated here are optional. ou can simply use `properties: {}` to tell magic-modules to override nothing in `api.yaml`.
+> Note that `author`, `version_added` and `overrides.<object>.properties` itself are required, while all other properties illustrated here are optional. You can simply use `properties: {}` to tell magic-modules to override nothing in `api.yaml`.
 
 ```yaml
 --- !ruby/object:Provider::Azure::Ansible::Config
