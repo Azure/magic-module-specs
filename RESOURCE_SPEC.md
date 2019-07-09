@@ -385,7 +385,7 @@ To support nested-object in an array, we can use the following snippet (notice t
 
 `ansible.yaml` defines overrides and additional inputs for Ansible. The overall structure is demonstrated below, and please refer to [batchaccount `ansible.yaml`](https://github.com/Azure/magic-module-specs/blob/master/batchaccount/ansible.yaml) as a real-world example.
 
-> Note that all properties illustrated here are optional, which means you do not want to override anything in `api.yaml`.
+> Note that `author`, `version_added` and `overrides.<object>.properties` itself are required, while all other properties illustrated here are optional. ou can simply use `properties: {}` to tell magic-modules to override nothing in `api.yaml`.
 
 ```yaml
 --- !ruby/object:Provider::Azure::Ansible::Config
@@ -432,7 +432,7 @@ All items and attributes in `parameters`/`properties` mentioned in `api.yaml` co
 
 `terraform.yaml` defines overrides and additional inputs for Terraform. The overall structure is demonstrated below, and please refer to [batchaccount `terraform.yaml`](https://github.com/Azure/magic-module-specs/blob/master/batchaccount/terraform.yaml) as a real-world example.
 
-> Note that all properties illustrated here are optional, which means you do not want to override anything in `api.yaml`.
+> Note that `overrides.<object>.properties` itself is required, while all other properties illustrated here are optional. You can simply use `properties: {}` to tell magic-modules to override nothing in `api.yaml`.
 
 ```yaml
 --- !ruby/object:Provider::Azure::Terraform::Config
