@@ -9,6 +9,8 @@ overrides: !ruby/object:Overrides::ResourceOverrides
     properties:
       resourceGroup: !ruby/object:Provider::Azure::Terraform::PropertyOverride
         name: resourceGroupName
+      allowUpdates: !ruby/object:Provider::Azure::Terraform::PropertyOverride
+        default_value: true
       etag: !ruby/object:Provider::Azure::Terraform::PropertyOverride
         exclude: true
     acctests:
