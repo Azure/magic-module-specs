@@ -24,6 +24,6 @@ overrides: !ruby/object:Overrides::ResourceOverrides
         resource_name_hints:
           resourceGroups: example-rg
           storageAccounts: examplesa
-          batchAccounts: example-batch-account
+          batchAccounts: exampleba
           applications: example-batch-application
-          location: West US
+          location: West US 2

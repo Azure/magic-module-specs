@@ -8,7 +8,7 @@ prerequisites:
     product: storageaccount
     example: basic
 properties:
-  name: "<%= get_resource_name('batchAccounts', 'batch') -%>"
+  name: "<%= get_batch_account_name() -%>"
   resource_group_name: ${azurerm_resource_group.<%= resource_id_hint -%>.name}
   location: ${azurerm_resource_group.<%= resource_id_hint -%>.location}
   pool_allocation_mode: BatchService
