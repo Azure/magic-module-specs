@@ -11,5 +11,5 @@ properties:
   name: "<%= get_resource_name('batchAccounts', 'batch') -%>"
   resource_group_name: ${azurerm_resource_group.<%= resource_id_hint -%>.name}
   location: ${azurerm_resource_group.<%= resource_id_hint -%>.location}
-  poolAllocationMode: BatchService
-  storageAccountId: ${azurerm_storage_account.<%= resource_id_hint -%>.id}
+  pool_allocation_mode: BatchService
+  storage_account_id: ${azurerm_storage_account.<%= resource_id_hint -%>.id}
