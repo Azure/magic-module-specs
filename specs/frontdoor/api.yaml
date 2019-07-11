@@ -1107,10 +1107,9 @@ objects:
             description: 'Resource name.'
             required: false
             azure_sdk_references: ['/healthProbeSettings/name', '/properties/healthProbeSettings/name', '/name']
-      - !ruby/object:Api::Type::Array
+      - !ruby/object:Api::Type::NestedObject
         name: 'backendPools'
         description: 'Backend pools available to routing rules.'
-        item_type: Api::Type::NestedObject
         required: false
         azure_sdk_references: ['/backendPools', '/properties/backendPools']
         properties:

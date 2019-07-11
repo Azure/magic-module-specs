@@ -52,3 +52,4 @@ build-iPhoneSimulator/
 
 # Code generation folder by Magic Modules
 generated/
+rvm.sh
