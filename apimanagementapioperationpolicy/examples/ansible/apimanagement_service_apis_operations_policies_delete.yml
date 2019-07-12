@@ -1,0 +1,12 @@
+--- !ruby/object:Provider::Ansible::Example
+task: !ruby/object:Provider::Ansible::Task
+  name: azure_rm_apimanagementapioperationpolicy
+  description: ApiManagementDeleteApiOperationPolicy
+  code:
+    resource_group: myResourceGroup
+    service_name: myService
+    api_id: myApi
+    operation_id: myOperation
+    policy_id: myPolicy
+    state: absent
+  

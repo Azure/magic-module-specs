@@ -1,0 +1,11 @@
+--- !ruby/object:Provider::Ansible::Example
+task: !ruby/object:Provider::Ansible::Task
+  name: azure_rm_apimanagementapitagdescription
+  description: ApiManagementDeleteApiTagDescription
+  code:
+    resource_group: myResourceGroup
+    service_name: myService
+    api_id: myApi
+    tag_id: myTagDescription
+    state: absent
+  

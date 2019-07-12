@@ -1,0 +1,11 @@
+--- !ruby/object:Provider::Ansible::Example
+task: !ruby/object:Provider::Ansible::Task
+  name: azure_rm_apimanagementcertificate
+  description: ApiManagementCreateCertificate
+  code:
+    resource_group: myResourceGroup
+    service_name: myService
+    certificate_id: myCertificate
+    data: '****************Base 64 Encoded Certificate *******************************'
+    password: '****Certificate Password******'
+  
