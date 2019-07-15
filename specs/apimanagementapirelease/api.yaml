@@ -29,9 +29,9 @@ objects:
             python_variable_name: resource_group
           'serviceName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             id_portion: service
-            go_variable_name: name
+            go_variable_name: serviceName
             python_parameter_name: service_name
-            python_variable_name: name
+            python_variable_name: service_name
           'apiId': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             id_portion: apis
             go_variable_name: apiID
@@ -74,9 +74,9 @@ objects:
             python_variable_name: resource_group
           'serviceName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             id_portion: service
-            go_variable_name: name
+            go_variable_name: serviceName
             python_parameter_name: service_name
-            python_variable_name: name
+            python_variable_name: service_name
           'apiId': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             id_portion: apis
             go_variable_name: apiID
@@ -119,9 +119,9 @@ objects:
             python_variable_name: resource_group
           'serviceName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             id_portion: service
-            go_variable_name: name
+            go_variable_name: serviceName
             python_parameter_name: service_name
-            python_variable_name: name
+            python_variable_name: service_name
           'apiId': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             id_portion: apis
             go_variable_name: apiID
@@ -143,9 +143,9 @@ objects:
             python_variable_name: resource_group
           'serviceName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             id_portion: service
-            go_variable_name: name
+            go_variable_name: serviceName
             python_parameter_name: service_name
-            python_variable_name: name
+            python_variable_name: service_name
           'apiId': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             id_portion: apis
             go_variable_name: apiID
@@ -194,7 +194,7 @@ objects:
           '/type': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             go_field_name: Type
             python_field_name: type
-      list_by_service: !ruby/object:Api::Azure::SDKOperationDefinition
+      list_by_parent: !ruby/object:Api::Azure::SDKOperationDefinition
         go_func_name: ListByService
         python_func_name: list_by_service
         request:
@@ -205,9 +205,9 @@ objects:
             python_variable_name: resource_group
           'serviceName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             id_portion: service
-            go_variable_name: name
+            go_variable_name: serviceName
             python_parameter_name: service_name
-            python_variable_name: name
+            python_variable_name: service_name
           'apiId': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             id_portion: apis
             go_variable_name: apiID
@@ -225,37 +225,38 @@ objects:
         sample_value: myResourceGroup
         azure_sdk_references: ['resourceGroupName']
       - !ruby/object:Api::Type::String
-        name: 'name'
+        name: 'serviceName'
         description: 'The name of the API Management service.'
         required: true
         input: true
-        sample_value: myService
-        azure_sdk_references: ['serviceName', '/name']
+        sample_value: 'myService'
+        azure_sdk_references: ['serviceName']
       - !ruby/object:Api::Type::String
         name: 'apiId'
         description: 'API identifier. Must be unique in the current API Management service instance.'
         required: true
         input: true
-        sample_value: myApi
+        sample_value: 'myApi'
         azure_sdk_references: ['apiId']
       - !ruby/object:Api::Type::String
         name: 'releaseId'
         description: 'Release identifier within an API. Must be unique in the current API Management service instance.'
         required: true
         input: true
-        sample_value: myRelease
+        sample_value: 'myRelease'
         azure_sdk_references: ['releaseId']
       - !ruby/object:Api::Azure::Type::ResourceReference
         name: 'apiId'
         description: 'Identifier of the API the release belongs to.'
         required: false
         sample_value: /subscriptions/{{ subscription_id }}/resourceGroups/{{ resource_group }}/providers/Microsoft.ApiManagement/service/{{ service_name }}/apis/{{ name }}
+        resource_type_name: TBD
         azure_sdk_references: ['/apiId', '/properties/apiId']
       - !ruby/object:Api::Type::String
         name: 'notes'
         description: 'Release Notes'
         required: false
-        sample_value: yahooagain
+        sample_value: 'yahooagain'
         azure_sdk_references: ['/notes', '/properties/notes']
       # read only values included only in response
       - !ruby/object:Api::Azure::Type::ISO8601DateTime

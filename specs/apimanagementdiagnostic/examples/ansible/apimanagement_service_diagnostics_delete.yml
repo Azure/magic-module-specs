@@ -4,7 +4,7 @@ task: !ruby/object:Provider::Ansible::Task
   description: ApiManagementDeleteDiagnostic
   code:
     resource_group: myResourceGroup
-    name: myService
+    service_name: myService
     diagnostic_id: myDiagnostic
     state: absent
   

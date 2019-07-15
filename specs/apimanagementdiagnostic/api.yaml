@@ -29,9 +29,9 @@ objects:
             python_variable_name: resource_group
           'serviceName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             id_portion: service
-            go_variable_name: name
+            go_variable_name: serviceName
             python_parameter_name: service_name
-            python_variable_name: name
+            python_variable_name: service_name
           'diagnosticId': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             id_portion: diagnostics
             go_variable_name: diagnosticID
@@ -214,9 +214,9 @@ objects:
             python_variable_name: resource_group
           'serviceName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             id_portion: service
-            go_variable_name: name
+            go_variable_name: serviceName
             python_parameter_name: service_name
-            python_variable_name: name
+            python_variable_name: service_name
           'diagnosticId': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             id_portion: diagnostics
             go_variable_name: diagnosticID
@@ -399,9 +399,9 @@ objects:
             python_variable_name: resource_group
           'serviceName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             id_portion: service
-            go_variable_name: name
+            go_variable_name: serviceName
             python_parameter_name: service_name
-            python_variable_name: name
+            python_variable_name: service_name
           'diagnosticId': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             id_portion: diagnostics
             go_variable_name: diagnosticID
@@ -418,9 +418,9 @@ objects:
             python_variable_name: resource_group
           'serviceName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             id_portion: service
-            go_variable_name: name
+            go_variable_name: serviceName
             python_parameter_name: service_name
-            python_variable_name: name
+            python_variable_name: service_name
           'diagnosticId': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             id_portion: diagnostics
             go_variable_name: diagnosticID
@@ -597,7 +597,7 @@ objects:
           '/type': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             go_field_name: Type
             python_field_name: type
-      list_by_service: !ruby/object:Api::Azure::SDKOperationDefinition
+      list_by_parent: !ruby/object:Api::Azure::SDKOperationDefinition
         go_func_name: ListByService
         python_func_name: list_by_service
         request:
@@ -608,9 +608,9 @@ objects:
             python_variable_name: resource_group
           'serviceName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             id_portion: service
-            go_variable_name: name
+            go_variable_name: serviceName
             python_parameter_name: service_name
-            python_variable_name: name
+            python_variable_name: service_name
 
     description: |
       Manage Azure Diagnostic instance.
@@ -623,18 +623,18 @@ objects:
         sample_value: myResourceGroup
         azure_sdk_references: ['resourceGroupName']
       - !ruby/object:Api::Type::String
-        name: 'name'
+        name: 'serviceName'
         description: 'The name of the API Management service.'
         required: true
         input: true
-        sample_value: myService
-        azure_sdk_references: ['serviceName', '/name']
+        sample_value: 'myService'
+        azure_sdk_references: ['serviceName']
       - !ruby/object:Api::Type::String
         name: 'diagnosticId'
         description: 'Diagnostic identifier. Must be unique in the current API Management service instance.'
         required: true
         input: true
-        sample_value: myDiagnostic
+        sample_value: 'myDiagnostic'
         azure_sdk_references: ['diagnosticId']
       - !ruby/object:Api::Type::Enum
         name: 'alwaysLog'
@@ -649,7 +649,7 @@ objects:
         name: 'loggerId'
         description: 'Resource Id of a target logger.'
         required: true
-        sample_value: /loggers/applicationinsights
+        sample_value: '/loggers/applicationinsights'
         azure_sdk_references: ['/loggerId', '/properties/loggerId']
       - !ruby/object:Api::Type::NestedObject
         name: 'sampling'
@@ -666,7 +666,7 @@ objects:
             default_value: :fixed
             sample_value: fixed
             azure_sdk_references: ['/sampling/samplingType', '/properties/sampling/samplingType']
-          - !ruby/object:Api::Azure::Type::Integer
+          - !ruby/object:Api::Type::Integer
             name: 'percentage'
             description: 'Rate of sampling for fixed-rate sampling.'
             required: false
@@ -688,7 +688,7 @@ objects:
                 name: 'headers'
                 description: 'Array of HTTP Headers to log.'
                 required: false
-                sample_value: Content-type
+                sample_value: 'Content-type'
                 azure_sdk_references: ['/frontend/request/headers', '/properties/frontend/request/headers']
               - !ruby/object:Api::Type::NestedObject
                 name: 'body'
@@ -696,7 +696,7 @@ objects:
                 required: false
                 azure_sdk_references: ['/frontend/request/body', '/properties/frontend/request/body']
                 properties:
-                  - !ruby/object:Api::Azure::Type::Integer
+                  - !ruby/object:Api::Type::Integer
                     name: 'bytes'
                     description: 'Number of request body bytes to log.'
                     required: false
@@ -712,7 +712,7 @@ objects:
                 name: 'headers'
                 description: 'Array of HTTP Headers to log.'
                 required: false
-                sample_value: Content-type
+                sample_value: 'Content-type'
                 azure_sdk_references: ['/frontend/response/headers', '/properties/frontend/response/headers']
               - !ruby/object:Api::Type::NestedObject
                 name: 'body'
@@ -720,7 +720,7 @@ objects:
                 required: false
                 azure_sdk_references: ['/frontend/response/body', '/properties/frontend/response/body']
                 properties:
-                  - !ruby/object:Api::Azure::Type::Integer
+                  - !ruby/object:Api::Type::Integer
                     name: 'bytes'
                     description: 'Number of request body bytes to log.'
                     required: false
@@ -742,7 +742,7 @@ objects:
                 name: 'headers'
                 description: 'Array of HTTP Headers to log.'
                 required: false
-                sample_value: Content-type
+                sample_value: 'Content-type'
                 azure_sdk_references: ['/backend/request/headers', '/properties/backend/request/headers']
               - !ruby/object:Api::Type::NestedObject
                 name: 'body'
@@ -750,7 +750,7 @@ objects:
                 required: false
                 azure_sdk_references: ['/backend/request/body', '/properties/backend/request/body']
                 properties:
-                  - !ruby/object:Api::Azure::Type::Integer
+                  - !ruby/object:Api::Type::Integer
                     name: 'bytes'
                     description: 'Number of request body bytes to log.'
                     required: false
@@ -766,7 +766,7 @@ objects:
                 name: 'headers'
                 description: 'Array of HTTP Headers to log.'
                 required: false
-                sample_value: Content-type
+                sample_value: 'Content-type'
                 azure_sdk_references: ['/backend/response/headers', '/properties/backend/response/headers']
               - !ruby/object:Api::Type::NestedObject
                 name: 'body'
@@ -774,7 +774,7 @@ objects:
                 required: false
                 azure_sdk_references: ['/backend/response/body', '/properties/backend/response/body']
                 properties:
-                  - !ruby/object:Api::Azure::Type::Integer
+                  - !ruby/object:Api::Type::Integer
                     name: 'bytes'
                     description: 'Number of request body bytes to log.'
                     required: false

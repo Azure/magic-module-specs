@@ -4,7 +4,7 @@ task: !ruby/object:Provider::Ansible::Task
   description: ApiManagementCreateDiagnostic
   code:
     resource_group: myResourceGroup
-    name: myService
+    service_name: myService
     diagnostic_id: myDiagnostic
     always_log: allErrors
     logger_id: /loggers/azuremonitor
