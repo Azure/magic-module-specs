@@ -1,0 +1,6 @@
+--- !ruby/object:Provider::Azure::Ansible::Config
+author: audevbot
+version_added: "2.9"
+overrides: !ruby/object:Overrides::ResourceOverrides
+  Property: !ruby/object:Provider::Azure::Ansible::ResourceOverride
+    examples: []

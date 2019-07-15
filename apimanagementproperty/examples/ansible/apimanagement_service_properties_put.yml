@@ -1,0 +1,15 @@
+--- !ruby/object:Provider::Ansible::Example
+task: !ruby/object:Provider::Ansible::Task
+  name: azure_rm_apimanagementproperty
+  description: ApiManagementCreateProperty
+  code:
+    resource_group: myResourceGroup
+    service_name: myService
+    prop_id: myProperty
+    tags:
+      - foo
+      - bar
+    secret: true
+    display_name: prop3name
+    value: propValue
+  

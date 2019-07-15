@@ -1,0 +1,866 @@
+--- !ruby/object:Api::Product
+name: Azure Backend Management
+versions:
+  - !ruby/object:Api::Product::Version
+    name: ga
+    base_url: NotUsedInAzure
+scopes:
+  - NotUsedInAzure
+objects:
+  - !ruby/object:Api::Resource
+    name: Backend
+    api_name: ApiManagement
+    base_url: NotUsedInAzure
+
+    azure_sdk_definition: !ruby/object:Api::Azure::SDKDefinition
+      provider_name: Microsoft.ApiManagement
+      go_client_namespace: apimanagement
+      go_client: backendClient
+      python_client_namespace: azure.mgmt.apimanagement
+      python_client: ApiManagementClient.backend
+      create: !ruby/object:Api::Azure::SDKOperationDefinition
+        go_func_name: CreateOrUpdate
+        python_func_name: create_or_update
+        request:
+          'resourceGroupName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            id_portion: resourceGroups
+            go_variable_name: resourceGroup
+            python_parameter_name: resource_group_name
+            python_variable_name: resource_group
+          'serviceName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            id_portion: service
+            go_variable_name: serviceName
+            python_parameter_name: service_name
+            python_variable_name: service_name
+          'backendId': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            id_portion: backends
+            go_variable_name: backendID
+            python_parameter_name: backend_id
+            python_variable_name: backend_id
+          '/': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            go_variable_name: parameters
+            go_type_name: BackendContract
+            python_parameter_name: parameters
+            python_variable_name: parameters
+          '/properties': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            applicable_to: [go]
+            go_field_name: Properties
+            go_type_name: BackendContractProperties
+          '/title': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: title
+          '/properties/title': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: Title
+          '/description': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: description
+          '/properties/description': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: Description
+          '/resourceId': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: resource_id
+          '/properties/resourceId': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: ResourceID
+          '/properties/properties': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            applicable_to: [go]
+            go_field_name: Properties
+            go_type_name: BackendProperties
+          '/serviceFabricCluster': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            applicable_to: [python]
+            python_field_name: service_fabric_cluster
+          '/serviceFabricCluster/clientCertificatethumbprint': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: client_certificatethumbprint
+          '/serviceFabricCluster/maxPartitionResolutionRetries': !ruby/object:Api::Azure::SDKTypeDefinition::IntegerObject
+            applicable_to: [python]
+            python_field_name: max_partition_resolution_retries
+          '/serviceFabricCluster/managementEndpoints': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: management_endpoints
+          '/serviceFabricCluster/serverCertificateThumbprints': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: server_certificate_thumbprints
+          '/serviceFabricCluster/serverX509Names': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexArrayObject
+            applicable_to: [python]
+            python_field_name: server_x509names
+          '/serviceFabricCluster/serverX509Names/name': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: name
+          '/serviceFabricCluster/serverX509Names/issuerCertificateThumbprint': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: issuer_certificate_thumbprint
+          '/properties/properties/serviceFabricCluster': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            applicable_to: [go]
+            go_field_name: ServiceFabricCluster
+            go_type_name: BackendServiceFabricClusterProperties
+          '/properties/properties/serviceFabricCluster/clientCertificatethumbprint': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: ClientCertificatethumbprint
+          '/properties/properties/serviceFabricCluster/maxPartitionResolutionRetries': !ruby/object:Api::Azure::SDKTypeDefinition::IntegerObject
+            applicable_to: [go]
+            go_field_name: MaxPartitionResolutionRetries
+          '/properties/properties/serviceFabricCluster/managementEndpoints': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: ManagementEndpoints
+          '/properties/properties/serviceFabricCluster/serverCertificateThumbprints': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: ServerCertificateThumbprints
+          '/properties/properties/serviceFabricCluster/serverX509Names': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexArrayObject
+            applicable_to: [go]
+            go_field_name: ServerX509names
+            go_type_name: X509CertificateName
+          '/properties/properties/serviceFabricCluster/serverX509Names/name': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: Name
+          '/properties/properties/serviceFabricCluster/serverX509Names/issuerCertificateThumbprint': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: IssuerCertificateThumbprint
+          '/credentials': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            applicable_to: [python]
+            python_field_name: credentials
+          '/credentials/certificate': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: certificate
+          '/credentials/query': !ruby/object:Api::Azure::SDKTypeDefinition::StringMapObject
+            applicable_to: [python]
+            python_field_name: query
+          '/credentials/header': !ruby/object:Api::Azure::SDKTypeDefinition::StringMapObject
+            applicable_to: [python]
+            python_field_name: header
+          '/credentials/authorization': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            applicable_to: [python]
+            python_field_name: authorization
+          '/credentials/authorization/scheme': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: scheme
+          '/credentials/authorization/parameter': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: parameter
+          '/properties/credentials': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            applicable_to: [go]
+            go_field_name: Credentials
+            go_type_name: BackendCredentialsContract
+          '/properties/credentials/certificate': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: Certificate
+          '/properties/credentials/query': !ruby/object:Api::Azure::SDKTypeDefinition::StringMapObject
+            applicable_to: [go]
+            go_field_name: Query
+          '/properties/credentials/header': !ruby/object:Api::Azure::SDKTypeDefinition::StringMapObject
+            applicable_to: [go]
+            go_field_name: Header
+          '/properties/credentials/authorization': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            applicable_to: [go]
+            go_field_name: Authorization
+            go_type_name: BackendAuthorizationHeaderCredentials
+          '/properties/credentials/authorization/scheme': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: Scheme
+          '/properties/credentials/authorization/parameter': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: Parameter
+          '/proxy': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            applicable_to: [python]
+            python_field_name: proxy
+          '/proxy/url': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: url
+          '/proxy/username': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: username
+          '/proxy/password': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: password
+          '/properties/proxy': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            applicable_to: [go]
+            go_field_name: Proxy
+            go_type_name: BackendProxyContract
+          '/properties/proxy/url': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: URL
+          '/properties/proxy/username': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: Username
+          '/properties/proxy/password': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: Password
+          '/tls': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            applicable_to: [python]
+            python_field_name: tls
+          '/tls/validateCertificateChain': !ruby/object:Api::Azure::SDKTypeDefinition::BooleanObject
+            applicable_to: [python]
+            python_field_name: validate_certificate_chain
+          '/tls/validateCertificateName': !ruby/object:Api::Azure::SDKTypeDefinition::BooleanObject
+            applicable_to: [python]
+            python_field_name: validate_certificate_name
+          '/properties/tls': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            applicable_to: [go]
+            go_field_name: Tls
+            go_type_name: BackendTlsProperties
+          '/properties/tls/validateCertificateChain': !ruby/object:Api::Azure::SDKTypeDefinition::BooleanObject
+            applicable_to: [go]
+            go_field_name: ValidateCertificateChain
+          '/properties/tls/validateCertificateName': !ruby/object:Api::Azure::SDKTypeDefinition::BooleanObject
+            applicable_to: [go]
+            go_field_name: ValidateCertificateName
+          '/url': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: url
+          '/properties/url': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: URL
+          '/protocol': !ruby/object:Api::Azure::SDKTypeDefinition::EnumObject
+            applicable_to: [python]
+            python_field_name: protocol
+          '/properties/protocol': !ruby/object:Api::Azure::SDKTypeDefinition::EnumObject
+            applicable_to: [go]
+            go_field_name: Protocol
+            go_enum_type_name: BackendProtocol
+      update: !ruby/object:Api::Azure::SDKOperationDefinition
+        go_func_name: Update
+        python_func_name: update
+        request:
+          'resourceGroupName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            id_portion: resourceGroups
+            go_variable_name: resourceGroup
+            python_parameter_name: resource_group_name
+            python_variable_name: resource_group
+          'serviceName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            id_portion: service
+            go_variable_name: serviceName
+            python_parameter_name: service_name
+            python_variable_name: service_name
+          'backendId': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            id_portion: backends
+            go_variable_name: backendID
+            python_parameter_name: backend_id
+            python_variable_name: backend_id
+          '/': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            go_variable_name: parameters
+            go_type_name: BackendContract
+            python_parameter_name: parameters
+            python_variable_name: parameters
+          '/properties': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            applicable_to: [go]
+            go_field_name: Properties
+            go_type_name: BackendContractProperties
+          '/title': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: title
+          '/properties/title': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: Title
+          '/description': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: description
+          '/properties/description': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: Description
+          '/resourceId': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: resource_id
+          '/properties/resourceId': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: ResourceID
+          '/properties/properties': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            applicable_to: [go]
+            go_field_name: Properties
+            go_type_name: BackendProperties
+          '/serviceFabricCluster': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            applicable_to: [python]
+            python_field_name: service_fabric_cluster
+          '/serviceFabricCluster/clientCertificatethumbprint': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: client_certificatethumbprint
+          '/serviceFabricCluster/maxPartitionResolutionRetries': !ruby/object:Api::Azure::SDKTypeDefinition::IntegerObject
+            applicable_to: [python]
+            python_field_name: max_partition_resolution_retries
+          '/serviceFabricCluster/managementEndpoints': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: management_endpoints
+          '/serviceFabricCluster/serverCertificateThumbprints': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: server_certificate_thumbprints
+          '/serviceFabricCluster/serverX509Names': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexArrayObject
+            applicable_to: [python]
+            python_field_name: server_x509names
+          '/serviceFabricCluster/serverX509Names/name': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: name
+          '/serviceFabricCluster/serverX509Names/issuerCertificateThumbprint': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: issuer_certificate_thumbprint
+          '/properties/properties/serviceFabricCluster': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            applicable_to: [go]
+            go_field_name: ServiceFabricCluster
+            go_type_name: BackendServiceFabricClusterProperties
+          '/properties/properties/serviceFabricCluster/clientCertificatethumbprint': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: ClientCertificatethumbprint
+          '/properties/properties/serviceFabricCluster/maxPartitionResolutionRetries': !ruby/object:Api::Azure::SDKTypeDefinition::IntegerObject
+            applicable_to: [go]
+            go_field_name: MaxPartitionResolutionRetries
+          '/properties/properties/serviceFabricCluster/managementEndpoints': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: ManagementEndpoints
+          '/properties/properties/serviceFabricCluster/serverCertificateThumbprints': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: ServerCertificateThumbprints
+          '/properties/properties/serviceFabricCluster/serverX509Names': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexArrayObject
+            applicable_to: [go]
+            go_field_name: ServerX509names
+            go_type_name: X509CertificateName
+          '/properties/properties/serviceFabricCluster/serverX509Names/name': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: Name
+          '/properties/properties/serviceFabricCluster/serverX509Names/issuerCertificateThumbprint': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: IssuerCertificateThumbprint
+          '/credentials': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            applicable_to: [python]
+            python_field_name: credentials
+          '/credentials/certificate': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: certificate
+          '/credentials/query': !ruby/object:Api::Azure::SDKTypeDefinition::StringMapObject
+            applicable_to: [python]
+            python_field_name: query
+          '/credentials/header': !ruby/object:Api::Azure::SDKTypeDefinition::StringMapObject
+            applicable_to: [python]
+            python_field_name: header
+          '/credentials/authorization': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            applicable_to: [python]
+            python_field_name: authorization
+          '/credentials/authorization/scheme': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: scheme
+          '/credentials/authorization/parameter': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: parameter
+          '/properties/credentials': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            applicable_to: [go]
+            go_field_name: Credentials
+            go_type_name: BackendCredentialsContract
+          '/properties/credentials/certificate': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: Certificate
+          '/properties/credentials/query': !ruby/object:Api::Azure::SDKTypeDefinition::StringMapObject
+            applicable_to: [go]
+            go_field_name: Query
+          '/properties/credentials/header': !ruby/object:Api::Azure::SDKTypeDefinition::StringMapObject
+            applicable_to: [go]
+            go_field_name: Header
+          '/properties/credentials/authorization': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            applicable_to: [go]
+            go_field_name: Authorization
+            go_type_name: BackendAuthorizationHeaderCredentials
+          '/properties/credentials/authorization/scheme': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: Scheme
+          '/properties/credentials/authorization/parameter': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: Parameter
+          '/proxy': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            applicable_to: [python]
+            python_field_name: proxy
+          '/proxy/url': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: url
+          '/proxy/username': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: username
+          '/proxy/password': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: password
+          '/properties/proxy': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            applicable_to: [go]
+            go_field_name: Proxy
+            go_type_name: BackendProxyContract
+          '/properties/proxy/url': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: URL
+          '/properties/proxy/username': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: Username
+          '/properties/proxy/password': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: Password
+          '/tls': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            applicable_to: [python]
+            python_field_name: tls
+          '/tls/validateCertificateChain': !ruby/object:Api::Azure::SDKTypeDefinition::BooleanObject
+            applicable_to: [python]
+            python_field_name: validate_certificate_chain
+          '/tls/validateCertificateName': !ruby/object:Api::Azure::SDKTypeDefinition::BooleanObject
+            applicable_to: [python]
+            python_field_name: validate_certificate_name
+          '/properties/tls': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            applicable_to: [go]
+            go_field_name: Tls
+            go_type_name: BackendTlsProperties
+          '/properties/tls/validateCertificateChain': !ruby/object:Api::Azure::SDKTypeDefinition::BooleanObject
+            applicable_to: [go]
+            go_field_name: ValidateCertificateChain
+          '/properties/tls/validateCertificateName': !ruby/object:Api::Azure::SDKTypeDefinition::BooleanObject
+            applicable_to: [go]
+            go_field_name: ValidateCertificateName
+          '/url': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: url
+          '/properties/url': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: URL
+          '/protocol': !ruby/object:Api::Azure::SDKTypeDefinition::EnumObject
+            applicable_to: [python]
+            python_field_name: protocol
+          '/properties/protocol': !ruby/object:Api::Azure::SDKTypeDefinition::EnumObject
+            applicable_to: [go]
+            go_field_name: Protocol
+            go_enum_type_name: BackendProtocol
+      delete: !ruby/object:Api::Azure::SDKOperationDefinition
+        go_func_name: Delete
+        python_func_name: delete
+        request:
+          'resourceGroupName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            id_portion: resourceGroups
+            go_variable_name: resourceGroup
+            python_parameter_name: resource_group_name
+            python_variable_name: resource_group
+          'serviceName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            id_portion: service
+            go_variable_name: serviceName
+            python_parameter_name: service_name
+            python_variable_name: service_name
+          'backendId': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            id_portion: backends
+            go_variable_name: backendID
+            python_parameter_name: backend_id
+            python_variable_name: backend_id
+      read: !ruby/object:Api::Azure::SDKOperationDefinition
+        go_func_name: Get
+        python_func_name: get
+        request:
+          'resourceGroupName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            id_portion: resourceGroups
+            go_variable_name: resourceGroup
+            python_parameter_name: resource_group_name
+            python_variable_name: resource_group
+          'serviceName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            id_portion: service
+            go_variable_name: serviceName
+            python_parameter_name: service_name
+            python_variable_name: service_name
+          'backendId': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            id_portion: backends
+            go_variable_name: backendID
+            python_parameter_name: backend_id
+            python_variable_name: backend_id
+        response:
+          '/properties': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            applicable_to: [go]
+            go_field_name: Properties
+            go_type_name: BackendContractProperties
+          '/properties/title': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: Title
+          '/title': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: title
+          '/properties/description': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: Description
+          '/description': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: description
+          '/properties/resourceId': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: ResourceID
+          '/resourceId': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: resource_id
+          '/properties/properties': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            applicable_to: [go]
+            go_field_name: Properties
+            go_type_name: BackendProperties
+          '/properties/properties/serviceFabricCluster': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            applicable_to: [go]
+            go_field_name: ServiceFabricCluster
+            go_type_name: BackendServiceFabricClusterProperties
+          '/properties/properties/serviceFabricCluster/clientCertificatethumbprint': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: ClientCertificatethumbprint
+          '/properties/properties/serviceFabricCluster/maxPartitionResolutionRetries': !ruby/object:Api::Azure::SDKTypeDefinition::IntegerObject
+            applicable_to: [go]
+            go_field_name: MaxPartitionResolutionRetries
+          '/properties/properties/serviceFabricCluster/managementEndpoints': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: ManagementEndpoints
+          '/properties/properties/serviceFabricCluster/serverCertificateThumbprints': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: ServerCertificateThumbprints
+          '/properties/properties/serviceFabricCluster/serverX509Names': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexArrayObject
+            applicable_to: [go]
+            go_field_name: ServerX509names
+            go_type_name: X509CertificateName
+          '/properties/properties/serviceFabricCluster/serverX509Names/name': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: Name
+          '/properties/properties/serviceFabricCluster/serverX509Names/issuerCertificateThumbprint': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: IssuerCertificateThumbprint
+          '/serviceFabricCluster': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            applicable_to: [python]
+            python_field_name: service_fabric_cluster
+          '/serviceFabricCluster/clientCertificatethumbprint': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: client_certificatethumbprint
+          '/serviceFabricCluster/maxPartitionResolutionRetries': !ruby/object:Api::Azure::SDKTypeDefinition::IntegerObject
+            applicable_to: [python]
+            python_field_name: max_partition_resolution_retries
+          '/serviceFabricCluster/managementEndpoints': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: management_endpoints
+          '/serviceFabricCluster/serverCertificateThumbprints': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: server_certificate_thumbprints
+          '/serviceFabricCluster/serverX509Names': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexArrayObject
+            applicable_to: [python]
+            python_field_name: server_x509names
+          '/serviceFabricCluster/serverX509Names/name': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: name
+          '/serviceFabricCluster/serverX509Names/issuerCertificateThumbprint': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: issuer_certificate_thumbprint
+          '/properties/credentials': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            applicable_to: [go]
+            go_field_name: Credentials
+            go_type_name: BackendCredentialsContract
+          '/properties/credentials/certificate': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: Certificate
+          '/properties/credentials/query': !ruby/object:Api::Azure::SDKTypeDefinition::StringMapObject
+            applicable_to: [go]
+            go_field_name: Query
+          '/properties/credentials/header': !ruby/object:Api::Azure::SDKTypeDefinition::StringMapObject
+            applicable_to: [go]
+            go_field_name: Header
+          '/properties/credentials/authorization': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            applicable_to: [go]
+            go_field_name: Authorization
+            go_type_name: BackendAuthorizationHeaderCredentials
+          '/properties/credentials/authorization/scheme': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: Scheme
+          '/properties/credentials/authorization/parameter': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: Parameter
+          '/credentials': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            applicable_to: [python]
+            python_field_name: credentials
+          '/credentials/certificate': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: certificate
+          '/credentials/query': !ruby/object:Api::Azure::SDKTypeDefinition::StringMapObject
+            applicable_to: [python]
+            python_field_name: query
+          '/credentials/header': !ruby/object:Api::Azure::SDKTypeDefinition::StringMapObject
+            applicable_to: [python]
+            python_field_name: header
+          '/credentials/authorization': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            applicable_to: [python]
+            python_field_name: authorization
+          '/credentials/authorization/scheme': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: scheme
+          '/credentials/authorization/parameter': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: parameter
+          '/properties/proxy': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            applicable_to: [go]
+            go_field_name: Proxy
+            go_type_name: BackendProxyContract
+          '/properties/proxy/url': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: URL
+          '/properties/proxy/username': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: Username
+          '/properties/proxy/password': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: Password
+          '/proxy': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            applicable_to: [python]
+            python_field_name: proxy
+          '/proxy/url': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: url
+          '/proxy/username': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: username
+          '/proxy/password': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: password
+          '/properties/tls': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            applicable_to: [go]
+            go_field_name: Tls
+            go_type_name: BackendTlsProperties
+          '/properties/tls/validateCertificateChain': !ruby/object:Api::Azure::SDKTypeDefinition::BooleanObject
+            applicable_to: [go]
+            go_field_name: ValidateCertificateChain
+          '/properties/tls/validateCertificateName': !ruby/object:Api::Azure::SDKTypeDefinition::BooleanObject
+            applicable_to: [go]
+            go_field_name: ValidateCertificateName
+          '/tls': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            applicable_to: [python]
+            python_field_name: tls
+          '/tls/validateCertificateChain': !ruby/object:Api::Azure::SDKTypeDefinition::BooleanObject
+            applicable_to: [python]
+            python_field_name: validate_certificate_chain
+          '/tls/validateCertificateName': !ruby/object:Api::Azure::SDKTypeDefinition::BooleanObject
+            applicable_to: [python]
+            python_field_name: validate_certificate_name
+          '/properties/url': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: URL
+          '/url': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: url
+          '/properties/protocol': !ruby/object:Api::Azure::SDKTypeDefinition::EnumObject
+            applicable_to: [go]
+            go_field_name: Protocol
+            go_enum_type_name: BackendProtocol
+          '/protocol': !ruby/object:Api::Azure::SDKTypeDefinition::EnumObject
+            applicable_to: [python]
+            python_field_name: protocol
+          '/id': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            go_field_name: ID
+            python_field_name: id
+          '/name': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            go_field_name: Name
+            python_field_name: name
+          '/type': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            go_field_name: Type
+            python_field_name: type
+      list_by_parent: !ruby/object:Api::Azure::SDKOperationDefinition
+        go_func_name: ListByService
+        python_func_name: list_by_service
+        request:
+          'resourceGroupName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            id_portion: resourceGroups
+            go_variable_name: resourceGroup
+            python_parameter_name: resource_group_name
+            python_variable_name: resource_group
+          'serviceName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            id_portion: service
+            go_variable_name: serviceName
+            python_parameter_name: service_name
+            python_variable_name: service_name
+
+    description: |
+      Manage Azure Backend instance.
+    properties:
+      - !ruby/object:Api::Azure::Type::ResourceGroupName
+        name: 'resourceGroup'
+        description: 'The name of the resource group.'
+        required: true
+        input: true
+        sample_value: myResourceGroup
+        azure_sdk_references: ['resourceGroupName']
+      - !ruby/object:Api::Type::String
+        name: 'serviceName'
+        description: 'The name of the API Management service.'
+        required: true
+        input: true
+        sample_value: 'myService'
+        azure_sdk_references: ['serviceName']
+      - !ruby/object:Api::Type::String
+        name: 'backendId'
+        description: 'Identifier of the Backend entity. Must be unique in the current API Management service instance.'
+        required: true
+        input: true
+        sample_value: 'myBackend'
+        azure_sdk_references: ['backendId']
+      - !ruby/object:Api::Type::String
+        name: 'title'
+        description: 'Backend Title.'
+        required: false
+        azure_sdk_references: ['/title', '/properties/title']
+      - !ruby/object:Api::Type::String
+        name: 'description'
+        description: 'Backend Description.'
+        required: false
+        sample_value: 'description5308'
+        azure_sdk_references: ['/description', '/properties/description']
+      - !ruby/object:Api::Type::String
+        name: 'resourceId'
+        description: 'Management Uri of the Resource in External System. This url can be the Arm Resource Id of Logic Apps, Function Apps or Api Apps.'
+        required: false
+        azure_sdk_references: ['/resourceId', '/properties/resourceId']
+      - !ruby/object:Api::Type::NestedObject
+        name: 'serviceFabricCluster'
+        description: 'Backend Service Fabric Cluster Properties'
+        required: false
+        azure_sdk_references: ['/serviceFabricCluster', '/properties/properties/serviceFabricCluster']
+        properties:
+          - !ruby/object:Api::Type::String
+            name: 'clientCertificatethumbprint'
+            description: 'The client certificate thumbprint for the management endpoint.'
+            required: true
+            sample_value: 'EBA029198AA3E76EF0D70482626E5BCF148594A6'
+            azure_sdk_references: ['/serviceFabricCluster/clientCertificatethumbprint', '/properties/properties/serviceFabricCluster/clientCertificatethumbprint']
+          - !ruby/object:Api::Type::Integer
+            name: 'maxPartitionResolutionRetries'
+            description: 'Maximum number of retries while attempting resolve the partition.'
+            required: false
+            sample_value: 5
+            azure_sdk_references: ['/serviceFabricCluster/maxPartitionResolutionRetries', '/properties/properties/serviceFabricCluster/maxPartitionResolutionRetries']
+          - !ruby/object:Api::Type::String
+            name: 'managementEndpoints'
+            description: 'The cluster management endpoint.'
+            required: true
+            sample_value: 'https://somecluster.com'
+            azure_sdk_references: ['/serviceFabricCluster/managementEndpoints', '/properties/properties/serviceFabricCluster/managementEndpoints']
+          - !ruby/object:Api::Type::String
+            name: 'serverCertificateThumbprints'
+            description: 'Thumbprints of certificates cluster management service uses for tls communication'
+            required: false
+            azure_sdk_references: ['/serviceFabricCluster/serverCertificateThumbprints', '/properties/properties/serviceFabricCluster/serverCertificateThumbprints']
+          - !ruby/object:Api::Type::NestedObject
+            name: 'serverX509names'
+            description: 'Server X509 Certificate Names Collection'
+            required: false
+            azure_sdk_references: ['/serviceFabricCluster/serverX509Names', '/properties/properties/serviceFabricCluster/serverX509Names']
+            properties:
+              - !ruby/object:Api::Type::String
+                name: 'name'
+                description: 'Common Name of the Certificate.'
+                required: false
+                sample_value: 'ServerCommonName1'
+                azure_sdk_references: ['/serviceFabricCluster/serverX509Names/name', '/properties/properties/serviceFabricCluster/serverX509Names/name', '/name']
+              - !ruby/object:Api::Type::String
+                name: 'issuerCertificateThumbprint'
+                description: 'Thumbprint for the Issuer of the Certificate.'
+                required: false
+                sample_value: 'IssuerCertificateThumbprint1'
+                azure_sdk_references: ['/serviceFabricCluster/serverX509Names/issuerCertificateThumbprint', '/properties/properties/serviceFabricCluster/serverX509Names/issuerCertificateThumbprint']
+      - !ruby/object:Api::Type::NestedObject
+        name: 'credentials'
+        description: 'Backend Credentials Contract Properties'
+        required: false
+        azure_sdk_references: ['/credentials', '/properties/credentials']
+        properties:
+          - !ruby/object:Api::Type::String
+            name: 'certificate'
+            description: 'List of Client Certificate Thumbprint.'
+            required: false
+            azure_sdk_references: ['/credentials/certificate', '/properties/credentials/certificate']
+          - !ruby/object:Api::Type::KeyValuePairs
+            name: 'query'
+            description: 'Query Parameter description.'
+            required: false
+            sample_value: [object Object]
+            azure_sdk_references: ['/credentials/query', '/properties/credentials/query']
+          - !ruby/object:Api::Type::KeyValuePairs
+            name: 'header'
+            description: 'Header Parameter description.'
+            required: false
+            sample_value: [object Object]
+            azure_sdk_references: ['/credentials/header', '/properties/credentials/header']
+          - !ruby/object:Api::Type::NestedObject
+            name: 'authorization'
+            description: 'Authorization header authentication'
+            required: false
+            azure_sdk_references: ['/credentials/authorization', '/properties/credentials/authorization']
+            properties:
+              - !ruby/object:Api::Type::String
+                name: 'scheme'
+                description: 'Authentication Scheme name.'
+                required: true
+                sample_value: 'Basic'
+                azure_sdk_references: ['/credentials/authorization/scheme', '/properties/credentials/authorization/scheme']
+              - !ruby/object:Api::Type::String
+                name: 'parameter'
+                description: 'Authentication Parameter value.'
+                required: true
+                sample_value: 'opensesma'
+                azure_sdk_references: ['/credentials/authorization/parameter', '/properties/credentials/authorization/parameter']
+      - !ruby/object:Api::Type::NestedObject
+        name: 'proxy'
+        description: 'Backend Proxy Contract Properties'
+        required: false
+        azure_sdk_references: ['/proxy', '/properties/proxy']
+        properties:
+          - !ruby/object:Api::Type::String
+            name: 'url'
+            description: 'WebProxy Server AbsoluteUri property which includes the entire URI stored in the Uri instance, including all fragments and query strings.'
+            required: true
+            sample_value: 'http://192.168.1.1:8080'
+            azure_sdk_references: ['/proxy/url', '/properties/proxy/url']
+          - !ruby/object:Api::Type::String
+            name: 'username'
+            description: 'Username to connect to the WebProxy server'
+            required: false
+            sample_value: 'Contoso\admin'
+            azure_sdk_references: ['/proxy/username', '/properties/proxy/username']
+          - !ruby/object:Api::Type::String
+            name: 'password'
+            description: 'Password to connect to the WebProxy Server'
+            required: false
+            sample_value: 'opensesame'
+            azure_sdk_references: ['/proxy/password', '/properties/proxy/password']
+      - !ruby/object:Api::Type::NestedObject
+        name: 'tls'
+        description: 'Backend TLS Properties'
+        required: false
+        azure_sdk_references: ['/tls', '/properties/tls']
+        properties:
+          - !ruby/object:Api::Type::Boolean
+            name: 'validateCertificateChain'
+            description: 'Flag indicating whether SSL certificate chain validation should be done when using self-signed certificates for this backend host.'
+            required: false
+            azure_sdk_references: ['/tls/validateCertificateChain', '/properties/tls/validateCertificateChain']
+          - !ruby/object:Api::Type::Boolean
+            name: 'validateCertificateName'
+            description: 'Flag indicating whether SSL certificate name validation should be done when using self-signed certificates for this backend host.'
+            required: false
+            sample_value: true
+            azure_sdk_references: ['/tls/validateCertificateName', '/properties/tls/validateCertificateName']
+      - !ruby/object:Api::Type::String
+        name: 'url'
+        description: 'Runtime Url of the Backend.'
+        required: true
+        sample_value: 'https://backendname2644/'
+        azure_sdk_references: ['/url', '/properties/url']
+      - !ruby/object:Api::Type::Enum
+        name: 'protocol'
+        description: 'Backend communication protocol.'
+        required: true
+        values:
+          - :http
+          - :soap
+        default_value: :http
+        sample_value: http
+        azure_sdk_references: ['/protocol', '/properties/protocol']
+      # read only values included only in response
+      - !ruby/object:Api::Type::String
+        name: 'id'
+        description: 'Resource ID.'
+        input: true
+        output: true
+        azure_sdk_references: ['/id']
+      - !ruby/object:Api::Type::String
+        name: 'name'
+        description: 'Resource name.'
+        input: true
+        output: true
+        azure_sdk_references: ['/name']
+      - !ruby/object:Api::Type::String
+        name: 'type'
+        description: 'Resource type for API Management resource.'
+        input: true
+        output: true
+        azure_sdk_references: ['/type']

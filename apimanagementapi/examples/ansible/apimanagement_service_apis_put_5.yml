@@ -1,0 +1,23 @@
+--- !ruby/object:Provider::Ansible::Example
+task: !ruby/object:Provider::Ansible::Task
+  name: azure_rm_apimanagementapi
+  description: ApiManagementCreateApi
+  code:
+    resource_group: myResourceGroup
+    service_name: myService
+    api_id: myApi
+    description: apidescription5200
+    authentication_settings:
+      o_auth2:
+        authorization_server_id: authorizationServerId2283
+        scope: oauth2scope2580
+    subscription_key_parameter_names:
+      header: header4520
+      query: query3037
+    display_name: apiname1463
+    service_url: 'http://newechoapi.cloudapp.net/api'
+    path: newapiPath
+    protocols:
+      - https
+      - http
+  

@@ -1,0 +1,12 @@
+--- !ruby/object:Provider::Ansible::Example
+task: !ruby/object:Provider::Ansible::Task
+  name: azure_rm_apimanagementapiissuecomment
+  description: ApiManagementDeleteApiIssueComment
+  code:
+    resource_group: myResourceGroup
+    service_name: myService
+    api_id: myApi
+    issue_id: myIssue
+    comment_id: myComment
+    state: absent
+  

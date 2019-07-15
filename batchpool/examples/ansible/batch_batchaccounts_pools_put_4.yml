@@ -1,0 +1,49 @@
+--- !ruby/object:Provider::Ansible::Example
+task: !ruby/object:Provider::Ansible::Task
+  name: azure_rm_batchpool
+  description: CreatePool - Full VirtualMachineConfiguration
+  code:
+    resource_group: myResourceGroup
+    account_name: myBatchAccount
+    name: myPool
+    vm_size: STANDARD_D4
+    deployment_configuration:
+      virtual_machine_configuration:
+        image_reference:
+          publisher: MicrosoftWindowsServer
+          offer: WindowsServer
+          sku: 2016-Datacenter-SmallDisk
+          version: latest
+        node_agent_sku_id: batch.node.windows amd64
+        windows_configuration:
+          enable_automatic_updates: false
+        data_disks:
+          - lun: '0'
+            caching: ReadWrite
+            disk_size_gb: '30'
+            storage_account_type: Premium_LRS
+          - lun: '1'
+            caching: None
+            disk_size_gb: '200'
+            storage_account_type: Standard_LRS
+        license_type: Windows_Server
+    scale_settings:
+      auto_scale:
+        formula: $TargetDedicatedNodes=1
+        evaluation_interval: PT5M
+    network_configuration:
+      endpoint_configuration:
+        inbound_nat_pools:
+          - name: testnat
+            protocol: TCP
+            backend_port: '12001'
+            frontend_port_range_start: '15000'
+            frontend_port_range_end: '15100'
+            network_security_group_rules:
+              - access: Allow
+                sourceAddressPrefix: 192.100.12.45
+                priority: '150'
+              - access: Deny
+                sourceAddressPrefix: '*'
+                priority: '3500'
+  

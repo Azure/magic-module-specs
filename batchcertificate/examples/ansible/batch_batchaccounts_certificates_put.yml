@@ -1,0 +1,11 @@
+--- !ruby/object:Provider::Ansible::Example
+task: !ruby/object:Provider::Ansible::Task
+  name: azure_rm_batchcertificate
+  description: CreateCertificate - Minimal Pfx
+  code:
+    resource_group: myResourceGroup
+    account_name: myBatchAccount
+    name: myCertificate
+    data: MIIJsgIBAzCCCW4GCSqGSIb3DQE...
+    password: KG0UY40e...
+  

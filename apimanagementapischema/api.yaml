@@ -1,0 +1,235 @@
+--- !ruby/object:Api::Product
+name: Azure ApiSchema Management
+versions:
+  - !ruby/object:Api::Product::Version
+    name: ga
+    base_url: NotUsedInAzure
+scopes:
+  - NotUsedInAzure
+objects:
+  - !ruby/object:Api::Resource
+    name: ApiSchema
+    api_name: ApiManagement
+    base_url: NotUsedInAzure
+
+    azure_sdk_definition: !ruby/object:Api::Azure::SDKDefinition
+      provider_name: Microsoft.ApiManagement
+      go_client_namespace: apimanagement
+      go_client: apiSchemaClient
+      python_client_namespace: azure.mgmt.apimanagement
+      python_client: ApiManagementClient.api_schema
+      create: !ruby/object:Api::Azure::SDKOperationDefinition
+        go_func_name: CreateOrUpdate
+        python_func_name: create_or_update
+        request:
+          'resourceGroupName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            id_portion: resourceGroups
+            go_variable_name: resourceGroup
+            python_parameter_name: resource_group_name
+            python_variable_name: resource_group
+          'serviceName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            id_portion: service
+            go_variable_name: serviceName
+            python_parameter_name: service_name
+            python_variable_name: service_name
+          'apiId': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            id_portion: apis
+            go_variable_name: apiID
+            python_parameter_name: api_id
+            python_variable_name: api_id
+          'schemaId': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            id_portion: schemas
+            go_variable_name: schemaID
+            python_parameter_name: schema_id
+            python_variable_name: schema_id
+          '/': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            go_variable_name: parameters
+            go_type_name: SchemaCreateOrUpdateContract
+            python_parameter_name: parameters
+            python_variable_name: parameters
+          '/properties': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            applicable_to: [go]
+            go_field_name: Properties
+            go_type_name: SchemaCreateOrUpdateProperties
+          '/contentType': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: content_type
+          '/properties/contentType': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: ContentType
+          '/document': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            applicable_to: [python]
+            python_field_name: document
+          '/document/value': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: value
+          '/properties/document': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            applicable_to: [go]
+            go_field_name: Document
+            go_type_name: SchemaDocumentProperties
+          '/properties/document/value': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: Value
+      delete: !ruby/object:Api::Azure::SDKOperationDefinition
+        go_func_name: Delete
+        python_func_name: delete
+        request:
+          'resourceGroupName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            id_portion: resourceGroups
+            go_variable_name: resourceGroup
+            python_parameter_name: resource_group_name
+            python_variable_name: resource_group
+          'serviceName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            id_portion: service
+            go_variable_name: serviceName
+            python_parameter_name: service_name
+            python_variable_name: service_name
+          'apiId': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            id_portion: apis
+            go_variable_name: apiID
+            python_parameter_name: api_id
+            python_variable_name: api_id
+          'schemaId': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            id_portion: schemas
+            go_variable_name: schemaID
+            python_parameter_name: schema_id
+            python_variable_name: schema_id
+      read: !ruby/object:Api::Azure::SDKOperationDefinition
+        go_func_name: Get
+        python_func_name: get
+        request:
+          'resourceGroupName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            id_portion: resourceGroups
+            go_variable_name: resourceGroup
+            python_parameter_name: resource_group_name
+            python_variable_name: resource_group
+          'serviceName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            id_portion: service
+            go_variable_name: serviceName
+            python_parameter_name: service_name
+            python_variable_name: service_name
+          'apiId': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            id_portion: apis
+            go_variable_name: apiID
+            python_parameter_name: api_id
+            python_variable_name: api_id
+          'schemaId': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            id_portion: schemas
+            go_variable_name: schemaID
+            python_parameter_name: schema_id
+            python_variable_name: schema_id
+        response:
+          '/properties': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            applicable_to: [go]
+            go_field_name: Properties
+            go_type_name: SchemaCreateOrUpdateProperties
+          '/properties/contentType': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: ContentType
+          '/contentType': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: content_type
+          '/properties/document': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            applicable_to: [go]
+            go_field_name: Document
+            go_type_name: SchemaDocumentProperties
+          '/document': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            applicable_to: [python]
+            python_field_name: document
+          '/id': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            go_field_name: ID
+            python_field_name: id
+          '/name': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            go_field_name: Name
+            python_field_name: name
+          '/type': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            go_field_name: Type
+            python_field_name: type
+      list_by_parent: !ruby/object:Api::Azure::SDKOperationDefinition
+        go_func_name: ListByApi
+        python_func_name: list_by_api
+        request:
+          'resourceGroupName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            id_portion: resourceGroups
+            go_variable_name: resourceGroup
+            python_parameter_name: resource_group_name
+            python_variable_name: resource_group
+          'serviceName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            id_portion: service
+            go_variable_name: serviceName
+            python_parameter_name: service_name
+            python_variable_name: service_name
+          'apiId': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            id_portion: apis
+            go_variable_name: apiID
+            python_parameter_name: api_id
+            python_variable_name: api_id
+
+    description: |
+      Manage Azure ApiSchema instance.
+    properties:
+      - !ruby/object:Api::Azure::Type::ResourceGroupName
+        name: 'resourceGroup'
+        description: 'The name of the resource group.'
+        required: true
+        input: true
+        sample_value: myResourceGroup
+        azure_sdk_references: ['resourceGroupName']
+      - !ruby/object:Api::Type::String
+        name: 'serviceName'
+        description: 'The name of the API Management service.'
+        required: true
+        input: true
+        sample_value: 'myService'
+        azure_sdk_references: ['serviceName']
+      - !ruby/object:Api::Type::String
+        name: 'apiId'
+        description: 'API revision identifier. Must be unique in the current API Management service instance. Non-current revision has ;rev=n as a suffix where n is the revision number.'
+        required: true
+        input: true
+        sample_value: 'myApi'
+        azure_sdk_references: ['apiId']
+      - !ruby/object:Api::Type::String
+        name: 'schemaId'
+        description: 'Schema identifier within an API. Must be unique in the current API Management service instance.'
+        required: true
+        input: true
+        sample_value: 'mySchema'
+        azure_sdk_references: ['schemaId']
+      - !ruby/object:Api::Type::String
+        name: 'contentType'
+        description: 'Must be a valid a media type used in a Content-Type header as defined in the RFC 2616. Media type of the schema document (e.g. application/json, application/xml). </br> - `Swagger` Schema use `application/vnd.ms-azure-apim.swagger.definitions+json` </br> - `WSDL` Schema use `application/vnd.ms-azure-apim.xsd+xml` </br> - `OpenApi` Schema use `application/vnd.oai.openapi.components+json` </br> - `WADL Schema` use `application/vnd.ms-azure-apim.wadl.grammars+xml`.'
+        required: true
+        sample_value: 'application/vnd.ms-azure-apim.xsd+xml'
+        azure_sdk_references: ['/contentType', '/properties/contentType']
+      - !ruby/object:Api::Type::NestedObject
+        name: 'document'
+        description: 'Create or update Properties of the Schema Document.'
+        required: false
+        azure_sdk_references: ['/document', '/properties/document']
+        properties:
+          - !ruby/object:Api::Type::String
+            name: 'value'
+            description: 'Json escaped string defining the document representing the Schema.'
+            required: false
+            sample_value: '<s:schema elementFormDefault="qualified" targetNamespace="http://ws.cdyne.com/WeatherWS/" xmlns:tns="http://ws.cdyne.com/WeatherWS/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:apim-wsdltns="http://ws.cdyne.com/WeatherWS/">\n  <s:element name="GetWeatherInformation">\n    <s:complexType />\n  </s:element>\n  <s:element name="GetWeatherInformationResponse">\n    <s:complexType>\n      <s:sequence>\n        <s:element minOccurs="0" maxOccurs="1" name="GetWeatherInformationResult" type="tns:ArrayOfWeatherDescription" />\n      </s:sequence>\n    </s:complexType>\n  </s:element>\n  <s:complexType name="ArrayOfWeatherDescription">\n    <s:sequence>\n      <s:element minOccurs="0" maxOccurs="unbounded" name="WeatherDescription" type="tns:WeatherDescription" />\n    </s:sequence>\n  </s:complexType>\n  <s:complexType name="WeatherDescription">\n    <s:sequence>\n      <s:element minOccurs="1" maxOccurs="1" name="WeatherID" type="s:short" />\n      <s:element minOccurs="0" maxOccurs="1" name="Description" type="s:string" />\n      <s:element minOccurs="0" maxOccurs="1" name="PictureURL" type="s:string" />\n    </s:sequence>\n  </s:complexType>\n  <s:element name="GetCityForecastByZIP">\n    <s:complexType>\n      <s:sequence>\n        <s:element minOccurs="0" maxOccurs="1" name="ZIP" type="s:string" />\n      </s:sequence>\n    </s:complexType>\n  </s:element>\n  <s:element name="GetCityForecastByZIPResponse">\n    <s:complexType>\n      <s:sequence>\n        <s:element minOccurs="0" maxOccurs="1" name="GetCityForecastByZIPResult" type="tns:ForecastReturn" />\n      </s:sequence>\n    </s:complexType>\n  </s:element>\n  <s:complexType name="ForecastReturn">\n    <s:sequence>\n      <s:element minOccurs="1" maxOccurs="1" name="Success" type="s:boolean" />\n      <s:element minOccurs="0" maxOccurs="1" name="ResponseText" type="s:string" />\n      <s:element minOccurs="0" maxOccurs="1" name="State" type="s:string" />\n      <s:element minOccurs="0" maxOccurs="1" name="City" type="s:string" />\n      <s:element minOccurs="0" maxOccurs="1" name="WeatherStationCity" type="s:string" />\n      <s:element minOccurs="0" maxOccurs="1" name="ForecastResult" type="tns:ArrayOfForecast" />\n    </s:sequence>\n  </s:complexType>\n  <s:complexType name="ArrayOfForecast">\n    <s:sequence>\n      <s:element minOccurs="0" maxOccurs="unbounded" name="Forecast" nillable="true" type="tns:Forecast" />\n    </s:sequence>\n  </s:complexType>\n  <s:complexType name="Forecast">\n    <s:sequence>\n      <s:element minOccurs="1" maxOccurs="1" name="Date" type="s:dateTime" />\n      <s:element minOccurs="1" maxOccurs="1" name="WeatherID" type="s:short" />\n      <s:element minOccurs="0" maxOccurs="1" name="Desciption" type="s:string" />\n      <s:element minOccurs="1" maxOccurs="1" name="Temperatures" type="tns:temp" />\n      <s:element minOccurs="1" maxOccurs="1" name="ProbabilityOfPrecipiation" type="tns:POP" />\n    </s:sequence>\n  </s:complexType>\n  <s:complexType name="temp">\n    <s:sequence>\n      <s:element minOccurs="0" maxOccurs="1" name="MorningLow" type="s:string" />\n      <s:element minOccurs="0" maxOccurs="1" name="DaytimeHigh" type="s:string" />\n    </s:sequence>\n  </s:complexType>\n  <s:complexType name="POP">\n    <s:sequence>\n      <s:element minOccurs="0" maxOccurs="1" name="Nighttime" type="s:string" />\n      <s:element minOccurs="0" maxOccurs="1" name="Daytime" type="s:string" />\n    </s:sequence>\n  </s:complexType>\n  <s:element name="GetCityWeatherByZIP">\n    <s:complexType>\n      <s:sequence>\n        <s:element minOccurs="0" maxOccurs="1" name="ZIP" type="s:string" />\n      </s:sequence>\n    </s:complexType>\n  </s:element>\n  <s:element name="GetCityWeatherByZIPResponse">\n    <s:complexType>\n      <s:sequence>\n        <s:element minOccurs="1" maxOccurs="1" name="GetCityWeatherByZIPResult" type="tns:WeatherReturn" />\n      </s:sequence>\n    </s:complexType>\n  </s:element>\n  <s:complexType name="WeatherReturn">\n    <s:sequence>\n      <s:element minOccurs="1" maxOccurs="1" name="Success" type="s:boolean" />\n      <s:element minOccurs="0" maxOccurs="1" name="ResponseText" type="s:string" />\n      <s:element minOccurs="0" maxOccurs="1" name="State" type="s:string" />\n      <s:element minOccurs="0" maxOccurs="1" name="City" type="s:string" />\n      <s:element minOccurs="0" maxOccurs="1" name="WeatherStationCity" type="s:string" />\n      <s:element minOccurs="1" maxOccurs="1" name="WeatherID" type="s:short" />\n      <s:element minOccurs="0" maxOccurs="1" name="Description" type="s:string" />\n      <s:element minOccurs="0" maxOccurs="1" name="Temperature" type="s:string" />\n      <s:element minOccurs="0" maxOccurs="1" name="RelativeHumidity" type="s:string" />\n      <s:element minOccurs="0" maxOccurs="1" name="Wind" type="s:string" />\n      <s:element minOccurs="0" maxOccurs="1" name="Pressure" type="s:string" />\n      <s:element minOccurs="0" maxOccurs="1" name="Visibility" type="s:string" />\n      <s:element minOccurs="0" maxOccurs="1" name="WindChill" type="s:string" />\n      <s:element minOccurs="0" maxOccurs="1" name="Remarks" type="s:string" />\n    </s:sequence>\n  </s:complexType>\n  <s:element name="ArrayOfWeatherDescription" nillable="true" type="tns:ArrayOfWeatherDescription" />\n  <s:element name="ForecastReturn" nillable="true" type="tns:ForecastReturn" />\n  <s:element name="WeatherReturn" type="tns:WeatherReturn" />\n</s:schema>'
+            azure_sdk_references: ['/document/value', '/properties/document/value']
+      # read only values included only in response
+      - !ruby/object:Api::Type::String
+        name: 'id'
+        description: 'Resource ID.'
+        input: true
+        output: true
+        azure_sdk_references: ['/id']
+      - !ruby/object:Api::Type::String
+        name: 'name'
+        description: 'Resource name.'
+        input: true
+        output: true
+        azure_sdk_references: ['/name']
+      - !ruby/object:Api::Type::String
+        name: 'type'
+        description: 'Resource type for API Management resource.'
+        input: true
+        output: true
+        azure_sdk_references: ['/type']

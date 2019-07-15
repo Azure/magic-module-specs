@@ -1,0 +1,13 @@
+--- !ruby/object:Provider::Ansible::Example
+task: !ruby/object:Provider::Ansible::Task
+  name: azure_rm_apimanagementproperty
+  description: ApiManagementUpdateProperty
+  code:
+    resource_group: myResourceGroup
+    service_name: myService
+    prop_id: myProperty
+    tags:
+      - foo
+      - bar2
+    secret: true
+  

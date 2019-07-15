@@ -1,0 +1,254 @@
+--- !ruby/object:Api::Product
+name: Azure SignUpSetting Management
+versions:
+  - !ruby/object:Api::Product::Version
+    name: ga
+    base_url: NotUsedInAzure
+scopes:
+  - NotUsedInAzure
+objects:
+  - !ruby/object:Api::Resource
+    name: SignUpSetting
+    api_name: ApiManagement
+    base_url: NotUsedInAzure
+
+    azure_sdk_definition: !ruby/object:Api::Azure::SDKDefinition
+      provider_name: Microsoft.ApiManagement
+      go_client_namespace: apimanagement
+      go_client: signUpSettingsClient
+      python_client_namespace: azure.mgmt.apimanagement
+      python_client: ApiManagementClient.sign_up_settings
+      create: !ruby/object:Api::Azure::SDKOperationDefinition
+        go_func_name: CreateOrUpdate
+        python_func_name: create_or_update
+        request:
+          'resourceGroupName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            id_portion: resourceGroups
+            go_variable_name: resourceGroup
+            python_parameter_name: resource_group_name
+            python_variable_name: resource_group
+          'serviceName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            id_portion: service
+            go_variable_name: name
+            python_parameter_name: service_name
+            python_variable_name: name
+          '/': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            go_variable_name: parameters
+            go_type_name: PortalSignupSettings
+            python_parameter_name: parameters
+            python_variable_name: parameters
+          '/properties': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            applicable_to: [go]
+            go_field_name: Properties
+            go_type_name: PortalSignupSettingsProperties
+          '/enabled': !ruby/object:Api::Azure::SDKTypeDefinition::BooleanObject
+            applicable_to: [python]
+            python_field_name: enabled
+          '/properties/enabled': !ruby/object:Api::Azure::SDKTypeDefinition::BooleanObject
+            applicable_to: [go]
+            go_field_name: Enabled
+          '/termsOfService': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            applicable_to: [python]
+            python_field_name: terms_of_service
+          '/termsOfService/text': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: text
+          '/termsOfService/enabled': !ruby/object:Api::Azure::SDKTypeDefinition::BooleanObject
+            applicable_to: [python]
+            python_field_name: enabled
+          '/termsOfService/consentRequired': !ruby/object:Api::Azure::SDKTypeDefinition::BooleanObject
+            applicable_to: [python]
+            python_field_name: consent_required
+          '/properties/termsOfService': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            applicable_to: [go]
+            go_field_name: TermsOfService
+            go_type_name: TermsOfServiceProperties
+          '/properties/termsOfService/text': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: Text
+          '/properties/termsOfService/enabled': !ruby/object:Api::Azure::SDKTypeDefinition::BooleanObject
+            applicable_to: [go]
+            go_field_name: Enabled
+          '/properties/termsOfService/consentRequired': !ruby/object:Api::Azure::SDKTypeDefinition::BooleanObject
+            applicable_to: [go]
+            go_field_name: ConsentRequired
+      update: !ruby/object:Api::Azure::SDKOperationDefinition
+        go_func_name: Update
+        python_func_name: update
+        request:
+          'resourceGroupName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            id_portion: resourceGroups
+            go_variable_name: resourceGroup
+            python_parameter_name: resource_group_name
+            python_variable_name: resource_group
+          'serviceName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            id_portion: service
+            go_variable_name: name
+            python_parameter_name: service_name
+            python_variable_name: name
+          '/': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            go_variable_name: parameters
+            go_type_name: PortalSignupSettings
+            python_parameter_name: parameters
+            python_variable_name: parameters
+          '/properties': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            applicable_to: [go]
+            go_field_name: Properties
+            go_type_name: PortalSignupSettingsProperties
+          '/enabled': !ruby/object:Api::Azure::SDKTypeDefinition::BooleanObject
+            applicable_to: [python]
+            python_field_name: enabled
+          '/properties/enabled': !ruby/object:Api::Azure::SDKTypeDefinition::BooleanObject
+            applicable_to: [go]
+            go_field_name: Enabled
+          '/termsOfService': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            applicable_to: [python]
+            python_field_name: terms_of_service
+          '/termsOfService/text': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: text
+          '/termsOfService/enabled': !ruby/object:Api::Azure::SDKTypeDefinition::BooleanObject
+            applicable_to: [python]
+            python_field_name: enabled
+          '/termsOfService/consentRequired': !ruby/object:Api::Azure::SDKTypeDefinition::BooleanObject
+            applicable_to: [python]
+            python_field_name: consent_required
+          '/properties/termsOfService': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            applicable_to: [go]
+            go_field_name: TermsOfService
+            go_type_name: TermsOfServiceProperties
+          '/properties/termsOfService/text': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: Text
+          '/properties/termsOfService/enabled': !ruby/object:Api::Azure::SDKTypeDefinition::BooleanObject
+            applicable_to: [go]
+            go_field_name: Enabled
+          '/properties/termsOfService/consentRequired': !ruby/object:Api::Azure::SDKTypeDefinition::BooleanObject
+            applicable_to: [go]
+            go_field_name: ConsentRequired
+      read: !ruby/object:Api::Azure::SDKOperationDefinition
+        go_func_name: Get
+        python_func_name: get
+        request:
+          'resourceGroupName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            id_portion: resourceGroups
+            go_variable_name: resourceGroup
+            python_parameter_name: resource_group_name
+            python_variable_name: resource_group
+          'serviceName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            id_portion: service
+            go_variable_name: name
+            python_parameter_name: service_name
+            python_variable_name: name
+        response:
+          '/properties': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            applicable_to: [go]
+            go_field_name: Properties
+            go_type_name: PortalSignupSettingsProperties
+          '/properties/enabled': !ruby/object:Api::Azure::SDKTypeDefinition::BooleanObject
+            applicable_to: [go]
+            go_field_name: Enabled
+          '/enabled': !ruby/object:Api::Azure::SDKTypeDefinition::BooleanObject
+            applicable_to: [python]
+            python_field_name: enabled
+          '/properties/termsOfService': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            applicable_to: [go]
+            go_field_name: TermsOfService
+            go_type_name: TermsOfServiceProperties
+          '/properties/termsOfService/text': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: Text
+          '/properties/termsOfService/enabled': !ruby/object:Api::Azure::SDKTypeDefinition::BooleanObject
+            applicable_to: [go]
+            go_field_name: Enabled
+          '/properties/termsOfService/consentRequired': !ruby/object:Api::Azure::SDKTypeDefinition::BooleanObject
+            applicable_to: [go]
+            go_field_name: ConsentRequired
+          '/termsOfService': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            applicable_to: [python]
+            python_field_name: terms_of_service
+          '/termsOfService/text': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: text
+          '/termsOfService/enabled': !ruby/object:Api::Azure::SDKTypeDefinition::BooleanObject
+            applicable_to: [python]
+            python_field_name: enabled
+          '/termsOfService/consentRequired': !ruby/object:Api::Azure::SDKTypeDefinition::BooleanObject
+            applicable_to: [python]
+            python_field_name: consent_required
+          '/id': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            go_field_name: ID
+            python_field_name: id
+          '/name': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            go_field_name: Name
+            python_field_name: name
+          '/type': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            go_field_name: Type
+            python_field_name: type
+
+    description: |
+      Manage Azure SignUpSetting instance.
+    properties:
+      - !ruby/object:Api::Azure::Type::ResourceGroupName
+        name: 'resourceGroup'
+        description: 'The name of the resource group.'
+        required: true
+        input: true
+        sample_value: myResourceGroup
+        azure_sdk_references: ['resourceGroupName']
+      - !ruby/object:Api::Type::String
+        name: 'name'
+        description: 'The name of the API Management service.'
+        required: true
+        input: true
+        sample_value: 'myService'
+        azure_sdk_references: ['serviceName', '/name']
+      - !ruby/object:Api::Type::Boolean
+        name: 'enabled'
+        description: 'Allow users to sign up on a developer portal.'
+        required: false
+        sample_value: true
+        azure_sdk_references: ['/enabled', '/properties/enabled']
+      - !ruby/object:Api::Type::NestedObject
+        name: 'termsOfService'
+        description: 'Terms of service contract properties.'
+        required: false
+        azure_sdk_references: ['/termsOfService', '/properties/termsOfService']
+        properties:
+          - !ruby/object:Api::Type::String
+            name: 'text'
+            description: 'A terms of service text.'
+            required: false
+            sample_value: 'Terms of service text.'
+            azure_sdk_references: ['/termsOfService/text', '/properties/termsOfService/text']
+          - !ruby/object:Api::Type::Boolean
+            name: 'enabled'
+            description: 'Display terms of service during a sign-up process.'
+            required: false
+            sample_value: true
+            azure_sdk_references: ['/termsOfService/enabled', '/properties/termsOfService/enabled']
+          - !ruby/object:Api::Type::Boolean
+            name: 'consentRequired'
+            description: 'Ask user for consent to the terms of service.'
+            required: false
+            sample_value: true
+            azure_sdk_references: ['/termsOfService/consentRequired', '/properties/termsOfService/consentRequired']
+      # read only values included only in response
+      - !ruby/object:Api::Type::String
+        name: 'id'
+        description: 'Resource ID.'
+        input: true
+        output: true
+        azure_sdk_references: ['/id']
+      - !ruby/object:Api::Type::String
+        name: 'name'
+        description: 'Resource name.'
+        input: true
+        output: true
+        azure_sdk_references: ['/name']
+      - !ruby/object:Api::Type::String
+        name: 'type'
+        description: 'Resource type for API Management resource.'
+        input: true
+        output: true
+        azure_sdk_references: ['/type']

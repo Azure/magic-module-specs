@@ -1,0 +1,13 @@
+--- !ruby/object:Provider::Ansible::Example
+task: !ruby/object:Provider::Ansible::Task
+  name: azure_rm_apimanagementapi
+  description: ApiManagementCreateApiUsingOai3Import
+  code:
+    resource_group: myResourceGroup
+    service_name: myService
+    api_id: myApi
+    path: petstore
+    value: >-
+      https://raw.githubusercontent.com/OAI/OpenAPI-Specification/master/examples/v3.0/petstore.yaml
+    format: openapi-link
+  

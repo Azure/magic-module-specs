@@ -1,0 +1,11 @@
+--- !ruby/object:Provider::Ansible::Example
+task: !ruby/object:Provider::Ansible::Task
+  name: azure_rm_apimanagementproductpolicy
+  description: ApiManagementDeleteProductPolicy
+  code:
+    resource_group: myResourceGroup
+    service_name: myService
+    product_id: myProduct
+    policy_id: myPolicy
+    state: absent
+  
