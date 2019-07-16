@@ -1,0 +1,10 @@
+--- !ruby/object:Provider::Ansible::Example
+task: !ruby/object:Provider::Ansible::Task
+  name: azure_rm_frontdoorroutingrule
+  description: Delete Routing Rule
+  code:
+    resource_group: myResourceGroup
+    front_door_name: myFrontDoor
+    name: myRoutingRule
+    state: absent
+  

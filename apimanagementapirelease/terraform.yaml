@@ -1,0 +1,6 @@
+--- !ruby/object:Provider::Azure::Terraform::Config
+author: audevbot
+version_added: "2.9"
+overrides: !ruby/object:Overrides::ResourceOverrides
+  ApiRelease: !ruby/object:Provider::Azure::Terraform::ResourceOverride
+    properties: {}

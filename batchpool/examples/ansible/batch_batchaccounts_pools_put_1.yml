@@ -1,0 +1,22 @@
+--- !ruby/object:Provider::Ansible::Example
+task: !ruby/object:Provider::Ansible::Task
+  name: azure_rm_batchpool
+  description: CreatePool - Minimal VirtualMachineConfiguration
+  code:
+    resource_group: myResourceGroup
+    account_name: myBatchAccount
+    name: myPool
+    vm_size: STANDARD_D4
+    deployment_configuration:
+      virtual_machine_configuration:
+        image_reference:
+          publisher: Canonical
+          offer: UbuntuServer
+          sku: 14.04.5-LTS
+          version: latest
+        node_agent_sku_id: batch.node.ubuntu 14.04
+    scale_settings:
+      auto_scale:
+        formula: $TargetDedicatedNodes=1
+        evaluation_interval: PT5M
+  

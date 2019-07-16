@@ -1,0 +1,412 @@
+--- !ruby/object:Api::Product
+name: Azure BackendPool Management
+versions:
+  - !ruby/object:Api::Product::Version
+    name: ga
+    base_url: NotUsedInAzure
+scopes:
+  - NotUsedInAzure
+objects:
+  - !ruby/object:Api::Resource
+    name: BackendPool
+    api_name: Network
+    base_url: NotUsedInAzure
+
+    azure_sdk_definition: !ruby/object:Api::Azure::SDKDefinition
+      provider_name: Microsoft.Network
+      go_client_namespace: frontdoor
+      go_client: backendPoolsClient
+      python_client_namespace: azure.mgmt.frontdoor
+      python_client: FrontdoorClient.backend_pools
+      create: !ruby/object:Api::Azure::SDKOperationDefinition
+        async: true
+        go_func_name: CreateOrUpdate
+        python_func_name: create_or_update
+        request:
+          'resourceGroupName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            id_portion: resourceGroups
+            go_variable_name: resourceGroup
+            python_parameter_name: resource_group_name
+            python_variable_name: resource_group
+          'frontDoorName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            id_portion: frontDoors
+            go_variable_name: frontDoorName
+            python_parameter_name: front_door_name
+            python_variable_name: front_door_name
+          'backendPoolName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            id_portion: backendPools
+            go_variable_name: name
+            python_parameter_name: backend_pool_name
+            python_variable_name: name
+          '/': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            go_variable_name: backendPoolParameters
+            go_type_name: BackendPool
+            python_parameter_name: backend_pool_parameters
+            python_variable_name: backend_pool_parameters
+          '/id': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            go_field_name: ID
+            python_field_name: id
+          '/properties': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            applicable_to: [go]
+            go_field_name: Properties
+            go_type_name: BackendPoolProperties
+          '/backends': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexArrayObject
+            applicable_to: [python]
+            python_field_name: backends
+          '/backends/address': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: address
+          '/backends/httpPort': !ruby/object:Api::Azure::SDKTypeDefinition::IntegerObject
+            applicable_to: [python]
+            python_field_name: http_port
+          '/backends/httpsPort': !ruby/object:Api::Azure::SDKTypeDefinition::IntegerObject
+            applicable_to: [python]
+            python_field_name: https_port
+          '/backends/enabledState': !ruby/object:Api::Azure::SDKTypeDefinition::EnumObject
+            applicable_to: [python]
+            python_field_name: enabled_state
+          '/backends/priority': !ruby/object:Api::Azure::SDKTypeDefinition::IntegerObject
+            applicable_to: [python]
+            python_field_name: priority
+          '/backends/weight': !ruby/object:Api::Azure::SDKTypeDefinition::IntegerObject
+            applicable_to: [python]
+            python_field_name: weight
+          '/backends/backendHostHeader': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: backend_host_header
+          '/properties/backends': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexArrayObject
+            applicable_to: [go]
+            go_field_name: Backends
+            go_type_name: Backend
+          '/properties/backends/address': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: Address
+          '/properties/backends/httpPort': !ruby/object:Api::Azure::SDKTypeDefinition::IntegerObject
+            applicable_to: [go]
+            go_field_name: HttpPort
+          '/properties/backends/httpsPort': !ruby/object:Api::Azure::SDKTypeDefinition::IntegerObject
+            applicable_to: [go]
+            go_field_name: HttpsPort
+          '/properties/backends/enabledState': !ruby/object:Api::Azure::SDKTypeDefinition::EnumObject
+            applicable_to: [go]
+            go_field_name: EnabledState
+            go_enum_type_name: backendEnabledState
+          '/properties/backends/priority': !ruby/object:Api::Azure::SDKTypeDefinition::IntegerObject
+            applicable_to: [go]
+            go_field_name: Priority
+          '/properties/backends/weight': !ruby/object:Api::Azure::SDKTypeDefinition::IntegerObject
+            applicable_to: [go]
+            go_field_name: Weight
+          '/properties/backends/backendHostHeader': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: BackendHostHeader
+          '/loadBalancingSettings': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            applicable_to: [python]
+            python_field_name: load_balancing_settings
+          '/loadBalancingSettings/id': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: id
+          '/properties/loadBalancingSettings': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            applicable_to: [go]
+            go_field_name: LoadBalancingSettings
+            go_type_name: SubResource
+          '/properties/loadBalancingSettings/id': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: ID
+          '/healthProbeSettings': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            applicable_to: [python]
+            python_field_name: health_probe_settings
+          '/healthProbeSettings/id': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: id
+          '/properties/healthProbeSettings': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            applicable_to: [go]
+            go_field_name: HealthProbeSettings
+            go_type_name: SubResource
+          '/properties/healthProbeSettings/id': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: ID
+          '/resourceState': !ruby/object:Api::Azure::SDKTypeDefinition::EnumObject
+            applicable_to: [python]
+            python_field_name: resource_state
+          '/properties/resourceState': !ruby/object:Api::Azure::SDKTypeDefinition::EnumObject
+            applicable_to: [go]
+            go_field_name: ResourceState
+            go_enum_type_name: ResourceState
+          '/name': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            go_field_name: Name
+            python_field_name: name
+      delete: !ruby/object:Api::Azure::SDKOperationDefinition
+        async: true
+        go_func_name: Delete
+        python_func_name: delete
+        request:
+          'resourceGroupName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            id_portion: resourceGroups
+            go_variable_name: resourceGroup
+            python_parameter_name: resource_group_name
+            python_variable_name: resource_group
+          'frontDoorName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            id_portion: frontDoors
+            go_variable_name: frontDoorName
+            python_parameter_name: front_door_name
+            python_variable_name: front_door_name
+          'backendPoolName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            id_portion: backendPools
+            go_variable_name: name
+            python_parameter_name: backend_pool_name
+            python_variable_name: name
+      read: !ruby/object:Api::Azure::SDKOperationDefinition
+        go_func_name: Get
+        python_func_name: get
+        request:
+          'resourceGroupName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            id_portion: resourceGroups
+            go_variable_name: resourceGroup
+            python_parameter_name: resource_group_name
+            python_variable_name: resource_group
+          'frontDoorName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            id_portion: frontDoors
+            go_variable_name: frontDoorName
+            python_parameter_name: front_door_name
+            python_variable_name: front_door_name
+          'backendPoolName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            id_portion: backendPools
+            go_variable_name: name
+            python_parameter_name: backend_pool_name
+            python_variable_name: name
+        response:
+          '/id': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            go_field_name: ID
+            python_field_name: id
+          '/properties': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            applicable_to: [go]
+            go_field_name: Properties
+            go_type_name: BackendPoolProperties
+          '/properties/backends': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexArrayObject
+            applicable_to: [go]
+            go_field_name: Backends
+            go_type_name: Backend
+          '/properties/backends/address': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: Address
+          '/properties/backends/httpPort': !ruby/object:Api::Azure::SDKTypeDefinition::IntegerObject
+            applicable_to: [go]
+            go_field_name: HttpPort
+          '/properties/backends/httpsPort': !ruby/object:Api::Azure::SDKTypeDefinition::IntegerObject
+            applicable_to: [go]
+            go_field_name: HttpsPort
+          '/properties/backends/enabledState': !ruby/object:Api::Azure::SDKTypeDefinition::EnumObject
+            applicable_to: [go]
+            go_field_name: EnabledState
+            go_enum_type_name: backendEnabledState
+          '/properties/backends/priority': !ruby/object:Api::Azure::SDKTypeDefinition::IntegerObject
+            applicable_to: [go]
+            go_field_name: Priority
+          '/properties/backends/weight': !ruby/object:Api::Azure::SDKTypeDefinition::IntegerObject
+            applicable_to: [go]
+            go_field_name: Weight
+          '/properties/backends/backendHostHeader': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: BackendHostHeader
+          '/backends': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexArrayObject
+            applicable_to: [python]
+            python_field_name: backends
+          '/backends/address': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: address
+          '/backends/httpPort': !ruby/object:Api::Azure::SDKTypeDefinition::IntegerObject
+            applicable_to: [python]
+            python_field_name: http_port
+          '/backends/httpsPort': !ruby/object:Api::Azure::SDKTypeDefinition::IntegerObject
+            applicable_to: [python]
+            python_field_name: https_port
+          '/backends/enabledState': !ruby/object:Api::Azure::SDKTypeDefinition::EnumObject
+            applicable_to: [python]
+            python_field_name: enabled_state
+          '/backends/priority': !ruby/object:Api::Azure::SDKTypeDefinition::IntegerObject
+            applicable_to: [python]
+            python_field_name: priority
+          '/backends/weight': !ruby/object:Api::Azure::SDKTypeDefinition::IntegerObject
+            applicable_to: [python]
+            python_field_name: weight
+          '/backends/backendHostHeader': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: backend_host_header
+          '/properties/loadBalancingSettings': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            applicable_to: [go]
+            go_field_name: LoadBalancingSettings
+            go_type_name: SubResource
+          '/properties/loadBalancingSettings/id': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: ID
+          '/loadBalancingSettings': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            applicable_to: [python]
+            python_field_name: load_balancing_settings
+          '/loadBalancingSettings/id': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: id
+          '/properties/healthProbeSettings': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            applicable_to: [go]
+            go_field_name: HealthProbeSettings
+            go_type_name: SubResource
+          '/properties/healthProbeSettings/id': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: ID
+          '/healthProbeSettings': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            applicable_to: [python]
+            python_field_name: health_probe_settings
+          '/healthProbeSettings/id': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: id
+          '/properties/resourceState': !ruby/object:Api::Azure::SDKTypeDefinition::EnumObject
+            applicable_to: [go]
+            go_field_name: ResourceState
+            go_enum_type_name: ResourceState
+          '/resourceState': !ruby/object:Api::Azure::SDKTypeDefinition::EnumObject
+            applicable_to: [python]
+            python_field_name: resource_state
+          '/name': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            go_field_name: Name
+            python_field_name: name
+          '/type': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            go_field_name: Type
+            python_field_name: type
+      list_by_parent: !ruby/object:Api::Azure::SDKOperationDefinition
+        go_func_name: ListByFrontDoor
+        python_func_name: list_by_front_door
+        request:
+          'resourceGroupName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            id_portion: resourceGroups
+            go_variable_name: resourceGroup
+            python_parameter_name: resource_group_name
+            python_variable_name: resource_group
+          'frontDoorName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            id_portion: frontDoors
+            go_variable_name: frontDoorName
+            python_parameter_name: front_door_name
+            python_variable_name: front_door_name
+
+    description: |
+      Manage Azure BackendPool instance.
+    properties:
+      - !ruby/object:Api::Azure::Type::ResourceGroupName
+        name: 'resourceGroup'
+        description: 'Name of the Resource group within the Azure subscription.'
+        required: true
+        input: true
+        sample_value: myResourceGroup
+        azure_sdk_references: ['resourceGroupName']
+      - !ruby/object:Api::Type::String
+        name: 'frontDoorName'
+        description: 'Name of the Front Door which is globally unique.'
+        required: true
+        input: true
+        sample_value: 'myFrontDoor'
+        azure_sdk_references: ['frontDoorName']
+      - !ruby/object:Api::Type::String
+        name: 'name'
+        description: 'Name of the Backend Pool which is unique within the Front Door.'
+        required: true
+        input: true
+        sample_value: 'myBackendPool'
+        azure_sdk_references: ['backendPoolName', '/name']
+      - !ruby/object:Api::Type::String
+        name: 'id'
+        description: 'Resource ID.'
+        required: false
+        input: true
+        azure_sdk_references: ['/id']
+      - !ruby/object:Api::Type::NestedObject
+        name: 'backends'
+        description: 'The set of backends for this pool'
+        required: false
+        azure_sdk_references: ['/backends', '/properties/backends']
+        properties:
+          - !ruby/object:Api::Type::String
+            name: 'address'
+            description: 'Location of the backend (IP address or FQDN)'
+            required: false
+            azure_sdk_references: ['/backends/address', '/properties/backends/address']
+          - !ruby/object:Api::Type::Integer
+            name: 'httpPort'
+            description: 'The HTTP TCP port number. Must be between 1 and 65535.'
+            required: false
+            azure_sdk_references: ['/backends/httpPort', '/properties/backends/httpPort']
+          - !ruby/object:Api::Type::Integer
+            name: 'httpsPort'
+            description: 'The HTTPS TCP port number. Must be between 1 and 65535.'
+            required: false
+            azure_sdk_references: ['/backends/httpsPort', '/properties/backends/httpsPort']
+          - !ruby/object:Api::Type::Enum
+            name: 'enabledState'
+            description: 'Whether to enable use of this backend. Permitted values are ''Enabled'' or ''Disabled'''
+            required: false
+            values:
+              - :Enabled
+              - :Disabled
+            default_value: :Enabled
+            azure_sdk_references: ['/backends/enabledState', '/properties/backends/enabledState']
+          - !ruby/object:Api::Type::Integer
+            name: 'priority'
+            description: 'Priority to use for load balancing. Higher priorities will not be used for load balancing if any lower priority backend is healthy.'
+            required: false
+            azure_sdk_references: ['/backends/priority', '/properties/backends/priority']
+          - !ruby/object:Api::Type::Integer
+            name: 'weight'
+            description: 'Weight of this endpoint for load balancing purposes.'
+            required: false
+            azure_sdk_references: ['/backends/weight', '/properties/backends/weight']
+          - !ruby/object:Api::Type::String
+            name: 'backendHostHeader'
+            description: 'The value to use as the host header sent to the backend. If blank or unspecified, this defaults to the incoming host.'
+            required: false
+            azure_sdk_references: ['/backends/backendHostHeader', '/properties/backends/backendHostHeader']
+      - !ruby/object:Api::Type::NestedObject
+        name: 'loadBalancingSettings'
+        description: 'Load balancing settings for a backend pool'
+        required: false
+        azure_sdk_references: ['/loadBalancingSettings', '/properties/loadBalancingSettings']
+        properties:
+          - !ruby/object:Api::Type::String
+            name: 'id'
+            description: 'Resource ID.'
+            required: false
+            azure_sdk_references: ['/loadBalancingSettings/id', '/properties/loadBalancingSettings/id']
+      - !ruby/object:Api::Type::NestedObject
+        name: 'healthProbeSettings'
+        description: 'L7 health probe settings for a backend pool'
+        required: false
+        azure_sdk_references: ['/healthProbeSettings', '/properties/healthProbeSettings']
+        properties:
+          - !ruby/object:Api::Type::String
+            name: 'id'
+            description: 'Resource ID.'
+            required: false
+            azure_sdk_references: ['/healthProbeSettings/id', '/properties/healthProbeSettings/id']
+      - !ruby/object:Api::Type::Enum
+        name: 'resourceState'
+        description: 'Resource status.'
+        required: false
+        values:
+          - :Creating
+          - :Enabling
+          - :Enabled
+          - :Disabling
+          - :Disabled
+          - :Deleting
+        default_value: :Creating
+        azure_sdk_references: ['/resourceState', '/properties/resourceState']
+      - !ruby/object:Api::Type::String
+        name: 'name'
+        description: 'Resource name.'
+        required: false
+        input: true
+        azure_sdk_references: ['/name']
+      # read only values included only in response
+      - !ruby/object:Api::Type::String
+        name: 'type'
+        description: 'Resource type.'
+        input: true
+        output: true
+        azure_sdk_references: ['/type']
