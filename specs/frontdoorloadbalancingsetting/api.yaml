@@ -156,7 +156,7 @@ objects:
           '/type': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             go_field_name: Type
             python_field_name: type
-      list_by_front_door: !ruby/object:Api::Azure::SDKOperationDefinition
+      list_by_parent: !ruby/object:Api::Azure::SDKOperationDefinition
         go_func_name: ListByFrontDoor
         python_func_name: list_by_front_door
         request:
@@ -186,14 +186,14 @@ objects:
         description: 'Name of the Front Door which is globally unique.'
         required: true
         input: true
-        sample_value: myFrontDoor
+        sample_value: 'myFrontDoor'
         azure_sdk_references: ['frontDoorName']
       - !ruby/object:Api::Type::String
         name: 'name'
         description: 'Name of the load balancing settings which is unique within the Front Door.'
         required: true
         input: true
-        sample_value: myLoadBalancingSetting
+        sample_value: 'myLoadBalancingSetting'
         azure_sdk_references: ['loadBalancingSettingsName', '/name']
       - !ruby/object:Api::Type::String
         name: 'id'
@@ -201,17 +201,17 @@ objects:
         required: false
         input: true
         azure_sdk_references: ['/id']
-      - !ruby/object:Api::Azure::Type::Integer
+      - !ruby/object:Api::Type::Integer
         name: 'sampleSize'
         description: 'The number of samples to consider for load balancing decisions'
         required: false
         azure_sdk_references: ['/sampleSize', '/properties/sampleSize']
-      - !ruby/object:Api::Azure::Type::Integer
+      - !ruby/object:Api::Type::Integer
         name: 'successfulSamplesRequired'
         description: 'The number of samples within the sample period that must succeed'
         required: false
         azure_sdk_references: ['/successfulSamplesRequired', '/properties/successfulSamplesRequired']
-      - !ruby/object:Api::Azure::Type::Integer
+      - !ruby/object:Api::Type::Integer
         name: 'additionalLatencyMilliseconds'
         description: 'The additional latency in milliseconds for probes to fall into the lowest latency bucket'
         required: false
