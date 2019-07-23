@@ -238,7 +238,7 @@ objects:
           '/etag': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             go_field_name: Etag
             python_field_name: etag
-      list_by_batch_account: !ruby/object:Api::Azure::SDKOperationDefinition
+      list_by_parent: !ruby/object:Api::Azure::SDKOperationDefinition
         go_func_name: ListByBatchAccount
         python_func_name: list_by_batch_account
         request:
@@ -268,26 +268,26 @@ objects:
         description: 'The name of the Batch account.'
         required: true
         input: true
-        sample_value: myBatchAccount
+        sample_value: 'myBatchAccount'
         azure_sdk_references: ['accountName']
       - !ruby/object:Api::Type::String
         name: 'name'
         description: 'The identifier for the certificate. This must be made up of algorithm and thumbprint separated by a dash, and must match the certificate data in the request. For example SHA1-a3d1c5.'
         required: true
         input: true
-        sample_value: myCertificate
+        sample_value: 'myCertificate'
         azure_sdk_references: ['certificateName', '/name']
       - !ruby/object:Api::Type::String
         name: 'thumbprintAlgorithm'
-        description: 'This must match the first portion of the certificate name. Currently required to be 'SHA1'.'
+        description: 'This must match the first portion of the certificate name. Currently required to be ''SHA1''.'
         required: false
-        sample_value: SHA1
+        sample_value: 'SHA1'
         azure_sdk_references: ['/thumbprintAlgorithm', '/properties/thumbprintAlgorithm']
       - !ruby/object:Api::Type::String
         name: 'thumbprint'
         description: 'This must match the thumbprint from the name.'
         required: false
-        sample_value: 0A0E4F50D51BEADEAC1D35AFC5116098E7902E6E
+        sample_value: '0A0E4F50D51BEADEAC1D35AFC5116098E7902E6E'
         azure_sdk_references: ['/thumbprint', '/properties/thumbprint']
       - !ruby/object:Api::Type::Enum
         name: 'format'
@@ -303,18 +303,18 @@ objects:
         name: 'data'
         description: 'The maximum size is 10KB.'
         required: true
-        sample_value: MIIJsgIBAzCCCW4GCSqGSIb3DQE...
+        sample_value: 'MIIJsgIBAzCCCW4GCSqGSIb3DQE...'
         azure_sdk_references: ['/data', '/properties/data']
       - !ruby/object:Api::Type::String
         name: 'password'
         description: 'This is required if the certificate format is pfx and must be omitted if the certificate format is cer.'
         required: false
-        sample_value: KG0UY40e...
+        sample_value: 'KG0UY40e...'
         azure_sdk_references: ['/password', '/properties/password']
       # read only values included only in response
       - !ruby/object:Api::Azure::Type::ISO8601DateTime
         name: 'provisioningStateTransitionTime'
-        description: 'undefined'
+        description: ''
         output: true
         azure_sdk_references: ['/provisioningStateTransitionTime', '/properties/provisioningStateTransitionTime']
       - !ruby/object:Api::Type::Enum
@@ -329,7 +329,7 @@ objects:
         azure_sdk_references: ['/previousProvisioningState', '/properties/previousProvisioningState']
       - !ruby/object:Api::Azure::Type::ISO8601DateTime
         name: 'previousProvisioningStateTransitionTime'
-        description: 'undefined'
+        description: ''
         output: true
         azure_sdk_references: ['/previousProvisioningStateTransitionTime', '/properties/previousProvisioningStateTransitionTime']
       - !ruby/object:Api::Type::String
@@ -339,7 +339,7 @@ objects:
         azure_sdk_references: ['/publicData', '/properties/publicData']
       - !ruby/object:Api::Type::NestedObject
         name: 'deleteCertificateError'
-        description: 'This is only returned when the certificate provisioningState is 'Failed'.'
+        description: 'This is only returned when the certificate provisioningState is ''Failed''.'
         output: true
         azure_sdk_references: ['/deleteCertificateError', '/properties/deleteCertificateError']
         properties:
@@ -400,11 +400,6 @@ objects:
                     description: 'The target of the particular error. For example, the name of the property in error.'
                     required: false
                     azure_sdk_references: ['/deleteCertificateError/details/details/target', '/properties/deleteCertificateError/details/details/target']
-                  - !ruby/object:Api::Type::NestedObject
-                    name: 'details'
-                    description: 'A list of additional details about the error.'
-                    required: false
-                    azure_sdk_references: ['/deleteCertificateError/details/details/details', '/properties/deleteCertificateError/details/details/details']
       - !ruby/object:Api::Type::String
         name: 'id'
         description: 'The ID of the resource.'
