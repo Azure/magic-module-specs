@@ -141,7 +141,7 @@ objects:
           '/etag': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             go_field_name: Etag
             python_field_name: etag
-      list: !ruby/object:Api::Azure::SDKOperationDefinition
+      list_by_parent: !ruby/object:Api::Azure::SDKOperationDefinition
         go_func_name: List
         python_func_name: list
         request:
@@ -176,21 +176,21 @@ objects:
         description: 'The name of the Batch account.'
         required: true
         input: true
-        sample_value: myBatchAccount
+        sample_value: 'myBatchAccount'
         azure_sdk_references: ['accountName']
       - !ruby/object:Api::Type::String
         name: 'applicationName'
         description: 'The name of the application. This must be unique within the account.'
         required: true
         input: true
-        sample_value: myApplication
+        sample_value: 'myApplication'
         azure_sdk_references: ['applicationName']
       - !ruby/object:Api::Type::String
         name: 'name'
         description: 'The version of the application.'
         required: true
         input: true
-        sample_value: myVersion
+        sample_value: 'myVersion'
         azure_sdk_references: ['versionName', '/name']
       # read only values included only in response
       - !ruby/object:Api::Type::Enum
