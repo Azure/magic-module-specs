@@ -2051,7 +2051,7 @@ objects:
           '/etag': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             go_field_name: Etag
             python_field_name: etag
-      list_by_batch_account: !ruby/object:Api::Azure::SDKOperationDefinition
+      list_by_parent: !ruby/object:Api::Azure::SDKOperationDefinition
         go_func_name: ListByBatchAccount
         python_func_name: list_by_batch_account
         request:
@@ -2081,26 +2081,26 @@ objects:
         description: 'The name of the Batch account.'
         required: true
         input: true
-        sample_value: myBatchAccount
+        sample_value: 'myBatchAccount'
         azure_sdk_references: ['accountName']
       - !ruby/object:Api::Type::String
         name: 'name'
         description: 'The pool name. This must be unique within the account.'
         required: true
         input: true
-        sample_value: myPool
+        sample_value: 'myPool'
         azure_sdk_references: ['poolName', '/name']
       - !ruby/object:Api::Type::String
         name: 'displayName'
         description: 'The display name need not be unique and can contain any Unicode characters up to a maximum length of 1024.'
         required: false
-        sample_value: my-pool-name
+        sample_value: 'my-pool-name'
         azure_sdk_references: ['/displayName', '/properties/displayName']
       - !ruby/object:Api::Type::String
         name: 'vmSize'
         description: 'For information about available sizes of virtual machines for Cloud Services pools (pools created with cloudServiceConfiguration), see Sizes for Cloud Services (http://azure.microsoft.com/documentation/articles/cloud-services-sizes-specs/). Batch supports all Cloud Services VM sizes except ExtraSmall. For information about available VM sizes for pools using images from the Virtual Machines Marketplace (pools created with virtualMachineConfiguration) see Sizes for Virtual Machines (Linux) (https://azure.microsoft.com/documentation/articles/virtual-machines-linux-sizes/) or Sizes for Virtual Machines (Windows) (https://azure.microsoft.com/documentation/articles/virtual-machines-windows-sizes/). Batch supports all Azure VM sizes except STANDARD_A0 and those with premium storage (STANDARD_GS, STANDARD_DS, and STANDARD_DSV2 series).'
         required: false
-        sample_value: STANDARD_D4
+        sample_value: 'STANDARD_D4'
         azure_sdk_references: ['/vmSize', '/properties/vmSize']
       - !ruby/object:Api::Type::NestedObject
         name: 'deploymentConfiguration'
@@ -2110,7 +2110,7 @@ objects:
         properties:
           - !ruby/object:Api::Type::NestedObject
             name: 'cloudServiceConfiguration'
-            description: 'This property and virtualMachineConfiguration are mutually exclusive and one of the properties must be specified. This property cannot be specified if the Batch account was created with its poolAllocationMode property set to 'UserSubscription'.'
+            description: 'This property and virtualMachineConfiguration are mutually exclusive and one of the properties must be specified. This property cannot be specified if the Batch account was created with its poolAllocationMode property set to ''UserSubscription''.'
             required: false
             azure_sdk_references: ['/deploymentConfiguration/cloudServiceConfiguration', '/properties/deploymentConfiguration/cloudServiceConfiguration']
             properties:
@@ -2118,13 +2118,13 @@ objects:
                 name: 'osFamily'
                 description: 'Possible values are: 2 - OS Family 2, equivalent to Windows Server 2008 R2 SP1. 3 - OS Family 3, equivalent to Windows Server 2012. 4 - OS Family 4, equivalent to Windows Server 2012 R2. 5 - OS Family 5, equivalent to Windows Server 2016. For more information, see Azure Guest OS Releases (https://azure.microsoft.com/documentation/articles/cloud-services-guestos-update-matrix/#releases).'
                 required: true
-                sample_value: 4
+                sample_value: '4'
                 azure_sdk_references: ['/deploymentConfiguration/cloudServiceConfiguration/osFamily', '/properties/deploymentConfiguration/cloudServiceConfiguration/osFamily']
               - !ruby/object:Api::Type::String
                 name: 'osVersion'
                 description: 'The default value is * which specifies the latest operating system version for the specified OS family.'
                 required: false
-                sample_value: WA-GUEST-OS-4.45_201708-01
+                sample_value: 'WA-GUEST-OS-4.45_201708-01'
                 azure_sdk_references: ['/deploymentConfiguration/cloudServiceConfiguration/osVersion', '/properties/deploymentConfiguration/cloudServiceConfiguration/osVersion']
           - !ruby/object:Api::Type::NestedObject
             name: 'virtualMachineConfiguration'
@@ -2134,7 +2134,7 @@ objects:
             properties:
               - !ruby/object:Api::Type::NestedObject
                 name: 'imageReference'
-                description: 'undefined'
+                description: ''
                 required: true
                 azure_sdk_references: ['/deploymentConfiguration/virtualMachineConfiguration/imageReference', '/properties/deploymentConfiguration/virtualMachineConfiguration/imageReference']
                 properties:
@@ -2142,37 +2142,38 @@ objects:
                     name: 'publisher'
                     description: 'For example, Canonical or MicrosoftWindowsServer.'
                     required: false
-                    sample_value: MicrosoftWindowsServer
+                    sample_value: 'MicrosoftWindowsServer'
                     azure_sdk_references: ['/deploymentConfiguration/virtualMachineConfiguration/imageReference/publisher', '/properties/deploymentConfiguration/virtualMachineConfiguration/imageReference/publisher']
                   - !ruby/object:Api::Type::String
                     name: 'offer'
                     description: 'For example, UbuntuServer or WindowsServer.'
                     required: false
-                    sample_value: WindowsServer
+                    sample_value: 'WindowsServer'
                     azure_sdk_references: ['/deploymentConfiguration/virtualMachineConfiguration/imageReference/offer', '/properties/deploymentConfiguration/virtualMachineConfiguration/imageReference/offer']
                   - !ruby/object:Api::Type::String
                     name: 'sku'
                     description: 'For example, 14.04.0-LTS or 2012-R2-Datacenter.'
                     required: false
-                    sample_value: 2016-Datacenter-SmallDisk
+                    sample_value: '2016-Datacenter-SmallDisk'
                     azure_sdk_references: ['/deploymentConfiguration/virtualMachineConfiguration/imageReference/sku', '/properties/deploymentConfiguration/virtualMachineConfiguration/imageReference/sku']
                   - !ruby/object:Api::Type::String
                     name: 'version'
-                    description: 'A value of 'latest' can be specified to select the latest version of an image. If omitted, the default is 'latest'.'
+                    description: 'A value of ''latest'' can be specified to select the latest version of an image. If omitted, the default is ''latest''.'
                     required: false
-                    sample_value: latest
+                    sample_value: 'latest'
                     azure_sdk_references: ['/deploymentConfiguration/virtualMachineConfiguration/imageReference/version', '/properties/deploymentConfiguration/virtualMachineConfiguration/imageReference/version']
                   - !ruby/object:Api::Azure::Type::ResourceReference
                     name: 'id'
                     description: 'This property is mutually exclusive with other properties. The virtual machine image must be in the same region and subscription as the Azure Batch account. For information about the firewall settings for Batch node agent to communicate with Batch service see https://docs.microsoft.com/en-us/azure/batch/batch-api-basics#virtual-network-vnet-and-firewall-configuration .'
                     required: false
                     sample_value: /subscriptions/{{ subscription_id }}/resourceGroups/{{ resource_group }}/providers/Microsoft.Compute/images/{{ name }}
+                    resource_type_name: TBD
                     azure_sdk_references: ['/deploymentConfiguration/virtualMachineConfiguration/imageReference/id', '/properties/deploymentConfiguration/virtualMachineConfiguration/imageReference/id']
               - !ruby/object:Api::Type::String
                 name: 'nodeAgentSkuId'
-                description: 'The Batch node agent is a program that runs on each node in the pool, and provides the command-and-control interface between the node and the Batch service. There are different implementations of the node agent, known as SKUs, for different operating systems. You must specify a node agent SKU which matches the selected image reference. To get the list of supported node agent SKUs along with their list of verified image references, see the 'List supported node agent SKUs' operation.'
+                description: 'The Batch node agent is a program that runs on each node in the pool, and provides the command-and-control interface between the node and the Batch service. There are different implementations of the node agent, known as SKUs, for different operating systems. You must specify a node agent SKU which matches the selected image reference. To get the list of supported node agent SKUs along with their list of verified image references, see the ''List supported node agent SKUs'' operation.'
                 required: true
-                sample_value: batch.node.windows amd64
+                sample_value: 'batch.node.windows amd64'
                 azure_sdk_references: ['/deploymentConfiguration/virtualMachineConfiguration/nodeAgentSkuId', '/properties/deploymentConfiguration/virtualMachineConfiguration/nodeAgentSkuId']
               - !ruby/object:Api::Type::NestedObject
                 name: 'windowsConfiguration'
@@ -2191,7 +2192,7 @@ objects:
                 required: false
                 azure_sdk_references: ['/deploymentConfiguration/virtualMachineConfiguration/dataDisks', '/properties/deploymentConfiguration/virtualMachineConfiguration/dataDisks']
                 properties:
-                  - !ruby/object:Api::Azure::Type::Integer
+                  - !ruby/object:Api::Type::Integer
                     name: 'lun'
                     description: 'The lun is used to uniquely identify each data disk. If attaching multiple disks, each should have a distinct lun.'
                     required: true
@@ -2199,13 +2200,7 @@ objects:
                     azure_sdk_references: ['/deploymentConfiguration/virtualMachineConfiguration/dataDisks/lun', '/properties/deploymentConfiguration/virtualMachineConfiguration/dataDisks/lun']
                   - !ruby/object:Api::Type::Enum
                     name: 'caching'
-                    description: 'Values are:
-
- none - The caching mode for the disk is not enabled.
- readOnly - The caching mode for the disk is read only.
- readWrite - The caching mode for the disk is read and write.
-
- The default value for caching is none. For information about the caching options see: https://blogs.msdn.microsoft.com/windowsazurestorage/2012/06/27/exploring-windows-azure-drives-disks-and-images/.'
+                    description: 'Values are:<br> none - The caching mode for the disk is not enabled.<br> readOnly - The caching mode for the disk is read only.<br> readWrite - The caching mode for the disk is read and write.<br> The default value for caching is none. For information about the caching options see: https://blogs.msdn.microsoft.com/windowsazurestorage/2012/06/27/exploring-windows-azure-drives-disks-and-images/.'
                     required: false
                     values:
                       - :None
@@ -2214,18 +2209,15 @@ objects:
                     default_value: :None
                     sample_value: None
                     azure_sdk_references: ['/deploymentConfiguration/virtualMachineConfiguration/dataDisks/caching', '/properties/deploymentConfiguration/virtualMachineConfiguration/dataDisks/caching']
-                  - !ruby/object:Api::Azure::Type::Integer
+                  - !ruby/object:Api::Type::Integer
                     name: 'diskSizeGb'
-                    description: 'undefined'
+                    description: ''
                     required: true
                     sample_value: 200
                     azure_sdk_references: ['/deploymentConfiguration/virtualMachineConfiguration/dataDisks/diskSizeGB', '/properties/deploymentConfiguration/virtualMachineConfiguration/dataDisks/diskSizeGB']
                   - !ruby/object:Api::Type::Enum
                     name: 'storageAccountType'
-                    description: 'If omitted, the default is "Standard_LRS". Values are:
-
- Standard_LRS - The data disk should use standard locally redundant storage.
- Premium_LRS - The data disk should use premium locally redundant storage.'
+                    description: 'If omitted, the default is "Standard_LRS". Values are:<br> Standard_LRS - The data disk should use standard locally redundant storage.<br> Premium_LRS - The data disk should use premium locally redundant storage.'
                     required: false
                     values:
                       - :Standard_LRS
@@ -2235,13 +2227,9 @@ objects:
                     azure_sdk_references: ['/deploymentConfiguration/virtualMachineConfiguration/dataDisks/storageAccountType', '/properties/deploymentConfiguration/virtualMachineConfiguration/dataDisks/storageAccountType']
               - !ruby/object:Api::Type::String
                 name: 'licenseType'
-                description: 'This only applies to images that contain the Windows operating system, and should only be used when you hold valid on-premises licenses for the nodes which will be deployed. If omitted, no on-premises licensing discount is applied. Values are:
-
- Windows_Server - The on-premises license is for Windows Server.
- Windows_Client - The on-premises license is for Windows Client.
-'
+                description: 'This only applies to images that contain the Windows operating system, and should only be used when you hold valid on-premises licenses for the nodes which will be deployed. If omitted, no on-premises licensing discount is applied. Values are:<br> Windows_Server - The on-premises license is for Windows Server.<br> Windows_Client - The on-premises license is for Windows Client.<br>'
                 required: false
-                sample_value: Windows_Server
+                sample_value: 'Windows_Server'
                 azure_sdk_references: ['/deploymentConfiguration/virtualMachineConfiguration/licenseType', '/properties/deploymentConfiguration/virtualMachineConfiguration/licenseType']
               - !ruby/object:Api::Type::NestedObject
                 name: 'containerConfiguration'
@@ -2251,7 +2239,7 @@ objects:
                 properties:
                   - !ruby/object:Api::Type::String
                     name: 'type'
-                    description: 'undefined'
+                    description: ''
                     required: true
                     azure_sdk_references: ['/deploymentConfiguration/virtualMachineConfiguration/containerConfiguration/type', '/properties/deploymentConfiguration/virtualMachineConfiguration/containerConfiguration/type']
                   - !ruby/object:Api::Type::String
@@ -2259,14 +2247,9 @@ objects:
                     description: 'This is the full image reference, as would be specified to "docker pull". An image will be sourced from the default Docker registry unless the image is fully qualified with an alternative registry.'
                     required: false
                     azure_sdk_references: ['/deploymentConfiguration/virtualMachineConfiguration/containerConfiguration/containerImageNames', '/properties/deploymentConfiguration/virtualMachineConfiguration/containerConfiguration/containerImageNames']
-                  - !ruby/object:Api::Type::NestedObject
-                    name: 'containerRegistries'
-                    description: 'If any images must be downloaded from a private registry which requires credentials, then those credentials must be provided here.'
-                    required: false
-                    azure_sdk_references: ['/deploymentConfiguration/virtualMachineConfiguration/containerConfiguration/containerRegistries', '/properties/deploymentConfiguration/virtualMachineConfiguration/containerConfiguration/containerRegistries']
       - !ruby/object:Api::Type::NestedObject
         name: 'scaleSettings'
-        description: 'undefined'
+        description: ''
         required: false
         azure_sdk_references: ['/scaleSettings', '/properties/scaleSettings']
         properties:
@@ -2282,13 +2265,13 @@ objects:
                 required: false
                 sample_value: PT8M
                 azure_sdk_references: ['/scaleSettings/fixedScale/resizeTimeout', '/properties/scaleSettings/fixedScale/resizeTimeout']
-              - !ruby/object:Api::Azure::Type::Integer
+              - !ruby/object:Api::Type::Integer
                 name: 'targetDedicatedNodes'
                 description: 'At least one of targetDedicatedNodes, targetLowPriority nodes must be set.'
                 required: false
                 sample_value: 5
                 azure_sdk_references: ['/scaleSettings/fixedScale/targetDedicatedNodes', '/properties/scaleSettings/fixedScale/targetDedicatedNodes']
-              - !ruby/object:Api::Azure::Type::Integer
+              - !ruby/object:Api::Type::Integer
                 name: 'targetLowPriorityNodes'
                 description: 'At least one of targetDedicatedNodes, targetLowPriority nodes must be set.'
                 required: false
@@ -2314,9 +2297,9 @@ objects:
             properties:
               - !ruby/object:Api::Type::String
                 name: 'formula'
-                description: 'undefined'
+                description: ''
                 required: true
-                sample_value: $TargetDedicatedNodes=34
+                sample_value: '$TargetDedicatedNodes=34'
                 azure_sdk_references: ['/scaleSettings/autoScale/formula', '/properties/scaleSettings/autoScale/formula']
               - !ruby/object:Api::Azure::Type::ISO8601Duration
                 name: 'evaluationInterval'
@@ -2326,7 +2309,7 @@ objects:
                 azure_sdk_references: ['/scaleSettings/autoScale/evaluationInterval', '/properties/scaleSettings/autoScale/evaluationInterval']
       - !ruby/object:Api::Type::Enum
         name: 'interNodeCommunication'
-        description: 'This imposes restrictions on which nodes can be assigned to the pool. Enabling this value can reduce the chance of the requested number of nodes to be allocated in the pool. If not specified, this value defaults to 'Disabled'.'
+        description: 'This imposes restrictions on which nodes can be assigned to the pool. Enabling this value can reduce the chance of the requested number of nodes to be allocated in the pool. If not specified, this value defaults to ''Disabled''.'
         required: false
         values:
           - :Enabled
@@ -2336,15 +2319,16 @@ objects:
         azure_sdk_references: ['/interNodeCommunication', '/properties/interNodeCommunication']
       - !ruby/object:Api::Type::NestedObject
         name: 'networkConfiguration'
-        description: 'undefined'
+        description: ''
         required: false
         azure_sdk_references: ['/networkConfiguration', '/properties/networkConfiguration']
         properties:
           - !ruby/object:Api::Azure::Type::ResourceReference
             name: 'subnetId'
-            description: 'The virtual network must be in the same region and subscription as the Azure Batch account. The specified subnet should have enough free IP addresses to accommodate the number of nodes in the pool. If the subnet doesn't have enough free IP addresses, the pool will partially allocate compute nodes, and a resize error will occur. The 'MicrosoftAzureBatch' service principal must have the 'Classic Virtual Machine Contributor' Role-Based Access Control (RBAC) role for the specified VNet. The specified subnet must allow communication from the Azure Batch service to be able to schedule tasks on the compute nodes. This can be verified by checking if the specified VNet has any associated Network Security Groups (NSG). If communication to the compute nodes in the specified subnet is denied by an NSG, then the Batch service will set the state of the compute nodes to unusable. For pools created via virtualMachineConfiguration the Batch account must have poolAllocationMode userSubscription in order to use a VNet. If the specified VNet has any associated Network Security Groups (NSG), then a few reserved system ports must be enabled for inbound communication. For pools created with a virtual machine configuration, enable ports 29876 and 29877, as well as port 22 for Linux and port 3389 for Windows. For pools created with a cloud service configuration, enable ports 10100, 20100, and 30100. Also enable outbound connections to Azure Storage on port 443. For more details see: https://docs.microsoft.com/en-us/azure/batch/batch-api-basics#virtual-network-vnet-and-firewall-configuration'
+            description: 'The virtual network must be in the same region and subscription as the Azure Batch account. The specified subnet should have enough free IP addresses to accommodate the number of nodes in the pool. If the subnet doesn''t have enough free IP addresses, the pool will partially allocate compute nodes, and a resize error will occur. The ''MicrosoftAzureBatch'' service principal must have the ''Classic Virtual Machine Contributor'' Role-Based Access Control (RBAC) role for the specified VNet. The specified subnet must allow communication from the Azure Batch service to be able to schedule tasks on the compute nodes. This can be verified by checking if the specified VNet has any associated Network Security Groups (NSG). If communication to the compute nodes in the specified subnet is denied by an NSG, then the Batch service will set the state of the compute nodes to unusable. For pools created via virtualMachineConfiguration the Batch account must have poolAllocationMode userSubscription in order to use a VNet. If the specified VNet has any associated Network Security Groups (NSG), then a few reserved system ports must be enabled for inbound communication. For pools created with a virtual machine configuration, enable ports 29876 and 29877, as well as port 22 for Linux and port 3389 for Windows. For pools created with a cloud service configuration, enable ports 10100, 20100, and 30100. Also enable outbound connections to Azure Storage on port 443. For more details see: https://docs.microsoft.com/en-us/azure/batch/batch-api-basics#virtual-network-vnet-and-firewall-configuration'
             required: false
             sample_value: /subscriptions/{{ subscription_id }}/resourceGroups/{{ resource_group }}/providers/Microsoft.Network/virtualNetworks/{{ virtual_network_name }}/subnets/{{ name }}
+            resource_type_name: TBD
             azure_sdk_references: ['/networkConfiguration/subnetId', '/properties/networkConfiguration/subnetId']
           - !ruby/object:Api::Type::NestedObject
             name: 'endpointConfiguration'
@@ -2362,11 +2346,11 @@ objects:
                     name: 'name'
                     description: 'The name must be unique within a Batch pool, can contain letters, numbers, underscores, periods, and hyphens. Names must start with a letter or number, must end with a letter, number, or underscore, and cannot exceed 77 characters.  If any invalid values are provided the request fails with HTTP status code 400.'
                     required: true
-                    sample_value: testnat
+                    sample_value: 'testnat'
                     azure_sdk_references: ['/networkConfiguration/endpointConfiguration/inboundNatPools/name', '/properties/networkConfiguration/endpointConfiguration/inboundNatPools/name', '/name']
                   - !ruby/object:Api::Type::Enum
                     name: 'protocol'
-                    description: 'undefined'
+                    description: ''
                     required: true
                     values:
                       - :TCP
@@ -2374,45 +2358,39 @@ objects:
                     default_value: :TCP
                     sample_value: TCP
                     azure_sdk_references: ['/networkConfiguration/endpointConfiguration/inboundNatPools/protocol', '/properties/networkConfiguration/endpointConfiguration/inboundNatPools/protocol']
-                  - !ruby/object:Api::Azure::Type::Integer
+                  - !ruby/object:Api::Type::Integer
                     name: 'backendPort'
                     description: 'This must be unique within a Batch pool. Acceptable values are between 1 and 65535 except for 22, 3389, 29876 and 29877 as these are reserved. If any reserved values are provided the request fails with HTTP status code 400.'
                     required: true
                     sample_value: 12001
                     azure_sdk_references: ['/networkConfiguration/endpointConfiguration/inboundNatPools/backendPort', '/properties/networkConfiguration/endpointConfiguration/inboundNatPools/backendPort']
-                  - !ruby/object:Api::Azure::Type::Integer
+                  - !ruby/object:Api::Type::Integer
                     name: 'frontendPortRangeStart'
                     description: 'Acceptable values range between 1 and 65534 except ports from 50000 to 55000 which are reserved. All ranges within a pool must be distinct and cannot overlap. If any reserved or overlapping values are provided the request fails with HTTP status code 400.'
                     required: true
                     sample_value: 15000
                     azure_sdk_references: ['/networkConfiguration/endpointConfiguration/inboundNatPools/frontendPortRangeStart', '/properties/networkConfiguration/endpointConfiguration/inboundNatPools/frontendPortRangeStart']
-                  - !ruby/object:Api::Azure::Type::Integer
+                  - !ruby/object:Api::Type::Integer
                     name: 'frontendPortRangeEnd'
                     description: 'Acceptable values range between 1 and 65534 except ports from 50000 to 55000 which are reserved by the Batch service. All ranges within a pool must be distinct and cannot overlap. If any reserved or overlapping values are provided the request fails with HTTP status code 400.'
                     required: true
                     sample_value: 15100
                     azure_sdk_references: ['/networkConfiguration/endpointConfiguration/inboundNatPools/frontendPortRangeEnd', '/properties/networkConfiguration/endpointConfiguration/inboundNatPools/frontendPortRangeEnd']
-                  - !ruby/object:Api::Type::NestedObject
-                    name: 'networkSecurityGroupRules'
-                    description: 'The maximum number of rules that can be specified across all the endpoints on a Batch pool is 25. If no network security group rules are specified, a default rule will be created to allow inbound access to the specified backendPort. If the maximum number of network security group rules is exceeded the request fails with HTTP status code 400.'
-                    required: false
-                    sample_value: [object Object]
-                    azure_sdk_references: ['/networkConfiguration/endpointConfiguration/inboundNatPools/networkSecurityGroupRules', '/properties/networkConfiguration/endpointConfiguration/inboundNatPools/networkSecurityGroupRules']
-      - !ruby/object:Api::Azure::Type::Integer
+      - !ruby/object:Api::Type::Integer
         name: 'maxTasksPerNode'
-        description: 'undefined'
+        description: ''
         required: false
         sample_value: 13
         azure_sdk_references: ['/maxTasksPerNode', '/properties/maxTasksPerNode']
       - !ruby/object:Api::Type::NestedObject
         name: 'taskSchedulingPolicy'
-        description: 'undefined'
+        description: ''
         required: false
         azure_sdk_references: ['/taskSchedulingPolicy', '/properties/taskSchedulingPolicy']
         properties:
           - !ruby/object:Api::Type::Enum
             name: 'nodeFillType'
-            description: 'undefined'
+            description: ''
             required: true
             values:
               - :Spread
@@ -2422,21 +2400,21 @@ objects:
             azure_sdk_references: ['/taskSchedulingPolicy/nodeFillType', '/properties/taskSchedulingPolicy/nodeFillType']
       - !ruby/object:Api::Type::NestedObject
         name: 'userAccounts'
-        description: 'undefined'
+        description: ''
         required: false
         azure_sdk_references: ['/userAccounts', '/properties/userAccounts']
         properties:
           - !ruby/object:Api::Type::String
             name: 'name'
-            description: 'undefined'
+            description: ''
             required: true
-            sample_value: username1
+            sample_value: 'username1'
             azure_sdk_references: ['/userAccounts/name', '/properties/userAccounts/name', '/name']
           - !ruby/object:Api::Type::String
             name: 'password'
-            description: 'undefined'
+            description: ''
             required: true
-            sample_value: examplepassword
+            sample_value: 'examplepassword'
             azure_sdk_references: ['/userAccounts/password', '/properties/userAccounts/password']
           - !ruby/object:Api::Type::Enum
             name: 'elevationLevel'
@@ -2454,13 +2432,13 @@ objects:
             required: false
             azure_sdk_references: ['/userAccounts/linuxUserConfiguration', '/properties/userAccounts/linuxUserConfiguration']
             properties:
-              - !ruby/object:Api::Azure::Type::Integer
+              - !ruby/object:Api::Type::Integer
                 name: 'uid'
                 description: 'The uid and gid properties must be specified together or not at all. If not specified the underlying operating system picks the uid.'
                 required: false
                 sample_value: 1234
                 azure_sdk_references: ['/userAccounts/linuxUserConfiguration/uid', '/properties/userAccounts/linuxUserConfiguration/uid']
-              - !ruby/object:Api::Azure::Type::Integer
+              - !ruby/object:Api::Type::Integer
                 name: 'gid'
                 description: 'The uid and gid properties must be specified together or not at all. If not specified the underlying operating system picks the gid.'
                 required: false
@@ -2468,9 +2446,9 @@ objects:
                 azure_sdk_references: ['/userAccounts/linuxUserConfiguration/gid', '/properties/userAccounts/linuxUserConfiguration/gid']
               - !ruby/object:Api::Type::String
                 name: 'sshPrivateKey'
-                description: 'The private key must not be password protected. The private key is used to automatically configure asymmetric-key based authentication for SSH between nodes in a Linux pool when the pool's enableInterNodeCommunication property is true (it is ignored if enableInterNodeCommunication is false). It does this by placing the key pair into the user's .ssh directory. If not specified, password-less SSH is not configured between nodes (no modification of the user's .ssh directory is done).'
+                description: 'The private key must not be password protected. The private key is used to automatically configure asymmetric-key based authentication for SSH between nodes in a Linux pool when the pool''s enableInterNodeCommunication property is true (it is ignored if enableInterNodeCommunication is false). It does this by placing the key pair into the user''s .ssh directory. If not specified, password-less SSH is not configured between nodes (no modification of the user''s .ssh directory is done).'
                 required: false
-                sample_value: sshprivatekeyvalue
+                sample_value: 'sshprivatekeyvalue'
                 azure_sdk_references: ['/userAccounts/linuxUserConfiguration/sshPrivateKey', '/properties/userAccounts/linuxUserConfiguration/sshPrivateKey']
           - !ruby/object:Api::Type::NestedObject
             name: 'windowsUserConfiguration'
@@ -2495,15 +2473,15 @@ objects:
         properties:
           - !ruby/object:Api::Type::String
             name: 'name'
-            description: 'undefined'
+            description: ''
             required: true
-            sample_value: key1
+            sample_value: 'key1'
             azure_sdk_references: ['/metadata/name', '/properties/metadata/name', '/name']
           - !ruby/object:Api::Type::String
             name: 'value'
-            description: 'undefined'
+            description: ''
             required: true
-            sample_value: value1
+            sample_value: 'value1'
             azure_sdk_references: ['/metadata/value', '/properties/metadata/value']
       - !ruby/object:Api::Type::NestedObject
         name: 'startTask'
@@ -2515,11 +2493,11 @@ objects:
             name: 'commandLine'
             description: 'The command line does not run under a shell, and therefore cannot take advantage of shell features such as environment variable expansion. If you want to take advantage of such features, you should invoke the shell in the command line, for example using "cmd /c MyCommand" in Windows or "/bin/sh -c MyCommand" in Linux. Required if any other properties of the startTask are specified.'
             required: false
-            sample_value: cmd /c SET
+            sample_value: 'cmd /c SET'
             azure_sdk_references: ['/startTask/commandLine', '/properties/startTask/commandLine']
           - !ruby/object:Api::Type::NestedObject
             name: 'resourceFiles'
-            description: 'undefined'
+            description: ''
             required: false
             azure_sdk_references: ['/startTask/resourceFiles', '/properties/startTask/resourceFiles']
             properties:
@@ -2537,7 +2515,7 @@ objects:
                 name: 'httpUrl'
                 description: 'The autoStorageContainerName, storageContainerUrl and httpUrl properties are mutually exclusive and one of them must be specified. If the URL is Azure Blob Storage, it must be readable using anonymous access; that is, the Batch service does not present any credentials when downloading the blob. There are two ways to get such a URL for a blob in Azure storage: include a Shared Access Signature (SAS) granting read permissions on the blob, or set the ACL for the blob or its container to allow public access.'
                 required: false
-                sample_value: https://testaccount.blob.core.windows.net/example-blob-file
+                sample_value: 'https://testaccount.blob.core.windows.net/example-blob-file'
                 azure_sdk_references: ['/startTask/resourceFiles/httpUrl', '/properties/startTask/resourceFiles/httpUrl']
               - !ruby/object:Api::Type::String
                 name: 'blobPrefix'
@@ -2546,33 +2524,33 @@ objects:
                 azure_sdk_references: ['/startTask/resourceFiles/blobPrefix', '/properties/startTask/resourceFiles/blobPrefix']
               - !ruby/object:Api::Type::String
                 name: 'filePath'
-                description: 'If the httpUrl property is specified, the filePath is required and describes the path which the file will be downloaded to, including the filename. Otherwise, if the autoStorageContainerName or storageContainerUrl property is specified, filePath is optional and is the directory to download the files to. In the case where filePath is used as a directory, any directory structure already associated with the input data will be retained in full and appended to the specified filePath directory. The specified relative path cannot break out of the task's working directory (for example by using '..').'
+                description: 'If the httpUrl property is specified, the filePath is required and describes the path which the file will be downloaded to, including the filename. Otherwise, if the autoStorageContainerName or storageContainerUrl property is specified, filePath is optional and is the directory to download the files to. In the case where filePath is used as a directory, any directory structure already associated with the input data will be retained in full and appended to the specified filePath directory. The specified relative path cannot break out of the task''s working directory (for example by using ''..'').'
                 required: false
-                sample_value: c:\temp\gohere
+                sample_value: 'c:\temp\gohere'
                 azure_sdk_references: ['/startTask/resourceFiles/filePath', '/properties/startTask/resourceFiles/filePath']
               - !ruby/object:Api::Type::String
                 name: 'fileMode'
                 description: 'This property applies only to files being downloaded to Linux compute nodes. It will be ignored if it is specified for a resourceFile which will be downloaded to a Windows node. If this property is not specified for a Linux node, then a default value of 0770 is applied to the file.'
                 required: false
-                sample_value: 777
+                sample_value: '777'
                 azure_sdk_references: ['/startTask/resourceFiles/fileMode', '/properties/startTask/resourceFiles/fileMode']
           - !ruby/object:Api::Type::NestedObject
             name: 'environmentSettings'
-            description: 'undefined'
+            description: ''
             required: false
             azure_sdk_references: ['/startTask/environmentSettings', '/properties/startTask/environmentSettings']
             properties:
               - !ruby/object:Api::Type::String
                 name: 'name'
-                description: 'undefined'
+                description: ''
                 required: true
-                sample_value: MYSET
+                sample_value: 'MYSET'
                 azure_sdk_references: ['/startTask/environmentSettings/name', '/properties/startTask/environmentSettings/name', '/name']
               - !ruby/object:Api::Type::String
                 name: 'value'
-                description: 'undefined'
+                description: ''
                 required: false
-                sample_value: 1234
+                sample_value: '1234'
                 azure_sdk_references: ['/startTask/environmentSettings/value', '/properties/startTask/environmentSettings/value']
           - !ruby/object:Api::Type::NestedObject
             name: 'userIdentity'
@@ -2611,7 +2589,7 @@ objects:
                     default_value: :NonAdmin
                     sample_value: Admin
                     azure_sdk_references: ['/startTask/userIdentity/autoUser/elevationLevel', '/properties/startTask/userIdentity/autoUser/elevationLevel']
-          - !ruby/object:Api::Azure::Type::Integer
+          - !ruby/object:Api::Type::Integer
             name: 'maxTaskRetryCount'
             description: 'The Batch service retries a task if its exit code is nonzero. Note that this value specifically controls the number of retries. The Batch service will try the task once, and may then retry up to this limit. For example, if the maximum retry count is 3, Batch tries the task up to 4 times (one initial try and 3 retries). If the maximum retry count is 0, the Batch service does not retry the task. If the maximum retry count is -1, the Batch service retries the task without limit.'
             required: false
@@ -2652,29 +2630,30 @@ objects:
                     azure_sdk_references: ['/startTask/containerSettings/registry/registryServer', '/properties/startTask/containerSettings/registry/registryServer']
                   - !ruby/object:Api::Type::String
                     name: 'username'
-                    description: 'undefined'
+                    description: ''
                     required: true
                     azure_sdk_references: ['/startTask/containerSettings/registry/username', '/properties/startTask/containerSettings/registry/username']
                   - !ruby/object:Api::Type::String
                     name: 'password'
-                    description: 'undefined'
+                    description: ''
                     required: true
                     azure_sdk_references: ['/startTask/containerSettings/registry/password', '/properties/startTask/containerSettings/registry/password']
       - !ruby/object:Api::Type::NestedObject
         name: 'certificates'
-        description: 'For Windows compute nodes, the Batch service installs the certificates to the specified certificate store and location. For Linux compute nodes, the certificates are stored in a directory inside the task working directory and an environment variable AZ_BATCH_CERTIFICATES_DIR is supplied to the task to query for this location. For certificates with visibility of 'remoteUser', a 'certs' directory is created in the user's home directory (e.g., /home/{user-name}/certs) and certificates are placed in that directory.'
+        description: 'For Windows compute nodes, the Batch service installs the certificates to the specified certificate store and location. For Linux compute nodes, the certificates are stored in a directory inside the task working directory and an environment variable AZ_BATCH_CERTIFICATES_DIR is supplied to the task to query for this location. For certificates with visibility of ''remoteUser'', a ''certs'' directory is created in the user''s home directory (e.g., /home/{user-name}/certs) and certificates are placed in that directory.'
         required: false
         azure_sdk_references: ['/certificates', '/properties/certificates']
         properties:
           - !ruby/object:Api::Azure::Type::ResourceReference
             name: 'id'
-            description: 'undefined'
+            description: ''
             required: true
             sample_value: /subscriptions/{{ subscription_id }}/resourceGroups/{{ resource_group }}/providers/Microsoft.Batch/batchAccounts/{{ batch_account_name }}/pools/{{ pool_name }}/certificates/{{ name }}
+            resource_type_name: TBD
             azure_sdk_references: ['/certificates/id', '/properties/certificates/id']
           - !ruby/object:Api::Type::Enum
             name: 'storeLocation'
-            description: 'The default value is currentUser. This property is applicable only for pools configured with Windows nodes (that is, created with cloudServiceConfiguration, or with virtualMachineConfiguration using a Windows image reference). For Linux compute nodes, the certificates are stored in a directory inside the task working directory and an environment variable AZ_BATCH_CERTIFICATES_DIR is supplied to the task to query for this location. For certificates with visibility of 'remoteUser', a 'certs' directory is created in the user's home directory (e.g., /home/{user-name}/certs) and certificates are placed in that directory.'
+            description: 'The default value is currentUser. This property is applicable only for pools configured with Windows nodes (that is, created with cloudServiceConfiguration, or with virtualMachineConfiguration using a Windows image reference). For Linux compute nodes, the certificates are stored in a directory inside the task working directory and an environment variable AZ_BATCH_CERTIFICATES_DIR is supplied to the task to query for this location. For certificates with visibility of ''remoteUser'', a ''certs'' directory is created in the user''s home directory (e.g., /home/{user-name}/certs) and certificates are placed in that directory.'
             required: false
             values:
               - :CurrentUser
@@ -2686,11 +2665,11 @@ objects:
             name: 'storeName'
             description: 'This property is applicable only for pools configured with Windows nodes (that is, created with cloudServiceConfiguration, or with virtualMachineConfiguration using a Windows image reference). Common store names include: My, Root, CA, Trust, Disallowed, TrustedPeople, TrustedPublisher, AuthRoot, AddressBook, but any custom store name can also be used. The default value is My.'
             required: false
-            sample_value: MY
+            sample_value: 'MY'
             azure_sdk_references: ['/certificates/storeName', '/properties/certificates/storeName']
           - !ruby/object:Api::Type::Enum
             name: 'visibility'
-            description: 'undefined'
+            description: ''
             required: false
             values:
               - :StartTask
@@ -2707,21 +2686,22 @@ objects:
         properties:
           - !ruby/object:Api::Azure::Type::ResourceReference
             name: 'id'
-            description: 'undefined'
+            description: ''
             required: true
             sample_value: /subscriptions/{{ subscription_id }}/resourceGroups/{{ resource_group }}/providers/Microsoft.Batch/batchAccounts/{{ batch_account_name }}/pools/{{ pool_name }}/applications/{{ name }}
+            resource_type_name: TBD
             azure_sdk_references: ['/applicationPackages/id', '/properties/applicationPackages/id']
           - !ruby/object:Api::Type::String
             name: 'version'
             description: 'If this is omitted, and no default version is specified for this application, the request fails with the error code InvalidApplicationPackageReferences. If you are calling the REST API directly, the HTTP status code is 409.'
             required: false
-            sample_value: 1.0
+            sample_value: '1.0'
             azure_sdk_references: ['/applicationPackages/version', '/properties/applicationPackages/version']
       - !ruby/object:Api::Type::String
         name: 'applicationLicenses'
         description: 'The list of application licenses must be a subset of available Batch service application licenses. If a license is requested which is not supported, pool creation will fail.'
         required: false
-        sample_value: app-license1
+        sample_value: 'app-license1'
         azure_sdk_references: ['/applicationLicenses', '/properties/applicationLicenses']
       # read only values included only in response
       - !ruby/object:Api::Azure::Type::ISO8601DateTime
@@ -2731,17 +2711,17 @@ objects:
         azure_sdk_references: ['/lastModified', '/properties/lastModified']
       - !ruby/object:Api::Azure::Type::ISO8601DateTime
         name: 'creationTime'
-        description: 'undefined'
+        description: ''
         output: true
         azure_sdk_references: ['/creationTime', '/properties/creationTime']
       - !ruby/object:Api::Azure::Type::ISO8601DateTime
         name: 'provisioningStateTransitionTime'
-        description: 'undefined'
+        description: ''
         output: true
         azure_sdk_references: ['/provisioningStateTransitionTime', '/properties/provisioningStateTransitionTime']
       - !ruby/object:Api::Type::Enum
         name: 'allocationState'
-        description: 'undefined'
+        description: ''
         output: true
         values:
           - :Steady
@@ -2751,17 +2731,17 @@ objects:
         azure_sdk_references: ['/allocationState', '/properties/allocationState']
       - !ruby/object:Api::Azure::Type::ISO8601DateTime
         name: 'allocationStateTransitionTime'
-        description: 'undefined'
+        description: ''
         output: true
         azure_sdk_references: ['/allocationStateTransitionTime', '/properties/allocationStateTransitionTime']
-      - !ruby/object:Api::Azure::Type::Integer
+      - !ruby/object:Api::Type::Integer
         name: 'currentDedicatedNodes'
-        description: 'undefined'
+        description: ''
         output: true
         azure_sdk_references: ['/currentDedicatedNodes', '/properties/currentDedicatedNodes']
-      - !ruby/object:Api::Azure::Type::Integer
+      - !ruby/object:Api::Type::Integer
         name: 'currentLowPriorityNodes'
-        description: 'undefined'
+        description: ''
         output: true
         azure_sdk_references: ['/currentLowPriorityNodes', '/properties/currentLowPriorityNodes']
       - !ruby/object:Api::Type::NestedObject
@@ -2772,7 +2752,7 @@ objects:
         properties:
           - !ruby/object:Api::Azure::Type::ISO8601DateTime
             name: 'evaluationTime'
-            description: 'undefined'
+            description: ''
             required: true
             azure_sdk_references: ['/autoScaleRun/evaluationTime', '/properties/autoScaleRun/evaluationTime']
           - !ruby/object:Api::Type::String
@@ -2782,7 +2762,7 @@ objects:
             azure_sdk_references: ['/autoScaleRun/results', '/properties/autoScaleRun/results']
           - !ruby/object:Api::Type::NestedObject
             name: 'error'
-            description: 'undefined'
+            description: ''
             required: false
             azure_sdk_references: ['/autoScaleRun/error', '/properties/autoScaleRun/error']
             properties:
@@ -2798,7 +2778,7 @@ objects:
                 azure_sdk_references: ['/autoScaleRun/error/message', '/properties/autoScaleRun/error/message']
               - !ruby/object:Api::Type::NestedObject
                 name: 'details'
-                description: 'undefined'
+                description: ''
                 required: false
                 azure_sdk_references: ['/autoScaleRun/error/details', '/properties/autoScaleRun/error/details']
                 properties:
@@ -2812,25 +2792,20 @@ objects:
                     description: 'A message describing the error, intended to be suitable for display in a user interface.'
                     required: true
                     azure_sdk_references: ['/autoScaleRun/error/details/message', '/properties/autoScaleRun/error/details/message']
-                  - !ruby/object:Api::Type::NestedObject
-                    name: 'details'
-                    description: 'undefined'
-                    required: false
-                    azure_sdk_references: ['/autoScaleRun/error/details/details', '/properties/autoScaleRun/error/details/details']
       - !ruby/object:Api::Type::NestedObject
         name: 'resizeOperationStatus'
-        description: 'undefined'
+        description: ''
         output: true
         azure_sdk_references: ['/resizeOperationStatus', '/properties/resizeOperationStatus']
         properties:
-          - !ruby/object:Api::Azure::Type::Integer
+          - !ruby/object:Api::Type::Integer
             name: 'targetDedicatedNodes'
-            description: 'undefined'
+            description: ''
             required: false
             azure_sdk_references: ['/resizeOperationStatus/targetDedicatedNodes', '/properties/resizeOperationStatus/targetDedicatedNodes']
-          - !ruby/object:Api::Azure::Type::Integer
+          - !ruby/object:Api::Type::Integer
             name: 'targetLowPriorityNodes'
-            description: 'undefined'
+            description: ''
             required: false
             azure_sdk_references: ['/resizeOperationStatus/targetLowPriorityNodes', '/properties/resizeOperationStatus/targetLowPriorityNodes']
           - !ruby/object:Api::Azure::Type::ISO8601Duration
@@ -2851,7 +2826,7 @@ objects:
             azure_sdk_references: ['/resizeOperationStatus/nodeDeallocationOption', '/properties/resizeOperationStatus/nodeDeallocationOption']
           - !ruby/object:Api::Azure::Type::ISO8601DateTime
             name: 'startTime'
-            description: 'undefined'
+            description: ''
             required: false
             azure_sdk_references: ['/resizeOperationStatus/startTime', '/properties/resizeOperationStatus/startTime']
           - !ruby/object:Api::Type::NestedObject
@@ -2872,7 +2847,7 @@ objects:
                 azure_sdk_references: ['/resizeOperationStatus/errors/message', '/properties/resizeOperationStatus/errors/message']
               - !ruby/object:Api::Type::NestedObject
                 name: 'details'
-                description: 'undefined'
+                description: ''
                 required: false
                 azure_sdk_references: ['/resizeOperationStatus/errors/details', '/properties/resizeOperationStatus/errors/details']
                 properties:
@@ -2886,11 +2861,6 @@ objects:
                     description: 'A message describing the error, intended to be suitable for display in a user interface.'
                     required: true
                     azure_sdk_references: ['/resizeOperationStatus/errors/details/message', '/properties/resizeOperationStatus/errors/details/message']
-                  - !ruby/object:Api::Type::NestedObject
-                    name: 'details'
-                    description: 'undefined'
-                    required: false
-                    azure_sdk_references: ['/resizeOperationStatus/errors/details/details', '/properties/resizeOperationStatus/errors/details/details']
       - !ruby/object:Api::Type::String
         name: 'id'
         description: 'The ID of the resource.'
