@@ -1,0 +1,11 @@
+--- !ruby/object:Provider::Ansible::Example
+task: !ruby/object:Provider::Ansible::Task
+  name: azure_rm_apimanagementnotificationrecipientuser
+  description: ApiManagementDeleteNotificationRecipientUser
+  code:
+    resource_group: myResourceGroup
+    service_name: myService
+    notification_name: myNotification
+    user_id: myRecipientUser
+    state: absent
+  

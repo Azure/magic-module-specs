@@ -1,0 +1,11 @@
+--- !ruby/object:Provider::Ansible::Example
+task: !ruby/object:Provider::Ansible::Task
+  name: azure_rm_batchaccount
+  description: BatchAccountUpdate
+  code:
+    resource_group: myResourceGroup
+    name: myBatchAccount
+    auto_storage_account_id: >-
+      /subscriptions/{{ subscription_id }}/resourceGroups/{{ resource_group
+      }}/providers/Microsoft.Storage/storageAccounts/{{ storage_account_name }}
+  

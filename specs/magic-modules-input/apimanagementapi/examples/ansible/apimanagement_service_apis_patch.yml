@@ -1,0 +1,12 @@
+--- !ruby/object:Provider::Ansible::Example
+task: !ruby/object:Provider::Ansible::Task
+  name: azure_rm_apimanagementapi
+  description: ApiManagementUpdateApi
+  code:
+    resource_group: myResourceGroup
+    service_name: myService
+    api_id: myApi
+    display_name: Echo API New
+    service_url: 'http://echoapi.cloudapp.net/api2'
+    path: newecho
+  

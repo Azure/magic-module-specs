@@ -1,0 +1,14 @@
+--- !ruby/object:Provider::Ansible::Example
+task: !ruby/object:Provider::Ansible::Task
+  name: azure_rm_apimanagementapiissueattachment
+  description: ApiManagementCreateApiIssueAttachment
+  code:
+    resource_group: myResourceGroup
+    service_name: myService
+    api_id: myApi
+    issue_id: myIssue
+    attachment_id: myAttachment
+    title: Issue attachment.
+    content_format: image/jpeg
+    content: IEJhc2U2NA==
+  

@@ -1,0 +1,17 @@
+--- !ruby/object:Provider::Ansible::Example
+task: !ruby/object:Provider::Ansible::Task
+  name: azure_rm_apimanagementservice
+  description: ApiManagementCreateService
+  code:
+    resource_group: myResourceGroup
+    name: myService
+    tags:
+      tag1: value1
+      tag2: value2
+      tag3: value3
+    publisher_email: apim@autorestsdk.com
+    publisher_name: autorestsdk
+    sku_name: Developer
+    sku_capacity: '1'
+    location: Central US
+  

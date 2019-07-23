@@ -1,0 +1,401 @@
+--- !ruby/object:Api::Product
+name: Azure FrontendEndpoint Management
+versions:
+  - !ruby/object:Api::Product::Version
+    name: ga
+    base_url: NotUsedInAzure
+scopes:
+  - NotUsedInAzure
+objects:
+  - !ruby/object:Api::Resource
+    name: FrontendEndpoint
+    api_name: Network
+    base_url: NotUsedInAzure
+
+    azure_sdk_definition: !ruby/object:Api::Azure::SDKDefinition
+      provider_name: Microsoft.Network
+      go_client_namespace: frontdoor
+      go_client: frontendEndpointsClient
+      python_client_namespace: azure.mgmt.frontdoor
+      python_client: FrontdoorClient.frontend_endpoints
+      create: !ruby/object:Api::Azure::SDKOperationDefinition
+        async: true
+        go_func_name: CreateOrUpdate
+        python_func_name: create_or_update
+        request:
+          'resourceGroupName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            id_portion: resourceGroups
+            go_variable_name: resourceGroup
+            python_parameter_name: resource_group_name
+            python_variable_name: resource_group
+          'frontDoorName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            id_portion: frontDoors
+            go_variable_name: frontDoorName
+            python_parameter_name: front_door_name
+            python_variable_name: front_door_name
+          'frontendEndpointName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            id_portion: frontendEndpoints
+            go_variable_name: name
+            python_parameter_name: frontend_endpoint_name
+            python_variable_name: name
+          '/': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            go_variable_name: frontendEndpointParameters
+            go_type_name: FrontendEndpoint
+            python_parameter_name: frontend_endpoint_parameters
+            python_variable_name: frontend_endpoint_parameters
+          '/id': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            go_field_name: ID
+            python_field_name: id
+          '/properties': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            applicable_to: [go]
+            go_field_name: Properties
+            go_type_name: FrontendEndpointProperties
+          '/hostName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: host_name
+          '/properties/hostName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: HostName
+          '/sessionAffinityEnabledState': !ruby/object:Api::Azure::SDKTypeDefinition::EnumObject
+            applicable_to: [python]
+            python_field_name: session_affinity_enabled_state
+          '/properties/sessionAffinityEnabledState': !ruby/object:Api::Azure::SDKTypeDefinition::EnumObject
+            applicable_to: [go]
+            go_field_name: SessionAffinityEnabledState
+            go_enum_type_name: SessionAffinityEnabledState
+          '/sessionAffinityTtlSeconds': !ruby/object:Api::Azure::SDKTypeDefinition::IntegerObject
+            applicable_to: [python]
+            python_field_name: session_affinity_ttl_seconds
+          '/properties/sessionAffinityTtlSeconds': !ruby/object:Api::Azure::SDKTypeDefinition::IntegerObject
+            applicable_to: [go]
+            go_field_name: SessionAffinityTtlSeconds
+          '/webApplicationFirewallPolicyLink': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            applicable_to: [python]
+            python_field_name: web_application_firewall_policy_link
+          '/webApplicationFirewallPolicyLink/id': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: id
+          '/properties/webApplicationFirewallPolicyLink': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            applicable_to: [go]
+            go_field_name: WebApplicationFirewallPolicyLink
+            go_type_name: FrontendEndpointUpdateParameters_webApplicationFirewallPolicyLink
+          '/properties/webApplicationFirewallPolicyLink/id': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: ID
+          '/resourceState': !ruby/object:Api::Azure::SDKTypeDefinition::EnumObject
+            applicable_to: [python]
+            python_field_name: resource_state
+          '/properties/resourceState': !ruby/object:Api::Azure::SDKTypeDefinition::EnumObject
+            applicable_to: [go]
+            go_field_name: ResourceState
+            go_enum_type_name: ResourceState
+          '/name': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            go_field_name: Name
+            python_field_name: name
+      delete: !ruby/object:Api::Azure::SDKOperationDefinition
+        async: true
+        go_func_name: Delete
+        python_func_name: delete
+        request:
+          'resourceGroupName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            id_portion: resourceGroups
+            go_variable_name: resourceGroup
+            python_parameter_name: resource_group_name
+            python_variable_name: resource_group
+          'frontDoorName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            id_portion: frontDoors
+            go_variable_name: frontDoorName
+            python_parameter_name: front_door_name
+            python_variable_name: front_door_name
+          'frontendEndpointName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            id_portion: frontendEndpoints
+            go_variable_name: name
+            python_parameter_name: frontend_endpoint_name
+            python_variable_name: name
+      read: !ruby/object:Api::Azure::SDKOperationDefinition
+        go_func_name: Get
+        python_func_name: get
+        request:
+          'resourceGroupName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            id_portion: resourceGroups
+            go_variable_name: resourceGroup
+            python_parameter_name: resource_group_name
+            python_variable_name: resource_group
+          'frontDoorName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            id_portion: frontDoors
+            go_variable_name: frontDoorName
+            python_parameter_name: front_door_name
+            python_variable_name: front_door_name
+          'frontendEndpointName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            id_portion: frontendEndpoints
+            go_variable_name: name
+            python_parameter_name: frontend_endpoint_name
+            python_variable_name: name
+        response:
+          '/id': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            go_field_name: ID
+            python_field_name: id
+          '/properties': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            applicable_to: [go]
+            go_field_name: Properties
+            go_type_name: FrontendEndpointProperties
+          '/properties/hostName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: HostName
+          '/hostName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: host_name
+          '/properties/sessionAffinityEnabledState': !ruby/object:Api::Azure::SDKTypeDefinition::EnumObject
+            applicable_to: [go]
+            go_field_name: SessionAffinityEnabledState
+            go_enum_type_name: SessionAffinityEnabledState
+          '/sessionAffinityEnabledState': !ruby/object:Api::Azure::SDKTypeDefinition::EnumObject
+            applicable_to: [python]
+            python_field_name: session_affinity_enabled_state
+          '/properties/sessionAffinityTtlSeconds': !ruby/object:Api::Azure::SDKTypeDefinition::IntegerObject
+            applicable_to: [go]
+            go_field_name: SessionAffinityTtlSeconds
+          '/sessionAffinityTtlSeconds': !ruby/object:Api::Azure::SDKTypeDefinition::IntegerObject
+            applicable_to: [python]
+            python_field_name: session_affinity_ttl_seconds
+          '/properties/webApplicationFirewallPolicyLink': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            applicable_to: [go]
+            go_field_name: WebApplicationFirewallPolicyLink
+            go_type_name: FrontendEndpointUpdateParameters_webApplicationFirewallPolicyLink
+          '/properties/webApplicationFirewallPolicyLink/id': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: ID
+          '/webApplicationFirewallPolicyLink': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            applicable_to: [python]
+            python_field_name: web_application_firewall_policy_link
+          '/webApplicationFirewallPolicyLink/id': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: id
+          '/properties/resourceState': !ruby/object:Api::Azure::SDKTypeDefinition::EnumObject
+            applicable_to: [go]
+            go_field_name: ResourceState
+            go_enum_type_name: ResourceState
+          '/resourceState': !ruby/object:Api::Azure::SDKTypeDefinition::EnumObject
+            applicable_to: [python]
+            python_field_name: resource_state
+          '/properties/customHttpsProvisioningState': !ruby/object:Api::Azure::SDKTypeDefinition::EnumObject
+            applicable_to: [go]
+            go_field_name: CustomHttpsProvisioningState
+            go_enum_type_name: CustomHttpsProvisioningState
+          '/customHttpsProvisioningState': !ruby/object:Api::Azure::SDKTypeDefinition::EnumObject
+            applicable_to: [python]
+            python_field_name: custom_https_provisioning_state
+          '/properties/customHttpsProvisioningSubstate': !ruby/object:Api::Azure::SDKTypeDefinition::EnumObject
+            applicable_to: [go]
+            go_field_name: CustomHttpsProvisioningSubstate
+            go_enum_type_name: CustomHttpsProvisioningSubstate
+          '/customHttpsProvisioningSubstate': !ruby/object:Api::Azure::SDKTypeDefinition::EnumObject
+            applicable_to: [python]
+            python_field_name: custom_https_provisioning_substate
+          '/properties/customHttpsConfiguration': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            applicable_to: [go]
+            go_field_name: CustomHttpsConfiguration
+            go_type_name: CustomHttpsConfiguration
+          '/customHttpsConfiguration': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            applicable_to: [python]
+            python_field_name: custom_https_configuration
+          '/name': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            go_field_name: Name
+            python_field_name: name
+          '/type': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            go_field_name: Type
+            python_field_name: type
+      list_by_parent: !ruby/object:Api::Azure::SDKOperationDefinition
+        go_func_name: ListByFrontDoor
+        python_func_name: list_by_front_door
+        request:
+          'resourceGroupName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            id_portion: resourceGroups
+            go_variable_name: resourceGroup
+            python_parameter_name: resource_group_name
+            python_variable_name: resource_group
+          'frontDoorName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            id_portion: frontDoors
+            go_variable_name: frontDoorName
+            python_parameter_name: front_door_name
+            python_variable_name: front_door_name
+
+    description: |
+      Manage Azure FrontendEndpoint instance.
+    properties:
+      - !ruby/object:Api::Azure::Type::ResourceGroupName
+        name: 'resourceGroup'
+        description: 'Name of the Resource group within the Azure subscription.'
+        required: true
+        input: true
+        sample_value: myResourceGroup
+        azure_sdk_references: ['resourceGroupName']
+      - !ruby/object:Api::Type::String
+        name: 'frontDoorName'
+        description: 'Name of the Front Door which is globally unique.'
+        required: true
+        input: true
+        sample_value: 'myFrontDoor'
+        azure_sdk_references: ['frontDoorName']
+      - !ruby/object:Api::Type::String
+        name: 'name'
+        description: 'Name of the Frontend endpoint which is unique within the Front Door.'
+        required: true
+        input: true
+        sample_value: 'myFrontendEndpoint'
+        azure_sdk_references: ['frontendEndpointName', '/name']
+      - !ruby/object:Api::Type::String
+        name: 'id'
+        description: 'Resource ID.'
+        required: false
+        input: true
+        azure_sdk_references: ['/id']
+      - !ruby/object:Api::Type::String
+        name: 'hostName'
+        description: 'The host name of the frontendEndpoint. Must be a domain name.'
+        required: false
+        azure_sdk_references: ['/hostName', '/properties/hostName']
+      - !ruby/object:Api::Type::Enum
+        name: 'sessionAffinityEnabledState'
+        description: 'Whether to allow session affinity on this host. Valid options are ''Enabled'' or ''Disabled'''
+        required: false
+        values:
+          - :Enabled
+          - :Disabled
+        default_value: :Enabled
+        azure_sdk_references: ['/sessionAffinityEnabledState', '/properties/sessionAffinityEnabledState']
+      - !ruby/object:Api::Type::Integer
+        name: 'sessionAffinityTtlSeconds'
+        description: 'UNUSED. This field will be ignored. The TTL to use in seconds for session affinity, if applicable.'
+        required: false
+        azure_sdk_references: ['/sessionAffinityTtlSeconds', '/properties/sessionAffinityTtlSeconds']
+      - !ruby/object:Api::Type::NestedObject
+        name: 'webApplicationFirewallPolicyLink'
+        description: 'Defines the Web Application Firewall policy for each host (if applicable)'
+        required: false
+        azure_sdk_references: ['/webApplicationFirewallPolicyLink', '/properties/webApplicationFirewallPolicyLink']
+        properties:
+          - !ruby/object:Api::Type::String
+            name: 'id'
+            description: 'Resource ID.'
+            required: false
+            azure_sdk_references: ['/webApplicationFirewallPolicyLink/id', '/properties/webApplicationFirewallPolicyLink/id']
+      - !ruby/object:Api::Type::Enum
+        name: 'resourceState'
+        description: 'Resource status.'
+        required: false
+        values:
+          - :Creating
+          - :Enabling
+          - :Enabled
+          - :Disabling
+          - :Disabled
+          - :Deleting
+        default_value: :Creating
+        azure_sdk_references: ['/resourceState', '/properties/resourceState']
+      - !ruby/object:Api::Type::String
+        name: 'name'
+        description: 'Resource name.'
+        required: false
+        input: true
+        azure_sdk_references: ['/name']
+      # read only values included only in response
+      - !ruby/object:Api::Type::Enum
+        name: 'customHttpsProvisioningState'
+        description: 'Provisioning status of Custom Https of the frontendEndpoint.'
+        output: true
+        values:
+          - :Enabling
+          - :Enabled
+          - :Disabling
+          - :Disabled
+          - :Failed
+        default_value: :Enabling
+        azure_sdk_references: ['/customHttpsProvisioningState', '/properties/customHttpsProvisioningState']
+      - !ruby/object:Api::Type::Enum
+        name: 'customHttpsProvisioningSubstate'
+        description: 'Provisioning substate shows the progress of custom HTTPS enabling/disabling process step by step.'
+        output: true
+        values:
+          - :SubmittingDomainControlValidationRequest
+          - :PendingDomainControlValidationREquestApproval
+          - :DomainControlValidationRequestApproved
+          - :DomainControlValidationRequestRejected
+          - :DomainControlValidationRequestTimedOut
+          - :IssuingCertificate
+          - :DeployingCertificate
+          - :CertificateDeployed
+          - :DeletingCertificate
+          - :CertificateDeleted
+        default_value: :SubmittingDomainControlValidationRequest
+        azure_sdk_references: ['/customHttpsProvisioningSubstate', '/properties/customHttpsProvisioningSubstate']
+      - !ruby/object:Api::Type::NestedObject
+        name: 'customHttpsConfiguration'
+        description: 'The configuration specifying how to enable HTTPS'
+        output: true
+        azure_sdk_references: ['/customHttpsConfiguration', '/properties/customHttpsConfiguration']
+        properties:
+          - !ruby/object:Api::Type::Enum
+            name: 'certificateSource'
+            description: 'Defines the source of the SSL certificate'
+            required: false
+            values:
+              - :AzureKeyVault
+              - :FrontDoor
+            default_value: :AzureKeyVault
+            azure_sdk_references: ['/customHttpsConfiguration/certificateSource', '/properties/customHttpsConfiguration/certificateSource']
+          - !ruby/object:Api::Type::Enum
+            name: 'protocolType'
+            description: 'Defines the TLS extension protocol that is used for secure delivery'
+            required: false
+            values:
+              - :ServerNameIndication
+            default_value: :ServerNameIndication
+            azure_sdk_references: ['/customHttpsConfiguration/protocolType', '/properties/customHttpsConfiguration/protocolType']
+          - !ruby/object:Api::Type::NestedObject
+            name: 'keyVaultCertificateSourceParameters'
+            description: 'KeyVault certificate source parameters (if certificateSource=AzureKeyVault)'
+            required: false
+            azure_sdk_references: ['/customHttpsConfiguration/keyVaultCertificateSourceParameters', '/properties/customHttpsConfiguration/keyVaultCertificateSourceParameters']
+            properties:
+              - !ruby/object:Api::Type::NestedObject
+                name: 'vault'
+                description: 'The Key Vault containing the SSL certificate'
+                required: false
+                azure_sdk_references: ['/customHttpsConfiguration/keyVaultCertificateSourceParameters/vault', '/properties/customHttpsConfiguration/keyVaultCertificateSourceParameters/vault']
+                properties:
+                  - !ruby/object:Api::Type::String
+                    name: 'id'
+                    description: 'Resource ID.'
+                    required: false
+                    azure_sdk_references: ['/customHttpsConfiguration/keyVaultCertificateSourceParameters/vault/id', '/properties/customHttpsConfiguration/keyVaultCertificateSourceParameters/vault/id']
+              - !ruby/object:Api::Type::String
+                name: 'secretName'
+                description: 'The name of the Key Vault secret representing the full certificate PFX'
+                required: false
+                azure_sdk_references: ['/customHttpsConfiguration/keyVaultCertificateSourceParameters/secretName', '/properties/customHttpsConfiguration/keyVaultCertificateSourceParameters/secretName']
+              - !ruby/object:Api::Type::String
+                name: 'secretVersion'
+                description: 'The version of the Key Vault secret representing the full certificate PFX'
+                required: false
+                azure_sdk_references: ['/customHttpsConfiguration/keyVaultCertificateSourceParameters/secretVersion', '/properties/customHttpsConfiguration/keyVaultCertificateSourceParameters/secretVersion']
+          - !ruby/object:Api::Type::NestedObject
+            name: 'frontDoorCertificateSourceParameters'
+            description: 'Parameters required for enabling SSL with Front Door-managed certificates (if certificateSource=FrontDoor)'
+            required: false
+            azure_sdk_references: ['/customHttpsConfiguration/frontDoorCertificateSourceParameters', '/properties/customHttpsConfiguration/frontDoorCertificateSourceParameters']
+            properties:
+              - !ruby/object:Api::Type::Enum
+                name: 'certificateType'
+                description: 'Defines the type of the certificate used for secure connections to a frontendEndpoint'
+                required: false
+                values:
+                  - :Dedicated
+                default_value: :Dedicated
+                azure_sdk_references: ['/customHttpsConfiguration/frontDoorCertificateSourceParameters/certificateType', '/properties/customHttpsConfiguration/frontDoorCertificateSourceParameters/certificateType']
+      - !ruby/object:Api::Type::String
+        name: 'type'
+        description: 'Resource type.'
+        input: true
+        output: true
+        azure_sdk_references: ['/type']

@@ -1,0 +1,13 @@
+--- !ruby/object:Provider::Ansible::Example
+task: !ruby/object:Provider::Ansible::Task
+  name: azure_rm_apimanagementlogger
+  description: ApiManagementCreateAILogger
+  code:
+    resource_group: myResourceGroup
+    service_name: myService
+    logger_id: myLogger
+    logger_type: applicationInsights
+    description: adding a new logger
+    credentials:
+      instrumentationKey: 11................a1
+  

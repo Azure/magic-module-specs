@@ -1,0 +1,36 @@
+--- !ruby/object:Provider::Ansible::Example
+task: !ruby/object:Provider::Ansible::Task
+  name: azure_rm_apimanagementdiagnostic
+  description: ApiManagementCreateDiagnostic
+  code:
+    resource_group: myResourceGroup
+    service_name: myService
+    diagnostic_id: myDiagnostic
+    always_log: allErrors
+    logger_id: /loggers/azuremonitor
+    sampling:
+      sampling_type: fixed
+      percentage: '50'
+    frontend:
+      request:
+        headers:
+          - Content-type
+        body:
+          bytes: '512'
+      response:
+        headers:
+          - Content-type
+        body:
+          bytes: '512'
+    backend:
+      request:
+        headers:
+          - Content-type
+        body:
+          bytes: '512'
+      response:
+        headers:
+          - Content-type
+        body:
+          bytes: '512'
+  

@@ -1,0 +1,11 @@
+--- !ruby/object:Provider::Ansible::Example
+task: !ruby/object:Provider::Ansible::Task
+  name: azure_rm_apimanagementgroupuser
+  description: ApiManagementDeleteGroupUser
+  code:
+    resource_group: myResourceGroup
+    service_name: myService
+    group_id: myGroup
+    user_id: myUser
+    state: absent
+  

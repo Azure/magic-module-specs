@@ -1,0 +1,250 @@
+--- !ruby/object:Api::Product
+name: Azure HealthProbeSetting Management
+versions:
+  - !ruby/object:Api::Product::Version
+    name: ga
+    base_url: NotUsedInAzure
+scopes:
+  - NotUsedInAzure
+objects:
+  - !ruby/object:Api::Resource
+    name: HealthProbeSetting
+    api_name: Network
+    base_url: NotUsedInAzure
+
+    azure_sdk_definition: !ruby/object:Api::Azure::SDKDefinition
+      provider_name: Microsoft.Network
+      go_client_namespace: frontdoor
+      go_client: healthProbeSettingsClient
+      python_client_namespace: azure.mgmt.frontdoor
+      python_client: FrontdoorClient.health_probe_settings
+      create: !ruby/object:Api::Azure::SDKOperationDefinition
+        async: true
+        go_func_name: CreateOrUpdate
+        python_func_name: create_or_update
+        request:
+          'resourceGroupName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            id_portion: resourceGroups
+            go_variable_name: resourceGroup
+            python_parameter_name: resource_group_name
+            python_variable_name: resource_group
+          'frontDoorName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            id_portion: frontDoors
+            go_variable_name: frontDoorName
+            python_parameter_name: front_door_name
+            python_variable_name: front_door_name
+          'healthProbeSettingsName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            id_portion: healthProbeSettings
+            go_variable_name: name
+            python_parameter_name: health_probe_settings_name
+            python_variable_name: name
+          '/': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            go_variable_name: healthProbeSettingsParameters
+            go_type_name: HealthProbeSettingsModel
+            python_parameter_name: health_probe_settings_parameters
+            python_variable_name: health_probe_settings_parameters
+          '/id': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            go_field_name: ID
+            python_field_name: id
+          '/properties': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            applicable_to: [go]
+            go_field_name: Properties
+            go_type_name: HealthProbeSettingsProperties
+          '/path': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: path
+          '/properties/path': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: Path
+          '/protocol': !ruby/object:Api::Azure::SDKTypeDefinition::EnumObject
+            applicable_to: [python]
+            python_field_name: protocol
+          '/properties/protocol': !ruby/object:Api::Azure::SDKTypeDefinition::EnumObject
+            applicable_to: [go]
+            go_field_name: Protocol
+            go_enum_type_name: Protocol
+          '/intervalInSeconds': !ruby/object:Api::Azure::SDKTypeDefinition::IntegerObject
+            applicable_to: [python]
+            python_field_name: interval_in_seconds
+          '/properties/intervalInSeconds': !ruby/object:Api::Azure::SDKTypeDefinition::IntegerObject
+            applicable_to: [go]
+            go_field_name: IntervalInSeconds
+          '/resourceState': !ruby/object:Api::Azure::SDKTypeDefinition::EnumObject
+            applicable_to: [python]
+            python_field_name: resource_state
+          '/properties/resourceState': !ruby/object:Api::Azure::SDKTypeDefinition::EnumObject
+            applicable_to: [go]
+            go_field_name: ResourceState
+            go_enum_type_name: ResourceState
+          '/name': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            go_field_name: Name
+            python_field_name: name
+      delete: !ruby/object:Api::Azure::SDKOperationDefinition
+        async: true
+        go_func_name: Delete
+        python_func_name: delete
+        request:
+          'resourceGroupName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            id_portion: resourceGroups
+            go_variable_name: resourceGroup
+            python_parameter_name: resource_group_name
+            python_variable_name: resource_group
+          'frontDoorName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            id_portion: frontDoors
+            go_variable_name: frontDoorName
+            python_parameter_name: front_door_name
+            python_variable_name: front_door_name
+          'healthProbeSettingsName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            id_portion: healthProbeSettings
+            go_variable_name: name
+            python_parameter_name: health_probe_settings_name
+            python_variable_name: name
+      read: !ruby/object:Api::Azure::SDKOperationDefinition
+        go_func_name: Get
+        python_func_name: get
+        request:
+          'resourceGroupName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            id_portion: resourceGroups
+            go_variable_name: resourceGroup
+            python_parameter_name: resource_group_name
+            python_variable_name: resource_group
+          'frontDoorName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            id_portion: frontDoors
+            go_variable_name: frontDoorName
+            python_parameter_name: front_door_name
+            python_variable_name: front_door_name
+          'healthProbeSettingsName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            id_portion: healthProbeSettings
+            go_variable_name: name
+            python_parameter_name: health_probe_settings_name
+            python_variable_name: name
+        response:
+          '/id': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            go_field_name: ID
+            python_field_name: id
+          '/properties': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            applicable_to: [go]
+            go_field_name: Properties
+            go_type_name: HealthProbeSettingsProperties
+          '/properties/path': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: Path
+          '/path': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: path
+          '/properties/protocol': !ruby/object:Api::Azure::SDKTypeDefinition::EnumObject
+            applicable_to: [go]
+            go_field_name: Protocol
+            go_enum_type_name: Protocol
+          '/protocol': !ruby/object:Api::Azure::SDKTypeDefinition::EnumObject
+            applicable_to: [python]
+            python_field_name: protocol
+          '/properties/intervalInSeconds': !ruby/object:Api::Azure::SDKTypeDefinition::IntegerObject
+            applicable_to: [go]
+            go_field_name: IntervalInSeconds
+          '/intervalInSeconds': !ruby/object:Api::Azure::SDKTypeDefinition::IntegerObject
+            applicable_to: [python]
+            python_field_name: interval_in_seconds
+          '/properties/resourceState': !ruby/object:Api::Azure::SDKTypeDefinition::EnumObject
+            applicable_to: [go]
+            go_field_name: ResourceState
+            go_enum_type_name: ResourceState
+          '/resourceState': !ruby/object:Api::Azure::SDKTypeDefinition::EnumObject
+            applicable_to: [python]
+            python_field_name: resource_state
+          '/name': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            go_field_name: Name
+            python_field_name: name
+          '/type': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            go_field_name: Type
+            python_field_name: type
+      list_by_parent: !ruby/object:Api::Azure::SDKOperationDefinition
+        go_func_name: ListByFrontDoor
+        python_func_name: list_by_front_door
+        request:
+          'resourceGroupName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            id_portion: resourceGroups
+            go_variable_name: resourceGroup
+            python_parameter_name: resource_group_name
+            python_variable_name: resource_group
+          'frontDoorName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            id_portion: frontDoors
+            go_variable_name: frontDoorName
+            python_parameter_name: front_door_name
+            python_variable_name: front_door_name
+
+    description: |
+      Manage Azure HealthProbeSetting instance.
+    properties:
+      - !ruby/object:Api::Azure::Type::ResourceGroupName
+        name: 'resourceGroup'
+        description: 'Name of the Resource group within the Azure subscription.'
+        required: true
+        input: true
+        sample_value: myResourceGroup
+        azure_sdk_references: ['resourceGroupName']
+      - !ruby/object:Api::Type::String
+        name: 'frontDoorName'
+        description: 'Name of the Front Door which is globally unique.'
+        required: true
+        input: true
+        sample_value: 'myFrontDoor'
+        azure_sdk_references: ['frontDoorName']
+      - !ruby/object:Api::Type::String
+        name: 'name'
+        description: 'Name of the health probe settings which is unique within the Front Door.'
+        required: true
+        input: true
+        sample_value: 'myHealthProbeSetting'
+        azure_sdk_references: ['healthProbeSettingsName', '/name']
+      - !ruby/object:Api::Type::String
+        name: 'id'
+        description: 'Resource ID.'
+        required: false
+        input: true
+        azure_sdk_references: ['/id']
+      - !ruby/object:Api::Type::String
+        name: 'path'
+        description: 'The path to use for the health probe. Default is /'
+        required: false
+        azure_sdk_references: ['/path', '/properties/path']
+      - !ruby/object:Api::Type::Enum
+        name: 'protocol'
+        description: 'Protocol scheme to use for this probe'
+        required: false
+        values:
+          - :Http
+          - :Https
+        default_value: :Http
+        azure_sdk_references: ['/protocol', '/properties/protocol']
+      - !ruby/object:Api::Type::Integer
+        name: 'intervalInSeconds'
+        description: 'The number of seconds between health probes.'
+        required: false
+        azure_sdk_references: ['/intervalInSeconds', '/properties/intervalInSeconds']
+      - !ruby/object:Api::Type::Enum
+        name: 'resourceState'
+        description: 'Resource status.'
+        required: false
+        values:
+          - :Creating
+          - :Enabling
+          - :Enabled
+          - :Disabling
+          - :Disabled
+          - :Deleting
+        default_value: :Creating
+        azure_sdk_references: ['/resourceState', '/properties/resourceState']
+      - !ruby/object:Api::Type::String
+        name: 'name'
+        description: 'Resource name.'
+        required: false
+        input: true
+        azure_sdk_references: ['/name']
+      # read only values included only in response
+      - !ruby/object:Api::Type::String
+        name: 'type'
+        description: 'Resource type.'
+        input: true
+        output: true
+        azure_sdk_references: ['/type']

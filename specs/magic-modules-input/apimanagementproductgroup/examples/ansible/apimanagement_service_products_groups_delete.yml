@@ -1,0 +1,11 @@
+--- !ruby/object:Provider::Ansible::Example
+task: !ruby/object:Provider::Ansible::Task
+  name: azure_rm_apimanagementproductgroup
+  description: ApiManagementDeleteProductGroup
+  code:
+    resource_group: myResourceGroup
+    service_name: myService
+    product_id: myProduct
+    group_id: myGroup
+    state: absent
+  

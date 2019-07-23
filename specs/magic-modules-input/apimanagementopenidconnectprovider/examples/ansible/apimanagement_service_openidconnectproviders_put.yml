@@ -1,0 +1,12 @@
+--- !ruby/object:Provider::Ansible::Example
+task: !ruby/object:Provider::Ansible::Task
+  name: azure_rm_apimanagementopenidconnectprovider
+  description: ApiManagementCreateOpenIdConnectProvider
+  code:
+    resource_group: myResourceGroup
+    service_name: myService
+    opid: myOpenidConnectProvider
+    display_name: templateoidprovider3
+    metadata_endpoint: 'https://oidprovider-template3.net'
+    client_id: oidprovidertemplate3
+  

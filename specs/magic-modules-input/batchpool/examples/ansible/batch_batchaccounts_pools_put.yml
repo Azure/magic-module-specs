@@ -1,0 +1,16 @@
+--- !ruby/object:Provider::Ansible::Example
+task: !ruby/object:Provider::Ansible::Task
+  name: azure_rm_batchpool
+  description: CreatePool - Minimal CloudServiceConfiguration
+  code:
+    resource_group: myResourceGroup
+    account_name: myBatchAccount
+    name: myPool
+    vm_size: STANDARD_D4
+    deployment_configuration:
+      cloud_service_configuration:
+        os_family: '5'
+    scale_settings:
+      fixed_scale:
+        target_dedicated_nodes: '3'
+  

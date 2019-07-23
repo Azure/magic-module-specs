@@ -1,0 +1,11 @@
+--- !ruby/object:Provider::Ansible::Example
+task: !ruby/object:Provider::Ansible::Task
+  name: azure_rm_apimanagementidentityprovider
+  description: ApiManagementCreateIdentityProvider
+  code:
+    resource_group: myResourceGroup
+    service_name: myService
+    name: myIdentityProvider
+    client_id: facebookid
+    client_secret: facebookapplicationsecret
+  

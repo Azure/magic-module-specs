@@ -1,0 +1,12 @@
+--- !ruby/object:Provider::Ansible::Example
+task: !ruby/object:Provider::Ansible::Task
+  name: azure_rm_apimanagementapiversionset
+  description: ApiManagementCreateApiVersionSet
+  code:
+    resource_group: myResourceGroup
+    service_name: myService
+    version_set_id: myApiVersionSet
+    description: Version configuration
+    display_name: api set 1
+    versioning_scheme: Segment
+  

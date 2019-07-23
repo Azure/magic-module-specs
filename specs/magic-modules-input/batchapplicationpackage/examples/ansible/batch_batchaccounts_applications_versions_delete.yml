@@ -1,0 +1,11 @@
+--- !ruby/object:Provider::Ansible::Example
+task: !ruby/object:Provider::Ansible::Task
+  name: azure_rm_batchapplicationpackage
+  description: ApplicationPackageDelete
+  code:
+    resource_group: myResourceGroup
+    account_name: myBatchAccount
+    application_name: myApplication
+    name: myVersion
+    state: absent
+  

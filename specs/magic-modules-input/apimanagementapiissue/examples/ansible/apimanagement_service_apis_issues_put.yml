@@ -1,0 +1,18 @@
+--- !ruby/object:Provider::Ansible::Example
+task: !ruby/object:Provider::Ansible::Task
+  name: azure_rm_apimanagementapiissue
+  description: ApiManagementCreateApiIssue
+  code:
+    resource_group: myResourceGroup
+    service_name: myService
+    api_id: myApi
+    issue_id: myIssue
+    created_date: '2018-02-01T22:21:20.467Z'
+    state: open
+    title: New API issue
+    description: New API issue description
+    user_id: >-
+      /subscriptions/{{ subscription_id }}/resourceGroups/{{ resource_group
+      }}/providers/Microsoft.ApiManagement/service/{{ service_name }}/users/{{
+      user_name }}
+  
