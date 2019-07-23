@@ -158,7 +158,7 @@ objects:
           '/type': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             go_field_name: Type
             python_field_name: type
-      list_by_front_door: !ruby/object:Api::Azure::SDKOperationDefinition
+      list_by_parent: !ruby/object:Api::Azure::SDKOperationDefinition
         go_func_name: ListByFrontDoor
         python_func_name: list_by_front_door
         request:
@@ -188,14 +188,14 @@ objects:
         description: 'Name of the Front Door which is globally unique.'
         required: true
         input: true
-        sample_value: myFrontDoor
+        sample_value: 'myFrontDoor'
         azure_sdk_references: ['frontDoorName']
       - !ruby/object:Api::Type::String
         name: 'name'
         description: 'Name of the health probe settings which is unique within the Front Door.'
         required: true
         input: true
-        sample_value: myHealthProbeSetting
+        sample_value: 'myHealthProbeSetting'
         azure_sdk_references: ['healthProbeSettingsName', '/name']
       - !ruby/object:Api::Type::String
         name: 'id'
@@ -217,7 +217,7 @@ objects:
           - :Https
         default_value: :Http
         azure_sdk_references: ['/protocol', '/properties/protocol']
-      - !ruby/object:Api::Azure::Type::Integer
+      - !ruby/object:Api::Type::Integer
         name: 'intervalInSeconds'
         description: 'The number of seconds between health probes.'
         required: false
