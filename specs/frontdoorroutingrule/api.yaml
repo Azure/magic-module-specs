@@ -200,7 +200,7 @@ objects:
           '/type': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             go_field_name: Type
             python_field_name: type
-      list_by_front_door: !ruby/object:Api::Azure::SDKOperationDefinition
+      list_by_parent: !ruby/object:Api::Azure::SDKOperationDefinition
         go_func_name: ListByFrontDoor
         python_func_name: list_by_front_door
         request:
@@ -230,14 +230,14 @@ objects:
         description: 'Name of the Front Door which is globally unique.'
         required: true
         input: true
-        sample_value: myFrontDoor
+        sample_value: 'myFrontDoor'
         azure_sdk_references: ['frontDoorName']
       - !ruby/object:Api::Type::String
         name: 'name'
         description: 'Name of the Routing Rule which is unique within the Front Door.'
         required: true
         input: true
-        sample_value: myRoutingRule
+        sample_value: 'myRoutingRule'
         azure_sdk_references: ['routingRuleName', '/name']
       - !ruby/object:Api::Type::String
         name: 'id'
@@ -272,18 +272,13 @@ objects:
         azure_sdk_references: ['/patternsToMatch', '/properties/patternsToMatch']
       - !ruby/object:Api::Type::Enum
         name: 'enabledState'
-        description: 'Whether to enable use of this rule. Permitted values are 'Enabled' or 'Disabled''
+        description: 'Whether to enable use of this rule. Permitted values are ''Enabled'' or ''Disabled'''
         required: false
         values:
           - :Enabled
           - :Disabled
         default_value: :Enabled
         azure_sdk_references: ['/enabledState', '/properties/enabledState']
-      - !ruby/object:Api::Type::NestedObject
-        name: 'routeConfiguration'
-        description: 'A reference to the routing configuration.'
-        required: false
-        azure_sdk_references: ['/routeConfiguration', '/properties/routeConfiguration']
       - !ruby/object:Api::Type::Enum
         name: 'resourceState'
         description: 'Resource status.'
