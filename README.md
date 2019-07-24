@@ -14,24 +14,24 @@ The following figure illustrates the overall folder structure of this repository
 ```
 magic-module-specs
   |- specs
-      |- <resource folder 1>
-      |    |- api.yaml
-      |    |- ansible.yaml
-      |    |- terraform.yaml
-      |    |- <custom code 1>.erb
-      |    |- <custom code 2>.erb
-      |    |- ...
-      |    |- examples
-      |         |- ansible
-      |         |    |- <example 1>.yaml
-      |         |    |- <example 2>.yaml
-      |         |    |- ...
-      |         |- terraform
-      |              |- <example 1>.yaml
-      |              |- <example 2>.yaml
-      |              |- ...
-      |- <resource folder 2>
-      |- ...
+  |   |- <resource folder 1>
+  |   |    |- api.yaml
+  |   |    |- ansible.yaml
+  |   |    |- terraform.yaml
+  |   |    |- <custom code 1>.erb
+  |   |    |- <custom code 2>.erb
+  |   |    |- ...
+  |   |    |- examples
+  |   |         |- ansible
+  |   |         |    |- <example 1>.yaml
+  |   |         |    |- <example 2>.yaml
+  |   |         |    |- ...
+  |   |         |- terraform
+  |   |              |- <example 1>.yaml
+  |   |              |- <example 2>.yaml
+  |   |              |- ...
+  |   |- <resource folder 2>
+  |   |- ...
   |- generated
       |- ansible
       |    |- **
