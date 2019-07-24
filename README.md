@@ -13,31 +13,37 @@ The following figure illustrates the overall folder structure of this repository
 
 ```
 magic-module-specs
-  |- <resource folder 1>
-  |    |- api.yaml
-  |    |- ansible.yaml
-  |    |- terraform.yaml
-  |    |- <custom code 1>.erb
-  |    |- <custom code 2>.erb
-  |    |- ...
-  |    |- examples
-  |         |- ansible
-  |         |    |- <example 1>.yaml
-  |         |    |- <example 2>.yaml
-  |         |    |- ...
-  |         |- terraform
-  |              |- <example 1>.yaml
-  |              |- <example 2>.yaml
-  |              |- ...
-  |- <resource folder 2>
-  |- ...
-  |- generated-ansible
-  |    |- **
-  |- generated-terraform
-       |- **
+  |- specs
+  |   |- <resource folder 1>
+  |   |    |- api.yaml
+  |   |    |- ansible.yaml
+  |   |    |- terraform.yaml
+  |   |    |- <custom code 1>.erb
+  |   |    |- <custom code 2>.erb
+  |   |    |- ...
+  |   |    |- examples
+  |   |         |- ansible
+  |   |         |    |- <example 1>.yaml
+  |   |         |    |- <example 2>.yaml
+  |   |         |    |- ...
+  |   |         |- terraform
+  |   |              |- <example 1>.yaml
+  |   |              |- <example 2>.yaml
+  |   |              |- ...
+  |   |- <resource folder 2>
+  |   |- ...
+  |- generated
+      |- ansible
+      |    |- **
+      |- go
+        |- src
+          |- github.com
+            |- terraform-providers
+              |- terraform-provider-azurerm
+                  |- **
 ```
 
-The repository contains specifications for Azure resources supported in open source DevOps tools. Each resource specifications should be put in an isolated folder under the root folder (i.e. `<resource folder i>`). For example, [`/batchaccount`](https://github.com/Azure/magic-module-specs/tree/master/batchaccount) folder contains all specifications related to [Azure batch account](https://docs.microsoft.com/en-us/rest/api/batchmanagement/batchaccount).
+The repository contains specifications for Azure resources supported in open source DevOps tools. Each resource specifications should be put in an isolated folder under the `specs` folder of root (i.e. `<resource folder i>`). For example, [`/batchaccount`](https://github.com/Azure/magic-module-specs/tree/master/specs/batchaccount) folder contains all specifications related to [Azure batch account](https://docs.microsoft.com/en-us/rest/api/batchmanagement/batchaccount).
 
 Specifications of a resource consist of the following items:
 
@@ -49,7 +55,7 @@ Specifications of a resource consist of the following items:
 
 For a detailed description of the items mentioned above, please refer to [RESOURCE_SPEC](RESOURCE_SPEC.md).
 
-This repository also includes all generated code in `generated-ansible` and `generated-terraform`. The folder strcture within these generated folders exactly matches the [ansible](https://github.com/ansible/ansible) and [terraform provider for Azure](https://github.com/terraform-providers/terraform-provider-azurerm) respectively.
+This repository also includes all generated code in `generated`. The folder strcture within these generated folders exactly matches the [ansible](https://github.com/ansible/ansible) and [terraform provider for Azure](https://github.com/terraform-providers/terraform-provider-azurerm) respectively.
 
 Please refer to the [Workflow](#workflow) section about how to make contributions to DevOps tools using the generated code.
 
