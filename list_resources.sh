@@ -17,7 +17,9 @@ findResourceDir(){
 		fi
 	done
 }
-
+# go to magic-module-specs directory
 cd `dirname $0`
 specs_dir='./specs'
 findResourceDir $specs_dir
+# back to magic-modules directory
+cd $1
