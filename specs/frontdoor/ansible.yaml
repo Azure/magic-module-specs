@@ -1,4 +1,6 @@
 --- !ruby/object:Provider::Azure::Ansible::Config
-overrides: !ruby/object:Provider::ResourceOverrides
+author: Jeffrey Cline
+version_added: '2.9'
+overrides: !ruby/object:Overrides::ResourceOverrides
   FrontDoor: !ruby/object:Provider::Azure::Ansible::ResourceOverride
     examples: []
