@@ -4,8 +4,8 @@ task: !ruby/object:Provider::Ansible::Task
   description: ApiManagementDeleteApiRelease
   code:
     resource_group: myResourceGroup
-    name: myService
-    api_id: myApis
+    service_name: myService
+    api_id: myApi
     release_id: myRelease
     state: absent
   
