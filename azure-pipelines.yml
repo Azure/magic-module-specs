@@ -82,8 +82,8 @@ steps:
 - bash: |
     export source_branch=$(System.PullRequest.SourceBranch)
     export target_branch=$(System.PullRequest.TargetBranch)
-    echo $(source_branch)
-    echo $(target_branch)
+    echo $source_branch
+    echo $target_branch
     make build && \
     make format-terraform
   displayName: 'code generation'
