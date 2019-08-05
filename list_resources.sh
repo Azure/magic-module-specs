@@ -1,11 +1,6 @@
 #!/bin/sh
 
 cd `dirname $0`
-git branch
-echo $target_branch
-echo $source_branch
-git branch -a
-echo "+++++++++++++++++++++++"
 for file in `ls ./specs`; do
 	work_dir=./specs/$file
 	if [ -d $work_dir ]; then
