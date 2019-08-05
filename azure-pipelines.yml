@@ -79,6 +79,8 @@ steps:
   failOnStderr: true
 
 - bash: |
+    export source_branch=${System.PullRequest.SourceBranch}
+    export target_branch=${System.PullRequest.TargetBranch}
     make build && \
     make format-terraform
   displayName: 'code generation'
