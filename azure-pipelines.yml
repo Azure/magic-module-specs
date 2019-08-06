@@ -22,7 +22,6 @@ variables:
 
 steps:
 - bash: |
-    git branch -a
     shopt -s extglob
     echo `go env`
     echo '##vso[task.prependpath]$(GOBIN)'
@@ -30,7 +29,6 @@ steps:
     then
       mkdir -p "$(TFORG)"
     fi
-    git branch
   displayName: 'init Go environment'
   failOnStderr: true
 
