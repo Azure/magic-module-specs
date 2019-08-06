@@ -11,7 +11,7 @@ if [ -z "$source_branch" ]; then
 fi
 
 # If Running in Pipeline
-if [ -z "$(git branch -a | grep -w $source_branch)" ] || [ -z "$(git branch -a | grep -w $target_branch)" ]; then
+if [ -z "$(git branch | grep -w $source_branch)" ] || [ -z "$(git branch | grep -w $target_branch)" ]; then
 	source_branch=remotes/origin/$source_branch
 	target_branch=remotes/origin/$target_branch
 fi
