@@ -20,9 +20,11 @@ fi
 for file in $(ls ./specs); do
 	work_dir=./specs/$file
 	if [ -d $work_dir ]; then
-		if [ -n "$(git diff --name-only $target_branch $source_branch -- $work_dir)" ]; then
-			# remove the directory prefix './specs/'
-			expr substr "$work_dir" 9 "${#work_dir}"
+		if [ -f $work_dir"/api.yaml" ] && ([ -f $work_dir"/ansible.yaml" ] || [ -f $work_dir"/terraform.yaml" ]); then
+			if [ -n "$(git diff --name-only $target_branch $source_branch -- $work_dir)" ]; then
+				# remove the directory prefix './specs/'
+				expr substr "$work_dir" 9 "${#work_dir}"
+			fi
 		fi
 	fi
 done
