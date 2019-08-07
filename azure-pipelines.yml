@@ -79,7 +79,7 @@ steps:
   failOnStderr: true
 
 - bash: |
-    make build && \
+    make build SOURCE_BRANCH=$(System.PullRequest.SourceBranch) && \
     make format-terraform
   displayName: 'code generation'
   failOnStderr: false
