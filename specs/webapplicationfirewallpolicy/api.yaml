@@ -48,7 +48,7 @@ objects:
             python_field_name: tags
           '/properties': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
             applicable_to: [go]
-            go_field_name: Properties
+            go_field_name: WebApplicationFirewallPolicyPropertiesFormat
             go_type_name: WebApplicationFirewallPolicyPropertiesFormat
           '/policySettings': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
             applicable_to: [python]
@@ -117,12 +117,13 @@ objects:
           '/properties/customRules/name': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             applicable_to: [go]
             go_field_name: Name
-          '/properties/customRules/priority': !ruby/object:Api::Azure::SDKTypeDefinition::IntegerObject
+          '/properties/customRules/priority': !ruby/object:Api::Azure::SDKTypeDefinition::Integer32Object
             applicable_to: [go]
             go_field_name: Priority
           '/properties/customRules/ruleType': !ruby/object:Api::Azure::SDKTypeDefinition::EnumObject
             applicable_to: [go]
             go_field_name: RuleType
+            go_enum_const_prefix: WebApplicationFirewallRuleType
             go_enum_type_name: WebApplicationFirewallRuleType
           '/properties/customRules/matchConditions': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexArrayObject
             applicable_to: [go]
@@ -142,11 +143,12 @@ objects:
           '/properties/customRules/matchConditions/operator': !ruby/object:Api::Azure::SDKTypeDefinition::EnumObject
             applicable_to: [go]
             go_field_name: Operator
+            go_enum_const_prefix: WebApplicationFirewallOperator
             go_enum_type_name: WebApplicationFirewallOperator
           '/properties/customRules/matchConditions/negationConditon': !ruby/object:Api::Azure::SDKTypeDefinition::BooleanObject
             applicable_to: [go]
             go_field_name: NegationConditon
-          '/properties/customRules/matchConditions/matchValues': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+          '/properties/customRules/matchConditions/matchValues': !ruby/object:Api::Azure::SDKTypeDefinition::StringArrayObject
             applicable_to: [go]
             go_field_name: MatchValues
           '/properties/customRules/matchConditions/transforms': !ruby/object:Api::Azure::SDKTypeDefinition::EnumObject
@@ -156,6 +158,7 @@ objects:
           '/properties/customRules/action': !ruby/object:Api::Azure::SDKTypeDefinition::EnumObject
             applicable_to: [go]
             go_field_name: Action
+            go_enum_const_prefix: WebApplicationFirewallAction
             go_enum_type_name: WebApplicationFirewallAction
           '/etag': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             go_field_name: Etag
@@ -201,7 +204,7 @@ objects:
             python_field_name: tags
           '/properties': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
             applicable_to: [go]
-            go_field_name: Properties
+            go_field_name: WebApplicationFirewallPolicyPropertiesFormat
             go_type_name: WebApplicationFirewallPolicyPropertiesFormat
           '/properties/policySettings': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
             applicable_to: [go]
@@ -231,7 +234,7 @@ objects:
           '/properties/customRules/name': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             applicable_to: [go]
             go_field_name: Name
-          '/properties/customRules/priority': !ruby/object:Api::Azure::SDKTypeDefinition::IntegerObject
+          '/properties/customRules/priority': !ruby/object:Api::Azure::SDKTypeDefinition::Integer32Object
             applicable_to: [go]
             go_field_name: Priority
           '/properties/customRules/ruleType': !ruby/object:Api::Azure::SDKTypeDefinition::EnumObject
@@ -260,7 +263,7 @@ objects:
           '/properties/customRules/matchConditions/negationConditon': !ruby/object:Api::Azure::SDKTypeDefinition::BooleanObject
             applicable_to: [go]
             go_field_name: NegationConditon
-          '/properties/customRules/matchConditions/matchValues': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+          '/properties/customRules/matchConditions/matchValues': !ruby/object:Api::Azure::SDKTypeDefinition::StringArrayObject
             applicable_to: [go]
             go_field_name: MatchValues
           '/properties/customRules/matchConditions/transforms': !ruby/object:Api::Azure::SDKTypeDefinition::EnumObject
@@ -380,7 +383,7 @@ objects:
         name: 'id'
         description: 'Resource ID.'
         required: false
-        input: true
+        output: true
         azure_sdk_references: ['/id']
       - !ruby/object:Api::Azure::Type::Location
         name: 'location'
@@ -419,121 +422,126 @@ objects:
               - :Detection
             default_value: :Prevention
             azure_sdk_references: ['/policySettings/mode', '/properties/policySettings/mode']
-      - !ruby/object:Api::Type::NestedObject
+      - !ruby/object:Api::Type::Array
         name: 'customRules'
         description: 'Describes custom rules inside the policy'
         required: false
         azure_sdk_references: ['/customRules', '/properties/customRules']
-        properties:
-          - !ruby/object:Api::Type::String
-            name: 'name'
-            description: 'Gets name of the resource that is unique within a policy. This name can be used to access the resource.'
-            required: false
-            sample_value: 'Rule2'
-            azure_sdk_references: ['/customRules/name', '/properties/customRules/name', '/name']
-          - !ruby/object:Api::Type::Integer
-            name: 'priority'
-            description: 'Describes priority of the rule. Rules with a lower value will be evaluated before rules with a higher value'
-            required: true
-            sample_value: 2
-            azure_sdk_references: ['/customRules/priority', '/properties/customRules/priority']
-          - !ruby/object:Api::Type::Enum
-            name: 'ruleType'
-            description: 'Describes type of rule'
-            required: true
-            values:
-              - :MatchRule
-              - :Invalid
-            default_value: :MatchRule
-            sample_value: MatchRule
-            azure_sdk_references: ['/customRules/ruleType', '/properties/customRules/ruleType']
-          - !ruby/object:Api::Type::NestedObject
-            name: 'matchConditions'
-            description: 'List of match conditions'
-            required: true
-            azure_sdk_references: ['/customRules/matchConditions', '/properties/customRules/matchConditions']
-            properties:
-              - !ruby/object:Api::Type::NestedObject
-                name: 'matchVariables'
-                description: 'List of match variables'
-                required: true
-                azure_sdk_references: ['/customRules/matchConditions/matchVariables', '/properties/customRules/matchConditions/matchVariables']
+        item_type: !ruby/object:Api::Type::NestedObject
+          properties:
+            - !ruby/object:Api::Type::String
+              name: 'name'
+              description: 'Gets name of the resource that is unique within a policy. This name can be used to access the resource.'
+              required: false
+              sample_value: 'Rule2'
+              azure_sdk_references: ['/customRules/name', '/properties/customRules/name']
+            - !ruby/object:Api::Type::Integer
+              name: 'priority'
+              description: 'Describes priority of the rule. Rules with a lower value will be evaluated before rules with a higher value'
+              required: true
+              sample_value: 2
+              azure_sdk_references: ['/customRules/priority', '/properties/customRules/priority']
+            - !ruby/object:Api::Type::Enum
+              name: 'ruleType'
+              description: 'Describes type of rule'
+              required: true
+              values:
+                - :MatchRule
+                - :Invalid
+              # default_value: :MatchRule
+              sample_value: MatchRule
+              azure_sdk_references: ['/customRules/ruleType', '/properties/customRules/ruleType']
+            - !ruby/object:Api::Type::Array
+              name: 'matchConditions'
+              description: 'List of match conditions'
+              required: true
+              azure_sdk_references: ['/customRules/matchConditions', '/properties/customRules/matchConditions']
+              item_type: !ruby/object:Api::Type::NestedObject
                 properties:
+                  - !ruby/object:Api::Type::Array
+                    name: 'matchVariables'
+                    description: 'List of match variables'
+                    required: true
+                    azure_sdk_references: ['/customRules/matchConditions/matchVariables', '/properties/customRules/matchConditions/matchVariables']
+                    item_type: !ruby/object:Api::Type::NestedObject
+                      properties:
+                        - !ruby/object:Api::Type::Enum
+                          name: 'variableName'
+                          description: 'Match Variable'
+                          required: true
+                          values:
+                            - :RemoteAddr
+                            - :RequestMethod
+                            - :QueryString
+                            - :PostArgs
+                            - :RequestURI
+                            - :RequestHeaders
+                            - :RequestBody
+                            - :RequestCookies
+                          # default_value: :RemoteAddr
+                          sample_value: RequestHeaders
+                          azure_sdk_references: ['/customRules/matchConditions/matchVariables/variableName', '/properties/customRules/matchConditions/matchVariables/variableName']
+                        - !ruby/object:Api::Type::String
+                          name: 'selector'
+                          description: 'Describes field of the matchVariable collection'
+                          required: false
+                          sample_value: 'UserAgent'
+                          azure_sdk_references: ['/customRules/matchConditions/matchVariables/selector', '/properties/customRules/matchConditions/matchVariables/selector']
                   - !ruby/object:Api::Type::Enum
-                    name: 'variableName'
-                    description: 'Match Variable'
+                    name: 'operator'
+                    description: 'Describes operator to be matched'
                     required: true
                     values:
-                      - :RemoteAddr
-                      - :RequestMethod
-                      - :QueryString
-                      - :PostArgs
-                      - :RequestUri
-                      - :RequestHeaders
-                      - :RequestBody
-                      - :RequestCookies
-                    default_value: :RemoteAddr
-                    sample_value: RequestHeader
-                    azure_sdk_references: ['/customRules/matchConditions/matchVariables/variableName', '/properties/customRules/matchConditions/matchVariables/variableName']
-                  - !ruby/object:Api::Type::String
-                    name: 'selector'
-                    description: 'Describes field of the matchVariable collection'
+                      - :IPMatch
+                      - :Equal
+                      - :Contains
+                      - :LessThan
+                      - :GreaterThan
+                      - :LessThanOrEqual
+                      - :GreaterThanOrEqual
+                      - :BeginsWith
+                      - :EndsWith
+                      - :Regex
+                    # default_value: :IPMatch
+                    sample_value: Contains
+                    azure_sdk_references: ['/customRules/matchConditions/operator', '/properties/customRules/matchConditions/operator']
+                  - !ruby/object:Api::Type::Boolean
+                    name: 'negationConditon'
+                    description: 'Describes if this is negate condition or not'
                     required: false
-                    sample_value: 'UserAgent'
-                    azure_sdk_references: ['/customRules/matchConditions/matchVariables/selector', '/properties/customRules/matchConditions/matchVariables/selector']
-              - !ruby/object:Api::Type::Enum
-                name: 'operator'
-                description: 'Describes operator to be matched'
-                required: true
-                values:
-                  - :IPMatch
-                  - :Equal
-                  - :Contains
-                  - :LessThan
-                  - :GreaterThan
-                  - :LessThanOrEqual
-                  - :GreaterThanOrEqual
-                  - :BeginsWith
-                  - :EndsWith
-                  - :Regex
-                default_value: :IPMatch
-                sample_value: Contains
-                azure_sdk_references: ['/customRules/matchConditions/operator', '/properties/customRules/matchConditions/operator']
-              - !ruby/object:Api::Type::Boolean
-                name: 'negationConditon'
-                description: 'Describes if this is negate condition or not'
-                required: false
-                azure_sdk_references: ['/customRules/matchConditions/negationConditon', '/properties/customRules/matchConditions/negationConditon']
-              - !ruby/object:Api::Type::String
-                name: 'matchValues'
-                description: 'Match value'
-                required: true
-                sample_value: 'Windows'
-                azure_sdk_references: ['/customRules/matchConditions/matchValues', '/properties/customRules/matchConditions/matchValues']
-              - !ruby/object:Api::Type::Enum
-                name: 'transforms'
-                description: 'List of transforms'
-                required: false
-                values:
-                  - :Lowercase
-                  - :Trim
-                  - :UrlDecode
-                  - :UrlEncode
-                  - :RemoveNulls
-                  - :HtmlEntityDecode
-                default_value: :Lowercase
-                azure_sdk_references: ['/customRules/matchConditions/transforms', '/properties/customRules/matchConditions/transforms']
-          - !ruby/object:Api::Type::Enum
-            name: 'action'
-            description: 'Type of Actions'
-            required: true
-            values:
-              - :Allow
-              - :Block
-              - :Log
-            default_value: :Allow
-            sample_value: Block
-            azure_sdk_references: ['/customRules/action', '/properties/customRules/action']
+                    azure_sdk_references: ['/customRules/matchConditions/negationConditon', '/properties/customRules/matchConditions/negationConditon']
+                  - !ruby/object:Api::Type::Array
+                    name: 'matchValues'
+                    description: 'Match value'
+                    required: true
+                    sample_value: 'Windows'
+                    azure_sdk_references: ['/customRules/matchConditions/matchValues', '/properties/customRules/matchConditions/matchValues']
+                    item_type: Api::Type::String
+                  - !ruby/object:Api::Type::Enum
+                    exclude: true
+                    name: 'transforms'
+                    description: 'List of transforms'
+                    required: false
+                    values:
+                      - :Lowercase
+                      - :Trim
+                      - :UrlDecode
+                      - :UrlEncode
+                      - :RemoveNulls
+                      - :HtmlEntityDecode
+                    default_value: :Lowercase
+                    azure_sdk_references: ['/customRules/matchConditions/transforms', '/properties/customRules/matchConditions/transforms']
+            - !ruby/object:Api::Type::Enum
+              name: 'action'
+              description: 'Type of Actions'
+              required: true
+              values:
+                - :Allow
+                - :Block
+                - :Log
+              # default_value: :Allow
+              sample_value: Block
+              azure_sdk_references: ['/customRules/action', '/properties/customRules/action']
       - !ruby/object:Api::Type::String
         name: 'etag'
         description: 'Gets a unique read-only string that changes whenever the resource is updated.'
@@ -1241,6 +1249,7 @@ objects:
         description: 'Resource name.'
         input: true
         output: true
+        exclude: true
         azure_sdk_references: ['/name']
       - !ruby/object:Api::Type::String
         name: 'type'
