@@ -3,4 +3,15 @@ author: audevbot
 version_added: "2.9"
 overrides: !ruby/object:Overrides::ResourceOverrides
   WebApplicationFirewallPolicy: !ruby/object:Provider::Azure::Ansible::ResourceOverride
+    properties:
+      applicationGateways: !ruby/object:Provider::Azure::Terraform::PropertyOverride
+        exclude: true
+      etag: !ruby/object:Provider::Azure::Terraform::PropertyOverride
+        exclude: true
+      provisioningState: !ruby/object:Provider::Azure::Terraform::PropertyOverride
+        exclude: true
+      resourceState: !ruby/object:Provider::Azure::Terraform::PropertyOverride
+        exclude: true
+      type: !ruby/object:Provider::Azure::Terraform::PropertyOverride
+        exclude: true
     examples: []
