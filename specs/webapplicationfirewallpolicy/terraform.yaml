@@ -37,3 +37,4 @@ overrides: !ruby/object:Overrides::ResourceOverrides
         resource_name_hints:
           resourceGroups: example-rg
           location: West US 2 
+          ApplicationGatewayWebApplicationFirewallPolicies: example-wafpolicy
