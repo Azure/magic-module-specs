@@ -67,6 +67,7 @@ objects:
             applicable_to: [go]
             go_field_name: EnabledState
             go_enum_type_name: WebApplicationFirewallEnabledState
+            go_enum_const_prefix: WebApplicationFirewallEnabledState
           '/properties/policySettings/mode': !ruby/object:Api::Azure::SDKTypeDefinition::EnumObject
             applicable_to: [go]
             go_field_name: Mode
@@ -214,6 +215,7 @@ objects:
             applicable_to: [go]
             go_field_name: EnabledState
             go_enum_type_name: WebApplicationFirewallEnabledState
+            go_enum_const_prefix: WebApplicationFirewallEnabledState
           '/properties/policySettings/mode': !ruby/object:Api::Azure::SDKTypeDefinition::EnumObject
             applicable_to: [go]
             go_field_name: Mode

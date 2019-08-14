@@ -4,6 +4,12 @@ overrides: !ruby/object:Overrides::ResourceOverrides
     properties:
       resourceGroup: !ruby/object:Provider::Azure::Terraform::PropertyOverride
         name: resourceGroupName
+      policySettings.enabledState: !ruby/object:Provider::Azure::Terraform::PropertyOverride
+        name: enabled
+        new_type: Api::Azure::Type::BooleanEnum
+        true_value: :Enabled
+        false_value: :Disabled
+        default_value: :Enabled
       applicationGateways: !ruby/object:Provider::Azure::Terraform::PropertyOverride
         exclude: true
       etag: !ruby/object:Provider::Azure::Terraform::PropertyOverride
