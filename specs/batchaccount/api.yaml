@@ -243,6 +243,7 @@ objects:
         description: The name of the resource group in which to create the Batch Account.
         required: true
         input: true
+        sample_value: myResourceGroup
         azure_sdk_references: ['resourceGroupName']
     properties:
       - !ruby/object:Api::Type::String
@@ -250,16 +251,19 @@ objects:
         description: The name of the Batch Account.
         required: true
         input: true
+        sample_value: mybatchaccount
         azure_sdk_references: ['accountName', '/name']
       - !ruby/object:Api::Azure::Type::Location
         name: location
         description: Specifies the supported Azure location where the resource exists.
         required: true
         input: true
+        sample_value: eastus
         azure_sdk_references: ['/location']
       - !ruby/object:Api::Azure::Type::Tags
         name: tags
         description: A mapping of tags to assign to the batch account.
+        sample_value: "{ 'key1': 'value1', 'key2': 'value2' }"
         azure_sdk_references: ['tags', '/tags']
       - !ruby/object:Api::Azure::Type::ResourceReference
         name: autoStorageAccountId
@@ -275,6 +279,7 @@ objects:
           - :BatchService
           - :UserSubscription
         default_value: :BatchService
+        sample_value: :BatchService
         azure_sdk_references: ['/poolAllocationMode', '/properties/poolAllocationMode']
       - !ruby/object:Api::Type::NestedObject
         name: keyVaultReference
