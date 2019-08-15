@@ -15,7 +15,7 @@ objects:
     azure_sdk_definition: !ruby/object:Api::Azure::SDKDefinition
       provider_name: Microsoft.Network
       go_client_namespace: network
-      go_client: webApplicationFirewallPoliciesClient
+      go_client: network.WebApplicationFirewallPoliciesClient
       python_client_namespace: azure.mgmt.network
       python_client: NetworkManagementClient.web_application_firewall_policies
       create: !ruby/object:Api::Azure::SDKOperationDefinition
