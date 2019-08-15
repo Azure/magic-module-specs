@@ -53,11 +53,11 @@ build-terraform:
 	@if [ -z "$(RESOURCE)" ]; then \
 		echo "==> Generating source code for terraform from resource list..."; \
 		cd $(MMROOT) && \
-		jq '.[]' $(ROOT)/resources.json | xargs -I '{}' bundle exec compiler -d -p $(SPECROOT)/'{}' -e terraform -o $(TFROOT)/$(TFREPO)/; \
+		sh $(ROOT)/list_resources.sh $(SOURCE_BRANCH) | xargs -I '{}' bundle exec compiler -d -p $(SPECROOT)/'{}' -e terraform -c azure -o $(TFROOT)/$(TFREPO)/; \
 	else \
 		echo "==> Generating source code for terraform from given name..."; \
 		cd $(MMROOT) && \
-		bundle exec compiler -d -p $(SPECROOT)/$(RESOURCE) -e terraform -o $(TFROOT)/$(TFREPO)/; \
+		bundle exec compiler -d -p $(SPECROOT)/$(RESOURCE) -e terraform -c azure -o $(TFROOT)/$(TFREPO)/; \
 	fi
 
 format-terraform:
@@ -71,11 +71,11 @@ build-ansible:
 	@if [ -z "$(RESOURCE)" ]; then \
 		echo "==> Generating source code for ansible from resource list..."; \
 		cd $(MMROOT) && \
-		jq '.[]' $(ROOT)/resources.json | xargs -I '{}' bundle exec compiler -d -p $(SPECROOT)/'{}' -e ansible -o $(GENROOT)/$(ASREPO)/; \
+		sh $(ROOT)/list_resources.sh $(SOURCE_BRANCH) | xargs -I '{}' bundle exec compiler -d -p $(SPECROOT)/'{}' -e ansible -c azure -o $(GENROOT)/$(ASREPO)/; \
 	else \
 		echo "==> Generating source code for ansible from given name..."; \
 		cd $(MMROOT) && \
-		bundle exec compiler -d -p $(SPECROOT)/$(RESOURCE) -e ansible -o $(GENROOT)/$(ASREPO)/; \
+		bundle exec compiler -d -p $(SPECROOT)/$(RESOURCE) -e ansible -c azure -o $(GENROOT)/$(ASREPO)/; \
 	fi
 
 .PHONY: init clean build build-terraform format-terraform build-ansible
