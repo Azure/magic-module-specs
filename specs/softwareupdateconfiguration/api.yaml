@@ -1140,13 +1140,11 @@ objects:
             name: 'creationTime'
             description: 'Gets or sets the creation time.'
             required: false
-            exclude: true
             azure_sdk_references: ['/scheduleInfo/creationTime', '/properties/scheduleInfo/creationTime']
           - !ruby/object:Api::Azure::Type::ISO8601DateTime
             name: 'lastModifiedTime'
             description: 'Gets or sets the last modified time.'
             required: false
-            exclude: true
             azure_sdk_references: ['/scheduleInfo/lastModifiedTime', '/properties/scheduleInfo/lastModifiedTime']
           - !ruby/object:Api::Type::String
             name: 'description'

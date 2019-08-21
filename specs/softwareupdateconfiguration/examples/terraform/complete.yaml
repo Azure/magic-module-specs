@@ -12,16 +12,8 @@ properties:
   resource_group_name: ${azurerm_resource_group.<%= resource_id_hint -%>.name}
   automation_account_name: ${azurerm_automation_account.<%= resource_id_hint -%>.name}
   schedule_info:
-      frequency: Hour
-      is_enabled: true
+      start_time: "2019-08-24T03:56:08.45Z"
       time_zone: America/Los_Angeles
-      interval: 1
-      advanced_schedule:
-          week_days: ["Monday", "Thursday"]
   update_configuration:
-      operating_system: Windows
-      windows:
-          excluded_kb_numbers: ["168934", "168973"]
-          included_update_classifications: Critical
-          reboot_setting: IfRequired
-      non_azure_computer_names: ["box1.contoso.com", "box2.contoso.com"]
+      operating_system: Linux
+      azure_virtual_machines: [/subscriptions/85b3dbca-5974-4067-9669-67a141095a76/resourceGroups/Houk-Test-SUC_RG/providers/Microsoft.Compute/virtualMachines/Houk-Test-VM]
