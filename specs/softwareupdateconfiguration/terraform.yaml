@@ -1,29 +1,4 @@
 --- !ruby/object:Provider::Azure::Terraform::Config
 overrides: !ruby/object:Overrides::ResourceOverrides
   SoftwareUpdateConfiguration: !ruby/object:Provider::Azure::Terraform::ResourceOverride
-    properties:
-      resourceGroup: !ruby/object:Provider::Azure::Terraform::PropertyOverride
-        name: resourceGroupName
-      provisioningState: !ruby/object:Provider::Azure::Terraform::PropertyOverride
-        exclude: true
-      type: !ruby/object:Provider::Azure::Terraform::PropertyOverride
-        exclude: true
-    acctests:
-      - !ruby/object:Provider::Azure::Terraform::AccTestDefinition
-        name: basic
-        steps: [basic]
-      - !ruby/object:Provider::Azure::Terraform::AccTestDefinition
-        name: complete
-        steps: [complete]
-      - !ruby/object:Provider::Azure::Terraform::AccTestDefinition
-        name: update
-        steps: [basic, complete]
-    document_examples:
-      - !ruby/object:Provider::Azure::Terraform::DocumentExampleReference
-        title: Example Usage
-        example_name: complete
-        resource_name_hints:
-          resourceGroups: example-rg
-          location: West US 2
-          SoftwareUpdateConfiguration: suconfiguration
-          AutomationAccount: automationaccount
+    properties: {}
