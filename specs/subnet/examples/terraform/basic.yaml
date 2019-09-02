@@ -1,0 +1,14 @@
+--- !ruby/object:Provider::Azure::Example
+resource: azurerm_subnet
+prerequisites:
+  - !ruby/object:Provider::Azure::ExampleReference
+    product: resourcegroup
+    example: basic
+  - !ruby/object:Provider::Azure::ExampleReference
+    product: virtualnetwork
+    example: basic
+properties:
+  name: "<%= get_resource_name('Subnet', 'Subnet') -%>"
+  resource_group_name: ${azurerm_resource_group.<%= resource_id_hint -%>.name}
+  virtual_network_name: ${azurerm_virtual_network.<%= resource_id_hint -%>.name}
+  address_prefix: "10.0.2.0/24"

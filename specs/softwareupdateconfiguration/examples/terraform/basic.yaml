@@ -7,13 +7,26 @@ prerequisites:
   - !ruby/object:Provider::Azure::ExampleReference
     product: automationaccount
     example: basic
+  - !ruby/object:Provider::Azure::ExampleReference
+    product: loganalyticsworksapce
+    example: basic
+  - !ruby/object:Provider::Azure::ExampleReference
+    product: loganalyticslinkedservice
+    example: basic
+  - !ruby/object:Provider::Azure::ExampleReference
+    product: virtualmachine
+    example: basic
+
 properties:
-  name: "<%= get_resource_name('SoftwareUpdateConfiguration', 'suconfiguration') -%>"
+  name: "<%= get_resource_name('SoftwareUpdateConfiguration', 'SUConfig') -%>"
   resource_group_name: ${azurerm_resource_group.<%= resource_id_hint -%>.name}
   automation_account_name: ${azurerm_automation_account.<%= resource_id_hint -%>.name}
   schedule_info:
-      start_time: "2019-08-24T03:56:08.45Z"
+      start_time: "2019-10-24T03:56:08.45Z"
       time_zone: America/Los_Angeles
   update_configuration:
       operating_system: Linux
-      azure_virtual_machines: [/subscriptions/85b3dbca-5974-4067-9669-67a141095a76/resourceGroups/Houk-Test-SUC_RG/providers/Microsoft.Compute/virtualMachines/Houk-Test-VM]
+      azure_virtual_machines: ["${azurerm_virtual_machine.<%= resource_id_hint -%>.id}"]
+      linux:
+        included_package_classifications: Critical
+        reboot_setting: IfRequired
