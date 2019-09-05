@@ -1,0 +1,9 @@
+--- !ruby/object:Provider::Ansible::Example
+task: !ruby/object:Provider::Ansible::Task
+  name: azure_rm_webapplicationfirewallpolicy
+  description: Deletes a WAF policy within a resource group
+  code:
+    resource_group: myResourceGroup
+    name: myApplicationGatewayWebApplicationFirewallPolicy
+    state: absent
+  

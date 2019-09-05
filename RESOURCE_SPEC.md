@@ -316,6 +316,7 @@ Besides the standard types, we introduced several Azure specific types as well:
 * `!ruby/object:Api::Azure::Type::ResourceGroupName`: the resource group name.
 * `!ruby/object:Api::Azure::Type::ResourceReference`: the ID of a resource.
 * `!ruby/object:Api::Azure::Type::Tags`: the tags in Azure resources.
+* `!ruby/object:Api::Azure::Type::BooleanEnum`: a boolean property based on a two-value enumeration type.
 
 All types supports the following attributes:
 
@@ -366,6 +367,13 @@ properties: <sub-properties of this structure>
 
 ```yaml
 resource_type_name: <User-readable type name of this reference, it will be used in Ansible documentation>
+```
+
+`!ruby/object:Api::Azure::Type::BooleanEnum` supports the following:
+
+```yaml
+true_value: <A symbol represents the enumeration value corresponding to true>
+false_value: <A symbol represents the enumeration value corresponding to false>
 ```
 
 To support nested-object in an array, we can use the following snippet (notice the indentation level of `properties`):
