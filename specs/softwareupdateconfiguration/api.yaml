@@ -231,9 +231,9 @@ objects:
           '/scheduleInfo/advancedSchedule/weekDays': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             applicable_to: [python]
             python_field_name: week_days
-          '/scheduleInfo/advancedSchedule/monthDays': !ruby/object:Api::Azure::SDKTypeDefinition::Integer32ArrayObject
-            applicable_to: [python]
-            python_field_name: month_days
+          # '/scheduleInfo/advancedSchedule/monthDays': !ruby/object:Api::Azure::SDKTypeDefinition::IntegerObject
+          #   applicable_to: [python]
+          #   python_field_name: month_days
           '/scheduleInfo/advancedSchedule/monthlyOccurrences': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexArrayObject
             applicable_to: [python]
             python_field_name: monthly_occurrences
@@ -688,7 +688,7 @@ objects:
           '/scheduleInfo/advancedSchedule/weekDays': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             applicable_to: [python]
             python_field_name: week_days
-          '/scheduleInfo/advancedSchedule/monthDays': !ruby/object:Api::Azure::SDKTypeDefinition::Integer32ArrayObject
+          '/scheduleInfo/advancedSchedule/monthDays': !ruby/object:Api::Azure::SDKTypeDefinition::IntegerObject
             applicable_to: [python]
             python_field_name: month_days
           '/scheduleInfo/advancedSchedule/monthlyOccurrences': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexArrayObject
@@ -1105,6 +1105,7 @@ objects:
                 azure_sdk_references: ['/scheduleInfo/advancedSchedule/weekDays', '/properties/scheduleInfo/advancedSchedule/weekDays']
                 item_type: Api::Type::String
               - !ruby/object:Api::Type::Array
+                # exclude: true
                 name: 'monthDays'
                 description: 'Days of the month that the job should execute on. Must be between 1 and 31.'
                 required: false
