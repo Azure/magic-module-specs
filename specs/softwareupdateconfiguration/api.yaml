@@ -1105,7 +1105,7 @@ objects:
                 azure_sdk_references: ['/scheduleInfo/advancedSchedule/weekDays', '/properties/scheduleInfo/advancedSchedule/weekDays']
                 item_type: Api::Type::String
               - !ruby/object:Api::Type::Array
-                # exclude: true
+                exclude: true
                 name: 'monthDays'
                 description: 'Days of the month that the job should execute on. Must be between 1 and 31.'
                 required: false
