@@ -1,0 +1,1261 @@
+--- !ruby/object:Api::Product
+name: Azure WebApplicationFirewallPolicy Management
+versions:
+  - !ruby/object:Api::Product::Version
+    name: ga
+    base_url: NotUsedInAzure
+scopes:
+  - NotUsedInAzure
+objects:
+  - !ruby/object:Api::Resource
+    name: WebApplicationFirewallPolicy
+    api_name: Network
+    base_url: NotUsedInAzure
+
+    azure_sdk_definition: !ruby/object:Api::Azure::SDKDefinition
+      provider_name: Microsoft.Network
+      go_client_namespace: network
+      go_client: network.WebApplicationFirewallPoliciesClient
+      python_client_namespace: azure.mgmt.network
+      python_client: NetworkManagementClient.web_application_firewall_policies
+      create: !ruby/object:Api::Azure::SDKOperationDefinition
+        go_func_name: CreateOrUpdate
+        python_func_name: create_or_update
+        request:
+          'resourceGroupName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            id_portion: resourceGroups
+            go_variable_name: resourceGroup
+            python_parameter_name: resource_group_name
+            python_variable_name: resource_group
+          'policyName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            id_portion: ApplicationGatewayWebApplicationFirewallPolicies
+            go_variable_name: name
+            python_parameter_name: policy_name
+            python_variable_name: name
+          '/': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            go_variable_name: parameters
+            go_type_name: WebApplicationFirewallPolicy
+            python_parameter_name: parameters
+            python_variable_name: parameters
+          '/id': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            go_field_name: ID
+            python_field_name: id
+          '/location': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            go_field_name: Location
+            python_field_name: location
+          '/tags': !ruby/object:Api::Azure::SDKTypeDefinition::StringMapObject
+            go_field_name: Tags
+            python_field_name: tags
+          '/properties': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            applicable_to: [go]
+            go_field_name: WebApplicationFirewallPolicyPropertiesFormat
+            go_type_name: WebApplicationFirewallPolicyPropertiesFormat
+          '/policySettings': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            applicable_to: [python]
+            python_field_name: policy_settings
+          '/policySettings/enabledState': !ruby/object:Api::Azure::SDKTypeDefinition::EnumObject
+            applicable_to: [python]
+            python_field_name: enabled_state
+          '/policySettings/mode': !ruby/object:Api::Azure::SDKTypeDefinition::EnumObject
+            applicable_to: [python]
+            python_field_name: mode
+          '/properties/policySettings': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            applicable_to: [go]
+            go_field_name: PolicySettings
+            go_type_name: PolicySettings
+          '/properties/policySettings/enabledState': !ruby/object:Api::Azure::SDKTypeDefinition::EnumObject
+            applicable_to: [go]
+            go_field_name: EnabledState
+            go_enum_type_name: WebApplicationFirewallEnabledState
+            go_enum_const_prefix: WebApplicationFirewallEnabledState
+          '/properties/policySettings/mode': !ruby/object:Api::Azure::SDKTypeDefinition::EnumObject
+            applicable_to: [go]
+            go_field_name: Mode
+            go_enum_type_name: WebApplicationFirewallMode
+          '/customRules': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexArrayObject
+            applicable_to: [python]
+            python_field_name: custom_rules
+          '/customRules/name': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: name
+          '/customRules/priority': !ruby/object:Api::Azure::SDKTypeDefinition::IntegerObject
+            applicable_to: [python]
+            python_field_name: priority
+          '/customRules/ruleType': !ruby/object:Api::Azure::SDKTypeDefinition::EnumObject
+            applicable_to: [python]
+            python_field_name: rule_type
+          '/customRules/matchConditions': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexArrayObject
+            applicable_to: [python]
+            python_field_name: match_conditions
+          '/customRules/matchConditions/matchVariables': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexArrayObject
+            applicable_to: [python]
+            python_field_name: match_variables
+          '/customRules/matchConditions/matchVariables/variableName': !ruby/object:Api::Azure::SDKTypeDefinition::EnumObject
+            applicable_to: [python]
+            python_field_name: variable_name
+          '/customRules/matchConditions/matchVariables/selector': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: selector
+          '/customRules/matchConditions/operator': !ruby/object:Api::Azure::SDKTypeDefinition::EnumObject
+            applicable_to: [python]
+            python_field_name: operator
+          '/customRules/matchConditions/negationConditon': !ruby/object:Api::Azure::SDKTypeDefinition::BooleanObject
+            applicable_to: [python]
+            python_field_name: negation_conditon
+          '/customRules/matchConditions/matchValues': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: match_values
+          '/customRules/matchConditions/transforms': !ruby/object:Api::Azure::SDKTypeDefinition::EnumObject
+            applicable_to: [python]
+            python_field_name: transforms
+          '/customRules/action': !ruby/object:Api::Azure::SDKTypeDefinition::EnumObject
+            applicable_to: [python]
+            python_field_name: action
+          '/properties/customRules': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexArrayObject
+            applicable_to: [go]
+            go_field_name: CustomRules
+            go_type_name: WebApplicationFirewallCustomRule
+          '/properties/customRules/name': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: Name
+          '/properties/customRules/priority': !ruby/object:Api::Azure::SDKTypeDefinition::Integer32Object
+            applicable_to: [go]
+            go_field_name: Priority
+          '/properties/customRules/ruleType': !ruby/object:Api::Azure::SDKTypeDefinition::EnumObject
+            applicable_to: [go]
+            go_field_name: RuleType
+            go_enum_const_prefix: WebApplicationFirewallRuleType
+            go_enum_type_name: WebApplicationFirewallRuleType
+          '/properties/customRules/matchConditions': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexArrayObject
+            applicable_to: [go]
+            go_field_name: MatchConditions
+            go_type_name: MatchCondition
+          '/properties/customRules/matchConditions/matchVariables': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexArrayObject
+            applicable_to: [go]
+            go_field_name: MatchVariables
+            go_type_name: MatchVariable
+          '/properties/customRules/matchConditions/matchVariables/variableName': !ruby/object:Api::Azure::SDKTypeDefinition::EnumObject
+            applicable_to: [go]
+            go_field_name: VariableName
+            go_enum_type_name: WebApplicationFirewallMatchVariable
+          '/properties/customRules/matchConditions/matchVariables/selector': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: Selector
+          '/properties/customRules/matchConditions/operator': !ruby/object:Api::Azure::SDKTypeDefinition::EnumObject
+            applicable_to: [go]
+            go_field_name: Operator
+            go_enum_const_prefix: WebApplicationFirewallOperator
+            go_enum_type_name: WebApplicationFirewallOperator
+          '/properties/customRules/matchConditions/negationConditon': !ruby/object:Api::Azure::SDKTypeDefinition::BooleanObject
+            applicable_to: [go]
+            go_field_name: NegationConditon
+          '/properties/customRules/matchConditions/matchValues': !ruby/object:Api::Azure::SDKTypeDefinition::StringArrayObject
+            applicable_to: [go]
+            go_field_name: MatchValues
+          '/properties/customRules/matchConditions/transforms': !ruby/object:Api::Azure::SDKTypeDefinition::EnumObject
+            applicable_to: [go]
+            go_field_name: Transforms
+            go_enum_type_name: WebApplicationFirewallTransform
+          '/properties/customRules/action': !ruby/object:Api::Azure::SDKTypeDefinition::EnumObject
+            applicable_to: [go]
+            go_field_name: Action
+            go_enum_const_prefix: WebApplicationFirewallAction
+            go_enum_type_name: WebApplicationFirewallAction
+          '/etag': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            go_field_name: Etag
+            python_field_name: etag
+      delete: !ruby/object:Api::Azure::SDKOperationDefinition
+        async: true
+        go_func_name: Delete
+        python_func_name: delete
+        request:
+          'resourceGroupName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            id_portion: resourceGroups
+            go_variable_name: resourceGroup
+            python_parameter_name: resource_group_name
+            python_variable_name: resource_group
+          'policyName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            id_portion: ApplicationGatewayWebApplicationFirewallPolicies
+            go_variable_name: name
+            python_parameter_name: policy_name
+            python_variable_name: name
+      read: !ruby/object:Api::Azure::SDKOperationDefinition
+        go_func_name: Get
+        python_func_name: get
+        request:
+          'resourceGroupName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            id_portion: resourceGroups
+            go_variable_name: resourceGroup
+            python_parameter_name: resource_group_name
+            python_variable_name: resource_group
+          'policyName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            id_portion: ApplicationGatewayWebApplicationFirewallPolicies
+            go_variable_name: name
+            python_parameter_name: policy_name
+            python_variable_name: name
+        response:
+          '/id': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            go_field_name: ID
+            python_field_name: id
+          '/location': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            go_field_name: Location
+            python_field_name: location
+          '/tags': !ruby/object:Api::Azure::SDKTypeDefinition::StringMapObject
+            go_field_name: Tags
+            python_field_name: tags
+          '/properties': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            applicable_to: [go]
+            go_field_name: WebApplicationFirewallPolicyPropertiesFormat
+            go_type_name: WebApplicationFirewallPolicyPropertiesFormat
+          '/properties/policySettings': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            applicable_to: [go]
+            go_field_name: PolicySettings
+            go_type_name: PolicySettings
+          '/properties/policySettings/enabledState': !ruby/object:Api::Azure::SDKTypeDefinition::EnumObject
+            applicable_to: [go]
+            go_field_name: EnabledState
+            go_enum_type_name: WebApplicationFirewallEnabledState
+            go_enum_const_prefix: WebApplicationFirewallEnabledState
+          '/properties/policySettings/mode': !ruby/object:Api::Azure::SDKTypeDefinition::EnumObject
+            applicable_to: [go]
+            go_field_name: Mode
+            go_enum_type_name: WebApplicationFirewallMode
+          '/policySettings': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            applicable_to: [python]
+            python_field_name: policy_settings
+          '/policySettings/enabledState': !ruby/object:Api::Azure::SDKTypeDefinition::EnumObject
+            applicable_to: [python]
+            python_field_name: enabled_state
+          '/policySettings/mode': !ruby/object:Api::Azure::SDKTypeDefinition::EnumObject
+            applicable_to: [python]
+            python_field_name: mode
+          '/properties/customRules': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexArrayObject
+            applicable_to: [go]
+            go_field_name: CustomRules
+            go_type_name: WebApplicationFirewallCustomRule
+          '/properties/customRules/name': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: Name
+          '/properties/customRules/priority': !ruby/object:Api::Azure::SDKTypeDefinition::Integer32Object
+            applicable_to: [go]
+            go_field_name: Priority
+          '/properties/customRules/ruleType': !ruby/object:Api::Azure::SDKTypeDefinition::EnumObject
+            applicable_to: [go]
+            go_field_name: RuleType
+            go_enum_type_name: WebApplicationFirewallRuleType
+          '/properties/customRules/matchConditions': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexArrayObject
+            applicable_to: [go]
+            go_field_name: MatchConditions
+            go_type_name: MatchCondition
+          '/properties/customRules/matchConditions/matchVariables': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexArrayObject
+            applicable_to: [go]
+            go_field_name: MatchVariables
+            go_type_name: MatchVariable
+          '/properties/customRules/matchConditions/matchVariables/variableName': !ruby/object:Api::Azure::SDKTypeDefinition::EnumObject
+            applicable_to: [go]
+            go_field_name: VariableName
+            go_enum_type_name: WebApplicationFirewallMatchVariable
+          '/properties/customRules/matchConditions/matchVariables/selector': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: Selector
+          '/properties/customRules/matchConditions/operator': !ruby/object:Api::Azure::SDKTypeDefinition::EnumObject
+            applicable_to: [go]
+            go_field_name: Operator
+            go_enum_type_name: WebApplicationFirewallOperator
+          '/properties/customRules/matchConditions/negationConditon': !ruby/object:Api::Azure::SDKTypeDefinition::BooleanObject
+            applicable_to: [go]
+            go_field_name: NegationConditon
+          '/properties/customRules/matchConditions/matchValues': !ruby/object:Api::Azure::SDKTypeDefinition::StringArrayObject
+            applicable_to: [go]
+            go_field_name: MatchValues
+          '/properties/customRules/matchConditions/transforms': !ruby/object:Api::Azure::SDKTypeDefinition::EnumObject
+            applicable_to: [go]
+            go_field_name: Transforms
+            go_enum_type_name: WebApplicationFirewallTransform
+          '/properties/customRules/action': !ruby/object:Api::Azure::SDKTypeDefinition::EnumObject
+            applicable_to: [go]
+            go_field_name: Action
+            go_enum_type_name: WebApplicationFirewallAction
+          '/properties/customRules/etag': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: Etag
+          '/customRules': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexArrayObject
+            applicable_to: [python]
+            python_field_name: custom_rules
+          '/customRules/name': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: name
+          '/customRules/priority': !ruby/object:Api::Azure::SDKTypeDefinition::IntegerObject
+            applicable_to: [python]
+            python_field_name: priority
+          '/customRules/ruleType': !ruby/object:Api::Azure::SDKTypeDefinition::EnumObject
+            applicable_to: [python]
+            python_field_name: rule_type
+          '/customRules/matchConditions': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexArrayObject
+            applicable_to: [python]
+            python_field_name: match_conditions
+          '/customRules/matchConditions/matchVariables': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexArrayObject
+            applicable_to: [python]
+            python_field_name: match_variables
+          '/customRules/matchConditions/matchVariables/variableName': !ruby/object:Api::Azure::SDKTypeDefinition::EnumObject
+            applicable_to: [python]
+            python_field_name: variable_name
+          '/customRules/matchConditions/matchVariables/selector': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: selector
+          '/customRules/matchConditions/operator': !ruby/object:Api::Azure::SDKTypeDefinition::EnumObject
+            applicable_to: [python]
+            python_field_name: operator
+          '/customRules/matchConditions/negationConditon': !ruby/object:Api::Azure::SDKTypeDefinition::BooleanObject
+            applicable_to: [python]
+            python_field_name: negation_conditon
+          '/customRules/matchConditions/matchValues': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: match_values
+          '/customRules/matchConditions/transforms': !ruby/object:Api::Azure::SDKTypeDefinition::EnumObject
+            applicable_to: [python]
+            python_field_name: transforms
+          '/customRules/action': !ruby/object:Api::Azure::SDKTypeDefinition::EnumObject
+            applicable_to: [python]
+            python_field_name: action
+          '/customRules/etag': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: etag
+          '/properties/applicationGateways': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexArrayObject
+            applicable_to: [go]
+            go_field_name: ApplicationGateways
+            go_type_name: ApplicationGateway
+          '/applicationGateways': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexArrayObject
+            applicable_to: [python]
+            python_field_name: application_gateways
+          '/properties/provisioningState': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: ProvisioningState
+          '/provisioningState': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: provisioning_state
+          '/properties/resourceState': !ruby/object:Api::Azure::SDKTypeDefinition::EnumObject
+            applicable_to: [go]
+            go_field_name: ResourceState
+            go_enum_type_name: WebApplicationFirewallPolicyResourceState
+          '/resourceState': !ruby/object:Api::Azure::SDKTypeDefinition::EnumObject
+            applicable_to: [python]
+            python_field_name: resource_state
+          '/etag': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            go_field_name: Etag
+            python_field_name: etag
+          '/name': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            go_field_name: Name
+            python_field_name: name
+          '/type': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            go_field_name: Type
+            python_field_name: type
+      list_by_subscription: !ruby/object:Api::Azure::SDKOperationDefinition
+        go_func_name: ListAll
+        python_func_name: list_all
+        request:
+      list_by_resource_group: !ruby/object:Api::Azure::SDKOperationDefinition
+        go_func_name: List
+        python_func_name: list
+        request:
+          'resourceGroupName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            id_portion: resourceGroups
+            go_variable_name: resourceGroup
+            python_parameter_name: resource_group_name
+            python_variable_name: resource_group
+
+    description: |
+      Manage Azure WebApplicationFirewallPolicy instance.
+    properties:
+      - !ruby/object:Api::Azure::Type::ResourceGroupName
+        name: 'resourceGroup'
+        description: 'The name of the resource group.'
+        required: true
+        input: true
+        sample_value: myResourceGroup
+        azure_sdk_references: ['resourceGroupName']
+      - !ruby/object:Api::Type::String
+        name: 'name'
+        description: 'The name of the policy.'
+        required: true
+        input: true
+        sample_value: 'myApplicationGatewayWebApplicationFirewallPolicy'
+        azure_sdk_references: ['policyName', '/name']
+      - !ruby/object:Api::Type::String
+        name: 'id'
+        description: 'Resource ID.'
+        required: false
+        output: true
+        azure_sdk_references: ['/id']
+      - !ruby/object:Api::Azure::Type::Location
+        name: 'location'
+        description: 'Resource location.'
+        required: false
+        input: true
+        sample_value: WestUs
+        azure_sdk_references: ['/location']
+      - !ruby/object:Api::Azure::Type::Tags
+        name: 'tags'
+        description: 'Resource tags.'
+        required: false
+        input: true
+        azure_sdk_references: ['tags', '/tags']
+      - !ruby/object:Api::Type::NestedObject
+        name: 'policySettings'
+        description: 'Describes  policySettings for policy'
+        required: false
+        azure_sdk_references: ['/policySettings', '/properties/policySettings']
+        properties:
+          - !ruby/object:Api::Type::Enum
+            name: 'enabledState'
+            description: 'Describes if the policy is in enabled state or disabled state'
+            required: false
+            values:
+              - :Disabled
+              - :Enabled
+            default_value: :Disabled
+            azure_sdk_references: ['/policySettings/enabledState', '/properties/policySettings/enabledState']
+          - !ruby/object:Api::Type::Enum
+            name: 'mode'
+            description: 'Describes if it is in detection mode  or prevention mode at policy level'
+            required: false
+            values:
+              - :Prevention
+              - :Detection
+            default_value: :Prevention
+            azure_sdk_references: ['/policySettings/mode', '/properties/policySettings/mode']
+      - !ruby/object:Api::Type::Array
+        name: 'customRules'
+        description: 'Describes custom rules inside the policy'
+        required: false
+        azure_sdk_references: ['/customRules', '/properties/customRules']
+        item_type: !ruby/object:Api::Type::NestedObject
+          properties:
+            - !ruby/object:Api::Type::String
+              name: 'name'
+              description: 'Gets name of the resource that is unique within a policy. This name can be used to access the resource.'
+              required: false
+              sample_value: 'Rule2'
+              azure_sdk_references: ['/customRules/name', '/properties/customRules/name']
+            - !ruby/object:Api::Type::Integer
+              name: 'priority'
+              description: 'Describes priority of the rule. Rules with a lower value will be evaluated before rules with a higher value'
+              required: true
+              sample_value: 2
+              azure_sdk_references: ['/customRules/priority', '/properties/customRules/priority']
+            - !ruby/object:Api::Type::Enum
+              name: 'ruleType'
+              description: 'Describes type of rule'
+              required: true
+              values:
+                - :MatchRule
+                - :Invalid
+              # default_value: :MatchRule
+              sample_value: MatchRule
+              azure_sdk_references: ['/customRules/ruleType', '/properties/customRules/ruleType']
+            - !ruby/object:Api::Type::Array
+              name: 'matchConditions'
+              description: 'List of match conditions'
+              required: true
+              azure_sdk_references: ['/customRules/matchConditions', '/properties/customRules/matchConditions']
+              item_type: !ruby/object:Api::Type::NestedObject
+                properties:
+                  - !ruby/object:Api::Type::Array
+                    name: 'matchVariables'
+                    description: 'List of match variables'
+                    required: true
+                    azure_sdk_references: ['/customRules/matchConditions/matchVariables', '/properties/customRules/matchConditions/matchVariables']
+                    item_type: !ruby/object:Api::Type::NestedObject
+                      properties:
+                        - !ruby/object:Api::Type::Enum
+                          name: 'variableName'
+                          description: 'Match Variable'
+                          required: true
+                          values:
+                            - :RemoteAddr
+                            - :RequestMethod
+                            - :QueryString
+                            - :PostArgs
+                            - :RequestURI
+                            - :RequestHeaders
+                            - :RequestBody
+                            - :RequestCookies
+                          # default_value: :RemoteAddr
+                          sample_value: RequestHeaders
+                          azure_sdk_references: ['/customRules/matchConditions/matchVariables/variableName', '/properties/customRules/matchConditions/matchVariables/variableName']
+                        - !ruby/object:Api::Type::String
+                          name: 'selector'
+                          description: 'Describes field of the matchVariable collection'
+                          required: false
+                          sample_value: 'UserAgent'
+                          azure_sdk_references: ['/customRules/matchConditions/matchVariables/selector', '/properties/customRules/matchConditions/matchVariables/selector']
+                  - !ruby/object:Api::Type::Enum
+                    name: 'operator'
+                    description: 'Describes operator to be matched'
+                    required: true
+                    values:
+                      - :IPMatch
+                      - :Equal
+                      - :Contains
+                      - :LessThan
+                      - :GreaterThan
+                      - :LessThanOrEqual
+                      - :GreaterThanOrEqual
+                      - :BeginsWith
+                      - :EndsWith
+                      - :Regex
+                    # default_value: :IPMatch
+                    sample_value: Contains
+                    azure_sdk_references: ['/customRules/matchConditions/operator', '/properties/customRules/matchConditions/operator']
+                  - !ruby/object:Api::Type::Boolean
+                    name: 'negationConditon'
+                    description: 'Describes if this is negate condition or not'
+                    required: false
+                    azure_sdk_references: ['/customRules/matchConditions/negationConditon', '/properties/customRules/matchConditions/negationConditon']
+                  - !ruby/object:Api::Type::Array
+                    name: 'matchValues'
+                    description: 'Match value'
+                    required: true
+                    sample_value: 'Windows'
+                    azure_sdk_references: ['/customRules/matchConditions/matchValues', '/properties/customRules/matchConditions/matchValues']
+                    item_type: Api::Type::String
+                  - !ruby/object:Api::Type::Enum
+                    exclude: true
+                    name: 'transforms'
+                    description: 'List of transforms'
+                    required: false
+                    values:
+                      - :Lowercase
+                      - :Trim
+                      - :UrlDecode
+                      - :UrlEncode
+                      - :RemoveNulls
+                      - :HtmlEntityDecode
+                    default_value: :Lowercase
+                    azure_sdk_references: ['/customRules/matchConditions/transforms', '/properties/customRules/matchConditions/transforms']
+            - !ruby/object:Api::Type::Enum
+              name: 'action'
+              description: 'Type of Actions'
+              required: true
+              values:
+                - :Allow
+                - :Block
+                - :Log
+              # default_value: :Allow
+              sample_value: Block
+              azure_sdk_references: ['/customRules/action', '/properties/customRules/action']
+      - !ruby/object:Api::Type::String
+        name: 'etag'
+        description: 'Gets a unique read-only string that changes whenever the resource is updated.'
+        required: false
+        input: true
+        azure_sdk_references: ['/etag']
+      # read only values included only in response
+      - !ruby/object:Api::Type::NestedObject
+        name: 'applicationGateways'
+        description: 'A collection of references to application gateways.'
+        output: true
+        azure_sdk_references: ['/applicationGateways', '/properties/applicationGateways']
+        properties:
+          - !ruby/object:Api::Type::String
+            name: 'id'
+            description: 'Resource ID.'
+            required: false
+            azure_sdk_references: ['/applicationGateways/id', '/properties/applicationGateways/id']
+          - !ruby/object:Api::Type::String
+            name: 'name'
+            description: 'Resource name.'
+            required: false
+            azure_sdk_references: ['/applicationGateways/name', '/properties/applicationGateways/name', '/name']
+          - !ruby/object:Api::Type::String
+            name: 'type'
+            description: 'Resource type.'
+            required: false
+            azure_sdk_references: ['/applicationGateways/type', '/properties/applicationGateways/type']
+          - !ruby/object:Api::Azure::Type::Location
+            name: 'location'
+            description: 'Resource location.'
+            required: false
+            input: true
+            azure_sdk_references: ['/applicationGateways/location', '/properties/applicationGateways/location']
+          - !ruby/object:Api::Azure::Type::Tags
+            name: 'tags'
+            description: 'Resource tags.'
+            required: false
+            azure_sdk_references: ['/applicationGateways/tags', '/properties/applicationGateways/tags']
+          - !ruby/object:Api::Type::NestedObject
+            name: 'sku'
+            description: 'SKU of the application gateway resource.'
+            required: false
+            azure_sdk_references: ['/applicationGateways/sku', '/properties/applicationGateways/properties/sku']
+            properties:
+              - !ruby/object:Api::Type::Enum
+                name: 'name'
+                description: 'Name of an application gateway SKU.'
+                required: false
+                values:
+                  - :Standard_Small
+                  - :Standard_Medium
+                  - :Standard_Large
+                  - :WAF_Medium
+                  - :WAF_Large
+                  - :Standard_v2
+                  - :WAF_v2
+                default_value: :Standard_Small
+                azure_sdk_references: ['/applicationGateways/sku/name', '/properties/applicationGateways/properties/sku/name', '/name']
+              - !ruby/object:Api::Type::Enum
+                name: 'tier'
+                description: 'Tier of an application gateway.'
+                required: false
+                values:
+                  - :Standard
+                  - :WAF
+                  - :Standard_v2
+                  - :WAF_v2
+                default_value: :Standard
+                azure_sdk_references: ['/applicationGateways/sku/tier', '/properties/applicationGateways/properties/sku/tier']
+              - !ruby/object:Api::Type::Integer
+                name: 'capacity'
+                description: 'Capacity (instance count) of an application gateway.'
+                required: false
+                azure_sdk_references: ['/applicationGateways/sku/capacity', '/properties/applicationGateways/properties/sku/capacity']
+          - !ruby/object:Api::Type::NestedObject
+            name: 'sslPolicy'
+            description: 'SSL policy of the application gateway resource.'
+            required: false
+            azure_sdk_references: ['/applicationGateways/sslPolicy', '/properties/applicationGateways/properties/sslPolicy']
+            properties:
+              - !ruby/object:Api::Type::Enum
+                name: 'disabledSslProtocols'
+                description: 'Ssl protocols to be disabled on application gateway.'
+                required: false
+                values:
+                  - :TLSv1_0
+                  - :TLSv1_1
+                  - :TLSv1_2
+                default_value: :TLSv1_0
+                azure_sdk_references: ['/applicationGateways/sslPolicy/disabledSslProtocols', '/properties/applicationGateways/properties/sslPolicy/disabledSslProtocols']
+              - !ruby/object:Api::Type::Enum
+                name: 'policyType'
+                description: 'Type of Ssl Policy'
+                required: false
+                values:
+                  - :Predefined
+                  - :Custom
+                default_value: :Predefined
+                azure_sdk_references: ['/applicationGateways/sslPolicy/policyType', '/properties/applicationGateways/properties/sslPolicy/policyType']
+              - !ruby/object:Api::Type::Enum
+                name: 'policyName'
+                description: 'Name of Ssl predefined policy'
+                required: false
+                values:
+                  - :AppGwSslPolicy20150501
+                  - :AppGwSslPolicy20170401
+                  - :AppGwSslPolicy20170401S
+                default_value: :AppGwSslPolicy20150501
+                azure_sdk_references: ['/applicationGateways/sslPolicy/policyName', '/properties/applicationGateways/properties/sslPolicy/policyName']
+              - !ruby/object:Api::Type::Enum
+                name: 'cipherSuites'
+                description: 'Ssl cipher suites to be enabled in the specified order to application gateway.'
+                required: false
+                values:
+                  - :TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384
+                  - :TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256
+                  - :TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA
+                  - :TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA
+                  - :TLS_DHE_RSA_WITH_AES_256_GCM_SHA384
+                  - :TLS_DHE_RSA_WITH_AES_128_GCM_SHA256
+                  - :TLS_DHE_RSA_WITH_AES_256_CBC_SHA
+                  - :TLS_DHE_RSA_WITH_AES_128_CBC_SHA
+                  - :TLS_RSA_WITH_AES_256_GCM_SHA384
+                  - :TLS_RSA_WITH_AES_128_GCM_SHA256
+                  - :TLS_RSA_WITH_AES_256_CBC_SHA256
+                  - :TLS_RSA_WITH_AES_128_CBC_SHA256
+                  - :TLS_RSA_WITH_AES_256_CBC_SHA
+                  - :TLS_RSA_WITH_AES_128_CBC_SHA
+                  - :TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384
+                  - :TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256
+                  - :TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384
+                  - :TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256
+                  - :TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA
+                  - :TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA
+                  - :TLS_DHE_DSS_WITH_AES_256_CBC_SHA256
+                  - :TLS_DHE_DSS_WITH_AES_128_CBC_SHA256
+                  - :TLS_DHE_DSS_WITH_AES_256_CBC_SHA
+                  - :TLS_DHE_DSS_WITH_AES_128_CBC_SHA
+                  - :TLS_RSA_WITH_3DES_EDE_CBC_SHA
+                  - :TLS_DHE_DSS_WITH_3DES_EDE_CBC_SHA
+                  - :TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256
+                  - :TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+                default_value: :TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384
+                azure_sdk_references: ['/applicationGateways/sslPolicy/cipherSuites', '/properties/applicationGateways/properties/sslPolicy/cipherSuites']
+              - !ruby/object:Api::Type::Enum
+                name: 'minProtocolVersion'
+                description: 'Minimum version of Ssl protocol to be supported on application gateway.'
+                required: false
+                values:
+                  - :TLSv1_0
+                  - :TLSv1_1
+                  - :TLSv1_2
+                default_value: :TLSv1_0
+                azure_sdk_references: ['/applicationGateways/sslPolicy/minProtocolVersion', '/properties/applicationGateways/properties/sslPolicy/minProtocolVersion']
+          - !ruby/object:Api::Type::Enum
+            name: 'operationalState'
+            description: 'Operational state of the application gateway resource.'
+            required: false
+            values:
+              - :Stopped
+              - :Starting
+              - :Running
+              - :Stopping
+            default_value: :Stopped
+            azure_sdk_references: ['/applicationGateways/operationalState', '/properties/applicationGateways/properties/operationalState']
+          - !ruby/object:Api::Type::NestedObject
+            name: 'gatewayIpconfigurations'
+            description: 'Subnets of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).'
+            required: false
+            azure_sdk_references: ['/applicationGateways/gatewayIPConfigurations', '/properties/applicationGateways/properties/gatewayIPConfigurations']
+            properties:
+              - !ruby/object:Api::Type::String
+                name: 'id'
+                description: 'Resource ID.'
+                required: false
+                azure_sdk_references: ['/applicationGateways/gatewayIPConfigurations/id', '/properties/applicationGateways/properties/gatewayIPConfigurations/id']
+              - !ruby/object:Api::Type::String
+                name: 'name'
+                description: 'Name of the IP configuration that is unique within an Application Gateway.'
+                required: false
+                azure_sdk_references: ['/applicationGateways/gatewayIPConfigurations/name', '/properties/applicationGateways/properties/gatewayIPConfigurations/name', '/name']
+              - !ruby/object:Api::Type::String
+                name: 'etag'
+                description: 'A unique read-only string that changes whenever the resource is updated.'
+                required: false
+                azure_sdk_references: ['/applicationGateways/gatewayIPConfigurations/etag', '/properties/applicationGateways/properties/gatewayIPConfigurations/etag']
+              - !ruby/object:Api::Type::String
+                name: 'type'
+                description: 'Type of the resource.'
+                required: false
+                azure_sdk_references: ['/applicationGateways/gatewayIPConfigurations/type', '/properties/applicationGateways/properties/gatewayIPConfigurations/type']
+          - !ruby/object:Api::Type::NestedObject
+            name: 'authenticationCertificates'
+            description: 'Authentication certificates of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).'
+            required: false
+            azure_sdk_references: ['/applicationGateways/authenticationCertificates', '/properties/applicationGateways/properties/authenticationCertificates']
+            properties:
+              - !ruby/object:Api::Type::String
+                name: 'id'
+                description: 'Resource ID.'
+                required: false
+                azure_sdk_references: ['/applicationGateways/authenticationCertificates/id', '/properties/applicationGateways/properties/authenticationCertificates/id']
+              - !ruby/object:Api::Type::String
+                name: 'name'
+                description: 'Name of the authentication certificate that is unique within an Application Gateway.'
+                required: false
+                azure_sdk_references: ['/applicationGateways/authenticationCertificates/name', '/properties/applicationGateways/properties/authenticationCertificates/name', '/name']
+              - !ruby/object:Api::Type::String
+                name: 'etag'
+                description: 'A unique read-only string that changes whenever the resource is updated.'
+                required: false
+                azure_sdk_references: ['/applicationGateways/authenticationCertificates/etag', '/properties/applicationGateways/properties/authenticationCertificates/etag']
+              - !ruby/object:Api::Type::String
+                name: 'type'
+                description: 'Type of the resource.'
+                required: false
+                azure_sdk_references: ['/applicationGateways/authenticationCertificates/type', '/properties/applicationGateways/properties/authenticationCertificates/type']
+          - !ruby/object:Api::Type::NestedObject
+            name: 'trustedRootCertificates'
+            description: 'Trusted Root certificates of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).'
+            required: false
+            azure_sdk_references: ['/applicationGateways/trustedRootCertificates', '/properties/applicationGateways/properties/trustedRootCertificates']
+            properties:
+              - !ruby/object:Api::Type::String
+                name: 'id'
+                description: 'Resource ID.'
+                required: false
+                azure_sdk_references: ['/applicationGateways/trustedRootCertificates/id', '/properties/applicationGateways/properties/trustedRootCertificates/id']
+              - !ruby/object:Api::Type::String
+                name: 'name'
+                description: 'Name of the trusted root certificate that is unique within an Application Gateway.'
+                required: false
+                azure_sdk_references: ['/applicationGateways/trustedRootCertificates/name', '/properties/applicationGateways/properties/trustedRootCertificates/name', '/name']
+              - !ruby/object:Api::Type::String
+                name: 'etag'
+                description: 'A unique read-only string that changes whenever the resource is updated.'
+                required: false
+                azure_sdk_references: ['/applicationGateways/trustedRootCertificates/etag', '/properties/applicationGateways/properties/trustedRootCertificates/etag']
+              - !ruby/object:Api::Type::String
+                name: 'type'
+                description: 'Type of the resource.'
+                required: false
+                azure_sdk_references: ['/applicationGateways/trustedRootCertificates/type', '/properties/applicationGateways/properties/trustedRootCertificates/type']
+          - !ruby/object:Api::Type::NestedObject
+            name: 'sslCertificates'
+            description: 'SSL certificates of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).'
+            required: false
+            azure_sdk_references: ['/applicationGateways/sslCertificates', '/properties/applicationGateways/properties/sslCertificates']
+            properties:
+              - !ruby/object:Api::Type::String
+                name: 'id'
+                description: 'Resource ID.'
+                required: false
+                azure_sdk_references: ['/applicationGateways/sslCertificates/id', '/properties/applicationGateways/properties/sslCertificates/id']
+              - !ruby/object:Api::Type::String
+                name: 'name'
+                description: 'Name of the SSL certificate that is unique within an Application Gateway.'
+                required: false
+                azure_sdk_references: ['/applicationGateways/sslCertificates/name', '/properties/applicationGateways/properties/sslCertificates/name', '/name']
+              - !ruby/object:Api::Type::String
+                name: 'etag'
+                description: 'A unique read-only string that changes whenever the resource is updated.'
+                required: false
+                azure_sdk_references: ['/applicationGateways/sslCertificates/etag', '/properties/applicationGateways/properties/sslCertificates/etag']
+              - !ruby/object:Api::Type::String
+                name: 'type'
+                description: 'Type of the resource.'
+                required: false
+                azure_sdk_references: ['/applicationGateways/sslCertificates/type', '/properties/applicationGateways/properties/sslCertificates/type']
+          - !ruby/object:Api::Type::NestedObject
+            name: 'frontendIpconfigurations'
+            description: 'Frontend IP addresses of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).'
+            required: false
+            azure_sdk_references: ['/applicationGateways/frontendIPConfigurations', '/properties/applicationGateways/properties/frontendIPConfigurations']
+            properties:
+              - !ruby/object:Api::Type::String
+                name: 'id'
+                description: 'Resource ID.'
+                required: false
+                azure_sdk_references: ['/applicationGateways/frontendIPConfigurations/id', '/properties/applicationGateways/properties/frontendIPConfigurations/id']
+              - !ruby/object:Api::Type::String
+                name: 'name'
+                description: 'Name of the frontend IP configuration that is unique within an Application Gateway.'
+                required: false
+                azure_sdk_references: ['/applicationGateways/frontendIPConfigurations/name', '/properties/applicationGateways/properties/frontendIPConfigurations/name', '/name']
+              - !ruby/object:Api::Type::String
+                name: 'etag'
+                description: 'A unique read-only string that changes whenever the resource is updated.'
+                required: false
+                azure_sdk_references: ['/applicationGateways/frontendIPConfigurations/etag', '/properties/applicationGateways/properties/frontendIPConfigurations/etag']
+              - !ruby/object:Api::Type::String
+                name: 'type'
+                description: 'Type of the resource.'
+                required: false
+                azure_sdk_references: ['/applicationGateways/frontendIPConfigurations/type', '/properties/applicationGateways/properties/frontendIPConfigurations/type']
+          - !ruby/object:Api::Type::NestedObject
+            name: 'frontendPorts'
+            description: 'Frontend ports of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).'
+            required: false
+            azure_sdk_references: ['/applicationGateways/frontendPorts', '/properties/applicationGateways/properties/frontendPorts']
+            properties:
+              - !ruby/object:Api::Type::String
+                name: 'id'
+                description: 'Resource ID.'
+                required: false
+                azure_sdk_references: ['/applicationGateways/frontendPorts/id', '/properties/applicationGateways/properties/frontendPorts/id']
+              - !ruby/object:Api::Type::String
+                name: 'name'
+                description: 'Name of the frontend port that is unique within an Application Gateway'
+                required: false
+                azure_sdk_references: ['/applicationGateways/frontendPorts/name', '/properties/applicationGateways/properties/frontendPorts/name', '/name']
+              - !ruby/object:Api::Type::String
+                name: 'etag'
+                description: 'A unique read-only string that changes whenever the resource is updated.'
+                required: false
+                azure_sdk_references: ['/applicationGateways/frontendPorts/etag', '/properties/applicationGateways/properties/frontendPorts/etag']
+              - !ruby/object:Api::Type::String
+                name: 'type'
+                description: 'Type of the resource.'
+                required: false
+                azure_sdk_references: ['/applicationGateways/frontendPorts/type', '/properties/applicationGateways/properties/frontendPorts/type']
+          - !ruby/object:Api::Type::NestedObject
+            name: 'probes'
+            description: 'Probes of the application gateway resource.'
+            required: false
+            azure_sdk_references: ['/applicationGateways/probes', '/properties/applicationGateways/properties/probes']
+            properties:
+              - !ruby/object:Api::Type::String
+                name: 'id'
+                description: 'Resource ID.'
+                required: false
+                azure_sdk_references: ['/applicationGateways/probes/id', '/properties/applicationGateways/properties/probes/id']
+              - !ruby/object:Api::Type::String
+                name: 'name'
+                description: 'Name of the probe that is unique within an Application Gateway.'
+                required: false
+                azure_sdk_references: ['/applicationGateways/probes/name', '/properties/applicationGateways/properties/probes/name', '/name']
+              - !ruby/object:Api::Type::String
+                name: 'etag'
+                description: 'A unique read-only string that changes whenever the resource is updated.'
+                required: false
+                azure_sdk_references: ['/applicationGateways/probes/etag', '/properties/applicationGateways/properties/probes/etag']
+              - !ruby/object:Api::Type::String
+                name: 'type'
+                description: 'Type of the resource.'
+                required: false
+                azure_sdk_references: ['/applicationGateways/probes/type', '/properties/applicationGateways/properties/probes/type']
+          - !ruby/object:Api::Type::NestedObject
+            name: 'backendAddressPools'
+            description: 'Backend address pool of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).'
+            required: false
+            azure_sdk_references: ['/applicationGateways/backendAddressPools', '/properties/applicationGateways/properties/backendAddressPools']
+            properties:
+              - !ruby/object:Api::Type::String
+                name: 'id'
+                description: 'Resource ID.'
+                required: false
+                azure_sdk_references: ['/applicationGateways/backendAddressPools/id', '/properties/applicationGateways/properties/backendAddressPools/id']
+              - !ruby/object:Api::Type::String
+                name: 'name'
+                description: 'Name of the backend address pool that is unique within an Application Gateway.'
+                required: false
+                azure_sdk_references: ['/applicationGateways/backendAddressPools/name', '/properties/applicationGateways/properties/backendAddressPools/name', '/name']
+              - !ruby/object:Api::Type::String
+                name: 'etag'
+                description: 'A unique read-only string that changes whenever the resource is updated.'
+                required: false
+                azure_sdk_references: ['/applicationGateways/backendAddressPools/etag', '/properties/applicationGateways/properties/backendAddressPools/etag']
+              - !ruby/object:Api::Type::String
+                name: 'type'
+                description: 'Type of the resource.'
+                required: false
+                azure_sdk_references: ['/applicationGateways/backendAddressPools/type', '/properties/applicationGateways/properties/backendAddressPools/type']
+          - !ruby/object:Api::Type::NestedObject
+            name: 'backendHttpSettingsCollection'
+            description: 'Backend http settings of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).'
+            required: false
+            azure_sdk_references: ['/applicationGateways/backendHttpSettingsCollection', '/properties/applicationGateways/properties/backendHttpSettingsCollection']
+            properties:
+              - !ruby/object:Api::Type::String
+                name: 'id'
+                description: 'Resource ID.'
+                required: false
+                azure_sdk_references: ['/applicationGateways/backendHttpSettingsCollection/id', '/properties/applicationGateways/properties/backendHttpSettingsCollection/id']
+              - !ruby/object:Api::Type::String
+                name: 'name'
+                description: 'Name of the backend http settings that is unique within an Application Gateway.'
+                required: false
+                azure_sdk_references: ['/applicationGateways/backendHttpSettingsCollection/name', '/properties/applicationGateways/properties/backendHttpSettingsCollection/name', '/name']
+              - !ruby/object:Api::Type::String
+                name: 'etag'
+                description: 'A unique read-only string that changes whenever the resource is updated.'
+                required: false
+                azure_sdk_references: ['/applicationGateways/backendHttpSettingsCollection/etag', '/properties/applicationGateways/properties/backendHttpSettingsCollection/etag']
+              - !ruby/object:Api::Type::String
+                name: 'type'
+                description: 'Type of the resource.'
+                required: false
+                azure_sdk_references: ['/applicationGateways/backendHttpSettingsCollection/type', '/properties/applicationGateways/properties/backendHttpSettingsCollection/type']
+          - !ruby/object:Api::Type::NestedObject
+            name: 'httpListeners'
+            description: 'Http listeners of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).'
+            required: false
+            azure_sdk_references: ['/applicationGateways/httpListeners', '/properties/applicationGateways/properties/httpListeners']
+            properties:
+              - !ruby/object:Api::Type::String
+                name: 'id'
+                description: 'Resource ID.'
+                required: false
+                azure_sdk_references: ['/applicationGateways/httpListeners/id', '/properties/applicationGateways/properties/httpListeners/id']
+              - !ruby/object:Api::Type::String
+                name: 'name'
+                description: 'Name of the HTTP listener that is unique within an Application Gateway.'
+                required: false
+                azure_sdk_references: ['/applicationGateways/httpListeners/name', '/properties/applicationGateways/properties/httpListeners/name', '/name']
+              - !ruby/object:Api::Type::String
+                name: 'etag'
+                description: 'A unique read-only string that changes whenever the resource is updated.'
+                required: false
+                azure_sdk_references: ['/applicationGateways/httpListeners/etag', '/properties/applicationGateways/properties/httpListeners/etag']
+              - !ruby/object:Api::Type::String
+                name: 'type'
+                description: 'Type of the resource.'
+                required: false
+                azure_sdk_references: ['/applicationGateways/httpListeners/type', '/properties/applicationGateways/properties/httpListeners/type']
+          - !ruby/object:Api::Type::NestedObject
+            name: 'urlPathMaps'
+            description: 'URL path map of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).'
+            required: false
+            azure_sdk_references: ['/applicationGateways/urlPathMaps', '/properties/applicationGateways/properties/urlPathMaps']
+            properties:
+              - !ruby/object:Api::Type::String
+                name: 'id'
+                description: 'Resource ID.'
+                required: false
+                azure_sdk_references: ['/applicationGateways/urlPathMaps/id', '/properties/applicationGateways/properties/urlPathMaps/id']
+              - !ruby/object:Api::Type::String
+                name: 'name'
+                description: 'Name of the URL path map that is unique within an Application Gateway.'
+                required: false
+                azure_sdk_references: ['/applicationGateways/urlPathMaps/name', '/properties/applicationGateways/properties/urlPathMaps/name', '/name']
+              - !ruby/object:Api::Type::String
+                name: 'etag'
+                description: 'A unique read-only string that changes whenever the resource is updated.'
+                required: false
+                azure_sdk_references: ['/applicationGateways/urlPathMaps/etag', '/properties/applicationGateways/properties/urlPathMaps/etag']
+              - !ruby/object:Api::Type::String
+                name: 'type'
+                description: 'Type of the resource.'
+                required: false
+                azure_sdk_references: ['/applicationGateways/urlPathMaps/type', '/properties/applicationGateways/properties/urlPathMaps/type']
+          - !ruby/object:Api::Type::NestedObject
+            name: 'requestRoutingRules'
+            description: 'Request routing rules of the application gateway resource.'
+            required: false
+            azure_sdk_references: ['/applicationGateways/requestRoutingRules', '/properties/applicationGateways/properties/requestRoutingRules']
+            properties:
+              - !ruby/object:Api::Type::String
+                name: 'id'
+                description: 'Resource ID.'
+                required: false
+                azure_sdk_references: ['/applicationGateways/requestRoutingRules/id', '/properties/applicationGateways/properties/requestRoutingRules/id']
+              - !ruby/object:Api::Type::String
+                name: 'name'
+                description: 'Name of the request routing rule that is unique within an Application Gateway.'
+                required: false
+                azure_sdk_references: ['/applicationGateways/requestRoutingRules/name', '/properties/applicationGateways/properties/requestRoutingRules/name', '/name']
+              - !ruby/object:Api::Type::String
+                name: 'etag'
+                description: 'A unique read-only string that changes whenever the resource is updated.'
+                required: false
+                azure_sdk_references: ['/applicationGateways/requestRoutingRules/etag', '/properties/applicationGateways/properties/requestRoutingRules/etag']
+              - !ruby/object:Api::Type::String
+                name: 'type'
+                description: 'Type of the resource.'
+                required: false
+                azure_sdk_references: ['/applicationGateways/requestRoutingRules/type', '/properties/applicationGateways/properties/requestRoutingRules/type']
+          - !ruby/object:Api::Type::NestedObject
+            name: 'rewriteRuleSets'
+            description: 'Rewrite rules for the application gateway resource.'
+            required: false
+            azure_sdk_references: ['/applicationGateways/rewriteRuleSets', '/properties/applicationGateways/properties/rewriteRuleSets']
+            properties:
+              - !ruby/object:Api::Type::String
+                name: 'id'
+                description: 'Resource ID.'
+                required: false
+                azure_sdk_references: ['/applicationGateways/rewriteRuleSets/id', '/properties/applicationGateways/properties/rewriteRuleSets/id']
+              - !ruby/object:Api::Type::String
+                name: 'name'
+                description: 'Name of the rewrite rule set that is unique within an Application Gateway.'
+                required: false
+                azure_sdk_references: ['/applicationGateways/rewriteRuleSets/name', '/properties/applicationGateways/properties/rewriteRuleSets/name', '/name']
+              - !ruby/object:Api::Type::String
+                name: 'etag'
+                description: 'A unique read-only string that changes whenever the resource is updated.'
+                required: false
+                azure_sdk_references: ['/applicationGateways/rewriteRuleSets/etag', '/properties/applicationGateways/properties/rewriteRuleSets/etag']
+          - !ruby/object:Api::Type::NestedObject
+            name: 'redirectConfigurations'
+            description: 'Redirect configurations of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).'
+            required: false
+            azure_sdk_references: ['/applicationGateways/redirectConfigurations', '/properties/applicationGateways/properties/redirectConfigurations']
+            properties:
+              - !ruby/object:Api::Type::String
+                name: 'id'
+                description: 'Resource ID.'
+                required: false
+                azure_sdk_references: ['/applicationGateways/redirectConfigurations/id', '/properties/applicationGateways/properties/redirectConfigurations/id']
+              - !ruby/object:Api::Type::String
+                name: 'name'
+                description: 'Name of the redirect configuration that is unique within an Application Gateway.'
+                required: false
+                azure_sdk_references: ['/applicationGateways/redirectConfigurations/name', '/properties/applicationGateways/properties/redirectConfigurations/name', '/name']
+              - !ruby/object:Api::Type::String
+                name: 'etag'
+                description: 'A unique read-only string that changes whenever the resource is updated.'
+                required: false
+                azure_sdk_references: ['/applicationGateways/redirectConfigurations/etag', '/properties/applicationGateways/properties/redirectConfigurations/etag']
+              - !ruby/object:Api::Type::String
+                name: 'type'
+                description: 'Type of the resource.'
+                required: false
+                azure_sdk_references: ['/applicationGateways/redirectConfigurations/type', '/properties/applicationGateways/properties/redirectConfigurations/type']
+          - !ruby/object:Api::Type::NestedObject
+            name: 'webApplicationFirewallConfiguration'
+            description: 'Web application firewall configuration.'
+            required: false
+            azure_sdk_references: ['/applicationGateways/webApplicationFirewallConfiguration', '/properties/applicationGateways/properties/webApplicationFirewallConfiguration']
+            properties:
+              - !ruby/object:Api::Type::Boolean
+                name: 'enabled'
+                description: 'Whether the web application firewall is enabled or not.'
+                required: true
+                azure_sdk_references: ['/applicationGateways/webApplicationFirewallConfiguration/enabled', '/properties/applicationGateways/properties/webApplicationFirewallConfiguration/enabled']
+              - !ruby/object:Api::Type::Enum
+                name: 'firewallMode'
+                description: 'Web application firewall mode.'
+                required: true
+                values:
+                  - :Detection
+                  - :Prevention
+                default_value: :Detection
+                azure_sdk_references: ['/applicationGateways/webApplicationFirewallConfiguration/firewallMode', '/properties/applicationGateways/properties/webApplicationFirewallConfiguration/firewallMode']
+              - !ruby/object:Api::Type::String
+                name: 'ruleSetType'
+                description: 'The type of the web application firewall rule set. Possible values are: ''OWASP''.'
+                required: true
+                azure_sdk_references: ['/applicationGateways/webApplicationFirewallConfiguration/ruleSetType', '/properties/applicationGateways/properties/webApplicationFirewallConfiguration/ruleSetType']
+              - !ruby/object:Api::Type::String
+                name: 'ruleSetVersion'
+                description: 'The version of the rule set type.'
+                required: true
+                azure_sdk_references: ['/applicationGateways/webApplicationFirewallConfiguration/ruleSetVersion', '/properties/applicationGateways/properties/webApplicationFirewallConfiguration/ruleSetVersion']
+              - !ruby/object:Api::Type::Boolean
+                name: 'requestBodyCheck'
+                description: 'Whether allow WAF to check request Body.'
+                required: false
+                azure_sdk_references: ['/applicationGateways/webApplicationFirewallConfiguration/requestBodyCheck', '/properties/applicationGateways/properties/webApplicationFirewallConfiguration/requestBodyCheck']
+              - !ruby/object:Api::Type::Integer
+                name: 'maxRequestBodySize'
+                description: 'Maximum request body size for WAF.'
+                required: false
+                azure_sdk_references: ['/applicationGateways/webApplicationFirewallConfiguration/maxRequestBodySize', '/properties/applicationGateways/properties/webApplicationFirewallConfiguration/maxRequestBodySize']
+              - !ruby/object:Api::Type::Integer
+                name: 'maxRequestBodySizeInKb'
+                description: 'Maximum request body size in Kb for WAF.'
+                required: false
+                azure_sdk_references: ['/applicationGateways/webApplicationFirewallConfiguration/maxRequestBodySizeInKb', '/properties/applicationGateways/properties/webApplicationFirewallConfiguration/maxRequestBodySizeInKb']
+              - !ruby/object:Api::Type::Integer
+                name: 'fileUploadLimitInMb'
+                description: 'Maximum file upload size in Mb for WAF.'
+                required: false
+                azure_sdk_references: ['/applicationGateways/webApplicationFirewallConfiguration/fileUploadLimitInMb', '/properties/applicationGateways/properties/webApplicationFirewallConfiguration/fileUploadLimitInMb']
+          - !ruby/object:Api::Type::NestedObject
+            name: 'firewallPolicy'
+            description: 'Reference of the FirewallPolicy resource.'
+            required: false
+            azure_sdk_references: ['/applicationGateways/firewallPolicy', '/properties/applicationGateways/properties/firewallPolicy']
+            properties:
+              - !ruby/object:Api::Type::String
+                name: 'id'
+                description: 'Resource ID.'
+                required: false
+                azure_sdk_references: ['/applicationGateways/firewallPolicy/id', '/properties/applicationGateways/properties/firewallPolicy/id']
+          - !ruby/object:Api::Type::Boolean
+            name: 'enableHttp2'
+            description: 'Whether HTTP2 is enabled on the application gateway resource.'
+            required: false
+            azure_sdk_references: ['/applicationGateways/enableHttp2', '/properties/applicationGateways/properties/enableHttp2']
+          - !ruby/object:Api::Type::Boolean
+            name: 'enableFips'
+            description: 'Whether FIPS is enabled on the application gateway resource.'
+            required: false
+            azure_sdk_references: ['/applicationGateways/enableFips', '/properties/applicationGateways/properties/enableFips']
+          - !ruby/object:Api::Type::NestedObject
+            name: 'autoscaleConfiguration'
+            description: 'Autoscale Configuration.'
+            required: false
+            azure_sdk_references: ['/applicationGateways/autoscaleConfiguration', '/properties/applicationGateways/properties/autoscaleConfiguration']
+            properties:
+              - !ruby/object:Api::Type::Integer
+                name: 'minCapacity'
+                description: 'Lower bound on number of Application Gateway capacity'
+                required: true
+                azure_sdk_references: ['/applicationGateways/autoscaleConfiguration/minCapacity', '/properties/applicationGateways/properties/autoscaleConfiguration/minCapacity']
+              - !ruby/object:Api::Type::Integer
+                name: 'maxCapacity'
+                description: 'Upper bound on number of Application Gateway capacity'
+                required: false
+                azure_sdk_references: ['/applicationGateways/autoscaleConfiguration/maxCapacity', '/properties/applicationGateways/properties/autoscaleConfiguration/maxCapacity']
+          - !ruby/object:Api::Type::String
+            name: 'resourceGuid'
+            description: 'Resource GUID property of the application gateway resource.'
+            required: false
+            azure_sdk_references: ['/applicationGateways/resourceGuid', '/properties/applicationGateways/properties/resourceGuid']
+          - !ruby/object:Api::Type::String
+            name: 'provisioningState'
+            description: 'Provisioning state of the application gateway resource. Possible values are: ''Updating'', ''Deleting'', and ''Failed''.'
+            required: false
+            azure_sdk_references: ['/applicationGateways/provisioningState', '/properties/applicationGateways/properties/provisioningState']
+          - !ruby/object:Api::Type::NestedObject
+            name: 'customErrorConfigurations'
+            description: 'Custom error configurations of the application gateway resource.'
+            required: false
+            azure_sdk_references: ['/applicationGateways/customErrorConfigurations', '/properties/applicationGateways/properties/customErrorConfigurations']
+            properties:
+              - !ruby/object:Api::Type::Enum
+                name: 'statusCode'
+                description: 'Status code of the application gateway customer error.'
+                required: false
+                values:
+                  - :HttpStatus403
+                  - :HttpStatus502
+                default_value: :HttpStatus403
+                azure_sdk_references: ['/applicationGateways/customErrorConfigurations/statusCode', '/properties/applicationGateways/properties/customErrorConfigurations/statusCode']
+              - !ruby/object:Api::Type::String
+                name: 'customErrorPageUrl'
+                description: 'Error page URL of the application gateway customer error.'
+                required: false
+                azure_sdk_references: ['/applicationGateways/customErrorConfigurations/customErrorPageUrl', '/properties/applicationGateways/properties/customErrorConfigurations/customErrorPageUrl']
+          - !ruby/object:Api::Type::String
+            name: 'etag'
+            description: 'A unique read-only string that changes whenever the resource is updated.'
+            required: false
+            azure_sdk_references: ['/applicationGateways/etag', '/properties/applicationGateways/etag']
+          - !ruby/object:Api::Type::String
+            name: 'zones'
+            description: 'A list of availability zones denoting where the resource needs to come from.'
+            required: false
+            azure_sdk_references: ['/applicationGateways/zones', '/properties/applicationGateways/zones']
+          - !ruby/object:Api::Type::NestedObject
+            name: 'identity'
+            description: 'The identity of the application gateway, if configured.'
+            required: false
+            azure_sdk_references: ['/applicationGateways/identity', '/properties/applicationGateways/identity']
+            properties:
+              - !ruby/object:Api::Type::String
+                name: 'principalId'
+                description: 'The principal id of the system assigned identity. This property will only be provided for a system assigned identity.'
+                required: false
+                azure_sdk_references: ['/applicationGateways/identity/principalId', '/properties/applicationGateways/identity/principalId']
+              - !ruby/object:Api::Type::String
+                name: 'tenantId'
+                description: 'The tenant id of the system assigned identity. This property will only be provided for a system assigned identity.'
+                required: false
+                azure_sdk_references: ['/applicationGateways/identity/tenantId', '/properties/applicationGateways/identity/tenantId']
+              - !ruby/object:Api::Type::Enum
+                name: 'type'
+                description: 'The type of identity used for the resource. The type ''SystemAssigned, UserAssigned'' includes both an implicitly created identity and a set of user assigned identities. The type ''None'' will remove any identities from the virtual machine.'
+                required: false
+                values:
+                  - :SystemAssigned
+                  - :UserAssigned
+                  - :SystemAssigned, UserAssigned
+                  - :None
+                default_value: :SystemAssigned
+                azure_sdk_references: ['/applicationGateways/identity/type', '/properties/applicationGateways/identity/type']
+              - !ruby/object:Api::Type::KeyValuePairs
+                name: 'userAssignedIdentities'
+                description: 'The list of user identities associated with resource. The user identity dictionary key references will be ARM resource ids in the form: ''/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}''.'
+                required: false
+                azure_sdk_references: ['/applicationGateways/identity/userAssignedIdentities', '/properties/applicationGateways/identity/userAssignedIdentities']
+      - !ruby/object:Api::Type::String
+        name: 'provisioningState'
+        description: 'Provisioning state of the WebApplicationFirewallPolicy.'
+        output: true
+        azure_sdk_references: ['/provisioningState', '/properties/provisioningState']
+      - !ruby/object:Api::Type::Enum
+        name: 'resourceState'
+        description: ''
+        output: true
+        values:
+          - :Creating
+          - :Enabling
+          - :Enabled
+          - :Disabling
+          - :Disabled
+          - :Deleting
+        default_value: :Creating
+        azure_sdk_references: ['/resourceState', '/properties/resourceState']
+      - !ruby/object:Api::Type::String
+        name: 'name'
+        description: 'Resource name.'
+        input: true
+        output: true
+        exclude: true
+        azure_sdk_references: ['/name']
+      - !ruby/object:Api::Type::String
+        name: 'type'
+        description: 'Resource type.'
+        input: true
+        output: true
+        azure_sdk_references: ['/type']

@@ -1,0 +1,14 @@
+--- !ruby/object:Provider::Azure::Example
+resource: azure_rm_batchapplication
+description: Create Batch Application
+prerequisites:
+  - !ruby/object:Provider::Azure::ExampleReference
+    product: storageaccount
+    example: basic
+  - !ruby/object:Provider::Azure::ExampleReference
+    product: batchaccount
+    example: basic
+properties:
+  resourceGroup: "<%= get_resource_name('resourceGroups', 'resource_group') -%>"
+  name: "<%= get_resource_name('batchApplications', 'batch_application_name', 'bap') -%>"
+  account_name: "<%= get_resource_name('batchAccounts', 'batch_account_name', 'ba') -%>"

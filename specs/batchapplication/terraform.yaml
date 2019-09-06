@@ -1,0 +1,29 @@
+--- !ruby/object:Provider::Azure::Terraform::Config
+overrides: !ruby/object:Overrides::ResourceOverrides
+  BatchApplication: !ruby/object:Provider::Azure::Terraform::ResourceOverride
+    azure_sdk_definition: !ruby/object:Api::Azure::SDKDefinitionOverride
+      create: !ruby/object:Api::Azure::SDKOperationDefinitionOverride
+        request:
+          '/': !ruby/object:Api::Azure::SDKTypeDefinitionOverride
+            is_pointer_type: true
+    properties:
+      resourceGroup: !ruby/object:Provider::Azure::Terraform::PropertyOverride
+        name: resourceGroupName
+      allowUpdates: !ruby/object:Provider::Azure::Terraform::PropertyOverride
+        default_value: true
+      etag: !ruby/object:Provider::Azure::Terraform::PropertyOverride
+        exclude: true
+    acctests:
+      - !ruby/object:Provider::Azure::Terraform::AccTestDefinition
+        name: basic
+        steps: [basic]
+    document_examples:
+      - !ruby/object:Provider::Azure::Terraform::DocumentExampleReference
+        title: Example Usage
+        example_name: basic
+        resource_name_hints:
+          resourceGroups: example-rg
+          storageAccounts: examplesa
+          batchAccounts: exampleba
+          applications: example-batch-application
+          location: West US 2

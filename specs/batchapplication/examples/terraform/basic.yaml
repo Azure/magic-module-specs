@@ -1,5 +1,5 @@
 --- !ruby/object:Provider::Azure::Example
-resource: azurerm_batch_account
+resource: azurerm_batch_application
 prerequisites:
   - !ruby/object:Provider::Azure::ExampleReference
     product: resourcegroup
@@ -7,9 +7,10 @@ prerequisites:
   - !ruby/object:Provider::Azure::ExampleReference
     product: storageaccount
     example: basic
+  - !ruby/object:Provider::Azure::ExampleReference
+    product: batchaccount
+    example: basic
 properties:
-  name: "<%= get_batch_account_name() -%>"
+  name: "<%= get_resource_name('applications', 'batchapp') -%>"
   resource_group_name: ${azurerm_resource_group.<%= resource_id_hint -%>.name}
-  location: ${azurerm_resource_group.<%= resource_id_hint -%>.location}
-  pool_allocation_mode: BatchService
-  storage_account_id: ${azurerm_storage_account.<%= resource_id_hint -%>.id}
+  account_name: ${azurerm_batch_account.<%= resource_id_hint -%>.name}

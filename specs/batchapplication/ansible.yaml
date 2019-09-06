@@ -1,0 +1,20 @@
+--- !ruby/object:Provider::Azure::Ansible::Config
+version_added: '2.9'
+author: Junyi Yi (@JunyiYi)
+overrides: !ruby/object:Overrides::ResourceOverrides
+  BatchApplication: !ruby/object:Provider::Azure::Ansible::ResourceOverride
+    properties:
+      etag: !ruby/object:Provider::Azure::Terraform::PropertyOverride
+        exclude: true
+    examples:
+      - !ruby/object:Provider::Azure::Ansible::DocumentExampleReference
+        example: basic
+        resource_name_hints:
+          resourceGroups: MyResGroup
+          storageAccounts: mystorageaccountname
+          batchAccounts: mybatchaccount
+          batchApplications: mybatchapplication
+    inttests:
+      - !ruby/object:Provider::Azure::Ansible::IntegrationTestDefinition
+        example: basic
+        delete_example: delete
