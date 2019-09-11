@@ -1,0 +1,598 @@
+--- !ruby/object:Api::Product
+name: Azure VirtualHub Management
+versions:
+  - !ruby/object:Api::Product::Version
+    name: ga
+    base_url: NotUsedInAzure
+scopes:
+  - NotUsedInAzure
+objects:
+  - !ruby/object:Api::Resource
+    name: VirtualHub
+    api_name: Networkvirtual_wan
+    base_url: NotUsedInAzure
+
+    azure_sdk_definition: !ruby/object:Api::Azure::SDKDefinition
+      provider_name: Microsoft.Network
+      go_client_namespace: network
+      go_client: network.VirtualHubClient
+      python_client_namespace: azure.mgmt.network
+      python_client: NetworkManagementClient.virtual_hubs
+      create: !ruby/object:Api::Azure::SDKOperationDefinition
+        async: true
+        go_func_name: CreateOrUpdate
+        python_func_name: create_or_update
+        request:
+          'resourceGroupName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            id_portion: resourceGroups
+            go_variable_name: resourceGroup
+            python_parameter_name: resource_group_name
+            python_variable_name: resource_group
+          'virtualHubName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            id_portion: virtualHubs
+            go_variable_name: name
+            python_parameter_name: virtual_hub_name
+            python_variable_name: name
+          '/': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            go_variable_name: virtualHubParameters
+            go_type_name: VirtualHub
+            python_parameter_name: virtual_hub_parameters
+            python_variable_name: virtual_hub_parameters
+          '/id': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            go_field_name: ID
+            python_field_name: id
+          '/location': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            go_field_name: Location
+            python_field_name: location
+          '/tags': !ruby/object:Api::Azure::SDKTypeDefinition::StringMapObject
+            go_field_name: Tags
+            python_field_name: tags
+          '/properties': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            applicable_to: [go]
+            go_field_name: VirtualHubProperties
+            go_type_name: VirtualHubProperties
+          '/virtualWan': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            applicable_to: [python]
+            python_field_name: virtual_wan
+          '/virtualWan/id': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: id
+          '/properties/virtualWan': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            applicable_to: [go]
+            go_field_name: VirtualWan
+            go_type_name: SubResource
+          '/properties/virtualWan/id': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: ID
+          '/vpnGateway': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            applicable_to: [python]
+            python_field_name: vpn_gateway
+          '/vpnGateway/id': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: id
+          '/properties/vpnGateway': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            applicable_to: [go]
+            go_field_name: VpnGateway
+            go_type_name: SubResource
+          '/properties/vpnGateway/id': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: ID
+          '/p2SVpnGateway': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            applicable_to: [python]
+            python_field_name: p2svpn_gateway
+          '/p2SVpnGateway/id': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: id
+          '/properties/p2SVpnGateway': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            applicable_to: [go]
+            go_field_name: P2svpnGateway
+            go_type_name: SubResource
+          '/properties/p2SVpnGateway/id': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: ID
+          '/expressRouteGateway': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            applicable_to: [python]
+            python_field_name: express_route_gateway
+          '/expressRouteGateway/id': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: id
+          '/properties/expressRouteGateway': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            applicable_to: [go]
+            go_field_name: expressRouteGateway
+            go_type_name: SubResource
+          '/properties/expressRouteGateway/id': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: ID
+          '/virtualNetworkConnections': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexArrayObject
+            applicable_to: [python]
+            python_field_name: virtual_network_connections
+          '/virtualNetworkConnections/id': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: id
+          '/virtualNetworkConnections/remoteVirtualNetwork': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            applicable_to: [python]
+            python_field_name: remote_virtual_network
+          '/virtualNetworkConnections/remoteVirtualNetwork/id': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: id
+          '/virtualNetworkConnections/allowHubToRemoteVnetTransit': !ruby/object:Api::Azure::SDKTypeDefinition::BooleanObject
+            applicable_to: [python]
+            python_field_name: allow_hub_to_remote_vnet_transit
+          '/virtualNetworkConnections/allowRemoteVnetToUseHubVnetGateways': !ruby/object:Api::Azure::SDKTypeDefinition::BooleanObject
+            applicable_to: [python]
+            python_field_name: allow_remote_vnet_to_use_hub_vnet_gateways
+          '/virtualNetworkConnections/enableInternetSecurity': !ruby/object:Api::Azure::SDKTypeDefinition::BooleanObject
+            applicable_to: [python]
+            python_field_name: enable_internet_security
+          '/virtualNetworkConnections/name': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: name
+          '/properties/virtualNetworkConnections': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexArrayObject
+            applicable_to: [go]
+            go_field_name: VirtualNetworkConnections
+            go_type_name: HubVirtualNetworkConnection
+          '/properties/virtualNetworkConnections/id': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: ID
+          '/properties/virtualNetworkConnections/properties': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            applicable_to: [go]
+            go_field_name: Properties
+            go_type_name: HubVirtualNetworkConnectionProperties
+          '/properties/virtualNetworkConnections/properties/remoteVirtualNetwork': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            applicable_to: [go]
+            go_field_name: RemoteVirtualNetwork
+            go_type_name: SubResource
+          '/properties/virtualNetworkConnections/properties/remoteVirtualNetwork/id': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: ID
+          '/properties/virtualNetworkConnections/properties/allowHubToRemoteVnetTransit': !ruby/object:Api::Azure::SDKTypeDefinition::BooleanObject
+            applicable_to: [go]
+            go_field_name: AllowHubToRemoteVnetTransit
+          '/properties/virtualNetworkConnections/properties/allowRemoteVnetToUseHubVnetGateways': !ruby/object:Api::Azure::SDKTypeDefinition::BooleanObject
+            applicable_to: [go]
+            go_field_name: AllowRemoteVnetToUseHubVnetGateways
+          '/properties/virtualNetworkConnections/properties/enableInternetSecurity': !ruby/object:Api::Azure::SDKTypeDefinition::BooleanObject
+            applicable_to: [go]
+            go_field_name: EnableInternetSecurity
+          '/properties/virtualNetworkConnections/name': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: Name
+          '/addressPrefix': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: address_prefix
+          '/properties/addressPrefix': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: AddressPrefix
+          '/routeTable': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            applicable_to: [python]
+            python_field_name: route_table
+          '/routeTable/routes': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexArrayObject
+            applicable_to: [python]
+            python_field_name: routes
+          '/routeTable/routes/addressPrefixes': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: address_prefixes
+          '/routeTable/routes/nextHopIpAddress': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: next_hop_ip_address
+          '/properties/routeTable': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            applicable_to: [go]
+            go_field_name: RouteTable
+            go_type_name: VirtualHubRouteTable
+          '/properties/routeTable/routes': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexArrayObject
+            applicable_to: [go]
+            go_field_name: Routes
+            go_type_name: VirtualHubRoute
+          '/properties/routeTable/routes/addressPrefixes': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: AddressPrefixes
+          '/properties/routeTable/routes/nextHopIpAddress': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: NextHopIpAddress
+      delete: !ruby/object:Api::Azure::SDKOperationDefinition
+        async: true
+        go_func_name: Delete
+        python_func_name: delete
+        request:
+          'resourceGroupName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            id_portion: resourceGroups
+            go_variable_name: resourceGroup
+            python_parameter_name: resource_group_name
+            python_variable_name: resource_group
+          'virtualHubName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            id_portion: virtualHubs
+            go_variable_name: name
+            python_parameter_name: virtual_hub_name
+            python_variable_name: name
+      read: !ruby/object:Api::Azure::SDKOperationDefinition
+        go_func_name: Get
+        python_func_name: get
+        request:
+          'resourceGroupName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            id_portion: resourceGroups
+            go_variable_name: resourceGroup
+            python_parameter_name: resource_group_name
+            python_variable_name: resource_group
+          'virtualHubName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            id_portion: virtualHubs
+            go_variable_name: name
+            python_parameter_name: virtual_hub_name
+            python_variable_name: name
+        response:
+          '/id': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            go_field_name: ID
+            python_field_name: id
+          '/location': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            go_field_name: Location
+            python_field_name: location
+          '/tags': !ruby/object:Api::Azure::SDKTypeDefinition::StringMapObject
+            go_field_name: Tags
+            python_field_name: tags
+          '/properties': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            applicable_to: [go]
+            go_field_name: VirtualHubProperties
+            go_type_name: VirtualHubProperties
+          '/properties/virtualWan': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            applicable_to: [go]
+            go_field_name: VirtualWan
+            go_type_name: SubResource
+          '/properties/virtualWan/id': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: ID
+          '/virtualWan': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            applicable_to: [python]
+            python_field_name: virtual_wan
+          '/virtualWan/id': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: id
+          '/properties/vpnGateway': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            applicable_to: [go]
+            go_field_name: VpnGateway
+            go_type_name: SubResource
+          '/properties/vpnGateway/id': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: ID
+          '/vpnGateway': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            applicable_to: [python]
+            python_field_name: vpn_gateway
+          '/vpnGateway/id': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: id
+          '/properties/p2SVpnGateway': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            applicable_to: [go]
+            go_field_name: P2svpnGateway
+            go_type_name: SubResource
+          '/properties/p2SVpnGateway/id': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: ID
+          '/p2SVpnGateway': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            applicable_to: [python]
+            python_field_name: p2svpn_gateway
+          '/p2SVpnGateway/id': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: id
+          '/properties/expressRouteGateway': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            applicable_to: [go]
+            go_field_name: expressRouteGateway
+            go_type_name: SubResource
+          '/properties/expressRouteGateway/id': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: ID
+          '/expressRouteGateway': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            applicable_to: [python]
+            python_field_name: express_route_gateway
+          '/expressRouteGateway/id': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: id
+          '/properties/virtualNetworkConnections': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexArrayObject
+            applicable_to: [go]
+            go_field_name: VirtualNetworkConnections
+            go_type_name: HubVirtualNetworkConnection
+          '/properties/virtualNetworkConnections/id': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: ID
+          '/properties/virtualNetworkConnections/properties': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            applicable_to: [go]
+            go_field_name: Properties
+            go_type_name: HubVirtualNetworkConnectionProperties
+          '/properties/virtualNetworkConnections/properties/remoteVirtualNetwork': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            applicable_to: [go]
+            go_field_name: RemoteVirtualNetwork
+            go_type_name: SubResource
+          '/properties/virtualNetworkConnections/properties/remoteVirtualNetwork/id': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: ID
+          '/properties/virtualNetworkConnections/properties/allowHubToRemoteVnetTransit': !ruby/object:Api::Azure::SDKTypeDefinition::BooleanObject
+            applicable_to: [go]
+            go_field_name: AllowHubToRemoteVnetTransit
+          '/properties/virtualNetworkConnections/properties/allowRemoteVnetToUseHubVnetGateways': !ruby/object:Api::Azure::SDKTypeDefinition::BooleanObject
+            applicable_to: [go]
+            go_field_name: AllowRemoteVnetToUseHubVnetGateways
+          '/properties/virtualNetworkConnections/properties/enableInternetSecurity': !ruby/object:Api::Azure::SDKTypeDefinition::BooleanObject
+            applicable_to: [go]
+            go_field_name: EnableInternetSecurity
+          '/properties/virtualNetworkConnections/properties/provisioningState': !ruby/object:Api::Azure::SDKTypeDefinition::EnumObject
+            applicable_to: [go]
+            go_field_name: ProvisioningState
+            go_enum_type_name: ProvisioningState
+          '/properties/virtualNetworkConnections/name': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: Name
+          '/properties/virtualNetworkConnections/etag': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: Etag
+          '/virtualNetworkConnections': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexArrayObject
+            applicable_to: [python]
+            python_field_name: virtual_network_connections
+          '/virtualNetworkConnections/id': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: id
+          '/virtualNetworkConnections/remoteVirtualNetwork': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            applicable_to: [python]
+            python_field_name: remote_virtual_network
+          '/virtualNetworkConnections/remoteVirtualNetwork/id': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: id
+          '/virtualNetworkConnections/allowHubToRemoteVnetTransit': !ruby/object:Api::Azure::SDKTypeDefinition::BooleanObject
+            applicable_to: [python]
+            python_field_name: allow_hub_to_remote_vnet_transit
+          '/virtualNetworkConnections/allowRemoteVnetToUseHubVnetGateways': !ruby/object:Api::Azure::SDKTypeDefinition::BooleanObject
+            applicable_to: [python]
+            python_field_name: allow_remote_vnet_to_use_hub_vnet_gateways
+          '/virtualNetworkConnections/enableInternetSecurity': !ruby/object:Api::Azure::SDKTypeDefinition::BooleanObject
+            applicable_to: [python]
+            python_field_name: enable_internet_security
+          '/virtualNetworkConnections/provisioningState': !ruby/object:Api::Azure::SDKTypeDefinition::EnumObject
+            applicable_to: [python]
+            python_field_name: provisioning_state
+          '/virtualNetworkConnections/name': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: name
+          '/virtualNetworkConnections/etag': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: etag
+          '/properties/addressPrefix': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: AddressPrefix
+          '/addressPrefix': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: address_prefix
+          '/properties/routeTable': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            applicable_to: [go]
+            go_field_name: RouteTable
+            go_type_name: VirtualHubRouteTable
+          '/properties/routeTable/routes': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexArrayObject
+            applicable_to: [go]
+            go_field_name: Routes
+            go_type_name: VirtualHubRoute
+          '/properties/routeTable/routes/addressPrefixes': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: AddressPrefixes
+          '/properties/routeTable/routes/nextHopIpAddress': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: NextHopIpAddress
+          '/routeTable': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            applicable_to: [python]
+            python_field_name: route_table
+          '/routeTable/routes': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexArrayObject
+            applicable_to: [python]
+            python_field_name: routes
+          '/routeTable/routes/addressPrefixes': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: address_prefixes
+          '/routeTable/routes/nextHopIpAddress': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: next_hop_ip_address
+          '/properties/provisioningState': !ruby/object:Api::Azure::SDKTypeDefinition::EnumObject
+            applicable_to: [go]
+            go_field_name: ProvisioningState
+            go_enum_type_name: ProvisioningState
+          '/provisioningState': !ruby/object:Api::Azure::SDKTypeDefinition::EnumObject
+            applicable_to: [python]
+            python_field_name: provisioning_state
+          '/name': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            go_field_name: Name
+            python_field_name: name
+          '/type': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            go_field_name: Type
+            python_field_name: type
+          '/etag': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            go_field_name: Etag
+            python_field_name: etag
+      list_by_subscription: !ruby/object:Api::Azure::SDKOperationDefinition
+        go_func_name: List
+        python_func_name: list
+        request:
+      list_by_resource_group: !ruby/object:Api::Azure::SDKOperationDefinition
+        go_func_name: ListByResourceGroup
+        python_func_name: list_by_resource_group
+        request:
+          'resourceGroupName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            id_portion: resourceGroups
+            go_variable_name: resourceGroup
+            python_parameter_name: resource_group_name
+            python_variable_name: resource_group
+
+    description: |
+      Manage Azure VirtualHub instance.
+    properties:
+      - !ruby/object:Api::Azure::Type::ResourceGroupName
+        name: 'resourceGroup'
+        description: 'The resource group name of the VirtualHub.'
+        required: true
+        input: true
+        sample_value: myResourceGroup
+        azure_sdk_references: ['resourceGroupName']
+      - !ruby/object:Api::Type::String
+        name: 'name'
+        description: 'The name of the VirtualHub.'
+        required: true
+        input: true
+        sample_value: 'myVirtualHub'
+        azure_sdk_references: ['virtualHubName', '/name']
+      - !ruby/object:Api::Type::String
+        exclude: true
+        name: 'id'
+        description: 'Resource ID.'
+        required: false
+        input: true
+        azure_sdk_references: ['/id']
+      - !ruby/object:Api::Azure::Type::Location
+        name: 'location'
+        description: 'Resource location.'
+        required: false
+        input: true
+        azure_sdk_references: ['/location']
+      - !ruby/object:Api::Azure::Type::Tags
+        name: 'tags'
+        description: 'Resource tags.'
+        required: false
+        input: true
+        azure_sdk_references: ['tags', '/tags']
+      - !ruby/object:Api::Type::NestedObject
+        name: 'virtualWan'
+        description: 'The VirtualWAN to which the VirtualHub belongs.'
+        required: false
+        azure_sdk_references: ['/virtualWan', '/properties/virtualWan']
+        properties:
+          - !ruby/object:Api::Type::String
+            name: 'id'
+            description: 'Resource ID.'
+            required: false
+            azure_sdk_references: ['/virtualWan/id', '/properties/virtualWan/id']
+      - !ruby/object:Api::Type::NestedObject
+        name: 'vpnGateway'
+        description: 'The VpnGateway associated with this VirtualHub.'
+        required: false
+        azure_sdk_references: ['/vpnGateway', '/properties/vpnGateway']
+        properties:
+          - !ruby/object:Api::Type::String
+            name: 'id'
+            description: 'Resource ID.'
+            required: false
+            azure_sdk_references: ['/vpnGateway/id', '/properties/vpnGateway/id']
+      - !ruby/object:Api::Type::NestedObject
+        name: 'p2svpnGateway'
+        description: 'The P2SVpnGateway associated with this VirtualHub.'
+        required: false
+        azure_sdk_references: ['/p2SVpnGateway', '/properties/p2SVpnGateway']
+        properties:
+          - !ruby/object:Api::Type::String
+            name: 'id'
+            description: 'Resource ID.'
+            required: false
+            azure_sdk_references: ['/p2SVpnGateway/id', '/properties/p2SVpnGateway/id']
+      - !ruby/object:Api::Type::NestedObject
+        name: 'expressRouteGateway'
+        description: 'The expressRouteGateway associated with this VirtualHub.'
+        required: false
+        azure_sdk_references: ['/expressRouteGateway', '/properties/expressRouteGateway']
+        properties:
+          - !ruby/object:Api::Type::String
+            name: 'id'
+            description: 'Resource ID.'
+            required: false
+            azure_sdk_references: ['/expressRouteGateway/id', '/properties/expressRouteGateway/id']
+      - !ruby/object:Api::Type::Array
+        name: 'virtualNetworkConnections'
+        description: 'List of all vnet connections with this VirtualHub.'
+        required: false
+        azure_sdk_references: ['/virtualNetworkConnections', '/properties/virtualNetworkConnections']
+        item_type: !ruby/object:Api::Type::NestedObject
+          properties:
+            - !ruby/object:Api::Type::String
+              name: 'id'
+              description: 'Resource ID.'
+              required: false
+              azure_sdk_references: ['/virtualNetworkConnections/id', '/properties/virtualNetworkConnections/id']
+            - !ruby/object:Api::Type::NestedObject
+              name: 'remoteVirtualNetwork'
+              description: 'Reference to the remote virtual network.'
+              required: false
+              azure_sdk_references: ['/virtualNetworkConnections/remoteVirtualNetwork', '/properties/virtualNetworkConnections/properties/remoteVirtualNetwork']
+              properties:
+                - !ruby/object:Api::Type::String
+                  name: 'id'
+                  description: 'Resource ID.'
+                  required: false
+                  azure_sdk_references: ['/virtualNetworkConnections/remoteVirtualNetwork/id', '/properties/virtualNetworkConnections/properties/remoteVirtualNetwork/id']
+            - !ruby/object:Api::Type::Boolean
+              name: 'allowHubToRemoteVnetTransit'
+              description: 'VirtualHub to RemoteVnet transit to enabled or not.'
+              required: false
+              azure_sdk_references: ['/virtualNetworkConnections/allowHubToRemoteVnetTransit', '/properties/virtualNetworkConnections/properties/allowHubToRemoteVnetTransit']
+            - !ruby/object:Api::Type::Boolean
+              name: 'allowRemoteVnetToUseHubVnetGateways'
+              description: 'Allow RemoteVnet to use Virtual Hub''s gateways.'
+              required: false
+              azure_sdk_references: ['/virtualNetworkConnections/allowRemoteVnetToUseHubVnetGateways', '/properties/virtualNetworkConnections/properties/allowRemoteVnetToUseHubVnetGateways']
+            - !ruby/object:Api::Type::Boolean
+              name: 'enableInternetSecurity'
+              description: 'Enable internet security.'
+              required: false
+              azure_sdk_references: ['/virtualNetworkConnections/enableInternetSecurity', '/properties/virtualNetworkConnections/properties/enableInternetSecurity']
+            - !ruby/object:Api::Type::String
+              name: 'name'
+              description: 'The name of the resource that is unique within a resource group. This name can be used to access the resource.'
+              required: false
+              azure_sdk_references: ['/virtualNetworkConnections/name', '/properties/virtualNetworkConnections/name']
+      - !ruby/object:Api::Type::String
+        name: 'addressPrefix'
+        description: 'Address-prefix for this VirtualHub.'
+        required: false
+        azure_sdk_references: ['/addressPrefix', '/properties/addressPrefix']
+      - !ruby/object:Api::Type::NestedObject
+        name: 'routeTable'
+        description: 'The routeTable associated with this virtual hub.'
+        required: false
+        azure_sdk_references: ['/routeTable', '/properties/routeTable']
+        properties:
+          - !ruby/object:Api::Type::Array
+            name: 'routes'
+            description: 'List of all routes.'
+            required: false
+            azure_sdk_references: ['/routeTable/routes', '/properties/routeTable/routes']
+            item_type: !ruby/object:Api::Type::NestedObject
+              properties:
+                - !ruby/object:Api::Type::Array
+                  name: 'addressPrefixes'
+                  item_type: Api::Type::String
+                  description: 'List of all addressPrefixes.'
+                  required: false
+                  azure_sdk_references: ['/routeTable/routes/addressPrefixes', '/properties/routeTable/routes/addressPrefixes']
+                - !ruby/object:Api::Type::String
+                  name: 'nextHopIpAddress'
+                  description: 'NextHop ip address.'
+                  required: false
+                  azure_sdk_references: ['/routeTable/routes/nextHopIpAddress', '/properties/routeTable/routes/nextHopIpAddress']
+      # read only values included only in response
+      - !ruby/object:Api::Type::Enum
+        name: 'provisioningState'
+        description: 'The provisioning state of the resource.'
+        output: true
+        values:
+          - :Succeeded
+          - :Updating
+          - :Deleting
+          - :Failed
+        default_value: :Succeeded
+        azure_sdk_references: ['/provisioningState', '/properties/provisioningState']
+      - !ruby/object:Api::Type::String
+        exclude: true
+        name: 'name'
+        description: 'Resource name.'
+        input: true
+        output: true
+        azure_sdk_references: ['/name']
+      - !ruby/object:Api::Type::String
+        name: 'type'
+        description: 'Resource type.'
+        input: true
+        output: true
+        azure_sdk_references: ['/type']
+      - !ruby/object:Api::Type::String
+        name: 'etag'
+        description: 'Gets a unique read-only string that changes whenever the resource is updated.'
+        input: true
+        output: true
+        azure_sdk_references: ['/etag']
