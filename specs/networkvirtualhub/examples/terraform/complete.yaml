@@ -1,0 +1,35 @@
+--- !ruby/object:Provider::Azure::Example
+resource: azurerm_virtual_hub
+prerequisites:
+  - !ruby/object:Provider::Azure::ExampleReference
+    product: resourcegroup
+    example: basic
+  - !ruby/object:Provider::Azure::ExampleReference
+    product: networkvirtualnetwork
+    example: basic
+  - !ruby/object:Provider::Azure::ExampleReference
+    product: networksubnet
+    example: basic
+  - !ruby/object:Provider::Azure::ExampleReference
+    product: networkvirtualwan
+    example: basic
+properties:
+  name: "<%= get_resource_name('virtualHubs', 'virtualhub') -%>"
+  resource_group: "${azurerm_resource_group.<%= resource_id_hint -%>.name}"
+  location: "${azurerm_resource_group.<%= resource_id_hint -%>.location}"
+  address_prefix: "10.0.1.0/24"
+  virtual_wan:
+    id: "${azurerm_virtual_wan.<%= resource_id_hint -%>.id}"
+  virtual_network_connections:
+    name: "testConnection"
+    remote_virtual_network:
+      id: "${azurerm_virtual_network.<%= resource_id_hint -%>.id}"
+    allow_hub_to_remote_vnet_transit: "false"
+    allow_remote_vnet_to_use_hub_vnet_gateways: "false"
+    enable_internet_security: "false"
+  route_table:
+    routes:
+      address_prefixes: ["10.0.2.0/24", "10.0.3.0/24"]
+      next_hop_ip_address: "10.0.4.6"
+  tags:
+    env: "test"
