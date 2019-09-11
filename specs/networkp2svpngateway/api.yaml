@@ -1,0 +1,389 @@
+--- !ruby/object:Api::Product
+name: Azure P2sVpnGateway Management
+versions:
+  - !ruby/object:Api::Product::Version
+    name: ga
+    base_url: NotUsedInAzure
+scopes:
+  - NotUsedInAzure
+objects:
+  - !ruby/object:Api::Resource
+    name: P2sVpnGateway
+    api_name: Network
+    base_url: NotUsedInAzure
+
+    azure_sdk_definition: !ruby/object:Api::Azure::SDKDefinition
+      provider_name: Microsoft.Network
+      go_client_namespace: network
+      go_client: network.P2sVpnGatewayClient
+      python_client_namespace: azure.mgmt.network
+      python_client: NetworkManagementClient.p2s_vpn_gateways
+      create: !ruby/object:Api::Azure::SDKOperationDefinition
+        async: true
+        go_func_name: CreateOrUpdate
+        python_func_name: create_or_update
+        request:
+          'resourceGroupName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            id_portion: resourceGroups
+            go_variable_name: resourceGroup
+            python_parameter_name: resource_group_name
+            python_variable_name: resource_group
+          'gatewayName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            id_portion: p2svpnGateways
+            go_variable_name: name
+            python_parameter_name: gateway_name
+            python_variable_name: name
+          '/': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            go_variable_name: p2svpnGatewayParameters
+            go_type_name: P2SVpnGateway
+            python_parameter_name: p2svpn_gateway_parameters
+            python_variable_name: p2svpn_gateway_parameters
+          '/id': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            go_field_name: ID
+            python_field_name: id
+          '/location': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            go_field_name: Location
+            python_field_name: location
+          '/tags': !ruby/object:Api::Azure::SDKTypeDefinition::StringMapObject
+            go_field_name: Tags
+            python_field_name: tags
+          '/properties': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            applicable_to: [go]
+            go_field_name: P2SVpnGatewayProperties
+            go_type_name: P2SVpnGatewayProperties
+          '/virtualHub': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            applicable_to: [python]
+            python_field_name: virtual_hub
+          '/virtualHub/id': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: id
+          '/properties/virtualHub': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            applicable_to: [go]
+            go_field_name: VirtualHub
+            go_type_name: SubResource
+          '/properties/virtualHub/id': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: ID
+          '/vpnGatewayScaleUnit': !ruby/object:Api::Azure::SDKTypeDefinition::IntegerObject
+            applicable_to: [python]
+            python_field_name: vpn_gateway_scale_unit
+          '/properties/vpnGatewayScaleUnit': !ruby/object:Api::Azure::SDKTypeDefinition::Integer32Object
+            applicable_to: [go]
+            go_field_name: VpnGatewayScaleUnit
+          '/p2SVpnServerConfiguration': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            applicable_to: [python]
+            python_field_name: p2svpn_server_configuration
+          '/p2SVpnServerConfiguration/id': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: id
+          '/properties/p2SVpnServerConfiguration': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            applicable_to: [go]
+            go_field_name: P2SVpnServerConfiguration
+            go_type_name: SubResource
+          '/properties/p2SVpnServerConfiguration/id': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: ID
+          '/vpnClientAddressPool': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            applicable_to: [python]
+            python_field_name: vpn_client_address_pool
+          '/vpnClientAddressPool/addressPrefixes': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: address_prefixes
+          '/properties/vpnClientAddressPool': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            applicable_to: [go]
+            go_field_name: VpnClientAddressPool
+            go_type_name: AddressSpace
+          '/properties/vpnClientAddressPool/addressPrefixes': !ruby/object:Api::Azure::SDKTypeDefinition::StringArrayObject
+            applicable_to: [go]
+            go_field_name: AddressPrefixes
+          '/customRoutes': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            applicable_to: [python]
+            python_field_name: custom_routes
+          '/customRoutes/addressPrefixes': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: address_prefixes
+          '/properties/customRoutes': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            applicable_to: [go]
+            go_field_name: CustomRoutes
+            go_type_name: AddressSpace
+          '/properties/customRoutes/addressPrefixes': !ruby/object:Api::Azure::SDKTypeDefinition::StringArrayObject
+            applicable_to: [go]
+            go_field_name: AddressPrefixes
+      delete: !ruby/object:Api::Azure::SDKOperationDefinition
+        async: true
+        go_func_name: Delete
+        python_func_name: delete
+        request:
+          'resourceGroupName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            id_portion: resourceGroups
+            go_variable_name: resourceGroup
+            python_parameter_name: resource_group_name
+            python_variable_name: resource_group
+          'gatewayName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            id_portion: p2svpnGateways
+            go_variable_name: name
+            python_parameter_name: gateway_name
+            python_variable_name: name
+      read: !ruby/object:Api::Azure::SDKOperationDefinition
+        go_func_name: Get
+        python_func_name: get
+        request:
+          'resourceGroupName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            id_portion: resourceGroups
+            go_variable_name: resourceGroup
+            python_parameter_name: resource_group_name
+            python_variable_name: resource_group
+          'gatewayName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            id_portion: p2svpnGateways
+            go_variable_name: name
+            python_parameter_name: gateway_name
+            python_variable_name: name
+        response:
+          '/id': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            go_field_name: ID
+            python_field_name: id
+          '/location': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            go_field_name: Location
+            python_field_name: location
+          '/tags': !ruby/object:Api::Azure::SDKTypeDefinition::StringMapObject
+            go_field_name: Tags
+            python_field_name: tags
+          '/properties': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            applicable_to: [go]
+            go_field_name: P2SVpnGatewayProperties
+            go_type_name: P2SVpnGatewayProperties
+          '/properties/virtualHub': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            applicable_to: [go]
+            go_field_name: VirtualHub
+            go_type_name: SubResource
+          '/properties/virtualHub/id': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: ID
+          '/virtualHub': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            applicable_to: [python]
+            python_field_name: virtual_hub
+          '/virtualHub/id': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: id
+          '/properties/vpnGatewayScaleUnit': !ruby/object:Api::Azure::SDKTypeDefinition::Integer32Object
+            applicable_to: [go]
+            go_field_name: VpnGatewayScaleUnit
+          '/vpnGatewayScaleUnit': !ruby/object:Api::Azure::SDKTypeDefinition::IntegerObject
+            applicable_to: [python]
+            python_field_name: vpn_gateway_scale_unit
+          '/properties/p2SVpnServerConfiguration': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            applicable_to: [go]
+            go_field_name: P2SVpnServerConfiguration
+            go_type_name: SubResource
+          '/properties/p2SVpnServerConfiguration/id': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: ID
+          '/p2SVpnServerConfiguration': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            applicable_to: [python]
+            python_field_name: p2svpn_server_configuration
+          '/p2SVpnServerConfiguration/id': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: id
+          '/properties/vpnClientAddressPool': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            applicable_to: [go]
+            go_field_name: VpnClientAddressPool
+            go_type_name: AddressSpace
+          '/properties/vpnClientAddressPool/addressPrefixes': !ruby/object:Api::Azure::SDKTypeDefinition::StringArrayObject
+            applicable_to: [go]
+            go_field_name: AddressPrefixes
+          '/vpnClientAddressPool': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            applicable_to: [python]
+            python_field_name: vpn_client_address_pool
+          '/vpnClientAddressPool/addressPrefixes': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: address_prefixes
+          '/properties/customRoutes': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            applicable_to: [go]
+            go_field_name: CustomRoutes
+            go_type_name: AddressSpace
+          '/properties/customRoutes/addressPrefixes': !ruby/object:Api::Azure::SDKTypeDefinition::StringArrayObject
+            applicable_to: [go]
+            go_field_name: AddressPrefixes
+          '/customRoutes': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            applicable_to: [python]
+            python_field_name: custom_routes
+          '/customRoutes/addressPrefixes': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: address_prefixes
+          '/properties/provisioningState': !ruby/object:Api::Azure::SDKTypeDefinition::EnumObject
+            applicable_to: [go]
+            go_field_name: ProvisioningState
+            go_enum_type_name: ProvisioningState
+          '/provisioningState': !ruby/object:Api::Azure::SDKTypeDefinition::EnumObject
+            applicable_to: [python]
+            python_field_name: provisioning_state
+          '/properties/vpnClientConnectionHealth': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            applicable_to: [go]
+            go_field_name: VpnClientConnectionHealth
+            go_type_name: VpnClientConnectionHealth
+          '/properties/vpnClientConnectionHealth/totalIngressBytesTransferred': !ruby/object:Api::Azure::SDKTypeDefinition::Integer64Object
+            applicable_to: [go]
+            go_field_name: TotalIngressBytesTransferred
+            go_type_name: TotalIngressBytesTransferred
+          '/properties/vpnClientConnectionHealth/totalEgressBytesTransferred': !ruby/object:Api::Azure::SDKTypeDefinition::Integer64Object
+            applicable_to: [go]
+            go_field_name: TotalEgressBytesTransferred
+            go_type_name: TotalEgressBytesTransferred
+          '/properties/vpnClientConnectionHealth/vpnClientConnectionsCount': !ruby/object:Api::Azure::SDKTypeDefinition::Integer32Object
+            applicable_to: [go]
+            go_field_name: VpnClientConnectionsCount
+            go_type_name: VpnClientConnectionsCount
+          '/properties/vpnClientConnectionHealth/allocatedIpAddresses': !ruby/object:Api::Azure::SDKTypeDefinition::StringArrayObject
+            applicable_to: [go]
+            go_field_name: AllocatedIPAddresses
+            go_type_name: AllocatedIPAddresses
+          '/vpnClientConnectionHealth': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            applicable_to: [python]
+            python_field_name: vpn_client_connection_health
+          '/name': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            go_field_name: Name
+            python_field_name: name
+          '/type': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            go_field_name: Type
+            python_field_name: type
+          '/etag': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            go_field_name: Etag
+            python_field_name: etag
+      list_by_subscription: !ruby/object:Api::Azure::SDKOperationDefinition
+        go_func_name: List
+        python_func_name: list
+        request:
+      list_by_resource_group: !ruby/object:Api::Azure::SDKOperationDefinition
+        go_func_name: ListByResourceGroup
+        python_func_name: list_by_resource_group
+        request:
+          'resourceGroupName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            id_portion: resourceGroups
+            go_variable_name: resourceGroup
+            python_parameter_name: resource_group_name
+            python_variable_name: resource_group
+
+    description: |
+      Manage Azure P2sVpnGateway instance.
+    properties:
+      - !ruby/object:Api::Azure::Type::ResourceGroupName
+        name: 'resourceGroup'
+        description: 'The resource group name of the P2SVpnGateway.'
+        required: true
+        input: true
+        sample_value: myResourceGroup
+        azure_sdk_references: ['resourceGroupName']
+      - !ruby/object:Api::Type::String
+        name: 'name'
+        description: 'The name of the gateway.'
+        required: true
+        input: true
+        sample_value: 'myP2svpnGateway'
+        azure_sdk_references: ['gatewayName', '/name']
+      - !ruby/object:Api::Type::String
+        name: 'id'
+        description: 'Resource ID.'
+        required: false
+        input: true
+        azure_sdk_references: ['/id']
+      - !ruby/object:Api::Azure::Type::Location
+        name: 'location'
+        description: 'Resource location.'
+        required: false
+        input: true
+        azure_sdk_references: ['/location']
+      - !ruby/object:Api::Azure::Type::Tags
+        name: 'tags'
+        description: 'Resource tags.'
+        required: false
+        input: true
+        azure_sdk_references: ['tags', '/tags']
+      - !ruby/object:Api::Type::String
+        name: 'virtualHubID'
+        description: 'The VirtualHub to which the gateway belongs.'
+        required: true
+        azure_sdk_references: ['/virtualHub/id', '/properties/virtualHub/id']
+      - !ruby/object:Api::Type::Integer
+        name: 'scaleUnit'
+        description: 'The scale unit for this p2s vpn gateway.'
+        required: false
+        azure_sdk_references: ['/vpnGatewayScaleUnit', '/properties/vpnGatewayScaleUnit']
+      - !ruby/object:Api::Type::String
+        name: 'p2svpnServerConfigurationID'
+        description: 'The P2SVpnServerConfiguration to which the p2sVpnGateway is attached to.'
+        required: true
+        azure_sdk_references: ['/p2SVpnServerConfiguration/id', '/properties/p2SVpnServerConfiguration/id']
+      - !ruby/object:Api::Type::Array
+        name: 'vpnClientAddressPoolPrefixes'
+        description: 'A list of address blocks reserved for this virtual network in CIDR notation.'
+        required: true
+        item_type: Api::Type::String
+        azure_sdk_references: ['/vpnClientAddressPool/addressPrefixes', '/properties/vpnClientAddressPool/addressPrefixes']
+      - !ruby/object:Api::Type::Array
+        name: 'customRouteAddressPrefixes'
+        description: 'A list of address blocks reserved for this virtual network in CIDR notation.'
+        required: false
+        item_type: Api::Type::String
+        azure_sdk_references: ['/customRoutes/addressPrefixes', '/properties/customRoutes/addressPrefixes']
+      # read only values included only in response
+      - !ruby/object:Api::Type::Enum
+        name: 'provisioningState'
+        description: 'The provisioning state of the resource.'
+        output: true
+        values:
+          - :Succeeded
+          - :Updating
+          - :Deleting
+          - :Failed
+        default_value: :Succeeded
+        azure_sdk_references: ['/provisioningState', '/properties/provisioningState']
+      - !ruby/object:Api::Type::NestedObject
+        name: 'vpnClientConnectionHealth'
+        description: 'All P2S VPN clients'' connection health status.'
+        output: true
+        azure_sdk_references: ['/vpnClientConnectionHealth', '/properties/vpnClientConnectionHealth']
+        properties:
+          - !ruby/object:Api::Type::Integer
+            name: 'totalIngressBytesTransferred'
+            description: 'Total of the Ingress Bytes Transferred in this P2S Vpn connection.'
+            required: false
+            output: true
+            azure_sdk_references: ['/vpnClientConnectionHealth/totalIngressBytesTransferred', '/properties/vpnClientConnectionHealth/totalIngressBytesTransferred']
+          - !ruby/object:Api::Type::Integer
+            name: 'totalEgressBytesTransferred'
+            description: 'Total of the Egress Bytes Transferred in this connection.'
+            required: false
+            output: true
+            azure_sdk_references: ['/vpnClientConnectionHealth/totalEgressBytesTransferred', '/properties/vpnClientConnectionHealth/totalEgressBytesTransferred']
+          - !ruby/object:Api::Type::Integer
+            name: 'vpnClientConnectionsCount'
+            description: 'The total of p2s vpn clients connected at this time to this P2SVpnGateway.'
+            required: false
+            output: true
+            azure_sdk_references: ['/vpnClientConnectionHealth/vpnClientConnectionsCount', '/properties/vpnClientConnectionHealth/vpnClientConnectionsCount']
+          - !ruby/object:Api::Type::Array
+            name: 'allocatedIpAddresses'
+            description: 'List of allocated ip addresses to the connected p2s vpn clients.'
+            required: false
+            output: true
+            item_type: Api::Type::String
+            azure_sdk_references: ['/vpnClientConnectionHealth/allocatedIpAddresses', '/properties/vpnClientConnectionHealth/allocatedIpAddresses']
+      - !ruby/object:Api::Type::String
+        name: 'name'
+        exclude: true
+        description: 'Resource name.'
+        input: true
+        output: true
+        azure_sdk_references: ['/name']
+      - !ruby/object:Api::Type::String
+        name: 'type'
+        description: 'Resource type.'
+        input: true
+        output: true
+        azure_sdk_references: ['/type']
+      - !ruby/object:Api::Type::String
+        name: 'etag'
+        description: 'Gets a unique read-only string that changes whenever the resource is updated.'
+        input: true
+        output: true
+        azure_sdk_references: ['/etag']

@@ -1,0 +1,19 @@
+--- !ruby/object:Provider::Azure::Example
+resource: azurerm_p2s_vpn_gateway
+prerequisites:
+  - !ruby/object:Provider::Azure::ExampleReference
+    product: resourcegroup
+    example: basic
+  - !ruby/object:Provider::Azure::ExampleReference
+    product: networkp2svpnserverconfiguration
+    example: basic
+  - !ruby/object:Provider::Azure::ExampleReference
+    product: networkvirtualhub
+    example: basic
+properties:
+  name: "<%= get_resource_name('p2svpngateway', 'gateway') -%>"
+  resource_group_name: ${azurerm_resource_group.<%= resource_id_hint -%>.name}
+  location: ${azurerm_resource_group.<%= resource_id_hint -%>.location}
+  virtual_hub_id: ${azurerm_virtual_hub.<%= resource_id_hint -%>}.id
+  p2svpn_server_configuration_id: ${azurerm_p2s_vpn_server_configuration.<%= resource_id_hint -%>.id}
+  vpn_client_address_pool_prefixes: ["101.3.0.0/16"]
