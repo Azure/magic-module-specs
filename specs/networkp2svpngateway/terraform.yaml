@@ -16,7 +16,10 @@ overrides: !ruby/object:Overrides::ResourceOverrides
         steps: [basic]
       - !ruby/object:Provider::Azure::Terraform::AccTestDefinition
         name: complete
-        steps: [complete, completeUpdate]
+        steps: [complete]
+      - !ruby/object:Provider::Azure::Terraform::AccTestDefinition
+        name: update
+        steps: [basic, complete]
     document_examples:
       - !ruby/object:Provider::Azure::Terraform::DocumentExampleReference
         title: Example Usage
@@ -36,6 +39,9 @@ datasources: !ruby/object:Overrides::ResourceOverrides
         steps: [basic]
       - !ruby/object:Provider::Azure::Terraform::AccTestDefinition
         name: complete
-        steps: [complete, completeUpdate]
+        steps: [complete]
+      - !ruby/object:Provider::Azure::Terraform::AccTestDefinition
+        name: update
+        steps: [basic, complete]
     datasource_example_outputs:
       virtual_hub_id: id
