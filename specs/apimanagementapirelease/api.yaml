@@ -8,18 +8,18 @@ scopes:
   - NotUsedInAzure
 objects:
   - !ruby/object:Api::Resource
-    name: ApiRelease
+    name: ApiManagementApiRelease
     api_name: ApiManagement
     base_url: NotUsedInAzure
 
     azure_sdk_definition: !ruby/object:Api::Azure::SDKDefinition
       provider_name: Microsoft.ApiManagement
       go_client_namespace: apimanagement
-      go_client: apiReleaseClient
+      go_client: apiManagement.ApiReleaseClient
       python_client_namespace: azure.mgmt.apimanagement
       python_client: ApiManagementClient.api_release
       create: !ruby/object:Api::Azure::SDKOperationDefinition
-        go_func_name: CreateOrUpdate
+        go_func_name: Create
         python_func_name: create_or_update
         request:
           'resourceGroupName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
@@ -32,7 +32,7 @@ objects:
             go_variable_name: serviceName
             python_parameter_name: service_name
             python_variable_name: service_name
-          'apiId': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+          'apiName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             id_portion: apis
             go_variable_name: apiID
             python_parameter_name: api_id
@@ -77,7 +77,7 @@ objects:
             go_variable_name: serviceName
             python_parameter_name: service_name
             python_variable_name: service_name
-          'apiId': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+          'apiName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             id_portion: apis
             go_variable_name: apiID
             python_parameter_name: api_id
@@ -108,6 +108,9 @@ objects:
           '/properties/notes': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             applicable_to: [go]
             go_field_name: Notes
+          'ifMatch': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            id_portion: null
+            go_variable_name: '""'
       delete: !ruby/object:Api::Azure::SDKOperationDefinition
         go_func_name: Delete
         python_func_name: delete
@@ -122,7 +125,7 @@ objects:
             go_variable_name: serviceName
             python_parameter_name: service_name
             python_variable_name: service_name
-          'apiId': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+          'apiName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             id_portion: apis
             go_variable_name: apiID
             python_parameter_name: api_id
@@ -132,6 +135,9 @@ objects:
             go_variable_name: releaseID
             python_parameter_name: release_id
             python_variable_name: release_id
+          'ifMatch': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            id_portion: null
+            go_variable_name: '""'
       read: !ruby/object:Api::Azure::SDKOperationDefinition
         go_func_name: Get
         python_func_name: get
@@ -146,7 +152,7 @@ objects:
             go_variable_name: serviceName
             python_parameter_name: service_name
             python_variable_name: service_name
-          'apiId': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+          'apiName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             id_portion: apis
             go_variable_name: apiID
             python_parameter_name: api_id
@@ -208,7 +214,7 @@ objects:
             go_variable_name: serviceName
             python_parameter_name: service_name
             python_variable_name: service_name
-          'apiId': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+          'apiName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             id_portion: apis
             go_variable_name: apiID
             python_parameter_name: api_id
@@ -232,12 +238,12 @@ objects:
         sample_value: 'myService'
         azure_sdk_references: ['serviceName']
       - !ruby/object:Api::Type::String
-        name: 'apiId'
+        name: 'apiName'
         description: 'API identifier. Must be unique in the current API Management service instance.'
         required: true
         input: true
         sample_value: 'myApi'
-        azure_sdk_references: ['apiId']
+        azure_sdk_references: ['apiName']
       - !ruby/object:Api::Type::String
         name: 'releaseId'
         description: 'Release identifier within an API. Must be unique in the current API Management service instance.'
