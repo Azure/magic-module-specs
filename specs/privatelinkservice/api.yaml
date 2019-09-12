@@ -1,0 +1,1541 @@
+--- !ruby/object:Api::Product
+name: Azure PrivateLinkService Management
+versions:
+  - !ruby/object:Api::Product::Version
+    name: ga
+    base_url: NotUsedInAzure
+scopes:
+  - NotUsedInAzure
+objects:
+  - !ruby/object:Api::Resource
+    name: PrivateLinkService
+    api_name: Network
+    base_url: NotUsedInAzure
+
+    azure_sdk_definition: !ruby/object:Api::Azure::SDKDefinition
+      provider_name: Microsoft.Network
+      go_client_namespace: network
+      go_client: network.PrivateLinkServiceClient
+      python_client_namespace: azure.mgmt.network
+      python_client: NetworkManagementClient.private_link_services
+      create: !ruby/object:Api::Azure::SDKOperationDefinition
+        async: true
+        go_func_name: CreateOrUpdate
+        python_func_name: create_or_update
+        request:
+          'resourceGroupName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            id_portion: resourceGroups
+            go_variable_name: resourceGroup
+            python_parameter_name: resource_group_name
+            python_variable_name: resource_group
+          'serviceName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            id_portion: privateLinkServices
+            go_variable_name: name
+            python_parameter_name: service_name
+            python_variable_name: name
+          '/': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            go_variable_name: parameters
+            go_type_name: PrivateLinkService
+            python_parameter_name: parameters
+            python_variable_name: parameters
+          '/id': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            go_field_name: ID
+            python_field_name: id
+          '/location': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            go_field_name: Location
+            python_field_name: location
+          '/tags': !ruby/object:Api::Azure::SDKTypeDefinition::StringMapObject
+            go_field_name: Tags
+            python_field_name: tags
+          '/properties': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            applicable_to: [go]
+            go_field_name: Properties
+            go_type_name: PrivateLinkServiceProperties
+          '/loadBalancerFrontendIpConfigurations': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexArrayObject
+            applicable_to: [python]
+            python_field_name: load_balancer_frontend_ip_configurations
+          '/loadBalancerFrontendIpConfigurations/id': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: id
+          '/loadBalancerFrontendIpConfigurations/privateIPAddress': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: private_ip_address
+          '/loadBalancerFrontendIpConfigurations/privateIPAllocationMethod': !ruby/object:Api::Azure::SDKTypeDefinition::EnumObject
+            applicable_to: [python]
+            python_field_name: private_ipallocation_method
+          '/loadBalancerFrontendIpConfigurations/privateIPAddressVersion': !ruby/object:Api::Azure::SDKTypeDefinition::EnumObject
+            applicable_to: [python]
+            python_field_name: private_ip_address_version
+          '/loadBalancerFrontendIpConfigurations/subnet': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            applicable_to: [python]
+            python_field_name: subnet
+          '/loadBalancerFrontendIpConfigurations/subnet/id': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: id
+          '/loadBalancerFrontendIpConfigurations/subnet/name': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: name
+          '/loadBalancerFrontendIpConfigurations/subnet/etag': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: etag
+          '/loadBalancerFrontendIpConfigurations/publicIPAddress': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            applicable_to: [python]
+            python_field_name: public_ip_address
+          '/loadBalancerFrontendIpConfigurations/publicIPAddress/id': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: id
+          '/loadBalancerFrontendIpConfigurations/publicIPAddress/location': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: location
+          '/loadBalancerFrontendIpConfigurations/publicIPAddress/tags': !ruby/object:Api::Azure::SDKTypeDefinition::StringMapObject
+            applicable_to: [python]
+            python_field_name: tags
+          '/loadBalancerFrontendIpConfigurations/publicIPAddress/sku': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            applicable_to: [python]
+            python_field_name: sku
+          '/loadBalancerFrontendIpConfigurations/publicIPAddress/etag': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: etag
+          '/loadBalancerFrontendIpConfigurations/publicIPAddress/zones': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexArrayObject
+            applicable_to: [python]
+            python_field_name: zones
+          '/loadBalancerFrontendIpConfigurations/publicIPPrefix': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            applicable_to: [python]
+            python_field_name: public_ipprefix
+          '/loadBalancerFrontendIpConfigurations/publicIPPrefix/id': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: id
+          '/loadBalancerFrontendIpConfigurations/name': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: name
+          '/loadBalancerFrontendIpConfigurations/etag': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: etag
+          '/loadBalancerFrontendIpConfigurations/zones': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: zones
+          '/properties/loadBalancerFrontendIpConfigurations': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexArrayObject
+            applicable_to: [go]
+            go_field_name: LoadBalancerFrontendIpConfigurations
+            go_type_name: FrontendIPConfiguration
+          '/properties/loadBalancerFrontendIpConfigurations/id': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: ID
+          '/properties/loadBalancerFrontendIpConfigurations/properties': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            applicable_to: [go]
+            go_field_name: Properties
+            go_type_name: FrontendIPConfigurationPropertiesFormat
+          '/properties/loadBalancerFrontendIpConfigurations/properties/privateIPAddress': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: PrivateIpAddress
+          '/properties/loadBalancerFrontendIpConfigurations/properties/privateIPAllocationMethod': !ruby/object:Api::Azure::SDKTypeDefinition::EnumObject
+            applicable_to: [go]
+            go_field_name: PrivateIpallocationMethod
+            go_enum_type_name: IPAllocationMethod
+          '/properties/loadBalancerFrontendIpConfigurations/properties/privateIPAddressVersion': !ruby/object:Api::Azure::SDKTypeDefinition::EnumObject
+            applicable_to: [go]
+            go_field_name: PrivateIpAddressVersion
+            go_enum_type_name: IPVersion
+          '/properties/loadBalancerFrontendIpConfigurations/properties/subnet': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            applicable_to: [go]
+            go_field_name: Subnet
+            go_type_name: Subnet
+          '/properties/loadBalancerFrontendIpConfigurations/properties/subnet/id': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: ID
+          '/properties/loadBalancerFrontendIpConfigurations/properties/subnet/properties': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            applicable_to: [go]
+            go_field_name: Properties
+            go_type_name: SubnetPropertiesFormat
+          '/properties/loadBalancerFrontendIpConfigurations/properties/subnet/name': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: Name
+          '/properties/loadBalancerFrontendIpConfigurations/properties/subnet/etag': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: Etag
+          '/properties/loadBalancerFrontendIpConfigurations/properties/publicIPAddress': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            applicable_to: [go]
+            go_field_name: PublicIpAddress
+            go_type_name: PublicIPAddress
+          '/properties/loadBalancerFrontendIpConfigurations/properties/publicIPAddress/id': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: ID
+          '/properties/loadBalancerFrontendIpConfigurations/properties/publicIPAddress/location': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: Location
+          '/properties/loadBalancerFrontendIpConfigurations/properties/publicIPAddress/tags': !ruby/object:Api::Azure::SDKTypeDefinition::StringMapObject
+            applicable_to: [go]
+            go_field_name: Tags
+          '/properties/loadBalancerFrontendIpConfigurations/properties/publicIPAddress/sku': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            applicable_to: [go]
+            go_field_name: Sku
+            go_type_name: PublicIPAddressSku
+          '/properties/loadBalancerFrontendIpConfigurations/properties/publicIPAddress/properties': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            applicable_to: [go]
+            go_field_name: Properties
+            go_type_name: PublicIPAddressPropertiesFormat
+          '/properties/loadBalancerFrontendIpConfigurations/properties/publicIPAddress/etag': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: Etag
+          '/properties/loadBalancerFrontendIpConfigurations/properties/publicIPAddress/zones': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: Zones
+          '/properties/loadBalancerFrontendIpConfigurations/properties/publicIPPrefix': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            applicable_to: [go]
+            go_field_name: PublicIpprefix
+            go_type_name: SubResource
+          '/properties/loadBalancerFrontendIpConfigurations/properties/publicIPPrefix/id': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: ID
+          '/properties/loadBalancerFrontendIpConfigurations/name': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: Name
+          '/properties/loadBalancerFrontendIpConfigurations/etag': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: Etag
+          '/properties/loadBalancerFrontendIpConfigurations/zones': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexArrayObject
+            applicable_to: [go]
+            go_field_name: Zones
+          '/ipConfigurations': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexArrayObject
+            applicable_to: [python]
+            python_field_name: ip_configurations
+          '/ipConfigurations/id': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: id
+          '/ipConfigurations/privateIPAddress': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: private_ip_address
+          '/ipConfigurations/privateIPAllocationMethod': !ruby/object:Api::Azure::SDKTypeDefinition::EnumObject
+            applicable_to: [python]
+            python_field_name: private_ipallocation_method
+          '/ipConfigurations/subnet': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            applicable_to: [python]
+            python_field_name: subnet
+          '/ipConfigurations/subnet/id': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: id
+          '/ipConfigurations/subnet/name': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: name
+          '/ipConfigurations/subnet/etag': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: etag
+          '/ipConfigurations/primary': !ruby/object:Api::Azure::SDKTypeDefinition::BooleanObject
+            applicable_to: [python]
+            python_field_name: primary
+          '/ipConfigurations/privateIPAddressVersion': !ruby/object:Api::Azure::SDKTypeDefinition::EnumObject
+            applicable_to: [python]
+            python_field_name: private_ip_address_version
+          '/ipConfigurations/name': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: name
+          '/properties/ipConfigurations': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexArrayObject
+            applicable_to: [go]
+            go_field_name: IpConfigurations
+            go_type_name: PrivateLinkServiceIPConfiguration
+          '/properties/ipConfigurations/id': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: ID
+          '/properties/ipConfigurations/properties': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            applicable_to: [go]
+            go_field_name: Properties
+            go_type_name: PrivateLinkServiceIPConfigurationProperties
+          '/properties/ipConfigurations/properties/privateIPAddress': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: PrivateIpAddress
+          '/properties/ipConfigurations/properties/privateIPAllocationMethod': !ruby/object:Api::Azure::SDKTypeDefinition::EnumObject
+            applicable_to: [go]
+            go_field_name: PrivateIpallocationMethod
+            go_enum_type_name: IPAllocationMethod
+          '/properties/ipConfigurations/properties/subnet': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            applicable_to: [go]
+            go_field_name: Subnet
+            go_type_name: Subnet
+          '/properties/ipConfigurations/properties/subnet/id': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: ID
+          '/properties/ipConfigurations/properties/subnet/properties': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            applicable_to: [go]
+            go_field_name: Properties
+            go_type_name: SubnetPropertiesFormat
+          '/properties/ipConfigurations/properties/subnet/name': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: Name
+          '/properties/ipConfigurations/properties/subnet/etag': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: Etag
+          '/properties/ipConfigurations/properties/primary': !ruby/object:Api::Azure::SDKTypeDefinition::BooleanObject
+            applicable_to: [go]
+            go_field_name: Primary
+          '/properties/ipConfigurations/properties/privateIPAddressVersion': !ruby/object:Api::Azure::SDKTypeDefinition::EnumObject
+            applicable_to: [go]
+            go_field_name: PrivateIpAddressVersion
+            go_enum_type_name: IPVersion
+          '/properties/ipConfigurations/name': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: Name
+          '/privateEndpointConnections': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexArrayObject
+            applicable_to: [python]
+            python_field_name: private_endpoint_connections
+          '/privateEndpointConnections/id': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: id
+          '/privateEndpointConnections/privateEndpoint': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            applicable_to: [python]
+            python_field_name: private_endpoint
+          '/privateEndpointConnections/privateEndpoint/id': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: id
+          '/privateEndpointConnections/privateEndpoint/location': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: location
+          '/privateEndpointConnections/privateEndpoint/tags': !ruby/object:Api::Azure::SDKTypeDefinition::StringMapObject
+            applicable_to: [python]
+            python_field_name: tags
+          '/privateEndpointConnections/privateEndpoint/etag': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: etag
+          '/privateEndpointConnections/privateLinkServiceConnectionState': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            applicable_to: [python]
+            python_field_name: private_link_service_connection_state
+          '/privateEndpointConnections/privateLinkServiceConnectionState/status': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: status
+          '/privateEndpointConnections/privateLinkServiceConnectionState/description': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: description
+          '/privateEndpointConnections/privateLinkServiceConnectionState/actionRequired': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: action_required
+          '/privateEndpointConnections/name': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: name
+          '/properties/privateEndpointConnections': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexArrayObject
+            applicable_to: [go]
+            go_field_name: PrivateEndpointConnections
+            go_type_name: PrivateEndpointConnection
+          '/properties/privateEndpointConnections/id': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: ID
+          '/properties/privateEndpointConnections/properties': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            applicable_to: [go]
+            go_field_name: Properties
+            go_type_name: PrivateEndpointConnectionProperties
+          '/properties/privateEndpointConnections/properties/privateEndpoint': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            applicable_to: [go]
+            go_field_name: PrivateEndpoint
+            go_type_name: PrivateEndpoint
+          '/properties/privateEndpointConnections/properties/privateEndpoint/id': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: ID
+          '/properties/privateEndpointConnections/properties/privateEndpoint/location': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: Location
+          '/properties/privateEndpointConnections/properties/privateEndpoint/tags': !ruby/object:Api::Azure::SDKTypeDefinition::StringMapObject
+            applicable_to: [go]
+            go_field_name: Tags
+          '/properties/privateEndpointConnections/properties/privateEndpoint/properties': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            applicable_to: [go]
+            go_field_name: Properties
+            go_type_name: PrivateEndpointProperties
+          '/properties/privateEndpointConnections/properties/privateEndpoint/etag': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: Etag
+          '/properties/privateEndpointConnections/properties/privateLinkServiceConnectionState': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            applicable_to: [go]
+            go_field_name: PrivateLinkServiceConnectionState
+            go_type_name: PrivateLinkServiceConnectionState
+          '/properties/privateEndpointConnections/properties/privateLinkServiceConnectionState/status': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: Status
+          '/properties/privateEndpointConnections/properties/privateLinkServiceConnectionState/description': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: Description
+          '/properties/privateEndpointConnections/properties/privateLinkServiceConnectionState/actionRequired': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: ActionRequired
+          '/properties/privateEndpointConnections/name': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: Name
+          '/visibility': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            applicable_to: [python]
+            python_field_name: visibility
+          '/visibility/subscriptions': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: subscriptions
+          '/properties/visibility': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            applicable_to: [go]
+            go_field_name: Visibility
+            go_type_name: PrivateLinkServicePropertiesVisibility
+          '/properties/visibility/subscriptions': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexArrayObject
+            applicable_to: [go]
+            go_field_name: Subscriptions
+          '/autoApproval': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            applicable_to: [python]
+            python_field_name: auto_approval
+          '/autoApproval/subscriptions': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: subscriptions
+          '/properties/autoApproval': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            applicable_to: [go]
+            go_field_name: AutoApproval
+            go_type_name: PrivateLinkServicePropertiesAutoApproval
+          '/properties/autoApproval/subscriptions': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexArrayObject
+            applicable_to: [go]
+            go_field_name: Subscriptions
+          '/fqdns': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: fqdns
+          '/properties/fqdns': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexArrayObject
+            applicable_to: [go]
+            go_field_name: Fqdns
+          '/etag': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            go_field_name: Etag
+            python_field_name: etag
+      delete: !ruby/object:Api::Azure::SDKOperationDefinition
+        async: true
+        go_func_name: Delete
+        python_func_name: delete
+        request:
+          'resourceGroupName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            id_portion: resourceGroups
+            go_variable_name: resourceGroup
+            python_parameter_name: resource_group_name
+            python_variable_name: resource_group
+          'serviceName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            id_portion: privateLinkServices
+            go_variable_name: name
+            python_parameter_name: service_name
+            python_variable_name: name
+      read: !ruby/object:Api::Azure::SDKOperationDefinition
+        go_func_name: Get
+        python_func_name: get
+        request:
+          'resourceGroupName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            id_portion: resourceGroups
+            go_variable_name: resourceGroup
+            python_parameter_name: resource_group_name
+            python_variable_name: resource_group
+          'serviceName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            id_portion: privateLinkServices
+            go_variable_name: name
+            python_parameter_name: service_name
+            python_variable_name: name
+        response:
+          '/id': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            go_field_name: ID
+            python_field_name: id
+          '/location': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            go_field_name: Location
+            python_field_name: location
+          '/tags': !ruby/object:Api::Azure::SDKTypeDefinition::StringMapObject
+            go_field_name: Tags
+            python_field_name: tags
+          '/properties': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            applicable_to: [go]
+            go_field_name: Properties
+            go_type_name: PrivateLinkServiceProperties
+          '/properties/loadBalancerFrontendIpConfigurations': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexArrayObject
+            applicable_to: [go]
+            go_field_name: LoadBalancerFrontendIpConfigurations
+            go_type_name: FrontendIPConfiguration
+          '/properties/loadBalancerFrontendIpConfigurations/id': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: ID
+          '/properties/loadBalancerFrontendIpConfigurations/properties': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            applicable_to: [go]
+            go_field_name: Properties
+            go_type_name: FrontendIPConfigurationPropertiesFormat
+          '/properties/loadBalancerFrontendIpConfigurations/properties/privateIPAddress': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: PrivateIpAddress
+          '/properties/loadBalancerFrontendIpConfigurations/properties/privateIPAllocationMethod': !ruby/object:Api::Azure::SDKTypeDefinition::EnumObject
+            applicable_to: [go]
+            go_field_name: PrivateIpallocationMethod
+            go_enum_type_name: IPAllocationMethod
+          '/properties/loadBalancerFrontendIpConfigurations/properties/privateIPAddressVersion': !ruby/object:Api::Azure::SDKTypeDefinition::EnumObject
+            applicable_to: [go]
+            go_field_name: PrivateIpAddressVersion
+            go_enum_type_name: IPVersion
+          '/properties/loadBalancerFrontendIpConfigurations/properties/subnet': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            applicable_to: [go]
+            go_field_name: Subnet
+            go_type_name: Subnet
+          '/properties/loadBalancerFrontendIpConfigurations/properties/subnet/id': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: ID
+          '/properties/loadBalancerFrontendIpConfigurations/properties/subnet/properties': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            applicable_to: [go]
+            go_field_name: Properties
+            go_type_name: SubnetPropertiesFormat
+          '/properties/loadBalancerFrontendIpConfigurations/properties/subnet/name': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: Name
+          '/properties/loadBalancerFrontendIpConfigurations/properties/subnet/etag': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: Etag
+          '/properties/loadBalancerFrontendIpConfigurations/properties/publicIPAddress': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            applicable_to: [go]
+            go_field_name: PublicIpAddress
+            go_type_name: PublicIPAddress
+          '/properties/loadBalancerFrontendIpConfigurations/properties/publicIPAddress/id': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: ID
+          '/properties/loadBalancerFrontendIpConfigurations/properties/publicIPAddress/location': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: Location
+          '/properties/loadBalancerFrontendIpConfigurations/properties/publicIPAddress/tags': !ruby/object:Api::Azure::SDKTypeDefinition::StringMapObject
+            applicable_to: [go]
+            go_field_name: Tags
+          '/properties/loadBalancerFrontendIpConfigurations/properties/publicIPAddress/sku': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            applicable_to: [go]
+            go_field_name: Sku
+            go_type_name: PublicIPAddressSku
+          '/properties/loadBalancerFrontendIpConfigurations/properties/publicIPAddress/properties': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            applicable_to: [go]
+            go_field_name: Properties
+            go_type_name: PublicIPAddressPropertiesFormat
+          '/properties/loadBalancerFrontendIpConfigurations/properties/publicIPAddress/etag': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: Etag
+          '/properties/loadBalancerFrontendIpConfigurations/properties/publicIPAddress/zones': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: Zones
+          '/properties/loadBalancerFrontendIpConfigurations/properties/publicIPAddress/name': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: Name
+          '/properties/loadBalancerFrontendIpConfigurations/properties/publicIPAddress/type': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: Type
+          '/properties/loadBalancerFrontendIpConfigurations/properties/publicIPPrefix': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            applicable_to: [go]
+            go_field_name: PublicIpprefix
+            go_type_name: SubResource
+          '/properties/loadBalancerFrontendIpConfigurations/properties/publicIPPrefix/id': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: ID
+          '/properties/loadBalancerFrontendIpConfigurations/properties/inboundNatRules': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexArrayObject
+            applicable_to: [go]
+            go_field_name: InboundNatRules
+            go_type_name: SubResource
+          '/properties/loadBalancerFrontendIpConfigurations/properties/inboundNatPools': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexArrayObject
+            applicable_to: [go]
+            go_field_name: InboundNatPools
+            go_type_name: SubResource
+          '/properties/loadBalancerFrontendIpConfigurations/properties/outboundRules': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexArrayObject
+            applicable_to: [go]
+            go_field_name: OutboundRules
+            go_type_name: SubResource
+          '/properties/loadBalancerFrontendIpConfigurations/properties/loadBalancingRules': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexArrayObject
+            applicable_to: [go]
+            go_field_name: LoadBalancingRules
+            go_type_name: SubResource
+          '/properties/loadBalancerFrontendIpConfigurations/properties/provisioningState': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: ProvisioningState
+          '/properties/loadBalancerFrontendIpConfigurations/name': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: Name
+          '/properties/loadBalancerFrontendIpConfigurations/etag': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: Etag
+          '/properties/loadBalancerFrontendIpConfigurations/zones': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexArrayObject
+            applicable_to: [go]
+            go_field_name: Zones
+          '/properties/loadBalancerFrontendIpConfigurations/type': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: Type
+          '/loadBalancerFrontendIpConfigurations': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexArrayObject
+            applicable_to: [python]
+            python_field_name: load_balancer_frontend_ip_configurations
+          '/loadBalancerFrontendIpConfigurations/id': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: id
+          '/loadBalancerFrontendIpConfigurations/privateIPAddress': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: private_ip_address
+          '/loadBalancerFrontendIpConfigurations/privateIPAllocationMethod': !ruby/object:Api::Azure::SDKTypeDefinition::EnumObject
+            applicable_to: [python]
+            python_field_name: private_ipallocation_method
+          '/loadBalancerFrontendIpConfigurations/privateIPAddressVersion': !ruby/object:Api::Azure::SDKTypeDefinition::EnumObject
+            applicable_to: [python]
+            python_field_name: private_ip_address_version
+          '/loadBalancerFrontendIpConfigurations/subnet': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            applicable_to: [python]
+            python_field_name: subnet
+          '/loadBalancerFrontendIpConfigurations/subnet/id': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: id
+          '/loadBalancerFrontendIpConfigurations/subnet/name': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: name
+          '/loadBalancerFrontendIpConfigurations/subnet/etag': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: etag
+          '/loadBalancerFrontendIpConfigurations/publicIPAddress': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            applicable_to: [python]
+            python_field_name: public_ip_address
+          '/loadBalancerFrontendIpConfigurations/publicIPAddress/id': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: id
+          '/loadBalancerFrontendIpConfigurations/publicIPAddress/location': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: location
+          '/loadBalancerFrontendIpConfigurations/publicIPAddress/tags': !ruby/object:Api::Azure::SDKTypeDefinition::StringMapObject
+            applicable_to: [python]
+            python_field_name: tags
+          '/loadBalancerFrontendIpConfigurations/publicIPAddress/sku': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            applicable_to: [python]
+            python_field_name: sku
+          '/loadBalancerFrontendIpConfigurations/publicIPAddress/etag': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: etag
+          '/loadBalancerFrontendIpConfigurations/publicIPAddress/zones': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexArrayObject
+            applicable_to: [python]
+            python_field_name: zones
+          '/loadBalancerFrontendIpConfigurations/publicIPAddress/name': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: name
+          '/loadBalancerFrontendIpConfigurations/publicIPAddress/type': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: type
+          '/loadBalancerFrontendIpConfigurations/publicIPPrefix': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            applicable_to: [python]
+            python_field_name: public_ipprefix
+          '/loadBalancerFrontendIpConfigurations/publicIPPrefix/id': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: id
+          '/loadBalancerFrontendIpConfigurations/inboundNatRules': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexArrayObject
+            applicable_to: [python]
+            python_field_name: inbound_nat_rules
+          '/loadBalancerFrontendIpConfigurations/inboundNatPools': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexArrayObject
+            applicable_to: [python]
+            python_field_name: inbound_nat_pools
+          '/loadBalancerFrontendIpConfigurations/outboundRules': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexArrayObject
+            applicable_to: [python]
+            python_field_name: outbound_rules
+          '/loadBalancerFrontendIpConfigurations/loadBalancingRules': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexArrayObject
+            applicable_to: [python]
+            python_field_name: load_balancing_rules
+          '/loadBalancerFrontendIpConfigurations/provisioningState': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: provisioning_state
+          '/loadBalancerFrontendIpConfigurations/name': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: name
+          '/loadBalancerFrontendIpConfigurations/etag': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: etag
+          '/loadBalancerFrontendIpConfigurations/zones': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: zones
+          '/loadBalancerFrontendIpConfigurations/type': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: type
+          '/properties/ipConfigurations': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexArrayObject
+            applicable_to: [go]
+            go_field_name: IpConfigurations
+            go_type_name: PrivateLinkServiceIPConfiguration
+          '/properties/ipConfigurations/id': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: ID
+          '/properties/ipConfigurations/properties': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            applicable_to: [go]
+            go_field_name: Properties
+            go_type_name: PrivateLinkServiceIPConfigurationProperties
+          '/properties/ipConfigurations/properties/privateIPAddress': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: PrivateIpAddress
+          '/properties/ipConfigurations/properties/privateIPAllocationMethod': !ruby/object:Api::Azure::SDKTypeDefinition::EnumObject
+            applicable_to: [go]
+            go_field_name: PrivateIpallocationMethod
+            go_enum_type_name: IPAllocationMethod
+          '/properties/ipConfigurations/properties/subnet': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            applicable_to: [go]
+            go_field_name: Subnet
+            go_type_name: Subnet
+          '/properties/ipConfigurations/properties/subnet/id': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: ID
+          '/properties/ipConfigurations/properties/subnet/properties': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            applicable_to: [go]
+            go_field_name: Properties
+            go_type_name: SubnetPropertiesFormat
+          '/properties/ipConfigurations/properties/subnet/name': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: Name
+          '/properties/ipConfigurations/properties/subnet/etag': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: Etag
+          '/properties/ipConfigurations/properties/primary': !ruby/object:Api::Azure::SDKTypeDefinition::BooleanObject
+            applicable_to: [go]
+            go_field_name: Primary
+          '/properties/ipConfigurations/properties/privateIPAddressVersion': !ruby/object:Api::Azure::SDKTypeDefinition::EnumObject
+            applicable_to: [go]
+            go_field_name: PrivateIpAddressVersion
+            go_enum_type_name: IPVersion
+          '/properties/ipConfigurations/properties/provisioningState': !ruby/object:Api::Azure::SDKTypeDefinition::EnumObject
+            applicable_to: [go]
+            go_field_name: ProvisioningState
+            go_enum_type_name: ProvisioningState
+          '/properties/ipConfigurations/name': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: Name
+          '/properties/ipConfigurations/etag': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: Etag
+          '/properties/ipConfigurations/type': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: Type
+          '/ipConfigurations': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexArrayObject
+            applicable_to: [python]
+            python_field_name: ip_configurations
+          '/ipConfigurations/id': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: id
+          '/ipConfigurations/privateIPAddress': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: private_ip_address
+          '/ipConfigurations/privateIPAllocationMethod': !ruby/object:Api::Azure::SDKTypeDefinition::EnumObject
+            applicable_to: [python]
+            python_field_name: private_ipallocation_method
+          '/ipConfigurations/subnet': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            applicable_to: [python]
+            python_field_name: subnet
+          '/ipConfigurations/subnet/id': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: id
+          '/ipConfigurations/subnet/name': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: name
+          '/ipConfigurations/subnet/etag': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: etag
+          '/ipConfigurations/primary': !ruby/object:Api::Azure::SDKTypeDefinition::BooleanObject
+            applicable_to: [python]
+            python_field_name: primary
+          '/ipConfigurations/privateIPAddressVersion': !ruby/object:Api::Azure::SDKTypeDefinition::EnumObject
+            applicable_to: [python]
+            python_field_name: private_ip_address_version
+          '/ipConfigurations/provisioningState': !ruby/object:Api::Azure::SDKTypeDefinition::EnumObject
+            applicable_to: [python]
+            python_field_name: provisioning_state
+          '/ipConfigurations/name': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: name
+          '/ipConfigurations/etag': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: etag
+          '/ipConfigurations/type': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: type
+          '/properties/privateEndpointConnections': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexArrayObject
+            applicable_to: [go]
+            go_field_name: PrivateEndpointConnections
+            go_type_name: PrivateEndpointConnection
+          '/properties/privateEndpointConnections/id': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: ID
+          '/properties/privateEndpointConnections/properties': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            applicable_to: [go]
+            go_field_name: Properties
+            go_type_name: PrivateEndpointConnectionProperties
+          '/properties/privateEndpointConnections/properties/privateEndpoint': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            applicable_to: [go]
+            go_field_name: PrivateEndpoint
+            go_type_name: PrivateEndpoint
+          '/properties/privateEndpointConnections/properties/privateEndpoint/id': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: ID
+          '/properties/privateEndpointConnections/properties/privateEndpoint/location': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: Location
+          '/properties/privateEndpointConnections/properties/privateEndpoint/tags': !ruby/object:Api::Azure::SDKTypeDefinition::StringMapObject
+            applicable_to: [go]
+            go_field_name: Tags
+          '/properties/privateEndpointConnections/properties/privateEndpoint/properties': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            applicable_to: [go]
+            go_field_name: Properties
+            go_type_name: PrivateEndpointProperties
+          '/properties/privateEndpointConnections/properties/privateEndpoint/etag': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: Etag
+          '/properties/privateEndpointConnections/properties/privateEndpoint/name': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: Name
+          '/properties/privateEndpointConnections/properties/privateEndpoint/type': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: Type
+          '/properties/privateEndpointConnections/properties/privateLinkServiceConnectionState': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            applicable_to: [go]
+            go_field_name: PrivateLinkServiceConnectionState
+            go_type_name: PrivateLinkServiceConnectionState
+          '/properties/privateEndpointConnections/properties/privateLinkServiceConnectionState/status': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: Status
+          '/properties/privateEndpointConnections/properties/privateLinkServiceConnectionState/description': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: Description
+          '/properties/privateEndpointConnections/properties/privateLinkServiceConnectionState/actionRequired': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: ActionRequired
+          '/properties/privateEndpointConnections/properties/provisioningState': !ruby/object:Api::Azure::SDKTypeDefinition::EnumObject
+            applicable_to: [go]
+            go_field_name: ProvisioningState
+            go_enum_type_name: ProvisioningState
+          '/properties/privateEndpointConnections/name': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: Name
+          '/properties/privateEndpointConnections/type': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: Type
+          '/properties/privateEndpointConnections/etag': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: Etag
+          '/privateEndpointConnections': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexArrayObject
+            applicable_to: [python]
+            python_field_name: private_endpoint_connections
+          '/privateEndpointConnections/id': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: id
+          '/privateEndpointConnections/privateEndpoint': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            applicable_to: [python]
+            python_field_name: private_endpoint
+          '/privateEndpointConnections/privateEndpoint/id': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: id
+          '/privateEndpointConnections/privateEndpoint/location': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: location
+          '/privateEndpointConnections/privateEndpoint/tags': !ruby/object:Api::Azure::SDKTypeDefinition::StringMapObject
+            applicable_to: [python]
+            python_field_name: tags
+          '/privateEndpointConnections/privateEndpoint/etag': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: etag
+          '/privateEndpointConnections/privateEndpoint/name': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: name
+          '/privateEndpointConnections/privateEndpoint/type': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: type
+          '/privateEndpointConnections/privateLinkServiceConnectionState': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            applicable_to: [python]
+            python_field_name: private_link_service_connection_state
+          '/privateEndpointConnections/privateLinkServiceConnectionState/status': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: status
+          '/privateEndpointConnections/privateLinkServiceConnectionState/description': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: description
+          '/privateEndpointConnections/privateLinkServiceConnectionState/actionRequired': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: action_required
+          '/privateEndpointConnections/provisioningState': !ruby/object:Api::Azure::SDKTypeDefinition::EnumObject
+            applicable_to: [python]
+            python_field_name: provisioning_state
+          '/privateEndpointConnections/name': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: name
+          '/privateEndpointConnections/type': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: type
+          '/privateEndpointConnections/etag': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: etag
+          '/properties/visibility': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            applicable_to: [go]
+            go_field_name: Visibility
+            go_type_name: PrivateLinkServicePropertiesVisibility
+          '/properties/visibility/subscriptions': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexArrayObject
+            applicable_to: [go]
+            go_field_name: Subscriptions
+          '/visibility': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            applicable_to: [python]
+            python_field_name: visibility
+          '/visibility/subscriptions': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: subscriptions
+          '/properties/autoApproval': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            applicable_to: [go]
+            go_field_name: AutoApproval
+            go_type_name: PrivateLinkServicePropertiesAutoApproval
+          '/properties/autoApproval/subscriptions': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexArrayObject
+            applicable_to: [go]
+            go_field_name: Subscriptions
+          '/autoApproval': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            applicable_to: [python]
+            python_field_name: auto_approval
+          '/autoApproval/subscriptions': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: subscriptions
+          '/properties/fqdns': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexArrayObject
+            applicable_to: [go]
+            go_field_name: Fqdns
+          '/fqdns': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: fqdns
+          '/properties/networkInterfaces': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexArrayObject
+            applicable_to: [go]
+            go_field_name: NetworkInterfaces
+            go_type_name: Interface
+          '/properties/networkInterfaces/id': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: ID
+          '/networkInterfaces': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexArrayObject
+            applicable_to: [python]
+            python_field_name: network_interfaces
+          '/properties/provisioningState': !ruby/object:Api::Azure::SDKTypeDefinition::EnumObject
+            applicable_to: [go]
+            go_field_name: ProvisioningState
+            go_enum_type_name: ProvisioningState
+          '/provisioningState': !ruby/object:Api::Azure::SDKTypeDefinition::EnumObject
+            applicable_to: [python]
+            python_field_name: provisioning_state
+          '/properties/alias': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: Alias
+          '/alias': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: alias
+          '/etag': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            go_field_name: Etag
+            python_field_name: etag
+          '/name': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            go_field_name: Name
+            python_field_name: name
+          '/type': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            go_field_name: Type
+            python_field_name: type
+      list_by_subscription: !ruby/object:Api::Azure::SDKOperationDefinition
+        go_func_name: ListBySubscription
+        python_func_name: list_by_subscription
+        request:
+      list_by_subscription: !ruby/object:Api::Azure::SDKOperationDefinition
+        go_func_name: ListAutoApprovedPrivateLinkServices
+        python_func_name: list_auto_approved_private_link_services
+        request:
+          '/location': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            go_field_name: Location
+            python_field_name: location
+      list_by_resource_group: !ruby/object:Api::Azure::SDKOperationDefinition
+        go_func_name: List
+        python_func_name: list
+        request:
+          'resourceGroupName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            id_portion: resourceGroups
+            go_variable_name: resourceGroup
+            python_parameter_name: resource_group_name
+            python_variable_name: resource_group
+      list_by_parent: !ruby/object:Api::Azure::SDKOperationDefinition
+        go_func_name: ListAutoApprovedPrivateLinkServicesByResourceGroup
+        python_func_name: list_auto_approved_private_link_services_by_resource_group
+        request:
+          '/location': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            go_field_name: Location
+            python_field_name: location
+          'resourceGroupName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            id_portion: resourceGroups
+            go_variable_name: resourceGroup
+            python_parameter_name: resource_group_name
+            python_variable_name: resource_group
+
+    description: |
+      Manage Azure PrivateLinkService instance.
+    properties:
+      - !ruby/object:Api::Azure::Type::ResourceGroupName
+        name: 'resourceGroup'
+        description: 'The name of the resource group.'
+        required: true
+        input: true
+        sample_value: myResourceGroup
+        azure_sdk_references: ['resourceGroupName']
+      - !ruby/object:Api::Type::String
+        name: 'name'
+        description: 'The name of the private link service.'
+        required: true
+        input: true
+        sample_value: 'myPrivateLinkService'
+        azure_sdk_references: ['serviceName', '/name']
+      - !ruby/object:Api::Type::String
+        exclude: true
+        name: 'id'
+        description: 'Resource ID.'
+        required: false
+        input: true
+        azure_sdk_references: ['/id']
+      - !ruby/object:Api::Azure::Type::Location
+        name: 'location'
+        description: 'Resource location.'
+        required: false
+        input: true
+        sample_value: eastus
+        azure_sdk_references: ['/location']
+      - !ruby/object:Api::Azure::Type::Tags
+        name: 'tags'
+        description: 'Resource tags.'
+        required: false
+        input: true
+        azure_sdk_references: ['tags', '/tags']
+      - !ruby/object:Api::Type::Array
+        name: 'loadBalancerFrontendIpConfigurations'
+        description: 'An array of references to the load balancer IP configurations.'
+        required: false
+        azure_sdk_references: ['/loadBalancerFrontendIpConfigurations', '/properties/loadBalancerFrontendIpConfigurations']
+        item_type: !ruby/object:Api::Type::NestedObject
+          properties:
+            - !ruby/object:Api::Azure::Type::ResourceReference
+              name: 'id'
+              description: 'Resource ID.'
+              required: false
+              sample_value: /subscriptions/{{ subscription_id }}/resourceGroups/{{ resource_group }}/providers/Microsoft.Network/loadBalancers/{{ load_balancer_name }}/frontendIPConfigurations/{{ name }}
+              resource_type_name: TBD
+              azure_sdk_references: ['/loadBalancerFrontendIpConfigurations/id', '/properties/loadBalancerFrontendIpConfigurations/id']
+            - !ruby/object:Api::Type::String
+              name: 'privateIpAddress'
+              description: 'The private IP address of the IP configuration.'
+              required: false
+              azure_sdk_references: ['/loadBalancerFrontendIpConfigurations/privateIPAddress', '/properties/loadBalancerFrontendIpConfigurations/properties/privateIPAddress']
+            - !ruby/object:Api::Type::Enum
+              name: 'privateIpallocationMethod'
+              description: 'The Private IP allocation method.'
+              output: true
+              values:
+                - :Static
+                - :Dynamic
+              azure_sdk_references: ['/loadBalancerFrontendIpConfigurations/privateIPAllocationMethod', '/properties/loadBalancerFrontendIpConfigurations/properties/privateIPAllocationMethod']
+            - !ruby/object:Api::Type::Enum
+              name: 'privateIpAddressVersion'
+              description: 'It represents whether the specific ipconfiguration is IPv4 or IPv6. Default is taken as IPv4.'
+              output: true
+              values:
+                - :IPv4
+                - :IPv6
+              azure_sdk_references: ['/loadBalancerFrontendIpConfigurations/privateIPAddressVersion', '/properties/loadBalancerFrontendIpConfigurations/properties/privateIPAddressVersion']
+            - !ruby/object:Api::Type::NestedObject
+              name: 'subnet'
+              description: 'The reference of the subnet resource.'
+              required: false
+              azure_sdk_references: ['/loadBalancerFrontendIpConfigurations/subnet', '/properties/loadBalancerFrontendIpConfigurations/properties/subnet']
+              properties:
+                - !ruby/object:Api::Type::String
+                  name: 'id'
+                  description: 'Resource ID.'
+                  required: false
+                  azure_sdk_references: ['/loadBalancerFrontendIpConfigurations/subnet/id', '/properties/loadBalancerFrontendIpConfigurations/properties/subnet/id']
+                - !ruby/object:Api::Type::String
+                  name: 'name'
+                  description: 'The name of the resource that is unique within a resource group. This name can be used to access the resource.'
+                  required: false
+                  azure_sdk_references: ['/loadBalancerFrontendIpConfigurations/subnet/name', '/properties/loadBalancerFrontendIpConfigurations/properties/subnet/name', '/name']
+                - !ruby/object:Api::Type::String
+                  name: 'etag'
+                  description: 'A unique read-only string that changes whenever the resource is updated.'
+                  required: false
+                  azure_sdk_references: ['/loadBalancerFrontendIpConfigurations/subnet/etag', '/properties/loadBalancerFrontendIpConfigurations/properties/subnet/etag']
+            - !ruby/object:Api::Type::NestedObject
+              name: 'publicIpAddress'
+              description: 'The reference of the Public IP resource.'
+              required: false
+              azure_sdk_references: ['/loadBalancerFrontendIpConfigurations/publicIPAddress', '/properties/loadBalancerFrontendIpConfigurations/properties/publicIPAddress']
+              properties:
+                - !ruby/object:Api::Type::String
+                  name: 'id'
+                  description: 'Resource ID.'
+                  required: false
+                  azure_sdk_references: ['/loadBalancerFrontendIpConfigurations/publicIPAddress/id', '/properties/loadBalancerFrontendIpConfigurations/properties/publicIPAddress/id']
+                - !ruby/object:Api::Azure::Type::Location
+                  name: 'location'
+                  description: 'Resource location.'
+                  required: false
+                  input: true
+                  azure_sdk_references: ['/loadBalancerFrontendIpConfigurations/publicIPAddress/location', '/properties/loadBalancerFrontendIpConfigurations/properties/publicIPAddress/location']
+                - !ruby/object:Api::Azure::Type::Tags
+                  name: 'tags'
+                  description: 'Resource tags.'
+                  required: false
+                  azure_sdk_references: ['/loadBalancerFrontendIpConfigurations/publicIPAddress/tags', '/properties/loadBalancerFrontendIpConfigurations/properties/publicIPAddress/tags']
+                - !ruby/object:Api::Type::String
+                  name: 'etag'
+                  description: 'A unique read-only string that changes whenever the resource is updated.'
+                  required: false
+                  azure_sdk_references: ['/loadBalancerFrontendIpConfigurations/publicIPAddress/etag', '/properties/loadBalancerFrontendIpConfigurations/properties/publicIPAddress/etag']
+                - !ruby/object:Api::Type::Array
+                  name: 'zones'
+                  item_type: Api::Type::String
+                  description: 'A list of availability zones denoting the IP allocated for the resource needs to come from.'
+                  required: false
+                  azure_sdk_references: ['/loadBalancerFrontendIpConfigurations/publicIPAddress/zones', '/properties/loadBalancerFrontendIpConfigurations/properties/publicIPAddress/zones']
+            - !ruby/object:Api::Type::NestedObject
+              name: 'publicIpprefix'
+              description: 'The reference of the Public IP Prefix resource.'
+              required: false
+              azure_sdk_references: ['/loadBalancerFrontendIpConfigurations/publicIPPrefix', '/properties/loadBalancerFrontendIpConfigurations/properties/publicIPPrefix']
+              properties:
+                - !ruby/object:Api::Type::String
+                  name: 'id'
+                  description: 'Resource ID.'
+                  required: false
+                  azure_sdk_references: ['/loadBalancerFrontendIpConfigurations/publicIPPrefix/id', '/properties/loadBalancerFrontendIpConfigurations/properties/publicIPPrefix/id']
+            - !ruby/object:Api::Type::String
+              name: 'name'
+              description: 'The name of the resource that is unique within the set of frontend IP configurations used by the load balancer. This name can be used to access the resource.'
+              required: false
+              azure_sdk_references: ['/loadBalancerFrontendIpConfigurations/name', '/properties/loadBalancerFrontendIpConfigurations/name', '/name']
+            - !ruby/object:Api::Type::String
+              name: 'etag'
+              description: 'A unique read-only string that changes whenever the resource is updated.'
+              required: false
+              azure_sdk_references: ['/loadBalancerFrontendIpConfigurations/etag', '/properties/loadBalancerFrontendIpConfigurations/etag']
+            - !ruby/object:Api::Type::Array
+              name: 'zones'
+              item_type: Api::Type::String
+              description: 'A list of availability zones denoting the IP allocated for the resource needs to come from.'
+              output: true
+              azure_sdk_references: ['/loadBalancerFrontendIpConfigurations/zones', '/properties/loadBalancerFrontendIpConfigurations/zones']
+      - !ruby/object:Api::Type::Array
+        name: 'ipConfigurations'
+        description: 'An array of references to the private link service IP configuration.'
+        required: false
+        azure_sdk_references: ['/ipConfigurations', '/properties/ipConfigurations']
+        item_type: !ruby/object:Api::Type::NestedObject
+          properties:
+            - !ruby/object:Api::Type::String
+              exclude: true
+              name: 'id'
+              description: 'Resource ID.'
+              required: false
+              azure_sdk_references: ['/ipConfigurations/id', '/properties/ipConfigurations/id']
+            - !ruby/object:Api::Type::String
+              name: 'privateIpAddress'
+              description: 'The private IP address of the IP configuration.'
+              required: false
+              sample_value: '10.0.1.4'
+              azure_sdk_references: ['/ipConfigurations/privateIPAddress', '/properties/ipConfigurations/properties/privateIPAddress']
+            - !ruby/object:Api::Type::Enum
+              name: 'privateIpallocationMethod'
+              description: 'The private IP address allocation method.'
+              required: false
+              values:
+                - :Static
+                - :Dynamic
+              default_value: :Static
+              sample_value: Static
+              azure_sdk_references: ['/ipConfigurations/privateIPAllocationMethod', '/properties/ipConfigurations/properties/privateIPAllocationMethod']
+            - !ruby/object:Api::Type::NestedObject
+              name: 'subnet'
+              description: 'The reference of the subnet resource.'
+              required: false
+              azure_sdk_references: ['/ipConfigurations/subnet', '/properties/ipConfigurations/properties/subnet']
+              properties:
+                - !ruby/object:Api::Azure::Type::ResourceReference
+                  name: 'id'
+                  description: 'Resource ID.'
+                  required: false
+                  sample_value: /subscriptions/{{ subscription_id }}/resourceGroups/{{ resource_group }}/providers/Microsoft.Network/virtualNetworks/{{ virtual_network_name }}/subnets/{{ name }}
+                  resource_type_name: TBD
+                  azure_sdk_references: ['/ipConfigurations/subnet/id', '/properties/ipConfigurations/properties/subnet/id']
+                - !ruby/object:Api::Type::String
+                  name: 'name'
+                  description: 'The name of the resource that is unique within a resource group. This name can be used to access the resource.'
+                  required: false
+                  azure_sdk_references: ['/ipConfigurations/subnet/name', '/properties/ipConfigurations/properties/subnet/name', '/name']
+                - !ruby/object:Api::Type::String
+                  name: 'etag'
+                  description: 'A unique read-only string that changes whenever the resource is updated.'
+                  required: false
+                  azure_sdk_references: ['/ipConfigurations/subnet/etag', '/properties/ipConfigurations/properties/subnet/etag']
+            - !ruby/object:Api::Type::Boolean
+              exclude: true
+              name: 'primary'
+              description: 'Whether the ip configuration is primary or not.'
+              required: false
+              azure_sdk_references: ['/ipConfigurations/primary', '/properties/ipConfigurations/properties/primary']
+            - !ruby/object:Api::Type::Enum
+              name: 'privateIpAddressVersion'
+              description: 'Available from Api-Version 2016-03-30 onwards, it represents whether the specific ipconfiguration is IPv4 or IPv6. Default is taken as IPv4.'
+              required: false
+              values:
+                - :IPv4
+                - :IPv6
+              default_value: :IPv4
+              sample_value: IPv4
+              azure_sdk_references: ['/ipConfigurations/privateIPAddressVersion', '/properties/ipConfigurations/properties/privateIPAddressVersion']
+            - !ruby/object:Api::Type::String
+              name: 'name'
+              description: 'The name of private link service ip configuration.'
+              required: false
+              sample_value: 'fe-lb'
+              azure_sdk_references: ['/ipConfigurations/name', '/properties/ipConfigurations/name']
+      - !ruby/object:Api::Type::Array
+        name: 'privateEndpointConnections'
+        description: 'An array of list about connections to the private endpoint.'
+        required: false
+        azure_sdk_references: ['/privateEndpointConnections', '/properties/privateEndpointConnections']
+        item_type: !ruby/object:Api::Type::NestedObject
+          properties:
+            - !ruby/object:Api::Type::String
+              name: 'id'
+              description: 'Resource ID.'
+              required: false
+              azure_sdk_references: ['/privateEndpointConnections/id', '/properties/privateEndpointConnections/id']
+            - !ruby/object:Api::Type::NestedObject
+              name: 'privateEndpoint'
+              description: 'The resource of private end point.'
+              required: false
+              azure_sdk_references: ['/privateEndpointConnections/privateEndpoint', '/properties/privateEndpointConnections/properties/privateEndpoint']
+              properties:
+                - !ruby/object:Api::Type::String
+                  name: 'id'
+                  description: 'Resource ID.'
+                  required: false
+                  azure_sdk_references: ['/privateEndpointConnections/privateEndpoint/id', '/properties/privateEndpointConnections/properties/privateEndpoint/id']
+                - !ruby/object:Api::Azure::Type::Location
+                  name: 'location'
+                  description: 'Resource location.'
+                  required: false
+                  input: true
+                  azure_sdk_references: ['/privateEndpointConnections/privateEndpoint/location', '/properties/privateEndpointConnections/properties/privateEndpoint/location']
+                - !ruby/object:Api::Azure::Type::Tags
+                  name: 'tags'
+                  description: 'Resource tags.'
+                  required: false
+                  azure_sdk_references: ['/privateEndpointConnections/privateEndpoint/tags', '/properties/privateEndpointConnections/properties/privateEndpoint/tags']
+                - !ruby/object:Api::Type::String
+                  name: 'etag'
+                  description: 'A unique read-only string that changes whenever the resource is updated.'
+                  required: false
+                  azure_sdk_references: ['/privateEndpointConnections/privateEndpoint/etag', '/properties/privateEndpointConnections/properties/privateEndpoint/etag']
+            - !ruby/object:Api::Type::NestedObject
+              name: 'privateLinkServiceConnectionState'
+              description: 'A collection of information about the state of the connection between service consumer and provider.'
+              required: false
+              azure_sdk_references: ['/privateEndpointConnections/privateLinkServiceConnectionState', '/properties/privateEndpointConnections/properties/privateLinkServiceConnectionState']
+              properties:
+                - !ruby/object:Api::Type::String
+                  name: 'status'
+                  description: 'Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.'
+                  required: false
+                  azure_sdk_references: ['/privateEndpointConnections/privateLinkServiceConnectionState/status', '/properties/privateEndpointConnections/properties/privateLinkServiceConnectionState/status']
+                - !ruby/object:Api::Type::String
+                  name: 'description'
+                  description: 'The reason for approval/rejection of the connection.'
+                  required: false
+                  azure_sdk_references: ['/privateEndpointConnections/privateLinkServiceConnectionState/description', '/properties/privateEndpointConnections/properties/privateLinkServiceConnectionState/description']
+                - !ruby/object:Api::Type::String
+                  name: 'actionRequired'
+                  description: 'A message indicating if changes on the service provider require any updates on the consumer.'
+                  required: false
+                  azure_sdk_references: ['/privateEndpointConnections/privateLinkServiceConnectionState/actionRequired', '/properties/privateEndpointConnections/properties/privateLinkServiceConnectionState/actionRequired']
+            - !ruby/object:Api::Type::String
+              name: 'name'
+              description: 'The name of the resource that is unique within a resource group. This name can be used to access the resource.'
+              required: false
+              azure_sdk_references: ['/privateEndpointConnections/name', '/properties/privateEndpointConnections/name', '/name']
+      - !ruby/object:Api::Type::NestedObject
+        name: 'visibility'
+        description: 'The visibility list of the private link service.'
+        required: false
+        azure_sdk_references: ['/visibility', '/properties/visibility']
+        properties:
+          - !ruby/object:Api::Type::Array
+            name: 'subscriptions'
+            item_type: Api::Type::String
+            description: 'The list of subscriptions.'
+            required: false
+            sample_value: 'subscription3'
+            azure_sdk_references: ['/visibility/subscriptions', '/properties/visibility/subscriptions']
+      - !ruby/object:Api::Type::NestedObject
+        name: 'autoApproval'
+        description: 'The auto-approval list of the private link service.'
+        required: false
+        azure_sdk_references: ['/autoApproval', '/properties/autoApproval']
+        properties:
+          - !ruby/object:Api::Type::Array
+            name: 'subscriptions'
+            item_type: Api::Type::String
+            description: 'The list of subscriptions.'
+            required: false
+            sample_value: 'subscription2'
+            azure_sdk_references: ['/autoApproval/subscriptions', '/properties/autoApproval/subscriptions']
+      - !ruby/object:Api::Type::Array
+        name: 'fqdns'
+        item_type: Api::Type::String
+        description: 'The list of Fqdn.'
+        required: false
+        sample_value: 'fqdn3'
+        azure_sdk_references: ['/fqdns', '/properties/fqdns']
+      - !ruby/object:Api::Type::String
+        exclude: true
+        name: 'etag'
+        description: 'A unique read-only string that changes whenever the resource is updated.'
+        required: false
+        input: true
+        azure_sdk_references: ['/etag']
+      # read only values included only in response
+      - !ruby/object:Api::Type::Array
+        name: 'networkInterfaces'
+        description: 'Gets an array of references to the network interfaces created for this private link service.'
+        output: true
+        azure_sdk_references: ['/networkInterfaces', '/properties/networkInterfaces']
+        item_type: !ruby/object:Api::Type::NestedObject
+          properties:
+            - !ruby/object:Api::Type::String
+              name: 'id'
+              description: 'Resource ID.'
+              required: false
+              azure_sdk_references: ['/networkInterfaces/id', '/properties/networkInterfaces/id']
+            - !ruby/object:Api::Type::String
+              name: 'name'
+              description: 'Resource name.'
+              required: false
+              azure_sdk_references: ['/networkInterfaces/name', '/properties/networkInterfaces/name', '/name']
+            - !ruby/object:Api::Type::String
+              name: 'type'
+              description: 'Resource type.'
+              required: false
+              azure_sdk_references: ['/networkInterfaces/type', '/properties/networkInterfaces/type']
+            - !ruby/object:Api::Azure::Type::Location
+              name: 'location'
+              description: 'Resource location.'
+              required: false
+              input: true
+              azure_sdk_references: ['/networkInterfaces/location', '/properties/networkInterfaces/location']
+            - !ruby/object:Api::Azure::Type::Tags
+              name: 'tags'
+              description: 'Resource tags.'
+              required: false
+              azure_sdk_references: ['/networkInterfaces/tags', '/properties/networkInterfaces/tags']
+            - !ruby/object:Api::Type::NestedObject
+              name: 'virtualMachine'
+              description: 'The reference of a virtual machine.'
+              required: false
+              azure_sdk_references: ['/networkInterfaces/virtualMachine', '/properties/networkInterfaces/properties/virtualMachine']
+              properties:
+                - !ruby/object:Api::Type::String
+                  name: 'id'
+                  description: 'Resource ID.'
+                  required: false
+                  azure_sdk_references: ['/networkInterfaces/virtualMachine/id', '/properties/networkInterfaces/properties/virtualMachine/id']
+            - !ruby/object:Api::Type::NestedObject
+              name: 'networkSecurityGroup'
+              description: 'The reference of the NetworkSecurityGroup resource.'
+              required: false
+              azure_sdk_references: ['/networkInterfaces/networkSecurityGroup', '/properties/networkInterfaces/properties/networkSecurityGroup']
+              properties:
+                - !ruby/object:Api::Type::String
+                  name: 'id'
+                  description: 'Resource ID.'
+                  required: false
+                  azure_sdk_references: ['/networkInterfaces/networkSecurityGroup/id', '/properties/networkInterfaces/properties/networkSecurityGroup/id']
+                - !ruby/object:Api::Type::String
+                  name: 'name'
+                  description: 'Resource name.'
+                  required: false
+                  azure_sdk_references: ['/networkInterfaces/networkSecurityGroup/name', '/properties/networkInterfaces/properties/networkSecurityGroup/name', '/name']
+                - !ruby/object:Api::Type::String
+                  name: 'type'
+                  description: 'Resource type.'
+                  required: false
+                  azure_sdk_references: ['/networkInterfaces/networkSecurityGroup/type', '/properties/networkInterfaces/properties/networkSecurityGroup/type']
+                - !ruby/object:Api::Azure::Type::Location
+                  name: 'location'
+                  description: 'Resource location.'
+                  required: false
+                  input: true
+                  azure_sdk_references: ['/networkInterfaces/networkSecurityGroup/location', '/properties/networkInterfaces/properties/networkSecurityGroup/location']
+                - !ruby/object:Api::Azure::Type::Tags
+                  name: 'tags'
+                  description: 'Resource tags.'
+                  required: false
+                  azure_sdk_references: ['/networkInterfaces/networkSecurityGroup/tags', '/properties/networkInterfaces/properties/networkSecurityGroup/tags']
+                - !ruby/object:Api::Type::String
+                  name: 'etag'
+                  description: 'A unique read-only string that changes whenever the resource is updated.'
+                  required: false
+                  azure_sdk_references: ['/networkInterfaces/networkSecurityGroup/etag', '/properties/networkInterfaces/properties/networkSecurityGroup/etag']
+            - !ruby/object:Api::Type::NestedObject
+              name: 'privateEndpoint'
+              description: 'A reference to the private endpoint to which the network interface is linked.'
+              required: false
+              azure_sdk_references: ['/networkInterfaces/privateEndpoint', '/properties/networkInterfaces/properties/privateEndpoint']
+              properties:
+                - !ruby/object:Api::Type::String
+                  name: 'id'
+                  description: 'Resource ID.'
+                  required: false
+                  azure_sdk_references: ['/networkInterfaces/privateEndpoint/id', '/properties/networkInterfaces/properties/privateEndpoint/id']
+                - !ruby/object:Api::Type::String
+                  name: 'name'
+                  description: 'Resource name.'
+                  required: false
+                  azure_sdk_references: ['/networkInterfaces/privateEndpoint/name', '/properties/networkInterfaces/properties/privateEndpoint/name', '/name']
+                - !ruby/object:Api::Type::String
+                  name: 'type'
+                  description: 'Resource type.'
+                  required: false
+                  azure_sdk_references: ['/networkInterfaces/privateEndpoint/type', '/properties/networkInterfaces/properties/privateEndpoint/type']
+                - !ruby/object:Api::Azure::Type::Location
+                  name: 'location'
+                  description: 'Resource location.'
+                  required: false
+                  input: true
+                  azure_sdk_references: ['/networkInterfaces/privateEndpoint/location', '/properties/networkInterfaces/properties/privateEndpoint/location']
+                - !ruby/object:Api::Azure::Type::Tags
+                  name: 'tags'
+                  description: 'Resource tags.'
+                  required: false
+                  azure_sdk_references: ['/networkInterfaces/privateEndpoint/tags', '/properties/networkInterfaces/properties/privateEndpoint/tags']
+                - !ruby/object:Api::Type::String
+                  name: 'etag'
+                  description: 'A unique read-only string that changes whenever the resource is updated.'
+                  required: false
+                  azure_sdk_references: ['/networkInterfaces/privateEndpoint/etag', '/properties/networkInterfaces/properties/privateEndpoint/etag']
+            - !ruby/object:Api::Type::NestedObject
+              name: 'ipConfigurations'
+              description: 'A list of IPConfigurations of the network interface.'
+              required: false
+              azure_sdk_references: ['/networkInterfaces/ipConfigurations', '/properties/networkInterfaces/properties/ipConfigurations']
+              properties:
+                - !ruby/object:Api::Type::String
+                  name: 'id'
+                  description: 'Resource ID.'
+                  required: false
+                  azure_sdk_references: ['/networkInterfaces/ipConfigurations/id', '/properties/networkInterfaces/properties/ipConfigurations/id']
+                - !ruby/object:Api::Type::String
+                  name: 'name'
+                  description: 'The name of the resource that is unique within a resource group. This name can be used to access the resource.'
+                  required: false
+                  azure_sdk_references: ['/networkInterfaces/ipConfigurations/name', '/properties/networkInterfaces/properties/ipConfigurations/name', '/name']
+                - !ruby/object:Api::Type::String
+                  name: 'etag'
+                  description: 'A unique read-only string that changes whenever the resource is updated.'
+                  required: false
+                  azure_sdk_references: ['/networkInterfaces/ipConfigurations/etag', '/properties/networkInterfaces/properties/ipConfigurations/etag']
+            - !ruby/object:Api::Type::NestedObject
+              name: 'tapConfigurations'
+              description: 'A list of TapConfigurations of the network interface.'
+              required: false
+              azure_sdk_references: ['/networkInterfaces/tapConfigurations', '/properties/networkInterfaces/properties/tapConfigurations']
+              properties:
+                - !ruby/object:Api::Type::String
+                  name: 'id'
+                  description: 'Resource ID.'
+                  required: false
+                  azure_sdk_references: ['/networkInterfaces/tapConfigurations/id', '/properties/networkInterfaces/properties/tapConfigurations/id']
+                - !ruby/object:Api::Type::String
+                  name: 'name'
+                  description: 'The name of the resource that is unique within a resource group. This name can be used to access the resource.'
+                  required: false
+                  azure_sdk_references: ['/networkInterfaces/tapConfigurations/name', '/properties/networkInterfaces/properties/tapConfigurations/name', '/name']
+                - !ruby/object:Api::Type::String
+                  name: 'etag'
+                  description: 'A unique read-only string that changes whenever the resource is updated.'
+                  required: false
+                  azure_sdk_references: ['/networkInterfaces/tapConfigurations/etag', '/properties/networkInterfaces/properties/tapConfigurations/etag']
+                - !ruby/object:Api::Type::String
+                  name: 'type'
+                  description: 'Sub Resource type.'
+                  required: false
+                  azure_sdk_references: ['/networkInterfaces/tapConfigurations/type', '/properties/networkInterfaces/properties/tapConfigurations/type']
+            - !ruby/object:Api::Type::NestedObject
+              name: 'dnsSettings'
+              description: 'The DNS settings in network interface.'
+              required: false
+              azure_sdk_references: ['/networkInterfaces/dnsSettings', '/properties/networkInterfaces/properties/dnsSettings']
+              properties:
+                - !ruby/object:Api::Type::String
+                  name: 'dnsServers'
+                  description: 'List of DNS servers IP addresses. Use ''AzureProvidedDNS'' to switch to azure provided DNS resolution. ''AzureProvidedDNS'' value cannot be combined with other IPs, it must be the only value in dnsServers collection.'
+                  required: false
+                  azure_sdk_references: ['/networkInterfaces/dnsSettings/dnsServers', '/properties/networkInterfaces/properties/dnsSettings/dnsServers']
+                - !ruby/object:Api::Type::String
+                  name: 'appliedDnsServers'
+                  description: 'If the VM that uses this NIC is part of an Availability Set, then this list will have the union of all DNS servers from all NICs that are part of the Availability Set. This property is what is configured on each of those VMs.'
+                  required: false
+                  azure_sdk_references: ['/networkInterfaces/dnsSettings/appliedDnsServers', '/properties/networkInterfaces/properties/dnsSettings/appliedDnsServers']
+                - !ruby/object:Api::Type::String
+                  name: 'internalDnsNameLabel'
+                  description: 'Relative DNS name for this NIC used for internal communications between VMs in the same virtual network.'
+                  required: false
+                  azure_sdk_references: ['/networkInterfaces/dnsSettings/internalDnsNameLabel', '/properties/networkInterfaces/properties/dnsSettings/internalDnsNameLabel']
+                - !ruby/object:Api::Type::String
+                  name: 'internalFqdn'
+                  description: 'Fully qualified DNS name supporting internal communications between VMs in the same virtual network.'
+                  required: false
+                  azure_sdk_references: ['/networkInterfaces/dnsSettings/internalFqdn', '/properties/networkInterfaces/properties/dnsSettings/internalFqdn']
+                - !ruby/object:Api::Type::String
+                  name: 'internalDomainNameSuffix'
+                  description: 'Even if internalDnsNameLabel is not specified, a DNS entry is created for the primary NIC of the VM. This DNS name can be constructed by concatenating the VM name with the value of internalDomainNameSuffix.'
+                  required: false
+                  azure_sdk_references: ['/networkInterfaces/dnsSettings/internalDomainNameSuffix', '/properties/networkInterfaces/properties/dnsSettings/internalDomainNameSuffix']
+            - !ruby/object:Api::Type::String
+              name: 'macAddress'
+              description: 'The MAC address of the network interface.'
+              required: false
+              azure_sdk_references: ['/networkInterfaces/macAddress', '/properties/networkInterfaces/properties/macAddress']
+            - !ruby/object:Api::Type::Boolean
+              name: 'primary'
+              description: 'Gets whether this is a primary network interface on a virtual machine.'
+              required: false
+              azure_sdk_references: ['/networkInterfaces/primary', '/properties/networkInterfaces/properties/primary']
+            - !ruby/object:Api::Type::Boolean
+              name: 'enableAcceleratedNetworking'
+              description: 'If the network interface is accelerated networking enabled.'
+              required: false
+              azure_sdk_references: ['/networkInterfaces/enableAcceleratedNetworking', '/properties/networkInterfaces/properties/enableAcceleratedNetworking']
+            - !ruby/object:Api::Type::Boolean
+              name: 'enableIpforwarding'
+              description: 'Indicates whether IP forwarding is enabled on this network interface.'
+              required: false
+              azure_sdk_references: ['/networkInterfaces/enableIPForwarding', '/properties/networkInterfaces/properties/enableIPForwarding']
+            - !ruby/object:Api::Type::String
+              name: 'hostedWorkloads'
+              description: 'A list of references to linked BareMetal resources.'
+              required: false
+              azure_sdk_references: ['/networkInterfaces/hostedWorkloads', '/properties/networkInterfaces/properties/hostedWorkloads']
+            - !ruby/object:Api::Type::String
+              name: 'resourceGuid'
+              description: 'The resource GUID property of the network interface resource.'
+              required: false
+              azure_sdk_references: ['/networkInterfaces/resourceGuid', '/properties/networkInterfaces/properties/resourceGuid']
+            - !ruby/object:Api::Type::String
+              name: 'provisioningState'
+              description: 'The provisioning state of the public IP resource. Possible values are: ''Updating'', ''Deleting'', and ''Failed''.'
+              required: false
+              azure_sdk_references: ['/networkInterfaces/provisioningState', '/properties/networkInterfaces/properties/provisioningState']
+            - !ruby/object:Api::Type::String
+              name: 'etag'
+              description: 'A unique read-only string that changes whenever the resource is updated.'
+              required: false
+              azure_sdk_references: ['/networkInterfaces/etag', '/properties/networkInterfaces/etag']
+      - !ruby/object:Api::Type::Enum
+        exclude: true
+        name: 'provisioningState'
+        description: 'The provisioning state of the private link service.'
+        output: true
+        values:
+          - :Succeeded
+          - :Updating
+          - :Deleting
+          - :Failed
+        default_value: :Succeeded
+        azure_sdk_references: ['/provisioningState', '/properties/provisioningState']
+      - !ruby/object:Api::Type::String
+        name: 'alias'
+        description: 'The alias of the private link service.'
+        output: true
+        azure_sdk_references: ['/alias', '/properties/alias']
+      - !ruby/object:Api::Type::String
+        exclude: true
+        name: 'name'
+        description: 'Resource name.'
+        input: true
+        output: true
+        azure_sdk_references: ['/name']
+      - !ruby/object:Api::Type::String
+        name: 'type'
+        description: 'Resource type.'
+        input: true
+        output: true
+        azure_sdk_references: ['/type']
