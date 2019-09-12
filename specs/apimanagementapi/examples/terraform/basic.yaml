@@ -1,0 +1,17 @@
+--- !ruby/object:Provider::Azure::Example
+resource: azurerm_api_management_api
+prerequisites:
+  - !ruby/object:Provider::Azure::ExampleReference
+    product: resourcegroup
+    example: basic
+  - !ruby/object:Provider::Azure::ExampleReference
+    product: apimanagement
+    example: basic
+properties:
+  name: <%= get_resource_name('apiManagementApi', 'api-name') -%>
+  resource_group_name: ${azurerm_resource_group.<%= resource_id_hint -%>.name}
+  api_management_name: ${azurerm_api_management.<%= resource_id_hint -%>.name}
+  display_name: apitest
+  path: apitest
+  protocols: ["https"]
+  revision: 1
