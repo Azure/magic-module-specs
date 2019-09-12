@@ -2,5 +2,5 @@
 author: audevbot
 version_added: "2.9"
 overrides: !ruby/object:Overrides::ResourceOverrides
-  ApiRelease: !ruby/object:Provider::Azure::Ansible::ResourceOverride
+  ApiManagementApiRelease: !ruby/object:Provider::Azure::Ansible::ResourceOverride
     examples: []
