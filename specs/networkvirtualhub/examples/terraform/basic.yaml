@@ -1,0 +1,20 @@
+--- !ruby/object:Provider::Azure::Example
+resource: azurerm_virtual_hub
+prerequisites:
+  - !ruby/object:Provider::Azure::ExampleReference
+    product: resourcegroup
+    example: basic
+  - !ruby/object:Provider::Azure::ExampleReference
+    product: networkvirtualwan
+    example: basic
+properties:
+  name: "<%= get_resource_name('virtualHubs', 'virtualhub') -%>"
+  resource_group: "${azurerm_resource_group.<%= resource_id_hint -%>.name}"
+  location: "${azurerm_resource_group.<%= resource_id_hint -%>.location}"
+  address_prefix: "10.0.1.0/24"
+  virtual_wan:
+    id: "${azurerm_virtual_wan.<%= resource_id_hint -%>.id}"
+  route_table:
+    routes:
+      address_prefixes: ["10.0.2.0/24", "10.0.3.0/24"]
+      next_hop_ip_address: "10.0.4.5" 
