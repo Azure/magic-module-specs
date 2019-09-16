@@ -1,0 +1,56 @@
+--- !ruby/object:Provider::Azure::Terraform::Config
+overrides: !ruby/object:Overrides::ResourceOverrides
+  VirtualHub: !ruby/object:Provider::Azure::Terraform::ResourceOverride
+    azure_sdk_definition: !ruby/object:Api::Azure::SDKDefinitionOverride
+      create: !ruby/object:Api::Azure::SDKOperationDefinitionOverride
+        request:
+          '/properties/p2SVpnGateway': !ruby/object:Api::Azure::SDKTypeDefinitionOverride
+            go_field_name: P2SVpnGateway
+          '/properties/expressRouteGateway': !ruby/object:Api::Azure::SDKTypeDefinitionOverride
+            go_field_name: ExpressRouteGateway
+          '/properties/virtualNetworkConnections/properties': !ruby/object:Api::Azure::SDKTypeDefinitionOverride
+            go_field_name: HubVirtualNetworkConnectionProperties
+          '/properties/routeTable/routes/nextHopIpAddress': !ruby/object:Api::Azure::SDKTypeDefinitionOverride
+            go_field_name: NextHopIPAddress
+      read: !ruby/object:Api::Azure::SDKOperationDefinitionOverride
+        response:
+          '/properties/p2SVpnGateway': !ruby/object:Api::Azure::SDKTypeDefinitionOverride
+            go_field_name: P2SVpnGateway
+          '/properties/expressRouteGateway': !ruby/object:Api::Azure::SDKTypeDefinitionOverride
+            go_field_name: ExpressRouteGateway
+          '/properties/virtualNetworkConnections/properties': !ruby/object:Api::Azure::SDKTypeDefinitionOverride
+            go_field_name: HubVirtualNetworkConnectionProperties
+          '/properties/routeTable/routes/nextHopIpAddress': !ruby/object:Api::Azure::SDKTypeDefinitionOverride
+            go_field_name: NextHopIPAddress
+    properties:
+      provisioningState: !ruby/object:Provider::Azure::Terraform::PropertyOverride
+        exclude: true
+      virtualNetworkConnections: !ruby/object:Provider::Azure::Terraform::PropertyOverride
+    acctests:
+      - !ruby/object:Provider::Azure::Terraform::AccTestDefinition
+        name: basic
+        steps: [basic]
+      - !ruby/object:Provider::Azure::Terraform::AccTestDefinition
+        name: complete
+        steps: [complete]
+      - !ruby/object:Provider::Azure::Terraform::AccTestDefinition
+        name: update
+        steps: [basic, complete]
+    document_examples:
+      - !ruby/object:Provider::Azure::Terraform::DocumentExampleReference
+        title: Vitual Hub Usage
+        example_name: basic
+        resource_name_hints:
+          resourceGroups: acctestRG
+          location: Eastus2
+datasources: !ruby/object:Overrides::ResourceOverrides
+  VirtualHub: !ruby/object:Provider::Azure::Terraform::ResourceOverride
+    properties:
+      resourceGroup: !ruby/object:Provider::Azure::Terraform::PropertyOverride
+        description: The Name of the Resource Group where the App Service exists.
+    acctests:
+      - !ruby/object:Provider::Azure::Terraform::AccTestDefinition
+        name: basic
+        steps: [basic]
+    datasource_example_outputs:
+      virtual_hub_id: id
