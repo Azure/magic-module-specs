@@ -442,9 +442,6 @@ objects:
             applicable_to: [go]
             go_field_name: PrivateLinkServiceConnectionState
             go_type_name: PrivateLinkServiceConnectionState
-          '/properties/manualPrivateLinkServiceConnections/properties/privateLinkServiceConnectionState/status': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
-            applicable_to: [go]
-            go_field_name: Status
           '/properties/manualPrivateLinkServiceConnections/properties/privateLinkServiceConnectionState/description': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             applicable_to: [go]
             go_field_name: Description
@@ -486,6 +483,8 @@ objects:
             go_variable_name: name
             python_parameter_name: private_endpoint_name
             python_variable_name: name
+          '$expand': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            go_variable_name: '""'
         response:
           '/id': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             go_field_name: ID
@@ -1143,11 +1142,10 @@ objects:
               name: 'name'
               description: 'The name of the resource that is unique within a resource group. This name can be used to access the resource.'
               required: true
-              azure_sdk_references: ['/privateLinkServiceConnections/name', '/properties/privateLinkServiceConnections/name', '/name']
+              azure_sdk_references: ['/privateLinkServiceConnections/name', '/properties/privateLinkServiceConnections/name']
             - !ruby/object:Api::Type::String
               name: 'status'
               output: true
-              required: false
               description: 'Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.'
               azure_sdk_references: ['/privateLinkServiceConnections/privateLinkServiceConnectionState/status', '/properties/privateLinkServiceConnections/properties/privateLinkServiceConnectionState/status']
       - !ruby/object:Api::Type::Array
@@ -1181,11 +1179,10 @@ objects:
               name: 'name'
               description: 'The name of the resource that is unique within a resource group. This name can be used to access the resource.'
               required: true
-              azure_sdk_references: ['/manualPrivateLinkServiceConnections/name', '/properties/manualPrivateLinkServiceConnections/name', '/name']
+              azure_sdk_references: ['/manualPrivateLinkServiceConnections/name', '/properties/manualPrivateLinkServiceConnections/name']
             - !ruby/object:Api::Type::String
               name: 'status'
               output: true
-              required: false
               description: 'Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.'
               azure_sdk_references: ['/manualPrivateLinkServiceConnections/privateLinkServiceConnectionState/status', '/properties/manualPrivateLinkServiceConnections/properties/privateLinkServiceConnectionState/status']
       - !ruby/object:Api::Type::String
