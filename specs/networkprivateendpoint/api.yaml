@@ -442,6 +442,9 @@ objects:
             applicable_to: [go]
             go_field_name: PrivateLinkServiceConnectionState
             go_type_name: PrivateLinkServiceConnectionState
+          '/properties/manualPrivateLinkServiceConnections/properties/privateLinkServiceConnectionState/status': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: Description
           '/properties/manualPrivateLinkServiceConnections/properties/privateLinkServiceConnectionState/description': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             applicable_to: [go]
             go_field_name: Description
