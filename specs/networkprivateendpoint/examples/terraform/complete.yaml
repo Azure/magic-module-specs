@@ -25,9 +25,9 @@ properties:
   location: ${azurerm_resource_group.<%= resource_id_hint -%>.location}
   subnet_id: ${azurerm_subnet.<%= resource_id_hint -%>.id} 
   private_link_service_connections:
-    name: "<%= get_resource_name('privatelinkservice', 'connection') -%>"
-    private_link_service_id: ${azurerm_private_link_service.<%= resource_id_hint -%>.id} 
-    group_ids: []
-    request_message: "plz approve my request"
+    - name: "<%= get_resource_name('privatelinkservice', 'connection') -%>"
+      private_link_service_id: ${azurerm_private_link_service.<%= resource_id_hint -%>.id} 
+      group_ids: []
+      request_message: "plz approve my request"
   tags:
     env: "test"
