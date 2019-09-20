@@ -270,21 +270,15 @@ objects:
         required: false
         input: true
         azure_sdk_references: ['tags', '/tags']
-      - !ruby/object:Api::Type::NestedObject
+      - !ruby/object:Api::Type::Enum
         name: 'sku'
         description: 'The nat gateway SKU.'
         required: false
-        azure_sdk_references: ['/sku']
-        properties:
-          - !ruby/object:Api::Type::Enum
-            name: 'name'
-            description: 'Name of Nat Gateway SKU.'
-            required: false
-            values:
-              - :Standard
-            default_value: :Standard
-            sample_value: Standard
-            azure_sdk_references: ['/sku/name', '/name']
+        values:
+          - :Standard
+        default_value: :Standard
+        sample_value: Standard
+        azure_sdk_references: ['/sku/name', '/name']
       - !ruby/object:Api::Type::Integer
         name: 'idleTimeoutInMinutes'
         description: 'The idle timeout of the nat gateway.'
