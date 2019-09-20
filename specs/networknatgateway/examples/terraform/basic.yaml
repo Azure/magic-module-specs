@@ -1,0 +1,9 @@
+--- !ruby/object:Provider::Azure::Example
+resource: azurerm_p2s_vpn_server_configuration
+prerequisites:
+  - !ruby/object:Provider::Azure::ExampleReference
+    product: resourcegroup
+    example: basic
+properties:
+  name: "<%= get_resource_name('natGateway', 'natGateway') -%>"
+  resource_group_name: ${azurerm_resource_group.<%= resource_id_hint -%>.name}

@@ -1,0 +1,29 @@
+--- !ruby/object:Provider::Azure::Terraform::Config
+overrides: !ruby/object:Overrides::ResourceOverrides
+  NatGateway: !ruby/object:Provider::Azure::Terraform::ResourceOverride
+    properties: 
+      resourceGroup: !ruby/object:Provider::Azure::Terraform::PropertyOverride
+        name: resourceGroupName
+      etag: !ruby/object:Provider::Azure::Terraform::PropertyOverride
+        exclude: true
+      provisioningState: !ruby/object:Provider::Azure::Terraform::PropertyOverride
+        exclude: true
+    acctests:
+      - !ruby/object:Provider::Azure::Terraform::AccTestDefinition
+        name: basic
+        steps: [basic]
+      # - !ruby/object:Provider::Azure::Terraform::AccTestDefinition
+      #   name: complete
+      #   steps: [complete]
+datasources: !ruby/object:Overrides::ResourceOverrides
+  NatGateway: !ruby/object:Provider::Azure::Terraform::ResourceOverride
+    properties:
+      resourceGroupName: !ruby/object:Provider::Azure::Terraform::PropertyOverride
+        description: The Name of the Resource Group where the App Service exists.
+    acctests:
+      - !ruby/object:Provider::Azure::Terraform::AccTestDefinition
+        name: basic
+        steps: [basic]
+      # - !ruby/object:Provider::Azure::Terraform::AccTestDefinition
+      #   name: complete
+      #   steps: [complete]

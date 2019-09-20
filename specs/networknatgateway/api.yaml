@@ -1,0 +1,375 @@
+--- !ruby/object:Api::Product
+name: Azure NatGateway Management
+versions:
+  - !ruby/object:Api::Product::Version
+    name: ga
+    base_url: NotUsedInAzure
+scopes:
+  - NotUsedInAzure
+objects:
+  - !ruby/object:Api::Resource
+    name: NatGateway
+    api_name: Network
+    base_url: NotUsedInAzure
+
+    azure_sdk_definition: !ruby/object:Api::Azure::SDKDefinition
+      provider_name: Microsoft.Network
+      go_client_namespace: network
+      go_client: network.NatGatewaysClient
+      python_client_namespace: azure.mgmt.network
+      python_client: NetworkManagementClient.nat_gateways
+      create: !ruby/object:Api::Azure::SDKOperationDefinition
+        async: true
+        go_func_name: CreateOrUpdate
+        python_func_name: create_or_update
+        request:
+          'resourceGroupName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            id_portion: resourceGroups
+            go_variable_name: resourceGroup
+            python_parameter_name: resource_group_name
+            python_variable_name: resource_group
+          'natGatewayName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            id_portion: natGateways
+            go_variable_name: name
+            python_parameter_name: nat_gateway_name
+            python_variable_name: name
+          '/': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            go_variable_name: parameters
+            go_type_name: NatGateway
+            python_parameter_name: parameters
+            python_variable_name: parameters
+          '/id': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            go_field_name: ID
+            python_field_name: id
+          '/location': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            go_field_name: Location
+            python_field_name: location
+          '/tags': !ruby/object:Api::Azure::SDKTypeDefinition::StringMapObject
+            go_field_name: Tags
+            python_field_name: tags
+          '/sku': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            go_field_name: Sku
+            go_type_name: NatGatewaySku
+            python_field_name: sku
+          '/sku/name': !ruby/object:Api::Azure::SDKTypeDefinition::EnumObject
+            go_field_name: Name
+            go_enum_type_name: NatGatewaySkuName
+            python_field_name: name
+          '/properties': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            applicable_to: [go]
+            go_field_name: NatGatewayPropertiesFormat
+            go_type_name: NatGatewayPropertiesFormat
+          '/idleTimeoutInMinutes': !ruby/object:Api::Azure::SDKTypeDefinition::Integer32Object
+            applicable_to: [python]
+            python_field_name: idle_timeout_in_minutes
+          '/properties/idleTimeoutInMinutes': !ruby/object:Api::Azure::SDKTypeDefinition::Integer32Object
+            applicable_to: [go]
+            go_field_name: IdleTimeoutInMinutes
+          '/publicIpAddresses': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexArrayObject
+            applicable_to: [python]
+            python_field_name: public_ip_addresses
+          '/publicIpAddresses/id': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: id
+          '/properties/publicIpAddresses': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexArrayObject
+            applicable_to: [go]
+            go_field_name: PublicIPAddresses
+            go_type_name: SubResource
+          '/properties/publicIpAddresses/id': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: ID
+          '/publicIpPrefixes': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexArrayObject
+            applicable_to: [python]
+            python_field_name: public_ip_prefixes
+          '/publicIpPrefixes/id': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: id
+          '/properties/publicIpPrefixes': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexArrayObject
+            applicable_to: [go]
+            go_field_name: PublicIPPrefixes
+            go_type_name: SubResource
+          '/properties/publicIpPrefixes/id': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: ID
+          '/resourceGuid': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: resource_guid
+          '/properties/resourceGuid': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: ResourceGUID
+          '/zones': !ruby/object:Api::Azure::SDKTypeDefinition::StringArrayObject
+            go_field_name: Zones
+            python_field_name: zones
+          '/etag': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            go_field_name: Etag
+            python_field_name: etag
+      delete: !ruby/object:Api::Azure::SDKOperationDefinition
+        async: true
+        go_func_name: Delete
+        python_func_name: delete
+        request:
+          'resourceGroupName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            id_portion: resourceGroups
+            go_variable_name: resourceGroup
+            python_parameter_name: resource_group_name
+            python_variable_name: resource_group
+          'natGatewayName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            id_portion: natGateways
+            go_variable_name: name
+            python_parameter_name: nat_gateway_name
+            python_variable_name: name
+      read: !ruby/object:Api::Azure::SDKOperationDefinition
+        go_func_name: Get
+        python_func_name: get
+        request:
+          'resourceGroupName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            id_portion: resourceGroups
+            go_variable_name: resourceGroup
+            python_parameter_name: resource_group_name
+            python_variable_name: resource_group
+          'natGatewayName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            id_portion: natGateways
+            go_variable_name: name
+            python_parameter_name: nat_gateway_name
+            python_variable_name: name
+          'expand': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            go_variable_name: '""'
+        response:
+          '/id': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            go_field_name: ID
+            python_field_name: id
+          '/location': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            go_field_name: Location
+            python_field_name: location
+          '/tags': !ruby/object:Api::Azure::SDKTypeDefinition::StringMapObject
+            go_field_name: Tags
+            python_field_name: tags
+          '/sku': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            go_field_name: Sku
+            go_type_name: NatGatewaySku
+            python_field_name: sku
+          '/sku/name': !ruby/object:Api::Azure::SDKTypeDefinition::EnumObject
+            go_field_name: Name
+            go_enum_type_name: NatGatewaySkuName
+            python_field_name: name
+          '/properties': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
+            applicable_to: [go]
+            go_field_name: NatGatewayPropertiesFormat
+            go_type_name: NatGatewayPropertiesFormat
+          '/properties/idleTimeoutInMinutes': !ruby/object:Api::Azure::SDKTypeDefinition::IntegerObject
+            applicable_to: [go]
+            go_field_name: IdleTimeoutInMinutes
+          '/idleTimeoutInMinutes': !ruby/object:Api::Azure::SDKTypeDefinition::IntegerObject
+            applicable_to: [python]
+            python_field_name: idle_timeout_in_minutes
+          '/properties/publicIpAddresses': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexArrayObject
+            applicable_to: [go]
+            go_field_name: PublicIPAddresses
+            go_type_name: SubResource
+          '/properties/publicIpAddresses/id': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: ID
+          '/publicIpAddresses': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexArrayObject
+            applicable_to: [python]
+            python_field_name: public_ip_addresses
+          '/publicIpAddresses/id': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: id
+          '/properties/publicIpPrefixes': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexArrayObject
+            applicable_to: [go]
+            go_field_name: PublicIPPrefixes
+            go_type_name: SubResource
+          '/properties/publicIpPrefixes/id': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: ID
+          '/publicIpPrefixes': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexArrayObject
+            applicable_to: [python]
+            python_field_name: public_ip_prefixes
+          '/publicIpPrefixes/id': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: id
+          '/properties/resourceGuid': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [go]
+            go_field_name: ResourceGUID
+          '/resourceGuid': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            applicable_to: [python]
+            python_field_name: resource_guid
+          '/properties/subnets': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexArrayObject
+            applicable_to: [go]
+            go_field_name: Subnets
+            go_type_name: SubResource
+          '/subnets': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexArrayObject
+            applicable_to: [python]
+            python_field_name: subnets
+          '/properties/provisioningState': !ruby/object:Api::Azure::SDKTypeDefinition::EnumObject
+            applicable_to: [go]
+            go_field_name: ProvisioningState
+            go_enum_type_name: ProvisioningState
+          '/provisioningState': !ruby/object:Api::Azure::SDKTypeDefinition::EnumObject
+            applicable_to: [python]
+            python_field_name: provisioning_state
+          '/zones': !ruby/object:Api::Azure::SDKTypeDefinition::StringArrayObject
+            go_field_name: Zones
+            python_field_name: zones
+          '/etag': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            go_field_name: Etag
+            python_field_name: etag
+          '/name': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            go_field_name: Name
+            python_field_name: name
+          '/type': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            go_field_name: Type
+            python_field_name: type
+      list_by_subscription: !ruby/object:Api::Azure::SDKOperationDefinition
+        go_func_name: ListAll
+        python_func_name: list_all
+        request:
+      list_by_resource_group: !ruby/object:Api::Azure::SDKOperationDefinition
+        go_func_name: List
+        python_func_name: list
+        request:
+          'resourceGroupName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+            id_portion: resourceGroups
+            go_variable_name: resourceGroup
+            python_parameter_name: resource_group_name
+            python_variable_name: resource_group
+
+    description: |
+      Manage Azure NatGateway instance.
+    properties:
+      - !ruby/object:Api::Azure::Type::ResourceGroupName
+        name: 'resourceGroup'
+        description: 'The name of the resource group.'
+        required: true
+        input: true
+        sample_value: myResourceGroup
+        azure_sdk_references: ['resourceGroupName']
+      - !ruby/object:Api::Type::String
+        name: 'name'
+        description: 'The name of the nat gateway.'
+        required: true
+        input: true
+        sample_value: 'myNatGateway'
+        azure_sdk_references: ['natGatewayName', '/name']
+      - !ruby/object:Api::Type::String
+        name: 'id'
+        description: 'Resource ID.'
+        required: false
+        input: true
+        azure_sdk_references: ['/id']
+      - !ruby/object:Api::Azure::Type::Location
+        name: 'location'
+        description: 'Resource location.'
+        required: false
+        input: true
+        sample_value: westus
+        azure_sdk_references: ['/location']
+      - !ruby/object:Api::Azure::Type::Tags
+        name: 'tags'
+        description: 'Resource tags.'
+        required: false
+        input: true
+        azure_sdk_references: ['tags', '/tags']
+      - !ruby/object:Api::Type::NestedObject
+        name: 'sku'
+        description: 'The nat gateway SKU.'
+        required: false
+        azure_sdk_references: ['/sku']
+        properties:
+          - !ruby/object:Api::Type::Enum
+            name: 'name'
+            description: 'Name of Nat Gateway SKU.'
+            required: false
+            values:
+              - :Standard
+            default_value: :Standard
+            sample_value: Standard
+            azure_sdk_references: ['/sku/name', '/name']
+      - !ruby/object:Api::Type::Integer
+        name: 'idleTimeoutInMinutes'
+        description: 'The idle timeout of the nat gateway.'
+        required: false
+        azure_sdk_references: ['/idleTimeoutInMinutes', '/properties/idleTimeoutInMinutes']
+      - !ruby/object:Api::Type::Array
+        name: 'publicIpAddresses'
+        description: 'An array of public ip addresses associated with the nat gateway resource.'
+        required: false
+        azure_sdk_references: ['/publicIpAddresses', '/properties/publicIpAddresses']
+        item_type: !ruby/object:Api::Type::NestedObject
+          properties:
+            - !ruby/object:Api::Azure::Type::ResourceReference
+              name: 'id'
+              description: 'Resource ID.'
+              required: false
+              sample_value: /subscriptions/{{ subscription_id }}/resourceGroups/{{ resource_group }}/providers/Microsoft.Network/publicIPAddresses/{{ name }}
+              resource_type_name: TBD
+              azure_sdk_references: ['/publicIpAddresses/id', '/properties/publicIpAddresses/id']
+      - !ruby/object:Api::Type::Array
+        name: 'publicIpPrefixes'
+        description: 'An array of public ip prefixes associated with the nat gateway resource.'
+        required: false
+        azure_sdk_references: ['/publicIpPrefixes', '/properties/publicIpPrefixes']
+        item_type: !ruby/object:Api::Type::NestedObject
+          properties:
+            - !ruby/object:Api::Azure::Type::ResourceReference
+              name: 'id'
+              description: 'Resource ID.'
+              required: false
+              sample_value: /subscriptions/{{ subscription_id }}/resourceGroups/{{ resource_group }}/providers/Microsoft.Network/publicIPPrefixes/{{ name }}
+              resource_type_name: TBD
+              azure_sdk_references: ['/publicIpPrefixes/id', '/properties/publicIpPrefixes/id']
+      - !ruby/object:Api::Type::String
+        name: 'resourceGuid'
+        description: 'The resource GUID property of the NAT gateway resource.'
+        required: false
+        azure_sdk_references: ['/resourceGuid', '/properties/resourceGuid']
+      - !ruby/object:Api::Type::Array
+        name: 'zones'
+        description: 'A list of availability zones denoting the zone in which Nat Gateway should be deployed.'
+        required: false
+        input: true
+        azure_sdk_references: ['/zones']
+        item_type: Api::Type::String
+      - !ruby/object:Api::Type::String
+        name: 'etag'
+        description: 'A unique read-only string that changes whenever the resource is updated.'
+        required: false
+        input: true
+        azure_sdk_references: ['/etag']
+      # read only values included only in response
+      - !ruby/object:Api::Type::Array
+        name: 'subnets'
+        description: 'An array of references to the subnets using this nat gateway resource.'
+        output: true
+        azure_sdk_references: ['/subnets', '/properties/subnets']
+        item_type: !ruby/object:Api::Type::NestedObject
+          properties:
+            - !ruby/object:Api::Type::String
+              name: 'id'
+              description: 'Resource ID.'
+              required: false
+              azure_sdk_references: ['/subnets/id', '/properties/subnets/id']
+      - !ruby/object:Api::Type::Enum
+        name: 'provisioningState'
+        description: 'The provisioning state of the NAT gateway resource.'
+        output: true
+        values:
+          - :Succeeded
+          - :Updating
+          - :Deleting
+          - :Failed
+        default_value: :Succeeded
+        azure_sdk_references: ['/provisioningState', '/properties/provisioningState']
+      - !ruby/object:Api::Type::String
+        exclude: true
+        name: 'name'
+        description: 'Resource name.'
+        input: true
+        output: true
+        azure_sdk_references: ['/name']
+      - !ruby/object:Api::Type::String
+        name: 'type'
+        description: 'Resource type.'
+        input: true
+        output: true
+        azure_sdk_references: ['/type']
