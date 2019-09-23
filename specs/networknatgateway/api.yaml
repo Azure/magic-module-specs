@@ -251,12 +251,6 @@ objects:
         input: true
         sample_value: 'myNatGateway'
         azure_sdk_references: ['natGatewayName', '/name']
-      - !ruby/object:Api::Type::String
-        name: 'id'
-        description: 'Resource ID.'
-        required: false
-        input: true
-        azure_sdk_references: ['/id']
       - !ruby/object:Api::Azure::Type::Location
         name: 'location'
         description: 'Resource location.'
