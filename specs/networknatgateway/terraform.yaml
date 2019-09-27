@@ -12,9 +12,12 @@ overrides: !ruby/object:Overrides::ResourceOverrides
       - !ruby/object:Provider::Azure::Terraform::AccTestDefinition
         name: basic
         steps: [basic]
-      # - !ruby/object:Provider::Azure::Terraform::AccTestDefinition
-      #   name: complete
-      #   steps: [complete]
+      - !ruby/object:Provider::Azure::Terraform::AccTestDefinition
+        name: complete
+        steps: [complete]
+      - !ruby/object:Provider::Azure::Terraform::AccTestDefinition
+        name: update
+        steps: [basic, complete, basic]
 datasources: !ruby/object:Overrides::ResourceOverrides
   NatGateway: !ruby/object:Provider::Azure::Terraform::ResourceOverride
     properties:
@@ -24,6 +27,9 @@ datasources: !ruby/object:Overrides::ResourceOverrides
       - !ruby/object:Provider::Azure::Terraform::AccTestDefinition
         name: basic
         steps: [basic]
-      # - !ruby/object:Provider::Azure::Terraform::AccTestDefinition
-      #   name: complete
-      #   steps: [complete]
+      - !ruby/object:Provider::Azure::Terraform::AccTestDefinition
+        name: complete
+        steps: [complete]
+      - !ruby/object:Provider::Azure::Terraform::AccTestDefinition
+        name: update
+        steps: [basic, complete, basic]

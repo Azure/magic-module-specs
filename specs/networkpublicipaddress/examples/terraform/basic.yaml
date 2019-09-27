@@ -1,10 +1,12 @@
 --- !ruby/object:Provider::Azure::Example
-resource: azurerm_nat_gateway
+resource: azurerm_public_ip
 prerequisites:
   - !ruby/object:Provider::Azure::ExampleReference
     product: resourcegroup
     example: basic
 properties:
-  name: "<%= get_resource_name('natGateway', 'natGateway') -%>"
+  name: "<%= get_resource_name('publicIP', 'publicIP') -%>"
   location: ${azurerm_resource_group.<%= resource_id_hint -%>.location}
   resource_group_name: ${azurerm_resource_group.<%= resource_id_hint -%>.name}
+  allocation_method: Static
+  sku: Standard
