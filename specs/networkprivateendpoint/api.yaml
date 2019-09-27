@@ -1146,11 +1146,27 @@ objects:
               description: 'The name of the resource that is unique within a resource group. This name can be used to access the resource.'
               required: true
               azure_sdk_references: ['/privateLinkServiceConnections/name', '/properties/privateLinkServiceConnections/name']
-            - !ruby/object:Api::Type::String
-              name: 'status'
+            - !ruby/object:Api::Type::NestedObject
+              name: 'privateLinkServiceConnectionState'
+              description: 'A collection of read-only information about the state of the connection to the remote resource.'
               output: true
-              description: 'Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.'
-              azure_sdk_references: ['/privateLinkServiceConnections/privateLinkServiceConnectionState/status', '/properties/privateLinkServiceConnections/properties/privateLinkServiceConnectionState/status']
+              azure_sdk_references: ['/privateLinkServiceConnections/privateLinkServiceConnectionState', '/properties/privateLinkServiceConnections/properties/privateLinkServiceConnectionState']
+              properties:
+                - !ruby/object:Api::Type::String
+                  name: 'status'
+                  description: 'Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.'
+                  output: true
+                  azure_sdk_references: ['/privateLinkServiceConnections/privateLinkServiceConnectionState/status', '/properties/privateLinkServiceConnections/properties/privateLinkServiceConnectionState/status']
+                - !ruby/object:Api::Type::String
+                  name: 'description'
+                  description: 'The reason for approval/rejection of the connection.'
+                  output: true
+                  azure_sdk_references: ['/privateLinkServiceConnections/privateLinkServiceConnectionState/description', '/properties/privateLinkServiceConnections/properties/privateLinkServiceConnectionState/description']
+                - !ruby/object:Api::Type::String
+                  name: 'actionRequired'
+                  description: 'A message indicating if changes on the service provider require any updates on the consumer.'
+                  output: true
+                  azure_sdk_references: ['/privateLinkServiceConnections/privateLinkServiceConnectionState/actionRequired', '/properties/privateLinkServiceConnections/properties/privateLinkServiceConnectionState/actionRequired']
       - !ruby/object:Api::Type::Array
         name: 'manualPrivateLinkServiceConnections'
         description: 'A grouping of information about the connection to the remote resource. Used when the network admin does not have access to approve connections to the remote resource.'
@@ -1183,11 +1199,27 @@ objects:
               description: 'The name of the resource that is unique within a resource group. This name can be used to access the resource.'
               required: true
               azure_sdk_references: ['/manualPrivateLinkServiceConnections/name', '/properties/manualPrivateLinkServiceConnections/name']
-            - !ruby/object:Api::Type::String
-              name: 'status'
+            - !ruby/object:Api::Type::NestedObject
+              name: 'privateLinkServiceConnectionState'
+              description: 'A collection of read-only information about the state of the connection to the remote resource.'
               output: true
-              description: 'Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.'
-              azure_sdk_references: ['/manualPrivateLinkServiceConnections/privateLinkServiceConnectionState/status', '/properties/manualPrivateLinkServiceConnections/properties/privateLinkServiceConnectionState/status']
+              azure_sdk_references: ['/manualPrivateLinkServiceConnections/privateLinkServiceConnectionState', '/properties/manualPrivateLinkServiceConnections/properties/privateLinkServiceConnectionState']
+              properties:
+                - !ruby/object:Api::Type::String
+                  name: 'status'
+                  description: 'Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.'
+                  output: true
+                  azure_sdk_references: ['/manualPrivateLinkServiceConnections/privateLinkServiceConnectionState/status', '/properties/manualPrivateLinkServiceConnections/properties/privateLinkServiceConnectionState/status']
+                - !ruby/object:Api::Type::String
+                  name: 'description'
+                  description: 'The reason for approval/rejection of the connection.'
+                  output: true
+                  azure_sdk_references: ['/manualPrivateLinkServiceConnections/privateLinkServiceConnectionState/description', '/properties/manualPrivateLinkServiceConnections/properties/privateLinkServiceConnectionState/description']
+                - !ruby/object:Api::Type::String
+                  name: 'actionRequired'
+                  description: 'A message indicating if changes on the service provider require any updates on the consumer.'
+                  output: true
+                  azure_sdk_references: ['/manualPrivateLinkServiceConnections/privateLinkServiceConnectionState/actionRequired', '/properties/manualPrivateLinkServiceConnections/properties/privateLinkServiceConnectionState/actionRequired']
       - !ruby/object:Api::Type::String
         name: 'etag'
         description: 'A unique read-only string that changes whenever the resource is updated.'
