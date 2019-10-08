@@ -178,11 +178,11 @@ overrides: !ruby/object:Overrides::ResourceOverrides
     document_examples: {...}
 datasources: !ruby/object:Overrides::ResourceOverrides
   BatchAccount: !ruby/object:Provider::Azure::Terraform::ResourceOverride
-  	azure_sdk_definition: {...}
+    azure_sdk_definition: {...}
     properties: {...}
     custom_code: {...}
     acctests: {...}
-  	datasource_example_outputs: {...}
+    datasource_example_outputs: {...}
 ```
 
 ##### 1. azure_sdk_definition
@@ -307,7 +307,7 @@ acctests:
 
 Now, we use the BatchAccount resource to explain the how to write an `example/terraform/*.yaml` file. The `resource` defines the Azure resource name in Terraform. The `prerequisites` lists the resource dependencies, inside of which the `product` and `axample` are used to locate the dependent resource by `<product>/terraform/<example>.yaml`. The dependent resources are not always exist, remember to first write the dependent resources' _basic.yaml_ files and then move on to your resource. The `properties` lists the properties we set for the resource when testing. All the properties of the resource are needed in a `complete.yaml` but only the required ones are needed in a `basic.yaml`.
 
-```
+```yaml
 --- !ruby/object:Provider::Azure::Example
 resource: azurerm_batch_account
 prerequisites:
@@ -333,7 +333,7 @@ The complete defintions of `acctests` and `examples/terraform/*.yaml` files are 
 
 The `document_examples` is used to generate the documents of the resource. The `title` specifies the title of the usage example. The `example_name` chooses to use the example defined in `example/terraform/<example_name>.yaml`. The `resource_name_hints` provides candidate values for the properties used in the example. When generating documents, the function _get_resource_name(param1, param2)_ returns `resource_name_hints[param1]` if `param1` exists in `resource_name_hints`, it works differently with generating test files because we need random values in testing but fixed values in documents.
 
-```
+```yaml
 document_examples:
   - !ruby/object:Provider::Azure::Terraform::DocumentExampleReference
     title: Example Usage
@@ -351,7 +351,7 @@ The `document_examples` field in `overrides` is also valid for `datasource`, whi
 
 The `datasource_example_outputs` controls generating `output` block in the Terraform datasource example, you can specify the properties you want to extract from the `data` block here.
 
-```
+```yaml
 datasource_example_outputs:
   batch_id: id
 ```
@@ -359,15 +359,15 @@ datasource_example_outputs:
 ## Advanced Topics
 ##### 1. Complete definitions of azure_sdk_definition
 ```
-- azure_sdk_definition 	(type: SDKDefinitionOverride)
-	- create 			(type: SDKOperationDefinitionOverride)
-		- request 		(type: Hash, key_type: String, item_type: SDKTypeDefinitionOverride)
-			# terraform.yaml specified fields
-			- remove 	(type: boolean, default: false)
-		- response		(type: Hash, key_type: String, item_type: SDKTypeDefinitionOverride)
-    - read 				(type: SDKOperationDefinitionOverride)
-    - update 			(type: SDKOperationDefinitionOverride)
-    - delete 			(type: SDKOperationDefinitionOverride)
+- azure_sdk_definition  (type: SDKDefinitionOverride)
+    - create            (type: SDKOperationDefinitionOverride)
+    - request           (type: Hash, key_type: String, item_type: SDKTypeDefinitionOverride)
+      # terraform.yaml specified fields
+      - remove          (type: boolean, default: false)
+    - response          (type: Hash, key_type: String, item_type: SDKTypeDefinitionOverride)
+    - read              (type: SDKOperationDefinitionOverride)
+    - update            (type: SDKOperationDefinitionOverride)
+    - delete            (type: SDKOperationDefinitionOverride)
 ```
 
 ##### 2. Complete definitions of properties
@@ -375,26 +375,26 @@ datasource_example_outputs:
 The field `properties` in _terraform.yaml_ provides rich choices for you to adjust your codes. We list a complete list of all the options here. All of them are optional in the `properties`.
 
 ```
-properties: 					(type: Hash)
-	- <property_name>: !ruby/object:Overrides::Terraform::PropertyOverride
-		# terraform.yaml specified fields
-		- diff_suppress_func		(type: String)
-		- state_func 				(type: String)
-		- sensitive 				(type: boolean, default: false)
-		- ignore_read
-		- validation
-		  - regex 					(type: String)
-		  - function 				(type: String)
-		- unordered_list 			(type: boolean, default: false)
-		- is_set 					(type: boolean, default: false)
-		- set_hash_func 			(type: String)
-		- default_from_api 			(type: boolean, default: false)
-		- schema_config_mode_attr	(type: boolean, default: false)
-		- conflicts_with
-		- update_mask_fields
-		- flatten_object
-		- custom_expand				(type: String)
-		- custom_flatten			(type: String)
+properties:                   (type: Hash)
+  - <property_name>: !ruby/object:Overrides::Terraform::PropertyOverride
+    # terraform.yaml specified fields
+    - diff_suppress_func      (type: String)
+    - state_func              (type: String)
+    - sensitive               (type: boolean, default: false)
+    - ignore_read
+    - validation
+      - regex                 (type: String)
+      - function              (type: String)
+    - unordered_list          (type: boolean, default: false)
+    - is_set                  (type: boolean, default: false)
+    - set_hash_func           (type: String)
+    - default_from_api        (type: boolean, default: false)
+    - schema_config_mode_attr (type: boolean, default: false)
+    - conflicts_with
+    - update_mask_fields
+    - flatten_object
+    - custom_expand           (type: String)
+    - custom_flatten          (type: String)
 ```
 
 * `diff_suppress_func`: The field adds a _DiffSuppressFunc_ to the schema. 
@@ -427,34 +427,34 @@ We need this for cases where a field inside a nested object has a default, if we
 
 The following fields involves codes customization. Note that All custom code attributes are string-typed.  The string should be the name of a template file which will be compiled in the specified / described place.
 
-A custom expander (`custom_expand`) replaces the default expander for an attribute. It is called as part of Create, and as part of Update if object.input is false.  It can return an object of any type, so the function header *is* part of the custom code template. As with flatten, `property` and `prefix` are available.
+A custom expander (`custom_expand`) replaces the default expander for an attribute. It is called as part of Create, and as part of Update if object.input is false.  It can return an object of any type, so the function header is part of the custom code template. As with flatten, `property` and `prefix` are available.
 
-A custom flattener (`custom_flatten`) replaces the default flattener for an attribute. It is called as part of Read. It can return an object of any type, and may sometimes need to return an object with non-interface{} type so that the d.Set() call will succeed, so the function header *is* a part of the custom code template.  To help with creating the function header, `property` and `prefix` are available, just as they are in the standard flattener template.
+A custom flattener (`custom_flatten`) replaces the default flattener for an attribute. It is called as part of Read. It can return an object of any type, and may sometimes need to return an object with non-interface{} type so that the d.Set() call will succeed, so the function header is a part of the custom code template.  To help with creating the function header, `property` and `prefix` are available, just as they are in the standard flattener template.
 
 
 ##### 3. Complete definitions of custom_code
 The field `custom_code` in _terraform.yaml_ also provides rich choices for you to customize your codes. We list a complete list of all the options here. All of them are optional in `custom_code`.
 
 ```
-- custom_code				(type: CustomCode)
-	- !ruby/object:Provider::Azure::Terraform::CustomCode
-		- extra_schema_entry	(type: String)
-		- resource_definition	(type: String)
-		- encoder				(type: String)
-		- update_encoder		(type: String)
-		- decoder				(type: String)
-		- constants				(type: String)
-		- post_create			(type: String)
-		- pre_update			(type: String)
-		- post_update			(type: String)
-		- pre_delete			(type: String)
-		- custom_delete			(type: String)
-		- custom_import			(type: String)
-		- post_import			(type: String)
-		
-		# Azure specified fields
-		- post_read 			(type: String)
-        - extra_functions 		(type: String)
+- custom_code             (type: CustomCode)
+  - !ruby/object:Provider::Azure::Terraform::CustomCode
+    - extra_schema_entry  (type: String)
+    - resource_definition (type: String)
+    - encoder             (type: String)
+    - update_encoder      (type: String)
+    - decoder             (type: String)
+    - constants           (type: String)
+    - post_create         (type: String)
+    - pre_update          (type: String)
+    - post_update         (type: String)
+    - pre_delete          (type: String)
+    - custom_delete       (type: String)
+    - custom_import       (type: String)
+    - post_import         (type: String)
+    
+    # Azure specified fields
+    - post_read           (type: String)
+    - extra_functions     (type: String)
 ```
 
 All custom code attributes are string-typed. The string should be the name of a template file which will be compiled in the specified / described place.
@@ -463,9 +463,9 @@ All custom code attributes are string-typed. The string should be the name of a 
 
 * `resource_definition`: Resource definition code is inserted below everything else in the resource's Resource {...} definition.  This may be useful for things like a MigrateState / SchemaVersion pair. This is likely to be used rarely and may be removed if all its use cases are covered in other ways.
 
-* `encoder`: The encoders are functions which take the `obj` map after it has been assembled in either "Create" or "Update" and mutate it before it is sent to the server.  There are lots of reasons you might want to use these - any differences between local schema and remote schema will be placed here. Because the call signature of this function cannot be changed, the template will place the function header and closing } for you, and your custom code template should *not* include them.
+* `encoder`: The encoders are functions which take the `obj` map after it has been assembled in either "Create" or "Update" and mutate it before it is sent to the server.  There are lots of reasons you might want to use these - any differences between local schema and remote schema will be placed here. Because the call signature of this function cannot be changed, the template will place the function header and closing } for you, and your custom code template should not include them.
 
-* `update_encoder`: The update encoder is the encoder used in Update - if one is not provided, the regular encoder is used.  If neither is provided, of course, neither is used.  Similarly, the custom code should *not* include the function header or closing }. Update encoders are only used if object.input is false, because when object.input is true, only individual fields can be updated - in that case, use a custom expander.
+* `update_encoder`: The update encoder is the encoder used in Update - if one is not provided, the regular encoder is used.  If neither is provided, of course, neither is used.  Similarly, the custom code should not include the function header or closing }. Update encoders are only used if object.input is false, because when object.input is true, only individual fields can be updated - in that case, use a custom expander.
 
 * `decoder`: The decoder is the opposite of the encoder - it's called after the Read succeeds, rather than before Create / Update are called.  Like with encoders, the decoder should not include the function header or closing }.
 
@@ -492,36 +492,36 @@ All custom code attributes are string-typed. The string should be the name of a 
 ##### 4. Complete definitions of acctests
 
 ```
-- acctests 			(type: Array, item_type: AccTestDefinition)
-	- !ruby/object:Provider::Azure::Terraform::AccTestDefinition
-		- name 		(type: String, required: true)
-		- steps 	(type: Array, item_type: String, required:true)
+- acctests        (type: Array, item_type: AccTestDefinition)
+  - !ruby/object:Provider::Azure::Terraform::AccTestDefinition
+    - name        (type: String, required: true)
+    - steps       (type: Array, item_type: String, required:true)
 ```
 
 ```
 - !ruby/object:Provider::Azure::Example
-	- resource 		(type: String, required: true)
-	- description 	(type: String)
-	- prerequisites
-		- product 	(type: String)
-		- example 	(type: String, required: true)
-	- properties 	(type: Hash, required: true)
+  - resource      (type: String, required: true)
+  - description   (type: String)
+  - prerequisites
+    - product     (type: String)
+    - example     (type: String, required: true)
+  - properties    (type: Hash, required: true)
 ```
 
 ##### 5. Complete definitions of document_examples
 
 ```
-- document_examples 			(type: Array, item_type: DocumentExampleReference)
-	- !ruby/object:Provider::Azure::Terraform::DocumentExampleReference
-		- title 				(type: String, required: true)
-		- example_name 			(type: String, required: true)
-		- resource_name_hints 	(type: Hash, key_type: String, item_type: String)
+- document_examples         (type: Array, item_type: DocumentExampleReference)
+  - !ruby/object:Provider::Azure::Terraform::DocumentExampleReference
+    - title                 (type: String, required: true)
+    - example_name          (type: String, required: true)
+    - resource_name_hints   (type: Hash, key_type: String, item_type: String)
 ```
 
 ##### 6. Complete definitions of datasource_example_outputs
 
 ```
-- datasource_example_outputs 	(type: Hash)
+- datasource_example_outputs  (type: Hash)
 ```
 ## Frequent Questions
 
