@@ -60,7 +60,7 @@ Firstly, install _Docker_ to make your environment prepared according to your op
 When you want to generate the _*.yaml_ files for a new resource, these steps are usually needed. Note that after cloning the repositories, usually you need to write you own input file with _.md_ format and put it into the _autorest.cli/input/_ directory before building docker images. Because when building docker images, all the files in _autorest.cli_ repository will be added into the image. Alternatively, you can also choose to mount your input file when applying the docker running command, which will result in some changes to the command.
 
 1. Cloning Repositories
-```linux
+```bash
 cd ~
 git clone https://github.com/Azure/azure-rest-api-specs
 git clone https://github.com/Azure/autorest.cli
@@ -68,14 +68,14 @@ mkdir -p ~/autorest.cli.debug/generated
 ```
 
 2. Building Docker Images
-```linux
+```bash
 cd ~/autorest.cli/
 sudo docker build --tag zikalino/autorest.cli.base -f Dockerfile-base .
 sudo docker build --tag zikalino/autorest.cli .
 ```
 
 3. Generating Files
-```linux
+```bash
 sudo docker run -t -i
         -v ~/azure-rest-api-specs:/azure-rest-api-specs
         -v ~/autorest.cli.debug/generated:/generated
@@ -100,14 +100,14 @@ Firstly, install _ruby_ on your machine with its version at lesat later than _Ru
 _Magic-Modules_ is a tool originally developed for GCP. Note to download it from our forked repository for Azure and checkout to the correct branch. The code generation steps are shown here.
 
 1. Cloning Repository
-```linux
+```bash
 cd ~
 git clone https://github.com/VSChina/magic-modules/
 cd ~/magic-modules/ && git checkout azure_backend
 ```
 
 2. Generating Codes
-```linux
+```bash
 bundle exec compiler.rb -e terraform -c azure -p [your_resource_dir] -o [your_output_dir]
 ```
 
@@ -124,7 +124,7 @@ The basic goal here is to setup an environment for provider developing. When it 
 
 ##### 1. Test the .go Files
 Move yor generated _.go_ files into the same directory in _terraform-provider-azurerm_ . Run the following commmands to build your resource into the provider. Go back to check and modify your _*.yaml_ files if errors occur.
-```linux
+```bash
 cd [home of terraform-provider-azurerm]
 goimports -w azurerm/[your_resource].go
 goimports -w azurerm/[your_resource]_test.go
@@ -135,7 +135,7 @@ make build
 
 It’s important to note that acceptance tests in Terraform create actual cloud infrastructure, which verifies the described behavior of Terraform Plugins in real world use cases against the actual APIs, and verifies both local state and remote values match. Terraform requires the follwing environment variables be set in order to run acceptance tests for Azure.
 
-```linux
+```bash
 # Terraform AccTest
 export TF_ACC = true
 
@@ -148,7 +148,7 @@ export ARM_TENANT_ID = ...
 
 When the environment is prepared, run the command below to test the new generated resource. We can assume the new resource works well now if both basic and complete test cases can pass.
 
-```linux
+```bash
 cd [home of terraform-provider-azurerm]/azurerm
 go test -run [test_func_name] -v
 ```
