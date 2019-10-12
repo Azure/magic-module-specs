@@ -49,7 +49,7 @@ objects:
             python_variable_name: parameters
           '/properties': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
             applicable_to: [go]
-            go_field_name: Properties
+            go_field_name: ApiReleaseContractProperties
             go_type_name: ApiReleaseContractProperties
           '/apiId': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             applicable_to: [python]
@@ -94,7 +94,7 @@ objects:
             python_variable_name: parameters
           '/properties': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
             applicable_to: [go]
-            go_field_name: Properties
+            go_field_name: ApiReleaseContractProperties
             go_type_name: ApiReleaseContractProperties
           '/apiId': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             applicable_to: [python]
@@ -159,7 +159,7 @@ objects:
         response:
           '/properties': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
             applicable_to: [go]
-            go_field_name: Properties
+            go_field_name: ApiReleaseContractProperties
             go_type_name: ApiReleaseContractProperties
           '/properties/apiId': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             applicable_to: [go]
