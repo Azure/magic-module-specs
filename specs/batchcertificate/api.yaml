@@ -358,48 +358,50 @@ objects:
             description: 'The target of the particular error. For example, the name of the property in error.'
             required: false
             azure_sdk_references: ['/deleteCertificateError/target', '/properties/deleteCertificateError/target']
-          - !ruby/object:Api::Type::NestedObject
+          - !ruby/object:Api::Type::Array
             name: 'details'
             description: 'A list of additional details about the error.'
             required: false
             azure_sdk_references: ['/deleteCertificateError/details', '/properties/deleteCertificateError/details']
-            properties:
-              - !ruby/object:Api::Type::String
-                name: 'code'
-                description: 'An identifier for the error. Codes are invariant and are intended to be consumed programmatically.'
-                required: true
-                azure_sdk_references: ['/deleteCertificateError/details/code', '/properties/deleteCertificateError/details/code']
-              - !ruby/object:Api::Type::String
-                name: 'message'
-                description: 'A message describing the error, intended to be suitable for display in a user interface.'
-                required: true
-                azure_sdk_references: ['/deleteCertificateError/details/message', '/properties/deleteCertificateError/details/message']
-              - !ruby/object:Api::Type::String
-                name: 'target'
-                description: 'The target of the particular error. For example, the name of the property in error.'
-                required: false
-                azure_sdk_references: ['/deleteCertificateError/details/target', '/properties/deleteCertificateError/details/target']
-              - !ruby/object:Api::Type::NestedObject
-                name: 'details'
-                description: 'A list of additional details about the error.'
-                required: false
-                azure_sdk_references: ['/deleteCertificateError/details/details', '/properties/deleteCertificateError/details/details']
-                properties:
-                  - !ruby/object:Api::Type::String
-                    name: 'code'
-                    description: 'An identifier for the error. Codes are invariant and are intended to be consumed programmatically.'
-                    required: true
-                    azure_sdk_references: ['/deleteCertificateError/details/details/code', '/properties/deleteCertificateError/details/details/code']
-                  - !ruby/object:Api::Type::String
-                    name: 'message'
-                    description: 'A message describing the error, intended to be suitable for display in a user interface.'
-                    required: true
-                    azure_sdk_references: ['/deleteCertificateError/details/details/message', '/properties/deleteCertificateError/details/details/message']
-                  - !ruby/object:Api::Type::String
-                    name: 'target'
-                    description: 'The target of the particular error. For example, the name of the property in error.'
-                    required: false
-                    azure_sdk_references: ['/deleteCertificateError/details/details/target', '/properties/deleteCertificateError/details/details/target']
+            item_type: !ruby/object:Api::Type::NestedObject
+              properties:
+                - !ruby/object:Api::Type::String
+                  name: 'code'
+                  description: 'An identifier for the error. Codes are invariant and are intended to be consumed programmatically.'
+                  required: true
+                  azure_sdk_references: ['/deleteCertificateError/details/code', '/properties/deleteCertificateError/details/code']
+                - !ruby/object:Api::Type::String
+                  name: 'message'
+                  description: 'A message describing the error, intended to be suitable for display in a user interface.'
+                  required: true
+                  azure_sdk_references: ['/deleteCertificateError/details/message', '/properties/deleteCertificateError/details/message']
+                - !ruby/object:Api::Type::String
+                  name: 'target'
+                  description: 'The target of the particular error. For example, the name of the property in error.'
+                  required: false
+                  azure_sdk_references: ['/deleteCertificateError/details/target', '/properties/deleteCertificateError/details/target']
+                - !ruby/object:Api::Type::Array
+                  name: 'details'
+                  description: 'A list of additional details about the error.'
+                  required: false
+                  azure_sdk_references: ['/deleteCertificateError/details/details', '/properties/deleteCertificateError/details/details']
+                  item_type: !ruby/object:Api::Type::NestedObject
+                    properties:
+                      - !ruby/object:Api::Type::String
+                        name: 'code'
+                        description: 'An identifier for the error. Codes are invariant and are intended to be consumed programmatically.'
+                        required: true
+                        azure_sdk_references: ['/deleteCertificateError/details/details/code', '/properties/deleteCertificateError/details/details/code']
+                      - !ruby/object:Api::Type::String
+                        name: 'message'
+                        description: 'A message describing the error, intended to be suitable for display in a user interface.'
+                        required: true
+                        azure_sdk_references: ['/deleteCertificateError/details/details/message', '/properties/deleteCertificateError/details/details/message']
+                      - !ruby/object:Api::Type::String
+                        name: 'target'
+                        description: 'The target of the particular error. For example, the name of the property in error.'
+                        required: false
+                        azure_sdk_references: ['/deleteCertificateError/details/details/target', '/properties/deleteCertificateError/details/details/target']
       - !ruby/object:Api::Type::String
         name: 'id'
         description: 'The ID of the resource.'
