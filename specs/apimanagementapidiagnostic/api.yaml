@@ -90,7 +90,7 @@ objects:
           '/frontend/request': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
             applicable_to: [python]
             python_field_name: request
-          '/frontend/request/headers': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+          '/frontend/request/headers': !ruby/object:Api::Azure::SDKTypeDefinition::StringArrayObject
             applicable_to: [python]
             python_field_name: headers
           '/frontend/request/body': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
@@ -102,7 +102,7 @@ objects:
           '/frontend/response': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
             applicable_to: [python]
             python_field_name: response
-          '/frontend/response/headers': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+          '/frontend/response/headers': !ruby/object:Api::Azure::SDKTypeDefinition::StringArrayObject
             applicable_to: [python]
             python_field_name: headers
           '/frontend/response/body': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
@@ -119,7 +119,7 @@ objects:
             applicable_to: [go]
             go_field_name: Request
             go_type_name: HttpMessageDiagnostic
-          '/properties/frontend/request/headers': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+          '/properties/frontend/request/headers': !ruby/object:Api::Azure::SDKTypeDefinition::StringArrayObject
             applicable_to: [go]
             go_field_name: Headers
           '/properties/frontend/request/body': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
@@ -133,7 +133,7 @@ objects:
             applicable_to: [go]
             go_field_name: Response
             go_type_name: HttpMessageDiagnostic
-          '/properties/frontend/response/headers': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+          '/properties/frontend/response/headers': !ruby/object:Api::Azure::SDKTypeDefinition::StringArrayObject
             applicable_to: [go]
             go_field_name: Headers
           '/properties/frontend/response/body': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
@@ -149,7 +149,7 @@ objects:
           '/backend/request': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
             applicable_to: [python]
             python_field_name: request
-          '/backend/request/headers': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+          '/backend/request/headers': !ruby/object:Api::Azure::SDKTypeDefinition::StringArrayObject
             applicable_to: [python]
             python_field_name: headers
           '/backend/request/body': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
@@ -161,7 +161,7 @@ objects:
           '/backend/response': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
             applicable_to: [python]
             python_field_name: response
-          '/backend/response/headers': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+          '/backend/response/headers': !ruby/object:Api::Azure::SDKTypeDefinition::StringArrayObject
             applicable_to: [python]
             python_field_name: headers
           '/backend/response/body': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
@@ -178,7 +178,7 @@ objects:
             applicable_to: [go]
             go_field_name: Request
             go_type_name: HttpMessageDiagnostic
-          '/properties/backend/request/headers': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+          '/properties/backend/request/headers': !ruby/object:Api::Azure::SDKTypeDefinition::StringArrayObject
             applicable_to: [go]
             go_field_name: Headers
           '/properties/backend/request/body': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
@@ -192,7 +192,7 @@ objects:
             applicable_to: [go]
             go_field_name: Response
             go_type_name: HttpMessageDiagnostic
-          '/properties/backend/response/headers': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+          '/properties/backend/response/headers': !ruby/object:Api::Azure::SDKTypeDefinition::StringArrayObject
             applicable_to: [go]
             go_field_name: Headers
           '/properties/backend/response/body': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
@@ -280,7 +280,7 @@ objects:
           '/frontend/request': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
             applicable_to: [python]
             python_field_name: request
-          '/frontend/request/headers': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+          '/frontend/request/headers': !ruby/object:Api::Azure::SDKTypeDefinition::StringArrayObject
             applicable_to: [python]
             python_field_name: headers
           '/frontend/request/body': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
@@ -292,7 +292,7 @@ objects:
           '/frontend/response': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
             applicable_to: [python]
             python_field_name: response
-          '/frontend/response/headers': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+          '/frontend/response/headers': !ruby/object:Api::Azure::SDKTypeDefinition::StringArrayObject
             applicable_to: [python]
             python_field_name: headers
           '/frontend/response/body': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
@@ -309,7 +309,7 @@ objects:
             applicable_to: [go]
             go_field_name: Request
             go_type_name: HttpMessageDiagnostic
-          '/properties/frontend/request/headers': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+          '/properties/frontend/request/headers': !ruby/object:Api::Azure::SDKTypeDefinition::StringArrayObject
             applicable_to: [go]
             go_field_name: Headers
           '/properties/frontend/request/body': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
@@ -323,7 +323,7 @@ objects:
             applicable_to: [go]
             go_field_name: Response
             go_type_name: HttpMessageDiagnostic
-          '/properties/frontend/response/headers': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+          '/properties/frontend/response/headers': !ruby/object:Api::Azure::SDKTypeDefinition::StringArrayObject
             applicable_to: [go]
             go_field_name: Headers
           '/properties/frontend/response/body': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
@@ -339,7 +339,7 @@ objects:
           '/backend/request': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
             applicable_to: [python]
             python_field_name: request
-          '/backend/request/headers': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+          '/backend/request/headers': !ruby/object:Api::Azure::SDKTypeDefinition::StringArrayObject
             applicable_to: [python]
             python_field_name: headers
           '/backend/request/body': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
@@ -351,7 +351,7 @@ objects:
           '/backend/response': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
             applicable_to: [python]
             python_field_name: response
-          '/backend/response/headers': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+          '/backend/response/headers': !ruby/object:Api::Azure::SDKTypeDefinition::StringArrayObject
             applicable_to: [python]
             python_field_name: headers
           '/backend/response/body': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
@@ -368,7 +368,7 @@ objects:
             applicable_to: [go]
             go_field_name: Request
             go_type_name: HttpMessageDiagnostic
-          '/properties/backend/request/headers': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+          '/properties/backend/request/headers': !ruby/object:Api::Azure::SDKTypeDefinition::StringArrayObject
             applicable_to: [go]
             go_field_name: Headers
           '/properties/backend/request/body': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
@@ -382,7 +382,7 @@ objects:
             applicable_to: [go]
             go_field_name: Response
             go_type_name: HttpMessageDiagnostic
-          '/properties/backend/response/headers': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+          '/properties/backend/response/headers': !ruby/object:Api::Azure::SDKTypeDefinition::StringArrayObject
             applicable_to: [go]
             go_field_name: Headers
           '/properties/backend/response/body': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
@@ -492,7 +492,7 @@ objects:
             applicable_to: [go]
             go_field_name: Request
             go_type_name: HttpMessageDiagnostic
-          '/properties/frontend/request/headers': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+          '/properties/frontend/request/headers': !ruby/object:Api::Azure::SDKTypeDefinition::StringArrayObject
             applicable_to: [go]
             go_field_name: Headers
           '/properties/frontend/request/body': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
@@ -506,7 +506,7 @@ objects:
             applicable_to: [go]
             go_field_name: Response
             go_type_name: HttpMessageDiagnostic
-          '/properties/frontend/response/headers': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+          '/properties/frontend/response/headers': !ruby/object:Api::Azure::SDKTypeDefinition::StringArrayObject
             applicable_to: [go]
             go_field_name: Headers
           '/properties/frontend/response/body': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
@@ -522,7 +522,7 @@ objects:
           '/frontend/request': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
             applicable_to: [python]
             python_field_name: request
-          '/frontend/request/headers': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+          '/frontend/request/headers': !ruby/object:Api::Azure::SDKTypeDefinition::StringArrayObject
             applicable_to: [python]
             python_field_name: headers
           '/frontend/request/body': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
@@ -534,7 +534,7 @@ objects:
           '/frontend/response': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
             applicable_to: [python]
             python_field_name: response
-          '/frontend/response/headers': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+          '/frontend/response/headers': !ruby/object:Api::Azure::SDKTypeDefinition::StringArrayObject
             applicable_to: [python]
             python_field_name: headers
           '/frontend/response/body': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
@@ -551,7 +551,7 @@ objects:
             applicable_to: [go]
             go_field_name: Request
             go_type_name: HttpMessageDiagnostic
-          '/properties/backend/request/headers': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+          '/properties/backend/request/headers': !ruby/object:Api::Azure::SDKTypeDefinition::StringArrayObject
             applicable_to: [go]
             go_field_name: Headers
           '/properties/backend/request/body': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
@@ -565,7 +565,7 @@ objects:
             applicable_to: [go]
             go_field_name: Response
             go_type_name: HttpMessageDiagnostic
-          '/properties/backend/response/headers': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+          '/properties/backend/response/headers': !ruby/object:Api::Azure::SDKTypeDefinition::StringArrayObject
             applicable_to: [go]
             go_field_name: Headers
           '/properties/backend/response/body': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
@@ -581,7 +581,7 @@ objects:
           '/backend/request': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
             applicable_to: [python]
             python_field_name: request
-          '/backend/request/headers': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+          '/backend/request/headers': !ruby/object:Api::Azure::SDKTypeDefinition::StringArrayObject
             applicable_to: [python]
             python_field_name: headers
           '/backend/request/body': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
@@ -593,7 +593,7 @@ objects:
           '/backend/response': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
             applicable_to: [python]
             python_field_name: response
-          '/backend/response/headers': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
+          '/backend/response/headers': !ruby/object:Api::Azure::SDKTypeDefinition::StringArrayObject
             applicable_to: [python]
             python_field_name: headers
           '/backend/response/body': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
@@ -716,12 +716,13 @@ objects:
             required: false
             azure_sdk_references: ['/frontend/request', '/properties/frontend/request']
             properties:
-              - !ruby/object:Api::Type::String
+              - !ruby/object:Api::Type::Array
                 name: 'headers'
                 description: 'Array of HTTP Headers to log.'
                 required: false
-                sample_value: 'Content-type'
+                sample_value: Content-type
                 azure_sdk_references: ['/frontend/request/headers', '/properties/frontend/request/headers']
+                item_type: Api::Type::String
               - !ruby/object:Api::Type::NestedObject
                 name: 'body'
                 description: 'Body logging settings.'
@@ -740,12 +741,13 @@ objects:
             required: false
             azure_sdk_references: ['/frontend/response', '/properties/frontend/response']
             properties:
-              - !ruby/object:Api::Type::String
+              - !ruby/object:Api::Type::Array
                 name: 'headers'
                 description: 'Array of HTTP Headers to log.'
                 required: false
-                sample_value: 'Content-type'
+                sample_value: Content-type
                 azure_sdk_references: ['/frontend/response/headers', '/properties/frontend/response/headers']
+                item_type: Api::Type::String
               - !ruby/object:Api::Type::NestedObject
                 name: 'body'
                 description: 'Body logging settings.'
@@ -770,12 +772,13 @@ objects:
             required: false
             azure_sdk_references: ['/backend/request', '/properties/backend/request']
             properties:
-              - !ruby/object:Api::Type::String
+              - !ruby/object:Api::Type::Array
                 name: 'headers'
                 description: 'Array of HTTP Headers to log.'
                 required: false
-                sample_value: 'Content-type'
+                sample_value: Content-type
                 azure_sdk_references: ['/backend/request/headers', '/properties/backend/request/headers']
+                item_type: Api::Type::String
               - !ruby/object:Api::Type::NestedObject
                 name: 'body'
                 description: 'Body logging settings.'
@@ -794,12 +797,13 @@ objects:
             required: false
             azure_sdk_references: ['/backend/response', '/properties/backend/response']
             properties:
-              - !ruby/object:Api::Type::String
+              - !ruby/object:Api::Type::Array
                 name: 'headers'
                 description: 'Array of HTTP Headers to log.'
                 required: false
-                sample_value: 'Content-type'
+                sample_value: Content-type
                 azure_sdk_references: ['/backend/response/headers', '/properties/backend/response/headers']
+                item_type: Api::Type::String
               - !ruby/object:Api::Type::NestedObject
                 name: 'body'
                 description: 'Body logging settings.'
