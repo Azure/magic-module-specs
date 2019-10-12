@@ -199,10 +199,13 @@ The hash table key `resourceGroupName` could be actually any string as long as i
 * `!ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject`: a structure value in SDK.
 * `!ruby/object:Api::Azure::SDKTypeDefinition::ComplexArrayObject`: an array of structures value in SDK.
 * `!ruby/object:Api::Azure::SDKTypeDefinition::EnumObject`: an enumeration value in SDK.
+* `!ruby/object:Api::Azure::SDKTypeDefinition::EnumArrayObject`: an array of enumerations value in SDK.
 * `!ruby/object:Api::Azure::SDKTypeDefinition::FloatObject`: a double-precision floating-point value in SDK.
 * `!ruby/object:Api::Azure::SDKTypeDefinition::IntegerObject`: a native-bit-size integer value in SDK (like `int` in C).
 * `!ruby/object:Api::Azure::SDKTypeDefinition::Integer32Object`: a 32-bit integer value in SDK (like `int32_t` in C).
 * `!ruby/object:Api::Azure::SDKTypeDefinition::Integer64Object`: a 64-bit integer value in SDK (like `int64_t` in C).
+* `!ruby/object:Api::Azure::SDKTypeDefinition::Integer32ArrayObject`: an array of 32-bit integers value in SDK.
+* `!ruby/object:Api::Azure::SDKTypeDefinition::Integer64ArrayObject`: an array of 64-bit integers value in SDK.
 * `!ruby/object:Api::Azure::SDKTypeDefinition::ISO8601DateTimeObject`: a datetime value in SDK.
 * `!ruby/object:Api::Azure::SDKTypeDefinition::ISO8601DurationObject`: a timespan value in SDK.
 * `!ruby/object:Api::Azure::SDKTypeDefinition::StringObject`: a string value in SDK.
