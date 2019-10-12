@@ -44,13 +44,13 @@ objects:
             python_variable_name: client_request_id
           '/': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
             go_variable_name: parameters
-            go_type_name: softwareUpdateConfiguration
+            go_type_name: SoftwareUpdateConfiguration
             python_parameter_name: parameters
             python_variable_name: parameters
           '/properties': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
             applicable_to: [go]
-            go_field_name: Properties
-            go_type_name: softwareUpdateConfigurationProperties
+            go_field_name: SoftwareUpdateConfigurationProperties
+            go_type_name: SoftwareUpdateConfigurationProperties
           '/updateConfiguration': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
             applicable_to: [python]
             python_field_name: update_configuration
@@ -123,7 +123,7 @@ objects:
           '/properties/updateConfiguration': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
             applicable_to: [go]
             go_field_name: UpdateConfiguration
-            go_type_name: updateConfiguration
+            go_type_name: UpdateConfiguration
           '/properties/updateConfiguration/operatingSystem': !ruby/object:Api::Azure::SDKTypeDefinition::EnumObject
             applicable_to: [go]
             go_field_name: OperatingSystem
@@ -361,11 +361,11 @@ objects:
           '/properties/tasks': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
             applicable_to: [go]
             go_field_name: Tasks
-            go_type_name: softwareUpdateConfigurationTasks
+            go_type_name: SoftwareUpdateConfigurationTasks
           '/properties/tasks/preTask': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
             applicable_to: [go]
             go_field_name: PreTask
-            go_type_name: taskProperties
+            go_type_name: TaskProperties
           '/properties/tasks/preTask/parameters': !ruby/object:Api::Azure::SDKTypeDefinition::StringMapObject
             applicable_to: [go]
             go_field_name: Parameters
@@ -375,7 +375,7 @@ objects:
           '/properties/tasks/postTask': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
             applicable_to: [go]
             go_field_name: PostTask
-            go_type_name: taskProperties
+            go_type_name: TaskProperties
           '/properties/tasks/postTask/parameters': !ruby/object:Api::Azure::SDKTypeDefinition::StringMapObject
             applicable_to: [go]
             go_field_name: Parameters
@@ -433,12 +433,12 @@ objects:
         response:
           '/properties': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
             applicable_to: [go]
-            go_field_name: Properties
-            go_type_name: softwareUpdateConfigurationProperties
+            go_field_name: SoftwareUpdateConfigurationProperties
+            go_type_name: SoftwareUpdateConfigurationProperties
           '/properties/updateConfiguration': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
             applicable_to: [go]
             go_field_name: UpdateConfiguration
-            go_type_name: updateConfiguration
+            go_type_name: UpdateConfiguration
           '/properties/updateConfiguration/operatingSystem': !ruby/object:Api::Azure::SDKTypeDefinition::EnumObject
             applicable_to: [go]
             go_field_name: OperatingSystem
@@ -730,11 +730,11 @@ objects:
           '/properties/tasks': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
             applicable_to: [go]
             go_field_name: Tasks
-            go_type_name: softwareUpdateConfigurationTasks
+            go_type_name: SoftwareUpdateConfigurationTasks
           '/properties/tasks/preTask': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
             applicable_to: [go]
             go_field_name: PreTask
-            go_type_name: taskProperties
+            go_type_name: TaskProperties
           '/properties/tasks/preTask/parameters': !ruby/object:Api::Azure::SDKTypeDefinition::StringMapObject
             applicable_to: [go]
             go_field_name: Parameters
@@ -744,7 +744,7 @@ objects:
           '/properties/tasks/postTask': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
             applicable_to: [go]
             go_field_name: PostTask
-            go_type_name: taskProperties
+            go_type_name: TaskProperties
           '/properties/tasks/postTask/parameters': !ruby/object:Api::Azure::SDKTypeDefinition::StringMapObject
             applicable_to: [go]
             go_field_name: Parameters
@@ -1003,13 +1003,11 @@ objects:
                     name: 'functionAlias'
                     description: 'Log Analytics Saved Search name.'
                     required: false
-                    sample_value: 'SavedSearch2'
                     azure_sdk_references: ['/updateConfiguration/targets/nonAzureQueries/functionAlias', '/properties/updateConfiguration/targets/nonAzureQueries/functionAlias']
                   - !ruby/object:Api::Type::String
                     name: 'workspaceId'
                     description: 'Workspace Id for Log Analytics in which the saved Search is resided.'
                     required: false
-                    sample_value: 'WorkspaceId2'
                     azure_sdk_references: ['/updateConfiguration/targets/nonAzureQueries/workspaceId', '/properties/updateConfiguration/targets/nonAzureQueries/workspaceId']
       - !ruby/object:Api::Type::NestedObject
         name: 'scheduleInfo'
