@@ -93,7 +93,7 @@ objects:
             go_field_name: ID
           '/properties/routingRules/properties': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
             applicable_to: [go]
-            go_field_name: Properties
+            go_field_name: RoutingRuleProperties
             go_type_name: RoutingRuleProperties
           '/properties/routingRules/properties/frontendEndpoints': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexArrayObject
             applicable_to: [go]
@@ -112,7 +112,7 @@ objects:
           '/properties/routingRules/properties/enabledState': !ruby/object:Api::Azure::SDKTypeDefinition::EnumObject
             applicable_to: [go]
             go_field_name: EnabledState
-            go_enum_type_name: routingRuleEnabledState
+            go_enum_type_name: RoutingRuleEnabledState
           '/properties/routingRules/properties/routeConfiguration': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
             applicable_to: [go]
             go_field_name: RouteConfiguration
@@ -154,7 +154,7 @@ objects:
             go_field_name: ID
           '/properties/loadBalancingSettings/properties': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
             applicable_to: [go]
-            go_field_name: Properties
+            go_field_name: LoadBalancingSettingsProperties
             go_type_name: LoadBalancingSettingsProperties
           '/properties/loadBalancingSettings/properties/sampleSize': !ruby/object:Api::Azure::SDKTypeDefinition::IntegerObject
             applicable_to: [go]
@@ -202,7 +202,7 @@ objects:
             go_field_name: ID
           '/properties/healthProbeSettings/properties': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
             applicable_to: [go]
-            go_field_name: Properties
+            go_field_name: HealthProbeSettingsProperties
             go_type_name: HealthProbeSettingsProperties
           '/properties/healthProbeSettings/properties/path': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             applicable_to: [go]
@@ -278,7 +278,7 @@ objects:
             go_field_name: ID
           '/properties/backendPools/properties': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
             applicable_to: [go]
-            go_field_name: Properties
+            go_field_name: BackendPoolProperties
             go_type_name: BackendPoolProperties
           '/properties/backendPools/properties/backends': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexArrayObject
             applicable_to: [go]
@@ -296,7 +296,7 @@ objects:
           '/properties/backendPools/properties/backends/enabledState': !ruby/object:Api::Azure::SDKTypeDefinition::EnumObject
             applicable_to: [go]
             go_field_name: EnabledState
-            go_enum_type_name: backendEnabledState
+            go_enum_type_name: BackendEnabledState
           '/properties/backendPools/properties/backends/priority': !ruby/object:Api::Azure::SDKTypeDefinition::IntegerObject
             applicable_to: [go]
             go_field_name: Priority
@@ -363,7 +363,7 @@ objects:
             go_field_name: ID
           '/properties/frontendEndpoints/properties': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
             applicable_to: [go]
-            go_field_name: Properties
+            go_field_name: FrontendEndpointProperties
             go_type_name: FrontendEndpointProperties
           '/properties/frontendEndpoints/properties/hostName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             applicable_to: [go]
@@ -402,7 +402,7 @@ objects:
           '/properties/backendPoolsSettings/enforceCertificateNameCheck': !ruby/object:Api::Azure::SDKTypeDefinition::EnumObject
             applicable_to: [go]
             go_field_name: EnforceCertificateNameCheck
-            go_enum_type_name: enforceCertificateNameCheckEnabledState
+            go_enum_type_name: EnforceCertificateNameCheckEnabledState
           '/enabledState': !ruby/object:Api::Azure::SDKTypeDefinition::EnumObject
             applicable_to: [python]
             python_field_name: enabled_state
@@ -472,7 +472,7 @@ objects:
             go_field_name: ID
           '/properties/routingRules/properties': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
             applicable_to: [go]
-            go_field_name: Properties
+            go_field_name: RoutingRuleProperties
             go_type_name: RoutingRuleProperties
           '/properties/routingRules/properties/frontendEndpoints': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexArrayObject
             applicable_to: [go]
@@ -491,7 +491,7 @@ objects:
           '/properties/routingRules/properties/enabledState': !ruby/object:Api::Azure::SDKTypeDefinition::EnumObject
             applicable_to: [go]
             go_field_name: EnabledState
-            go_enum_type_name: routingRuleEnabledState
+            go_enum_type_name: RoutingRuleEnabledState
           '/properties/routingRules/properties/routeConfiguration': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
             applicable_to: [go]
             go_field_name: RouteConfiguration
@@ -548,7 +548,7 @@ objects:
             go_field_name: ID
           '/properties/loadBalancingSettings/properties': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
             applicable_to: [go]
-            go_field_name: Properties
+            go_field_name: LoadBalancingSettingsProperties
             go_type_name: LoadBalancingSettingsProperties
           '/properties/loadBalancingSettings/properties/sampleSize': !ruby/object:Api::Azure::SDKTypeDefinition::IntegerObject
             applicable_to: [go]
@@ -602,7 +602,7 @@ objects:
             go_field_name: ID
           '/properties/healthProbeSettings/properties': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
             applicable_to: [go]
-            go_field_name: Properties
+            go_field_name: HealthProbeSettingsProperties
             go_type_name: HealthProbeSettingsProperties
           '/properties/healthProbeSettings/properties/path': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             applicable_to: [go]
@@ -657,7 +657,7 @@ objects:
             go_field_name: ID
           '/properties/backendPools/properties': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
             applicable_to: [go]
-            go_field_name: Properties
+            go_field_name: BackendPoolProperties
             go_type_name: BackendPoolProperties
           '/properties/backendPools/properties/backends': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexArrayObject
             applicable_to: [go]
@@ -675,7 +675,7 @@ objects:
           '/properties/backendPools/properties/backends/enabledState': !ruby/object:Api::Azure::SDKTypeDefinition::EnumObject
             applicable_to: [go]
             go_field_name: EnabledState
-            go_enum_type_name: backendEnabledState
+            go_enum_type_name: BackendEnabledState
           '/properties/backendPools/properties/backends/priority': !ruby/object:Api::Azure::SDKTypeDefinition::IntegerObject
             applicable_to: [go]
             go_field_name: Priority
@@ -769,7 +769,7 @@ objects:
             go_field_name: ID
           '/properties/frontendEndpoints/properties': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
             applicable_to: [go]
-            go_field_name: Properties
+            go_field_name: FrontendEndpointProperties
             go_type_name: FrontendEndpointProperties
           '/properties/frontendEndpoints/properties/hostName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             applicable_to: [go]
@@ -856,7 +856,7 @@ objects:
           '/properties/backendPoolsSettings/enforceCertificateNameCheck': !ruby/object:Api::Azure::SDKTypeDefinition::EnumObject
             applicable_to: [go]
             go_field_name: EnforceCertificateNameCheck
-            go_enum_type_name: enforceCertificateNameCheckEnabledState
+            go_enum_type_name: EnforceCertificateNameCheckEnabledState
           '/backendPoolsSettings': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
             applicable_to: [python]
             python_field_name: backend_pools_settings
