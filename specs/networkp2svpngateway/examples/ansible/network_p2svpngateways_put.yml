@@ -1,0 +1,29 @@
+--- !ruby/object:Provider::Ansible::Example
+task: !ruby/object:Provider::Ansible::Task
+  name: azure_rm_networkp2svpngateway
+  description: P2SVpnGatewayPut
+  code:
+    resource_group: myResourceGroup
+    name: myP2svpnGateway
+    p2svpn_gateway_parameters:
+      location: West US
+      tags:
+        key1: value1
+      properties:
+        virtualHub:
+          id: >-
+            /subscriptions/{{ subscription_id }}/resourceGroups/{{ resource_group
+            }}/providers/Microsoft.Network/virtualHubs/{{ virtual_hub_name }}
+        p2SVpnServerConfiguration:
+          id: >-
+            /subscriptions/{{ subscription_id }}/resourceGroups/{{ resource_group
+            }}/providers/Microsoft.Network/virtualWans/{{ virtual_wan_name
+            }}/p2sVpnServerConfigurations/{{ p2s_vpn_server_configuration_name }}
+        vpnClientAddressPool:
+          addressPrefixes:
+            - 101.3.0.0/16
+        customRoutes:
+          addressPrefixes:
+            - 101.168.0.6/32
+        vpnGatewayScaleUnit: '1'
+  
