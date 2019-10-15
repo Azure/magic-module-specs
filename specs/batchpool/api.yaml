@@ -104,13 +104,13 @@ objects:
           '/deploymentConfiguration/virtualMachineConfiguration/dataDisks': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexArrayObject
             applicable_to: [python]
             python_field_name: data_disks
-          '/deploymentConfiguration/virtualMachineConfiguration/dataDisks/lun': !ruby/object:Api::Azure::SDKTypeDefinition::IntegerObject
+          '/deploymentConfiguration/virtualMachineConfiguration/dataDisks/lun': !ruby/object:Api::Azure::SDKTypeDefinition::Integer32Object
             applicable_to: [python]
             python_field_name: lun
           '/deploymentConfiguration/virtualMachineConfiguration/dataDisks/caching': !ruby/object:Api::Azure::SDKTypeDefinition::EnumObject
             applicable_to: [python]
             python_field_name: caching
-          '/deploymentConfiguration/virtualMachineConfiguration/dataDisks/diskSizeGB': !ruby/object:Api::Azure::SDKTypeDefinition::IntegerObject
+          '/deploymentConfiguration/virtualMachineConfiguration/dataDisks/diskSizeGB': !ruby/object:Api::Azure::SDKTypeDefinition::Integer32Object
             applicable_to: [python]
             python_field_name: disk_size_gb
           '/deploymentConfiguration/virtualMachineConfiguration/dataDisks/storageAccountType': !ruby/object:Api::Azure::SDKTypeDefinition::EnumObject
@@ -182,14 +182,14 @@ objects:
             applicable_to: [go]
             go_field_name: DataDisks
             go_type_name: DataDisk
-          '/properties/deploymentConfiguration/virtualMachineConfiguration/dataDisks/lun': !ruby/object:Api::Azure::SDKTypeDefinition::IntegerObject
+          '/properties/deploymentConfiguration/virtualMachineConfiguration/dataDisks/lun': !ruby/object:Api::Azure::SDKTypeDefinition::Integer32Object
             applicable_to: [go]
             go_field_name: Lun
           '/properties/deploymentConfiguration/virtualMachineConfiguration/dataDisks/caching': !ruby/object:Api::Azure::SDKTypeDefinition::EnumObject
             applicable_to: [go]
             go_field_name: Caching
             go_enum_type_name: CachingType
-          '/properties/deploymentConfiguration/virtualMachineConfiguration/dataDisks/diskSizeGB': !ruby/object:Api::Azure::SDKTypeDefinition::IntegerObject
+          '/properties/deploymentConfiguration/virtualMachineConfiguration/dataDisks/diskSizeGB': !ruby/object:Api::Azure::SDKTypeDefinition::Integer32Object
             applicable_to: [go]
             go_field_name: DiskSizeGb
           '/properties/deploymentConfiguration/virtualMachineConfiguration/dataDisks/storageAccountType': !ruby/object:Api::Azure::SDKTypeDefinition::EnumObject
@@ -222,10 +222,10 @@ objects:
           '/scaleSettings/fixedScale/resizeTimeout': !ruby/object:Api::Azure::SDKTypeDefinition::ISO8601DurationObject
             applicable_to: [python]
             python_field_name: resize_timeout
-          '/scaleSettings/fixedScale/targetDedicatedNodes': !ruby/object:Api::Azure::SDKTypeDefinition::IntegerObject
+          '/scaleSettings/fixedScale/targetDedicatedNodes': !ruby/object:Api::Azure::SDKTypeDefinition::Integer32Object
             applicable_to: [python]
             python_field_name: target_dedicated_nodes
-          '/scaleSettings/fixedScale/targetLowPriorityNodes': !ruby/object:Api::Azure::SDKTypeDefinition::IntegerObject
+          '/scaleSettings/fixedScale/targetLowPriorityNodes': !ruby/object:Api::Azure::SDKTypeDefinition::Integer32Object
             applicable_to: [python]
             python_field_name: target_low_priority_nodes
           '/scaleSettings/fixedScale/nodeDeallocationOption': !ruby/object:Api::Azure::SDKTypeDefinition::EnumObject
@@ -251,10 +251,10 @@ objects:
           '/properties/scaleSettings/fixedScale/resizeTimeout': !ruby/object:Api::Azure::SDKTypeDefinition::ISO8601DurationObject
             applicable_to: [go]
             go_field_name: ResizeTimeout
-          '/properties/scaleSettings/fixedScale/targetDedicatedNodes': !ruby/object:Api::Azure::SDKTypeDefinition::IntegerObject
+          '/properties/scaleSettings/fixedScale/targetDedicatedNodes': !ruby/object:Api::Azure::SDKTypeDefinition::Integer32Object
             applicable_to: [go]
             go_field_name: TargetDedicatedNodes
-          '/properties/scaleSettings/fixedScale/targetLowPriorityNodes': !ruby/object:Api::Azure::SDKTypeDefinition::IntegerObject
+          '/properties/scaleSettings/fixedScale/targetLowPriorityNodes': !ruby/object:Api::Azure::SDKTypeDefinition::Integer32Object
             applicable_to: [go]
             go_field_name: TargetLowPriorityNodes
           '/properties/scaleSettings/fixedScale/nodeDeallocationOption': !ruby/object:Api::Azure::SDKTypeDefinition::EnumObject
@@ -296,13 +296,13 @@ objects:
           '/networkConfiguration/endpointConfiguration/inboundNatPools/protocol': !ruby/object:Api::Azure::SDKTypeDefinition::EnumObject
             applicable_to: [python]
             python_field_name: protocol
-          '/networkConfiguration/endpointConfiguration/inboundNatPools/backendPort': !ruby/object:Api::Azure::SDKTypeDefinition::IntegerObject
+          '/networkConfiguration/endpointConfiguration/inboundNatPools/backendPort': !ruby/object:Api::Azure::SDKTypeDefinition::Integer32Object
             applicable_to: [python]
             python_field_name: backend_port
-          '/networkConfiguration/endpointConfiguration/inboundNatPools/frontendPortRangeStart': !ruby/object:Api::Azure::SDKTypeDefinition::IntegerObject
+          '/networkConfiguration/endpointConfiguration/inboundNatPools/frontendPortRangeStart': !ruby/object:Api::Azure::SDKTypeDefinition::Integer32Object
             applicable_to: [python]
             python_field_name: frontend_port_range_start
-          '/networkConfiguration/endpointConfiguration/inboundNatPools/frontendPortRangeEnd': !ruby/object:Api::Azure::SDKTypeDefinition::IntegerObject
+          '/networkConfiguration/endpointConfiguration/inboundNatPools/frontendPortRangeEnd': !ruby/object:Api::Azure::SDKTypeDefinition::Integer32Object
             applicable_to: [python]
             python_field_name: frontend_port_range_end
           '/networkConfiguration/endpointConfiguration/inboundNatPools/networkSecurityGroupRules': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexArrayObject
@@ -330,23 +330,23 @@ objects:
             applicable_to: [go]
             go_field_name: Protocol
             go_enum_type_name: InboundEndpointProtocol
-          '/properties/networkConfiguration/endpointConfiguration/inboundNatPools/backendPort': !ruby/object:Api::Azure::SDKTypeDefinition::IntegerObject
+          '/properties/networkConfiguration/endpointConfiguration/inboundNatPools/backendPort': !ruby/object:Api::Azure::SDKTypeDefinition::Integer32Object
             applicable_to: [go]
             go_field_name: BackendPort
-          '/properties/networkConfiguration/endpointConfiguration/inboundNatPools/frontendPortRangeStart': !ruby/object:Api::Azure::SDKTypeDefinition::IntegerObject
+          '/properties/networkConfiguration/endpointConfiguration/inboundNatPools/frontendPortRangeStart': !ruby/object:Api::Azure::SDKTypeDefinition::Integer32Object
             applicable_to: [go]
             go_field_name: FrontendPortRangeStart
-          '/properties/networkConfiguration/endpointConfiguration/inboundNatPools/frontendPortRangeEnd': !ruby/object:Api::Azure::SDKTypeDefinition::IntegerObject
+          '/properties/networkConfiguration/endpointConfiguration/inboundNatPools/frontendPortRangeEnd': !ruby/object:Api::Azure::SDKTypeDefinition::Integer32Object
             applicable_to: [go]
             go_field_name: FrontendPortRangeEnd
           '/properties/networkConfiguration/endpointConfiguration/inboundNatPools/networkSecurityGroupRules': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexArrayObject
             applicable_to: [go]
             go_field_name: NetworkSecurityGroupRules
             go_type_name: NetworkSecurityGroupRule
-          '/maxTasksPerNode': !ruby/object:Api::Azure::SDKTypeDefinition::IntegerObject
+          '/maxTasksPerNode': !ruby/object:Api::Azure::SDKTypeDefinition::Integer32Object
             applicable_to: [python]
             python_field_name: max_tasks_per_node
-          '/properties/maxTasksPerNode': !ruby/object:Api::Azure::SDKTypeDefinition::IntegerObject
+          '/properties/maxTasksPerNode': !ruby/object:Api::Azure::SDKTypeDefinition::Integer32Object
             applicable_to: [go]
             go_field_name: MaxTasksPerNode
           '/taskSchedulingPolicy': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
@@ -378,10 +378,10 @@ objects:
           '/userAccounts/linuxUserConfiguration': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
             applicable_to: [python]
             python_field_name: linux_user_configuration
-          '/userAccounts/linuxUserConfiguration/uid': !ruby/object:Api::Azure::SDKTypeDefinition::IntegerObject
+          '/userAccounts/linuxUserConfiguration/uid': !ruby/object:Api::Azure::SDKTypeDefinition::Integer32Object
             applicable_to: [python]
             python_field_name: uid
-          '/userAccounts/linuxUserConfiguration/gid': !ruby/object:Api::Azure::SDKTypeDefinition::IntegerObject
+          '/userAccounts/linuxUserConfiguration/gid': !ruby/object:Api::Azure::SDKTypeDefinition::Integer32Object
             applicable_to: [python]
             python_field_name: gid
           '/userAccounts/linuxUserConfiguration/sshPrivateKey': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
@@ -411,10 +411,10 @@ objects:
             applicable_to: [go]
             go_field_name: LinuxUserConfiguration
             go_type_name: LinuxUserConfiguration
-          '/properties/userAccounts/linuxUserConfiguration/uid': !ruby/object:Api::Azure::SDKTypeDefinition::IntegerObject
+          '/properties/userAccounts/linuxUserConfiguration/uid': !ruby/object:Api::Azure::SDKTypeDefinition::Integer32Object
             applicable_to: [go]
             go_field_name: Uid
-          '/properties/userAccounts/linuxUserConfiguration/gid': !ruby/object:Api::Azure::SDKTypeDefinition::IntegerObject
+          '/properties/userAccounts/linuxUserConfiguration/gid': !ruby/object:Api::Azure::SDKTypeDefinition::Integer32Object
             applicable_to: [go]
             go_field_name: Gid
           '/properties/userAccounts/linuxUserConfiguration/sshPrivateKey': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
@@ -498,7 +498,7 @@ objects:
           '/startTask/userIdentity/autoUser/elevationLevel': !ruby/object:Api::Azure::SDKTypeDefinition::EnumObject
             applicable_to: [python]
             python_field_name: elevation_level
-          '/startTask/maxTaskRetryCount': !ruby/object:Api::Azure::SDKTypeDefinition::IntegerObject
+          '/startTask/maxTaskRetryCount': !ruby/object:Api::Azure::SDKTypeDefinition::Integer32Object
             applicable_to: [python]
             python_field_name: max_task_retry_count
           '/startTask/waitForSuccess': !ruby/object:Api::Azure::SDKTypeDefinition::BooleanObject
@@ -583,7 +583,7 @@ objects:
             applicable_to: [go]
             go_field_name: ElevationLevel
             go_enum_type_name: ElevationLevel
-          '/properties/startTask/maxTaskRetryCount': !ruby/object:Api::Azure::SDKTypeDefinition::IntegerObject
+          '/properties/startTask/maxTaskRetryCount': !ruby/object:Api::Azure::SDKTypeDefinition::Integer32Object
             applicable_to: [go]
             go_field_name: MaxTaskRetryCount
           '/properties/startTask/waitForSuccess': !ruby/object:Api::Azure::SDKTypeDefinition::BooleanObject
@@ -755,13 +755,13 @@ objects:
           '/deploymentConfiguration/virtualMachineConfiguration/dataDisks': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexArrayObject
             applicable_to: [python]
             python_field_name: data_disks
-          '/deploymentConfiguration/virtualMachineConfiguration/dataDisks/lun': !ruby/object:Api::Azure::SDKTypeDefinition::IntegerObject
+          '/deploymentConfiguration/virtualMachineConfiguration/dataDisks/lun': !ruby/object:Api::Azure::SDKTypeDefinition::Integer32Object
             applicable_to: [python]
             python_field_name: lun
           '/deploymentConfiguration/virtualMachineConfiguration/dataDisks/caching': !ruby/object:Api::Azure::SDKTypeDefinition::EnumObject
             applicable_to: [python]
             python_field_name: caching
-          '/deploymentConfiguration/virtualMachineConfiguration/dataDisks/diskSizeGB': !ruby/object:Api::Azure::SDKTypeDefinition::IntegerObject
+          '/deploymentConfiguration/virtualMachineConfiguration/dataDisks/diskSizeGB': !ruby/object:Api::Azure::SDKTypeDefinition::Integer32Object
             applicable_to: [python]
             python_field_name: disk_size_gb
           '/deploymentConfiguration/virtualMachineConfiguration/dataDisks/storageAccountType': !ruby/object:Api::Azure::SDKTypeDefinition::EnumObject
@@ -833,14 +833,14 @@ objects:
             applicable_to: [go]
             go_field_name: DataDisks
             go_type_name: DataDisk
-          '/properties/deploymentConfiguration/virtualMachineConfiguration/dataDisks/lun': !ruby/object:Api::Azure::SDKTypeDefinition::IntegerObject
+          '/properties/deploymentConfiguration/virtualMachineConfiguration/dataDisks/lun': !ruby/object:Api::Azure::SDKTypeDefinition::Integer32Object
             applicable_to: [go]
             go_field_name: Lun
           '/properties/deploymentConfiguration/virtualMachineConfiguration/dataDisks/caching': !ruby/object:Api::Azure::SDKTypeDefinition::EnumObject
             applicable_to: [go]
             go_field_name: Caching
             go_enum_type_name: CachingType
-          '/properties/deploymentConfiguration/virtualMachineConfiguration/dataDisks/diskSizeGB': !ruby/object:Api::Azure::SDKTypeDefinition::IntegerObject
+          '/properties/deploymentConfiguration/virtualMachineConfiguration/dataDisks/diskSizeGB': !ruby/object:Api::Azure::SDKTypeDefinition::Integer32Object
             applicable_to: [go]
             go_field_name: DiskSizeGb
           '/properties/deploymentConfiguration/virtualMachineConfiguration/dataDisks/storageAccountType': !ruby/object:Api::Azure::SDKTypeDefinition::EnumObject
@@ -873,10 +873,10 @@ objects:
           '/scaleSettings/fixedScale/resizeTimeout': !ruby/object:Api::Azure::SDKTypeDefinition::ISO8601DurationObject
             applicable_to: [python]
             python_field_name: resize_timeout
-          '/scaleSettings/fixedScale/targetDedicatedNodes': !ruby/object:Api::Azure::SDKTypeDefinition::IntegerObject
+          '/scaleSettings/fixedScale/targetDedicatedNodes': !ruby/object:Api::Azure::SDKTypeDefinition::Integer32Object
             applicable_to: [python]
             python_field_name: target_dedicated_nodes
-          '/scaleSettings/fixedScale/targetLowPriorityNodes': !ruby/object:Api::Azure::SDKTypeDefinition::IntegerObject
+          '/scaleSettings/fixedScale/targetLowPriorityNodes': !ruby/object:Api::Azure::SDKTypeDefinition::Integer32Object
             applicable_to: [python]
             python_field_name: target_low_priority_nodes
           '/scaleSettings/fixedScale/nodeDeallocationOption': !ruby/object:Api::Azure::SDKTypeDefinition::EnumObject
@@ -902,10 +902,10 @@ objects:
           '/properties/scaleSettings/fixedScale/resizeTimeout': !ruby/object:Api::Azure::SDKTypeDefinition::ISO8601DurationObject
             applicable_to: [go]
             go_field_name: ResizeTimeout
-          '/properties/scaleSettings/fixedScale/targetDedicatedNodes': !ruby/object:Api::Azure::SDKTypeDefinition::IntegerObject
+          '/properties/scaleSettings/fixedScale/targetDedicatedNodes': !ruby/object:Api::Azure::SDKTypeDefinition::Integer32Object
             applicable_to: [go]
             go_field_name: TargetDedicatedNodes
-          '/properties/scaleSettings/fixedScale/targetLowPriorityNodes': !ruby/object:Api::Azure::SDKTypeDefinition::IntegerObject
+          '/properties/scaleSettings/fixedScale/targetLowPriorityNodes': !ruby/object:Api::Azure::SDKTypeDefinition::Integer32Object
             applicable_to: [go]
             go_field_name: TargetLowPriorityNodes
           '/properties/scaleSettings/fixedScale/nodeDeallocationOption': !ruby/object:Api::Azure::SDKTypeDefinition::EnumObject
@@ -947,13 +947,13 @@ objects:
           '/networkConfiguration/endpointConfiguration/inboundNatPools/protocol': !ruby/object:Api::Azure::SDKTypeDefinition::EnumObject
             applicable_to: [python]
             python_field_name: protocol
-          '/networkConfiguration/endpointConfiguration/inboundNatPools/backendPort': !ruby/object:Api::Azure::SDKTypeDefinition::IntegerObject
+          '/networkConfiguration/endpointConfiguration/inboundNatPools/backendPort': !ruby/object:Api::Azure::SDKTypeDefinition::Integer32Object
             applicable_to: [python]
             python_field_name: backend_port
-          '/networkConfiguration/endpointConfiguration/inboundNatPools/frontendPortRangeStart': !ruby/object:Api::Azure::SDKTypeDefinition::IntegerObject
+          '/networkConfiguration/endpointConfiguration/inboundNatPools/frontendPortRangeStart': !ruby/object:Api::Azure::SDKTypeDefinition::Integer32Object
             applicable_to: [python]
             python_field_name: frontend_port_range_start
-          '/networkConfiguration/endpointConfiguration/inboundNatPools/frontendPortRangeEnd': !ruby/object:Api::Azure::SDKTypeDefinition::IntegerObject
+          '/networkConfiguration/endpointConfiguration/inboundNatPools/frontendPortRangeEnd': !ruby/object:Api::Azure::SDKTypeDefinition::Integer32Object
             applicable_to: [python]
             python_field_name: frontend_port_range_end
           '/networkConfiguration/endpointConfiguration/inboundNatPools/networkSecurityGroupRules': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexArrayObject
@@ -981,23 +981,23 @@ objects:
             applicable_to: [go]
             go_field_name: Protocol
             go_enum_type_name: InboundEndpointProtocol
-          '/properties/networkConfiguration/endpointConfiguration/inboundNatPools/backendPort': !ruby/object:Api::Azure::SDKTypeDefinition::IntegerObject
+          '/properties/networkConfiguration/endpointConfiguration/inboundNatPools/backendPort': !ruby/object:Api::Azure::SDKTypeDefinition::Integer32Object
             applicable_to: [go]
             go_field_name: BackendPort
-          '/properties/networkConfiguration/endpointConfiguration/inboundNatPools/frontendPortRangeStart': !ruby/object:Api::Azure::SDKTypeDefinition::IntegerObject
+          '/properties/networkConfiguration/endpointConfiguration/inboundNatPools/frontendPortRangeStart': !ruby/object:Api::Azure::SDKTypeDefinition::Integer32Object
             applicable_to: [go]
             go_field_name: FrontendPortRangeStart
-          '/properties/networkConfiguration/endpointConfiguration/inboundNatPools/frontendPortRangeEnd': !ruby/object:Api::Azure::SDKTypeDefinition::IntegerObject
+          '/properties/networkConfiguration/endpointConfiguration/inboundNatPools/frontendPortRangeEnd': !ruby/object:Api::Azure::SDKTypeDefinition::Integer32Object
             applicable_to: [go]
             go_field_name: FrontendPortRangeEnd
           '/properties/networkConfiguration/endpointConfiguration/inboundNatPools/networkSecurityGroupRules': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexArrayObject
             applicable_to: [go]
             go_field_name: NetworkSecurityGroupRules
             go_type_name: NetworkSecurityGroupRule
-          '/maxTasksPerNode': !ruby/object:Api::Azure::SDKTypeDefinition::IntegerObject
+          '/maxTasksPerNode': !ruby/object:Api::Azure::SDKTypeDefinition::Integer32Object
             applicable_to: [python]
             python_field_name: max_tasks_per_node
-          '/properties/maxTasksPerNode': !ruby/object:Api::Azure::SDKTypeDefinition::IntegerObject
+          '/properties/maxTasksPerNode': !ruby/object:Api::Azure::SDKTypeDefinition::Integer32Object
             applicable_to: [go]
             go_field_name: MaxTasksPerNode
           '/taskSchedulingPolicy': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
@@ -1029,10 +1029,10 @@ objects:
           '/userAccounts/linuxUserConfiguration': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
             applicable_to: [python]
             python_field_name: linux_user_configuration
-          '/userAccounts/linuxUserConfiguration/uid': !ruby/object:Api::Azure::SDKTypeDefinition::IntegerObject
+          '/userAccounts/linuxUserConfiguration/uid': !ruby/object:Api::Azure::SDKTypeDefinition::Integer32Object
             applicable_to: [python]
             python_field_name: uid
-          '/userAccounts/linuxUserConfiguration/gid': !ruby/object:Api::Azure::SDKTypeDefinition::IntegerObject
+          '/userAccounts/linuxUserConfiguration/gid': !ruby/object:Api::Azure::SDKTypeDefinition::Integer32Object
             applicable_to: [python]
             python_field_name: gid
           '/userAccounts/linuxUserConfiguration/sshPrivateKey': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
@@ -1062,10 +1062,10 @@ objects:
             applicable_to: [go]
             go_field_name: LinuxUserConfiguration
             go_type_name: LinuxUserConfiguration
-          '/properties/userAccounts/linuxUserConfiguration/uid': !ruby/object:Api::Azure::SDKTypeDefinition::IntegerObject
+          '/properties/userAccounts/linuxUserConfiguration/uid': !ruby/object:Api::Azure::SDKTypeDefinition::Integer32Object
             applicable_to: [go]
             go_field_name: Uid
-          '/properties/userAccounts/linuxUserConfiguration/gid': !ruby/object:Api::Azure::SDKTypeDefinition::IntegerObject
+          '/properties/userAccounts/linuxUserConfiguration/gid': !ruby/object:Api::Azure::SDKTypeDefinition::Integer32Object
             applicable_to: [go]
             go_field_name: Gid
           '/properties/userAccounts/linuxUserConfiguration/sshPrivateKey': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
@@ -1149,7 +1149,7 @@ objects:
           '/startTask/userIdentity/autoUser/elevationLevel': !ruby/object:Api::Azure::SDKTypeDefinition::EnumObject
             applicable_to: [python]
             python_field_name: elevation_level
-          '/startTask/maxTaskRetryCount': !ruby/object:Api::Azure::SDKTypeDefinition::IntegerObject
+          '/startTask/maxTaskRetryCount': !ruby/object:Api::Azure::SDKTypeDefinition::Integer32Object
             applicable_to: [python]
             python_field_name: max_task_retry_count
           '/startTask/waitForSuccess': !ruby/object:Api::Azure::SDKTypeDefinition::BooleanObject
@@ -1234,7 +1234,7 @@ objects:
             applicable_to: [go]
             go_field_name: ElevationLevel
             go_enum_type_name: ElevationLevel
-          '/properties/startTask/maxTaskRetryCount': !ruby/object:Api::Azure::SDKTypeDefinition::IntegerObject
+          '/properties/startTask/maxTaskRetryCount': !ruby/object:Api::Azure::SDKTypeDefinition::Integer32Object
             applicable_to: [go]
             go_field_name: MaxTaskRetryCount
           '/properties/startTask/waitForSuccess': !ruby/object:Api::Azure::SDKTypeDefinition::BooleanObject
@@ -1428,14 +1428,14 @@ objects:
             applicable_to: [go]
             go_field_name: DataDisks
             go_type_name: DataDisk
-          '/properties/deploymentConfiguration/virtualMachineConfiguration/dataDisks/lun': !ruby/object:Api::Azure::SDKTypeDefinition::IntegerObject
+          '/properties/deploymentConfiguration/virtualMachineConfiguration/dataDisks/lun': !ruby/object:Api::Azure::SDKTypeDefinition::Integer32Object
             applicable_to: [go]
             go_field_name: Lun
           '/properties/deploymentConfiguration/virtualMachineConfiguration/dataDisks/caching': !ruby/object:Api::Azure::SDKTypeDefinition::EnumObject
             applicable_to: [go]
             go_field_name: Caching
             go_enum_type_name: CachingType
-          '/properties/deploymentConfiguration/virtualMachineConfiguration/dataDisks/diskSizeGB': !ruby/object:Api::Azure::SDKTypeDefinition::IntegerObject
+          '/properties/deploymentConfiguration/virtualMachineConfiguration/dataDisks/diskSizeGB': !ruby/object:Api::Azure::SDKTypeDefinition::Integer32Object
             applicable_to: [go]
             go_field_name: DiskSizeGb
           '/properties/deploymentConfiguration/virtualMachineConfiguration/dataDisks/storageAccountType': !ruby/object:Api::Azure::SDKTypeDefinition::EnumObject
@@ -1504,13 +1504,13 @@ objects:
           '/deploymentConfiguration/virtualMachineConfiguration/dataDisks': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexArrayObject
             applicable_to: [python]
             python_field_name: data_disks
-          '/deploymentConfiguration/virtualMachineConfiguration/dataDisks/lun': !ruby/object:Api::Azure::SDKTypeDefinition::IntegerObject
+          '/deploymentConfiguration/virtualMachineConfiguration/dataDisks/lun': !ruby/object:Api::Azure::SDKTypeDefinition::Integer32Object
             applicable_to: [python]
             python_field_name: lun
           '/deploymentConfiguration/virtualMachineConfiguration/dataDisks/caching': !ruby/object:Api::Azure::SDKTypeDefinition::EnumObject
             applicable_to: [python]
             python_field_name: caching
-          '/deploymentConfiguration/virtualMachineConfiguration/dataDisks/diskSizeGB': !ruby/object:Api::Azure::SDKTypeDefinition::IntegerObject
+          '/deploymentConfiguration/virtualMachineConfiguration/dataDisks/diskSizeGB': !ruby/object:Api::Azure::SDKTypeDefinition::Integer32Object
             applicable_to: [python]
             python_field_name: disk_size_gb
           '/deploymentConfiguration/virtualMachineConfiguration/dataDisks/storageAccountType': !ruby/object:Api::Azure::SDKTypeDefinition::EnumObject
@@ -1542,10 +1542,10 @@ objects:
           '/properties/scaleSettings/fixedScale/resizeTimeout': !ruby/object:Api::Azure::SDKTypeDefinition::ISO8601DurationObject
             applicable_to: [go]
             go_field_name: ResizeTimeout
-          '/properties/scaleSettings/fixedScale/targetDedicatedNodes': !ruby/object:Api::Azure::SDKTypeDefinition::IntegerObject
+          '/properties/scaleSettings/fixedScale/targetDedicatedNodes': !ruby/object:Api::Azure::SDKTypeDefinition::Integer32Object
             applicable_to: [go]
             go_field_name: TargetDedicatedNodes
-          '/properties/scaleSettings/fixedScale/targetLowPriorityNodes': !ruby/object:Api::Azure::SDKTypeDefinition::IntegerObject
+          '/properties/scaleSettings/fixedScale/targetLowPriorityNodes': !ruby/object:Api::Azure::SDKTypeDefinition::Integer32Object
             applicable_to: [go]
             go_field_name: TargetLowPriorityNodes
           '/properties/scaleSettings/fixedScale/nodeDeallocationOption': !ruby/object:Api::Azure::SDKTypeDefinition::EnumObject
@@ -1571,10 +1571,10 @@ objects:
           '/scaleSettings/fixedScale/resizeTimeout': !ruby/object:Api::Azure::SDKTypeDefinition::ISO8601DurationObject
             applicable_to: [python]
             python_field_name: resize_timeout
-          '/scaleSettings/fixedScale/targetDedicatedNodes': !ruby/object:Api::Azure::SDKTypeDefinition::IntegerObject
+          '/scaleSettings/fixedScale/targetDedicatedNodes': !ruby/object:Api::Azure::SDKTypeDefinition::Integer32Object
             applicable_to: [python]
             python_field_name: target_dedicated_nodes
-          '/scaleSettings/fixedScale/targetLowPriorityNodes': !ruby/object:Api::Azure::SDKTypeDefinition::IntegerObject
+          '/scaleSettings/fixedScale/targetLowPriorityNodes': !ruby/object:Api::Azure::SDKTypeDefinition::Integer32Object
             applicable_to: [python]
             python_field_name: target_low_priority_nodes
           '/scaleSettings/fixedScale/nodeDeallocationOption': !ruby/object:Api::Azure::SDKTypeDefinition::EnumObject
@@ -1618,13 +1618,13 @@ objects:
             applicable_to: [go]
             go_field_name: Protocol
             go_enum_type_name: InboundEndpointProtocol
-          '/properties/networkConfiguration/endpointConfiguration/inboundNatPools/backendPort': !ruby/object:Api::Azure::SDKTypeDefinition::IntegerObject
+          '/properties/networkConfiguration/endpointConfiguration/inboundNatPools/backendPort': !ruby/object:Api::Azure::SDKTypeDefinition::Integer32Object
             applicable_to: [go]
             go_field_name: BackendPort
-          '/properties/networkConfiguration/endpointConfiguration/inboundNatPools/frontendPortRangeStart': !ruby/object:Api::Azure::SDKTypeDefinition::IntegerObject
+          '/properties/networkConfiguration/endpointConfiguration/inboundNatPools/frontendPortRangeStart': !ruby/object:Api::Azure::SDKTypeDefinition::Integer32Object
             applicable_to: [go]
             go_field_name: FrontendPortRangeStart
-          '/properties/networkConfiguration/endpointConfiguration/inboundNatPools/frontendPortRangeEnd': !ruby/object:Api::Azure::SDKTypeDefinition::IntegerObject
+          '/properties/networkConfiguration/endpointConfiguration/inboundNatPools/frontendPortRangeEnd': !ruby/object:Api::Azure::SDKTypeDefinition::Integer32Object
             applicable_to: [go]
             go_field_name: FrontendPortRangeEnd
           '/properties/networkConfiguration/endpointConfiguration/inboundNatPools/networkSecurityGroupRules': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexArrayObject
@@ -1649,22 +1649,22 @@ objects:
           '/networkConfiguration/endpointConfiguration/inboundNatPools/protocol': !ruby/object:Api::Azure::SDKTypeDefinition::EnumObject
             applicable_to: [python]
             python_field_name: protocol
-          '/networkConfiguration/endpointConfiguration/inboundNatPools/backendPort': !ruby/object:Api::Azure::SDKTypeDefinition::IntegerObject
+          '/networkConfiguration/endpointConfiguration/inboundNatPools/backendPort': !ruby/object:Api::Azure::SDKTypeDefinition::Integer32Object
             applicable_to: [python]
             python_field_name: backend_port
-          '/networkConfiguration/endpointConfiguration/inboundNatPools/frontendPortRangeStart': !ruby/object:Api::Azure::SDKTypeDefinition::IntegerObject
+          '/networkConfiguration/endpointConfiguration/inboundNatPools/frontendPortRangeStart': !ruby/object:Api::Azure::SDKTypeDefinition::Integer32Object
             applicable_to: [python]
             python_field_name: frontend_port_range_start
-          '/networkConfiguration/endpointConfiguration/inboundNatPools/frontendPortRangeEnd': !ruby/object:Api::Azure::SDKTypeDefinition::IntegerObject
+          '/networkConfiguration/endpointConfiguration/inboundNatPools/frontendPortRangeEnd': !ruby/object:Api::Azure::SDKTypeDefinition::Integer32Object
             applicable_to: [python]
             python_field_name: frontend_port_range_end
           '/networkConfiguration/endpointConfiguration/inboundNatPools/networkSecurityGroupRules': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexArrayObject
             applicable_to: [python]
             python_field_name: network_security_group_rules
-          '/properties/maxTasksPerNode': !ruby/object:Api::Azure::SDKTypeDefinition::IntegerObject
+          '/properties/maxTasksPerNode': !ruby/object:Api::Azure::SDKTypeDefinition::Integer32Object
             applicable_to: [go]
             go_field_name: MaxTasksPerNode
-          '/maxTasksPerNode': !ruby/object:Api::Azure::SDKTypeDefinition::IntegerObject
+          '/maxTasksPerNode': !ruby/object:Api::Azure::SDKTypeDefinition::Integer32Object
             applicable_to: [python]
             python_field_name: max_tasks_per_node
           '/properties/taskSchedulingPolicy': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
@@ -1699,10 +1699,10 @@ objects:
             applicable_to: [go]
             go_field_name: LinuxUserConfiguration
             go_type_name: LinuxUserConfiguration
-          '/properties/userAccounts/linuxUserConfiguration/uid': !ruby/object:Api::Azure::SDKTypeDefinition::IntegerObject
+          '/properties/userAccounts/linuxUserConfiguration/uid': !ruby/object:Api::Azure::SDKTypeDefinition::Integer32Object
             applicable_to: [go]
             go_field_name: Uid
-          '/properties/userAccounts/linuxUserConfiguration/gid': !ruby/object:Api::Azure::SDKTypeDefinition::IntegerObject
+          '/properties/userAccounts/linuxUserConfiguration/gid': !ruby/object:Api::Azure::SDKTypeDefinition::Integer32Object
             applicable_to: [go]
             go_field_name: Gid
           '/properties/userAccounts/linuxUserConfiguration/sshPrivateKey': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
@@ -1731,10 +1731,10 @@ objects:
           '/userAccounts/linuxUserConfiguration': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
             applicable_to: [python]
             python_field_name: linux_user_configuration
-          '/userAccounts/linuxUserConfiguration/uid': !ruby/object:Api::Azure::SDKTypeDefinition::IntegerObject
+          '/userAccounts/linuxUserConfiguration/uid': !ruby/object:Api::Azure::SDKTypeDefinition::Integer32Object
             applicable_to: [python]
             python_field_name: uid
-          '/userAccounts/linuxUserConfiguration/gid': !ruby/object:Api::Azure::SDKTypeDefinition::IntegerObject
+          '/userAccounts/linuxUserConfiguration/gid': !ruby/object:Api::Azure::SDKTypeDefinition::Integer32Object
             applicable_to: [python]
             python_field_name: gid
           '/userAccounts/linuxUserConfiguration/sshPrivateKey': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
@@ -1823,7 +1823,7 @@ objects:
             applicable_to: [go]
             go_field_name: ElevationLevel
             go_enum_type_name: ElevationLevel
-          '/properties/startTask/maxTaskRetryCount': !ruby/object:Api::Azure::SDKTypeDefinition::IntegerObject
+          '/properties/startTask/maxTaskRetryCount': !ruby/object:Api::Azure::SDKTypeDefinition::Integer32Object
             applicable_to: [go]
             go_field_name: MaxTaskRetryCount
           '/properties/startTask/waitForSuccess': !ruby/object:Api::Azure::SDKTypeDefinition::BooleanObject
@@ -1903,7 +1903,7 @@ objects:
           '/startTask/userIdentity/autoUser/elevationLevel': !ruby/object:Api::Azure::SDKTypeDefinition::EnumObject
             applicable_to: [python]
             python_field_name: elevation_level
-          '/startTask/maxTaskRetryCount': !ruby/object:Api::Azure::SDKTypeDefinition::IntegerObject
+          '/startTask/maxTaskRetryCount': !ruby/object:Api::Azure::SDKTypeDefinition::Integer32Object
             applicable_to: [python]
             python_field_name: max_task_retry_count
           '/startTask/waitForSuccess': !ruby/object:Api::Azure::SDKTypeDefinition::BooleanObject
@@ -2019,16 +2019,16 @@ objects:
           '/allocationStateTransitionTime': !ruby/object:Api::Azure::SDKTypeDefinition::ISO8601DateTimeObject
             applicable_to: [python]
             python_field_name: allocation_state_transition_time
-          '/properties/currentDedicatedNodes': !ruby/object:Api::Azure::SDKTypeDefinition::IntegerObject
+          '/properties/currentDedicatedNodes': !ruby/object:Api::Azure::SDKTypeDefinition::Integer32Object
             applicable_to: [go]
             go_field_name: CurrentDedicatedNodes
-          '/currentDedicatedNodes': !ruby/object:Api::Azure::SDKTypeDefinition::IntegerObject
+          '/currentDedicatedNodes': !ruby/object:Api::Azure::SDKTypeDefinition::Integer32Object
             applicable_to: [python]
             python_field_name: current_dedicated_nodes
-          '/properties/currentLowPriorityNodes': !ruby/object:Api::Azure::SDKTypeDefinition::IntegerObject
+          '/properties/currentLowPriorityNodes': !ruby/object:Api::Azure::SDKTypeDefinition::Integer32Object
             applicable_to: [go]
             go_field_name: CurrentLowPriorityNodes
-          '/currentLowPriorityNodes': !ruby/object:Api::Azure::SDKTypeDefinition::IntegerObject
+          '/currentLowPriorityNodes': !ruby/object:Api::Azure::SDKTypeDefinition::Integer32Object
             applicable_to: [python]
             python_field_name: current_low_priority_nodes
           '/properties/autoScaleRun': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
