@@ -6,5 +6,5 @@ task: !ruby/object:Provider::Ansible::Task
     resource_group: myResourceGroup
     account_name: myBatchAccount
     application_name: myApplication
-    name: myVersion
+    version_name: myVersion
   
