@@ -5,7 +5,7 @@ task: !ruby/object:Provider::Ansible::Task
   code:
     resource_group: myResourceGroup
     account_name: myBatchAccount
-    name: myApplication
+    application_name: myApplication
     display_name: myAppName
     allow_updates: false
   

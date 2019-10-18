@@ -34,9 +34,9 @@ objects:
             python_variable_name: account_name
           'applicationName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             id_portion: applications
-            go_variable_name: name
+            go_variable_name: applicationName
             python_parameter_name: application_name
-            python_variable_name: name
+            python_variable_name: application_name
           '/': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
             go_variable_name: parameters
             go_type_name: Application
@@ -80,9 +80,9 @@ objects:
             python_variable_name: account_name
           'applicationName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             id_portion: applications
-            go_variable_name: name
+            go_variable_name: applicationName
             python_parameter_name: application_name
-            python_variable_name: name
+            python_variable_name: application_name
           '/': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
             go_variable_name: parameters
             go_type_name: Application
@@ -126,9 +126,9 @@ objects:
             python_variable_name: account_name
           'applicationName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             id_portion: applications
-            go_variable_name: name
+            go_variable_name: applicationName
             python_parameter_name: application_name
-            python_variable_name: name
+            python_variable_name: application_name
       read: !ruby/object:Api::Azure::SDKOperationDefinition
         go_func_name: Get
         python_func_name: get
@@ -145,9 +145,9 @@ objects:
             python_variable_name: account_name
           'applicationName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             id_portion: applications
-            go_variable_name: name
+            go_variable_name: applicationName
             python_parameter_name: application_name
-            python_variable_name: name
+            python_variable_name: application_name
         response:
           '/properties': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
             applicable_to: [go]
@@ -210,12 +210,12 @@ objects:
         sample_value: 'myBatchAccount'
         azure_sdk_references: ['accountName']
       - !ruby/object:Api::Type::String
-        name: 'name'
+        name: 'applicationName'
         description: 'The name of the application. This must be unique within the account.'
         required: true
         input: true
         sample_value: 'myApplication'
-        azure_sdk_references: ['applicationName', '/name']
+        azure_sdk_references: ['applicationName']
       - !ruby/object:Api::Type::String
         name: 'displayName'
         description: 'The display name for the application.'
