@@ -871,12 +871,11 @@ objects:
             name: 'operatingSystem'
             description: 'operating system of target machines'
             required: true
+            sample_value: Windows
+            azure_sdk_references: ['/updateConfiguration/operatingSystem', '/properties/updateConfiguration/operatingSystem']
             values:
               - :Windows
               - :Linux
-            default_value: :Windows
-            sample_value: Windows
-            azure_sdk_references: ['/updateConfiguration/operatingSystem', '/properties/updateConfiguration/operatingSystem']
           - !ruby/object:Api::Type::NestedObject
             name: 'windows'
             description: 'Windows specific update configuration.'
@@ -887,6 +886,8 @@ objects:
                 name: 'includedUpdateClassifications'
                 description: 'Update classification included in the software update configuration. A comma separated string with required values'
                 required: false
+                sample_value: Critical
+                azure_sdk_references: ['/updateConfiguration/windows/includedUpdateClassifications', '/properties/updateConfiguration/windows/includedUpdateClassifications']
                 values:
                   - :Unclassified
                   - :Critical
@@ -898,8 +899,6 @@ objects:
                   - :Tools
                   - :Updates
                 default_value: :Unclassified
-                sample_value: Critical
-                azure_sdk_references: ['/updateConfiguration/windows/includedUpdateClassifications', '/properties/updateConfiguration/windows/includedUpdateClassifications']
               - !ruby/object:Api::Type::Array
                 name: 'excludedKbNumbers'
                 description: 'KB numbers excluded from the software update configuration.'
@@ -929,13 +928,13 @@ objects:
                 name: 'includedPackageClassifications'
                 description: 'Update classifications included in the software update configuration.'
                 required: false
+                azure_sdk_references: ['/updateConfiguration/linux/includedPackageClassifications', '/properties/updateConfiguration/linux/includedPackageClassifications']
                 values:
                   - :Unclassified
                   - :Critical
                   - :Security
                   - :Other
                 default_value: :Unclassified
-                azure_sdk_references: ['/updateConfiguration/linux/includedPackageClassifications', '/properties/updateConfiguration/linux/includedPackageClassifications']
               - !ruby/object:Api::Type::Array
                 name: 'excludedPackageNameMasks'
                 description: 'packages excluded from the software update configuration.'
@@ -1065,6 +1064,8 @@ objects:
             name: 'frequency'
             description: 'Gets or sets the frequency of the schedule.'
             required: false
+            sample_value: Hour
+            azure_sdk_references: ['/scheduleInfo/frequency', '/properties/scheduleInfo/frequency']
             values:
               - :OneTime
               - :Day
@@ -1073,8 +1074,6 @@ objects:
               - :Month
               - :Minute
             default_value: :OneTime
-            sample_value: Hour
-            azure_sdk_references: ['/scheduleInfo/frequency', '/properties/scheduleInfo/frequency']
           - !ruby/object:Api::Type::String
             name: 'timeZone'
             description: 'Gets or sets the time zone of the schedule.'
@@ -1116,6 +1115,7 @@ objects:
                       name: 'day'
                       description: 'Day of the occurrence. Must be one of monday, tuesday, wednesday, thursday, friday, saturday, sunday.'
                       required: false
+                      azure_sdk_references: ['/scheduleInfo/advancedSchedule/monthlyOccurrences/day', '/properties/scheduleInfo/advancedSchedule/monthlyOccurrences/day']
                       values:
                         - :Monday
                         - :Tuesday
@@ -1125,7 +1125,6 @@ objects:
                         - :Saturday
                         - :Sunday
                       default_value: :Monday
-                      azure_sdk_references: ['/scheduleInfo/advancedSchedule/monthlyOccurrences/day', '/properties/scheduleInfo/advancedSchedule/monthlyOccurrences/day']
           - !ruby/object:Api::Azure::Type::ISO8601DateTime
             name: 'creationTime'
             description: 'Gets or sets the creation time.'
@@ -1226,18 +1225,15 @@ objects:
       - !ruby/object:Api::Type::String
         name: 'name'
         description: 'Resource name.'
-        input: true
         output: true
         azure_sdk_references: ['/name']
       - !ruby/object:Api::Type::String
         name: 'id'
         description: 'Resource Id.'
-        input: true
         output: true
         azure_sdk_references: ['/id']
       - !ruby/object:Api::Type::String
         name: 'type'
         description: 'Resource type'
-        input: true
         output: true
         azure_sdk_references: ['/type']
