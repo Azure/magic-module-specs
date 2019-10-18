@@ -672,11 +672,11 @@ objects:
         name: 'alwaysLog'
         description: 'Specifies for what type of messages sampling settings should not apply.'
         required: false
+        sample_value: allErrors
+        azure_sdk_references: ['/alwaysLog', '/properties/alwaysLog']
         values:
           - :allErrors
         default_value: :allErrors
-        sample_value: allErrors
-        azure_sdk_references: ['/alwaysLog', '/properties/alwaysLog']
       - !ruby/object:Api::Type::String
         name: 'loggerId'
         description: 'Resource Id of a target logger.'
@@ -693,11 +693,11 @@ objects:
             name: 'samplingType'
             description: 'Sampling type.'
             required: false
+            sample_value: fixed
+            azure_sdk_references: ['/sampling/samplingType', '/properties/sampling/samplingType']
             values:
               - :fixed
             default_value: :fixed
-            sample_value: fixed
-            azure_sdk_references: ['/sampling/samplingType', '/properties/sampling/samplingType']
           - !ruby/object:Api::Type::Double
             name: 'percentage'
             description: 'Rate of sampling for fixed-rate sampling.'
@@ -825,18 +825,15 @@ objects:
       - !ruby/object:Api::Type::String
         name: 'id'
         description: 'Resource ID.'
-        input: true
         output: true
         azure_sdk_references: ['/id']
       - !ruby/object:Api::Type::String
         name: 'name'
         description: 'Resource name.'
-        input: true
         output: true
         azure_sdk_references: ['/name']
       - !ruby/object:Api::Type::String
         name: 'type'
         description: 'Resource type for API Management resource.'
-        input: true
         output: true
         azure_sdk_references: ['/type']
