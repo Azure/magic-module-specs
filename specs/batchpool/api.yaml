@@ -35,9 +35,9 @@ objects:
             python_variable_name: account_name
           'poolName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             id_portion: pools
-            go_variable_name: name
+            go_variable_name: poolName
             python_parameter_name: pool_name
-            python_variable_name: name
+            python_variable_name: pool_name
           '/': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
             go_variable_name: parameters
             go_type_name: Pool
@@ -685,9 +685,9 @@ objects:
             python_variable_name: account_name
           'poolName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             id_portion: pools
-            go_variable_name: name
+            go_variable_name: poolName
             python_parameter_name: pool_name
-            python_variable_name: name
+            python_variable_name: pool_name
           '/': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
             go_variable_name: parameters
             go_type_name: Pool
@@ -1336,9 +1336,9 @@ objects:
             python_variable_name: account_name
           'poolName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             id_portion: pools
-            go_variable_name: name
+            go_variable_name: poolName
             python_parameter_name: pool_name
-            python_variable_name: name
+            python_variable_name: pool_name
       read: !ruby/object:Api::Azure::SDKOperationDefinition
         go_func_name: Get
         python_func_name: get
@@ -1355,9 +1355,9 @@ objects:
             python_variable_name: account_name
           'poolName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             id_portion: pools
-            go_variable_name: name
+            go_variable_name: poolName
             python_parameter_name: pool_name
-            python_variable_name: name
+            python_variable_name: pool_name
         response:
           '/properties': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
             applicable_to: [go]
@@ -2081,12 +2081,12 @@ objects:
         sample_value: 'myBatchAccount'
         azure_sdk_references: ['accountName']
       - !ruby/object:Api::Type::String
-        name: 'name'
+        name: 'poolName'
         description: 'The pool name. This must be unique within the account.'
         required: true
         input: true
         sample_value: 'myPool'
-        azure_sdk_references: ['poolName', '/name']
+        azure_sdk_references: ['poolName']
       - !ruby/object:Api::Type::String
         name: 'displayName'
         description: 'The display name need not be unique and can contain any Unicode characters up to a maximum length of 1024.'
@@ -2345,7 +2345,7 @@ objects:
                       description: 'The name must be unique within a Batch pool, can contain letters, numbers, underscores, periods, and hyphens. Names must start with a letter or number, must end with a letter, number, or underscore, and cannot exceed 77 characters.  If any invalid values are provided the request fails with HTTP status code 400.'
                       required: true
                       sample_value: 'testnat'
-                      azure_sdk_references: ['/networkConfiguration/endpointConfiguration/inboundNatPools/name', '/properties/networkConfiguration/endpointConfiguration/inboundNatPools/name', '/name']
+                      azure_sdk_references: ['/networkConfiguration/endpointConfiguration/inboundNatPools/name', '/properties/networkConfiguration/endpointConfiguration/inboundNatPools/name']
                     - !ruby/object:Api::Type::Enum
                       name: 'protocol'
                       description: ''
@@ -2403,7 +2403,7 @@ objects:
               description: ''
               required: true
               sample_value: 'username1'
-              azure_sdk_references: ['/userAccounts/name', '/properties/userAccounts/name', '/name']
+              azure_sdk_references: ['/userAccounts/name', '/properties/userAccounts/name']
             - !ruby/object:Api::Type::String
               name: 'password'
               description: ''
@@ -2467,7 +2467,7 @@ objects:
               description: ''
               required: true
               sample_value: 'key1'
-              azure_sdk_references: ['/metadata/name', '/properties/metadata/name', '/name']
+              azure_sdk_references: ['/metadata/name', '/properties/metadata/name']
             - !ruby/object:Api::Type::String
               name: 'value'
               description: ''
@@ -2535,7 +2535,7 @@ objects:
                   description: ''
                   required: true
                   sample_value: 'MYSET'
-                  azure_sdk_references: ['/startTask/environmentSettings/name', '/properties/startTask/environmentSettings/name', '/name']
+                  azure_sdk_references: ['/startTask/environmentSettings/name', '/properties/startTask/environmentSettings/name']
                 - !ruby/object:Api::Type::String
                   name: 'value'
                   description: ''

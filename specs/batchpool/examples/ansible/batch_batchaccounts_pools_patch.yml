@@ -5,7 +5,7 @@ task: !ruby/object:Provider::Ansible::Task
   code:
     resource_group: myResourceGroup
     account_name: myBatchAccount
-    name: myPool
+    pool_name: myPool
     scale_settings:
       fixed_scale:
         resize_timeout: PT8M
