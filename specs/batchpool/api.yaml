@@ -624,7 +624,7 @@ objects:
           '/certificates/storeName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             applicable_to: [python]
             python_field_name: store_name
-          '/certificates/visibility': !ruby/object:Api::Azure::SDKTypeDefinition::EnumObject
+          '/certificates/visibility': !ruby/object:Api::Azure::SDKTypeDefinition::EnumArrayObject
             applicable_to: [python]
             python_field_name: visibility
           '/properties/certificates': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexArrayObject
@@ -641,10 +641,9 @@ objects:
           '/properties/certificates/storeName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             applicable_to: [go]
             go_field_name: StoreName
-          '/properties/certificates/visibility': !ruby/object:Api::Azure::SDKTypeDefinition::EnumObject
+          '/properties/certificates/visibility': !ruby/object:Api::Azure::SDKTypeDefinition::EnumArrayObject
             applicable_to: [go]
             go_field_name: Visibility
-            go_enum_type_name: CertificateVisibility
           '/applicationPackages': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexArrayObject
             applicable_to: [python]
             python_field_name: application_packages
@@ -1275,7 +1274,7 @@ objects:
           '/certificates/storeName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             applicable_to: [python]
             python_field_name: store_name
-          '/certificates/visibility': !ruby/object:Api::Azure::SDKTypeDefinition::EnumObject
+          '/certificates/visibility': !ruby/object:Api::Azure::SDKTypeDefinition::EnumArrayObject
             applicable_to: [python]
             python_field_name: visibility
           '/properties/certificates': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexArrayObject
@@ -1292,10 +1291,9 @@ objects:
           '/properties/certificates/storeName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             applicable_to: [go]
             go_field_name: StoreName
-          '/properties/certificates/visibility': !ruby/object:Api::Azure::SDKTypeDefinition::EnumObject
+          '/properties/certificates/visibility': !ruby/object:Api::Azure::SDKTypeDefinition::EnumArrayObject
             applicable_to: [go]
             go_field_name: Visibility
-            go_enum_type_name: CertificateVisibility
           '/applicationPackages': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexArrayObject
             applicable_to: [python]
             python_field_name: application_packages
@@ -1944,10 +1942,9 @@ objects:
           '/properties/certificates/storeName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             applicable_to: [go]
             go_field_name: StoreName
-          '/properties/certificates/visibility': !ruby/object:Api::Azure::SDKTypeDefinition::EnumObject
+          '/properties/certificates/visibility': !ruby/object:Api::Azure::SDKTypeDefinition::EnumArrayObject
             applicable_to: [go]
             go_field_name: Visibility
-            go_enum_type_name: CertificateVisibility
           '/certificates': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexArrayObject
             applicable_to: [python]
             python_field_name: certificates
@@ -1960,7 +1957,7 @@ objects:
           '/certificates/storeName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             applicable_to: [python]
             python_field_name: store_name
-          '/certificates/visibility': !ruby/object:Api::Azure::SDKTypeDefinition::EnumObject
+          '/certificates/visibility': !ruby/object:Api::Azure::SDKTypeDefinition::EnumArrayObject
             applicable_to: [python]
             python_field_name: visibility
           '/properties/applicationPackages': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexArrayObject
@@ -2203,13 +2200,13 @@ objects:
                       name: 'caching'
                       description: 'Values are:<br> none - The caching mode for the disk is not enabled.<br> readOnly - The caching mode for the disk is read only.<br> readWrite - The caching mode for the disk is read and write.<br> The default value for caching is none. For information about the caching options see: https://blogs.msdn.microsoft.com/windowsazurestorage/2012/06/27/exploring-windows-azure-drives-disks-and-images/.'
                       required: false
+                      sample_value: None
+                      azure_sdk_references: ['/deploymentConfiguration/virtualMachineConfiguration/dataDisks/caching', '/properties/deploymentConfiguration/virtualMachineConfiguration/dataDisks/caching']
                       values:
                         - :None
                         - :ReadOnly
                         - :ReadWrite
                       default_value: :None
-                      sample_value: None
-                      azure_sdk_references: ['/deploymentConfiguration/virtualMachineConfiguration/dataDisks/caching', '/properties/deploymentConfiguration/virtualMachineConfiguration/dataDisks/caching']
                     - !ruby/object:Api::Type::Integer
                       name: 'diskSizeGb'
                       description: ''
@@ -2219,11 +2216,11 @@ objects:
                       name: 'storageAccountType'
                       description: 'If omitted, the default is "Standard_LRS". Values are:<br> Standard_LRS - The data disk should use standard locally redundant storage.<br> Premium_LRS - The data disk should use premium locally redundant storage.'
                       required: false
+                      azure_sdk_references: ['/deploymentConfiguration/virtualMachineConfiguration/dataDisks/storageAccountType', '/properties/deploymentConfiguration/virtualMachineConfiguration/dataDisks/storageAccountType']
                       values:
                         - :Standard_LRS
                         - :Premium_LRS
                       default_value: :Standard_LRS
-                      azure_sdk_references: ['/deploymentConfiguration/virtualMachineConfiguration/dataDisks/storageAccountType', '/properties/deploymentConfiguration/virtualMachineConfiguration/dataDisks/storageAccountType']
               - !ruby/object:Api::Type::String
                 name: 'licenseType'
                 description: 'This only applies to images that contain the Windows operating system, and should only be used when you hold valid on-premises licenses for the nodes which will be deployed. If omitted, no on-premises licensing discount is applied. Values are:<br> Windows_Server - The on-premises license is for Windows Server.<br> Windows_Client - The on-premises license is for Windows Client.<br>'
@@ -2281,14 +2278,14 @@ objects:
                 name: 'nodeDeallocationOption'
                 description: 'If omitted, the default value is Requeue.'
                 required: false
+                sample_value: TaskCompletion
+                azure_sdk_references: ['/scaleSettings/fixedScale/nodeDeallocationOption', '/properties/scaleSettings/fixedScale/nodeDeallocationOption']
                 values:
                   - :Requeue
                   - :Terminate
                   - :TaskCompletion
                   - :RetainedData
                 default_value: :Requeue
-                sample_value: TaskCompletion
-                azure_sdk_references: ['/scaleSettings/fixedScale/nodeDeallocationOption', '/properties/scaleSettings/fixedScale/nodeDeallocationOption']
           - !ruby/object:Api::Type::NestedObject
             name: 'autoScale'
             description: 'This property and fixedScale are mutually exclusive and one of the properties must be specified.'
@@ -2311,12 +2308,12 @@ objects:
         name: 'interNodeCommunication'
         description: 'This imposes restrictions on which nodes can be assigned to the pool. Enabling this value can reduce the chance of the requested number of nodes to be allocated in the pool. If not specified, this value defaults to ''Disabled''.'
         required: false
+        sample_value: Enabled
+        azure_sdk_references: ['/interNodeCommunication', '/properties/interNodeCommunication']
         values:
           - :Enabled
           - :Disabled
         default_value: :Enabled
-        sample_value: Enabled
-        azure_sdk_references: ['/interNodeCommunication', '/properties/interNodeCommunication']
       - !ruby/object:Api::Type::NestedObject
         name: 'networkConfiguration'
         description: ''
@@ -2353,12 +2350,11 @@ objects:
                       name: 'protocol'
                       description: ''
                       required: true
+                      sample_value: TCP
+                      azure_sdk_references: ['/networkConfiguration/endpointConfiguration/inboundNatPools/protocol', '/properties/networkConfiguration/endpointConfiguration/inboundNatPools/protocol']
                       values:
                         - :TCP
                         - :UDP
-                      default_value: :TCP
-                      sample_value: TCP
-                      azure_sdk_references: ['/networkConfiguration/endpointConfiguration/inboundNatPools/protocol', '/properties/networkConfiguration/endpointConfiguration/inboundNatPools/protocol']
                     - !ruby/object:Api::Type::Integer
                       name: 'backendPort'
                       description: 'This must be unique within a Batch pool. Acceptable values are between 1 and 65535 except for 22, 3389, 29876 and 29877 as these are reserved. If any reserved values are provided the request fails with HTTP status code 400.'
@@ -2390,12 +2386,11 @@ objects:
             name: 'nodeFillType'
             description: ''
             required: true
+            sample_value: Pack
+            azure_sdk_references: ['/taskSchedulingPolicy/nodeFillType', '/properties/taskSchedulingPolicy/nodeFillType']
             values:
               - :Spread
               - :Pack
-            default_value: :Spread
-            sample_value: Pack
-            azure_sdk_references: ['/taskSchedulingPolicy/nodeFillType', '/properties/taskSchedulingPolicy/nodeFillType']
       - !ruby/object:Api::Type::Array
         name: 'userAccounts'
         description: ''
@@ -2419,11 +2414,11 @@ objects:
               name: 'elevationLevel'
               description: 'nonAdmin - The auto user is a standard user without elevated access. admin - The auto user is a user with elevated access and operates with full Administrator permissions. The default value is nonAdmin.'
               required: false
+              azure_sdk_references: ['/userAccounts/elevationLevel', '/properties/userAccounts/elevationLevel']
               values:
                 - :NonAdmin
                 - :Admin
               default_value: :NonAdmin
-              azure_sdk_references: ['/userAccounts/elevationLevel', '/properties/userAccounts/elevationLevel']
             - !ruby/object:Api::Type::NestedObject
               name: 'linuxUserConfiguration'
               description: 'This property is ignored if specified on a Windows pool. If not specified, the user is created with the default options.'
@@ -2455,11 +2450,11 @@ objects:
                   name: 'loginMode'
                   description: 'Specifies login mode for the user. The default value for VirtualMachineConfiguration pools is interactive mode and for CloudServiceConfiguration pools is batch mode.'
                   required: false
+                  azure_sdk_references: ['/userAccounts/windowsUserConfiguration/loginMode', '/properties/userAccounts/windowsUserConfiguration/loginMode']
                   values:
                     - :Batch
                     - :Interactive
                   default_value: :Batch
-                  azure_sdk_references: ['/userAccounts/windowsUserConfiguration/loginMode', '/properties/userAccounts/windowsUserConfiguration/loginMode']
       - !ruby/object:Api::Type::Array
         name: 'metadata'
         description: 'The Batch service does not assign any meaning to metadata; it is solely for the use of user code.'
@@ -2568,22 +2563,22 @@ objects:
                     name: 'scope'
                     description: 'The default value is task.'
                     required: false
+                    sample_value: Pool
+                    azure_sdk_references: ['/startTask/userIdentity/autoUser/scope', '/properties/startTask/userIdentity/autoUser/scope']
                     values:
                       - :Task
                       - :Pool
                     default_value: :Task
-                    sample_value: Pool
-                    azure_sdk_references: ['/startTask/userIdentity/autoUser/scope', '/properties/startTask/userIdentity/autoUser/scope']
                   - !ruby/object:Api::Type::Enum
                     name: 'elevationLevel'
                     description: 'nonAdmin - The auto user is a standard user without elevated access. admin - The auto user is a user with elevated access and operates with full Administrator permissions. The default value is nonAdmin.'
                     required: false
+                    sample_value: Admin
+                    azure_sdk_references: ['/startTask/userIdentity/autoUser/elevationLevel', '/properties/startTask/userIdentity/autoUser/elevationLevel']
                     values:
                       - :NonAdmin
                       - :Admin
                     default_value: :NonAdmin
-                    sample_value: Admin
-                    azure_sdk_references: ['/startTask/userIdentity/autoUser/elevationLevel', '/properties/startTask/userIdentity/autoUser/elevationLevel']
           - !ruby/object:Api::Type::Integer
             name: 'maxTaskRetryCount'
             description: 'The Batch service retries a task if its exit code is nonzero. Note that this value specifically controls the number of retries. The Batch service will try the task once, and may then retry up to this limit. For example, if the maximum retry count is 3, Batch tries the task up to 4 times (one initial try and 3 retries). If the maximum retry count is 0, the Batch service does not retry the task. If the maximum retry count is -1, the Batch service retries the task without limit.'
@@ -2651,28 +2646,30 @@ objects:
               name: 'storeLocation'
               description: 'The default value is currentUser. This property is applicable only for pools configured with Windows nodes (that is, created with cloudServiceConfiguration, or with virtualMachineConfiguration using a Windows image reference). For Linux compute nodes, the certificates are stored in a directory inside the task working directory and an environment variable AZ_BATCH_CERTIFICATES_DIR is supplied to the task to query for this location. For certificates with visibility of ''remoteUser'', a ''certs'' directory is created in the user''s home directory (e.g., /home/{user-name}/certs) and certificates are placed in that directory.'
               required: false
+              azure_sdk_references: ['/certificates/storeLocation', '/properties/certificates/storeLocation']
               values:
                 - :CurrentUser
                 - :LocalMachine
               default_value: :CurrentUser
-              azure_sdk_references: ['/certificates/storeLocation', '/properties/certificates/storeLocation']
             - !ruby/object:Api::Type::String
               name: 'storeName'
               description: 'This property is applicable only for pools configured with Windows nodes (that is, created with cloudServiceConfiguration, or with virtualMachineConfiguration using a Windows image reference). Common store names include: My, Root, CA, Trust, Disallowed, TrustedPeople, TrustedPublisher, AuthRoot, AddressBook, but any custom store name can also be used. The default value is My.'
               required: false
               azure_sdk_references: ['/certificates/storeName', '/properties/certificates/storeName']
-            - !ruby/object:Api::Type::Enum
+            - !ruby/object:Api::Type::Array
               name: 'visibility'
               description: ''
               required: false
-              values:
-                - :StartTask
-                - :Task
-                - :RemoteUser
-              default_value: :StartTask
               sample_value: RemoteUser
               azure_sdk_references: ['/certificates/visibility', '/properties/certificates/visibility']
-              item_type: Api::Type::String
+              item_type: !ruby/object:Api::Type::Enum
+                name: 'TBD'
+                description: 'TBD'
+                values:
+                  - :StartTask
+                  - :Task
+                  - :RemoteUser
+                default_value: :StartTask
       - !ruby/object:Api::Type::Array
         name: 'applicationPackages'
         description: 'Changes to application packages affect all new compute nodes joining the pool, but do not affect compute nodes that are already in the pool until they are rebooted or reimaged.'
@@ -2720,12 +2717,11 @@ objects:
         name: 'allocationState'
         description: ''
         output: true
+        azure_sdk_references: ['/allocationState', '/properties/allocationState']
         values:
           - :Steady
           - :Resizing
           - :Stopping
-        default_value: :Steady
-        azure_sdk_references: ['/allocationState', '/properties/allocationState']
       - !ruby/object:Api::Azure::Type::ISO8601DateTime
         name: 'allocationStateTransitionTime'
         description: ''
@@ -2815,13 +2811,13 @@ objects:
             name: 'nodeDeallocationOption'
             description: 'The default value is requeue.'
             required: false
+            azure_sdk_references: ['/resizeOperationStatus/nodeDeallocationOption', '/properties/resizeOperationStatus/nodeDeallocationOption']
             values:
               - :Requeue
               - :Terminate
               - :TaskCompletion
               - :RetainedData
             default_value: :Requeue
-            azure_sdk_references: ['/resizeOperationStatus/nodeDeallocationOption', '/properties/resizeOperationStatus/nodeDeallocationOption']
           - !ruby/object:Api::Azure::Type::ISO8601DateTime
             name: 'startTime'
             description: ''
@@ -2864,12 +2860,10 @@ objects:
       - !ruby/object:Api::Type::String
         name: 'id'
         description: 'The ID of the resource.'
-        input: true
         output: true
         azure_sdk_references: ['/id']
       - !ruby/object:Api::Type::String
         name: 'etag'
         description: 'The ETag of the resource, used for concurrency statements.'
-        input: true
         output: true
         azure_sdk_references: ['/etag']
