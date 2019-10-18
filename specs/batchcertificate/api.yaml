@@ -293,12 +293,12 @@ objects:
         name: 'format'
         description: 'The format of the certificate - either Pfx or Cer. If omitted, the default is Pfx.'
         required: false
+        sample_value: Pfx
+        azure_sdk_references: ['/format', '/properties/format']
         values:
           - :Pfx
           - :Cer
         default_value: :Pfx
-        sample_value: Pfx
-        azure_sdk_references: ['/format', '/properties/format']
       - !ruby/object:Api::Type::String
         name: 'data'
         description: 'The maximum size is 10KB.'
@@ -321,12 +321,11 @@ objects:
         name: 'previousProvisioningState'
         description: 'The previous provisioned state of the resource'
         output: true
+        azure_sdk_references: ['/previousProvisioningState', '/properties/previousProvisioningState']
         values:
           - :Succeeded
           - :Deleting
           - :Failed
-        default_value: :Succeeded
-        azure_sdk_references: ['/previousProvisioningState', '/properties/previousProvisioningState']
       - !ruby/object:Api::Azure::Type::ISO8601DateTime
         name: 'previousProvisioningStateTransitionTime'
         description: ''
@@ -405,12 +404,10 @@ objects:
       - !ruby/object:Api::Type::String
         name: 'id'
         description: 'The ID of the resource.'
-        input: true
         output: true
         azure_sdk_references: ['/id']
       - !ruby/object:Api::Type::String
         name: 'etag'
         description: 'The ETag of the resource, used for concurrency statements.'
-        input: true
         output: true
         azure_sdk_references: ['/etag']
