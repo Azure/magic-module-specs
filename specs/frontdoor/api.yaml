@@ -30,9 +30,9 @@ objects:
             python_variable_name: resource_group
           'frontDoorName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             id_portion: frontDoors
-            go_variable_name: name
+            go_variable_name: frontDoorName
             python_parameter_name: front_door_name
-            python_variable_name: name
+            python_variable_name: front_door_name
           '/': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
             go_variable_name: frontDoorParameters
             go_type_name: 
@@ -428,9 +428,9 @@ objects:
             python_variable_name: resource_group
           'frontDoorName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             id_portion: frontDoors
-            go_variable_name: name
+            go_variable_name: frontDoorName
             python_parameter_name: front_door_name
-            python_variable_name: name
+            python_variable_name: front_door_name
       read: !ruby/object:Api::Azure::SDKOperationDefinition
         go_func_name: Get
         python_func_name: get
@@ -442,9 +442,9 @@ objects:
             python_variable_name: resource_group
           'frontDoorName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             id_portion: frontDoors
-            go_variable_name: name
+            go_variable_name: frontDoorName
             python_parameter_name: front_door_name
-            python_variable_name: name
+            python_variable_name: front_door_name
         response:
           '/location': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             go_field_name: Location
@@ -921,12 +921,12 @@ objects:
         sample_value: myResourceGroup
         azure_sdk_references: ['resourceGroupName']
       - !ruby/object:Api::Type::String
-        name: 'name'
+        name: 'frontDoorName'
         description: 'Name of the Front Door which is globally unique.'
         required: true
         input: true
         sample_value: 'myFrontDoor'
-        azure_sdk_references: ['frontDoorName', '/name']
+        azure_sdk_references: ['frontDoorName']
       - !ruby/object:Api::Azure::Type::Location
         name: 'location'
         description: 'Resource location.'
@@ -1012,7 +1012,7 @@ objects:
               name: 'name'
               description: 'Resource name.'
               required: false
-              azure_sdk_references: ['/routingRules/name', '/properties/routingRules/name', '/name']
+              azure_sdk_references: ['/routingRules/name', '/properties/routingRules/name']
       - !ruby/object:Api::Type::Array
         name: 'loadBalancingSettings'
         description: 'Load balancing settings associated with this Front Door instance.'
@@ -1057,7 +1057,7 @@ objects:
               name: 'name'
               description: 'Resource name.'
               required: false
-              azure_sdk_references: ['/loadBalancingSettings/name', '/properties/loadBalancingSettings/name', '/name']
+              azure_sdk_references: ['/loadBalancingSettings/name', '/properties/loadBalancingSettings/name']
       - !ruby/object:Api::Type::Array
         name: 'healthProbeSettings'
         description: 'Health probe settings associated with this Front Door instance.'
@@ -1106,7 +1106,7 @@ objects:
               name: 'name'
               description: 'Resource name.'
               required: false
-              azure_sdk_references: ['/healthProbeSettings/name', '/properties/healthProbeSettings/name', '/name']
+              azure_sdk_references: ['/healthProbeSettings/name', '/properties/healthProbeSettings/name']
       - !ruby/object:Api::Type::Array
         name: 'backendPools'
         description: 'Backend pools available to routing rules.'
@@ -1204,7 +1204,7 @@ objects:
               name: 'name'
               description: 'Resource name.'
               required: false
-              azure_sdk_references: ['/backendPools/name', '/properties/backendPools/name', '/name']
+              azure_sdk_references: ['/backendPools/name', '/properties/backendPools/name']
       - !ruby/object:Api::Type::Array
         name: 'frontendEndpoints'
         description: 'Frontend endpoints available to routing rules.'
@@ -1264,7 +1264,7 @@ objects:
               name: 'name'
               description: 'Resource name.'
               required: false
-              azure_sdk_references: ['/frontendEndpoints/name', '/properties/frontendEndpoints/name', '/name']
+              azure_sdk_references: ['/frontendEndpoints/name', '/properties/frontendEndpoints/name']
       - !ruby/object:Api::Type::NestedObject
         name: 'backendPoolsSettings'
         description: 'Settings for all backendPools'
