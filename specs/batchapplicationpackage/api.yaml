@@ -197,11 +197,10 @@ objects:
         name: 'state'
         description: 'The current state of the application package.'
         output: true
+        azure_sdk_references: ['/state', '/properties/state']
         values:
           - :Pending
           - :Active
-        default_value: :Pending
-        azure_sdk_references: ['/state', '/properties/state']
       - !ruby/object:Api::Type::String
         name: 'format'
         description: 'The format of the application package, if the package is active.'
@@ -225,12 +224,10 @@ objects:
       - !ruby/object:Api::Type::String
         name: 'id'
         description: 'The ID of the resource.'
-        input: true
         output: true
         azure_sdk_references: ['/id']
       - !ruby/object:Api::Type::String
         name: 'etag'
         description: 'The ETag of the resource, used for concurrency statements.'
-        input: true
         output: true
         azure_sdk_references: ['/etag']
