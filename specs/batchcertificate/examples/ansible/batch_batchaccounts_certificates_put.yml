@@ -5,7 +5,7 @@ task: !ruby/object:Provider::Ansible::Task
   code:
     resource_group: myResourceGroup
     account_name: myBatchAccount
-    name: myCertificate
+    certificate_name: myCertificate
     data: MIIJsgIBAzCCCW4GCSqGSIb3DQE...
     password: KG0UY40e...
   
