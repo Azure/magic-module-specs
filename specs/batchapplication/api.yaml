@@ -238,12 +238,10 @@ objects:
       - !ruby/object:Api::Type::String
         name: 'id'
         description: 'The ID of the resource.'
-        input: true
         output: true
         azure_sdk_references: ['/id']
       - !ruby/object:Api::Type::String
         name: 'etag'
         description: 'The ETag of the resource, used for concurrency statements.'
-        input: true
         output: true
         azure_sdk_references: ['/etag']
