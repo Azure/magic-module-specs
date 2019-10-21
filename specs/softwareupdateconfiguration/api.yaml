@@ -34,9 +34,9 @@ objects:
             python_variable_name: automation_account_name
           'softwareUpdateConfigurationName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             id_portion: softwareUpdateConfigurations
-            go_variable_name: softwareUpdateConfigurationName
+            go_variable_name: name
             python_parameter_name: software_update_configuration_name
-            python_variable_name: software_update_configuration_name
+            python_variable_name: name
           '/': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
             go_variable_name: parameters
             go_type_name: SoftwareUpdateConfiguration
@@ -398,9 +398,9 @@ objects:
             python_variable_name: automation_account_name
           'softwareUpdateConfigurationName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             id_portion: softwareUpdateConfigurations
-            go_variable_name: softwareUpdateConfigurationName
+            go_variable_name: name
             python_parameter_name: software_update_configuration_name
-            python_variable_name: software_update_configuration_name
+            python_variable_name: name
           'clientRequestId': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             id_portion: null
             go_variable_name: clientRequestID
@@ -422,9 +422,9 @@ objects:
             python_variable_name: automation_account_name
           'softwareUpdateConfigurationName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             id_portion: softwareUpdateConfigurations
-            go_variable_name: softwareUpdateConfigurationName
+            go_variable_name: name
             python_parameter_name: software_update_configuration_name
-            python_variable_name: software_update_configuration_name
+            python_variable_name: name
           'clientRequestId': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             id_portion: null
             go_variable_name: clientRequestID
@@ -849,7 +849,7 @@ objects:
         sample_value: 'myAutomationAccount'
         azure_sdk_references: ['automationAccountName']
       - !ruby/object:Api::Type::String
-        name: 'softwareUpdateConfigurationName'
+        name: 'name'
         description: 'The name of the software update configuration to be created.'
         required: true
         input: true

@@ -5,6 +5,6 @@ task: !ruby/object:Provider::Ansible::Task
   code:
     resource_group: myResourceGroup
     automation_account_name: myAutomationAccount
-    software_update_configuration_name: mySoftwareUpdateConfiguration
+    name: mySoftwareUpdateConfiguration
     state: absent
   
