@@ -5,7 +5,7 @@ task: !ruby/object:Provider::Ansible::Task
   code:
     resource_group: myResourceGroup
     account_name: myBatchAccount
-    pool_name: myPool
+    name: myPool
     scale_settings:
       auto_scale:
         formula: $TargetDedicatedNodes=34

@@ -5,7 +5,7 @@ task: !ruby/object:Provider::Ansible::Task
   code:
     resource_group: myResourceGroup
     account_name: myBatchAccount
-    pool_name: myPool
+    name: myPool
     vm_size: STANDARD_D4
     deployment_configuration:
       virtual_machine_configuration:

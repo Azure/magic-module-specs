@@ -35,9 +35,9 @@ objects:
             python_variable_name: account_name
           'poolName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             id_portion: pools
-            go_variable_name: poolName
+            go_variable_name: name
             python_parameter_name: pool_name
-            python_variable_name: pool_name
+            python_variable_name: name
           '/': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
             go_variable_name: parameters
             go_type_name: Pool
@@ -685,9 +685,9 @@ objects:
             python_variable_name: account_name
           'poolName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             id_portion: pools
-            go_variable_name: poolName
+            go_variable_name: name
             python_parameter_name: pool_name
-            python_variable_name: pool_name
+            python_variable_name: name
           '/': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
             go_variable_name: parameters
             go_type_name: Pool
@@ -1336,9 +1336,9 @@ objects:
             python_variable_name: account_name
           'poolName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             id_portion: pools
-            go_variable_name: poolName
+            go_variable_name: name
             python_parameter_name: pool_name
-            python_variable_name: pool_name
+            python_variable_name: name
       read: !ruby/object:Api::Azure::SDKOperationDefinition
         go_func_name: Get
         python_func_name: get
@@ -1355,9 +1355,9 @@ objects:
             python_variable_name: account_name
           'poolName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             id_portion: pools
-            go_variable_name: poolName
+            go_variable_name: name
             python_parameter_name: pool_name
-            python_variable_name: pool_name
+            python_variable_name: name
         response:
           '/properties': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
             applicable_to: [go]
@@ -2081,7 +2081,7 @@ objects:
         sample_value: 'myBatchAccount'
         azure_sdk_references: ['accountName']
       - !ruby/object:Api::Type::String
-        name: 'poolName'
+        name: 'name'
         description: 'The pool name. This must be unique within the account.'
         required: true
         input: true

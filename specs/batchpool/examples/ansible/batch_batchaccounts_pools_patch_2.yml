@@ -5,6 +5,6 @@ task: !ruby/object:Provider::Ansible::Task
   code:
     resource_group: myResourceGroup
     account_name: myBatchAccount
-    pool_name: myPool
+    name: myPool
     start_task: {}
   
