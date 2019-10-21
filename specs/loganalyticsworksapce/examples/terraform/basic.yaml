@@ -1,0 +1,11 @@
+--- !ruby/object:Provider::Azure::Example
+resource: azurerm_log_analytics_workspace
+prerequisites:
+  - !ruby/object:Provider::Azure::ExampleReference
+    product: resourcegroup
+    example: basic
+properties:
+  name: "<%= get_resource_name('LogAnalyticsWorkspace', 'LogAnalyticsWS') -%>"
+  resource_group_name: ${azurerm_resource_group.<%= resource_id_hint -%>.name}
+  location: ${azurerm_resource_group.<%= resource_id_hint -%>.location}
+  sku: PerGB2018

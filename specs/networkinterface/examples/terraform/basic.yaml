@@ -1,0 +1,17 @@
+--- !ruby/object:Provider::Azure::Example
+resource: azurerm_network_interface
+prerequisites:
+  - !ruby/object:Provider::Azure::ExampleReference
+    product: resourcegroup
+    example: basic
+  - !ruby/object:Provider::Azure::ExampleReference
+    product: subnet
+    example: basic
+properties:
+  name: "<%= get_resource_name('NetworkInterface', 'NIC') -%>"
+  resource_group_name: ${azurerm_resource_group.<%= resource_id_hint -%>.name}
+  location: ${azurerm_resource_group.<%= resource_id_hint -%>.location}
+  ip_configuration:
+    name: "<%= get_resource_name('IPConfiguration', 'IPConfig') -%>"
+    subnet_id: ${azurerm_subnet.<%= resource_id_hint -%>.id}
+    private_ip_address_allocation: Dynamic
