@@ -5,6 +5,6 @@ task: !ruby/object:Provider::Ansible::Task
   code:
     resource_group: myResourceGroup
     account_name: myBatchAccount
-    certificate_name: myCertificate
+    name: myCertificate
     state: absent
   

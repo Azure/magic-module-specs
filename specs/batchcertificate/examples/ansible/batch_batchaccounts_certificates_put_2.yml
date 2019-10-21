@@ -5,7 +5,7 @@ task: !ruby/object:Provider::Ansible::Task
   code:
     resource_group: myResourceGroup
     account_name: myBatchAccount
-    certificate_name: myCertificate
+    name: myCertificate
     thumbprint_algorithm: SHA1
     thumbprint: 0A0E4F50D51BEADEAC1D35AFC5116098E7902E6E
     format: Pfx
