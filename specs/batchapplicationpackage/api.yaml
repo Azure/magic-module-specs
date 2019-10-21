@@ -49,7 +49,7 @@ objects:
             python_variable_name: parameters
           '/properties': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
             applicable_to: [go]
-            go_field_name: Properties
+            go_field_name: ApplicationPackageProperties
             go_type_name: ApplicationPackageProperties
       delete: !ruby/object:Api::Azure::SDKOperationDefinition
         go_func_name: Delete
@@ -102,7 +102,7 @@ objects:
         response:
           '/properties': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
             applicable_to: [go]
-            go_field_name: Properties
+            go_field_name: ApplicationPackageProperties
             go_type_name: ApplicationPackageProperties
           '/properties/state': !ruby/object:Api::Azure::SDKTypeDefinition::EnumObject
             applicable_to: [go]
@@ -141,7 +141,7 @@ objects:
           '/etag': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             go_field_name: Etag
             python_field_name: etag
-      list: !ruby/object:Api::Azure::SDKOperationDefinition
+      list_by_parent: !ruby/object:Api::Azure::SDKOperationDefinition
         go_func_name: List
         python_func_name: list
         request:
@@ -176,32 +176,31 @@ objects:
         description: 'The name of the Batch account.'
         required: true
         input: true
-        sample_value: myBatchAccount
+        sample_value: 'myBatchAccount'
         azure_sdk_references: ['accountName']
       - !ruby/object:Api::Type::String
         name: 'applicationName'
         description: 'The name of the application. This must be unique within the account.'
         required: true
         input: true
-        sample_value: myApplication
+        sample_value: 'myApplication'
         azure_sdk_references: ['applicationName']
       - !ruby/object:Api::Type::String
         name: 'name'
         description: 'The version of the application.'
         required: true
         input: true
-        sample_value: myVersion
-        azure_sdk_references: ['versionName', '/name']
+        sample_value: 'myVersion'
+        azure_sdk_references: ['versionName']
       # read only values included only in response
       - !ruby/object:Api::Type::Enum
         name: 'state'
         description: 'The current state of the application package.'
         output: true
+        azure_sdk_references: ['/state', '/properties/state']
         values:
           - :Pending
           - :Active
-        default_value: :Pending
-        azure_sdk_references: ['/state', '/properties/state']
       - !ruby/object:Api::Type::String
         name: 'format'
         description: 'The format of the application package, if the package is active.'
@@ -225,12 +224,10 @@ objects:
       - !ruby/object:Api::Type::String
         name: 'id'
         description: 'The ID of the resource.'
-        input: true
         output: true
         azure_sdk_references: ['/id']
       - !ruby/object:Api::Type::String
         name: 'etag'
         description: 'The ETag of the resource, used for concurrency statements.'
-        input: true
         output: true
         azure_sdk_references: ['/etag']
