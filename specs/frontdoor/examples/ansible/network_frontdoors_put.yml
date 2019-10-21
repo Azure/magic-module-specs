@@ -4,7 +4,7 @@ task: !ruby/object:Provider::Ansible::Task
   description: Create or update specific Front Door
   code:
     resource_group: myResourceGroup
-    front_door_name: myFrontDoor
+    name: myFrontDoor
     front_door_parameters:
       location: westus
       tags:

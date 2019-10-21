@@ -4,6 +4,6 @@ task: !ruby/object:Provider::Ansible::Task
   description: Delete Front Door
   code:
     resource_group: myResourceGroup
-    front_door_name: myFrontDoor
+    name: myFrontDoor
     state: absent
   
