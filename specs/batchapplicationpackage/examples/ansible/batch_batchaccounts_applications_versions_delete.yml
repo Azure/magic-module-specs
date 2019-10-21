@@ -6,6 +6,6 @@ task: !ruby/object:Provider::Ansible::Task
     resource_group: myResourceGroup
     account_name: myBatchAccount
     application_name: myApplication
-    version_name: myVersion
+    name: myVersion
     state: absent
   

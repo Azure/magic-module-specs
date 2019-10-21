@@ -39,9 +39,9 @@ objects:
             python_variable_name: application_name
           'versionName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             id_portion: versions
-            go_variable_name: versionName
+            go_variable_name: name
             python_parameter_name: version_name
-            python_variable_name: version_name
+            python_variable_name: name
           '/': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
             go_variable_name: parameters
             go_type_name: ApplicationPackage
@@ -72,9 +72,9 @@ objects:
             python_variable_name: application_name
           'versionName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             id_portion: versions
-            go_variable_name: versionName
+            go_variable_name: name
             python_parameter_name: version_name
-            python_variable_name: version_name
+            python_variable_name: name
       read: !ruby/object:Api::Azure::SDKOperationDefinition
         go_func_name: Get
         python_func_name: get
@@ -96,9 +96,9 @@ objects:
             python_variable_name: application_name
           'versionName': !ruby/object:Api::Azure::SDKTypeDefinition::StringObject
             id_portion: versions
-            go_variable_name: versionName
+            go_variable_name: name
             python_parameter_name: version_name
-            python_variable_name: version_name
+            python_variable_name: name
         response:
           '/properties': !ruby/object:Api::Azure::SDKTypeDefinition::ComplexObject
             applicable_to: [go]
@@ -186,7 +186,7 @@ objects:
         sample_value: 'myApplication'
         azure_sdk_references: ['applicationName']
       - !ruby/object:Api::Type::String
-        name: 'versionName'
+        name: 'name'
         description: 'The version of the application.'
         required: true
         input: true
