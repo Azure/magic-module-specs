@@ -1,0 +1,33 @@
+--- !ruby/object:Provider::Azure::Example
+resource: azurerm_private_endpoint
+prerequisites:
+  - !ruby/object:Provider::Azure::ExampleReference
+    product: resourcegroup
+    example: basic
+  - !ruby/object:Provider::Azure::ExampleReference
+    product: networkvirtualnetwork
+    example: basic
+  - !ruby/object:Provider::Azure::ExampleReference
+    product: networksubnet
+    example: basic
+  - !ruby/object:Provider::Azure::ExampleReference
+    product: networkpublicip
+    example: basic
+  - !ruby/object:Provider::Azure::ExampleReference
+    product: networkloadbalancer
+    example: basic
+  - !ruby/object:Provider::Azure::ExampleReference
+    product: privatelinkservice
+    example: basic
+properties:
+  name: "<%= get_resource_name('privateendpoint', 'endpoint') -%>"
+  resource_group_name: ${azurerm_resource_group.<%= resource_id_hint -%>.name}
+  location: ${azurerm_resource_group.<%= resource_id_hint -%>.location}
+  subnet_id: ${azurerm_subnet.<%= resource_id_hint -%>.id} 
+  private_link_service_connections:
+    - name: "<%= get_resource_name('privatelinkservice', 'connection') -%>"
+      private_link_service_id: ${azurerm_private_link_service.<%= resource_id_hint -%>.id} 
+      group_ids: []
+      request_message: "plz approve my request"
+  tags:
+    env: "test"

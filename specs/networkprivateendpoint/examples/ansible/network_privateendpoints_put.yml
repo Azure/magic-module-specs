@@ -1,0 +1,22 @@
+--- !ruby/object:Provider::Ansible::Example
+task: !ruby/object:Provider::Ansible::Task
+  name: azure_rm_networkprivateendpoint
+  description: Create private endpoint
+  code:
+    resource_group: myResourceGroup
+    name: myPrivateEndpoint
+    location: eastus2euap
+    subnet:
+      id: >-
+        /subscriptions/{{ subscription_id }}/resourceGroups/{{ resource_group
+        }}/providers/Microsoft.Network/virtualNetworks/{{ virtual_network_name
+        }}/subnets/{{ subnet_name }}
+    private_link_service_connections:
+      - private_link_service_id: >-
+          /subscriptions/{{ subscription_id }}/resourceGroups/{{ resource_group
+          }}/providers/Microsoft.Network/privateLinkServices/{{
+          private_link_service_name }}
+        group_ids:
+          - groupIdFromResource
+        request_message: Please approve my connection.
+  
