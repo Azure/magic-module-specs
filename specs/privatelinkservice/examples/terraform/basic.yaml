@@ -1,0 +1,32 @@
+--- !ruby/object:Provider::Azure::Example
+resource: azurerm_private_link_service
+prerequisites:
+  - !ruby/object:Provider::Azure::ExampleReference
+    product: resourcegroup
+    example: basic
+  - !ruby/object:Provider::Azure::ExampleReference
+    product: networkvirtualnetwork
+    example: basic
+  - !ruby/object:Provider::Azure::ExampleReference
+    product: networksubnet
+    example: basic
+  - !ruby/object:Provider::Azure::ExampleReference
+    product: networkpublicip
+    example: basic
+  - !ruby/object:Provider::Azure::ExampleReference
+    product: networkloadbalancer
+    example: basic
+properties:
+  name: "<%= get_resource_name('virtualHubs', 'virtualhub') -%>"
+  location: "${azurerm_resource_group.<%= resource_id_hint -%>.location}"
+  resource_group: "${azurerm_resource_group.<%= resource_id_hint -%>.name}"
+  fqdns: ["testFqdns"]
+  ip_configurations:
+    name: "${azurerm_public_ip.<%= resource_id_hint -%>.name}"
+    subnet: 
+      id: "${azurerm_subnet.<%= resource_id_hint -%>.id}"
+    private_ip_address: "10.5.1.17"
+    private_ip_address_version: "IPv4"
+    private_ipallocation_method: "Static"
+  load_balancer_frontend_ip_configurations:
+    id: "${azurerm_lb.<%= resource_id_hint -%>.frontend_ip_configuration.0.id}"

@@ -1,0 +1,88 @@
+--- !ruby/object:Provider::Azure::Terraform::Config
+overrides: !ruby/object:Overrides::ResourceOverrides
+  PrivateLinkService: !ruby/object:Provider::Azure::Terraform::ResourceOverride
+    azure_sdk_definition: !ruby/object:Api::Azure::SDKDefinitionOverride
+      create: !ruby/object:Api::Azure::SDKOperationDefinitionOverride
+        request:
+          '/properties': !ruby/object:Api::Azure::SDKTypeDefinitionOverride
+            go_field_name: PrivateLinkServiceProperties
+          '/properties/ipConfigurations': !ruby/object:Api::Azure::SDKTypeDefinitionOverride
+            go_field_name: IPConfigurations
+          '/properties/loadBalancerFrontendIpConfigurations': !ruby/object:Api::Azure::SDKTypeDefinitionOverride
+            go_field_name: LoadBalancerFrontendIPConfigurations
+          '/properties/ipConfigurations/properties': !ruby/object:Api::Azure::SDKTypeDefinitionOverride
+            go_field_name: PrivateLinkServiceIPConfigurationProperties
+          '/properties/loadBalancerFrontendIpConfigurations/properties': !ruby/object:Api::Azure::SDKTypeDefinitionOverride
+            go_field_name: FrontendIPConfigurationPropertiesFormat
+          '/properties/privateEndpointConnections/properties': !ruby/object:Api::Azure::SDKTypeDefinitionOverride
+            go_field_name: PrivateEndpointConnectionProperties
+          '/properties/loadBalancerFrontendIpConfigurations/properties/privateIPAddress': !ruby/object:Api::Azure::SDKTypeDefinitionOverride
+            go_field_name: PrivateIPAddress
+          '/properties/ipConfigurations/properties/privateIPAddressVersion': !ruby/object:Api::Azure::SDKTypeDefinitionOverride
+            go_field_name: PrivateIPAddressVersion
+          '/properties/loadBalancerFrontendIpConfigurations/properties/privateIPAllocationMethod': !ruby/object:Api::Azure::SDKTypeDefinitionOverride
+            go_field_name: PrivateIPAllocationMethod
+          '/properties/loadBalancerFrontendIpConfigurations/properties/publicIPAddress': !ruby/object:Api::Azure::SDKTypeDefinitionOverride
+            go_field_name: PublicIPAddress
+          '/properties/loadBalancerFrontendIpConfigurations/properties/publicIPPrefix': !ruby/object:Api::Azure::SDKTypeDefinitionOverride
+            go_field_name: PublicIPPrefix
+          '/properties/ipConfigurations/properties/privateIPAddress': !ruby/object:Api::Azure::SDKTypeDefinitionOverride
+            go_field_name: PrivateIPAddress
+          '/properties/ipConfigurations/properties/privateIPAllocationMethod': !ruby/object:Api::Azure::SDKTypeDefinitionOverride
+            go_field_name: PrivateIPAllocationMethod
+          '/properties/loadBalancerFrontendIpConfigurations/properties/privateIPAddressVersion': !ruby/object:Api::Azure::SDKTypeDefinitionOverride
+            go_field_name: PrivateIPAddressVersion
+      read: !ruby/object:Api::Azure::SDKOperationDefinitionOverride
+        response:
+          '/properties': !ruby/object:Api::Azure::SDKTypeDefinitionOverride
+            go_field_name: PrivateLinkServiceProperties
+          '/properties/ipConfigurations': !ruby/object:Api::Azure::SDKTypeDefinitionOverride
+            go_field_name: IPConfigurations
+          '/properties/loadBalancerFrontendIpConfigurations': !ruby/object:Api::Azure::SDKTypeDefinitionOverride
+            go_field_name: LoadBalancerFrontendIPConfigurations
+          '/properties/ipConfigurations/properties': !ruby/object:Api::Azure::SDKTypeDefinitionOverride
+            go_field_name: PrivateLinkServiceIPConfigurationProperties
+          '/properties/loadBalancerFrontendIpConfigurations/properties': !ruby/object:Api::Azure::SDKTypeDefinitionOverride
+            go_field_name: FrontendIPConfigurationPropertiesFormat
+          '/properties/privateEndpointConnections/properties': !ruby/object:Api::Azure::SDKTypeDefinitionOverride
+            go_field_name: PrivateEndpointConnectionProperties
+          '/properties/loadBalancerFrontendIpConfigurations/properties/privateIPAddress': !ruby/object:Api::Azure::SDKTypeDefinitionOverride
+            go_field_name: PrivateIPAddress
+          '/properties/ipConfigurations/properties/privateIPAddressVersion': !ruby/object:Api::Azure::SDKTypeDefinitionOverride
+            go_field_name: PrivateIPAddressVersion
+          '/properties/loadBalancerFrontendIpConfigurations/properties/privateIPAllocationMethod': !ruby/object:Api::Azure::SDKTypeDefinitionOverride
+            go_field_name: PrivateIPAllocationMethod
+          '/properties/loadBalancerFrontendIpConfigurations/properties/publicIPAddress': !ruby/object:Api::Azure::SDKTypeDefinitionOverride
+            go_field_name: PublicIPAddress
+          '/properties/loadBalancerFrontendIpConfigurations/properties/publicIPPrefix': !ruby/object:Api::Azure::SDKTypeDefinitionOverride
+            go_field_name: PublicIPPrefix
+          '/properties/ipConfigurations/properties/privateIPAddress': !ruby/object:Api::Azure::SDKTypeDefinitionOverride
+            go_field_name: PrivateIPAddress
+          '/properties/ipConfigurations/properties/privateIPAllocationMethod': !ruby/object:Api::Azure::SDKTypeDefinitionOverride
+            go_field_name: PrivateIPAllocationMethod
+          '/properties/loadBalancerFrontendIpConfigurations/properties/privateIPAddressVersion': !ruby/object:Api::Azure::SDKTypeDefinitionOverride
+            go_field_name: PrivateIPAddressVersion
+    properties: {}
+    acctests:
+      - !ruby/object:Provider::Azure::Terraform::AccTestDefinition
+        name: basic
+        steps: [basic]
+      - !ruby/object:Provider::Azure::Terraform::AccTestDefinition
+        name: update
+        steps: [basic, complete]
+    document_examples:
+      - !ruby/object:Provider::Azure::Terraform::DocumentExampleReference
+        title: Private Link Service Usage
+        example_name: basic
+        resource_name_hints:
+          resourceGroups: acctestRG
+          location: Eastus2
+datasources: !ruby/object:Overrides::ResourceOverrides
+  PrivateLinkService: !ruby/object:Provider::Azure::Terraform::ResourceOverride
+    properties: {}
+    acctests:
+      - !ruby/object:Provider::Azure::Terraform::AccTestDefinition
+        name: basic
+        steps: [basic]
+    datasource_example_outputs:
+      private_link_service_id: id
