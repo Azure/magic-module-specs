@@ -1,0 +1,10 @@
+--- !ruby/object:Provider::Ansible::Example
+task: !ruby/object:Provider::Ansible::Task
+  name: azure_rm_networkp2svpnserverconfiguration
+  description: P2SVpnServerConfigurationDelete
+  code:
+    resource_group: myResourceGroup
+    virtual_wan_name: myVirtualWan
+    name: myP2sVpnServerConfiguration
+    state: absent
+  
